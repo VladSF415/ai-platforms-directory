@@ -119,6 +119,68 @@ fastify.get('/health', async () => {
   return { status: 'ok', platforms: platforms.length };
 });
 
+// Track click endpoint for analytics
+fastify.post('/api/track-click', async (request, reply) => {
+  const { platformId, type } = request.body;
+
+  // Log analytics (in production, save to database)
+  console.log(`[Analytics] ${type} for platform: ${platformId}`);
+
+  // Update click count in memory
+  const platform = platforms.find(p => p.id === platformId);
+  if (platform) {
+    platform.clicks = (platform.clicks || 0) + 1;
+  }
+
+  return { success: true };
+});
+
+// Submit tool endpoint
+fastify.post('/api/submit-tool', async (request, reply) => {
+  const submission = request.body;
+
+  // Log submission (in production, save to database and send email notification)
+  console.log('[Submission] New tool submission:', {
+    name: submission.name,
+    website: submission.website,
+    category: submission.category,
+    totalPrice: submission.totalPrice,
+  });
+
+  // TODO: Integrate with Stripe for payment processing
+  // For now, return mock success
+  // In production:
+  // 1. Create Stripe checkout session
+  // 2. Save submission to database with "pending_payment" status
+  // 3. Return checkout URL
+  // 4. Handle webhook to confirm payment and approve listing
+
+  // Example Stripe integration (commented out, requires stripe package):
+  /*
+  const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [{
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: `AI Tool Submission: ${submission.name}`,
+        },
+        unit_amount: submission.totalPrice * 100,
+      },
+      quantity: 1,
+    }],
+    mode: 'payment',
+    success_url: `${process.env.DOMAIN}/submit/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${process.env.DOMAIN}/submit`,
+  });
+  return { checkoutUrl: session.url };
+  */
+
+  // For demo purposes, immediately mark as success
+  return { success: true };
+});
+
 // Serve React app for all other routes (SPA)
 if (process.env.NODE_ENV === 'production') {
   fastify.setNotFoundHandler((request, reply) => {
