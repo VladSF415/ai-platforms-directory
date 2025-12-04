@@ -1,45 +1,116 @@
 # AI Platforms Directory
 
-Discover 693+ curated AI tools and platforms.
+🚀 **Live Site:** https://ai-platforms-directory-production.up.railway.app
+📊 **693+ Curated AI Tools & Platforms**
+💰 **Revenue Potential:** $10k+/month
 
-## Features
-- 693 AI platforms across 52 categories
-- Full-text search
-- Category filtering
-- Featured platforms
-- Ratings and reviews
-- Direct links to platforms
+## Overview
+
+A monetized directory of AI tools and platforms with:
+- **693 curated platforms** across 9 categories
+- **Affiliate link tracking** for commission earnings
+- **Paid tool submissions** ($49/submission)
+- **Featured listing upgrades** ($99-$299/month)
+- **Click analytics** for performance tracking
 
 ## Quick Start
 
+### Local Development
+
 ```bash
+# Install dependencies
 npm install
-npm run dev
-```
 
-## Production
+# Start development server
+npm run dev         # Frontend (Vite)
+node server.js      # API (Fastify)
 
-```bash
+# Build for production
 npm run build
-npm start
 ```
+
+### Deployment (Railway)
+
+Already deployed!
+- **URL:** https://ai-platforms-directory-production.up.railway.app
+- **Project:** AI Platforms Directory
+- **Service ID:** a9bff8eb-2554-426b-9778-2a6eedd48425
+
+## Monetization Features
+
+See [MONETIZATION_GUIDE.md](MONETIZATION_GUIDE.md) for complete details.
+
+### 1. Affiliate Links ✅
+- Track every platform click
+- Add affiliate URLs to platforms
+- Earn commissions on conversions
+
+### 2. Tool Submissions ($49) ✅
+- `/submit` page with payment form
+- Stripe integration ready (just add API keys)
+- Review and approve new listings
+
+### 3. Featured Listings ($99-299/month) ✅
+- 3 pricing tiers (Basic, Premium, Enterprise)
+- Recurring monthly subscriptions
+- Premium placement and badges
+
+## DNS Setup
+
+To point `aiplatformslist.com` to Railway, add these DNS records:
+
+**Root domain:**
+```
+Type: CNAME or ALIAS
+Name: @
+Value: ietj093u.up.railway.app
+```
+
+**WWW subdomain:**
+```
+Type: CNAME
+Name: www
+Value: 6bazfm7y.up.railway.app
+```
+
+## Revenue Potential
+
+| Stream | Monthly |
+|--------|---------|
+| Affiliate Links | $6,930 |
+| Submissions (20 × $49) | $980 |
+| Featured Listings | $2,583 |
+| **Total** | **$10,493/month** |
+
+## Tech Stack
+
+- **Frontend:** React + TypeScript + Vite
+- **Backend:** Fastify (Node.js)
+- **Hosting:** Railway
+- **Payments:** Stripe (integration ready)
+- **Data:** 693 platforms in JSON (migrate to PostgreSQL later)
+
+## Pages
+
+- `/` - Home directory with search & filters
+- `/submit` - Tool submission form with payment
 
 ## API Endpoints
 
-- `GET /api/platforms` - List all platforms (with filtering)
-- `GET /api/platforms/:slug` - Get single platform
-- `GET /api/categories` - List all categories
-- `GET /api/stats` - Get statistics
+```
+GET  /api/platforms       # List platforms
+GET  /api/categories      # List categories
+GET  /api/stats          # Statistics
+POST /api/track-click    # Analytics
+POST /api/submit-tool    # Submissions
+```
 
-## Deploy to Railway
+## Next Steps
 
-This app is ready to deploy to Railway:
+1. **Enable Payments:** Add Stripe API keys to Railway
+2. **Configure Domain:** Update DNS to point aiplatformslist.com
+3. **Add Affiliate Links:** Update platforms.json with affiliate URLs
+4. **Launch Marketing:** Product Hunt, Reddit, Twitter
+5. **Get Featured Customers:** Reach out to AI platforms
 
-1. Push to GitHub
-2. Create new service in Railway
-3. Connect to GitHub repo
-4. Deploy!
-
-Environment variables:
-- `PORT` - Server port (default: 3001)
-- `NODE_ENV` - Environment (production/development)
+See [MONETIZATION_GUIDE.md](MONETIZATION_GUIDE.md) for detailed setup instructions!
