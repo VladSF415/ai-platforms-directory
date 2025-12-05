@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
 Generated: 2025-12-05
-Total Opportunities: 3
+Total Opportunities: 4
 
 ---
 
-## 1. Reka AI
+## 1. Synthesia 2.0
 
-**Category:** video-ai
-**Website:** https://reka.ai
-**Pricing Model:** enterprise
+**Category:** video-generation
+**Website:** https://www.synthesia.io
+**Pricing Model:** paid
 
 **Description:**
-Multimodal AI platform specializing in video understanding, reasoning, and generation with state-of-the-art models that process video, audio, and text simultaneously. Offers enterprise-grade APIs for complex video analysis and generation tasks.
+Next-generation AI video generation platform that creates realistic human avatars from text, featuring 140+ AI avatars, 120+ languages, and custom voice cloning. Used by enterprises for training, marketing, and personalized video communications at scale.
 
 **💵 Affiliate Program Details:**
-Enterprise referral program with 20% first-year revenue share, $5k minimum referral bonus, dedicated partner portal, technical sales support, co-branded marketing materials
+20% recurring commission via PartnerStack, 60-day cookie, $500 minimum payout, enterprise deals up to 30%, requires business verification
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -26,17 +26,17 @@ Enterprise referral program with 20% first-year revenue share, $5k minimum refer
 
 ---
 
-## 2. DeepSeek
+## 2. Akkio
 
-**Category:** llms
-**Website:** https://www.deepseek.com
+**Category:** analytics-bi
+**Website:** https://www.akkio.com
 **Pricing Model:** freemium
 
 **Description:**
-Open-source large language model platform offering state-of-the-art reasoning capabilities with 671B parameter models that rival proprietary alternatives. Provides both cloud API and self-hosted deployment options for enterprises and researchers.
+No-code AI platform for business analytics and predictive modeling, featuring automated machine learning, data visualization, and one-click deployment. Used by business analysts and non-technical teams for forecasting, classification, and data insights.
 
 **💵 Affiliate Program Details:**
-Developer partner program with 15% revenue share on API usage referrals, $500 monthly bonus for top referrers, technical certification program, co-marketing opportunities for enterprise partners
+25% recurring commission via PartnerStack, 90-day cookie, $100 minimum payout, enterprise plan commissions up to 30%, SMB focus
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -47,17 +47,38 @@ Developer partner program with 15% revenue share on API usage referrals, $500 mo
 
 ---
 
-## 3. MultiOn AI
+## 3. Lovo AI
 
-**Category:** agent-platforms
-**Website:** https://multion.ai
+**Category:** audio-ai
+**Website:** https://lovo.ai
 **Pricing Model:** freemium
 
 **Description:**
-AI agent platform that automates complex web-based tasks through autonomous browsing, form filling, and multi-step workflow execution. Enables users to create custom agents for specific web automation needs without coding.
+AI voice generation and text-to-speech platform with 500+ voices in 100+ languages, featuring emotion control, voice cloning, and real-time synthesis. Used by content creators, game developers, and enterprises for voiceovers, audiobooks, and interactive content.
 
 **💵 Affiliate Program Details:**
-25% recurring commission via PartnerStack, 90-day cookie duration, $100 bonus for first 5 referrals, enterprise plan referrals earn 20% first-year revenue, affiliate dashboard with advanced analytics
+30% recurring commission via Impact.com, 60-day cookie, $50 minimum payout, bonus tiers for volume, content creator partnerships
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 4. Pinecone Serverless
+
+**Category:** data-governance
+**Website:** https://www.pinecone.io
+**Pricing Model:** freemium
+
+**Description:**
+Fully managed vector database for AI applications, featuring serverless architecture, automatic scaling, and low-latency similarity search. Used by developers and AI teams for building semantic search, recommendation systems, and RAG applications.
+
+**💵 Affiliate Program Details:**
+15% recurring commission via PartnerStack, 60-day cookie, usage-based commissions, developer referral bonuses, startup program available
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -71,6 +92,7 @@ AI agent platform that automates complex web-based tasks through autonomous brow
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Reka AI** - https://reka.ai
-2. [ ] **DeepSeek** - https://www.deepseek.com
-3. [ ] **MultiOn AI** - https://multion.ai
+1. [ ] **Synthesia 2.0** - https://www.synthesia.io
+2. [ ] **Akkio** - https://www.akkio.com
+3. [ ] **Lovo AI** - https://lovo.ai
+4. [ ] **Pinecone Serverless** - https://www.pinecone.io
