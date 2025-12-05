@@ -276,7 +276,47 @@ async function enrichPlatforms() {
   return enriched;
 }
 
-// 5. AUTO-FIX COMMON ISSUES
+// 5. AUTO-RECATEGORIZE PLATFORMS
+function autoRecategorize() {
+  if (!CONFIG.auto_fix) return 0;
+
+  console.log('🏷️  Auto-recategorizing platforms...\n');
+
+  let recategorized = 0;
+
+  platforms.forEach(platform => {
+    const text = `${platform.name} ${platform.description || ''} ${(platform.tags || []).join(' ')}`.toLowerCase();
+
+    // Score each category
+    const scores = {};
+    Object.entries(CATEGORIES).forEach(([category, keywords]) => {
+      scores[category] = keywords.filter(kw => text.includes(kw)).length;
+    });
+
+    // Find best match
+    const bestMatch = Object.entries(scores)
+      .sort((a, b) => b[1] - a[1])
+      [0];
+
+    const suggestedCategory = bestMatch[0];
+    const confidence = bestMatch[1];
+
+    // Auto-recategorize if confidence is high enough (3+ keyword matches)
+    if (confidence >= 3 && platform.category !== suggestedCategory) {
+      if (CONFIG.verbose) {
+        console.log(`  ${platform.name}:`);
+        console.log(`    ${platform.category} → ${suggestedCategory} (confidence: ${confidence})`);
+      }
+      platform.category = suggestedCategory;
+      recategorized++;
+    }
+  });
+
+  console.log(`  ✅ Recategorized ${recategorized} platforms\n`);
+  return recategorized;
+}
+
+// 6. AUTO-FIX COMMON ISSUES
 function autoFixIssues() {
   if (!CONFIG.auto_fix) return;
 
@@ -326,7 +366,9 @@ async function main() {
   const enriched = await enrichPlatforms();
 
   // Auto-fix if requested
+  let recategorized = 0;
   if (CONFIG.auto_fix) {
+    recategorized = autoRecategorize();
     autoFixIssues();
   }
 
@@ -369,8 +411,10 @@ async function main() {
       console.log(`  ${issue}: ${items.length}`);
       if (CONFIG.verbose && items.length <= 5) {
         items.forEach(item => {
-          const name = typeof item === 'string' ? item : item.name;
-          console.log(`    - ${name}`);
+          if (item) {
+            const name = typeof item === 'string' ? item : (item.name || item.id || 'Unknown');
+            console.log(`    - ${name}`);
+          }
         });
       }
     }
@@ -422,15 +466,20 @@ async function main() {
   console.log(`  Duplicates: ${duplicates.length} groups`);
   console.log(`  Miscategorized: ${miscategorized.length}`);
   console.log(`  Missing Data: ${Object.values(dataIssues).reduce((sum, arr) => sum + arr.length, 0)}`);
+  if (CONFIG.auto_fix && recategorized > 0) {
+    console.log(`  ✅ Recategorized: ${recategorized}`);
+  }
   if (CONFIG.scrape_web) {
     console.log(`  Enriched: ${enriched.length}`);
   }
   console.log();
 
   if (!CONFIG.auto_fix) {
-    console.log('💡 Run with --fix flag to automatically fix issues');
+    console.log('💡 Run with --fix flag to automatically fix issues and recategorize');
     console.log('💡 Run with --scrape to enrich data from web');
     console.log('💡 Run with --verbose for detailed output\n');
+  } else {
+    console.log('✅ Auto-fix completed! Changes saved to platforms.json\n');
   }
 }
 
