@@ -11,11 +11,20 @@ function Home() {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [showFeatured, setShowFeatured] = useState(false);
+  const [totalPlatforms, setTotalPlatforms] = useState(0);
 
   useEffect(() => {
     fetchPlatforms();
     fetchCategories();
   }, [selectedCategory, search, showFeatured]);
+
+  // Fetch total platform count on mount
+  useEffect(() => {
+    fetch('/api/platforms?limit=0')
+      .then(res => res.json())
+      .then(data => setTotalPlatforms(data.total))
+      .catch(err => console.error('Failed to fetch total count:', err));
+  }, []);
 
   // Track search with debounce
   useEffect(() => {
@@ -72,7 +81,7 @@ function Home() {
       <header className="header">
         <div className="container">
           <h1>AI Platforms Directory</h1>
-          <p>Discover 693+ curated AI tools and platforms</p>
+          <p>Discover {totalPlatforms}+ curated AI tools and platforms</p>
 
           <div className="search-bar">
             <input

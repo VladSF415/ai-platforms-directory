@@ -3,9 +3,17 @@ import type { SubmitToolForm } from '../types';
 import { analytics } from '../utils/analytics';
 
 function SubmitTool() {
+  const [totalPlatforms, setTotalPlatforms] = useState(0);
+
   useEffect(() => {
     // Track submission page view
     analytics.startSubmission();
+
+    // Fetch total platform count
+    fetch('/api/platforms?limit=0')
+      .then(res => res.json())
+      .then(data => setTotalPlatforms(data.total))
+      .catch(err => console.error('Failed to fetch total count:', err));
   }, []);
 
   const [form, setForm] = useState<SubmitToolForm>({
@@ -96,7 +104,7 @@ function SubmitTool() {
       <div style={{ marginBottom: '40px' }}>
         <h1 style={{ marginBottom: '12px' }}>Submit Your AI Tool</h1>
         <p style={{ fontSize: '18px', color: '#666' }}>
-          Get your AI platform listed in our directory of 693+ curated tools
+          Get your AI platform listed in our directory of {totalPlatforms}+ curated tools
         </p>
       </div>
 
