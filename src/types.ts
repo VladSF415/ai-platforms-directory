@@ -3,6 +3,7 @@ export interface Platform {
   name: string;
   description: string;
   category: string;
+  slug?: string;
   website?: string;
   url?: string;
   rating?: number;
@@ -10,6 +11,7 @@ export interface Platform {
   verified?: boolean;
   tags?: string[];
   pricing?: string;
+  features?: string[];
   affiliate_url?: string;
   featured_tier?: 'basic' | 'premium' | 'enterprise';
   clicks?: number;

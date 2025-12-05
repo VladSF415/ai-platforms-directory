@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { Platform, Category } from '../types';
 
 function Home() {
+  const navigate = useNavigate();
   const [platforms, setPlatforms] = useState<Platform[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
@@ -42,23 +44,9 @@ function Home() {
     }
   };
 
-  const trackClick = async (platformId: string, url: string) => {
-    // Track click in background
-    fetch('/api/track-click', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ platformId, type: 'click' }),
-    }).catch(() => {
-      // Ignore tracking errors
-    });
-
-    // Open platform website
-    window.open(url, '_blank');
-  };
-
   const handlePlatformClick = (platform: Platform) => {
-    const url = platform.affiliate_url || platform.website || platform.url || '';
-    trackClick(platform.id, url);
+    // Navigate to platform detail page
+    navigate(`/platform/${platform.slug || platform.id}`);
   };
 
   return (
