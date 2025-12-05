@@ -22,6 +22,8 @@ jobs:
   discover-platforms:
     runs-on: ubuntu-latest
     timeout-minutes: 480  # 8 hours max
+    permissions:
+      contents: write  # Required for git push
 
     steps:
       - name: Checkout repository
