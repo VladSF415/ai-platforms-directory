@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Platform } from '../types';
 import { analytics } from '../utils/analytics';
+import { SoftwareApplicationSchema } from '../components/SoftwareApplicationSchema';
+import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
 
 function PlatformDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -55,6 +57,24 @@ function PlatformDetail() {
     window.open(url, '_blank');
   };
 
+  const getCategoryName = (category: string): string => {
+    const categoryMap: Record<string, string> = {
+      'computer-vision': 'Computer Vision',
+      'ml-frameworks': 'ML Frameworks',
+      'code-ai': 'Code AI',
+      'llms': 'Large Language Models',
+      'generative-ai': 'Generative AI',
+      'nlp': 'Natural Language Processing',
+      'image-generation': 'Image Generation',
+      'analytics-bi': 'Analytics & BI',
+      'video-ai': 'Video AI',
+      'video-generation': 'Video Generation',
+      'search-ai': 'Search AI',
+      'agent-platforms': 'Agent Platforms',
+    };
+    return categoryMap[category] || category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  };
+
   if (loading) {
     return (
       <div className="container" style={{ padding: '60px 20px', textAlign: 'center' }}>
@@ -75,14 +95,33 @@ function PlatformDetail() {
     );
   }
 
+  // Generate breadcrumb items
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://aiplatformslist.com/' },
+    {
+      name: getCategoryName(platform.category),
+      url: `https://aiplatformslist.com/category/${platform.category}`,
+    },
+    {
+      name: platform.name,
+      url: `https://aiplatformslist.com/platform/${platform.slug || platform.id}`,
+    },
+  ];
+
   return (
     <div className="platform-detail">
+      {/* Schema Markup for SEO */}
+      <SoftwareApplicationSchema platform={platform} />
+      <BreadcrumbSchema items={breadcrumbItems} />
+
       {/* Header */}
       <div className="platform-detail-header">
         <div className="platform-detail-container">
           <button onClick={() => navigate('/')} className="back-link-btn">
             ← BACK TO DIRECTORY
           </button>
+
+          <VisualBreadcrumb items={breadcrumbItems} />
 
           <div className="platform-detail-title-section">
             <div>

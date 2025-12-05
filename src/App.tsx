@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SubmitTool from './pages/SubmitTool';
 import PlatformDetail from './pages/PlatformDetail';
+import CategoryPage from './pages/CategoryPage';
 import PrivacyPolicy from './pages/legal/PrivacyPolicy';
 import TermsOfService from './pages/legal/TermsOfService';
 import CookiePolicy from './pages/legal/CookiePolicy';
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/submit" element={<SubmitTool />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/platform/:slug" element={<PlatformDetail />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
