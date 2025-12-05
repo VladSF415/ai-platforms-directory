@@ -86,6 +86,30 @@ const CATEGORIES = {
     fullName: 'AI Agent Platforms',
     description: 'Platforms for building and deploying autonomous AI agents',
     targetKeywords: ['AI agent platform', 'autonomous AI', 'AI workflow automation', 'agent builder']
+  },
+  'data-governance': {
+    name: 'Data Governance',
+    fullName: 'AI Data Governance Tools',
+    description: 'Tools for managing, securing, and governing AI data and models',
+    targetKeywords: ['AI data governance', 'ML data management', 'model governance', 'AI compliance']
+  },
+  'video-generation': {
+    name: 'Video Generation',
+    fullName: 'AI Video Generation Tools',
+    description: 'AI tools for creating and generating videos from text, images, or other inputs',
+    targetKeywords: ['AI video generator', 'text to video AI', 'AI video creation', 'automated video production']
+  },
+  'website-ai': {
+    name: 'Website AI',
+    fullName: 'AI Website Builders',
+    description: 'AI-powered website builders and design tools',
+    targetKeywords: ['AI website builder', 'AI web design', 'automated website creation', 'AI landing page builder']
+  },
+  'workflow-automation': {
+    name: 'Workflow Automation',
+    fullName: 'AI Workflow Automation',
+    description: 'AI tools for automating business workflows and processes',
+    targetKeywords: ['AI workflow automation', 'business process automation', 'AI process optimization', 'automated workflows']
   }
 };
 

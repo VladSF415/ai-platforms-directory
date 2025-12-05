@@ -40,6 +40,54 @@ try {
   console.error('Failed to load pillar content:', error);
 }
 
+// Load comparison content
+let comparisonContent = [];
+try {
+  const comparisonDir = join(__dirname, 'comparison-content');
+  if (existsSync(comparisonDir)) {
+    const files = readdirSync(comparisonDir).filter(f => f.endsWith('.json'));
+    comparisonContent = files.map(file => {
+      const data = readFileSync(join(comparisonDir, file), 'utf-8');
+      return JSON.parse(data);
+    });
+    console.log(`✅ Loaded ${comparisonContent.length} comparison pages`);
+  }
+} catch (error) {
+  console.error('Failed to load comparison content:', error);
+}
+
+// Load alternatives content
+let alternativesContent = [];
+try {
+  const alternativesDir = join(__dirname, 'alternatives-content');
+  if (existsSync(alternativesDir)) {
+    const files = readdirSync(alternativesDir).filter(f => f.endsWith('.json'));
+    alternativesContent = files.map(file => {
+      const data = readFileSync(join(alternativesDir, file), 'utf-8');
+      return JSON.parse(data);
+    });
+    console.log(`✅ Loaded ${alternativesContent.length} alternatives pages`);
+  }
+} catch (error) {
+  console.error('Failed to load alternatives content:', error);
+}
+
+// Load best-of content
+let bestOfContent = [];
+try {
+  const bestOfDir = join(__dirname, 'bestof-content');
+  if (existsSync(bestOfDir)) {
+    const files = readdirSync(bestOfDir).filter(f => f.endsWith('.json'));
+    bestOfContent = files.map(file => {
+      const data = readFileSync(join(bestOfDir, file), 'utf-8');
+      return JSON.parse(data);
+    });
+    console.log(`✅ Loaded ${bestOfContent.length} best-of pages`);
+  }
+} catch (error) {
+  console.error('Failed to load best-of content:', error);
+}
+
 // CORS for development
 fastify.register(import('@fastify/cors'), {
   origin: true
@@ -149,13 +197,91 @@ fastify.get('/api/pillar/:slug', async (request, reply) => {
   return pillar;
 });
 
+// Get comparison content list
+fastify.get('/api/comparisons', async () => {
+  return comparisonContent.map(c => ({
+    slug: c.slug,
+    title: c.title,
+    metaDescription: c.metaDescription,
+    platform1Slug: c.platform1Slug,
+    platform2Slug: c.platform2Slug
+  }));
+});
+
+// Get single comparison page
+fastify.get('/api/comparisons/:slug', async (request, reply) => {
+  const { slug } = request.params;
+  const comparison = comparisonContent.find(c => c.slug === slug);
+
+  if (!comparison) {
+    reply.code(404).send({ error: 'Comparison not found' });
+    return;
+  }
+
+  return comparison;
+});
+
+// Get alternatives content list
+fastify.get('/api/alternatives', async () => {
+  return alternativesContent.map(a => ({
+    slug: a.slug,
+    title: a.title,
+    metaDescription: a.metaDescription,
+    platformSlug: a.platformSlug
+  }));
+});
+
+// Get single alternatives page
+fastify.get('/api/alternatives/:slug', async (request, reply) => {
+  const { slug } = request.params;
+  const alternatives = alternativesContent.find(a => a.slug === slug);
+
+  if (!alternatives) {
+    reply.code(404).send({ error: 'Alternatives page not found' });
+    return;
+  }
+
+  return alternatives;
+});
+
+// Get best-of content list
+fastify.get('/api/best-of', async () => {
+  return bestOfContent.map(b => ({
+    slug: b.slug,
+    title: b.title,
+    metaDescription: b.metaDescription,
+    category: b.category,
+    totalPlatforms: b.totalPlatforms
+  }));
+});
+
+// Get single best-of page
+fastify.get('/api/best-of/:slug', async (request, reply) => {
+  const { slug } = request.params;
+  const bestOf = bestOfContent.find(b => b.slug === slug);
+
+  if (!bestOf) {
+    reply.code(404).send({ error: 'Best-of page not found' });
+    return;
+  }
+
+  return bestOf;
+});
+
 // Stats endpoint
 fastify.get('/api/stats', async () => {
   return {
     total: platforms.length,
     featured: platforms.filter(p => p.featured).length,
     verified: platforms.filter(p => p.verified).length,
-    categories: new Set(platforms.map(p => p.category)).size
+    categories: new Set(platforms.map(p => p.category)).size,
+    content: {
+      pillarPages: pillarContent.length,
+      comparisons: comparisonContent.length,
+      alternatives: alternativesContent.length,
+      bestOf: bestOfContent.length,
+      totalPages: pillarContent.length + comparisonContent.length + alternativesContent.length + bestOfContent.length
+    }
   };
 });
 
@@ -208,6 +334,36 @@ fastify.get('/sitemap.xml', async (request, reply) => {
     sitemap += `    <lastmod>${today}</lastmod>\n`;
     sitemap += '    <changefreq>monthly</changefreq>\n';
     sitemap += '    <priority>0.9</priority>\n';
+    sitemap += '  </url>\n';
+  });
+
+  // Comparison pages
+  comparisonContent.forEach(comparison => {
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${baseUrl}/compare/${comparison.slug}</loc>\n`;
+    sitemap += `    <lastmod>${today}</lastmod>\n`;
+    sitemap += '    <changefreq>monthly</changefreq>\n';
+    sitemap += '    <priority>0.8</priority>\n';
+    sitemap += '  </url>\n';
+  });
+
+  // Alternatives pages
+  alternativesContent.forEach(alternatives => {
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${baseUrl}/alternatives/${alternatives.slug}</loc>\n`;
+    sitemap += `    <lastmod>${today}</lastmod>\n`;
+    sitemap += '    <changefreq>monthly</changefreq>\n';
+    sitemap += '    <priority>0.8</priority>\n';
+    sitemap += '  </url>\n';
+  });
+
+  // Best-of pages
+  bestOfContent.forEach(bestOf => {
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${baseUrl}/best/${bestOf.slug}</loc>\n`;
+    sitemap += `    <lastmod>${today}</lastmod>\n`;
+    sitemap += '    <changefreq>monthly</changefreq>\n';
+    sitemap += '    <priority>0.8</priority>\n';
     sitemap += '  </url>\n';
   });
 
