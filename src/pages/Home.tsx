@@ -77,14 +77,6 @@ function Home() {
     navigate(`/platform/${platform.slug || platform.id}`);
   };
 
-  // Get trending/recently added platforms
-  const trendingPlatforms = platforms
-    .filter(p => p.featured)
-    .slice(0, 6);
-
-  const recentPlatforms = platforms
-    .slice(0, 6);
-
   // FAQ data for schema
   const faqs = [
     {

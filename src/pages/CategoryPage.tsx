@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import type { Platform } from '../types';
 import { ItemListSchema } from '../components/ItemListSchema';
 import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
-import { analytics } from '../utils/analytics';
 
 function CategoryPage() {
   const { category } = useParams<{ category: string }>();
