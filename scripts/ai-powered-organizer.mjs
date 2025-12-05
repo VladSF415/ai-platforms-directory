@@ -205,7 +205,9 @@ async function callAI(prompt, system = '') {
 async function discoverNewPlatforms() {
   console.log('🔍 Discovering new AI platforms...\n');
 
-  const existingNames = platforms.map(p => p.name.toLowerCase());
+  const existingNames = platforms
+    .filter(p => p.name)
+    .map(p => p.name.toLowerCase());
 
   const prompt = `You are researching the latest AI platforms and tools launched in 2024-2025.
 
