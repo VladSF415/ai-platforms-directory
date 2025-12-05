@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { SubmitToolForm } from '../types';
+import { analytics } from '../utils/analytics';
 
 function SubmitTool() {
+  useEffect(() => {
+    // Track submission page view
+    analytics.startSubmission();
+  }, []);
+
   const [form, setForm] = useState<SubmitToolForm>({
     name: '',
     description: '',
@@ -41,9 +47,13 @@ function SubmitTool() {
       const data = await response.json();
 
       if (data.checkoutUrl) {
+        // Track submission completion
+        analytics.completeSubmission(form.name, form.wantsFeatured);
         // Redirect to Stripe checkout
         window.location.href = data.checkoutUrl;
       } else {
+        // Track submission completion
+        analytics.completeSubmission(form.name, form.wantsFeatured);
         setSuccess(true);
       }
     } catch (error) {

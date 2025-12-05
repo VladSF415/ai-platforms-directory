@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Platform, Category } from '../types';
+import { analytics } from '../utils/analytics';
 
 function Home() {
   const navigate = useNavigate();
@@ -15,6 +16,23 @@ function Home() {
     fetchPlatforms();
     fetchCategories();
   }, [selectedCategory, search, showFeatured]);
+
+  // Track search with debounce
+  useEffect(() => {
+    if (search) {
+      const timer = setTimeout(() => {
+        analytics.search(search, platforms.length);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [search, platforms.length]);
+
+  // Track category filter
+  useEffect(() => {
+    if (selectedCategory !== 'all') {
+      analytics.filterCategory(selectedCategory);
+    }
+  }, [selectedCategory]);
 
   const fetchPlatforms = async () => {
     setLoading(true);

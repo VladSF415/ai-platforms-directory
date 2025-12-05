@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Platform } from '../types';
+import { analytics } from '../utils/analytics';
 
 function PlatformDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -11,6 +12,13 @@ function PlatformDetail() {
   useEffect(() => {
     fetchPlatform();
   }, [slug]);
+
+  // Track platform view when loaded
+  useEffect(() => {
+    if (platform) {
+      analytics.viewPlatform(platform.name, platform.id);
+    }
+  }, [platform]);
 
   const fetchPlatform = async () => {
     setLoading(true);
@@ -34,12 +42,15 @@ function PlatformDetail() {
 
     const url = platform.affiliate_url || platform.website || platform.url || '';
 
-    // Track click
+    // Track click in backend
     fetch('/api/track-click', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ platformId: platform.id, type: 'click' }),
     }).catch(() => {});
+
+    // Track click in Google Analytics
+    analytics.clickPlatform(platform.name, platform.id, url);
 
     window.open(url, '_blank');
   };
