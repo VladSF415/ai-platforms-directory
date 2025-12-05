@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Platform, Category } from '../types';
 import { analytics } from '../utils/analytics';
+import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
 
 function Home() {
   const navigate = useNavigate();
@@ -76,12 +77,64 @@ function Home() {
     navigate(`/platform/${platform.slug || platform.id}`);
   };
 
+  // Get trending/recently added platforms
+  const trendingPlatforms = platforms
+    .filter(p => p.featured)
+    .slice(0, 6);
+
+  const recentPlatforms = platforms
+    .slice(0, 6);
+
+  // FAQ data for schema
+  const faqs = [
+    {
+      question: 'What is the best AI tool in 2025?',
+      answer: `The "best" AI tool depends on your specific needs. For general conversational AI, ChatGPT and Claude lead the market. For image generation, Midjourney and DALL-E 3 are top choices. For coding, GitHub Copilot and Cursor dominate. Our directory features ${totalPlatforms}+ platforms across all categories to help you find the perfect match for your use case.`
+    },
+    {
+      question: 'Are there free AI tools available?',
+      answer: 'Yes! Many AI platforms offer generous free tiers. Popular free options include ChatGPT (GPT-3.5), Claude AI (limited free usage), Stable Diffusion (open-source image generation), and various open-source ML frameworks. Use our filters to find free AI tools in any category.'
+    },
+    {
+      question: 'How do I choose between different AI platforms?',
+      answer: 'Consider these factors: (1) Your specific use case and requirements, (2) Pricing and budget constraints, (3) Integration capabilities with your existing tools, (4) Output quality and performance benchmarks, (5) API access and customization options, (6) Support and documentation quality. Try free trials when available to test before committing.'
+    },
+    {
+      question: 'What are LLMs (Large Language Models)?',
+      answer: 'Large Language Models (LLMs) are AI systems trained on vast amounts of text data to understand and generate human-like text. Examples include ChatGPT (GPT-4), Claude, Gemini, and LLaMA. They excel at tasks like content creation, code generation, question answering, translation, and conversational AI. Our directory features 30+ LLM platforms with detailed comparisons.'
+    },
+    {
+      question: 'Can I submit my AI tool to this directory?',
+      answer: 'Yes! We accept AI tool submissions from developers and companies. Click the "Submit Your AI Tool" button to add your platform. Basic listings are $49, with featured placement options available starting at $99/month. All submissions are reviewed before going live.'
+    },
+    {
+      question: 'How often is the directory updated?',
+      answer: 'Our directory is updated daily through an automated discovery system powered by DeepSeek AI. We continuously monitor for new AI platforms, pricing changes, and feature updates. Platform information is verified and enriched with detailed descriptions, use cases, and pricing details.'
+    },
+    {
+      question: 'What categories of AI tools do you cover?',
+      answer: `We cover ${categories.length}+ categories including: Large Language Models (LLMs), Generative AI, Code AI Assistants, Computer Vision, Natural Language Processing (NLP), Image Generation, Video AI, Machine Learning Frameworks, Analytics & BI, Agent Platforms, and more. Each category has dedicated landing pages with comprehensive guides.`
+    },
+    {
+      question: 'Are the AI tools on this site affiliate links?',
+      answer: 'Some platforms in our directory participate in affiliate programs, which helps us maintain and improve the service. We only list AI tools based on their quality and usefulness, regardless of affiliate status. Affiliate participation does not influence our curation or recommendations.'
+    }
+  ];
+
   return (
     <div>
+      {/* FAQ Schema for SEO */}
+      <FAQSchema faqs={faqs} />
+
       <header className="header">
         <div className="container">
-          <h1>AI Platforms Directory</h1>
-          <p>Discover {totalPlatforms}+ curated AI tools and platforms</p>
+          <h1>AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Software (2025)</h1>
+          <p className="hero-description">
+            The most comprehensive directory of AI platforms, tools, and software.
+            Compare features, pricing, and reviews across {categories.length}+ categories including
+            LLMs, generative AI, code assistants, computer vision, NLP, and more.
+            Updated daily with new AI discoveries.
+          </p>
 
           <div className="search-bar">
             <input
@@ -100,7 +153,161 @@ function Home() {
         </div>
       </header>
 
+      {/* SEO Content Section */}
+      <div className="container seo-content-section" style={{ maxWidth: '1200px', margin: '60px auto', padding: '0 20px' }}>
+        <section style={{ marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
+            What is an AI Platform Directory?
+          </h2>
+          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px' }}>
+            An AI platform directory is a curated collection of artificial intelligence tools, software, and services designed to help
+            businesses, developers, and individuals discover the right AI solutions for their needs. Our directory features {totalPlatforms}+
+            AI platforms across {categories.length}+ specialized categories, from large language models (LLMs) and generative AI to computer
+            vision, natural language processing, and code assistants.
+          </p>
+          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px' }}>
+            Whether you're looking for the best ChatGPT alternatives, AI image generators, coding assistants, or business intelligence tools,
+            our comprehensive database provides detailed information on features, pricing, use cases, and user reviews. Each platform listing
+            includes direct links, pricing information, and comparisons to help you make informed decisions.
+          </p>
+        </section>
+
+        <section style={{ marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
+            Top AI Tool Categories
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '20px' }}>
+            <div>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🤖 Large Language Models (LLMs)</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Discover powerful language models like ChatGPT, Claude, GPT-4, and open-source alternatives. Compare capabilities,
+                pricing, and use cases for content generation, coding, research, and conversational AI.
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🎨 Generative AI Tools</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Explore cutting-edge generative AI platforms for creating text, images, videos, and audio. From Midjourney and DALL-E
+                to music generators and video synthesis tools.
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>💻 Code AI Assistants</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Find the best AI coding tools including GitHub Copilot alternatives, code completion, debugging assistants, and
+                automated testing platforms to boost developer productivity.
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>👁️ Computer Vision</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Access advanced computer vision platforms for object detection, facial recognition, image classification, OCR, and
+                visual AI applications across industries.
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>📝 Natural Language Processing</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Discover NLP tools for text analysis, sentiment detection, entity extraction, translation, summarization, and
+                language understanding capabilities.
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🎬 Video & Image AI</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Find AI video editing, generation, and image creation tools. From text-to-video platforms to AI-powered editing
+                suites and image enhancement software.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section style={{ marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
+            How to Choose the Right AI Tool
+          </h2>
+          <div style={{ background: '#f5f5f5', border: '4px solid #000', padding: '30px', marginBottom: '20px' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>1. Define Your Use Case</h3>
+            <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+              Start by clearly identifying what you need the AI tool to accomplish. Are you looking for content creation, code assistance,
+              data analysis, or automation? Different tools excel at different tasks.
+            </p>
+
+            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>2. Consider Pricing & Budget</h3>
+            <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+              AI platforms range from free tools to enterprise solutions costing thousands per month. Compare pricing tiers, free trials,
+              and what features are included at each level. Many tools offer freemium models with generous free tiers.
+            </p>
+
+            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>3. Evaluate Integration Capabilities</h3>
+            <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+              Check if the AI tool integrates with your existing workflow, tech stack, and favorite applications. API access, SDKs,
+              and pre-built integrations can save significant implementation time.
+            </p>
+
+            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>4. Review Performance & Quality</h3>
+            <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+              Test output quality, speed, accuracy, and reliability. Read user reviews, compare benchmarks, and try free trials before
+              committing to paid plans. Different models have different strengths.
+            </p>
+
+            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>5. Check Support & Documentation</h3>
+            <p style={{ lineHeight: '1.6' }}>
+              Ensure the platform offers adequate documentation, tutorials, customer support, and community resources. Good support
+              can make the difference between success and frustration.
+            </p>
+          </div>
+        </section>
+
+        <section style={{ marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
+            Why Use Our AI Tools Directory?
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+            <div style={{ border: '3px solid #000', padding: '20px' }}>
+              <div style={{ fontSize: '32px', marginBottom: '10px' }}>📊</div>
+              <h3 style={{ fontWeight: '700', marginBottom: '10px' }}>Comprehensive Coverage</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                {totalPlatforms}+ AI platforms across all major categories, updated daily with new discoveries.
+              </p>
+            </div>
+            <div style={{ border: '3px solid #000', padding: '20px' }}>
+              <div style={{ fontSize: '32px', marginBottom: '10px' }}>🔍</div>
+              <h3 style={{ fontWeight: '700', marginBottom: '10px' }}>Easy Comparison</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Compare features, pricing, and capabilities side-by-side to find the perfect fit.
+              </p>
+            </div>
+            <div style={{ border: '3px solid #000', padding: '20px' }}>
+              <div style={{ fontSize: '32px', marginBottom: '10px' }}>⭐</div>
+              <h3 style={{ fontWeight: '700', marginBottom: '10px' }}>Curated Quality</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Hand-picked and verified AI tools, filtered for quality and real-world usefulness.
+              </p>
+            </div>
+            <div style={{ border: '3px solid #000', padding: '20px' }}>
+              <div style={{ fontSize: '32px', marginBottom: '10px' }}>🔄</div>
+              <h3 style={{ fontWeight: '700', marginBottom: '10px' }}>Always Updated</h3>
+              <p style={{ lineHeight: '1.6' }}>
+                Automated discovery system adds new platforms daily. Never miss emerging AI tools.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section style={{ marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900' }}>
+            Frequently Asked Questions
+          </h2>
+          <VisualFAQ faqs={faqs} />
+        </section>
+      </div>
+
       <div className="container">
+        <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900', textAlign: 'center' }}>
+          Browse All AI Tools
+        </h2>
+
         <div className="filters">
           <button
             className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}

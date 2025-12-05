@@ -142,6 +142,24 @@ fastify.get('/sitemap.xml', async (request, reply) => {
   sitemap += '    <priority>0.8</priority>\n';
   sitemap += '  </url>\n';
 
+  // Category pages
+  const categoryMap = new Map();
+  platforms.forEach(platform => {
+    const cat = platform.category || 'uncategorized';
+    if (!categoryMap.has(cat)) {
+      categoryMap.set(cat, true);
+    }
+  });
+
+  Array.from(categoryMap.keys()).forEach(category => {
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${baseUrl}/category/${category}</loc>\n`;
+    sitemap += `    <lastmod>${today}</lastmod>\n`;
+    sitemap += '    <changefreq>weekly</changefreq>\n';
+    sitemap += '    <priority>0.8</priority>\n';
+    sitemap += '  </url>\n';
+  });
+
   // Legal pages
   const legalPages = ['privacy', 'terms', 'cookie-policy', 'dmca', 'disclaimer'];
   legalPages.forEach(page => {
