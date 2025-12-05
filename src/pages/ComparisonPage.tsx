@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Platform } from '../types';
 import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
+import { SocialMetaTags } from '../components/SocialMetaTags';
 
 function ComparisonPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -65,6 +66,14 @@ function ComparisonPage() {
 
   return (
     <div className="comparison-page">
+      {/* Social Meta Tags for sharing */}
+      <SocialMetaTags
+        title={comparisonData.title}
+        description={`Compare ${platform1?.name || 'Platform 1'} vs ${platform2?.name || 'Platform 2'}: features, pricing, pros and cons. Find the best AI tool for your needs in 2025.`}
+        url={`https://aiplatformslist.com/compare/${slug}`}
+        type="article"
+      />
+
       <BreadcrumbSchema items={breadcrumbItems} />
 
       {/* Hero Section */}

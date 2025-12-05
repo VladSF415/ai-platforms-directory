@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import type { Platform, Category } from '../types';
 import { analytics } from '../utils/analytics';
 import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
+import { SocialMetaTags } from '../components/SocialMetaTags';
 
 function Home() {
   const navigate = useNavigate();
@@ -124,6 +125,14 @@ function Home() {
 
   return (
     <div>
+      {/* Social Meta Tags for sharing */}
+      <SocialMetaTags
+        title="AI Platforms Directory - Discover 150+ AI Tools & Software (2025)"
+        description="The most comprehensive directory of AI platforms, tools, and software. Compare features, pricing, and reviews across LLMs, generative AI, code assistants, computer vision, NLP, and more. Updated daily."
+        url="https://aiplatformslist.com/"
+        type="website"
+      />
+
       {/* FAQ Schema for SEO */}
       <FAQSchema faqs={faqs} />
 

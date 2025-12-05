@@ -4,6 +4,7 @@ import type { Platform } from '../types';
 import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
 import { HowToSchema, VisualHowTo } from '../components/HowToSchema';
 import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
+import { SocialMetaTags } from '../components/SocialMetaTags';
 
 interface PillarContent {
   slug: string;
@@ -92,6 +93,14 @@ function PillarPage() {
 
   return (
     <div className="pillar-page">
+      {/* Social Meta Tags for sharing */}
+      <SocialMetaTags
+        title={pillarContent.title}
+        description={pillarContent.metaDescription}
+        url={`https://aiplatformslist.com/guide/${slug}`}
+        type="article"
+      />
+
       {/* Schema Markup */}
       <BreadcrumbSchema items={breadcrumbItems} />
       <HowToSchema

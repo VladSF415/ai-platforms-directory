@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import type { Platform } from '../types';
 import { ItemListSchema } from '../components/ItemListSchema';
 import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
+import { SocialMetaTags } from '../components/SocialMetaTags';
 
 function CategoryPage() {
   const { category } = useParams<{ category: string }>();
@@ -114,6 +115,14 @@ function CategoryPage() {
 
   return (
     <div className="category-page">
+      {/* Social Meta Tags for sharing */}
+      <SocialMetaTags
+        title={`Best ${categoryName} AI Tools 2025 - Compare Top Platforms`}
+        description={getCategoryDescription(category || '')}
+        url={`https://aiplatformslist.com/category/${category}`}
+        type="website"
+      />
+
       {/* Schema Markup */}
       <ItemListSchema platforms={platforms} category={category || ''} categoryName={categoryName} />
       <BreadcrumbSchema items={breadcrumbItems} />

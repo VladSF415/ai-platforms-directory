@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Platform } from '../types';
 import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
+import { SocialMetaTags } from '../components/SocialMetaTags';
 
 function BestOfPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -68,6 +69,14 @@ function BestOfPage() {
 
   return (
     <div className="bestof-page">
+      {/* Social Meta Tags for sharing */}
+      <SocialMetaTags
+        title={bestOfData.title}
+        description={bestOfData.description || `Discover the best AI tools in ${bestOfData.category || 'this category'} for 2025. Compare features, pricing, and reviews of top platforms.`}
+        url={`https://aiplatformslist.com/best/${slug}`}
+        type="article"
+      />
+
       <BreadcrumbSchema items={breadcrumbItems} />
 
       {/* Hero Section */}

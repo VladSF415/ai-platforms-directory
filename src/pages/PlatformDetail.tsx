@@ -4,6 +4,7 @@ import type { Platform } from '../types';
 import { analytics } from '../utils/analytics';
 import { SoftwareApplicationSchema } from '../components/SoftwareApplicationSchema';
 import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
+import { SocialMetaTags } from '../components/SocialMetaTags';
 
 function PlatformDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -149,6 +150,14 @@ function PlatformDetail() {
 
   return (
     <div className="platform-detail">
+      {/* Social Meta Tags for sharing */}
+      <SocialMetaTags
+        title={`${platform.name} - AI Platform Review & Details (2025)`}
+        description={platform.description || `Explore ${platform.name}, an AI platform in the ${getCategoryName(platform.category)} category. Compare features, pricing, and reviews.`}
+        url={`https://aiplatformslist.com/platform/${platform.slug || platform.id}`}
+        type="article"
+      />
+
       {/* Schema Markup for SEO */}
       <SoftwareApplicationSchema platform={platform} />
       <BreadcrumbSchema items={breadcrumbItems} />

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import type { Platform } from '../types';
 import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
+import { SocialMetaTags } from '../components/SocialMetaTags';
 
 function AlternativesPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -75,6 +76,14 @@ function AlternativesPage() {
 
   return (
     <div className="alternatives-page">
+      {/* Social Meta Tags for sharing */}
+      <SocialMetaTags
+        title={alternativesData.title}
+        description={`Discover the best ${mainPlatform?.name || 'AI tool'} alternatives in 2025. Compare features, pricing, and reviews of top competing platforms.`}
+        url={`https://aiplatformslist.com/alternatives/${slug}`}
+        type="article"
+      />
+
       <BreadcrumbSchema items={breadcrumbItems} />
 
       {/* Hero Section */}
