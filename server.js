@@ -213,6 +213,58 @@ fastify.post('/api/track-click', async (request, reply) => {
 });
 
 // Submit tool endpoint
+// Telegram notification function
+async function sendTelegramNotification(submission) {
+  const botToken = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (!botToken || !chatId) {
+    console.log('[Telegram] Bot token or chat ID not configured');
+    return;
+  }
+
+  try {
+    const message = `
+🤖 <b>New AI Tool Submission!</b>
+
+📝 <b>Tool Name:</b> ${submission.name}
+🌐 <b>Website:</b> ${submission.website}
+📧 <b>Contact:</b> ${submission.contactEmail}
+
+📂 <b>Category:</b> ${submission.category}
+💰 <b>Pricing Model:</b> ${submission.pricing}
+
+📄 <b>Description:</b>
+${submission.description}
+
+${submission.wantsFeatured ? `⭐ <b>Featured Listing:</b> ${submission.featuredTier?.toUpperCase() || 'Yes'}` : ''}
+
+💵 <b>Total Price:</b> $${submission.totalPrice}
+
+🕒 <b>Submitted:</b> ${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}
+`.trim();
+
+    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message,
+        parse_mode: 'HTML',
+      }),
+    });
+
+    if (response.ok) {
+      console.log('[Telegram] Notification sent successfully');
+    } else {
+      const error = await response.json();
+      console.error('[Telegram] Failed to send notification:', error);
+    }
+  } catch (error) {
+    console.error('[Telegram] Error sending notification:', error.message);
+  }
+}
+
 fastify.post('/api/submit-tool', async (request, reply) => {
   const submission = request.body;
 
@@ -223,6 +275,9 @@ fastify.post('/api/submit-tool', async (request, reply) => {
     category: submission.category,
     totalPrice: submission.totalPrice,
   });
+
+  // Send Telegram notification
+  await sendTelegramNotification(submission);
 
   // If Stripe is configured, create checkout session
   if (stripe && submission.totalPrice > 0) {
