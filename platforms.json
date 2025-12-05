@@ -1630,21 +1630,22 @@
   {
     "id": "alpaca",
     "name": "Stanford Alpaca",
-    "description": "Instruction-following language model fine-tuned from LLaMA using self-instruct methodology.",
-    "category": "nlp",
+    "description": "Stanford Alpaca is an instruction-following large language model (LLM) fine-tuned from Meta's LLaMA 7B model using a novel self-instruct methodology. It was designed to generate coherent and helpful responses to human-written instructions, mimicking the capabilities of models like OpenAI's text-davinci-003 but at a significantly lower cost for research replication. Its primary distinction was demonstrating that high-quality instruction-following behavior could be achieved with a relatively small model and a modest, algorithmically generated dataset, making it a landmark academic project for efficient LLM alignment.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Instruction Following"
     ],
     "url": "https://github.com/tatsu-lab/stanford_alpaca",
     "website": "https://github.com/tatsu-lab/stanford_alpaca",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Instruction following",
-      "Self-instruct training",
-      "LLaMA base model",
-      "Academic research",
-      "Open source"
+      "Fine-tuned from LLaMA 7B foundation model",
+      "Trained using the Self-Instruct algorithm (52K instruction-following examples)",
+      "Optimized for single-turn instruction-response interactions",
+      "Released as open-source weights and training code",
+      "Demonstrated cost-effective replication of instruction-following behavior",
+      "Served as a foundational model for subsequent research (e.g., Alpaca-LoRA)"
     ],
     "rating": 4.1,
     "verified": true,
@@ -1652,9 +1653,13 @@
     "trending": false,
     "slug": "alpaca",
     "tags": [
-      "AI",
-      "NLP",
-      "Stanford"
+      "instruction-tuning",
+      "self-instruct",
+      "llama",
+      "academic-research",
+      "open-source-llm",
+      "language-model",
+      "fine-tuning"
     ],
     "subcategories": [
       "instruction-following"
@@ -1677,13 +1682,34 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research on LLM alignment and efficient fine-tuning",
+      "Prototyping instruction-following AI applications",
+      "Educational tool for understanding LLM training methodologies",
+      "Base model for further fine-tuning on specific tasks"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to model weights, training code, and data generation pipeline for non-commercial research."
+      ],
+      "free_tier": "Yes - Complete research release under non-commercial license (CC BY-NC 4.0).",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/NLP researchers",
+      "Computer science academics & students",
+      "ML engineers prototyping LLM applications"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "altair",
     "name": "Altair",
-    "description": "Declarative statistical visualization library for Python based on Vega-Lite providing concise visualization grammar for exploratory data analysis.",
-    "category": "ml-frameworks",
+    "description": "Altair is a declarative statistical visualization library for Python that enables users to create a wide range of interactive, publication-quality visualizations using a concise JSON-based grammar. Built on the Vega-Lite visualization specification, it allows data scientists, researchers, and analysts to quickly generate complex charts from pandas DataFrames with minimal code. Its unique strength lies in its strict declarative approach, where visualizations are defined by mapping data columns to visual properties, ensuring reproducibility and clarity in exploratory data analysis.",
+    "category": "analytics-bi",
     "categories": [
       "machine-learning-frameworks",
       "statistical-visualization"
@@ -1692,11 +1718,13 @@
     "website": "https://altair-viz.github.io",
     "pricing": "open-source",
     "features": [
-      "Declarative syntax",
-      "Statistical visualizations",
-      "Vega-Lite grammar",
-      "Exploratory analysis",
-      "Interactive charts"
+      "Declarative API for creating visualizations by specifying data mappings and chart properties",
+      "Seamless integration with pandas DataFrames for direct plotting from data structures",
+      "Outputs Vega-Lite JSON specifications that can be rendered in Jupyter notebooks, web pages, or saved as PNG/SVG",
+      "Wide range of statistical plot types including scatter plots, histograms, bar charts, line charts, and multi-view compositions",
+      "Interactive features like tooltips, zooming, panning, and linked brushing through Vega-Lite's capabilities",
+      "Faceting and layering for creating complex multi-panel and layered visualizations",
+      "Theme support and customization for consistent styling across visualizations"
     ],
     "rating": 4.5,
     "verified": true,
@@ -1704,11 +1732,14 @@
     "trending": true,
     "slug": "altair",
     "tags": [
-      "Declarative",
-      "Statistical",
-      "Vega-Lite",
-      "Exploratory",
-      "Interactive"
+      "python-visualization",
+      "declarative-grammar",
+      "vega-lite",
+      "statistical-graphics",
+      "interactive-charts",
+      "jupyter-notebooks",
+      "data-exploration",
+      "reproducible-research"
     ],
     "subcategories": [
       "statistical-visualization",
@@ -1732,13 +1763,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Exploratory data analysis in Jupyter notebooks for data science workflows",
+      "Creating interactive dashboards and reports for business intelligence",
+      "Academic research visualization for papers and presentations",
+      "Building reproducible data visualization pipelines in analytical applications",
+      "Teaching statistical concepts and data visualization principles in educational settings"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library access under BSD-3 license"
+      ],
+      "free_tier": "Yes - complete library with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data-scientists",
+      "academic-researchers",
+      "business-analysts"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "altana",
     "name": "Altana",
-    "description": "AI-powered value chain management system that maps global supply chains and trade networks.",
-    "category": "generative-ai",
+    "description": "Altana is an AI-powered platform that creates a dynamic, shared map of the global supply chain by fusing public and private data. It enables businesses and governments to visualize complex trade networks, assess risks in real-time, and ensure compliance with global regulations. Its unique value lies in its 'single source of truth' atlas, built on a federated learning architecture that allows for secure data collaboration between entities without exposing proprietary information.",
+    "category": "analytics-bi",
     "categories": [
       "business-productivity",
       "data-analytics"
@@ -1747,11 +1800,13 @@
     "website": "https://altanatech.com",
     "pricing": "enterprise",
     "features": [
-      "Supply chain mapping",
-      "Trade network analysis",
-      "Risk assessment",
-      "Compliance monitoring",
-      "Global trade insights"
+      "Dynamic global supply chain map (The Atlas)",
+      "Real-time risk scoring for entities and shipments",
+      "AI-powered forced labor compliance screening (UFLPA)",
+      "Trade network visualization and dependency analysis",
+      "Automated detection of sanctioned or restricted parties",
+      "Federated learning platform for secure data collaboration",
+      "API for integration with internal TMS/ERP systems"
     ],
     "rating": 4.1,
     "verified": true,
@@ -1759,11 +1814,13 @@
     "trending": false,
     "slug": "altana",
     "tags": [
-      "AI",
-      "Supply Chain",
-      "Trade Networks",
-      "Risk Assessment",
-      "Global Trade"
+      "supply-chain-intelligence",
+      "global-trade-data",
+      "risk-analytics",
+      "compliance-automation",
+      "network-mapping",
+      "ai-analytics",
+      "enterprise-saas"
     ],
     "subcategories": [
       "supply-chain",
@@ -1787,26 +1844,51 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Screening suppliers for forced labor risks under the UFLPA",
+      "Identifying single points of failure and building supply chain resilience",
+      "Automating customs and trade compliance for cross-border shipments",
+      "Conducting due diligence on new suppliers and trade partners",
+      "Monitoring geopolitical and regulatory risks for global operations",
+      "Optimizing logistics networks by analyzing trade lane alternatives"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Full platform access, dedicated support, custom integrations, and private data federation."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Global Logistics & Freight Forwarders",
+      "Multinational Corporations (Procurement & Supply Chain Teams)",
+      "Government Agencies (Customs, Border Security, Trade Compliance)"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "alteryx",
     "name": "Alteryx",
-    "description": "Self-service data analytics platform with machine learning capabilities enabling business analysts to perform advanced analytics without coding.",
-    "category": "ml-frameworks",
+    "description": "Alteryx Analytics Cloud is an end-to-end analytics automation platform that enables users to prep, blend, and analyze data from disparate sources, then deploy predictive models and analytic applications. Its core capability is providing a visual, no-code/low-code workflow interface that combines data preparation, data science, and process automation in a unified environment. What makes it unique is its focus on enabling business analysts and citizen data scientists to perform advanced analytics through drag-and-drop tools rather than requiring programming expertise.",
+    "category": "analytics-bi",
     "categories": [
       "machine-learning-frameworks",
       "self-service-analytics"
     ],
     "url": "https://alteryx.com",
     "website": "https://alteryx.com",
-    "pricing": "commercial",
+    "pricing": "paid",
     "features": [
-      "Self-service analytics",
-      "No-code ML",
-      "Data preparation",
-      "Workflow automation",
-      "Business intelligence"
+      "Visual workflow designer with 300+ drag-and-drop tools for data prep and blending",
+      "AutoML capabilities for building and deploying predictive models without coding",
+      "Integrated data catalog with connectivity to 80+ data sources (databases, cloud apps, files)",
+      "Spatial analytics with geographic data processing and mapping tools",
+      "Process automation with scheduling, APIs, and application deployment",
+      "Interactive dashboards and reporting with embedded analytics",
+      "Collaborative workspace with version control and governance features"
     ],
     "rating": 4.3,
     "verified": true,
@@ -1814,11 +1896,13 @@
     "trending": false,
     "slug": "alteryx",
     "tags": [
-      "Self-service",
-      "No-code",
-      "Data Prep",
-      "Workflow",
-      "Business Intelligence"
+      "data-preparation",
+      "workflow-automation",
+      "predictive-analytics",
+      "business-intelligence",
+      "data-blending",
+      "no-code-analytics",
+      "data-science-platform"
     ],
     "subcategories": [
       "self-service-analytics",
@@ -1842,13 +1926,38 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Marketing analytics: Customer segmentation, campaign performance analysis, and ROI measurement",
+      "Financial planning: Budget forecasting, revenue prediction, and financial reporting automation",
+      "Supply chain optimization: Inventory forecasting, logistics route planning, and demand prediction",
+      "HR analytics: Employee retention prediction, workforce planning, and talent acquisition analysis",
+      "Sales operations: Pipeline analysis, territory optimization, and sales forecasting"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom pricing - Basic data prep and workflow automation",
+        "Professional: Custom pricing - Full analytics suite with predictive tools",
+        "Enterprise: Custom pricing - Advanced governance, scalability, and deployment options"
+      ],
+      "free_tier": "Yes - 30-day free trial of full platform",
+      "starting_price": "Custom pricing (typically $5,000+/user/year for Professional tier)"
+    },
+    "target_audience": [
+      "business analysts",
+      "data analysts",
+      "citizen data scientists",
+      "IT/BI teams"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "alteryx-text-mining",
     "name": "Alteryx Text Mining Suite",
-    "description": "Comprehensive text analytics platform with preprocessing, NER, and sentiment analysis for business intelligence.",
-    "category": "nlp",
+    "description": "The Alteryx Text Mining Suite is a comprehensive, no-code/low-code text analytics platform designed to extract insights from unstructured data. It enables business analysts and data scientists to perform advanced NLP tasks like sentiment analysis, topic modeling, and named entity recognition through a visual, drag-and-drop workflow interface. Its key differentiator is deep integration within the broader Alteryx Analytics Automation Platform, allowing users to seamlessly combine text mining with data blending, predictive analytics, and reporting for end-to-end business intelligence.",
+    "category": "analytics-bi",
     "categories": [
       "Natural Language Processing",
       "Business Intelligence"
@@ -1857,11 +1966,13 @@
     "website": "https://www.alteryx.com",
     "pricing": "paid",
     "features": [
-      "Text preprocessing",
-      "Named entity recognition",
-      "Sentiment analysis",
-      "Topic modeling",
-      "Visual workflows"
+      "Drag-and-drop visual workflow designer for building text analysis pipelines",
+      "Pre-built connectors for ingesting data from databases, cloud storage, and social media",
+      "Integrated sentiment analysis with customizable lexicons and polarity scoring",
+      "Topic modeling using LDA (Latent Dirichlet Allocation) for theme discovery",
+      "Named Entity Recognition (NER) for identifying people, organizations, and locations",
+      "Text preprocessing tools for tokenization, stemming, stop word removal, and n-gram generation",
+      "Ability to publish and schedule automated workflows for production deployment"
     ],
     "rating": 4.2,
     "verified": true,
@@ -1869,9 +1980,13 @@
     "trending": false,
     "slug": "alteryx-text-mining",
     "tags": [
-      "AI",
-      "NLP",
-      "Business Intelligence"
+      "text-analytics",
+      "business-intelligence",
+      "no-code-nlp",
+      "sentiment-analysis",
+      "workflow-automation",
+      "data-blending",
+      "predictive-modeling"
     ],
     "subcategories": [
       "text-analytics"
@@ -1894,12 +2009,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Analyzing customer feedback from surveys, reviews, and support tickets to identify pain points",
+      "Monitoring brand sentiment and mentions across social media and news sources",
+      "Automating the extraction of key entities (e.g., product names, competitors) from legal or financial documents",
+      "Discovering emerging themes and trends in large volumes of research papers or internal reports"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Alteryx Designer: $5,195 USD/user/year (includes core platform with Text Mining tools)",
+        "Alteryx Server: Custom pricing for centralized workflow management and automation",
+        "Enterprise: Custom pricing for scaled deployment, advanced governance, and premium support"
+      ],
+      "free_tier": "Yes - 30-day free trial of Alteryx Designer with full functionality",
+      "starting_price": "$5,195 USD/user/year (billed annually)"
+    },
+    "target_audience": [
+      "Business Analysts",
+      "Data Scientists",
+      "Enterprise BI Teams"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "amazon-comprehend",
     "name": "Amazon Comprehend",
-    "description": "Fully managed NLP service that uses machine learning to find insights and relationships in text.",
+    "description": "Amazon Comprehend is a fully managed natural language processing (NLP) service that uses machine learning to uncover insights, relationships, and sentiment within unstructured text. It provides pre-trained models for common NLP tasks like entity recognition, sentiment analysis, and topic modeling, and also allows for custom model training to meet specific domain needs. As a core AWS service, it is uniquely integrated with the broader AWS ecosystem (like S3, Lambda, and SageMaker) for scalable, serverless text analysis pipelines, targeting developers and businesses needing to analyze documents, customer feedback, or support tickets at scale.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -1907,13 +2045,15 @@
     ],
     "url": "https://aws.amazon.com/comprehend",
     "website": "https://aws.amazon.com/comprehend",
-    "pricing": "pay-per-use",
+    "pricing": "paid",
     "features": [
-      "Entity detection",
-      "Key phrase extraction",
-      "Sentiment analysis",
-      "PII redaction",
-      "Custom classification"
+      "Pre-trained entity recognition (detects people, organizations, locations, dates, etc.)",
+      "Sentiment analysis (Positive, Negative, Neutral, Mixed) at document or phrase level",
+      "Key phrase extraction to identify main topics and discussion points",
+      "PII (Personally Identifiable Information) detection and redaction for privacy",
+      "Custom classification to train models on user-provided labels and documents",
+      "Topic modeling to automatically discover prevalent themes in document collections",
+      "Syntax analysis to break down text into tokens and parts of speech"
     ],
     "rating": 4.3,
     "verified": true,
@@ -1921,9 +2061,14 @@
     "trending": true,
     "slug": "amazon-comprehend",
     "tags": [
-      "AI",
-      "NLP",
-      "AWS"
+      "aws",
+      "natural-language-processing",
+      "text-analytics",
+      "sentiment-analysis",
+      "entity-recognition",
+      "machine-learning",
+      "serverless",
+      "document-processing"
     ],
     "subcategories": [
       "cloud-api"
@@ -1946,12 +2091,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Analyzing customer feedback from surveys, reviews, and social media for sentiment trends",
+      "Automating document processing by extracting key entities and classifying document types",
+      "Redacting sensitive personal information (PII) from documents for compliance (GDPR, HIPAA)",
+      "Monitoring brand health by analyzing news articles, forums, and support tickets for mentions and sentiment",
+      "Powering content recommendation systems by categorizing and tagging articles or posts",
+      "Enhancing search functionality by extracting metadata and key phrases from large text corpora"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free Tier: First 50,000 units of text per month (mixed across operations) for first 12 months",
+        "Standard: Pay-as-you-go per unit of text processed (e.g., $0.0001 per unit for sentiment analysis). No monthly commitment.",
+        "Custom Classification & Custom Entity Recognition: Additional costs for model training and hourly endpoint usage."
+      ],
+      "free_tier": "Yes - Limited free usage for first 12 months, then standard pay-as-you-go rates apply.",
+      "starting_price": "Free for eligible usage within first 12 months, then ~$1 per 10,000 units of text for basic operations (varies by feature)."
+    },
+    "target_audience": [
+      "enterprise developers & data engineers",
+      "data scientists & ML practitioners",
+      "business analysts in customer experience or compliance"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "amazon-lex",
     "name": "Amazon Lex",
-    "description": "AWS service for building conversational interfaces using the same technology as Alexa.",
+    "description": "Amazon Lex is an AWS service for building conversational AI interfaces, such as chatbots and voice assistants. It provides automatic speech recognition (ASR) and natural language understanding (NLU) using the same deep learning technologies that power Amazon Alexa. It is targeted at developers and businesses looking to deploy scalable, conversational self-service applications integrated with the AWS ecosystem.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -1959,13 +2129,15 @@
     ],
     "url": "https://aws.amazon.com/lex",
     "website": "https://aws.amazon.com/lex",
-    "pricing": "pay-per-use",
+    "pricing": "paid",
     "features": [
-      "Intent recognition",
-      "Automatic speech recognition",
-      "Multi-turn dialogues",
-      "Lambda integration",
-      "Omnichannel deployment"
+      "Intent recognition and slot filling for complex user requests",
+      "High-accuracy automatic speech recognition (ASR) for voice interfaces",
+      "Visual builder for designing multi-turn conversation flows",
+      "Built-in integration with AWS Lambda for backend business logic",
+      "Omnichannel deployment via connectors to Facebook, Slack, Twilio SMS, etc.",
+      "Built-in sentiment analysis to detect user frustration or satisfaction",
+      "Direct integration with Amazon Kendra for intelligent FAQ and document search"
     ],
     "rating": 4.2,
     "verified": true,
@@ -1973,9 +2145,13 @@
     "trending": false,
     "slug": "amazon-lex",
     "tags": [
-      "AI",
-      "NLP",
-      "AWS"
+      "aws",
+      "chatbot",
+      "voice-assistant",
+      "conversational-ai",
+      "nlp",
+      "speech-recognition",
+      "aws-lambda"
     ],
     "subcategories": [
       "conversational-ai"
@@ -1998,12 +2174,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Customer service chatbots for handling FAQs and support tickets",
+      "Voice-enabled interactive voice response (IVR) systems for call centers",
+      "Informational bots for internal HR or IT helpdesk portals",
+      "E-commerce order tracking and booking assistants",
+      "Data collection and lead qualification bots on websites"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free Tier: First 10,000 text requests and 5,000 speech requests per month for the first 12 months",
+        "Standard: Pay-as-you-go after free tier - $0.004 per text request, $0.0065 per speech request (varies by region)"
+      ],
+      "free_tier": "Yes - Limited requests per month for first 12 months",
+      "starting_price": "$0.004 per request (text)"
+    },
+    "target_audience": [
+      "enterprise developers",
+      "devops engineers",
+      "customer experience managers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "amazon-rekognition",
     "name": "Amazon Rekognition",
-    "description": "AWS image and video analysis service offering face recognition, moderation, and custom label detection.",
+    "description": "Amazon Rekognition is a fully managed computer vision service on AWS that uses deep learning to analyze images and videos for objects, people, text, scenes, and activities. It provides pre-trained and customizable APIs for facial recognition, content moderation, and media metadata extraction, targeting developers and businesses needing scalable, serverless vision AI without managing infrastructure. Its key differentiator is deep integration with the AWS ecosystem, real-time and batch processing, and compliance certifications for regulated industries.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -2013,11 +2212,13 @@
     "website": "https://aws.amazon.com/rekognition",
     "pricing": "paid",
     "features": [
-      "Object & scene detection",
-      "Facial analysis",
-      "Unsafe content moderation",
-      "Celebrity recognition",
-      "Custom labels"
+      "Face detection and analysis (gender, age range, emotions, facial landmarks)",
+      "Face search and verification against stored face collections",
+      "Content moderation for detecting explicit or suggestive imagery in images/videos",
+      "Custom Labels to train models on specific object detection using AutoML",
+      "Celebrity recognition from a pre-trained database of public figures",
+      "Text detection (OCR) in images and videos across multiple languages",
+      "Pathing and activity detection in video for security and sports analysis"
     ],
     "rating": 4.3,
     "verified": true,
@@ -2025,9 +2226,14 @@
     "trending": true,
     "slug": "amazon-rekognition",
     "tags": [
-      "AWS",
-      "Cloud",
-      "API"
+      "aws",
+      "cloud-ai",
+      "image-analysis",
+      "video-analysis",
+      "face-recognition",
+      "content-moderation",
+      "ml-api",
+      "deep-learning"
     ],
     "subcategories": [
       "api",
@@ -2051,12 +2257,37 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Media & entertainment: Automating metadata tagging and celebrity identification in content libraries",
+      "Security & surveillance: Real-time person-of-interest detection in live video streams",
+      "Social platforms: Proactive moderation of user-uploaded content for inappropriate imagery",
+      "Retail: Analyzing in-store customer demographics and sentiment via camera feeds",
+      "Access control: Facial verification for physical or digital identity authentication",
+      "Archive digitization: Extracting printed text and handwriting from historical documents"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free Tier: First 5,000 images per month for 12 months (Face Detection, Custom Labels, etc.), 1,000 face metadata storage months",
+        "Pay-as-you-go: Tiered pricing per image analyzed (e.g., $1.00 per 1,000 images for Face Detection) and per minute of video processed (e.g., $0.10/min for Video Face Search)",
+        "Enterprise: Custom volume-based pricing and private deployments available via AWS Enterprise Agreement"
+      ],
+      "free_tier": "Yes - Limited free usage for first 12 months as above",
+      "starting_price": "Free for first 12 months within limits, then ~$0.001 per image for basic analysis"
+    },
+    "target_audience": [
+      "enterprise-developers",
+      "media-and-entertainment-companies",
+      "security-and-surveillance-firms"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "amazon-sagemaker-ground-truth",
     "name": "Amazon SageMaker Ground Truth",
-    "description": "AWS data labeling service with built-in workflows, human reviewers, and machine learning assistance for high-quality training datasets.",
+    "description": "Amazon SageMaker Ground Truth is a fully managed data labeling service that helps build highly accurate training datasets for machine learning. It provides built-in workflows, access to human labelers through Amazon Mechanical Turk, third-party vendors, or your own workforce, and uses active learning to automate labeling and reduce costs. It uniquely integrates directly with the SageMaker ecosystem for end-to-end ML development and offers advanced features like automatic 3D point cloud labeling and adjustment workflows.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -2066,11 +2297,13 @@
     "website": "https://aws.amazon.com/sagemaker",
     "pricing": "paid",
     "features": [
-      "Built-in workflows",
-      "Human reviewers",
-      "ML assistance",
-      "Quality control",
-      "AWS integration"
+      "Built-in labeling workflows for image, text, video, and 3D point cloud data",
+      "Access to a managed workforce (Mechanical Turk, third-party vendors, or private teams)",
+      "Automated labeling using Active Learning to reduce manual work by up to 70%",
+      "Advanced tooling: 3D point cloud cuboid interpolation, frame-by-frame video tracking",
+      "Integrated data verification and audit controls for quality assurance",
+      "Direct pipeline to Amazon SageMaker for model training and deployment",
+      "Support for custom labeling workflows and task templates"
     ],
     "rating": 4.4,
     "verified": true,
@@ -2078,10 +2311,13 @@
     "trending": false,
     "slug": "amazon-sagemaker-ground-truth",
     "tags": [
-      "AWS",
-      "Cloud Labeling",
-      "Human Review",
-      "ML Assistance"
+      "aws",
+      "data-labeling",
+      "training-data",
+      "active-learning",
+      "ml-workflows",
+      "human-in-the-loop",
+      "sagemaker"
     ],
     "subcategories": [
       "cloud-labeling",
@@ -2105,12 +2341,36 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Labeling image datasets for object detection in autonomous vehicle development",
+      "Annotating text data for named entity recognition (NER) in NLP models",
+      "Creating segmentation masks for medical imaging analysis",
+      "Labeling video frames for activity recognition in security applications",
+      "Annotating 3D point clouds from LiDAR for robotics and spatial mapping",
+      "Classifying and moderating user-generated content for compliance"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "No upfront or minimum fee. Pay only for what you use.",
+        "Pricing components: 1) Task pricing per dataset (e.g., $0.08 per image for bounding box), 2) Workforce pricing (Mechanical Turk, vendor, or private hourly rates), 3) Optional ML-assisted labeling inference cost."
+      ],
+      "free_tier": "No - AWS Free Tier does not specifically include SageMaker Ground Truth charges.",
+      "starting_price": "Task pricing starts at ~$0.008 per object for image classification. Total cost varies significantly by task type, volume, and workforce choice."
+    },
+    "target_audience": [
+      "ml engineers & data scientists",
+      "enterprise ai teams",
+      "autonomous vehicle & robotics companies"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "amazon-translate",
     "name": "Amazon Translate",
-    "description": "Neural machine translation service providing fast and accurate language translation for text and documents.",
+    "description": "Amazon Translate is a fully managed neural machine translation service from AWS that enables developers and businesses to add real-time and batch language translation capabilities to their applications and workflows. It supports a wide range of languages and offers key features like custom terminology and active custom translation to maintain brand voice and domain-specific accuracy. Its primary differentiator is its deep integration with the AWS ecosystem, allowing for scalable, secure, and cost-effective translation as part of larger cloud architectures.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -2118,13 +2378,15 @@
     ],
     "url": "https://aws.amazon.com/translate",
     "website": "https://aws.amazon.com/translate",
-    "pricing": "pay-per-use",
+    "pricing": "paid",
     "features": [
-      "Real-time translation",
-      "Batch translation",
-      "Custom terminology",
-      "Active custom translation",
-      "Language auto-detection"
+      "Real-time translation API for low-latency, synchronous text translation",
+      "Asynchronous batch translation for processing large documents and text files stored in Amazon S3",
+      "Custom Terminology to enforce the use of preferred brand or domain-specific terms",
+      "Active Custom Translation (ACT) to train and use custom translation models for specific domains",
+      "Automatic language detection for source text",
+      "Support for translating documents in formats like HTML, plain text, and supported Office formats",
+      "Integration with AWS services like Lambda, Step Functions, and Comprehend for automated workflows"
     ],
     "rating": 4.3,
     "verified": true,
@@ -2132,9 +2394,13 @@
     "trending": false,
     "slug": "amazon-translate",
     "tags": [
-      "AI",
-      "NLP",
-      "AWS"
+      "machine-translation",
+      "aws",
+      "real-time-translation",
+      "batch-processing",
+      "localization",
+      "custom-terminology",
+      "neural-networks"
     ],
     "subcategories": [
       "machine-translation"
@@ -2157,13 +2423,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Localizing user-generated content (e.g., reviews, support tickets) for global customer support platforms",
+      "Translating website and application content for international market expansion",
+      "Processing and translating large volumes of documents (legal, technical, medical) for multinational enterprises",
+      "Enabling real-time chat translation in communication and collaboration tools",
+      "Creating multilingual reports and dashboards from business intelligence data"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free Tier: First 2 million characters per month for 12 months (for both real-time and batch)",
+        "Standard Tier: Pay-as-you-go pricing per character translated after the free tier (e.g., $15.00 per million characters for common language pairs)",
+        "Active Custom Translation (ACT): Additional training and hosting fees apply on top of standard translation costs"
+      ],
+      "free_tier": "Yes - First 2 million characters translated per month for the first 12 months",
+      "starting_price": "Free for first 2M chars/mo, then ~$15.00 per million characters (price varies by language pair)"
+    },
+    "target_audience": [
+      "enterprise developers",
+      "global businesses & e-commerce",
+      "content management & localization teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "amundsen",
     "name": "Amundsen",
-    "description": "Data discovery and metadata engine by Lyft providing search interface for data to improve productivity of data scientists and analysts.",
-    "category": "ml-frameworks",
+    "description": "Amundsen is an open-source data discovery and metadata engine originally developed by Lyft. It provides a centralized search and catalog interface for data assets (tables, dashboards, streams) across an organization, enabling users to find, understand, and trust data. Its key capabilities include automated metadata ingestion, data lineage visualization, and usage-driven ranking, uniquely focusing on improving data productivity and reducing time spent searching for data.",
+    "category": "analytics-bi",
     "categories": [
       "machine-learning-frameworks",
       "data-discovery"
@@ -2172,11 +2462,13 @@
     "website": "https://amundsen.io",
     "pricing": "open-source",
     "features": [
-      "Data discovery",
-      "Metadata search",
-      "Data lineage",
-      "Popular tables",
-      "Column descriptions"
+      "Automated metadata ingestion from sources like Apache Atlas, AWS Glue, and databases",
+      "Search interface with ranking based on usage patterns (e.g., frequent queries, popularity)",
+      "Column-level lineage tracking to visualize data flow and dependencies",
+      "Table and column descriptions with wiki-like collaboration (editable by users)",
+      "Preview of sample data and statistics for tables",
+      "Integration with BI tools (e.g., Tableau, Looker) and data platforms (e.g., Snowflake, Redshift)",
+      "User activity tracking to surface 'popular tables' and expert recommendations"
     ],
     "rating": 4.4,
     "verified": true,
@@ -2184,11 +2476,13 @@
     "trending": false,
     "slug": "amundsen",
     "tags": [
-      "Lyft",
-      "Data Discovery",
-      "Metadata",
-      "Search",
-      "Productivity"
+      "data-catalog",
+      "metadata-management",
+      "data-lineage",
+      "data-governance",
+      "open-source",
+      "data-discovery",
+      "lyft"
     ],
     "subcategories": [
       "data-discovery",
@@ -2212,12 +2506,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Data scientists reducing time to find relevant datasets for model training",
+      "Analysts verifying data provenance and column definitions before report creation",
+      "Data engineers tracking downstream impact of schema changes via lineage",
+      "Centralized data governance teams maintaining a single source of truth for metadata",
+      "Onboarding new team members with self-service data exploration"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code for self-hosted deployment"
+      ],
+      "free_tier": "Yes - entire platform is open-source under Apache 2.0 license",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data engineers",
+      "data scientists",
+      "data analysts",
+      "data stewards"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "annotorious",
     "name": "Annotorious",
-    "description": "Free open-source image and video annotation tool with embeddable interface for websites and applications with real-time collaboration.",
+    "description": "Annotorious is a free, open-source JavaScript library for adding image annotation capabilities directly to web applications. It provides a lightweight, embeddable interface for drawing shapes (polygons, rectangles, points) and attaching labels or comments to images, enabling collaborative annotation workflows. Its unique value lies in its developer-first approach, offering seamless integration into existing web projects without requiring a standalone platform or complex backend.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -2225,13 +2542,14 @@
     ],
     "url": "https://annotorious.github.io",
     "website": "https://annotorious.github.io",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Web embeddable",
-      "Real-time collaboration",
-      "Multiple annotation types",
-      "Lightweight design",
-      "Open source"
+      "Embeddable JavaScript library for web apps",
+      "Client-side image annotation (rectangles, polygons, points, freehand)",
+      "Real-time collaboration via WebSocket or external services",
+      "Plugin architecture for extensibility (e.g., OpenSeadragon for IIIF, Tesseract.js for OCR)",
+      "Export annotations in W3C Web Annotation Data Model format",
+      "Fully customizable UI and styling via CSS"
     ],
     "rating": 4.1,
     "verified": true,
@@ -2239,10 +2557,13 @@
     "trending": false,
     "slug": "annotorious",
     "tags": [
-      "Open Source",
-      "Embeddable",
-      "Web-based",
-      "Lightweight"
+      "open-source",
+      "javascript-library",
+      "image-annotation",
+      "web-embed",
+      "data-labeling",
+      "collaborative-tool",
+      "developer-tools"
     ],
     "subcategories": [
       "annotation-tool",
@@ -2266,12 +2587,34 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Collaborative data labeling for machine learning training sets",
+      "Cultural heritage digitization and scholarly image analysis",
+      "Quality control and defect marking in manufacturing or medical imaging",
+      "Educational platforms for students to annotate diagrams or artwork",
+      "Crowdsourcing projects for geographic or biological data tagging"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The core Annotorious library and all official plugins are completely free under the MIT or BSD license."
+      ],
+      "free_tier": "Yes - The entire project is free and open-source.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Web developers and software engineers",
+      "ML/AI researchers and data scientists",
+      "Digital humanists, librarians, and museum curators"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "annoy",
     "name": "Annoy",
-    "description": "C++ library with Python bindings for approximate nearest neighbors by Spotify, optimized for memory usage and fast queries.",
+    "description": "Annoy (Approximate Nearest Neighbors Oh Yeah) is a C++ library with Python bindings developed by Spotify for performing fast, memory-efficient approximate nearest neighbor (ANN) searches in high-dimensional spaces. Its key capability is building large, static read-only tree-based indices that are memory-mapped, enabling multiple processes to share the same data for fast queries. It is uniquely optimized for production environments where low memory footprint and high query speed are critical, making it a popular choice for building recommendation systems and similarity search backends.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -2281,11 +2624,13 @@
     "website": "https://github.com/spotify/annoy",
     "pricing": "open-source",
     "features": [
-      "Approximate nearest neighbors",
-      "Memory efficient",
-      "Fast queries",
-      "Multiple distance metrics",
-      "Thread-safe reads"
+      "Builds static tree-based indices (binary trees or forests) for approximate nearest neighbor search",
+      "Uses memory-mapped files for zero-copy sharing of indices between processes",
+      "Supports multiple distance metrics: Euclidean, Manhattan, Cosine, Dot Product, and Hamming",
+      "Provides thread-safe read operations for concurrent querying",
+      "Offers Python bindings for easy integration with ML/data science workflows",
+      "Optimized for low memory usage by storing vectors on disk and loading them on-demand",
+      "Allows control over accuracy vs. speed trade-off via the number of trees built"
     ],
     "rating": 4.4,
     "verified": true,
@@ -2293,11 +2638,14 @@
     "trending": false,
     "slug": "annoy",
     "tags": [
-      "Spotify",
-      "Nearest Neighbors",
-      "Memory Efficient",
-      "Fast",
-      "C++"
+      "approximate-nearest-neighbors",
+      "similarity-search",
+      "spotify",
+      "c-plus-plus-library",
+      "memory-mapped-index",
+      "high-dimensional-data",
+      "recommendation-systems",
+      "static-indices"
     ],
     "subcategories": [
       "nearest-neighbors",
@@ -2321,26 +2669,51 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Music and content recommendation engines (e.g., Spotify's 'Discover Weekly')",
+      "Image similarity search for large visual databases",
+      "Finding similar documents or articles in text retrieval systems",
+      "Deduplication of user profiles or items in e-commerce catalogs",
+      "Real-time anomaly detection by comparing new data points to historical patterns",
+      "Feature vector search in machine learning pipelines for model inference"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to library source code and features under Apache 2.0 License"
+      ],
+      "free_tier": "Yes - entire library is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "machine-learning-engineers",
+      "data-scientists-building-production-systems",
+      "backend-developers-implementing-similarity-search"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "anthropic-api",
     "name": "Anthropic API",
-    "description": "Developer platform for accessing Claude AI models with safety-focused AI capabilities.",
-    "category": "generative-ai",
+    "description": "The Anthropic API is a developer platform that provides programmatic access to Claude, a family of advanced large language models (LLMs). It enables developers to integrate sophisticated AI reasoning, content generation, and analysis into applications, with a core architectural emphasis on safety, reliability, and steerability through its Constitutional AI principles. It is uniquely positioned for enterprises and builders who prioritize controlled, low-harm outputs alongside cutting-edge model capabilities like a 200K token context window.",
+    "category": "llms",
     "categories": [
       "ai-platforms",
       "code-ai"
     ],
     "url": "https://console.anthropic.com",
     "website": "https://anthropic.com",
-    "pricing": "pay-per-use",
+    "pricing": "paid",
     "features": [
-      "Claude model access",
-      "Safety-focused AI",
-      "Large context windows",
-      "Function calling",
-      "Constitutional AI"
+      "Access to Claude 3 model family (Haiku, Sonnet, Opus) with varying capabilities",
+      "Industry-leading 200,000 token context window for processing long documents",
+      "Structured outputs and function calling for reliable tool/API integration",
+      "Vision capabilities (image analysis) with Claude 3 models",
+      "Constitutional AI framework designed to reduce harmful, biased, or evasive outputs",
+      "Streaming and non-streaming API responses for different application needs",
+      "Tool use (beta) for executing code, searches, and other defined functions"
     ],
     "rating": 4.5,
     "verified": true,
@@ -2348,11 +2721,13 @@
     "trending": true,
     "slug": "anthropic-api",
     "tags": [
-      "AI",
-      "API",
-      "Safety",
-      "Claude",
-      "Developer"
+      "llm-api",
+      "constitutional-ai",
+      "claude",
+      "text-generation",
+      "enterprise-ai",
+      "ai-safety",
+      "function-calling"
     ],
     "subcategories": [
       "developer-api",
@@ -2376,12 +2751,35 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building AI assistants for customer support with strict safety and brand guidelines",
+      "Analyzing and summarizing long-form legal, financial, or technical documents",
+      "Powering complex research and reasoning workflows that require multi-step analysis",
+      "Generating and refining code with an emphasis on security and best practices",
+      "Creating content moderation systems or safe, guided creative writing tools"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Pay-As-You-Go: No monthly commit - pay per token for input and output",
+        "Enterprise: Custom pricing - includes volume discounts, dedicated support, and enhanced security terms"
+      ],
+      "free_tier": "Yes - $5 in API credits for new users upon sign-up (no ongoing free tier)",
+      "starting_price": "Usage-based, starting at ~$0.25 per million tokens for input on Claude 3 Haiku"
+    },
+    "target_audience": [
+      "enterprise-developers",
+      "ai-researchers",
+      "startup-founders"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "anthropic-claude-3",
     "name": "Anthropic Claude 3",
-    "description": "Latest generation of Claude AI with enhanced reasoning, vision capabilities, and improved safety measures.",
+    "description": "Claude 3 is a family of state-of-the-art large language models (LLMs) developed by Anthropic, designed for complex reasoning, analysis, and content creation. It features multimodal vision capabilities, industry-leading long context windows, and is built with Constitutional AI principles for enhanced safety and steerability. It uniquely targets enterprise and developer use-cases where reliability, safety, and advanced cognitive performance are critical.",
     "category": "llms",
     "categories": [
       "Natural Language Processing",
@@ -2391,11 +2789,13 @@
     "website": "https://www.anthropic.com",
     "pricing": "paid",
     "features": [
-      "Vision capabilities",
-      "Advanced reasoning",
-      "Constitutional AI",
-      "Safety measures",
-      "Long context windows"
+      "Multimodal Vision: Can process and analyze uploaded images, charts, diagrams, and documents (PDFs, PPTs).",
+      "Long Context Window: Supports up to 200,000 tokens (Claude 3 Opus), enabling deep analysis of lengthy documents.",
+      "Constitutional AI: Training and alignment methodology designed to make models safer, more honest, and less likely to produce harmful outputs.",
+      "Three Model Tiers: Opus (most capable), Sonnet (balanced intelligence/speed), and Haiku (fastest, most cost-effective).",
+      "Advanced Reasoning & Analysis: Excels at complex cognitive tasks like coding, mathematical problem-solving, and nuanced content synthesis.",
+      "Low Latency & High Throughput: Particularly the Sonnet and Haiku models are optimized for scalable, responsive API performance.",
+      "Steerability & Control: Offers developers fine-grained control over model behavior, tone, and output format via system prompts."
     ],
     "rating": 4.7,
     "verified": true,
@@ -2403,9 +2803,13 @@
     "trending": true,
     "slug": "anthropic-claude-3",
     "tags": [
-      "AI",
-      "NLP",
-      "Anthropic"
+      "large-language-model",
+      "multimodal-ai",
+      "constitutional-ai",
+      "enterprise-ai",
+      "reasoning-engine",
+      "api-llm",
+      "safe-ai"
     ],
     "subcategories": [
       "large-language-models"
@@ -2428,12 +2832,36 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Enterprise Knowledge Base Q&A: Analyzing hundreds of pages of internal documents, research papers, or legal contracts to answer specific queries.",
+      "Code Generation & Review: Writing, debugging, and explaining code across multiple programming languages within a developer's workflow.",
+      "Research & Data Analysis: Summarizing scientific literature, extracting insights from complex datasets, and generating reports from charts and graphs.",
+      "Content Strategy & Creation: Brainstorming, drafting, and refining long-form content like blog posts, marketing copy, and technical documentation.",
+      "Customer Support Automation: Powering sophisticated chatbots that can understand context from support tickets and knowledge bases to provide accurate resolutions."
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free Tier: No. Anthropic offers a limited free trial via the Claude console for new users to test the API, but no permanent free tier for the Claude 3 API.",
+        "Pro (Claude.ai): $20 USD/month (US/UK) for priority access to Claude 3 Opus on the chat interface, higher usage limits, and early access to new features.",
+        "Enterprise (API): Custom pricing based on volume and needs. Direct billing for API usage per token for input/output across Opus, Sonnet, and Haiku models."
+      ],
+      "free_tier": "No - Limited free trial only for API via console. The Claude.ai chat interface may have a free, rate-limited tier using the Sonnet model.",
+      "starting_price": "API pricing starts at ~$0.25 per 1M tokens input for Claude 3 Haiku. The Claude Pro subscription starts at $20/month."
+    },
+    "target_audience": [
+      "enterprise developers & engineers",
+      "data scientists & researchers",
+      "content strategists & technical writers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "anyword",
     "name": "Anyword",
-    "description": "AI copywriting platform that predicts content performance and generates high-converting marketing copy.",
+    "description": "Anyword is an AI-powered copywriting and content optimization platform designed for marketers and businesses. Its core capability is generating and scoring marketing copy—such as ads, emails, and landing pages—using predictive models trained on performance data to forecast engagement and conversion rates. What sets it apart is its 'Predictive Performance Score,' which uses historical data to estimate how specific copy variations will perform before they are published, helping users create higher-converting content.",
     "category": "generative-ai",
     "categories": [
       "writing-content",
@@ -2443,11 +2871,13 @@
     "website": "https://anyword.com",
     "pricing": "freemium",
     "features": [
-      "Performance prediction",
-      "A/B testing",
-      "Copy scoring",
-      "Brand voice training",
-      "Marketing optimization"
+      "Predictive Performance Score: AI-generated score (0-100) estimating copy's potential conversion/engagement based on historical data",
+      "Brand Voice Training: Learn and replicate specific brand tone, style, and terminology from uploaded examples",
+      "A/B Testing & Insights: Generate multiple copy variations with performance predictions to compare and test",
+      "Copy Scoring & Analysis: Evaluate existing copy (e.g., from websites or ads) with performance insights and improvement suggestions",
+      "Channel-Specific Optimization: Generate tailored copy for platforms like Facebook Ads, Google Ads, Email, LinkedIn, and landing pages",
+      "SEO & Blog Content Tools: Generate SEO-friendly blog outlines, titles, and meta descriptions with performance guidance",
+      "API Access: Integrate Anyword's copy generation and scoring capabilities into other marketing tools and workflows"
     ],
     "rating": 4.3,
     "verified": true,
@@ -2455,11 +2885,14 @@
     "trending": false,
     "slug": "anyword",
     "tags": [
-      "AI",
-      "Copywriting",
-      "Performance Prediction",
-      "Marketing",
-      "A/B Testing"
+      "ai-copywriting",
+      "marketing-optimization",
+      "performance-prediction",
+      "content-scoring",
+      "brand-voice",
+      "ab-testing",
+      "ad-copy",
+      "seo-content"
     ],
     "subcategories": [
       "marketing-copy",
@@ -2483,13 +2916,40 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Generating and optimizing high-converting paid ad copy (Meta, Google) before launching campaigns",
+      "Creating performance-optimized email subject lines and body copy for marketing campaigns",
+      "Developing on-brand, engaging social media posts and LinkedIn content with predicted engagement scores",
+      "Writing and scoring SEO-driven blog post titles, introductions, and meta descriptions",
+      "A/B testing multiple landing page headline and CTA variations during the design phase",
+      "Maintaining consistent brand voice across all customer-facing marketing and support content"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Limited access with 1 user, 1 brand voice, 1,000 words/month, basic predictive scores",
+        "Starter: $49/month (billed annually) - 1 user, 1 brand voice, 30,000 words/month, full predictive scores, 50+ copy analysis/month",
+        "Data-Driven: $99/month (billed annually) - 1 user, 3 brand voices, unlimited words, unlimited copy analysis, API access",
+        "Business: $399/month (billed annually) - 5 users, 10 brand voices, all Data-Driven features plus team management",
+        "Enterprise: Custom pricing - Unlimited users, custom brand voices, advanced security, SSO, dedicated support"
+      ],
+      "free_tier": "Yes - 1,000 words/month, 1 brand voice, basic predictive scores",
+      "starting_price": "$49/month (annual billing)"
+    },
+    "target_audience": [
+      "Marketing teams & agencies",
+      "E-commerce businesses",
+      "Content creators & copywriters"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "apache-atlas",
     "name": "Apache Atlas",
-    "description": "Open-source metadata management and data governance framework enabling enterprises to meet compliance requirements with lineage tracking and classification.",
-    "category": "ml-frameworks",
+    "description": "Apache Atlas is an open-source metadata management and governance platform designed specifically for Hadoop ecosystems. It provides a centralized repository for tracking data lineage, classifying sensitive information, and enforcing governance policies across distributed data systems. What makes it unique is its deep integration with the Hadoop stack (Hive, HBase, Kafka, etc.) and its ability to maintain a complete view of data relationships and transformations in complex enterprise environments.",
+    "category": "data-governance",
     "categories": [
       "machine-learning-frameworks",
       "data-governance"
@@ -2498,11 +2958,13 @@
     "website": "https://atlas.apache.org",
     "pricing": "open-source",
     "features": [
-      "Metadata management",
-      "Data governance",
-      "Lineage tracking",
-      "Classification system",
-      "Security integration"
+      "Type system for defining metadata models and relationships",
+      "REST APIs for metadata ingestion, discovery, and lineage tracking",
+      "Business taxonomy and classification system with automated tagging",
+      "End-to-end data lineage visualization across Hadoop components",
+      "Security integration with Apache Ranger for policy enforcement",
+      "Audit framework for tracking metadata changes and access",
+      "Search and discovery interface for data assets"
     ],
     "rating": 4.3,
     "verified": true,
@@ -2510,11 +2972,13 @@
     "trending": false,
     "slug": "apache-atlas",
     "tags": [
-      "Apache",
-      "Metadata",
-      "Governance",
-      "Lineage",
-      "Classification"
+      "metadata-management",
+      "data-lineage",
+      "hadoop-ecosystem",
+      "compliance",
+      "data-catalog",
+      "apache-project",
+      "data-classification"
     ],
     "subcategories": [
       "data-governance",
@@ -2538,12 +3002,36 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Regulatory compliance tracking (GDPR, CCPA, HIPAA) for data lakes",
+      "Impact analysis of schema changes across ETL pipelines",
+      "Data quality monitoring through lineage-based dependency tracking",
+      "Self-service data discovery for analysts and data scientists",
+      "Sensitive data identification and access control enforcement",
+      "Migration planning for legacy Hadoop systems to cloud platforms"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Complete Apache-licensed source code with no commercial restrictions"
+      ],
+      "free_tier": "Yes - All features available under Apache License 2.0",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data architects",
+      "data governance teams",
+      "hadoop administrators",
+      "compliance officers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-beam-ml",
     "name": "Apache Beam ML",
-    "description": "Unified model for defining and executing data processing workflows including machine learning pipelines for both batch and streaming data.",
+    "description": "Apache Beam ML is a component of the Apache Beam framework that provides a unified programming model for building portable, scalable data processing pipelines, with specialized APIs for machine learning inference. Its key capability is the RunInference API, which allows users to integrate trained models from multiple frameworks (like TensorFlow, PyTorch, Scikit-learn) into both batch and streaming data workflows. It uniquely enables the same ML inference logic to run identically across diverse execution engines (e.g., Apache Flink, Google Cloud Dataflow, Apache Spark) and is targeted at data engineers and ML engineers building production ML systems.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -2553,11 +3041,13 @@
     "website": "https://beam.apache.org",
     "pricing": "open-source",
     "features": [
-      "Batch and streaming processing",
-      "RunInference API",
-      "Multi-framework support",
-      "Scalable data pipelines",
-      "Cloud-native architecture"
+      "RunInference API for integrating pre-trained models into data pipelines",
+      "Support for models from TensorFlow, PyTorch, PyTorch Lightning, Scikit-learn, and ONNX",
+      "Native handling of very large models via model sharding and external loading",
+      "Unified batch and streaming data processing model",
+      "Portable execution across runners like Dataflow, Flink, Spark, and Samza",
+      "Built-in metrics for monitoring inference performance and throughput",
+      "Support for custom inference logic and complex input/output types"
     ],
     "rating": 4.5,
     "verified": true,
@@ -2565,11 +3055,13 @@
     "trending": true,
     "slug": "apache-beam-ml",
     "tags": [
-      "Apache",
-      "Data Processing",
-      "Streaming",
-      "Batch",
-      "Pipelines"
+      "apache-beam",
+      "machine-learning-inference",
+      "data-pipelines",
+      "model-serving",
+      "streaming-ml",
+      "batch-processing",
+      "multi-framework"
     ],
     "subcategories": [
       "data-processing",
@@ -2593,12 +3085,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Real-time fraud detection by applying ML models to streaming transaction data",
+      "Batch scoring of large datasets for customer segmentation or recommendation systems",
+      "A/B testing ML models by deploying multiple model versions within the same pipeline",
+      "Preprocessing feature data and performing inference in a single, scalable pipeline",
+      "Updating ensemble model predictions in real-time as new streaming data arrives"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The Apache Beam framework and Beam ML are completely free and open-source under the Apache 2.0 License."
+      ],
+      "free_tier": "Yes - The entire platform is free and open-source.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data engineers",
+      "ml engineers",
+      "platform engineers building ml infrastructure"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-flink-ml",
     "name": "Apache Flink ML",
-    "description": "Machine learning library for Apache Flink providing distributed ML algorithms and infrastructures for building scalable ML pipelines.",
+    "description": "Apache Flink ML is a machine learning library built on top of Apache Flink, designed for building and deploying scalable, end-to-end ML pipelines on streaming and batch data. Its key capability is providing a unified API for both batch and stream processing, enabling real-time model training, inference, and continuous learning directly within a high-throughput, fault-tolerant dataflow engine. It is unique for its deep integration with Flink's stateful stream processing, allowing for low-latency, stateful ML applications that are inherently distributed and resilient.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -2608,11 +3122,13 @@
     "website": "https://flink.apache.org",
     "pricing": "open-source",
     "features": [
-      "Stream processing ML",
-      "Distributed algorithms",
-      "Real-time inference",
-      "Scalable pipelines",
-      "Fault tolerance"
+      "Unified API for batch and streaming ML algorithms",
+      "Native integration with Flink's DataStream and Table APIs for pipeline construction",
+      "Support for stateful machine learning models (e.g., online learning, model updates)",
+      "Library of algorithms including linear models, SVM, decision trees, and k-means",
+      "Model serving and real-time inference capabilities within Flink jobs",
+      "Exactly-once consistency guarantees for model state through Flink's checkpointing",
+      "Scalable model training and evaluation on large datasets"
     ],
     "rating": 4.4,
     "verified": true,
@@ -2620,11 +3136,14 @@
     "trending": true,
     "slug": "apache-flink-ml",
     "tags": [
-      "Apache Flink",
-      "Stream Processing",
-      "Distributed",
-      "Real-time",
-      "Fault Tolerant"
+      "apache-flink",
+      "stream-processing",
+      "distributed-ml",
+      "real-time-ml",
+      "stateful-computation",
+      "fault-tolerant",
+      "dataflow-engine",
+      "batch-processing"
     ],
     "subcategories": [
       "stream-processing",
@@ -2648,12 +3167,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Real-time fraud detection on financial transaction streams",
+      "Dynamic pricing and recommendation systems for e-commerce",
+      "Predictive maintenance on continuous sensor data from IoT devices",
+      "Anomaly detection in network security logs",
+      "Online learning for click-through rate (CTR) prediction in advertising",
+      "Feature engineering and model scoring within unified ETL/ML pipelines"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Complete access to the Apache 2.0 licensed library and source code"
+      ],
+      "free_tier": "Yes - The entire project is free and open-source under the Apache License 2.0",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data engineers building real-time ML systems",
+      "ML engineers needing low-latency, stateful model serving",
+      "organizations with existing Apache Flink streaming infrastructure"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-mahout",
     "name": "Apache Mahout",
-    "description": "Scalable machine learning algorithms focused on linear algebra and distributed computing, primarily supporting Apache Spark for big data applications.",
+    "description": "Apache Mahout is an open-source, distributed machine learning framework designed for scalability and performance on large datasets. Its key capabilities include implementing scalable algorithms for classification, clustering, and collaborative filtering, with a strong focus on linear algebra operations optimized for distributed computing environments like Apache Spark and Flink. It uniquely targets developers and data scientists needing to build and deploy machine learning models at scale, differentiating itself through its mathematically expressive Scala DSL (Samsara) and its origin as part of the mature Apache Hadoop ecosystem.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -2663,11 +3205,12 @@
     "website": "https://mahout.apache.org",
     "pricing": "open-source",
     "features": [
-      "Distributed algorithms",
-      "Linear algebra focus",
-      "Spark integration",
-      "Scala DSL",
-      "Recommender systems"
+      "Scalable ML algorithms for classification, clustering, and collaborative filtering",
+      "Mathematically expressive Scala DSL (Samsara) for linear algebra operations",
+      "Native integration with Apache Spark and Apache Flink as computation backends",
+      "Optimized distributed linear algebra library for large-scale matrix operations",
+      "Focused support for building large-scale recommender systems",
+      "Algorithm implementations designed for scalability over single-machine performance"
     ],
     "rating": 4.1,
     "verified": true,
@@ -2676,10 +3219,12 @@
     "slug": "apache-mahout",
     "tags": [
       "Apache",
-      "Distributed",
-      "Linear Algebra",
+      "Distributed-Computing",
+      "Scalable-ML",
       "Spark",
-      "Recommendations"
+      "Linear-Algebra",
+      "Recommendation-Systems",
+      "Clustering"
     ],
     "subcategories": [
       "linear-algebra",
@@ -2703,7 +3248,28 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building large-scale, real-time recommendation engines for e-commerce or media",
+      "Performing customer segmentation and clustering on massive datasets",
+      "Document classification and topic modeling for large text corpora",
+      "Analyzing user behavior patterns for personalization and targeting"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to Apache 2.0 licensed source code, binaries, and documentation"
+      ],
+      "free_tier": "Yes - The entire project is free and open-source under the Apache 2.0 License",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Data Engineers building scalable ML pipelines",
+      "Data Scientists working with very large datasets",
+      "Java/Scala developers in big data ecosystems"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-mxnet",
