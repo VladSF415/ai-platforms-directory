@@ -1,5 +1,5 @@
 import Fastify from 'fastify';
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import Stripe from 'stripe';
@@ -20,6 +20,24 @@ try {
   console.log(`✅ Loaded ${platforms.length} platforms`);
 } catch (error) {
   console.error('Failed to load platforms:', error);
+}
+
+// Load pillar content
+let pillarContent = [];
+try {
+  const pillarDir = join(__dirname, 'pillar-content');
+  if (existsSync(pillarDir)) {
+    const files = readdirSync(pillarDir).filter(f => f.endsWith('.json'));
+    pillarContent = files.map(file => {
+      const data = readFileSync(join(pillarDir, file), 'utf-8');
+      return JSON.parse(data);
+    });
+    console.log(`✅ Loaded ${pillarContent.length} pillar pages`);
+  } else {
+    console.log('⚠️  No pillar-content directory found');
+  }
+} catch (error) {
+  console.error('Failed to load pillar content:', error);
 }
 
 // CORS for development
@@ -108,6 +126,29 @@ fastify.get('/api/categories', async () => {
     .sort((a, b) => b.count - a.count);
 });
 
+// Get pillar content list
+fastify.get('/api/pillar', async () => {
+  return pillarContent.map(p => ({
+    slug: p.slug,
+    category: p.category,
+    title: p.title,
+    metaDescription: p.metaDescription
+  }));
+});
+
+// Get single pillar page
+fastify.get('/api/pillar/:slug', async (request, reply) => {
+  const { slug } = request.params;
+  const pillar = pillarContent.find(p => p.slug === slug);
+
+  if (!pillar) {
+    reply.code(404).send({ error: 'Pillar page not found' });
+    return;
+  }
+
+  return pillar;
+});
+
 // Stats endpoint
 fastify.get('/api/stats', async () => {
   return {
@@ -157,6 +198,16 @@ fastify.get('/sitemap.xml', async (request, reply) => {
     sitemap += `    <lastmod>${today}</lastmod>\n`;
     sitemap += '    <changefreq>weekly</changefreq>\n';
     sitemap += '    <priority>0.8</priority>\n';
+    sitemap += '  </url>\n';
+  });
+
+  // Pillar pages (guides)
+  pillarContent.forEach(pillar => {
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${baseUrl}/guide/${pillar.slug}</loc>\n`;
+    sitemap += `    <lastmod>${today}</lastmod>\n`;
+    sitemap += '    <changefreq>monthly</changefreq>\n';
+    sitemap += '    <priority>0.9</priority>\n';
     sitemap += '  </url>\n';
   });
 
