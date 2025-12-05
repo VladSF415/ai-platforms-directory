@@ -27,7 +27,7 @@ Every day, the system will:
 2. Click **Settings** → **Secrets and variables** → **Actions**
 3. Click **New repository secret**
 4. Name: `DEEPSEEK_API_KEY`
-5. Value: `sk-3f65ad125d194f8d9dca1fef9b47e1d4`
+5. Value: `YOUR_DEEPSEEK_API_KEY_HERE` (get it from DeepSeek dashboard)
 6. Click **Add secret**
 
 ### Step 2: Enable GitHub Actions
@@ -147,7 +147,7 @@ You can run anytime locally:
 
 ```bash
 # Discover new platforms
-set DEEPSEEK_API_KEY=sk-3f65ad125d194f8d9dca1fef9b47e1d4
+set DEEPSEEK_API_KEY=YOUR_API_KEY_HERE
 node scripts/ai-powered-organizer.mjs --discover --max=10 --auto-add
 
 # Enrich existing platforms
