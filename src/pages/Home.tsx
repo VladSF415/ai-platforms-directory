@@ -84,20 +84,7 @@ function Home() {
           </div>
 
           <div style={{ marginTop: '24px', textAlign: 'center' }}>
-            <a
-              href="/submit"
-              style={{
-                display: 'inline-block',
-                padding: '14px 32px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontWeight: '600',
-                fontSize: '16px',
-                boxShadow: '0 4px 12px rgba(102, 126, 234, 0.4)',
-              }}
-            >
+            <a href="/submit" className="submit-btn">
               Submit Your AI Tool
             </a>
           </div>
@@ -156,7 +143,6 @@ function Home() {
                   key={platform.id}
                   className="platform-card"
                   onClick={() => handlePlatformClick(platform)}
-                  style={{ cursor: 'pointer' }}
                 >
                   <div className="platform-header">
                     <div>
@@ -192,7 +178,7 @@ function Home() {
                         </div>
                       )}
                       {platform.pricing && (
-                        <div style={{ fontSize: '0.85rem', color: '#666', marginTop: '0.25rem' }}>
+                        <div className="platform-pricing">
                           {platform.pricing}
                         </div>
                       )}
