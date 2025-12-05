@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Synthesia Studio
+## 1. Cognition Labs Devin
 
-**Category:** video-ai
-**Website:** https://www.synthesia.io
-**Pricing Model:** paid
+**Category:** code-ai
+**Website:** https://www.cognition.ai
+**Pricing Model:** enterprise
 
 **Description:**
-AI video generation platform that creates professional videos from text using realistic AI avatars and voice synthesis. Enables businesses to produce training videos, marketing content, and presentations without cameras or studios. Features multilingual support, custom avatars, and enterprise-grade security.
+First AI software engineer that can autonomously plan, code, debug, and deploy complete software projects. Uses advanced reasoning and long-term planning to handle complex development tasks end-to-end. Targets software teams, startups, and enterprises looking to accelerate development cycles.
 
 **💵 Affiliate Program Details:**
-20% recurring commission via PartnerStack, 90-day cookie duration, $500 minimum payout threshold, enterprise deals up to 30% commission, requires application approval and marketing validation
+Enterprise Partner Program with tiered commissions (15-25%), revenue sharing for large deals, dedicated technical support, requires enterprise sales experience, minimum deal size $50K
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ AI video generation platform that creates professional videos from text using re
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Synthesia Studio** - https://www.synthesia.io
+1. [ ] **Cognition Labs Devin** - https://www.cognition.ai
