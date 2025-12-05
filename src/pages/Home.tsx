@@ -112,7 +112,7 @@ function Home() {
           >
             All Categories
           </button>
-          {categories.slice(0, 8).map((cat) => (
+          {categories.map((cat) => (
             <button
               key={cat.slug}
               className={`filter-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
