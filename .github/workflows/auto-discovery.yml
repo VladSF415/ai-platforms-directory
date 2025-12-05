@@ -48,7 +48,7 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           echo "🔍 Round 1: Discovering new platforms..."
-          node scripts/ai-powered-organizer.mjs --discover --max=20 --auto-add --verbose || true
+          node scripts/ai-powered-organizer.mjs --discover --max=8 --auto-add --verbose || true
 
       - name: Commit new platforms (if any)
         run: |
@@ -71,7 +71,7 @@ jobs:
         run: |
           echo "🔍 Round 2: Discovering more platforms..."
           sleep 60
-          node scripts/ai-powered-organizer.mjs --discover --max=20 --auto-add --verbose || true
+          node scripts/ai-powered-organizer.mjs --discover --max=8 --auto-add --verbose || true
 
       - name: Commit Round 2 (if any)
         run: |
@@ -112,7 +112,7 @@ jobs:
         run: |
           echo "🔍 Round 3: Final discovery sweep..."
           sleep 60
-          node scripts/ai-powered-organizer.mjs --discover --max=15 --auto-add --verbose || true
+          node scripts/ai-powered-organizer.mjs --discover --max=8 --auto-add --verbose || true
 
       - name: Commit Round 3 (if any)
         run: |

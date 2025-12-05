@@ -175,7 +175,7 @@ async function callDeepSeek(prompt, system = '') {
           { role: 'user', content: prompt }
         ],
         temperature: 0.7,
-        max_tokens: 4000
+        max_tokens: 8000  // Increased for complete platform JSON responses
       })
     });
 
