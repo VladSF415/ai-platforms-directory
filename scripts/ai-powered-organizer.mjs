@@ -20,6 +20,7 @@ const __dirname = dirname(__filename);
 // Configuration
 const CONFIG = {
   platforms_path: join(__dirname, '../platforms.json'),
+  affiliate_opportunities_path: join(__dirname, '../affiliate-opportunities.md'),
   anthropic_api_key: process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY,
   openai_api_key: process.env.OPENAI_API_KEY,
   deepseek_api_key: process.env.DEEPSEEK_API_KEY,
@@ -46,6 +47,7 @@ const DISCOVERY_SOURCES = [
 ];
 
 let platforms = [];
+let affiliateOpportunities = [];
 
 // Load platforms
 try {
@@ -209,36 +211,66 @@ async function discoverNewPlatforms() {
     .filter(p => p.name)
     .map(p => p.name.toLowerCase());
 
+  // Get existing categories
+  const existingCategories = [...new Set(platforms.map(p => p.category).filter(Boolean))].sort();
+
   const prompt = `You are researching the latest AI platforms and tools launched in 2024-2025.
 
 EXISTING PLATFORMS (${platforms.length} total):
-${existingNames.slice(0, 50).join(', ')}... (and ${existingNames.length - 50} more)
+${existingNames.slice(0, 100).join(', ')}${existingNames.length > 100 ? `... (and ${existingNames.length - 100} more)` : ''}
 
-TASK: Discover ${CONFIG.max_new_platforms} NEW AI platforms that are:
-1. NOT in the existing list above
-2. Launched or gained popularity in 2024-2025
-3. Actively maintained and popular
-4. Have a working website/product
+EXISTING CATEGORIES:
+${existingCategories.join(', ')}
+
+CRITICAL: DO NOT add any platform already in the existing list above! Check carefully for duplicates, variations, or similar names.
+
+TASK: Discover ${CONFIG.max_new_platforms} COMPLETELY NEW AI platforms that are:
+1. ❌ NOT in the existing list above (no duplicates, no variations!)
+2. ✅ Launched or gained significant popularity in 2024-2025
+3. ✅ Actively maintained with real users
+4. ✅ Have a working website/product (no vaporware)
+5. 💰 **PRIORITIZE platforms with active affiliate/referral programs** (highest priority!)
+
+MONETIZATION PRIORITY:
+- Look for platforms with "Partner Program", "Affiliate Program", or "Referral Program"
+- SaaS/paid platforms are more likely to have affiliate programs
+- Popular platforms with high revenue potential
+- Platforms mentioned on affiliate networks (Impact, PartnerStack, ShareASale, Commission Junction)
+- Enterprise platforms with high-ticket sales
+
+CATEGORIZATION:
+- Use existing categories when appropriate: ${existingCategories.join(', ')}
+- Create NEW categories for emerging AI types (e.g., audio-ai, video-ai, robotics-ai, agent-platforms, search-ai, workflow-automation, document-ai, etc.)
+- Category names should be lowercase with hyphens
+- Choose the MOST SPECIFIC category that fits
 
 For each platform, provide:
-- name: Official name
-- description: Clear 1-2 sentence description
-- url: Official website
-- category: One of (ml-frameworks, generative-ai, computer-vision, nlp, llms, image-generation, analytics-bi, code-ai)
-- tags: 3-5 relevant tags
-- pricing: (free, freemium, paid, open-source)
-- reasoning: Why this platform should be included
+- name: Official name (must be unique, not in existing list!)
+- description: Rich 2-3 sentence description covering what it does, key features, and target users
+- url: Official website (must be valid and working)
+- category: Best fit from existing OR new category (lowercase-with-hyphens)
+- tags: 5-8 relevant, specific tags
+- pricing: (free, freemium, paid, open-source, enterprise)
+- features: Array of 3-5 key features
+- use_cases: Array of 3-5 practical use cases
+- has_affiliate: true/false (does it have an affiliate/referral program?)
+- affiliate_info: Detailed affiliate program info (commission %, network, program URL, requirements)
+- reasoning: Why this platform should be included (mention monetization potential and uniqueness)
 
 Return ONLY valid JSON array:
 [
   {
     "name": "Example AI",
-    "description": "...",
-    "url": "https://...",
-    "category": "...",
-    "tags": ["tag1", "tag2"],
-    "pricing": "...",
-    "reasoning": "..."
+    "description": "Comprehensive AI platform that revolutionizes content creation for marketing teams with automated workflows, brand consistency, and multi-channel distribution.",
+    "url": "https://example-ai.com",
+    "category": "marketing-ai",
+    "tags": ["content-creation", "marketing-automation", "brand-management", "multi-channel", "saas"],
+    "pricing": "freemium",
+    "features": ["AI content generation", "Brand voice consistency", "Multi-platform publishing", "Analytics dashboard", "Team collaboration"],
+    "use_cases": ["Marketing campaign creation", "Social media management", "Blog post generation", "Email marketing", "Brand guidelines enforcement"],
+    "has_affiliate": true,
+    "affiliate_info": "30% recurring commission via Impact.com, 90-day cookie, minimum $100 payout, requires approved application",
+    "reasoning": "Fast-growing SaaS with $50M ARR, active partner program on Impact.com, high customer lifetime value ($2000+ avg), targets enterprises with budget"
   }
 ]`;
 
@@ -279,24 +311,43 @@ Return ONLY valid JSON array:
 
 // 2. ENRICH PLATFORM DATA
 async function enrichPlatform(platform) {
-  const prompt = `Analyze this AI platform and enrich its data:
+  const existingCategories = [...new Set(platforms.map(p => p.category).filter(Boolean))].sort();
 
-NAME: ${platform.name}
+  const prompt = `Research and enrich this AI platform with comprehensive, accurate information:
+
+PLATFORM: ${platform.name}
 CURRENT DESCRIPTION: ${platform.description || 'N/A'}
-URL: ${platform.url || platform.website || 'N/A'}
+WEBSITE: ${platform.url || platform.website || 'N/A'}
 CURRENT CATEGORY: ${platform.category || 'N/A'}
 CURRENT TAGS: ${(platform.tags || []).join(', ') || 'N/A'}
+CURRENT FEATURES: ${(platform.features || []).join(', ') || 'N/A'}
 
-TASK: Provide enriched data in JSON format:
+TASK: Research this platform and provide enriched, detailed, and accurate data:
+
 {
-  "description": "Improved 1-2 sentence description (clear, concise, professional)",
-  "category": "Best category from: ml-frameworks, generative-ai, computer-vision, nlp, llms, image-generation, analytics-bi, code-ai",
-  "tags": ["5-8 relevant tags"],
-  "features": ["3-5 key features"],
-  "pricing": "free/freemium/paid/open-source",
-  "use_cases": ["3-5 use cases"],
-  "confidence": 0.0-1.0
-}`;
+  "description": "Rich 2-3 sentence description covering: what it does, key capabilities, target audience, and what makes it unique",
+  "category": "Best fit from existing [${existingCategories.join(', ')}] OR create new specific category (lowercase-with-hyphens)",
+  "tags": ["5-8 specific, searchable tags"],
+  "features": ["5-8 concrete features with specifics (not vague)"],
+  "use_cases": ["4-6 real-world use cases"],
+  "pricing": "free/freemium/paid/open-source/enterprise",
+  "pricing_details": {
+    "model": "subscription/one-time/usage-based/free/open-source",
+    "tiers": ["Free: details", "Pro: $XX/mo - details", "Enterprise: Custom - details"],
+    "free_tier": "Yes/No - what's included",
+    "starting_price": "$XX/month or Free"
+  },
+  "target_audience": ["primary audience 1", "primary audience 2", "primary audience 3"],
+  "has_api": true/false,
+  "has_affiliate": true/false,
+  "confidence": 0.0-1.0 (how confident you are in this data)
+}
+
+IMPORTANT:
+- Be specific and accurate
+- Include real pricing if known
+- Don't guess - if unsure, use null or lower confidence
+- Focus on facts, not marketing fluff`;
 
   const response = await callAI(prompt);
   if (!response) return null;
@@ -416,10 +467,16 @@ async function autoFixWithAI() {
 
   let fixed = 0;
 
-  // Fix platforms with poor descriptions
+  // Prioritize platforms needing enrichment
   const needsEnrichment = platforms
-    .filter(p => !p.description || p.description.length < 30)
-    .slice(0, 10); // Limit to avoid costs
+    .filter(p =>
+      !p.description ||
+      p.description.length < 50 ||
+      !p.features ||
+      !p.use_cases ||
+      !p.pricing_details
+    )
+    .slice(0, 20); // Process 20 platforms per run
 
   console.log(`Found ${needsEnrichment.length} platforms needing enrichment\n`);
 
@@ -427,25 +484,73 @@ async function autoFixWithAI() {
     console.log(`  Enriching: ${platform.name}...`);
 
     const enriched = await enrichPlatform(platform);
-    if (enriched && enriched.confidence > 0.7) {
-      platform.description = enriched.description;
-      platform.category = enriched.category;
-      platform.tags = enriched.tags;
-      platform.features = enriched.features || platform.features;
-      platform.pricing = enriched.pricing || platform.pricing;
+    if (enriched && enriched.confidence > 0.6) {
+      // Update all fields
+      if (enriched.description) platform.description = enriched.description;
+      if (enriched.category) platform.category = enriched.category;
+      if (enriched.tags) platform.tags = enriched.tags;
+      if (enriched.features) platform.features = enriched.features;
+      if (enriched.use_cases) platform.use_cases = enriched.use_cases;
+      if (enriched.pricing) platform.pricing = enriched.pricing;
+      if (enriched.pricing_details) platform.pricing_details = enriched.pricing_details;
+      if (enriched.target_audience) platform.target_audience = enriched.target_audience;
+      if (enriched.has_api !== undefined) platform.has_api = enriched.has_api;
+      if (enriched.has_affiliate !== undefined) platform.has_affiliate = enriched.has_affiliate;
 
       fixed++;
-      console.log(`    ✅ Enhanced`);
+      console.log(`    ✅ Enhanced (confidence: ${(enriched.confidence * 100).toFixed(0)}%)`);
     } else {
       console.log(`    ⚠️  Low confidence, skipped`);
     }
 
-    // Rate limiting
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // Rate limiting (avoid API throttling)
+    await new Promise(resolve => setTimeout(resolve, 3000));
   }
 
-  console.log(`\n✅ Fixed ${fixed} platforms\n`);
+  console.log(`\n✅ Enriched ${fixed} platforms\n`);
   return fixed;
+}
+
+// SAVE AFFILIATE OPPORTUNITIES
+function saveAffiliateOpportunities() {
+  if (affiliateOpportunities.length === 0) return;
+
+  const timestamp = new Date().toISOString().split('T')[0];
+
+  let markdown = `# 💰 Affiliate Program Opportunities\n\n`;
+  markdown += `Generated: ${timestamp}\n`;
+  markdown += `Total Opportunities: ${affiliateOpportunities.length}\n\n`;
+  markdown += `---\n\n`;
+
+  affiliateOpportunities.forEach((opp, index) => {
+    markdown += `## ${index + 1}. ${opp.name}\n\n`;
+    markdown += `**Category:** ${opp.category}\n`;
+    markdown += `**Website:** ${opp.url}\n`;
+    markdown += `**Pricing Model:** ${opp.pricing}\n\n`;
+    markdown += `**Description:**\n${opp.description}\n\n`;
+
+    if (opp.affiliate_info) {
+      markdown += `**💵 Affiliate Program Details:**\n`;
+      markdown += `${opp.affiliate_info}\n\n`;
+    }
+
+    markdown += `**Action Items:**\n`;
+    markdown += `- [ ] Visit website and locate partner/affiliate program page\n`;
+    markdown += `- [ ] Sign up for affiliate program\n`;
+    markdown += `- [ ] Get your unique affiliate link\n`;
+    markdown += `- [ ] Add affiliate link to platform entry\n`;
+    markdown += `- [ ] Test the affiliate link\n\n`;
+
+    markdown += `---\n\n`;
+  });
+
+  markdown += `\n## 📋 Quick Sign-up Checklist\n\n`;
+  affiliateOpportunities.forEach((opp, index) => {
+    markdown += `${index + 1}. [ ] **${opp.name}** - ${opp.url}\n`;
+  });
+
+  writeFileSync(CONFIG.affiliate_opportunities_path, markdown, 'utf-8');
+  console.log(`\n💰 Saved ${affiliateOpportunities.length} affiliate opportunities to affiliate-opportunities.md\n`);
 }
 
 // MAIN EXECUTION
@@ -466,7 +571,20 @@ async function main() {
     if (newPlatforms.length > 0 && CONFIG.auto_add) {
       console.log('➕ Adding new platforms to directory...\n');
 
+      // Get existing categories for validation
+      const existingCategories = [...new Set(platforms.map(p => p.category).filter(Boolean))].sort();
+
       newPlatforms.forEach(np => {
+        // Check for duplicates one more time (case-insensitive)
+        const isDuplicate = platforms.some(p =>
+          p.name && np.name && p.name.toLowerCase() === np.name.toLowerCase()
+        );
+
+        if (isDuplicate) {
+          console.log(`  ⚠️  Skipped duplicate: ${np.name}`);
+          return;
+        }
+
         const platform = {
           id: np.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
           name: np.name,
@@ -482,8 +600,43 @@ async function main() {
           added_date: new Date().toISOString()
         };
 
+        // Add rich data fields
+        if (np.features && Array.isArray(np.features)) {
+          platform.features = np.features;
+        }
+        if (np.use_cases && Array.isArray(np.use_cases)) {
+          platform.use_cases = np.use_cases;
+        }
+
+        // Only keep affiliate flag in main platforms.json
+        if (np.has_affiliate) {
+          platform.has_affiliate = true;
+        }
+
+        // Save detailed affiliate info to separate file
+        if (np.has_affiliate && np.affiliate_info) {
+          affiliateOpportunities.push({
+            name: np.name,
+            url: np.url,
+            category: np.category,
+            description: np.description,
+            pricing: np.pricing || 'unknown',
+            affiliate_info: np.affiliate_info,
+            added_date: new Date().toISOString()
+          });
+        }
+
         platforms.push(platform);
-        console.log(`  ✅ Added: ${platform.name}`);
+
+        const affiliateTag = platform.has_affiliate ? ' 💰' : '';
+        const newCategoryTag = !existingCategories.includes(np.category) ? ' 🆕' : '';
+        console.log(`  ✅ Added: ${platform.name}${affiliateTag}${newCategoryTag}`);
+        if (newCategoryTag && CONFIG.verbose) {
+          console.log(`     🆕 New category: ${np.category}`);
+        }
+        if (np.affiliate_info && CONFIG.verbose) {
+          console.log(`     💵 ${np.affiliate_info}`);
+        }
       });
 
       console.log();
@@ -525,7 +678,10 @@ async function main() {
       JSON.stringify(platforms, null, 2),
       'utf-8'
     );
-    console.log('✅ Saved!\n');
+    console.log('✅ Saved!');
+
+    // Save affiliate opportunities to separate file
+    saveAffiliateOpportunities();
   } else if (CONFIG.dry_run) {
     console.log('🔍 Dry run - no changes saved\n');
   }
@@ -536,6 +692,10 @@ async function main() {
   console.log(`  Total Platforms: ${platforms.length}`);
   if (newPlatforms.length > 0) {
     console.log(`  ✨ New Platforms Discovered: ${newPlatforms.length}`);
+  }
+  if (affiliateOpportunities.length > 0) {
+    console.log(`  💰 Affiliate Opportunities: ${affiliateOpportunities.length}`);
+    console.log(`     📄 Check affiliate-opportunities.md for signup details`);
   }
   if (enriched > 0) {
     console.log(`  ✅ Platforms Enriched: ${enriched}`);

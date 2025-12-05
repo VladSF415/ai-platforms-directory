@@ -1,0 +1,142 @@
+name: AI Platform Auto-Discovery
+
+on:
+  schedule:
+    # Runs every day at 6:00 AM UTC (adjust to your timezone)
+    # This will run for 8 hours discovering and enriching platforms
+    - cron: '0 6 * * *'
+
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      max_platforms:
+        description: 'Max new platforms to discover'
+        required: false
+        default: '20'
+      mode:
+        description: 'Mode: discover, enrich, or auto'
+        required: false
+        default: 'auto'
+
+jobs:
+  discover-platforms:
+    runs-on: ubuntu-latest
+    timeout-minutes: 480  # 8 hours max
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Configure Git
+        run: |
+          git config user.name "AI Discovery Bot"
+          git config user.email "discovery-bot@ai-platforms-directory.com"
+
+      - name: Run AI Discovery (Round 1 - Discover)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "🔍 Round 1: Discovering new platforms..."
+          node scripts/ai-powered-organizer.mjs --discover --max=20 --auto-add --verbose || true
+
+      - name: Commit new platforms (if any)
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            git add platforms.json affiliate-opportunities.md
+            git commit -m "🤖 Auto-discovery: Added new AI platforms with affiliate opportunities
+
+          📊 Daily automated discovery run
+          🔍 DeepSeek AI-powered platform research
+
+          Generated with Claude Code" || true
+            git push || true
+          else
+            echo "No new platforms discovered in Round 1"
+          fi
+
+      - name: Run AI Discovery (Round 2 - Discover More)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "🔍 Round 2: Discovering more platforms..."
+          sleep 60
+          node scripts/ai-powered-organizer.mjs --discover --max=20 --auto-add --verbose || true
+
+      - name: Commit Round 2 (if any)
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            git add platforms.json affiliate-opportunities.md
+            git commit -m "🤖 Auto-discovery Round 2: Additional platforms found" || true
+            git push || true
+          else
+            echo "No new platforms in Round 2"
+          fi
+
+      - name: Run Enrichment (Update existing platforms)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "✨ Enriching existing platforms with detailed information..."
+          sleep 60
+          node scripts/ai-powered-organizer.mjs --enrich --verbose || true
+
+      - name: Commit enrichments (if any)
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            git add platforms.json
+            git commit -m "✨ Auto-enrichment: Updated platform details
+
+          📝 Enhanced descriptions, pricing, and features
+          🤖 DeepSeek AI-powered enrichment
+
+          Generated with Claude Code" || true
+            git push || true
+          else
+            echo "No enrichments needed"
+          fi
+
+      - name: Run AI Discovery (Round 3 - Final sweep)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "🔍 Round 3: Final discovery sweep..."
+          sleep 60
+          node scripts/ai-powered-organizer.mjs --discover --max=15 --auto-add --verbose || true
+
+      - name: Commit Round 3 (if any)
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            git add platforms.json affiliate-opportunities.md
+            git commit -m "🤖 Auto-discovery Round 3: Final sweep completed" || true
+            git push || true
+          fi
+
+      - name: Generate Summary Report
+        run: |
+          echo "# 📊 Daily Discovery Report" > discovery-report.txt
+          echo "" >> discovery-report.txt
+          echo "Date: $(date)" >> discovery-report.txt
+          echo "" >> discovery-report.txt
+          echo "## Statistics" >> discovery-report.txt
+          echo "- Total Platforms: $(jq length platforms.json)" >> discovery-report.txt
+          echo "- Affiliate Opportunities: $(grep -c "^## [0-9]" affiliate-opportunities.md 2>/dev/null || echo 0)" >> discovery-report.txt
+          echo "" >> discovery-report.txt
+          echo "## Recent Changes" >> discovery-report.txt
+          git log --since="24 hours ago" --pretty=format:"- %s (%ar)" >> discovery-report.txt || true
+          cat discovery-report.txt
+
+      - name: Trigger Railway Deployment
+        if: success()
+        run: |
+          echo "✅ Changes pushed to GitHub - Railway will auto-deploy"
