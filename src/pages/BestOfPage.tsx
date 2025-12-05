@@ -118,11 +118,11 @@ function BestOfPage() {
             </div>
             <div style={{ border: '3px solid #fff', padding: '20px', textAlign: 'center' }}>
               <div style={{ fontSize: '36px', fontWeight: '700' }}>{bestOfData.category?.toUpperCase() || 'AI TOOLS'}</div>
-              <div style={{ fontSize: '14px', opacity: 0.8', marginTop: '5px' }}>CATEGORY</div>
+              <div style={{ fontSize: '14px', opacity: 0.8, marginTop: '5px' }}>CATEGORY</div>
             </div>
             <div style={{ border: '3px solid #fff', padding: '20px', textAlign: 'center' }}>
               <div style={{ fontSize: '36px', fontWeight: '700' }}>2025</div>
-              <div style={{ fontSize: '14px', opacity: 0.8', marginTop: '5px' }}>UPDATED</div>
+              <div style={{ fontSize: '14px', opacity: 0.8, marginTop: '5px' }}>UPDATED</div>
             </div>
           </div>
         </div>

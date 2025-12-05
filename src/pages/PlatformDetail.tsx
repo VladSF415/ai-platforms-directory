@@ -10,10 +10,17 @@ function PlatformDetail() {
   const navigate = useNavigate();
   const [platform, setPlatform] = useState<Platform | null>(null);
   const [loading, setLoading] = useState(true);
+  const [relatedGuide, setRelatedGuide] = useState<any>(null);
 
   useEffect(() => {
     fetchPlatform();
   }, [slug]);
+
+  useEffect(() => {
+    if (platform?.category) {
+      fetchRelatedGuide(platform.category);
+    }
+  }, [platform]);
 
   // Track platform view when loaded
   useEffect(() => {
@@ -37,6 +44,38 @@ function PlatformDetail() {
       setPlatform(null);
     }
     setLoading(false);
+  };
+
+  const getCategoryPillarSlug = (category: string): string | null => {
+    const mapping: Record<string, string> = {
+      'computer-vision': 'computer-vision',
+      'ml-frameworks': 'ml-frameworks',
+      'code-ai': 'code-ai',
+      'llms': 'llms',
+      'generative-ai': 'generative-ai',
+      'nlp': 'nlp',
+      'image-generation': 'image-generation',
+      'analytics-bi': 'analytics-bi',
+      'video-ai': 'video-ai',
+      'video-generation': 'video-generation',
+      'agent-platforms': 'agent-platforms',
+    };
+    return mapping[category] || null;
+  };
+
+  const fetchRelatedGuide = async (category: string) => {
+    const pillarSlug = getCategoryPillarSlug(category);
+    if (!pillarSlug) return;
+
+    try {
+      const response = await fetch(`/api/pillar/${pillarSlug}`);
+      if (response.ok) {
+        const data = await response.json();
+        setRelatedGuide(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch related guide:', error);
+    }
   };
 
   const handleVisit = () => {
@@ -201,6 +240,65 @@ function PlatformDetail() {
               VISIT OFFICIAL WEBSITE →
             </button>
           </div>
+
+          {/* Related Guide Widget */}
+          {relatedGuide && (
+            <div className="platform-detail-section" style={{
+              gridColumn: '1 / -1',
+              border: '4px solid #000',
+              padding: '30px',
+              background: '#f5f5f5',
+              marginTop: '20px'
+            }}>
+              <div style={{
+                fontSize: '14px',
+                fontWeight: '700',
+                marginBottom: '15px',
+                opacity: 0.7
+              }}>
+                📚 RELATED GUIDE
+              </div>
+              <h2 style={{
+                fontSize: '24px',
+                fontWeight: '900',
+                marginBottom: '12px',
+                lineHeight: '1.3'
+              }}>
+                {relatedGuide.title}
+              </h2>
+              <p style={{
+                fontSize: '16px',
+                lineHeight: '1.6',
+                opacity: 0.8,
+                marginBottom: '20px'
+              }}>
+                {relatedGuide.metaDescription}
+              </p>
+              <button
+                onClick={() => navigate(`/guide/${getCategoryPillarSlug(platform.category)}`)}
+                style={{
+                  border: '3px solid #000',
+                  background: '#000',
+                  color: '#fff',
+                  padding: '12px 24px',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#fff';
+                  e.currentTarget.style.color = '#000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = '#000';
+                  e.currentTarget.style.color = '#fff';
+                }}
+              >
+                Read Full Guide →
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

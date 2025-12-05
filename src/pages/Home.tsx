@@ -13,11 +13,20 @@ function Home() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [showFeatured, setShowFeatured] = useState(false);
   const [totalPlatforms, setTotalPlatforms] = useState(0);
+  const [pillarPages, setPillarPages] = useState<any[]>([]);
 
   useEffect(() => {
     fetchPlatforms();
     fetchCategories();
   }, [selectedCategory, search, showFeatured]);
+
+  // Fetch pillar pages for Featured Guides section
+  useEffect(() => {
+    fetch('/api/pillar')
+      .then(res => res.json())
+      .then(data => setPillarPages(data))
+      .catch(err => console.error('Failed to fetch pillar pages:', err));
+  }, []);
 
   // Fetch total platform count on mount
   useEffect(() => {
@@ -292,6 +301,72 @@ function Home() {
             Frequently Asked Questions
           </h2>
           <VisualFAQ faqs={faqs} />
+        </section>
+
+        {/* Featured Guides Section */}
+        <section style={{ marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
+            Featured AI Guides
+          </h2>
+          <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
+            In-depth guides to help you master AI tools and make informed decisions
+          </p>
+
+          {pillarPages.length > 0 && (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              gap: '20px'
+            }}>
+              {pillarPages.map((guide) => (
+                <div
+                  key={guide.slug}
+                  onClick={() => navigate(`/guide/${guide.slug}`)}
+                  style={{
+                    border: '3px solid #000',
+                    padding: '25px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    background: '#fff'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.boxShadow = '6px 6px 0 #000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
+                >
+                  <h3 style={{
+                    fontWeight: '900',
+                    marginBottom: '12px',
+                    fontSize: '20px',
+                    lineHeight: '1.3'
+                  }}>
+                    {guide.title}
+                  </h3>
+                  <p style={{
+                    fontSize: '15px',
+                    lineHeight: '1.6',
+                    opacity: 0.8,
+                    marginBottom: '15px'
+                  }}>
+                    {guide.metaDescription}
+                  </p>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    gap: '5px'
+                  }}>
+                    Read Guide →
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
       </div>
 

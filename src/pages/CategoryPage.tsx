@@ -9,9 +9,11 @@ function CategoryPage() {
   const navigate = useNavigate();
   const [platforms, setPlatforms] = useState<Platform[]>([]);
   const [loading, setLoading] = useState(true);
+  const [relatedGuide, setRelatedGuide] = useState<any>(null);
 
   useEffect(() => {
     fetchPlatforms();
+    fetchRelatedGuide();
   }, [category]);
 
   const fetchPlatforms = async () => {
@@ -24,6 +26,38 @@ function CategoryPage() {
       console.error('Failed to fetch platforms:', error);
     }
     setLoading(false);
+  };
+
+  const getCategoryPillarSlug = (cat: string): string | null => {
+    const mapping: Record<string, string> = {
+      'computer-vision': 'computer-vision',
+      'ml-frameworks': 'ml-frameworks',
+      'code-ai': 'code-ai',
+      'llms': 'llms',
+      'generative-ai': 'generative-ai',
+      'nlp': 'nlp',
+      'image-generation': 'image-generation',
+      'analytics-bi': 'analytics-bi',
+      'video-ai': 'video-ai',
+      'video-generation': 'video-generation',
+      'agent-platforms': 'agent-platforms',
+    };
+    return mapping[cat] || null;
+  };
+
+  const fetchRelatedGuide = async () => {
+    const pillarSlug = getCategoryPillarSlug(category || '');
+    if (!pillarSlug) return;
+
+    try {
+      const response = await fetch(`/api/pillar/${pillarSlug}`);
+      if (response.ok) {
+        const data = await response.json();
+        setRelatedGuide(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch related guide:', error);
+    }
   };
 
   const getCategoryName = (cat: string): string => {
@@ -121,6 +155,82 @@ function CategoryPage() {
           </div>
         </div>
       </div>
+
+      {/* Related Guide Banner */}
+      {relatedGuide && (
+        <div style={{
+          background: '#000',
+          borderTop: '5px solid #000',
+          borderBottom: '5px solid #000',
+          padding: '40px 0'
+        }}>
+          <div className="container">
+            <div
+              onClick={() => navigate(`/guide/${getCategoryPillarSlug(category || '')}`)}
+              style={{
+                border: '4px solid #fff',
+                padding: '30px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                background: '#000',
+                color: '#fff'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '8px 8px 0 #fff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '20px',
+                flexWrap: 'wrap'
+              }}>
+                <div style={{ flex: 1, minWidth: '300px' }}>
+                  <div style={{
+                    fontSize: '14px',
+                    fontWeight: '700',
+                    marginBottom: '10px',
+                    opacity: 0.8
+                  }}>
+                    📚 COMPREHENSIVE GUIDE
+                  </div>
+                  <h3 style={{
+                    fontSize: '24px',
+                    fontWeight: '900',
+                    marginBottom: '12px',
+                    lineHeight: '1.3'
+                  }}>
+                    {relatedGuide.title}
+                  </h3>
+                  <p style={{
+                    fontSize: '16px',
+                    lineHeight: '1.6',
+                    opacity: 0.9,
+                    marginBottom: '15px'
+                  }}>
+                    {relatedGuide.metaDescription}
+                  </p>
+                </div>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  fontSize: '16px',
+                  fontWeight: '700',
+                  whiteSpace: 'nowrap'
+                }}>
+                  Read Full Guide →
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Content Section */}
       <div className="container category-content">
