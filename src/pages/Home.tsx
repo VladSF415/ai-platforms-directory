@@ -146,7 +146,12 @@ function Home() {
 
             <div className="platforms-grid">
               {platforms.map((platform) => (
-                <div key={platform.id} className="platform-card">
+                <div
+                  key={platform.id}
+                  className="platform-card"
+                  onClick={() => handlePlatformClick(platform)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className="platform-header">
                     <div>
                       <div className="platform-name">{platform.name}</div>
@@ -188,7 +193,10 @@ function Home() {
                     </div>
                     <button
                       className="visit-btn"
-                      onClick={() => handlePlatformClick(platform)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePlatformClick(platform);
+                      }}
                     >
                       Visit →
                     </button>
