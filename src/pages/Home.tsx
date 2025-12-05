@@ -41,7 +41,7 @@ function Home() {
       if (selectedCategory !== 'all') params.append('category', selectedCategory);
       if (search) params.append('search', search);
       if (showFeatured) params.append('featured', 'true');
-      params.append('limit', '100');
+      params.append('limit', '1000'); // Show all platforms
 
       const response = await fetch(`/api/platforms?${params}`);
       const data = await response.json();
