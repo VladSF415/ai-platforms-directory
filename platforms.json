@@ -3274,7 +3274,7 @@
   {
     "id": "apache-mxnet",
     "name": "Apache MXNet",
-    "description": "Flexible and efficient deep learning framework supporting multiple programming languages with symbolic and imperative programming paradigms.",
+    "description": "Apache MXNet is a deep learning framework designed for both efficiency and flexibility, enabling developers and researchers to build, train, and deploy machine learning models. Its key capabilities include hybrid programming that seamlessly blends symbolic and imperative paradigms, multi-language support (Python, Scala, R, Julia, etc.), and robust distributed training. It uniquely emphasizes computational graph optimization and memory efficiency, making it a strong choice for production systems and scalable research, particularly within the AWS ecosystem where it is a preferred framework.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -3284,11 +3284,12 @@
     "website": "https://mxnet.apache.org",
     "pricing": "open-source",
     "features": [
-      "Multi-language support",
-      "Symbolic and imperative APIs",
-      "Distributed training",
-      "GPU acceleration",
-      "Model compression"
+      "Hybrid frontend (Gluon API) for imperative and symbolic programming",
+      "Native support for 7+ languages including Python, Scala, R, Julia, and Perl",
+      "Scalable distributed training across multiple GPUs and nodes",
+      "Advanced model optimization with the NVIDIA TensorRT and Intel MKLDNN integrations",
+      "Efficient model serving via MXNet Model Server (MMS) for production deployment",
+      "Extensive model zoo with pre-trained models for CV and NLP tasks"
     ],
     "rating": 4.3,
     "verified": true,
@@ -3296,11 +3297,13 @@
     "trending": false,
     "slug": "apache-mxnet",
     "tags": [
-      "Apache",
-      "Multi-language",
-      "Symbolic",
-      "Imperative",
-      "AWS"
+      "deep-learning",
+      "hybrid-programming",
+      "multi-language",
+      "distributed-training",
+      "aws-integration",
+      "model-serving",
+      "gpu-accelerated"
     ],
     "subcategories": [
       "multi-paradigm",
@@ -3324,13 +3327,35 @@
     "updatedAt": {
       "_seconds": 1696084200,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Large-scale computer vision applications (e.g., image classification, object detection)",
+      "Natural Language Processing (NLP) model training and deployment",
+      "Building and deploying recommendation systems at scale",
+      "Research prototyping and production model serving in cloud environments",
+      "Edge device inference with optimized model formats"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to framework, source code, and community support under Apache 2.0 License"
+      ],
+      "free_tier": "Yes - Complete framework with all features, libraries, and tools",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "machine learning researchers",
+      "data scientists and ML engineers",
+      "enterprise DevOps teams deploying ML models"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-nifi-ml",
     "name": "Apache NiFi ML",
-    "description": "Data flow automation platform with machine learning capabilities for building ML pipelines and real-time data processing workflows.",
-    "category": "ml-frameworks",
+    "description": "Apache NiFi is an open-source, scalable data integration and automation platform designed to automate the flow of data between disparate systems. Its core strength lies in its visual, drag-and-drop interface for building complex data pipelines, robust data provenance tracking, and a flexible architecture that supports real-time data ingestion, routing, transformation, and delivery. While not a native ML framework, its 'Apache NiFi ML' extensions enable seamless integration of machine learning models (e.g., from scikit-learn, TensorFlow) into these data flows, making it unique for operationalizing ML models within enterprise-scale, reliable data workflows.",
+    "category": "workflow-automation",
     "categories": [
       "machine-learning-frameworks",
       "data-flow"
@@ -3339,11 +3364,13 @@
     "website": "https://nifi.apache.org",
     "pricing": "open-source",
     "features": [
-      "Visual data flows",
-      "Real-time processing",
-      "ML model integration",
-      "Data provenance",
-      "Web-based interface"
+      "Visual drag-and-drop interface for designing data flow directed graphs (DFGs)",
+      "Fine-grained data provenance tracking for full lineage and auditing",
+      "Extensible processor ecosystem for data ingestion, transformation, and egress",
+      "Built-in backpressure and prioritization for robust data flow management",
+      "Secure configuration with SSL, SSH, HTTPS, and pluggable authentication",
+      "Clustering capability for horizontal scalability and high availability",
+      "Integration of ML models via custom processors or the Record Transform processor for in-flight scoring"
     ],
     "rating": 4.3,
     "verified": true,
@@ -3351,11 +3378,13 @@
     "trending": false,
     "slug": "apache-nifi-ml",
     "tags": [
-      "Apache NiFi",
-      "Data Flow",
-      "Visual",
-      "Real-time",
-      "Provenance"
+      "data-integration",
+      "etl",
+      "data-pipeline",
+      "real-time-processing",
+      "mlops",
+      "data-provenance",
+      "visual-workflow"
     ],
     "subcategories": [
       "data-flow",
@@ -3379,12 +3408,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Real-time data ingestion and preprocessing for ML model training pipelines",
+      "Operationalizing ML models by deploying them as processors for in-stream prediction/scoring",
+      "Building reliable, auditable ETL/ELT pipelines for data lake or warehouse population",
+      "IoT data collection, routing, and enrichment from edge devices to central systems",
+      "Log aggregation, normalization, and routing to monitoring/analytics platforms",
+      "Automating and governing data movement between on-premises and cloud storage (e.g., S3, ADLS)"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Apache NiFi (Core): Free - Full open-source platform under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - The entire core Apache NiFi project is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data engineers",
+      "mlops engineers",
+      "enterprise architects"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-opennlp",
     "name": "Apache OpenNLP",
-    "description": "Machine learning-based toolkit for processing natural language text with support for tokenization, POS tagging, and parsing.",
+    "description": "Apache OpenNLP is an open-source machine learning toolkit for natural language processing (NLP) written in Java. It provides a library of pre-trained models and tools for tasks like tokenization, part-of-speech tagging, named entity recognition, and parsing, enabling developers to build robust text processing pipelines. Its key differentiator is being a mature, production-ready Apache project focused on traditional, deterministic NLP tasks with strong support for training custom models on domain-specific data.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -3392,13 +3444,16 @@
     ],
     "url": "https://opennlp.apache.org",
     "website": "https://opennlp.apache.org",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Tokenization",
-      "Sentence segmentation",
-      "Part-of-speech tagging",
-      "Named entity extraction",
-      "Chunking and parsing"
+      "Sentence Detector for identifying sentence boundaries",
+      "Tokenizer for splitting text into words/tokens",
+      "Part-of-Speech Tagger for labeling tokens with grammatical roles",
+      "Named Entity Recognizer for identifying persons, organizations, locations, etc.",
+      "Chunker for parsing flat, non-recursive phrases (noun groups, verb groups)",
+      "Parser for building syntactic trees (constituency parsing)",
+      "Document Categorizer for text classification",
+      "Coreference Resolution for finding entity mentions referring to the same thing"
     ],
     "rating": 4.2,
     "verified": true,
@@ -3406,9 +3461,13 @@
     "trending": false,
     "slug": "apache-opennlp",
     "tags": [
-      "AI",
-      "NLP",
-      "Apache"
+      "java",
+      "machine-learning",
+      "named-entity-recognition",
+      "pos-tagging",
+      "text-processing",
+      "open-source",
+      "nlp-library"
     ],
     "subcategories": [
       "nlp-library"
@@ -3431,12 +3490,34 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building custom search engine filters and query understanding components",
+      "Pre-processing and annotating large text corpora for academic research in linguistics",
+      "Extracting structured information (names, dates, amounts) from legal or financial documents",
+      "Powering basic chatbot intent detection and entity extraction in enterprise applications",
+      "Enhancing content management systems with automatic tagging and categorization"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The entire software library, source code, and pre-trained models are available under the Apache License 2.0 with no cost."
+      ],
+      "free_tier": "Yes - Full access to all library features and source code.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Java developers integrating NLP into applications",
+      "Researchers and students in computational linguistics",
+      "Enterprise software teams needing a stable, licensable NLP library"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-spark-mllib",
     "name": "Apache Spark MLlib",
-    "description": "Distributed machine learning library that runs on Apache Spark, providing scalable algorithms for classification, regression, clustering, and collaborative filtering.",
+    "description": "Apache Spark MLlib is a scalable, distributed machine learning library built on top of Apache Spark, designed to handle massive datasets across clusters. It provides a comprehensive suite of high-quality algorithms for common ML tasks like classification, regression, clustering, and collaborative filtering, along with utilities for feature transformation, model evaluation, and pipeline construction. Its key differentiator is its tight integration with the Spark engine, enabling it to leverage in-memory computing and fault-tolerant data structures (RDDs, DataFrames) for iterative ML workloads that are orders of magnitude faster than traditional disk-based systems like Hadoop MapReduce.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -3446,11 +3527,12 @@
     "website": "https://spark.apache.org",
     "pricing": "open-source",
     "features": [
-      "Distributed computing",
-      "Multiple language support",
-      "Streaming ML",
-      "Pipeline APIs",
-      "100x faster than MapReduce"
+      "Scalable, distributed implementations of classic ML algorithms (e.g., Logistic Regression, ALS, K-Means, Random Forests)",
+      "Seamless integration with Spark SQL DataFrames and Datasets for data preprocessing and feature engineering",
+      "ML Pipelines API for constructing, evaluating, and tuning end-to-end machine learning workflows",
+      "Support for both batch processing and streaming machine learning (via Spark Streaming/DStreams or Structured Streaming)",
+      "Native APIs in Scala, Java, Python, and R, with near-identical functionality across languages",
+      "Utilities for linear algebra (distributed matrices), statistics, and model persistence (save/load)"
     ],
     "rating": 4.7,
     "verified": true,
@@ -3458,11 +3540,13 @@
     "trending": false,
     "slug": "apache-spark-mllib",
     "tags": [
-      "Apache Spark",
-      "Distributed",
-      "Big Data",
-      "Scala",
-      "Python"
+      "distributed-ml",
+      "scalable-algorithms",
+      "spark-ecosystem",
+      "big-data-processing",
+      "scala-python-api",
+      "batch-streaming-ml",
+      "model-pipelines"
     ],
     "subcategories": [
       "distributed-ml",
@@ -3486,12 +3570,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Large-scale recommendation systems using Alternating Least Squares (ALS) for collaborative filtering",
+      "Fraud detection on high-volume transaction streams using classification algorithms like Logistic Regression",
+      "Customer segmentation for marketing by clustering millions of user profiles with distributed K-Means",
+      "Predictive maintenance in IoT by training regression models on sensor data from industrial equipment",
+      "Real-time sentiment analysis on social media feeds using streaming ML pipelines"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The entire library is open-source under the Apache 2.0 license with no cost for use, modification, or distribution."
+      ],
+      "free_tier": "Yes - The entire project is free and open-source.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data engineers building large-scale ML pipelines",
+      "data scientists working with petabyte-scale datasets",
+      "enterprise architects needing scalable, integrated ML for Spark-based data platforms"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-tika",
     "name": "Apache Tika",
-    "description": "Content analysis toolkit that detects and extracts metadata and text from over a thousand file types.",
+    "description": "Apache Tika is an open-source content analysis and text extraction toolkit from the Apache Software Foundation. It is designed to parse and extract structured text content and metadata from over a thousand complex file formats, including PDFs, Microsoft Office documents, images, and archives. Its unique value lies in providing a single, unified Java API for document processing, making it a critical, low-level component for search engines, digital asset management systems, and content analysis pipelines rather than a standalone end-user application.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -3499,13 +3605,15 @@
     ],
     "url": "https://tika.apache.org",
     "website": "https://tika.apache.org",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Metadata extraction",
-      "Text extraction",
-      "Multi-format support",
-      "Language detection",
-      "Content type detection"
+      "Unified parser interface for over 1,000 file formats (PDF, DOCX, PPT, ODF, HTML, images, etc.)",
+      "Extraction of structured text content while preserving layout hints where possible",
+      "Extraction of metadata (author, title, dates, etc.) using standards like EXIF, IPTC, and custom schemas",
+      "Automatic detection of MIME media type and document language",
+      "Recursive parsing of container formats (ZIP, TAR, OLE2, MP4, etc.)",
+      "Integration with Apache Lucene/Solr for search indexing pipelines",
+      "RESTful server (Tika Server) for language-agnostic access via HTTP"
     ],
     "rating": 4.3,
     "verified": true,
@@ -3513,9 +3621,14 @@
     "trending": false,
     "slug": "apache-tika",
     "tags": [
-      "AI",
-      "NLP",
-      "Apache"
+      "content-analysis",
+      "text-extraction",
+      "metadata-extraction",
+      "file-parsing",
+      "apache",
+      "java-library",
+      "document-processing",
+      "mime-detection"
     ],
     "subcategories": [
       "document-processing"
@@ -3538,12 +3651,34 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Search engine indexing: Crawling and extracting searchable text from diverse document repositories.",
+      "Digital asset management (DAM): Automatically cataloging files by extracting metadata and thumbnails.",
+      "Compliance and e-discovery: Processing large corpora of documents for text analysis and classification.",
+      "Content migration: Converting and normalizing content from legacy formats during system migrations.",
+      "Data science preprocessing: Extracting clean text from various file types for NLP and machine learning pipelines."
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The complete Apache Tika toolkit is free to use under the Apache License 2.0."
+      ],
+      "free_tier": "Yes - The entire software library, source code, and binaries are freely available.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "software developers and engineers",
+      "enterprise search and IR system architects",
+      "data scientists and NLP practitioners"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "apache-tvm",
     "name": "Apache TVM",
-    "description": "Open-source machine learning compiler framework for CPUs, GPUs, and ML accelerators enabling efficient model deployment across hardware.",
+    "description": "Apache TVM is an open-source deep learning compiler stack that compiles models from various frameworks (TensorFlow, PyTorch, ONNX, etc.) into optimized machine code for diverse hardware backends including CPUs, GPUs, and specialized ML accelerators. Its key capability is automatic optimization through machine learning-based auto-tuning, enabling high-performance inference across edge devices, cloud servers, and custom hardware. What makes it unique is its hardware-agnostic intermediate representation (IR) that allows a single model to be deployed efficiently across dozens of different hardware targets.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -3553,11 +3688,14 @@
     "website": "https://tvm.apache.org",
     "pricing": "open-source",
     "features": [
-      "Cross-platform compilation",
-      "Hardware optimization",
-      "Auto-tuning",
-      "Multi-framework support",
-      "Edge deployment"
+      "Automatic optimization via machine learning-based auto-tuning (AutoTVM, AutoScheduler)",
+      "Support for 10+ frontend frameworks (TensorFlow, PyTorch, ONNX, Keras, MXNet, etc.)",
+      "Backend support for 20+ hardware targets (x86, ARM, NVIDIA CUDA, AMD ROCm, Intel oneAPI, Vulkan, Metal, WebGPU, etc.)",
+      "Quantization support for INT8/INT4 precision to reduce model size and latency",
+      "Hardware-specific kernel libraries and vendor integrations (TensorRT, cuDNN, oneDNN)",
+      "Python-first API with C++ runtime for deployment",
+      "Relay IR for high-level graph optimizations and memory planning",
+      "MicroTVM for microcontroller and bare-metal deployment on resource-constrained devices"
     ],
     "rating": 4.6,
     "verified": true,
@@ -3565,11 +3703,14 @@
     "trending": true,
     "slug": "apache-tvm",
     "tags": [
-      "Compiler",
-      "Cross-platform",
-      "Optimization",
-      "Hardware",
-      "Apache"
+      "deep-learning-compiler",
+      "model-optimization",
+      "hardware-agnostic",
+      "inference-acceleration",
+      "auto-tuning",
+      "cross-framework",
+      "edge-ai",
+      "performance-optimization"
     ],
     "subcategories": [
       "compiler-optimization",
@@ -3593,12 +3734,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Deploying trained ML models to edge devices (mobile phones, IoT, embedded systems) with hardware-specific optimizations",
+      "Optimizing inference latency and throughput for production ML serving in cloud environments",
+      "Porting models between hardware platforms (e.g., from NVIDIA GPUs to AMD GPUs or ARM CPUs)",
+      "Researching novel hardware accelerators by providing a compiler target for custom ML chips",
+      "Reducing model size through quantization for bandwidth-constrained applications",
+      "Creating unified deployment pipelines for models from multiple training frameworks"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Apache 2.0 License: Full access to source code, no usage restrictions"
+      ],
+      "free_tier": "Yes - Entire project is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ML engineers and researchers deploying models to production",
+      "Hardware companies developing ML accelerators",
+      "Edge computing and IoT developers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "api4ai",
     "name": "API4AI",
-    "description": "Advanced computer vision API platform offering object detection, classification, and image analysis with high accuracy and reliability.",
+    "description": "API4AI is a comprehensive, cloud-based platform providing a suite of specialized, production-ready AI APIs for computer vision and image analysis. It offers a wide range of pre-trained models for tasks like object detection, image classification, background removal, and NSFW content moderation, designed for easy integration by developers. Its unique value lies in offering high-accuracy, dedicated APIs (e.g., for cars, fashion, or people) alongside general solutions, all accessible through a unified, developer-friendly interface with a generous free tier.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -3608,11 +3772,14 @@
     "website": "https://api4.ai",
     "pricing": "freemium",
     "features": [
-      "Object detection API",
-      "Image classification",
-      "High accuracy algorithms",
-      "Reliable performance",
-      "Developer-friendly API"
+      "Specialized object detection APIs (Cars, Fashion, People, etc.)",
+      "General-purpose image classification and tagging",
+      "High-quality background removal (Photo & Video)",
+      "Explicit Content (NSFW) Detection & Moderation",
+      "Face detection, analysis, and blurring",
+      "Optical Character Recognition (OCR) for various documents",
+      "Image enhancement and super-resolution",
+      "REST API with SDKs for Python, JS, Swift, Kotlin"
     ],
     "rating": 4.2,
     "verified": true,
@@ -3620,10 +3787,14 @@
     "trending": false,
     "slug": "api4ai",
     "tags": [
-      "API",
-      "Object Detection",
-      "Classification",
-      "Developer Tools"
+      "computer-vision-api",
+      "image-analysis",
+      "object-detection",
+      "background-removal",
+      "nsfw-detection",
+      "image-classification",
+      "ai-models",
+      "cloud-api"
     ],
     "subcategories": [
       "api",
@@ -3647,13 +3818,39 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "E-commerce product catalog tagging and moderation",
+      "Social media platform content safety filtering",
+      "Automotive industry vehicle damage or part detection",
+      "Photo editing applications with automated background removal",
+      "Document processing and digitization via OCR",
+      "Mobile app development integrating specific visual AI features"
+    ],
+    "pricing_details": {
+      "model": "usage-based subscription",
+      "tiers": [
+        "Free: 5,000 credits/month, access to all APIs, standard support",
+        "Basic: $29/month - 50,000 credits, faster processing, email support",
+        "Pro: $99/month - 250,000 credits, priority processing, chat support",
+        "Enterprise: Custom - volume discounts, SLA, dedicated support"
+      ],
+      "free_tier": "Yes - 5,000 credits per month, access to all APIs, standard processing speed",
+      "starting_price": "Free, then $29/month"
+    },
+    "target_audience": [
+      "Software Developers & Engineering Teams",
+      "Startups and SMBs needing scalable CV",
+      "Enterprises requiring specialized, modular AI solutions"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "argo-workflows",
     "name": "Argo Workflows",
-    "description": "Open-source container-native workflow engine for orchestrating parallel jobs on Kubernetes, commonly used for ML pipeline orchestration.",
-    "category": "ml-frameworks",
+    "description": "Argo Workflows is an open-source, container-native workflow engine for orchestrating parallel jobs on Kubernetes. It enables users to define complex, multi-step pipelines as directed acyclic graphs (DAGs), making it a powerful tool for machine learning, data processing, and CI/CD automation. Its tight integration with the Kubernetes ecosystem and declarative YAML-based approach make it uniquely suited for cloud-native, scalable workflow automation.",
+    "category": "workflow-automation",
     "categories": [
       "machine-learning-frameworks",
       "kubernetes-workflows"
@@ -3662,11 +3859,13 @@
     "website": "https://argoproj.github.io",
     "pricing": "open-source",
     "features": [
-      "Container-native workflows",
-      "Kubernetes integration",
-      "DAG scheduling",
-      "Parallel execution",
-      "Web UI dashboard"
+      "Define workflows as Kubernetes Custom Resource Definitions (CRDs) using YAML",
+      "Visualize and manage workflows via an integrated Web UI dashboard",
+      "Orchestrate complex dependencies using Directed Acyclic Graph (DAG) scheduling",
+      "Execute workflow steps as containers in parallel for high performance",
+      "Native artifact management for passing data between workflow steps",
+      "Integrates with Argo Events for event-driven workflow triggering",
+      "Supports workflow templating and parameterization for reusability"
     ],
     "rating": 4.5,
     "verified": true,
@@ -3674,11 +3873,14 @@
     "trending": true,
     "slug": "argo-workflows",
     "tags": [
-      "Kubernetes",
-      "Container Native",
-      "DAG",
-      "Parallel",
-      "Web UI"
+      "kubernetes",
+      "container-native",
+      "dag-orchestration",
+      "ml-pipelines",
+      "batch-processing",
+      "cicd",
+      "open-source",
+      "cloud-native"
     ],
     "subcategories": [
       "kubernetes-workflows",
@@ -3702,12 +3904,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Machine Learning Pipeline Orchestration (data prep, training, evaluation)",
+      "ETL and Data Processing Pipelines for batch analytics",
+      "CI/CD Pipelines for building, testing, and deploying applications",
+      "Bioinformatics and genomic data analysis workflows",
+      "Infrastructure provisioning and management automation",
+      "Scheduled batch jobs and report generation"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Core: Free and open-source (Apache 2.0 License)"
+      ],
+      "free_tier": "Yes - The entire core Argo Workflows project is free and open-source.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "DevOps and Platform Engineers",
+      "ML Engineers and Data Scientists",
+      "Software Developers building cloud-native applications"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "arize-phoenix",
     "name": "Arize Phoenix",
-    "description": "Open-source observability platform for evaluating, troubleshooting, and monitoring LLM, computer vision, and tabular models.",
+    "description": "Arize Phoenix is an open-source observability platform designed to evaluate, troubleshoot, and monitor machine learning models in production, with a strong focus on LLMs, computer vision, and tabular models. It provides tools for tracing, evaluation, and drift detection to help teams understand model performance and data quality issues. Its unique value lies in being a vendor-agnostic, Python-native toolkit that integrates seamlessly into existing ML pipelines for deep root-cause analysis.",
     "category": "llms",
     "categories": [
       "machine-learning-frameworks",
@@ -3715,13 +3940,14 @@
     ],
     "url": "https://phoenix.arize.com",
     "website": "https://github.com/Arize-ai/phoenix",
-    "pricing": "freemium",
+    "pricing": "open-source",
     "features": [
-      "ML observability",
-      "Model evaluation",
-      "Drift detection",
-      "Performance monitoring",
-      "Multi-modal support"
+      "Open-source Python library for embedding analysis and drift detection",
+      "LLM tracing and evaluation with support for frameworks like LangChain and LlamaIndex",
+      "Computer vision embedding analysis and cluster visualization",
+      "Tabular model performance monitoring and data quality checks",
+      "Interactive Phoenix UI for visualizing embeddings, clusters, and traces",
+      "Integration with Arize AI platform for scaled enterprise observability"
     ],
     "rating": 4.4,
     "verified": true,
@@ -3729,11 +3955,13 @@
     "trending": true,
     "slug": "arize-phoenix",
     "tags": [
-      "Observability",
-      "Model Evaluation",
-      "Drift Detection",
-      "Multi-modal",
-      "Monitoring"
+      "ml-observability",
+      "llm-evaluation",
+      "drift-detection",
+      "model-monitoring",
+      "root-cause-analysis",
+      "open-source-ml",
+      "production-ml"
     ],
     "subcategories": [
       "ml-observability",
@@ -3757,12 +3985,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Monitoring LLM applications for hallucination, toxicity, and prompt drift",
+      "Debugging computer vision model performance by analyzing embedding clusters",
+      "Detecting data drift and concept drift in production tabular models",
+      "Conducting root-cause analysis for model performance degradation",
+      "Evaluating and comparing different LLM prompts or model versions"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Open Source: Full access to Phoenix library and UI",
+        "Arize Platform (Commercial): Enterprise-scale observability with additional features - custom pricing"
+      ],
+      "free_tier": "Yes - the core Phoenix observability toolkit is completely free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ml-engineers",
+      "data-scientists",
+      "ml-platform-teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "arya-text-summarizer",
     "name": "Arya Text Summarizer API",
-    "description": "Intelligent text summarization tool using TextRank algorithm for extractive summarization with key phrase extraction.",
+    "description": "The Arya Text Summarizer API is an intelligent service that automatically condenses long-form text into concise summaries. It utilizes the TextRank algorithm for extractive summarization, identifying and extracting the most salient sentences while also extracting key phrases. It is designed for developers and businesses needing to integrate automated summarization into applications, workflows, or research tools, offering a straightforward, API-driven approach to a complex NLP task.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -3770,13 +4021,15 @@
     ],
     "url": "https://arya.ai/apex-apis/text-summarization-api",
     "website": "https://arya.ai",
-    "pricing": "paid",
+    "pricing": "freemium",
     "features": [
-      "TextRank algorithm",
-      "Extractive summarization",
-      "Key phrase extraction",
-      "Custom summary length",
-      "Multiple format support"
+      "Extractive summarization via TextRank algorithm",
+      "Key phrase and keyword extraction from source text",
+      "Adjustable summary length (word or sentence count)",
+      "Support for input in TXT, PDF, DOC, DOCX, and HTML formats",
+      "REST API with JSON responses for easy integration",
+      "Language detection and processing for multiple languages",
+      "Batch processing capabilities for multiple documents"
     ],
     "rating": 4.2,
     "verified": true,
@@ -3784,9 +4037,14 @@
     "trending": false,
     "slug": "arya-text-summarizer",
     "tags": [
-      "AI",
-      "NLP",
-      "Summarization"
+      "text-summarization",
+      "extractive-summarization",
+      "textrank",
+      "keyphrase-extraction",
+      "api",
+      "text-analysis",
+      "document-processing",
+      "automation"
     ],
     "subcategories": [
       "text-summarization"
@@ -3809,12 +4067,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automated generation of executive summaries for lengthy reports",
+      "Condensing news articles or research papers for content aggregation platforms",
+      "Pre-processing and reducing content for search engine indexing or recommendation systems",
+      "Creating abstracts for academic papers or legal documents",
+      "Integrating summarization into customer support tools to quickly parse long inquiries",
+      "Building content curation tools that provide quick insights from blogs or articles"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 100 API credits/month, standard support",
+        "Pro: $49/month - 10,000 API credits, faster processing, priority support",
+        "Enterprise: Custom Pricing - High-volume credits, dedicated infrastructure, SLA, custom features"
+      ],
+      "free_tier": "Yes - 100 API credits per month",
+      "starting_price": "Free, then $49/month"
+    },
+    "target_audience": [
+      "Software Developers and Engineering Teams",
+      "Data Scientists and NLP Researchers",
+      "Content Managers and Digital Publishers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "askup",
     "name": "AskUp",
-    "description": "AI-powered Q&A platform that provides intelligent answers and knowledge sharing for teams and organizations.",
+    "description": "AskUp is an AI-powered Q&A platform designed to centralize and surface organizational knowledge. It connects to various data sources like documents, wikis, and messaging apps to provide instant, context-aware answers to employee questions. Its unique value lies in its ability to validate answers with source citations and its focus on secure, team-based knowledge sharing within companies.",
     "category": "generative-ai",
     "categories": [
       "knowledge-management",
@@ -3824,11 +4107,12 @@
     "website": "https://askup.ai",
     "pricing": "freemium",
     "features": [
-      "Intelligent Q&A",
-      "Knowledge sharing",
-      "Team collaboration",
-      "Search capabilities",
-      "Answer validation"
+      "AI-powered Q&A with source citation and answer validation",
+      "Connectors for Slack, Google Drive, Confluence, Notion, and other data sources",
+      "Centralized knowledge base creation from disparate company documents",
+      "Team-specific workspaces and access controls for secure collaboration",
+      "Search functionality across connected knowledge sources",
+      "Analytics dashboard to track common questions and knowledge gaps"
     ],
     "rating": 4.1,
     "verified": true,
@@ -3836,11 +4120,13 @@
     "trending": false,
     "slug": "askup",
     "tags": [
-      "AI",
-      "Q&A Platform",
-      "Knowledge Sharing",
-      "Team Collaboration",
-      "Search"
+      "enterprise-ai",
+      "knowledge-management",
+      "internal-search",
+      "team-collaboration",
+      "qa-system",
+      "rag",
+      "document-intelligence"
     ],
     "subcategories": [
       "qa-platform",
@@ -3864,12 +4150,37 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Employee onboarding by providing instant answers to common new-hire questions",
+      "Reducing repetitive queries to HR and IT support teams",
+      "Enabling sales teams to quickly find product information and battle cards",
+      "Helping customer support agents find accurate internal policy answers",
+      "Preserving institutional knowledge and reducing information silos",
+      "Accelerating research for projects by querying internal documentation"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Up to 5 users, 1 workspace, 1,000 queries/month, basic connectors",
+        "Pro: $8/user/month (billed annually) - Unlimited queries, advanced connectors, analytics, priority support",
+        "Enterprise: Custom pricing - SSO, custom SLAs, dedicated support, advanced security & compliance"
+      ],
+      "free_tier": "Yes - Includes up to 5 users, 1 workspace, and 1,000 monthly queries",
+      "starting_price": "Free, then $8/user/month for Pro"
+    },
+    "target_audience": [
+      "medium-to-large enterprises",
+      "remote and hybrid teams",
+      "knowledge-intensive organizations (tech, consulting, etc.)"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "asl-translator",
     "name": "ASL Translator",
-    "description": "Real-time American Sign Language detection system using computer vision and neural networks for deaf-dumb community communication.",
+    "description": "ASL Translator is an open-source computer vision system that interprets American Sign Language (ASL) in real-time using deep learning models. It leverages convolutional neural networks (CNNs) to detect and classify hand gestures from video input, providing text or speech output to facilitate communication between deaf/hard-of-hearing individuals and non-signers. Its unique value lies in being a freely accessible, locally-runnable tool that prioritizes privacy by processing video on-device without cloud dependency.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -3879,11 +4190,13 @@
     "website": "https://github.com/asl-translator",
     "pricing": "open-source",
     "features": [
-      "Hand gesture detection",
-      "CNN architecture",
-      "Real-time translation",
-      "Multilingual support",
-      "95% accuracy rate"
+      "Real-time hand and gesture detection from webcam feed",
+      "CNN-based model trained on ASL alphabet and common phrases",
+      "Local processing (no internet required after setup)",
+      "Text output display and optional text-to-speech synthesis",
+      "Support for multiple sign datasets (e.g., ASL Alphabet, ASL Digits)",
+      "Modular Python codebase for model retraining/extensions",
+      "Basic sentence construction from sequenced signs"
     ],
     "rating": 4.5,
     "verified": true,
@@ -3891,10 +4204,14 @@
     "trending": true,
     "slug": "asl-translator",
     "tags": [
-      "Accessibility",
-      "Sign Language",
-      "Real-time",
-      "CNN"
+      "accessibility",
+      "sign-language",
+      "real-time-translation",
+      "computer-vision",
+      "deep-learning",
+      "cnn",
+      "assistive-technology",
+      "open-source"
     ],
     "subcategories": [
       "accessibility",
@@ -3918,26 +4235,50 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Educational tool for learning ASL basics",
+      "Prototype for assistive communication in quiet environments (libraries, hospitals)",
+      "Integration into customer service kiosks for accessibility",
+      "Research and academic projects in sign language recognition",
+      "Development baseline for more complex sign language applications",
+      "Personal communication aid for deaf individuals in non-signing communities"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code, models, and documentation on GitHub"
+      ],
+      "free_tier": "Yes - Entire project is free and open-source under MIT license",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Deaf and hard-of-hearing individuals",
+      "Accessibility researchers and developers",
+      "Educational institutions and students"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "assemblyai",
     "name": "AssemblyAI",
-    "description": "Speech-to-text API with advanced NLP features including sentiment analysis and entity detection for audio.",
-    "category": "nlp",
+    "description": "AssemblyAI is a leading API platform for converting speech to text and extracting insights from audio and video data. It provides production-ready, high-accuracy models for core transcription, speaker diarization, and advanced NLP tasks like sentiment analysis, entity detection, and content moderation. It uniquely targets developers and enterprises with a simple API, fast processing, and a focus on building scalable, real-world AI applications for audio.",
+    "category": "audio-ai",
     "categories": [
       "Natural Language Processing",
       "Speech Recognition"
     ],
     "url": "https://www.assemblyai.com",
     "website": "https://www.assemblyai.com",
-    "pricing": "pay-per-use",
+    "pricing": "freemium",
     "features": [
-      "Speech-to-text",
-      "Speaker diarization",
-      "Sentiment analysis",
-      "Entity detection",
-      "Topic detection"
+      "Core Transcription: High-accuracy speech-to-text for audio/video files and real-time streams.",
+      "Speaker Diarization: Automatically labels and separates speech by different speakers.",
+      "Audio Intelligence: Suite of NLP models (Sentiment Analysis, Entity Detection, Topic Detection, Content Moderation, PII Redaction).",
+      "Lemur: A family of foundation models for analyzing and summarizing transcribed audio/video via a dedicated API.",
+      "Real-time Streaming API: Low-latency transcription for live audio.",
+      "Auto Chapters: Automatically segments transcripts into thematic chapters with summaries."
     ],
     "rating": 4.6,
     "verified": true,
@@ -3945,9 +4286,13 @@
     "trending": true,
     "slug": "assemblyai",
     "tags": [
-      "AI",
-      "NLP",
-      "Speech Recognition"
+      "speech-to-text",
+      "audio-intelligence",
+      "transcription-api",
+      "speaker-diarization",
+      "audio-analysis",
+      "nlp",
+      "developer-tools"
     ],
     "subcategories": [
       "speech-recognition"
@@ -3970,13 +4315,38 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Media & Podcasting: Automatically generating searchable transcripts, show notes, and highlight clips.",
+      "Customer Experience: Analyzing call center recordings for sentiment, compliance, and key topics.",
+      "Content Moderation: Detecting inappropriate content in user-generated audio/video.",
+      "Meeting Intelligence: Transcribing and summarizing virtual meetings, extracting action items and decisions.",
+      "Accessibility: Creating accurate captions and subtitles for video content.",
+      "Research & Analysis: Processing qualitative data from interviews and focus groups at scale."
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free: $0/month, includes 5 hours of transcription per month with Core Transcription and Audio Intelligence features.",
+        "Pro: Starts at ~$1.50/hour (pay-as-you-go) or $25/month for 15 hours, includes higher concurrency, faster processing, and all features.",
+        "Enterprise: Custom pricing - for high-volume, dedicated support, custom SLAs, security reviews, and private deployment."
+      ],
+      "free_tier": "Yes - 5 hours of transcription per month with Core and Audio Intelligence models.",
+      "starting_price": "Free, then ~$1.50/hour pay-as-you-go"
+    },
+    "target_audience": [
+      "Software Developers & Engineers",
+      "Product Teams at Tech Companies",
+      "Enterprises (Media, CX, Security)"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "atlassian-intelligence",
     "name": "Atlassian Intelligence",
-    "description": "AI features integrated across Atlassian's suite including Jira, Trello, and Confluence for enhanced productivity.",
-    "category": "generative-ai",
+    "description": "Atlassian Intelligence is an AI-powered assistant embedded directly into Atlassian's core products like Jira, Confluence, and Trello. It enhances productivity by automating routine tasks, generating and summarizing content, and providing data-driven insights from across the platform. It is uniquely positioned as a native, context-aware AI for technical and business teams, leveraging an organization's existing project data to deliver tailored assistance without requiring complex setup.",
+    "category": "workflow-automation",
     "categories": [
       "business-productivity",
       "project-management"
@@ -3985,11 +4355,12 @@
     "website": "https://atlassian.com",
     "pricing": "paid",
     "features": [
-      "Project intelligence",
-      "Automated workflows",
-      "Content suggestions",
-      "Team collaboration",
-      "Integration ecosystem"
+      "Smart summaries for Jira tickets and Confluence pages",
+      "AI-powered search across Jira and Confluence with natural language queries",
+      "Automated generation of test plans, PR descriptions, and meeting notes",
+      "Context-aware writing assistance and content drafting in Confluence",
+      "Predictive insights for project risks and timeline estimations in Jira",
+      "Automated ticket categorization, prioritization, and field population"
     ],
     "rating": 4.4,
     "verified": true,
@@ -3997,11 +4368,13 @@
     "trending": false,
     "slug": "atlassian-intelligence",
     "tags": [
-      "AI",
-      "Atlassian",
-      "Project Management",
-      "Collaboration",
-      "Enterprise"
+      "atlassian",
+      "jira",
+      "confluence",
+      "project-management",
+      "enterprise-ai",
+      "workflow-automation",
+      "team-collaboration"
     ],
     "subcategories": [
       "project-management",
@@ -4025,12 +4398,37 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "A product manager quickly generating release notes from completed Jira tickets.",
+      "A developer using natural language to search for relevant past bug reports across all projects.",
+      "A support team automating the triage and routing of incoming Jira Service Management tickets.",
+      "A technical writer drafting and refining complex documentation in Confluence with AI suggestions.",
+      "A project lead getting an AI-generated summary of a Confluence page to prepare for a stakeholder meeting.",
+      "A team automating repetitive Jira workflow steps, like assigning tickets based on historical patterns."
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Not available as a standalone product; AI features are gated behind premium plans for each host product (Jira, Confluence, etc.).",
+        "Pro: Priced per user per month as an add-on to Premium/Enterprise plans of host products. Exact price varies by product and region.",
+        "Enterprise: Custom pricing for large-scale deployments, included with Enterprise plans of host products."
+      ],
+      "free_tier": "No - AI features are not part of Free or Standard tiers.",
+      "starting_price": "$4.50/user/month (as an add-on to Jira Software Premium, for example)"
+    },
+    "target_audience": [
+      "enterprise teams",
+      "software development teams",
+      "project managers and product managers"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "auto-sklearn",
     "name": "Auto-sklearn",
-    "description": "Automated machine learning toolkit built on scikit-learn that automatically finds the best machine learning pipeline for your dataset.",
+    "description": "Auto-sklearn is an automated machine learning (AutoML) toolkit built as a drop-in replacement for scikit-learn, designed to automatically search for and construct the best-performing machine learning pipeline for a given dataset. It uniquely combines Bayesian optimization for hyperparameter tuning with meta-learning to warm-start the search and ensemble selection to combine multiple models for robust performance. Its primary target audience includes data scientists, researchers, and developers seeking to automate the model selection and tuning process while maintaining compatibility with the familiar scikit-learn ecosystem.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -4040,11 +4438,13 @@
     "website": "https://automl.github.io/auto-sklearn/",
     "pricing": "open-source",
     "features": [
-      "Automated ML pipeline",
-      "Algorithm selection",
-      "Hyperparameter optimization",
-      "Meta-learning",
-      "Ensemble construction"
+      "Automated pipeline construction including data preprocessing, feature preprocessing, and model selection",
+      "Bayesian optimization via SMAC3 for efficient hyperparameter tuning",
+      "Meta-learning to initialize search with configurations from similar datasets",
+      "Automated ensemble construction from evaluated models using ensemble selection",
+      "Parallel execution via multi-processing for faster optimization",
+      "Full compatibility with scikit-learn estimators, metrics, and APIs",
+      "Support for both classification and regression tasks"
     ],
     "rating": 4.4,
     "verified": true,
@@ -4052,11 +4452,14 @@
     "trending": false,
     "slug": "auto-sklearn",
     "tags": [
-      "AutoML",
-      "Scikit-learn",
-      "Pipeline",
-      "Meta-learning",
-      "Ensemble"
+      "automl",
+      "scikit-learn",
+      "hyperparameter-optimization",
+      "bayesian-optimization",
+      "meta-learning",
+      "ensemble-learning",
+      "python",
+      "classification-regression"
     ],
     "subcategories": [
       "automl",
@@ -4080,13 +4483,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Rapid prototyping of machine learning models for structured/tabular data",
+      "Benchmarking and establishing performance baselines for new datasets",
+      "Automating repetitive ML workflow tasks for data science teams",
+      "Educational tool for demonstrating AutoML concepts and pipeline construction",
+      "Integration into larger ML platforms requiring automated model optimization"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to library under BSD 3-Clause license"
+      ],
+      "free_tier": "Yes - complete library with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists",
+      "machine learning researchers",
+      "software developers building ML applications"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "autogen",
     "name": "AutoGen",
-    "description": "Microsoft's multi-agent conversational framework enabling multiple AI agents to collaborate and solve complex tasks through conversation.",
-    "category": "ml-frameworks",
+    "description": "AutoGen is an open-source framework from Microsoft Research for building and orchestrating multi-agent AI systems. It enables developers to create, manage, and coordinate multiple conversational AI agents—each with specialized roles, capabilities, and tools—to collaboratively solve complex tasks through structured dialogue. Its unique value lies in its flexible, code-centric approach to agent definition and its seamless integration with human oversight, making it a powerful tool for automating intricate workflows that require reasoning, tool use, and iterative problem-solving.",
+    "category": "agent-platforms",
     "categories": [
       "machine-learning-frameworks",
       "multi-agent"
@@ -4095,11 +4520,12 @@
     "website": "https://github.com/microsoft/autogen",
     "pricing": "open-source",
     "features": [
-      "Multi-agent collaboration",
-      "Conversational AI",
-      "Role-based interactions",
-      "Code execution",
-      "Human integration"
+      "Customizable, conversable agent programming with adjustable LLM backends (OpenAI, Azure OpenAI, Anthropic, etc.)",
+      "Built-in support for role-based agent patterns (e.g., Assistant, UserProxy, GroupChat) with customizable system prompts",
+      "Seamless code execution, debugging, and human-in-the-loop feedback within agent conversations",
+      "Flexible group chat manager for orchestrating multi-agent discussions with customizable selection strategies",
+      "Extensible tool use: agents can call Python functions, APIs, and external tools via function calling",
+      "Support for complex workflows like automated task solving, code-based reasoning, and web research"
     ],
     "rating": 4.7,
     "verified": true,
@@ -4107,11 +4533,14 @@
     "trending": true,
     "slug": "autogen",
     "tags": [
-      "Multi-agent",
-      "Microsoft",
-      "Conversational",
-      "Collaboration",
-      "Code"
+      "multi-agent-systems",
+      "conversational-ai",
+      "workflow-automation",
+      "microsoft-research",
+      "open-source",
+      "python-framework",
+      "agent-orchestration",
+      "code-generation"
     ],
     "subcategories": [
       "multi-agent",
@@ -4135,12 +4564,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automated code generation, review, and debugging through collaborative agent teams",
+      "Multi-step data analysis and report generation by orchestrating specialized data processing agents",
+      "Complex problem-solving in research and education by simulating expert discussions and debates",
+      "Automated customer support triage and technical troubleshooting with specialized agent roles",
+      "Intelligent workflow automation for business processes requiring reasoning, tool use, and approval chains"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the AutoGen framework and source code on GitHub under an MIT License"
+      ],
+      "free_tier": "Yes - The entire framework is free and open-source; users incur costs from the LLM APIs (e.g., OpenAI, Azure) they choose to connect.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers and engineers",
+      "Software developers and data scientists",
+      "Enterprises building complex AI automation workflows"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "autogluon",
     "name": "AutoGluon",
-    "description": "AutoML toolkit by Amazon that enables easy-to-use and easy-to-extend automatic machine learning with a focus on deep learning and real-world applications.",
+    "description": "AutoGluon is an open-source AutoML toolkit developed by Amazon that automates the end-to-end machine learning pipeline, from data preprocessing to model deployment. Its key capabilities include robust automated model selection, hyperparameter tuning, and ensembling, with specialized support for tabular, text, and image data. It uniquely targets both practitioners and researchers by offering state-of-the-art performance 'out-of-the-box' while remaining extensible for custom modeling tasks, significantly reducing the expertise and time required to build high-quality ML models.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -4150,11 +4601,12 @@
     "website": "https://auto.gluon.ai",
     "pricing": "open-source",
     "features": [
-      "Deep learning AutoML",
-      "Multi-modal support",
-      "Tabular data focus",
-      "Model ensembling",
-      "Easy deployment"
+      "Automated model training & hyperparameter tuning for tabular, text, and image data",
+      "Advanced multi-layer stacking and ensembling of models for superior accuracy",
+      "Seamless integration with popular deep learning frameworks (PyTorch, MXNet)",
+      "Automatic feature engineering and data preprocessing pipelines",
+      "One-line code commands for training and deploying production-ready models",
+      "Support for time-series forecasting and multi-modal data fusion"
     ],
     "rating": 4.6,
     "verified": true,
@@ -4162,11 +4614,14 @@
     "trending": true,
     "slug": "autogluon",
     "tags": [
-      "AutoML",
-      "Amazon",
-      "Deep Learning",
-      "Multi-modal",
-      "Tabular"
+      "automl",
+      "amazon-aws",
+      "tabular-data",
+      "model-ensembling",
+      "deep-learning",
+      "open-source",
+      "multimodal-ai",
+      "hyperparameter-optimization"
     ],
     "subcategories": [
       "automl",
@@ -4190,12 +4645,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building high-accuracy predictive models for business analytics (sales, churn)",
+      "Rapid prototyping and benchmarking of ML models for research teams",
+      "Automating classification and regression tasks on structured (tabular) datasets",
+      "Developing computer vision applications with automated image classification",
+      "Creating NLP models for text classification and sentiment analysis",
+      "Enabling data scientists to focus on problem-solving over repetitive coding tasks"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to core AutoGluon library under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - Entire toolkit including all features for training, tuning, and deployment",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists",
+      "ml researchers",
+      "software engineers integrating ml"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "automated-visual-inspection-matlab",
     "name": "MATLAB Automated Visual Inspection",
-    "description": "Comprehensive toolbox for automated visual inspection using machine learning and deep learning for defect detection.",
+    "description": "MATLAB Automated Visual Inspection is a specialized toolbox within MATLAB's Computer Vision System Toolbox designed for building, training, and deploying machine learning and deep learning models to automatically detect and localize defects, anomalies, and irregularities in images and video. It provides a comprehensive environment with apps for labeling data, automated training workflows for models like YOLO, Faster R-CNN, and anomaly detection networks, and tools for generating deployable code to embedded devices and enterprise systems. It uniquely integrates the full AI development lifecycle—from data preparation to deployment—within MATLAB's established engineering and scientific computing ecosystem, making it particularly strong for industrial and regulated environments.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -4205,11 +4683,12 @@
     "website": "https://www.mathworks.com",
     "pricing": "paid",
     "features": [
-      "Defect detection",
-      "Anomaly localization",
-      "YOLO algorithms",
-      "Quality assurance",
-      "Industrial integration"
+      "Interactive Image and Video Labeler app for ground truth labeling",
+      "Automated training workflows for object detection (YOLO v2, v3, v4, Faster R-CNN) and anomaly detection (FCDD, PatchCore variants)",
+      "One-click code generation for C/C++, CUDA, and HDL for deployment to embedded processors, GPUs, and FPGAs",
+      "Integration with Deep Learning Toolbox for custom network design and pretrained models (ResNet, GoogLeNet, etc.)",
+      "Reference applications for surface defect detection, electronics inspection, and medical image analysis",
+      "Tools for performance evaluation (precision/recall, confusion matrices) and visualization of results"
     ],
     "rating": 4.4,
     "verified": true,
@@ -4217,10 +4696,14 @@
     "trending": false,
     "slug": "automated-visual-inspection-matlab",
     "tags": [
-      "MATLAB",
-      "Quality Assurance",
-      "Defect Detection",
-      "Industrial"
+      "matlab",
+      "defect-detection",
+      "automated-optical-inspection",
+      "industrial-ai",
+      "deep-learning",
+      "quality-control",
+      "model-deployment",
+      "vision-system-toolbox"
     ],
     "subcategories": [
       "automated-inspection",
@@ -4244,12 +4727,39 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Detecting surface defects (scratches, dents, corrosion) on manufactured metal, plastic, or painted parts",
+      "Automated Optical Inspection (AOI) of printed circuit boards (PCBs) for missing components or soldering defects",
+      "Quality control in pharmaceutical packaging for label integrity, pill count, and seal inspection",
+      "Identifying structural anomalies in medical imaging, such as X-rays or MRI scans",
+      "Inspecting food products for contamination, proper sizing, and packaging defects",
+      "Monitoring production lines for assembly verification and foreign object detection"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "MATLAB & Simulink Individual License: ~$2,150 USD (one-time purchase) + ~$860 USD annual maintenance (includes updates & support). Required base.",
+        "Computer Vision System Toolbox: ~$1,350 USD (one-time) + ~$540 USD annual maintenance. Required for core visual inspection features.",
+        "Deep Learning Toolbox: ~$1,350 USD (one-time) + ~$540 USD annual maintenance. Required for training deep learning models.",
+        "MATLAB Coder / GPU Coder / HDL Coder: Additional toolboxes required for specific deployment targets, each priced similarly.",
+        "Enterprise/Volume/Academic: Custom pricing and licensing available."
+      ],
+      "free_tier": "No - but a 30-day free trial of all products is available",
+      "starting_price": "Effectively ~$4,850+ USD for initial one-time purchase of required base toolboxes (MATLAB + Vision + Deep Learning Toolboxes), plus annual maintenance fees."
+    },
+    "target_audience": [
+      "Industrial Automation & Quality Engineers",
+      "Research & Development Engineers in Manufacturing",
+      "Computer Vision and Machine Learning Engineers in embedded systems"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "avanade-ai",
     "name": "Avanade AI",
-    "description": "Enterprise AI consulting and platform services helping organizations implement AI solutions across business functions.",
+    "description": "Avanade AI is a professional services and consulting platform that helps large enterprises design, build, and scale responsible AI solutions. It combines Microsoft's Azure AI and Copilot technologies with deep industry expertise to deliver end-to-end transformation, from strategy and implementation to managed services. Its unique value lies in being a joint venture between Accenture and Microsoft, providing unparalleled access to enterprise-grade Microsoft AI tools and strategic consulting.",
     "category": "generative-ai",
     "categories": [
       "consulting-services",
@@ -4257,13 +4767,15 @@
     ],
     "url": "https://avanade.com/solutions/ai",
     "website": "https://avanade.com",
-    "pricing": "consulting",
+    "pricing": "enterprise",
     "features": [
-      "AI strategy consulting",
-      "Implementation services",
-      "Change management",
-      "Training programs",
-      "Custom AI solutions"
+      "Microsoft Copilot for Microsoft 365 strategy, deployment, and change management services",
+      "Custom generative AI application development using Azure OpenAI Service",
+      "Pre-built 'Avanade AI Navigator' platform for assessing AI readiness and use case prioritization",
+      "Responsible AI framework development, governance, and compliance advisory",
+      "Data modernization and AI foundation building on Microsoft Azure",
+      "Industry-specific AI solutions (e.g., for financial services, healthcare, retail)",
+      "Post-implementation AI managed services and optimization"
     ],
     "rating": 4.1,
     "verified": true,
@@ -4271,11 +4783,13 @@
     "trending": false,
     "slug": "avanade-ai",
     "tags": [
-      "AI",
-      "Consulting",
-      "Enterprise",
-      "Implementation",
-      "Strategy"
+      "microsoft-azure",
+      "enterprise-consulting",
+      "copilot-implementation",
+      "responsible-ai",
+      "digital-transformation",
+      "managed-services",
+      "industry-solutions"
     ],
     "subcategories": [
       "ai-consulting",
@@ -4299,13 +4813,34 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Deploying and tailoring Microsoft 365 Copilot to enhance employee productivity across an organization",
+      "Building a custom AI-powered customer service chatbot using Azure OpenAI for a financial institution",
+      "Modernizing a retailer's data estate and implementing AI-driven demand forecasting and personalization",
+      "Developing a responsible AI governance framework for a healthcare provider using sensitive patient data"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Project-based consulting, managed services, or subscription for platform use. Pricing is entirely custom-quoted based on scope, services, and duration."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Large Global Enterprises (Fortune 500/2000)",
+      "Microsoft-Centric Organizations",
+      "Regulated Industries (Financial Services, Healthcare, Public Sector)"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "avoma",
     "name": "Avoma",
-    "description": "AI meeting assistant and conversation intelligence platform for sales and customer success teams.",
-    "category": "generative-ai",
+    "description": "Avoma is an AI-powered meeting assistant and conversation intelligence platform designed to automate the meeting lifecycle for revenue teams. It records, transcribes, and analyzes sales, customer success, and discovery calls to provide actionable insights, automate note-taking, and facilitate coaching. Its unique value lies in its integrated 'Meeting Lifecycle' approach, combining scheduling, collaboration, note-taking, and analysis in a single workflow, unlike point solutions that only record or transcribe.",
+    "category": "audio-ai",
     "categories": [
       "meeting-assistants",
       "sales-marketing"
@@ -4314,11 +4849,13 @@
     "website": "https://avoma.com",
     "pricing": "freemium",
     "features": [
-      "Conversation intelligence",
-      "Sales coaching",
-      "Deal insights",
-      "Revenue intelligence",
-      "Team performance"
+      "AI-generated meeting notes & summaries",
+      "Automatic call recording & transcription for 10+ platforms (Zoom, Teams, etc.)",
+      "Keyword & topic tracking to analyze conversation trends",
+      "Collaborative deal rooms with call highlights and action items",
+      "AI-powered coaching scorecards for rep performance",
+      "Revenue intelligence dashboards with deal and sentiment insights",
+      "Integration with CRM (Salesforce, HubSpot) and calendar systems"
     ],
     "rating": 4.3,
     "verified": true,
@@ -4326,11 +4863,14 @@
     "trending": false,
     "slug": "avoma",
     "tags": [
-      "AI",
-      "Sales",
-      "Conversation Intelligence",
-      "Coaching",
-      "Revenue"
+      "meeting-assistant",
+      "sales-intelligence",
+      "call-analysis",
+      "revenue-operations",
+      "customer-success",
+      "transcription",
+      "coaching-platform",
+      "deal-room"
     ],
     "subcategories": [
       "sales-intelligence",
@@ -4354,7 +4894,34 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Sales managers coaching reps by analyzing call patterns and missed opportunities",
+      "Customer success teams reviewing onboarding calls to improve retention",
+      "Revenue operations analyzing deal velocity and forecasting accuracy from call data",
+      "Enablement teams creating training content from best-practice call snippets",
+      "Account executives preparing for follow-ups using AI-generated summaries and action items",
+      "Legal and compliance teams maintaining records of customer conversations"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 300 mins of transcription/month, basic note-taking, 1 AI summary per meeting",
+        "Starter: $29 per host/month - 900 mins, unlimited AI summaries, CRM integration",
+        "Plus: $59 per host/month - 3000 mins, keyword tracking, coaching modules",
+        "Business: $99 per host/month - 9000 mins, advanced analytics, custom scorecards",
+        "Enterprise: Custom - Unlimited transcription, SSO, dedicated support, API access"
+      ],
+      "free_tier": "Yes - Includes 300 mins of transcription/month, basic note-taking, and 1 AI summary per meeting.",
+      "starting_price": "$29/month (per host, billed annually)"
+    },
+    "target_audience": [
+      "Sales Leaders & Managers",
+      "Customer Success Teams",
+      "Revenue Operations (RevOps)"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "aware-abis",
