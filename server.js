@@ -118,6 +118,79 @@ fastify.get('/api/stats', async () => {
   };
 });
 
+// Dynamic Sitemap.xml
+fastify.get('/sitemap.xml', async (request, reply) => {
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+  const today = new Date().toISOString().split('T')[0];
+
+  let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+  // Homepage
+  sitemap += '  <url>\n';
+  sitemap += `    <loc>${baseUrl}/</loc>\n`;
+  sitemap += `    <lastmod>${today}</lastmod>\n`;
+  sitemap += '    <changefreq>daily</changefreq>\n';
+  sitemap += '    <priority>1.0</priority>\n';
+  sitemap += '  </url>\n';
+
+  // Submit page
+  sitemap += '  <url>\n';
+  sitemap += `    <loc>${baseUrl}/submit</loc>\n`;
+  sitemap += `    <lastmod>${today}</lastmod>\n`;
+  sitemap += '    <changefreq>monthly</changefreq>\n';
+  sitemap += '    <priority>0.8</priority>\n';
+  sitemap += '  </url>\n';
+
+  // Legal pages
+  const legalPages = ['privacy', 'terms', 'cookie-policy', 'dmca', 'disclaimer'];
+  legalPages.forEach(page => {
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${baseUrl}/${page}</loc>\n`;
+    sitemap += `    <lastmod>${today}</lastmod>\n`;
+    sitemap += '    <changefreq>yearly</changefreq>\n';
+    sitemap += '    <priority>0.3</priority>\n';
+    sitemap += '  </url>\n';
+  });
+
+  // All platforms
+  platforms.forEach(platform => {
+    const slug = platform.id || platform.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const lastmod = platform.added_date || today;
+
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${baseUrl}/platform/${slug}</loc>\n`;
+    sitemap += `    <lastmod>${lastmod.split('T')[0]}</lastmod>\n`;
+    sitemap += '    <changefreq>weekly</changefreq>\n';
+    sitemap += '    <priority>0.7</priority>\n';
+    sitemap += '  </url>\n';
+  });
+
+  sitemap += '</urlset>';
+
+  reply.type('application/xml').send(sitemap);
+});
+
+// Robots.txt
+fastify.get('/robots.txt', async (request, reply) => {
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+
+  const robots = `User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: ${baseUrl}/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin/private paths (if any)
+Disallow: /api/
+Disallow: /*.json$`;
+
+  reply.type('text/plain').send(robots);
+});
+
 // Health check
 fastify.get('/health', async () => {
   return { status: 'ok', platforms: platforms.length };
