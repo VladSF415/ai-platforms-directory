@@ -13,6 +13,17 @@ A monetized directory of AI tools and platforms with:
 - **Featured listing upgrades** ($99-$299/month)
 - **Click analytics** for performance tracking
 
+## Documentation
+
+**📚 For Future Claude Sessions:**
+- **[PROJECT_HISTORY.md](PROJECT_HISTORY.md)** - Complete project history and all work done
+- **[DEPLOYMENT_WORKFLOW.md](DEPLOYMENT_WORKFLOW.md)** - How Claude handles deployments
+- **[ANALYTICS_GUIDE.md](ANALYTICS_GUIDE.md)** - Google Analytics setup (G-87QJXFEQQD)
+- **[PLATFORM_PAGES_GUIDE.md](PLATFORM_PAGES_GUIDE.md)** - Platform detail pages architecture
+- **[MONETIZATION_GUIDE.md](MONETIZATION_GUIDE.md)** - Revenue features setup
+
+**Start here:** Read [PROJECT_HISTORY.md](PROJECT_HISTORY.md) to understand everything that was built.
+
 ## Quick Start
 
 ### Local Development
@@ -93,6 +104,7 @@ Value: 6bazfm7y.up.railway.app
 ## Pages
 
 - `/` - Home directory with search & filters
+- `/platform/:slug` - Individual platform detail pages (693 pages for SEO!)
 - `/submit` - Tool submission form with payment
 
 ## API Endpoints
