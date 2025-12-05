@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // API Routes
 fastify.get('/api/platforms', async (request, reply) => {
-  const { category, search, featured, limit = 50, offset = 0 } = request.query;
+  const { category, search, featured, limit = 1000, offset = 0 } = request.query;
 
   let filtered = platforms;
 
