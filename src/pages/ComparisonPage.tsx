@@ -18,7 +18,7 @@ function ComparisonPage() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/comparison/${slug}`);
+      const response = await fetch(`/api/comparisons/${slug}`);
       if (response.ok) {
         const data = await response.json();
         setComparisonData(data);

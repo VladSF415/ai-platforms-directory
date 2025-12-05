@@ -4,6 +4,9 @@ import SubmitTool from './pages/SubmitTool';
 import PlatformDetail from './pages/PlatformDetail';
 import CategoryPage from './pages/CategoryPage';
 import PillarPage from './pages/PillarPage';
+import ComparisonPage from './pages/ComparisonPage';
+import AlternativesPage from './pages/AlternativesPage';
+import BestOfPage from './pages/BestOfPage';
 import PrivacyPolicy from './pages/legal/PrivacyPolicy';
 import TermsOfService from './pages/legal/TermsOfService';
 import CookiePolicy from './pages/legal/CookiePolicy';
@@ -20,6 +23,9 @@ function App() {
           <Route path="/submit" element={<SubmitTool />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/guide/:slug" element={<PillarPage />} />
+          <Route path="/compare/:slug" element={<ComparisonPage />} />
+          <Route path="/alternatives/:slug" element={<AlternativesPage />} />
+          <Route path="/best/:slug" element={<BestOfPage />} />
           <Route path="/platform/:slug" element={<PlatformDetail />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
