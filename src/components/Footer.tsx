@@ -72,7 +72,7 @@ export default function Footer() {
         <div className="footer-bottom">
           <div className="footer-bottom-content">
             <p className="copyright">
-              © {currentYear} AI Platforms Directory. All rights reserved.
+              © {currentYear} AI Platforms Directory. Operated by <strong>Badly Creative LLC</strong>. All rights reserved.
             </p>
             <div className="footer-links">
               <Link to="/sitemap.xml">Sitemap</Link>

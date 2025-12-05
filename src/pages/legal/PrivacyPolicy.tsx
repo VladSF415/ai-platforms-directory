@@ -15,7 +15,10 @@ export default function PrivacyPolicy() {
           <section>
             <h2>1. Introduction</h2>
             <p>
-              Welcome to AI Platforms Directory ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website.
+              Welcome to AI Platforms Directory ("we," "our," or "us"), operated by <strong>Badly Creative LLC</strong>. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website.
+            </p>
+            <p>
+              When you make payments or subscriptions, you may see <strong>Badly Creative LLC</strong> on your statements. This is the legal entity that operates AI Platforms Directory.
             </p>
           </section>
 

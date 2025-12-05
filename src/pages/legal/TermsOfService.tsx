@@ -15,14 +15,17 @@ export default function TermsOfService() {
           <section>
             <h2>1. Acceptance of Terms</h2>
             <p>
-              By accessing and using AI Platforms Directory ("the Service"), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.
+              By accessing and using AI Platforms Directory ("the Service"), operated by <strong>Badly Creative LLC</strong>, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.
+            </p>
+            <p>
+              Any payments, subscriptions, or transactions will be processed by <strong>Badly Creative LLC</strong>. This name will appear on your bank statements and invoices.
             </p>
           </section>
 
           <section>
             <h2>2. Description of Service</h2>
             <p>
-              AI Platforms Directory is a comprehensive directory of AI platforms, tools, and services. We provide information, comparisons, and resources to help users discover and evaluate AI solutions.
+              AI Platforms Directory is a comprehensive directory of AI platforms, tools, and services operated by Badly Creative LLC. We provide information, comparisons, and resources to help users discover and evaluate AI solutions.
             </p>
           </section>
 
