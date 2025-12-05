@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "start": "node server.js"
+    "start": "node server.js",
+    "organize": "node scripts/auto-organize.mjs",
+    "organize:fix": "node scripts/auto-organize.mjs --fix",
+    "organize:scrape": "node scripts/auto-organize.mjs --scrape --fix",
+    "organize:verbose": "node scripts/auto-organize.mjs --verbose --fix"
   },
   "dependencies": {
     "@fastify/cors": "^8.5.0",
