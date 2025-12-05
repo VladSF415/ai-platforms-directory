@@ -5,17 +5,17 @@ Total Opportunities: 2
 
 ---
 
-## 1. Augment
+## 1. Reka Core
 
-**Category:** code-ai
-**Website:** https://www.augment.dev
+**Category:** llms
+**Website:** https://reka.ai
 **Pricing Model:** enterprise
 
 **Description:**
-Enterprise AI coding assistant that integrates deeply with company codebases, understands proprietary APIs, and provides context-aware coding assistance while maintaining code security and intellectual property protection.
+Multimodal frontier AI model that processes and understands text, images, video, and audio simultaneously with state-of-the-art reasoning capabilities. Features real-time processing, enterprise-grade security, and customizable deployment options. Targets research institutions, large enterprises, and AI application developers.
 
 **💵 Affiliate Program Details:**
-20% first-year commission on enterprise contracts via direct partner program, $25K+ average deal size, extended 120-day cookie for enterprise sales
+Reka Partner Network with tiered commission structure (15-30%), enterprise referral bonuses up to $10K, annual contract minimums, direct partnership application required with technical validation
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -26,17 +26,17 @@ Enterprise AI coding assistant that integrates deeply with company codebases, un
 
 ---
 
-## 2. Udio
+## 2. Pika 1.5
 
-**Category:** audio-ai
-**Website:** https://www.udio.com
+**Category:** video-generation
+**Website:** https://pika.art
 **Pricing Model:** freemium
 
 **Description:**
-AI music generation platform that creates high-quality, customizable music tracks with advanced controls over style, instruments, and structure. Features include stem separation, style blending, and professional mastering tools for music producers.
+Next-generation AI video platform specializing in consistent character generation, style transfer, and extended video sequences. Features advanced motion control, lip-sync capabilities, and cinematic style presets. Targets animation studios, social media influencers, and digital marketing agencies.
 
 **💵 Affiliate Program Details:**
-30% recurring commission via Impact.com, $100 sign-up bonus for first 5 referrals, requires music-related website or social media presence with 5K+ followers
+Pika Partner Program via Impact.com, 25% recurring commission, 90-day cookie, $100 minimum payout, priority access to new features for top partners
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -50,5 +50,5 @@ AI music generation platform that creates high-quality, customizable music track
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Augment** - https://www.augment.dev
-2. [ ] **Udio** - https://www.udio.com
+1. [ ] **Reka Core** - https://reka.ai
+2. [ ] **Pika 1.5** - https://pika.art
