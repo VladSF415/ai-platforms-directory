@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import type { SubmitToolForm } from '../types';
 import { analytics } from '../utils/analytics';
 
@@ -6,10 +7,7 @@ function SubmitTool() {
   const [totalPlatforms, setTotalPlatforms] = useState(0);
 
   useEffect(() => {
-    // Track submission page view
     analytics.startSubmission();
-
-    // Fetch total platform count
     fetch('/api/platforms?limit=0')
       .then(res => res.json())
       .then(data => setTotalPlatforms(data.total))
@@ -40,7 +38,6 @@ function SubmitTool() {
     setSubmitting(true);
 
     try {
-      // Calculate total price
       let totalPrice = SUBMISSION_FEE;
       if (form.wantsFeatured && form.featuredTier) {
         totalPrice += FEATURED_PRICING[form.featuredTier];
@@ -55,12 +52,9 @@ function SubmitTool() {
       const data = await response.json();
 
       if (data.checkoutUrl) {
-        // Track submission completion
         analytics.completeSubmission(form.name, form.wantsFeatured);
-        // Redirect to Stripe checkout
         window.location.href = data.checkoutUrl;
       } else {
-        // Track submission completion
         analytics.completeSubmission(form.name, form.wantsFeatured);
         setSuccess(true);
       }
@@ -72,281 +66,365 @@ function SubmitTool() {
     setSubmitting(false);
   };
 
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    padding: '14px 16px',
+    border: '4px solid #000000',
+    background: '#ffffff',
+    fontFamily: "'Courier New', monospace",
+    fontSize: '14px',
+    fontWeight: 700,
+    outline: 'none',
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    marginBottom: '8px',
+    fontFamily: "'Courier New', monospace",
+    fontSize: '12px',
+    fontWeight: 900,
+    textTransform: 'uppercase',
+    letterSpacing: '1px',
+  };
+
   if (success) {
     return (
-      <div className="container" style={{ maxWidth: '800px', margin: '60px auto', padding: '40px', textAlign: 'center' }}>
-        <div style={{ fontSize: '64px', marginBottom: '20px' }}>✅</div>
-        <h1 style={{ marginBottom: '16px' }}>Thank You!</h1>
-        <p style={{ fontSize: '18px', color: '#666', marginBottom: '30px' }}>
-          Your AI tool submission has been received. We'll review it and add it to our directory within 24-48 hours.
-        </p>
-        <button
-          onClick={() => window.location.href = '/'}
-          style={{
-            padding: '12px 32px',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
+      <div style={{ maxWidth: '800px', margin: '60px auto', padding: '40px 20px', textAlign: 'center' }}>
+        <div style={{
+          padding: '60px 40px',
+          border: '6px solid #000000',
+          background: '#ffffff'
+        }}>
+          <div style={{
+            width: '80px',
+            height: '80px',
+            background: '#000000',
+            color: '#ffffff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 24px',
+            fontSize: '40px',
+            fontWeight: 900
+          }}>✓</div>
+          <h1 style={{
+            fontFamily: "'Courier New', monospace",
+            textTransform: 'uppercase',
+            letterSpacing: '3px',
+            marginBottom: '16px'
+          }}>Submission Received</h1>
+          <p style={{
+            fontFamily: "'Courier New', monospace",
             fontSize: '16px',
-            fontWeight: '600',
-            cursor: 'pointer',
-          }}
-        >
-          Back to Directory
-        </button>
+            color: '#666',
+            marginBottom: '30px'
+          }}>
+            Your AI tool will be reviewed and published within 24-48 hours.
+          </p>
+          <Link
+            to="/"
+            style={{
+              display: 'inline-block',
+              padding: '16px 32px',
+              background: '#000000',
+              color: '#ffffff',
+              textDecoration: 'none',
+              fontFamily: "'Courier New', monospace",
+              fontWeight: 900,
+              textTransform: 'uppercase',
+              letterSpacing: '2px',
+              border: '4px solid #000000'
+            }}
+          >
+            ← Back to Directory
+          </Link>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container" style={{ maxWidth: '800px', margin: '60px auto' }}>
+    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 20px 80px' }}>
+      {/* Header */}
       <div style={{ marginBottom: '40px' }}>
-        <h1 style={{ marginBottom: '12px' }}>Submit Your AI Tool</h1>
-        <p style={{ fontSize: '18px', color: '#666' }}>
-          Get your AI platform listed in our directory of {totalPlatforms}+ curated tools
+        <Link
+          to="/"
+          style={{
+            display: 'inline-block',
+            marginBottom: '20px',
+            color: '#000000',
+            textDecoration: 'none',
+            fontFamily: "'Courier New', monospace",
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            fontSize: '13px',
+            padding: '10px 20px',
+            border: '3px solid #000000'
+          }}
+        >
+          ← Back to Directory
+        </Link>
+        <h1 style={{
+          fontFamily: "'Courier New', monospace",
+          fontSize: '36px',
+          fontWeight: 900,
+          textTransform: 'uppercase',
+          letterSpacing: '3px',
+          marginBottom: '12px'
+        }}>
+          Submit Your AI Tool
+        </h1>
+        <p style={{
+          fontFamily: "'Courier New', monospace",
+          fontSize: '16px',
+          color: '#666'
+        }}>
+          Get listed in our directory of {totalPlatforms}+ curated AI platforms
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} style={{ background: 'white', padding: '40px', borderRadius: '12px', border: '1px solid #e0e0e0' }}>
+      <form onSubmit={handleSubmit}>
         {/* Basic Information */}
-        <div style={{ marginBottom: '32px' }}>
-          <h2 style={{ fontSize: '20px', marginBottom: '20px' }}>Basic Information</h2>
+        <div style={{
+          padding: '32px',
+          border: '4px solid #000000',
+          background: '#ffffff',
+          marginBottom: '24px'
+        }}>
+          <h2 style={{
+            fontFamily: "'Courier New', monospace",
+            fontSize: '18px',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+            marginBottom: '24px',
+            paddingBottom: '12px',
+            borderBottom: '4px solid #000000'
+          }}>
+            Basic Information
+          </h2>
 
           <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Tool Name *
-            </label>
+            <label style={labelStyle}>Tool Name *</label>
             <input
               type="text"
               required
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '12px',
-                border: '1px solid #ddd',
-                borderRadius: '8px',
-                fontSize: '16px',
-              }}
-              placeholder="e.g., GPT-4, Midjourney, etc."
+              style={inputStyle}
+              placeholder="E.G., CHATGPT, MIDJOURNEY"
             />
           </div>
 
           <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Description *
-            </label>
+            <label style={labelStyle}>Description *</label>
             <textarea
               required
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
               rows={4}
-              style={{
-                width: '100%',
-                padding: '12px',
-                border: '1px solid #ddd',
-                borderRadius: '8px',
-                fontSize: '16px',
-                fontFamily: 'inherit',
-              }}
-              placeholder="Brief description of your AI tool (50-200 characters)"
+              style={{ ...inputStyle, minHeight: '120px', resize: 'vertical' }}
+              placeholder="BRIEF DESCRIPTION OF YOUR AI TOOL (50-200 CHARACTERS)"
             />
           </div>
 
           <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Website URL *
-            </label>
+            <label style={labelStyle}>Website URL *</label>
             <input
               type="url"
               required
               value={form.website}
               onChange={(e) => setForm({ ...form, website: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '12px',
-                border: '1px solid #ddd',
-                borderRadius: '8px',
-                fontSize: '16px',
-              }}
-              placeholder="https://your-ai-tool.com"
+              style={inputStyle}
+              placeholder="HTTPS://YOUR-AI-TOOL.COM"
             />
           </div>
 
-          <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Category *
-            </label>
-            <select
-              required
-              value={form.category}
-              onChange={(e) => setForm({ ...form, category: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '12px',
-                border: '1px solid #ddd',
-                borderRadius: '8px',
-                fontSize: '16px',
-              }}
-            >
-              <option value="ml-frameworks">ML Frameworks</option>
-              <option value="generative-ai">Generative AI</option>
-              <option value="computer-vision">Computer Vision</option>
-              <option value="nlp">NLP</option>
-              <option value="llms">LLMs</option>
-              <option value="analytics-bi">Analytics & BI</option>
-              <option value="code-ai">Code AI</option>
-              <option value="image-generation">Image Generation</option>
-            </select>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+            <div>
+              <label style={labelStyle}>Category *</label>
+              <select
+                required
+                value={form.category}
+                onChange={(e) => setForm({ ...form, category: e.target.value })}
+                style={{ ...inputStyle, cursor: 'pointer' }}
+              >
+                <option value="ml-frameworks">ML FRAMEWORKS</option>
+                <option value="generative-ai">GENERATIVE AI</option>
+                <option value="computer-vision">COMPUTER VISION</option>
+                <option value="nlp">NLP</option>
+                <option value="llms">LLMS</option>
+                <option value="analytics-bi">ANALYTICS & BI</option>
+                <option value="code-ai">CODE AI</option>
+                <option value="image-generation">IMAGE GENERATION</option>
+                <option value="video-ai">VIDEO AI</option>
+                <option value="agent-platforms">AGENT PLATFORMS</option>
+              </select>
+            </div>
+
+            <div>
+              <label style={labelStyle}>Pricing Model *</label>
+              <input
+                type="text"
+                required
+                value={form.pricing}
+                onChange={(e) => setForm({ ...form, pricing: e.target.value })}
+                style={inputStyle}
+                placeholder="FREE, FREEMIUM, $10/MONTH"
+              />
+            </div>
           </div>
 
-          <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Pricing Model *
-            </label>
-            <input
-              type="text"
-              required
-              value={form.pricing}
-              onChange={(e) => setForm({ ...form, pricing: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '12px',
-                border: '1px solid #ddd',
-                borderRadius: '8px',
-                fontSize: '16px',
-              }}
-              placeholder="e.g., Free, Freemium, $10/month, etc."
-            />
-          </div>
-
-          <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Contact Email *
-            </label>
+          <div style={{ marginTop: '20px' }}>
+            <label style={labelStyle}>Contact Email *</label>
             <input
               type="email"
               required
               value={form.contactEmail}
               onChange={(e) => setForm({ ...form, contactEmail: e.target.value })}
-              style={{
-                width: '100%',
-                padding: '12px',
-                border: '1px solid #ddd',
-                borderRadius: '8px',
-                fontSize: '16px',
-              }}
-              placeholder="your@email.com"
+              style={inputStyle}
+              placeholder="YOUR@EMAIL.COM"
             />
           </div>
         </div>
 
         {/* Featured Listing Option */}
-        <div style={{ marginBottom: '32px', padding: '24px', background: '#f8f9ff', borderRadius: '8px', border: '1px solid #e0e7ff' }}>
-          <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>Featured Listing (Optional)</h2>
+        <div style={{
+          padding: '32px',
+          border: '4px solid #000000',
+          background: '#f5f5f5',
+          marginBottom: '24px'
+        }}>
+          <h2 style={{
+            fontFamily: "'Courier New', monospace",
+            fontSize: '18px',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            letterSpacing: '2px',
+            marginBottom: '24px',
+            paddingBottom: '12px',
+            borderBottom: '4px solid #000000'
+          }}>
+            Featured Listing (Optional)
+          </h2>
 
-          <label style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', cursor: 'pointer' }}>
+          <label style={{
+            display: 'flex',
+            alignItems: 'center',
+            marginBottom: '24px',
+            cursor: 'pointer',
+            fontFamily: "'Courier New', monospace",
+            fontWeight: 700,
+            textTransform: 'uppercase'
+          }}>
             <input
               type="checkbox"
               checked={form.wantsFeatured}
               onChange={(e) => setForm({ ...form, wantsFeatured: e.target.checked })}
-              style={{ marginRight: '12px', width: '20px', height: '20px', cursor: 'pointer' }}
+              style={{ marginRight: '12px', width: '24px', height: '24px', cursor: 'pointer', accentColor: '#000000' }}
             />
-            <span style={{ fontWeight: '500' }}>
-              Upgrade to Featured Listing for more visibility
-            </span>
+            Upgrade to Featured Listing for More Visibility
           </label>
 
           {form.wantsFeatured && (
             <div style={{ display: 'grid', gap: '16px' }}>
-              <label
-                style={{
-                  padding: '20px',
-                  border: form.featuredTier === 'basic' ? '2px solid #667eea' : '1px solid #ddd',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  background: 'white',
-                }}
-              >
-                <input
-                  type="radio"
-                  name="featuredTier"
-                  value="basic"
-                  checked={form.featuredTier === 'basic'}
-                  onChange={(e) => setForm({ ...form, featuredTier: e.target.value as any })}
-                  style={{ marginRight: '12px' }}
-                />
-                <strong>Basic Featured</strong> - ${FEATURED_PRICING.basic}/month
-                <div style={{ fontSize: '14px', color: '#666', marginTop: '8px', marginLeft: '28px' }}>
-                  ⭐ Featured badge, higher placement
-                </div>
-              </label>
-
-              <label
-                style={{
-                  padding: '20px',
-                  border: form.featuredTier === 'premium' ? '2px solid #667eea' : '1px solid #ddd',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  background: 'white',
-                }}
-              >
-                <input
-                  type="radio"
-                  name="featuredTier"
-                  value="premium"
-                  checked={form.featuredTier === 'premium'}
-                  onChange={(e) => setForm({ ...form, featuredTier: e.target.value as any })}
-                  style={{ marginRight: '12px' }}
-                />
-                <strong>Premium Featured</strong> - ${FEATURED_PRICING.premium}/month
-                <div style={{ fontSize: '14px', color: '#666', marginTop: '8px', marginLeft: '28px' }}>
-                  ⭐ Top 3 placement, custom description, priority support
-                </div>
-              </label>
-
-              <label
-                style={{
-                  padding: '20px',
-                  border: form.featuredTier === 'enterprise' ? '2px solid #667eea' : '1px solid #ddd',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  background: 'white',
-                }}
-              >
-                <input
-                  type="radio"
-                  name="featuredTier"
-                  value="enterprise"
-                  checked={form.featuredTier === 'enterprise'}
-                  onChange={(e) => setForm({ ...form, featuredTier: e.target.value as any })}
-                  style={{ marginRight: '12px' }}
-                />
-                <strong>Enterprise Featured</strong> - ${FEATURED_PRICING.enterprise}/month
-                <div style={{ fontSize: '14px', color: '#666', marginTop: '8px', marginLeft: '28px' }}>
-                  🏆 #1 placement, custom branding, dedicated account manager
-                </div>
-              </label>
+              {[
+                { tier: 'basic', name: 'Basic Featured', price: FEATURED_PRICING.basic, desc: 'Featured badge, higher placement' },
+                { tier: 'premium', name: 'Premium Featured', price: FEATURED_PRICING.premium, desc: 'Top 3 placement, custom description, priority support' },
+                { tier: 'enterprise', name: 'Enterprise Featured', price: FEATURED_PRICING.enterprise, desc: '#1 placement, custom branding, dedicated account manager' },
+              ].map(({ tier, name, price, desc }) => (
+                <label
+                  key={tier}
+                  style={{
+                    padding: '20px',
+                    border: form.featuredTier === tier ? '4px solid #000000' : '3px solid #cccccc',
+                    background: form.featuredTier === tier ? '#FFFF00' : '#ffffff',
+                    cursor: 'pointer',
+                    display: 'block'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
+                    <input
+                      type="radio"
+                      name="featuredTier"
+                      value={tier}
+                      checked={form.featuredTier === tier}
+                      onChange={(e) => setForm({ ...form, featuredTier: e.target.value as any })}
+                      style={{ marginRight: '12px', width: '20px', height: '20px', accentColor: '#000000' }}
+                    />
+                    <span style={{
+                      fontFamily: "'Courier New', monospace",
+                      fontWeight: 900,
+                      textTransform: 'uppercase',
+                      fontSize: '14px'
+                    }}>
+                      {name}
+                    </span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontFamily: "'Courier New', monospace",
+                      fontWeight: 900,
+                      fontSize: '16px'
+                    }}>
+                      ${price}/mo
+                    </span>
+                  </div>
+                  <div style={{
+                    marginLeft: '32px',
+                    fontFamily: "'Courier New', monospace",
+                    fontSize: '12px',
+                    color: '#666'
+                  }}>
+                    {desc}
+                  </div>
+                </label>
+              ))}
             </div>
           )}
         </div>
 
         {/* Pricing Summary */}
-        <div style={{ marginBottom: '32px', padding: '20px', background: '#f5f5f5', borderRadius: '8px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-            <span>Submission Fee:</span>
-            <span style={{ fontWeight: '600' }}>${SUBMISSION_FEE}</span>
+        <div style={{
+          padding: '24px 32px',
+          border: '4px solid #000000',
+          background: '#000000',
+          color: '#ffffff',
+          marginBottom: '24px'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: '12px',
+            fontFamily: "'Courier New', monospace",
+            fontSize: '14px'
+          }}>
+            <span>SUBMISSION FEE:</span>
+            <span style={{ fontWeight: 900 }}>${SUBMISSION_FEE}</span>
           </div>
           {form.wantsFeatured && form.featuredTier && (
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-              <span>Featured Listing (First Month):</span>
-              <span style={{ fontWeight: '600' }}>${FEATURED_PRICING[form.featuredTier]}</span>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginBottom: '12px',
+              fontFamily: "'Courier New', monospace",
+              fontSize: '14px'
+            }}>
+              <span>FEATURED LISTING:</span>
+              <span style={{ fontWeight: 900 }}>${FEATURED_PRICING[form.featuredTier]}</span>
             </div>
           )}
-          <div style={{ borderTop: '2px solid #ddd', paddingTop: '12px', marginTop: '12px', display: 'flex', justifyContent: 'space-between', fontSize: '18px' }}>
-            <span style={{ fontWeight: '700' }}>Total:</span>
-            <span style={{ fontWeight: '700', color: '#667eea' }}>
+          <div style={{
+            borderTop: '2px solid #ffffff',
+            paddingTop: '12px',
+            marginTop: '12px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontFamily: "'Courier New', monospace",
+            fontSize: '20px',
+            fontWeight: 900
+          }}>
+            <span>TOTAL:</span>
+            <span style={{ background: '#FFFF00', color: '#000000', padding: '4px 12px' }}>
               ${SUBMISSION_FEE + (form.wantsFeatured && form.featuredTier ? FEATURED_PRICING[form.featuredTier] : 0)}
             </span>
           </div>
@@ -358,21 +436,30 @@ function SubmitTool() {
           disabled={submitting}
           style={{
             width: '100%',
-            padding: '16px',
-            background: submitting ? '#ccc' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            fontSize: '18px',
-            fontWeight: '600',
-            cursor: submitting ? 'not-allowed' : 'pointer',
+            padding: '20px',
+            background: submitting ? '#666666' : '#000000',
+            color: '#ffffff',
+            border: '4px solid #000000',
+            fontFamily: "'Courier New', monospace",
+            fontSize: '16px',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            letterSpacing: '3px',
+            cursor: submitting ? 'wait' : 'pointer'
           }}
         >
-          {submitting ? 'Processing...' : 'Continue to Payment'}
+          {submitting ? 'Processing...' : 'Continue to Payment →'}
         </button>
 
-        <p style={{ marginTop: '16px', fontSize: '14px', color: '#666', textAlign: 'center' }}>
-          Secure payment powered by Stripe. Your listing will be reviewed and published within 24-48 hours.
+        <p style={{
+          marginTop: '20px',
+          fontFamily: "'Courier New', monospace",
+          fontSize: '12px',
+          color: '#666',
+          textAlign: 'center',
+          textTransform: 'uppercase'
+        }}>
+          Secure payment powered by Stripe. Reviewed within 24-48 hours.
         </p>
       </form>
     </div>

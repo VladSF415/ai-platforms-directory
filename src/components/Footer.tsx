@@ -1,8 +1,27 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [stats, setStats] = useState({ platforms: 743, categories: 17 });
+
+  useEffect(() => {
+    // Fetch actual stats from API
+    fetch('/api/platforms?limit=0')
+      .then(res => res.json())
+      .then(data => {
+        setStats(prev => ({ ...prev, platforms: data.total || prev.platforms }));
+      })
+      .catch(() => {});
+
+    fetch('/api/categories')
+      .then(res => res.json())
+      .then(data => {
+        setStats(prev => ({ ...prev, categories: data.length || prev.categories }));
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <footer className="site-footer">
@@ -14,7 +33,7 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="AI Platforms Directory Logo"
-                style={{ width: '40px', height: '40px', borderRadius: '8px' }}
+                style={{ width: '40px', height: '40px', borderRadius: '0', border: '2px solid #fff' }}
               />
               <h3 style={{ margin: 0 }}>AI Platforms Directory</h3>
             </div>
@@ -24,11 +43,11 @@ export default function Footer() {
             </p>
             <div className="footer-stats">
               <div className="stat">
-                <strong>700+</strong>
+                <strong>{stats.platforms}+</strong>
                 <span>AI Platforms</span>
               </div>
               <div className="stat">
-                <strong>9+</strong>
+                <strong>{stats.categories}+</strong>
                 <span>Categories</span>
               </div>
               <div className="stat">
