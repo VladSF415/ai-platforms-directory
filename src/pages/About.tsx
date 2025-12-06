@@ -122,7 +122,7 @@ export default function About() {
                 Have questions, suggestions, or want to report an issue? We'd love to hear from you.
               </p>
               <p>
-                <strong>Email:</strong> <a href="mailto:contact@aiplatformslist.com" style={{ color: '#667eea', textDecoration: 'none' }}>contact@aiplatformslist.com</a>
+                <strong>Email:</strong> <a href="mailto:info@aiplatformslist.com" style={{ color: '#667eea', textDecoration: 'none' }}>info@aiplatformslist.com</a>
               </p>
               <p>
                 <strong>Submit a Platform:</strong> <Link to="/submit" style={{ color: '#667eea', textDecoration: 'none' }}>Use our submission form</Link>
