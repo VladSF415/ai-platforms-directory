@@ -26,7 +26,7 @@ export default function About() {
                 AI Platforms List is the most comprehensive and curated directory of artificial intelligence tools and software. Our mission is to help businesses, developers, and enthusiasts discover the right AI solutions for their needs.
               </p>
               <p>
-                With over <strong>733+ AI platforms</strong> and growing, we provide detailed information, comparisons, and guides to help you navigate the rapidly evolving AI landscape.
+                With over <strong>743+ AI platforms</strong> and growing, we provide detailed information, comparisons, and guides to help you navigate the rapidly evolving AI landscape.
               </p>
             </section>
 
@@ -35,7 +35,7 @@ export default function About() {
               <div className="feature-grid">
                 <div>
                   <h3>Comprehensive Directory</h3>
-                  <p>Browse 733+ AI tools across multiple categories including writing, coding, image generation, video creation, analytics, and more.</p>
+                  <p>Browse 743+ AI tools across 17 categories including writing, coding, image generation, video creation, analytics, and more.</p>
                 </div>
                 <div>
                   <h3>Expert Curation</h3>
@@ -93,7 +93,7 @@ export default function About() {
               <h2>For Platform Owners</h2>
               <p>
                 Are you building an AI tool? We'd love to feature your platform in our directory.
-                <Link to="/submit" style={{ marginLeft: '0.5rem', color: '#667eea', textDecoration: 'none', fontWeight: '600' }}>
+                <Link to="/submit" style={{ marginLeft: '0.5rem', color: '#000000', textDecoration: 'underline', textDecorationThickness: '2px', fontWeight: '900' }}>
                   Submit your AI platform →
                 </Link>
               </p>
@@ -122,10 +122,10 @@ export default function About() {
                 Have questions, suggestions, or want to report an issue? We'd love to hear from you.
               </p>
               <p>
-                <strong>Email:</strong> <a href="mailto:info@aiplatformslist.com" style={{ color: '#667eea', textDecoration: 'none' }}>info@aiplatformslist.com</a>
+                <strong>Email:</strong> <a href="mailto:info@aiplatformslist.com" style={{ color: '#000000', textDecoration: 'underline', textDecorationThickness: '2px' }}>info@aiplatformslist.com</a>
               </p>
               <p>
-                <strong>Submit a Platform:</strong> <Link to="/submit" style={{ color: '#667eea', textDecoration: 'none' }}>Use our submission form</Link>
+                <strong>Submit a Platform:</strong> <Link to="/submit" style={{ color: '#000000', textDecoration: 'underline', textDecorationThickness: '2px' }}>Use our submission form</Link>
               </p>
             </section>
 
@@ -142,39 +142,38 @@ export default function About() {
             <div style={{
               marginTop: '3rem',
               padding: '2rem',
-              background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
-              borderRadius: '12px',
-              border: '1px solid rgba(102, 126, 234, 0.2)'
+              background: '#f5f5f5',
+              border: '4px solid #000000'
             }}>
-              <h3 style={{ marginTop: 0 }}>AI Platforms List by the Numbers</h3>
+              <h3 style={{ marginTop: 0, fontFamily: "'Courier New', monospace", textTransform: 'uppercase', letterSpacing: '2px' }}>AI Platforms List by the Numbers</h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.5rem', marginTop: '1.5rem' }}>
                 <div>
-                  <div style={{ fontSize: '2rem', fontWeight: '900', color: '#667eea' }}>733+</div>
-                  <div style={{ color: '#666', fontSize: '0.9rem' }}>AI Platforms</div>
+                  <div style={{ fontSize: '2rem', fontWeight: '900', color: '#000000', fontFamily: "'Courier New', monospace" }}>743+</div>
+                  <div style={{ color: '#666', fontSize: '0.9rem', fontFamily: "'Courier New', monospace", textTransform: 'uppercase' }}>AI Platforms</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '2rem', fontWeight: '900', color: '#667eea' }}>50+</div>
-                  <div style={{ color: '#666', fontSize: '0.9rem' }}>Categories</div>
+                  <div style={{ fontSize: '2rem', fontWeight: '900', color: '#000000', fontFamily: "'Courier New', monospace" }}>17+</div>
+                  <div style={{ color: '#666', fontSize: '0.9rem', fontFamily: "'Courier New', monospace", textTransform: 'uppercase' }}>Categories</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '2rem', fontWeight: '900', color: '#667eea' }}>318+</div>
-                  <div style={{ color: '#666', fontSize: '0.9rem' }}>Comparisons</div>
+                  <div style={{ fontSize: '2rem', fontWeight: '900', color: '#000000', fontFamily: "'Courier New', monospace" }}>100+</div>
+                  <div style={{ color: '#666', fontSize: '0.9rem', fontFamily: "'Courier New', monospace", textTransform: 'uppercase' }}>Comparisons</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '2rem', fontWeight: '900', color: '#667eea' }}>Daily</div>
-                  <div style={{ color: '#666', fontSize: '0.9rem' }}>Updates</div>
+                  <div style={{ fontSize: '2rem', fontWeight: '900', color: '#000000', fontFamily: "'Courier New', monospace" }}>Daily</div>
+                  <div style={{ color: '#666', fontSize: '0.9rem', fontFamily: "'Courier New', monospace", textTransform: 'uppercase' }}>Updates</div>
                 </div>
               </div>
             </div>
 
-            <div style={{ marginTop: '2rem', textAlign: 'center', padding: '2rem 0', borderTop: '1px solid #eee' }}>
-              <p style={{ fontSize: '0.9rem', color: '#666' }}>
-                Operated by <strong>Badly Creative LLC</strong>
+            <div style={{ marginTop: '2rem', textAlign: 'center', padding: '2rem 0', borderTop: '4px solid #000000' }}>
+              <p style={{ fontSize: '0.9rem', color: '#666', fontFamily: "'Courier New', monospace" }}>
+                Operated by <strong style={{ background: '#FFFF00', padding: '2px 8px' }}>BADLY CREATIVE LLC</strong>
               </p>
               <div style={{ marginTop: '1rem' }}>
-                <Link to="/privacy" style={{ margin: '0 1rem', color: '#667eea', textDecoration: 'none' }}>Privacy Policy</Link>
-                <Link to="/terms" style={{ margin: '0 1rem', color: '#667eea', textDecoration: 'none' }}>Terms of Service</Link>
-                <Link to="/disclaimer" style={{ margin: '0 1rem', color: '#667eea', textDecoration: 'none' }}>Disclaimer</Link>
+                <Link to="/privacy" style={{ margin: '0 1rem', color: '#000000', textDecoration: 'underline', textDecorationThickness: '2px', fontFamily: "'Courier New', monospace" }}>Privacy Policy</Link>
+                <Link to="/terms" style={{ margin: '0 1rem', color: '#000000', textDecoration: 'underline', textDecorationThickness: '2px', fontFamily: "'Courier New', monospace" }}>Terms of Service</Link>
+                <Link to="/disclaimer" style={{ margin: '0 1rem', color: '#000000', textDecoration: 'underline', textDecorationThickness: '2px', fontFamily: "'Courier New', monospace" }}>Disclaimer</Link>
               </div>
             </div>
           </div>
