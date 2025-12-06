@@ -147,43 +147,49 @@ export default function Navigation() {
                 background: '#ffffff',
                 border: '6px solid #000000',
                 padding: '20px',
-                minWidth: '400px',
+                minWidth: '700px',
                 zIndex: 1000
               }}>
-                {categories.map((category) => (
-                  <Link
-                    key={category.slug}
-                    to={`/category/${category.slug}`}
-                    onClick={closeMenu}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '14px 18px',
-                      margin: '6px 0',
-                      background: '#000000',
-                      color: '#ffffff',
-                      textDecoration: 'none',
-                      border: '4px solid #000000',
-                      fontFamily: "'Courier New', 'Courier', monospace",
-                      fontWeight: 900,
-                      textTransform: 'uppercase',
-                      fontSize: '14px',
-                      letterSpacing: '1px'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#ffffff';
-                      e.currentTarget.style.color = '#000000';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = '#000000';
-                      e.currentTarget.style.color = '#ffffff';
-                    }}
-                  >
-                    <span>{category.name}</span>
-                    <span style={{ fontWeight: 900 }}>{category.count}</span>
-                  </Link>
-                ))}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: '8px',
+                  marginBottom: '12px'
+                }}>
+                  {categories.map((category) => (
+                    <Link
+                      key={category.slug}
+                      to={`/category/${category.slug}`}
+                      onClick={closeMenu}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '14px 18px',
+                        background: '#000000',
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        border: '4px solid #000000',
+                        fontFamily: "'Courier New', 'Courier', monospace",
+                        fontWeight: 900,
+                        textTransform: 'uppercase',
+                        fontSize: '14px',
+                        letterSpacing: '1px'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = '#ffffff';
+                        e.currentTarget.style.color = '#000000';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = '#000000';
+                        e.currentTarget.style.color = '#ffffff';
+                      }}
+                    >
+                      <span>{category.name}</span>
+                      <span style={{ fontWeight: 900 }}>{category.count}</span>
+                    </Link>
+                  ))}
+                </div>
                 <Link
                   to="/"
                   onClick={closeMenu}
@@ -191,7 +197,6 @@ export default function Navigation() {
                     display: 'block',
                     textAlign: 'center',
                     padding: '16px',
-                    marginTop: '12px',
                     borderTop: '4px solid #000000',
                     color: '#000000',
                     textDecoration: 'none',
