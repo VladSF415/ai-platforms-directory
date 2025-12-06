@@ -20,7 +20,7 @@ export default function Navigation() {
   useEffect(() => {
     fetch('/api/categories')
       .then(res => res.json())
-      .then(data => setCategories(data.slice(0, 12))) // Show top 12 categories
+      .then(data => setCategories(data.slice(0, 12)))
       .catch(err => console.error('Failed to fetch categories:', err));
   }, []);
 
@@ -114,29 +114,102 @@ export default function Navigation() {
           <li>
             <Link to="/" onClick={closeMenu}>Home</Link>
           </li>
-          <li className="nav-dropdown">
-            <button onClick={toggleCategories} className="nav-dropdown-trigger">
+          <li style={{ position: 'relative' }}>
+            <button
+              onClick={toggleCategories}
+              className="nav-dropdown-trigger"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '10px 18px',
+                color: 'white',
+                background: 'none',
+                border: '3px solid transparent',
+                cursor: 'pointer',
+                fontWeight: 900,
+                fontSize: '13px',
+                fontFamily: "'Courier New', 'Courier', monospace",
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}
+            >
               Categories
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
             {isCategoriesOpen && (
-              <div className="nav-dropdown-menu">
-                <div className="nav-dropdown-grid">
-                  {categories.map((category) => (
-                    <Link
-                      key={category.slug}
-                      to={`/category/${category.slug}`}
-                      onClick={closeMenu}
-                      className="nav-dropdown-item"
-                    >
-                      <span className="category-name">{category.name}</span>
-                      <span className="category-count">{category.count}</span>
-                    </Link>
-                  ))}
-                </div>
-                <Link to="/" className="nav-dropdown-all" onClick={closeMenu}>
+              <div style={{
+                position: 'absolute',
+                top: 'calc(100% + 12px)',
+                right: 0,
+                background: '#ffffff',
+                border: '6px solid #000000',
+                padding: '20px',
+                minWidth: '400px',
+                zIndex: 1000
+              }}>
+                {categories.map((category) => (
+                  <Link
+                    key={category.slug}
+                    to={`/category/${category.slug}`}
+                    onClick={closeMenu}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '14px 18px',
+                      margin: '6px 0',
+                      background: '#000000',
+                      color: '#ffffff',
+                      textDecoration: 'none',
+                      border: '4px solid #000000',
+                      fontFamily: "'Courier New', 'Courier', monospace",
+                      fontWeight: 900,
+                      textTransform: 'uppercase',
+                      fontSize: '14px',
+                      letterSpacing: '1px'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = '#ffffff';
+                      e.currentTarget.style.color = '#000000';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = '#000000';
+                      e.currentTarget.style.color = '#ffffff';
+                    }}
+                  >
+                    <span>{category.name}</span>
+                    <span style={{ fontWeight: 900 }}>{category.count}</span>
+                  </Link>
+                ))}
+                <Link
+                  to="/"
+                  onClick={closeMenu}
+                  style={{
+                    display: 'block',
+                    textAlign: 'center',
+                    padding: '16px',
+                    marginTop: '12px',
+                    borderTop: '4px solid #000000',
+                    color: '#000000',
+                    textDecoration: 'none',
+                    fontWeight: 900,
+                    fontSize: '14px',
+                    fontFamily: "'Courier New', 'Courier', monospace",
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#000000';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                >
                   View All Categories →
                 </Link>
               </div>
@@ -194,17 +267,48 @@ export default function Navigation() {
                 </svg>
               </button>
               {isCategoriesOpen && (
-                <div className="mobile-dropdown-content">
+                <div style={{ padding: '12px 0' }}>
                   {categories.map((category) => (
                     <Link
                       key={category.slug}
                       to={`/category/${category.slug}`}
                       onClick={closeMenu}
+                      style={{
+                        display: 'block',
+                        padding: '12px 18px',
+                        margin: '6px 0',
+                        background: '#000000',
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        border: '3px solid #000000',
+                        fontFamily: "'Courier New', 'Courier', monospace",
+                        fontWeight: 900,
+                        textTransform: 'uppercase',
+                        fontSize: '13px',
+                        letterSpacing: '1px'
+                      }}
                     >
                       {category.name} ({category.count})
                     </Link>
                   ))}
-                  <Link to="/" onClick={closeMenu} className="view-all">
+                  <Link
+                    to="/"
+                    onClick={closeMenu}
+                    style={{
+                      display: 'block',
+                      padding: '12px 18px',
+                      marginTop: '12px',
+                      background: '#000000',
+                      color: '#ffffff',
+                      textDecoration: 'none',
+                      border: '4px solid #000000',
+                      fontFamily: "'Courier New', 'Courier', monospace",
+                      fontWeight: 900,
+                      textTransform: 'uppercase',
+                      fontSize: '14px',
+                      letterSpacing: '1px'
+                    }}
+                  >
                     View All Categories →
                   </Link>
                 </div>
