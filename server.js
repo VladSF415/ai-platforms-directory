@@ -297,6 +297,17 @@ try {
   console.error('⚠️ Failed to load font for OG images:', error.message);
 }
 
+// Load logo for OG image generation
+let logoBase64;
+try {
+  const logoPath = join(__dirname, 'public/logo.png');
+  const logoBuffer = readFileSync(logoPath);
+  logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
+  console.log('✅ Loaded logo for OG images');
+} catch (error) {
+  console.error('⚠️ Failed to load logo for OG images:', error.message);
+}
+
 // Dynamic OG Image Generator
 fastify.get('/og-image.png', async (request, reply) => {
   const {
@@ -381,19 +392,14 @@ fastify.get('/og-image.png', async (request, reply) => {
                       },
                       children: [
                         {
-                          type: 'div',
+                          type: 'img',
                           props: {
+                            src: logoBase64,
+                            width: 60,
+                            height: 60,
                             style: {
-                              width: '60px',
-                              height: '60px',
-                              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                               borderRadius: '12px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              fontSize: '32px',
                             },
-                            children: '🤖',
                           },
                         },
                         {
