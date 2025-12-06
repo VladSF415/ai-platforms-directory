@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import SubmitTool from './pages/SubmitTool';
 import PlatformDetail from './pages/PlatformDetail';
@@ -19,6 +20,7 @@ function App() {
   return (
     <Router>
       <div className="app-container">
+        <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/submit" element={<SubmitTool />} />
