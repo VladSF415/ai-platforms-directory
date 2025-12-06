@@ -45,7 +45,7 @@ function formatPlatform(platform, includeDescription = true) {
   const name = escapeMarkdown(platform.name);
   const category = escapeMarkdown(platform.category || 'Uncategorized');
   const pricing = escapeMarkdown(platform.pricing || 'Not specified');
-  const url = `${BASE_URL}/platform/${platform.slug}`;
+  const url = `${BASE_URL}/platform/${platform.slug || platform.id}`;
 
   let message = `🤖 *${name}*\n\n`;
   message += `📂 Category: ${category}\n`;
@@ -81,7 +81,7 @@ function getPlatformKeyboard(platform) {
     buttons.push([{ text: '🌐 Visit Website', url: platform.website }]);
   }
 
-  buttons.push([{ text: '📄 Full Details', url: `${BASE_URL}/platform/${platform.slug}` }]);
+  buttons.push([{ text: '📄 Full Details', url: `${BASE_URL}/platform/${platform.slug || platform.id}` }]);
 
   // Add "More from this category" button
   buttons.push([{ text: '📂 More in this category', callback_data: `cat_${platform.category}` }]);
