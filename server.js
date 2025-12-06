@@ -795,6 +795,72 @@ fastify.post('/api/submit-tool', async (request, reply) => {
   return { success: true };
 });
 
+// Contact form endpoint - sends message to Telegram
+fastify.post('/api/contact', async (request, reply) => {
+  const { name, email, subject, message } = request.body;
+
+  // Validate required fields
+  if (!name || !email || !message) {
+    reply.code(400).send({ error: 'Name, email, and message are required' });
+    return;
+  }
+
+  console.log('[Contact] New message received:', { name, email, subject });
+
+  // Send to Telegram
+  const botToken = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (botToken && chatId) {
+    try {
+      const subjectLabels = {
+        'general': 'General Question',
+        'platform': 'Question About a Platform',
+        'submit': 'Submit New Platform',
+        'report': 'Report an Issue',
+        'partnership': 'Partnership / Business',
+        'feedback': 'Feedback / Suggestion'
+      };
+
+      const telegramMessage = `
+📬 <b>New Contact Form Message!</b>
+
+👤 <b>From:</b> ${name}
+📧 <b>Email:</b> ${email}
+📋 <b>Subject:</b> ${subjectLabels[subject] || subject}
+
+💬 <b>Message:</b>
+${message}
+
+🕒 <b>Received:</b> ${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}
+`.trim();
+
+      const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: telegramMessage,
+          parse_mode: 'HTML',
+        }),
+      });
+
+      if (response.ok) {
+        console.log('[Telegram] Contact message sent successfully');
+      } else {
+        const error = await response.json();
+        console.error('[Telegram] Failed to send contact message:', error);
+      }
+    } catch (error) {
+      console.error('[Telegram] Error sending contact message:', error.message);
+    }
+  } else {
+    console.log('[Contact] Telegram not configured, message logged only');
+  }
+
+  return { success: true, message: 'Message received! We will get back to you soon.' };
+});
+
 // Serve React app for all other routes (SPA)
 if (process.env.NODE_ENV === 'production') {
   fastify.setNotFoundHandler((request, reply) => {

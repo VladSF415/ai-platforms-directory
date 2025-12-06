@@ -10,6 +10,7 @@ import ComparisonPage from './pages/ComparisonPage';
 import AlternativesPage from './pages/AlternativesPage';
 import BestOfPage from './pages/BestOfPage';
 import About from './pages/About';
+import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/legal/PrivacyPolicy';
 import TermsOfService from './pages/legal/TermsOfService';
 import CookiePolicy from './pages/legal/CookiePolicy';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/submit" element={<SubmitTool />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/guide/:slug" element={<PillarPage />} />
           <Route path="/compare/:slug" element={<ComparisonPage />} />
