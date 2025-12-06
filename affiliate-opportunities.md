@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2025-12-05
+Generated: 2025-12-06
 Total Opportunities: 1
 
 ---
 
-## 1. Arc Search
+## 1. Captions
 
-**Category:** search-ai
-**Website:** https://arc.net
+**Category:** video-ai
+**Website:** https://captions.ai
 **Pricing Model:** freemium
 
 **Description:**
-AI-native web browser with built-in intelligent search that summarizes, synthesizes, and presents information from multiple sources in a clean, organized format. Features include live web browsing, smart categorization, and personalized information retrieval.
+AI-powered video creation studio that automates the entire video production workflow from filming to editing, with advanced features like AI voice cloning, automatic editing, and smart subtitle generation. Designed for creators, marketers, and businesses to produce professional videos effortlessly.
 
 **💵 Affiliate Program Details:**
-Browser Company Partner Program with performance bonuses, revenue sharing on premium features, requires tech/software review sites
+30% recurring commission via Impact.com, 60-day cookie, $50 minimum payout, pro plan referrals earn 40% first month, active creator community
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Browser Company Partner Program with performance bonuses, revenue sharing on pre
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Arc Search** - https://arc.net
+1. [ ] **Captions** - https://captions.ai
