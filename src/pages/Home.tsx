@@ -138,7 +138,17 @@ function Home() {
 
       <header className="header">
         <div className="container">
-          <h1>AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Software (2025)</h1>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '20px' }}>
+            <img
+              src="/logo.png"
+              alt="AI Platforms Directory Logo"
+              style={{ width: '80px', height: '80px', borderRadius: '12px' }}
+            />
+            <h1 style={{ margin: 0 }}>AI Platforms Directory</h1>
+          </div>
+          <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>
+            Discover {totalPlatforms}+ AI Tools & Software (2025)
+          </h2>
           <p className="hero-description">
             The most comprehensive directory of AI platforms, tools, and software.
             Compare features, pricing, and reviews across {categories.length}+ categories including

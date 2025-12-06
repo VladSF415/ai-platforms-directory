@@ -10,7 +10,14 @@ export default function Footer() {
         <div className="footer-grid">
           {/* About Section */}
           <div className="footer-section">
-            <h3>AI Platforms Directory</h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+              <img
+                src="/logo.png"
+                alt="AI Platforms Directory Logo"
+                style={{ width: '40px', height: '40px', borderRadius: '8px' }}
+              />
+              <h3 style={{ margin: 0 }}>AI Platforms Directory</h3>
+            </div>
             <p>
               The most comprehensive directory of AI platforms, tools, and services.
               Discover, compare, and choose the best AI solutions for your needs.
