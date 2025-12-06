@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import ScrollButtons from './components/ScrollButtons';
 import Home from './pages/Home';
 import SubmitTool from './pages/SubmitTool';
 import PlatformDetail from './pages/PlatformDetail';
@@ -37,6 +38,7 @@ function App() {
           <Route path="/dmca" element={<DMCA />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
         </Routes>
+        <ScrollButtons />
         <Footer />
       </div>
     </Router>
