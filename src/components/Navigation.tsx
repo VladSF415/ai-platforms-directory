@@ -273,36 +273,45 @@ export default function Navigation() {
               </button>
               {isCategoriesOpen && (
                 <div style={{ padding: '12px 0' }}>
-                  {categories.map((category) => (
-                    <Link
-                      key={category.slug}
-                      to={`/category/${category.slug}`}
-                      onClick={closeMenu}
-                      style={{
-                        display: 'block',
-                        padding: '12px 18px',
-                        margin: '6px 0',
-                        background: '#000000',
-                        color: '#ffffff',
-                        textDecoration: 'none',
-                        border: '3px solid #000000',
-                        fontFamily: "'Courier New', 'Courier', monospace",
-                        fontWeight: 900,
-                        textTransform: 'uppercase',
-                        fontSize: '13px',
-                        letterSpacing: '1px'
-                      }}
-                    >
-                      {category.name} ({category.count})
-                    </Link>
-                  ))}
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: '8px',
+                    marginBottom: '12px'
+                  }}>
+                    {categories.map((category) => (
+                      <Link
+                        key={category.slug}
+                        to={`/category/${category.slug}`}
+                        onClick={closeMenu}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          padding: '10px 12px',
+                          background: '#000000',
+                          color: '#ffffff',
+                          textDecoration: 'none',
+                          border: '3px solid #000000',
+                          fontFamily: "'Courier New', 'Courier', monospace",
+                          fontWeight: 900,
+                          textTransform: 'uppercase',
+                          fontSize: '11px',
+                          letterSpacing: '0.5px'
+                        }}
+                      >
+                        <span>{category.name}</span>
+                        <span style={{ fontWeight: 900, fontSize: '10px' }}>{category.count}</span>
+                      </Link>
+                    ))}
+                  </div>
                   <Link
                     to="/"
                     onClick={closeMenu}
                     style={{
                       display: 'block',
+                      textAlign: 'center',
                       padding: '12px 18px',
-                      marginTop: '12px',
                       background: '#000000',
                       color: '#ffffff',
                       textDecoration: 'none',
@@ -310,7 +319,7 @@ export default function Navigation() {
                       fontFamily: "'Courier New', 'Courier', monospace",
                       fontWeight: 900,
                       textTransform: 'uppercase',
-                      fontSize: '14px',
+                      fontSize: '13px',
                       letterSpacing: '1px'
                     }}
                   >
