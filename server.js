@@ -808,6 +808,18 @@ const start = async () => {
     const port = process.env.PORT || 3001;
     await fastify.listen({ port, host: '0.0.0.0' });
     console.log(`🚀 AI Platforms Directory running on port ${port}`);
+
+    // Start Telegram bot if token is provided
+    if (process.env.TELEGRAM_BOT_TOKEN) {
+      try {
+        await import('./telegram-bot.js');
+        console.log('🤖 Telegram bot started');
+      } catch (botError) {
+        console.error('Failed to start Telegram bot:', botError.message);
+      }
+    } else {
+      console.log('ℹ️  TELEGRAM_BOT_TOKEN not set, bot not started');
+    }
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);

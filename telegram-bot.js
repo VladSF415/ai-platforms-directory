@@ -20,7 +20,7 @@ if (!BOT_TOKEN) {
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
 
 // Load platform data
-const platformsPath = join(__dirname, 'data', 'platforms.json');
+const platformsPath = join(__dirname, 'platforms.json');
 const platforms = JSON.parse(readFileSync(platformsPath, 'utf-8'));
 
 // Load categories
