@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { Platform, Category } from '../types';
 import { analytics } from '../utils/analytics';
 import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
@@ -7,10 +7,11 @@ import { SocialMetaTags } from '../components/SocialMetaTags';
 
 function Home() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [platforms, setPlatforms] = useState<Platform[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState('');
+  const search = searchParams.get('search') || '';
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [showFeatured, setShowFeatured] = useState(false);
   const [totalPlatforms, setTotalPlatforms] = useState(0);
@@ -136,42 +137,21 @@ function Home() {
       {/* FAQ Schema for SEO */}
       <FAQSchema faqs={faqs} />
 
-      <header className="header">
-        <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px', marginBottom: '20px' }}>
-            <img
-              src="/logo.png"
-              alt="AI Platforms Directory Logo"
-              style={{ width: '80px', height: '80px', borderRadius: '12px' }}
-            />
-            <h1 style={{ margin: 0 }}>AI Platforms Directory</h1>
-          </div>
-          <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '16px' }}>
-            Discover {totalPlatforms}+ AI Tools & Software (2025)
-          </h2>
-          <p className="hero-description">
-            The most comprehensive directory of AI platforms, tools, and software.
-            Compare features, pricing, and reviews across {categories.length}+ categories including
-            LLMs, generative AI, code assistants, computer vision, NLP, and more.
-            Updated daily with new AI discoveries.
+      <div className="container" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '-2px', color: '#000000' }}>
+            DISCOVER {totalPlatforms}+ AI TOOLS
+          </h1>
+          <p style={{ fontSize: '1.1rem', fontWeight: '700', maxWidth: '900px', margin: '0 auto 30px', color: '#000000', lineHeight: '1.6' }}>
+            THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,
+            PRICING, AND REVIEWS ACROSS {categories.length}+ CATEGORIES INCLUDING LLMS, GENERATIVE AI,
+            CODE ASSISTANTS, COMPUTER VISION, NLP, AND MORE.
           </p>
-
-          <div className="search-bar">
-            <input
-              type="text"
-              placeholder="Search AI tools..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-
-          <div style={{ marginTop: '24px', textAlign: 'center' }}>
-            <a href="/submit" className="submit-btn">
-              Submit Your AI Tool
-            </a>
-          </div>
+          <a href="/submit" className="submit-btn">
+            SUBMIT YOUR AI TOOL
+          </a>
         </div>
-      </header>
+      </div>
 
       {/* SEO Content Section */}
       <div className="container seo-content-section" style={{ maxWidth: '1200px', margin: '60px auto', padding: '0 20px' }}>
