@@ -5,17 +5,17 @@ Total Opportunities: 2
 
 ---
 
-## 1. Cognition AI (Devon)
+## 1. Pictory
 
-**Category:** code-ai
-**Website:** https://www.cognition.ai
-**Pricing Model:** enterprise
+**Category:** video-ai
+**Website:** https://pictory.ai
+**Pricing Model:** freemium
 
 **Description:**
-AI software engineer agent that autonomously writes, debugs, and deploys code across multiple programming languages and frameworks. Can complete entire software projects from specifications, fix bugs, and implement features with human-level reasoning about code structure and requirements. Targets developers, engineering teams, and businesses seeking to accelerate software development.
+AI-powered video creation platform that transforms long-form content into engaging short videos for social media. Automatically extracts key moments from webinars, podcasts, and articles to create shareable video clips with captions and branding.
 
 **💵 Affiliate Program Details:**
-Enterprise partner program with 15-25% commission on deals, $5K+ referral bonuses for qualified leads, implementation partner opportunities, technical certification required, deal registration protection
+Pictory Affiliate Program offers 30% recurring commission via ShareASale, 45-day cookie, $100 minimum payout, provides marketing materials and dedicated support
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -26,17 +26,17 @@ Enterprise partner program with 15-25% commission on deals, $5K+ referral bonuse
 
 ---
 
-## 2. Hex Magic
+## 2. Jasper
 
-**Category:** analytics-bi
-**Website:** https://hex.tech/magic
-**Pricing Model:** freemium
+**Category:** generative-ai
+**Website:** https://www.jasper.ai
+**Pricing Model:** paid
 
 **Description:**
-AI-powered data workspace that combines SQL, Python, and no-code visualization with natural language data analysis. Features collaborative notebooks, interactive dashboards, and AI-assisted data transformation and modeling. Designed for data analysts, data scientists, and business teams working with data exploration and visualization.
+AI content creation platform designed for marketing teams and businesses, offering templates for various content types including blogs, ads, emails, and social media posts. Features brand voice customization and collaboration tools for enterprise teams.
 
 **💵 Affiliate Program Details:**
-Technology partner program with 20% first-year revenue share, $500 referral bonuses for qualified leads, co-marketing opportunities, technical integration support, partner portal with resources
+Jasper Partner Program offers 30% recurring commission for first year, 30-day cookie, managed through PartnerStack, requires application with marketing experience
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -50,5 +50,5 @@ Technology partner program with 20% first-year revenue share, $500 referral bonu
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Cognition AI (Devon)** - https://www.cognition.ai
-2. [ ] **Hex Magic** - https://hex.tech/magic
+1. [ ] **Pictory** - https://pictory.ai
+2. [ ] **Jasper** - https://www.jasper.ai
