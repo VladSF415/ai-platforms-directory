@@ -58,13 +58,59 @@ interface VisualBreadcrumbProps {
 
 export function VisualBreadcrumb({ items }: VisualBreadcrumbProps) {
   return (
-    <nav className="breadcrumb" aria-label="Breadcrumb navigation">
+    <nav
+      aria-label="Breadcrumb navigation"
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: '8px',
+        marginBottom: '20px',
+        fontFamily: "'Courier New', 'Courier', monospace",
+        fontSize: '12px',
+        fontWeight: 700,
+        textTransform: 'uppercase',
+        letterSpacing: '1px'
+      }}
+    >
       {items.map((item, index) => (
-        <span key={index} className="breadcrumb-item">
-          {index > 0 && <span className="breadcrumb-separator"> → </span>}
-          <a href={item.url} className="breadcrumb-link">
-            {item.name}
-          </a>
+        <span key={index} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {index > 0 && (
+            <span style={{ opacity: 0.5 }}>→</span>
+          )}
+          {index < items.length - 1 ? (
+            <a
+              href={item.url}
+              style={{
+                color: '#ffffff',
+                textDecoration: 'none',
+                padding: '6px 12px',
+                background: 'transparent',
+                border: '2px solid rgba(255,255,255,0.3)',
+                transition: 'none'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#ffffff';
+                e.currentTarget.style.color = '#000000';
+                e.currentTarget.style.borderColor = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = '#ffffff';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+              }}
+            >
+              {item.name}
+            </a>
+          ) : (
+            <span style={{
+              color: '#ffffff',
+              opacity: 0.7,
+              padding: '6px 0'
+            }}>
+              {item.name}
+            </span>
+          )}
         </span>
       ))}
     </nav>
