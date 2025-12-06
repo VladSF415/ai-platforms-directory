@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { Platform, Category } from '../types';
 import { analytics } from '../utils/analytics';
@@ -7,7 +7,7 @@ import { SocialMetaTags } from '../components/SocialMetaTags';
 
 function Home() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [platforms, setPlatforms] = useState<Platform[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
@@ -16,11 +16,21 @@ function Home() {
   const [showFeatured, setShowFeatured] = useState(false);
   const [totalPlatforms, setTotalPlatforms] = useState(0);
   const [pillarPages, setPillarPages] = useState<any[]>([]);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetchPlatforms();
     fetchCategories();
   }, [selectedCategory, search, showFeatured]);
+
+  // Auto-scroll to results when search is active
+  useEffect(() => {
+    if (search && resultsRef.current) {
+      setTimeout(() => {
+        resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }, [search]);
 
   // Fetch pillar pages for Featured Guides section
   useEffect(() => {
@@ -369,10 +379,59 @@ function Home() {
         </section>
       </div>
 
-      <div className="container">
-        <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900', textAlign: 'center' }}>
-          Browse All AI Tools
-        </h2>
+      <div className="container" ref={resultsRef}>
+        {search ? (
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '16px',
+            marginBottom: '30px',
+            padding: '20px',
+            background: '#000000',
+            border: '4px solid #000000'
+          }}>
+            <h2 style={{
+              fontSize: '24px',
+              fontWeight: '900',
+              color: '#ffffff',
+              margin: 0,
+              fontFamily: "'Courier New', monospace",
+              textTransform: 'uppercase'
+            }}>
+              SEARCH RESULTS FOR: "{search}"
+            </h2>
+            <button
+              onClick={() => setSearchParams({})}
+              style={{
+                padding: '12px 24px',
+                background: '#ffffff',
+                color: '#000000',
+                border: '3px solid #ffffff',
+                fontFamily: "'Courier New', monospace",
+                fontWeight: 900,
+                fontSize: '14px',
+                textTransform: 'uppercase',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#000000';
+                e.currentTarget.style.color = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#ffffff';
+                e.currentTarget.style.color = '#000000';
+              }}
+            >
+              CLEAR SEARCH
+            </button>
+          </div>
+        ) : (
+          <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900', textAlign: 'center' }}>
+            Browse All AI Tools
+          </h2>
+        )}
 
         <div className="filters">
           <button
@@ -400,12 +459,57 @@ function Home() {
 
         {loading ? (
           <div className="loading">Loading amazing AI tools...</div>
+        ) : platforms.length === 0 ? (
+          <div style={{
+            textAlign: 'center',
+            padding: '60px 20px',
+            background: '#f5f5f5',
+            border: '4px solid #000000'
+          }}>
+            <div style={{
+              fontSize: '48px',
+              marginBottom: '20px'
+            }}>🔍</div>
+            <h3 style={{
+              fontSize: '24px',
+              fontWeight: 900,
+              marginBottom: '12px',
+              fontFamily: "'Courier New', monospace",
+              textTransform: 'uppercase'
+            }}>
+              NO RESULTS FOUND
+            </h3>
+            <p style={{
+              fontSize: '16px',
+              color: '#666',
+              marginBottom: '24px',
+              fontFamily: "'Courier New', monospace"
+            }}>
+              No AI tools match "{search}". Try a different search term.
+            </p>
+            <button
+              onClick={() => setSearchParams({})}
+              style={{
+                padding: '14px 28px',
+                background: '#000000',
+                color: '#ffffff',
+                border: '4px solid #000000',
+                fontFamily: "'Courier New', monospace",
+                fontWeight: 900,
+                fontSize: '14px',
+                textTransform: 'uppercase',
+                cursor: 'pointer'
+              }}
+            >
+              SHOW ALL TOOLS
+            </button>
+          </div>
         ) : (
           <>
             <div className="stats">
               <div className="stat">
                 <div className="stat-number">{platforms.length}</div>
-                <div className="stat-label">Platforms</div>
+                <div className="stat-label">{search ? 'Results' : 'Platforms'}</div>
               </div>
               <div className="stat">
                 <div className="stat-number">{categories.length}</div>
