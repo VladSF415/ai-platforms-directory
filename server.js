@@ -3,6 +3,8 @@ import { readFileSync, readdirSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import Stripe from 'stripe';
+import satori from 'satori';
+import sharp from 'sharp';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -283,6 +285,245 @@ fastify.get('/api/stats', async () => {
       totalPages: pillarContent.length + comparisonContent.length + alternativesContent.length + bestOfContent.length
     }
   };
+});
+
+// Load font for OG image generation
+let interFont;
+try {
+  const fontPath = join(__dirname, 'node_modules/@fontsource/inter/files/inter-latin-700-normal.woff');
+  interFont = readFileSync(fontPath);
+  console.log('✅ Loaded Inter font for OG images');
+} catch (error) {
+  console.error('⚠️ Failed to load font for OG images:', error.message);
+}
+
+// Dynamic OG Image Generator
+fastify.get('/og-image.png', async (request, reply) => {
+  const {
+    title = 'AI Platforms List',
+    subtitle = `Discover ${platforms.length}+ AI Tools & Software`,
+    type = 'home'
+  } = request.query;
+
+  try {
+    // Create SVG using satori
+    const svg = await satori(
+      {
+        type: 'div',
+        props: {
+          style: {
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%)',
+            padding: '80px',
+            fontFamily: 'Inter',
+            position: 'relative',
+          },
+          children: [
+            // Decorative elements
+            {
+              type: 'div',
+              props: {
+                style: {
+                  position: 'absolute',
+                  top: '40px',
+                  right: '80px',
+                  width: '200px',
+                  height: '200px',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: '50%',
+                  opacity: 0.2,
+                  filter: 'blur(40px)',
+                },
+              },
+            },
+            {
+              type: 'div',
+              props: {
+                style: {
+                  position: 'absolute',
+                  bottom: '40px',
+                  left: '80px',
+                  width: '300px',
+                  height: '300px',
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  borderRadius: '50%',
+                  opacity: 0.15,
+                  filter: 'blur(60px)',
+                },
+              },
+            },
+            // Main content
+            {
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '24px',
+                  position: 'relative',
+                  zIndex: 10,
+                },
+                children: [
+                  // Logo/Brand
+                  {
+                    type: 'div',
+                    props: {
+                      style: {
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '16px',
+                        marginBottom: '20px',
+                      },
+                      children: [
+                        {
+                          type: 'div',
+                          props: {
+                            style: {
+                              width: '60px',
+                              height: '60px',
+                              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                              borderRadius: '12px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '32px',
+                            },
+                            children: '🤖',
+                          },
+                        },
+                        {
+                          type: 'div',
+                          props: {
+                            style: {
+                              fontSize: '28px',
+                              fontWeight: '600',
+                              color: '#ffffff',
+                              letterSpacing: '-0.5px',
+                            },
+                            children: 'AI Platforms List',
+                          },
+                        },
+                      ],
+                    },
+                  },
+                  // Main Title
+                  {
+                    type: 'h1',
+                    props: {
+                      style: {
+                        fontSize: title.length > 50 ? '56px' : '72px',
+                        fontWeight: '900',
+                        color: '#ffffff',
+                        lineHeight: 1.1,
+                        margin: 0,
+                        maxWidth: '900px',
+                        letterSpacing: '-2px',
+                      },
+                      children: title,
+                    },
+                  },
+                  // Subtitle
+                  {
+                    type: 'p',
+                    props: {
+                      style: {
+                        fontSize: '32px',
+                        fontWeight: '400',
+                        color: '#a0a0b8',
+                        lineHeight: 1.4,
+                        margin: 0,
+                        maxWidth: '800px',
+                      },
+                      children: subtitle,
+                    },
+                  },
+                  // Badge/Stats
+                  {
+                    type: 'div',
+                    props: {
+                      style: {
+                        display: 'flex',
+                        gap: '16px',
+                        marginTop: '20px',
+                      },
+                      children: [
+                        {
+                          type: 'div',
+                          props: {
+                            style: {
+                              background: 'rgba(102, 126, 234, 0.15)',
+                              border: '2px solid rgba(102, 126, 234, 0.3)',
+                              borderRadius: '999px',
+                              padding: '12px 28px',
+                              fontSize: '20px',
+                              fontWeight: '600',
+                              color: '#667eea',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                            },
+                            children: `✓ ${platforms.length}+ Platforms`,
+                          },
+                        },
+                        {
+                          type: 'div',
+                          props: {
+                            style: {
+                              background: 'rgba(102, 126, 234, 0.15)',
+                              border: '2px solid rgba(102, 126, 234, 0.3)',
+                              borderRadius: '999px',
+                              padding: '12px 28px',
+                              fontSize: '20px',
+                              fontWeight: '600',
+                              color: '#667eea',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                            },
+                            children: '⭐ Verified',
+                          },
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
+          ],
+        },
+      },
+      {
+        width: 1200,
+        height: 630,
+        fonts: [
+          {
+            name: 'Inter',
+            data: interFont,
+            weight: 700,
+            style: 'normal',
+          },
+        ],
+      }
+    );
+
+    // Convert SVG to PNG using sharp
+    const png = await sharp(Buffer.from(svg))
+      .png()
+      .toBuffer();
+
+    reply
+      .type('image/png')
+      .header('Cache-Control', 'public, max-age=86400') // Cache for 24 hours
+      .send(png);
+  } catch (error) {
+    console.error('[OG Image Error]', error);
+    reply.code(500).send({ error: 'Failed to generate OG image' });
+  }
 });
 
 // Dynamic Sitemap.xml

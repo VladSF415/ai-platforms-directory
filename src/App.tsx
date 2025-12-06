@@ -7,6 +7,7 @@ import PillarPage from './pages/PillarPage';
 import ComparisonPage from './pages/ComparisonPage';
 import AlternativesPage from './pages/AlternativesPage';
 import BestOfPage from './pages/BestOfPage';
+import About from './pages/About';
 import PrivacyPolicy from './pages/legal/PrivacyPolicy';
 import TermsOfService from './pages/legal/TermsOfService';
 import CookiePolicy from './pages/legal/CookiePolicy';
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/submit" element={<SubmitTool />} />
+          <Route path="/about" element={<About />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/guide/:slug" element={<PillarPage />} />
           <Route path="/compare/:slug" element={<ComparisonPage />} />
