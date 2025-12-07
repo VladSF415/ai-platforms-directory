@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// Forcing redeployment with a trivial change
+
 /**
  * AI-Powered Alternatives Generator
  * Uses DeepSeek to generate rich "Best X Alternatives" pages
