@@ -3737,7 +3737,7 @@
     "id": "apache-tvm",
     "name": "Apache TVM",
     "description": "Apache TVM is an open-source deep learning compiler stack that compiles models from various frameworks (TensorFlow, PyTorch, ONNX, etc.) into optimized machine code for diverse hardware backends including CPUs, GPUs, and specialized ML accelerators. Its key capability is automatic optimization through machine learning-based auto-tuning, enabling high-performance inference across edge devices, cloud servers, and custom hardware. What makes it unique is its hardware-agnostic intermediate representation (IR) that allows a single model to be deployed efficiently across dozens of different hardware targets.",
-    "category": "ml-frameworks",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "compiler-optimization"
@@ -3815,7 +3815,9 @@
       "Edge computing and IoT developers"
     ],
     "has_api": true,
-    "has_affiliate": false
+    "has_affiliate": false,
+    "recategorized_date": "2025-12-07T18:04:10.967Z",
+    "recategorized_from": "ml-frameworks"
   },
   {
     "id": "api4ai",
@@ -3908,7 +3910,7 @@
     "id": "argo-workflows",
     "name": "Argo Workflows",
     "description": "Argo Workflows is an open-source, container-native workflow engine for orchestrating parallel jobs on Kubernetes. It enables users to define complex, multi-step pipelines as directed acyclic graphs (DAGs), making it a powerful tool for machine learning, data processing, and CI/CD automation. Its tight integration with the Kubernetes ecosystem and declarative YAML-based approach make it uniquely suited for cloud-native, scalable workflow automation.",
-    "category": "workflow-automation",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "kubernetes-workflows"
@@ -3985,7 +3987,9 @@
       "Software Developers building cloud-native applications"
     ],
     "has_api": true,
-    "has_affiliate": false
+    "has_affiliate": false,
+    "recategorized_date": "2025-12-07T18:04:10.968Z",
+    "recategorized_from": "workflow-automation"
   },
   {
     "id": "arize-phoenix",
@@ -29717,21 +29721,23 @@
   {
     "id": "medallia-experience-cloud",
     "name": "Medallia Experience Cloud",
-    "description": "Experience management platform with NLP for analyzing customer feedback across multiple channels and touchpoints.",
-    "category": "nlp",
+    "description": "Medallia Experience Cloud is an enterprise-grade experience management (XM) platform that captures, analyzes, and acts on customer, employee, and citizen feedback across digital and human touchpoints. Its core capability is leveraging AI, including advanced NLP and machine learning, to derive predictive insights, automate workflows, and drive operational improvements from unstructured text and behavioral data. It is uniquely positioned for large organizations seeking to close the loop between experience data and business outcomes by integrating feedback directly into frontline and operational systems.",
+    "category": "enterprise-ai-platforms",
     "categories": [
       "Natural Language Processing",
       "Customer Experience"
     ],
     "url": "https://www.medallia.com",
     "website": "https://www.medallia.com",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Multi-channel feedback analysis",
-      "Real-time sentiment analysis",
-      "Text analytics",
-      "Predictive insights",
-      "Journey mapping"
+      "AI-powered text and speech analytics using proprietary NLP models to categorize themes, emotions, and intent",
+      "Real-time alerts and automated case routing for immediate service recovery and action-taking",
+      "Predictive experience analytics identifying customers at risk of churn or likely to promote",
+      "Integrated journey mapping linking feedback to specific touchpoints across operational data",
+      "Enterprise-scale data integration from surveys, CRM, support tickets, social media, and verbatims",
+      "Closed-loop action management with workflow tools to assign, track, and report on follow-up actions",
+      "Role-based dashboards and reporting with benchmarks for executives, managers, and frontline staff"
     ],
     "rating": 4.3,
     "verified": true,
@@ -29739,9 +29745,14 @@
     "trending": false,
     "slug": "medallia-experience-cloud",
     "tags": [
-      "AI",
-      "NLP",
-      "Customer Experience"
+      "customer-experience",
+      "employee-engagement",
+      "sentiment-analysis",
+      "text-analytics",
+      "predictive-analytics",
+      "feedback-management",
+      "enterprise-software",
+      "voice-of-the-customer"
     ],
     "subcategories": [
       "customer-experience"
@@ -29764,13 +29775,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "A global hotel chain analyzing guest reviews and survey comments to identify and fix recurring service issues at specific properties.",
+      "A telecommunications provider using predictive sentiment scores to proactively retain customers showing signs of frustration in call center transcripts.",
+      "A financial services firm mapping the digital account opening journey to pinpoint where applicants abandon the process and why.",
+      "A retail brand correlating employee engagement survey results with store-level sales performance to improve management training.",
+      "An automotive company integrating dealership service feedback with CRM data to improve customer loyalty programs."
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom pricing - Includes platform access, core AI analytics, integrations, implementation services, and dedicated support. Pricing is quote-based and scales with data volume, number of users, and modules required."
+      ],
+      "free_tier": "No - Medallia does not offer a publicly available free or freemium tier. They may provide custom proof-of-concepts or demos for qualified enterprises.",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Large Enterprises (Fortune 500/Global 2000)",
+      "Customer Experience (CX) Leaders and Operations Teams",
+      "VoC (Voice of the Customer) and Insights Professionals"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mediapipe",
     "name": "MediaPipe",
-    "description": "Framework by Google for building perception pipelines processing time-series data like video, audio, and sensor data for mobile and desktop applications.",
-    "category": "ml-frameworks",
+    "description": "MediaPipe is an open-source framework by Google for building multimodal perception pipelines that process synchronized time-series data like video, audio, and sensor streams. It provides developers with production-ready, cross-platform solutions for real-time inference, featuring pre-built models for tasks such as face detection, hand tracking, pose estimation, and object detection. Its unique value lies in its highly optimized, low-latency architecture designed to run efficiently on resource-constrained devices like mobile phones, web browsers, and edge devices, abstracting away complex hardware acceleration details.",
+    "category": "computer-vision",
     "categories": [
       "machine-learning-frameworks",
       "multimedia-processing"
@@ -29779,11 +29812,12 @@
     "website": "https://mediapipe.dev",
     "pricing": "open-source",
     "features": [
-      "Perception pipelines",
-      "Cross-platform",
-      "Real-time processing",
-      "Pre-built solutions",
-      "Mobile optimization"
+      "Pre-built, customizable ML solutions (e.g., Face Mesh, Hands, Pose, Holistic, Object Detection, Selfie Segmentation)",
+      "Cross-platform support (Android, iOS, desktop, web via JavaScript, Python, C++)",
+      "Hardware acceleration leveraging GPU, CPU, and DSP via integration with TFLite and OpenCL",
+      "Graph-based pipeline configuration for modular, reusable perception components",
+      "On-device, real-time inference with minimal latency for privacy and offline use",
+      "Support for processing multiple input streams (video, audio, time series) synchronously"
     ],
     "rating": 4.6,
     "verified": true,
@@ -29791,11 +29825,14 @@
     "trending": true,
     "slug": "mediapipe",
     "tags": [
-      "Google",
-      "Perception",
-      "Real-time",
-      "Mobile",
-      "Cross-platform"
+      "google",
+      "perception-pipelines",
+      "real-time-inference",
+      "cross-platform",
+      "mobile-optimized",
+      "multimodal-ai",
+      "edge-ai",
+      "prebuilt-models"
     ],
     "subcategories": [
       "multimedia-processing",
@@ -29819,26 +29856,51 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building augmented reality (AR) filters and effects for mobile apps",
+      "Developing fitness and wellness apps with real-time pose and movement tracking",
+      "Creating accessible technology using hand gesture and facial expression recognition",
+      "Implementing video conferencing features like virtual backgrounds and attention tracking",
+      "Powering interactive educational or gaming applications with body motion control",
+      "Enabling robotics and IoT devices with on-device vision and audio perception"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: Full access to framework, source code, pre-built models, and documentation under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - The entire framework and its components are free to use, modify, and distribute.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "mobile application developers",
+      "computer vision engineers and researchers",
+      "AR/VR and edge AI developers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "medis-imaging",
     "name": "Medis Medical Imaging",
-    "description": "Vendor-independent cardiac imaging software solutions for CT, MRI, X-Ray, and Ultrasound with over 30 years of experience.",
-    "category": "computer-vision",
+    "description": "Medis Medical Imaging provides advanced, vendor-independent software for the quantitative analysis of cardiac images from CT, MRI, X-Ray, and Ultrasound. Its core capability is delivering precise, reproducible measurements of cardiac structure and function (like vessel dimensions, plaque volume, and ventricular strain) to support clinical decision-making and research. It is uniquely trusted by leading hospitals, core labs, and pharmaceutical companies for its 30+ years of scientific validation and its proprietary technologies like QFR (Quantitative Flow Ratio).",
+    "category": "healthcare-ai",
     "categories": [
       "computer-vision",
       "cardiac-imaging"
     ],
     "url": "https://medisimaging.com",
     "website": "https://medisimaging.com",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Cardiac imaging analysis",
-      "Vendor-independent",
-      "QFR technology",
-      "Quantitative analysis",
-      "Multi-modality support"
+      "QFR (Quantitative Flow Ratio) for non-invasive ischemia assessment from angiograms",
+      "Automated 3D quantification of coronary plaque from CCTA (QAngio CT)",
+      "Comprehensive MRI analysis suite for ventricular function, T1/T2 mapping, and 4D flow",
+      "Vendor-neutral DICOM import and structured reporting export",
+      "Strain analysis for echocardiography and cardiac MRI",
+      "Core Lab functionalities for centralized, blinded trial image analysis",
+      "Advanced visualization tools for multi-planar reformatting (MPR) and 3D rendering"
     ],
     "rating": 4.6,
     "verified": true,
@@ -29846,9 +29908,14 @@
     "trending": false,
     "slug": "medis-imaging",
     "tags": [
-      "Cardiac Imaging",
-      "Medical Software",
-      "Quantitative Analysis"
+      "cardiac-imaging",
+      "medical-image-analysis",
+      "quantitative-cardiology",
+      "clinical-research-software",
+      "vendor-neutral-pacs",
+      "ffr-ct",
+      "core-lab-software",
+      "echocardiography-analysis"
     ],
     "subcategories": [
       "cardiac-imaging",
@@ -29872,13 +29939,36 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Non-invasive FFR-CT analysis to guide coronary intervention decisions",
+      "Centralized image analysis for cardiovascular clinical trials (Core Lab)",
+      "Routine clinical reporting of echocardiogram, cardiac CT, and MRI volumes/function",
+      "Plaque progression monitoring in preventive cardiology studies",
+      "Research into myocardial mechanics using feature-tracking strain analysis",
+      "Standardizing cardiac measurements across different hospital imaging systems"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Per-module or suite licensing, typically annual subscriptions based on number of workstations/users. Includes installation, training, and support."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Hospital Cardiology & Radiology Departments",
+      "Cardiovascular Core Labs (for clinical trials)",
+      "Pharmaceutical & Medical Device Companies (R&D)"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "meltwater",
     "name": "Meltwater",
-    "description": "Media intelligence platform with advanced NLP for sentiment analysis across news, social media, and online content.",
-    "category": "nlp",
+    "description": "Meltwater is a comprehensive media intelligence and social listening platform that leverages advanced AI and natural language processing (NLP) to monitor, analyze, and derive insights from global news, social media, podcasts, and broadcast content in real-time. It primarily serves PR, communications, and marketing professionals by providing tools for brand reputation management, competitive analysis, and campaign measurement. Its unique value lies in its extensive global media database, real-time data processing across 242 languages, and the integration of external data with internal business metrics for strategic decision-making.",
+    "category": "analytics-bi",
     "categories": [
       "Natural Language Processing",
       "Media Intelligence"
@@ -29887,11 +29977,14 @@
     "website": "https://www.meltwater.com",
     "pricing": "paid",
     "features": [
-      "Media monitoring",
-      "Sentiment analysis",
-      "AI-powered insights",
-      "242 language support",
-      "Real-time alerts"
+      "Real-time media monitoring across 242 languages and dialects",
+      "AI-powered sentiment and trend analysis with customizable taxonomies",
+      "Integrated dashboard for earned media value and share of voice metrics",
+      "Advanced Boolean search and query builder for precise data filtering",
+      "API access for data integration into CRM, BI, and other business systems",
+      "Influencer identification and campaign performance tracking",
+      "Crisis detection alerts with real-time notification triggers",
+      "Competitive benchmarking and industry trend reports"
     ],
     "rating": 4.2,
     "verified": true,
@@ -29899,9 +29992,14 @@
     "trending": false,
     "slug": "meltwater",
     "tags": [
-      "AI",
-      "NLP",
-      "Media Intelligence"
+      "media-intelligence",
+      "social-listening",
+      "sentiment-analysis",
+      "brand-monitoring",
+      "pr-analytics",
+      "market-research",
+      "competitive-intelligence",
+      "real-time-alerts"
     ],
     "subcategories": [
       "media-intelligence"
@@ -29924,12 +30022,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "PR and communications teams tracking brand mentions and managing reputation crises",
+      "Marketing departments measuring campaign ROI and social media impact",
+      "Market researchers conducting competitive analysis and identifying industry trends",
+      "Corporate strategy teams monitoring regulatory changes and geopolitical risks",
+      "Investor relations professionals tracking market sentiment and financial news",
+      "Sales teams identifying leads and market opportunities through social signals"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Essentials: Custom pricing - Core media monitoring, basic analytics, and alerts for small teams",
+        "Advanced: Custom pricing - Full platform access, advanced AI insights, API, and dedicated support for mid-large businesses",
+        "Enterprise: Custom pricing - Tailored solutions, premium data sets, custom integrations, and strategic services"
+      ],
+      "free_tier": "No - but offers a free demo and custom quote",
+      "starting_price": "Custom quote required; typically enterprise-level pricing starting in the thousands per month"
+    },
+    "target_audience": [
+      "PR and Communications Professionals",
+      "Marketing and Brand Managers",
+      "Market Research and Competitive Intelligence Analysts"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mem-ai",
     "name": "Mem AI",
-    "description": "AI-powered note-taking and knowledge management platform that automatically organizes and connects information.",
+    "description": "Mem is an AI-powered workspace designed to capture, organize, and connect your team's knowledge automatically. It functions as a self-organizing note-taking and knowledge management platform that uses AI to surface relevant information, synthesize insights, and reduce time spent searching. Its key differentiator is its 'self-organizing' nature, where the AI actively links related notes, people, and projects without requiring manual tagging or complex folder structures.",
     "category": "generative-ai",
     "categories": [
       "business-productivity",
@@ -29939,11 +30062,13 @@
     "website": "https://mem.ai",
     "pricing": "freemium",
     "features": [
-      "Automatic organization",
-      "Smart connections",
-      "AI-powered search",
-      "Knowledge synthesis",
-      "Collaborative features"
+      "AI-powered universal search across notes, chats, and documents",
+      "Automatic creation of 'MemX' smart connections between related notes and topics",
+      "AI-assisted writing and summarization within notes",
+      "Daily AI-generated briefings summarizing recent activity and updates",
+      "Integration with Slack, Gmail, and Google Calendar for automatic context capture",
+      "Shared workspaces and collaborative editing for teams",
+      "Direct AI chat interface ('Ask Mem') for querying your knowledge base"
     ],
     "rating": 4.1,
     "verified": true,
@@ -29951,11 +30076,13 @@
     "trending": false,
     "slug": "mem-ai",
     "tags": [
-      "AI",
-      "Note-Taking",
-      "Knowledge Management",
-      "Organization",
-      "Search"
+      "note-taking",
+      "knowledge-management",
+      "team-collaboration",
+      "ai-search",
+      "personal-ai",
+      "information-retrieval",
+      "productivity"
     ],
     "subcategories": [
       "note-taking",
@@ -29979,13 +30106,37 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Replacing traditional note-taking apps (like Evernote) with an AI-organized system",
+      "Centralizing a team's meeting notes, project docs, and decisions in a searchable hub",
+      "Reducing onboarding time for new employees by providing an intelligent company wiki",
+      "Capturing and connecting ideas, research, and insights for individual creators or researchers",
+      "Serving as a personal AI assistant that remembers and connects everything you've worked on"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited notes & search, 10 AI questions/day, 25 MB file uploads, basic integrations",
+        "Pro: $10/user/month (billed annually) or $15/user/month (billed monthly). Unlimited AI questions, 5 GB file uploads, advanced integrations (Slack, Gmail), team workspaces, and priority support.",
+        "Enterprise: Custom pricing. Includes SAML/SSO, advanced security & compliance, dedicated support, and custom AI model training."
+      ],
+      "free_tier": "Yes - Includes unlimited notes, basic search, and 10 AI questions per day.",
+      "starting_price": "$10/user/month (annual plan)"
+    },
+    "target_audience": [
+      "knowledge workers",
+      "productivity-focused teams",
+      "researchers and creators"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mentionlytics",
     "name": "Mentionlytics",
-    "description": "Web and social media monitoring platform with AI sentiment analysis and emotion detection across multiple channels.",
-    "category": "nlp",
+    "description": "Mentionlytics is an AI-powered media monitoring and brand intelligence platform that tracks brand mentions, analyzes sentiment, and detects emotions across the web, news, and social media. Its key capabilities include real-time alerts, competitor benchmarking, and detailed analytics dashboards, helping businesses manage their online reputation and marketing performance. It uniquely combines broad coverage with deep AI-driven emotion analysis (like joy, anger, sadness) beyond basic positive/negative sentiment, targeting marketing, PR, and customer support teams.",
+    "category": "analytics-bi",
     "categories": [
       "Natural Language Processing",
       "Social Media Analytics"
@@ -29994,11 +30145,14 @@
     "website": "https://www.mentionlytics.com",
     "pricing": "paid",
     "features": [
-      "Sentiment & emotion analysis",
-      "Real-time monitoring",
-      "Multi-platform coverage",
-      "Competitor tracking",
-      "Custom alerts"
+      "AI-powered sentiment & emotion detection (7+ emotions)",
+      "Real-time monitoring across 1B+ sources (web, social, news, video)",
+      "Competitor tracking & share of voice analysis",
+      "Customizable alerting via email/Slack/Teams",
+      "Interactive dashboards with PDF/PPT reporting",
+      "Influencer identification and scoring",
+      "Historical data access and trend analysis",
+      "Multi-user collaboration and role management"
     ],
     "rating": 4.2,
     "verified": true,
@@ -30006,9 +30160,14 @@
     "trending": false,
     "slug": "mentionlytics",
     "tags": [
-      "AI",
-      "NLP",
-      "Social Media"
+      "brand-monitoring",
+      "sentiment-analysis",
+      "reputation-management",
+      "social-listening",
+      "competitor-analysis",
+      "media-monitoring",
+      "marketing-analytics",
+      "customer-insights"
     ],
     "subcategories": [
       "social-media-analytics"
@@ -30031,12 +30190,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Brand reputation management and crisis alerting",
+      "Measuring campaign performance and ROI",
+      "Competitor benchmarking and market analysis",
+      "Customer service issue detection and response",
+      "Identifying influencers and brand advocates",
+      "Tracking industry trends and news"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: $49/mo billed annually - 5,000 mentions/mo, 3 users, 1 brand, basic sentiment",
+        "Pro: $199/mo billed annually - 25,000 mentions/mo, 5 users, 3 brands, emotion AI, competitor tracking",
+        "Enterprise: Custom pricing - Unlimited mentions, custom users/brands, API, advanced analytics, dedicated support"
+      ],
+      "free_tier": "No - but offers a 14-day free trial of Pro features",
+      "starting_price": "$49/month"
+    },
+    "target_audience": [
+      "Marketing & Social Media Managers",
+      "Public Relations & Communications Teams",
+      "Customer Support & Success Leaders"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "meta-llama-3",
     "name": "Meta LLaMA 3",
-    "description": "Meta's open-source large language model family offering high performance across multiple languages and tasks.",
+    "description": "Meta LLaMA 3 is a state-of-the-art open-source large language model family designed for text generation, reasoning, and code creation. It offers strong performance across a wide range of tasks, including multilingual conversation, complex instruction following, and long-context processing. Its unique value lies in its combination of leading-edge performance, permissive open-source licensing for research and commercial use, and a focus on responsible AI development with extensive safety and red teaming.",
     "category": "llms",
     "categories": [
       "llms",
@@ -30046,11 +30230,12 @@
     "website": "https://ai.meta.com",
     "pricing": "open-source",
     "features": [
-      "Open-source availability",
-      "Multilingual capabilities",
-      "Research-friendly licensing",
-      "High performance benchmarks",
-      "Community contributions"
+      "Open-source model weights available for download (8B and 70B parameter versions)",
+      "Trained on over 15 trillion tokens from publicly available sources",
+      "Supports context windows of up to 8,000 tokens",
+      "Optimized for dialogue use cases with improved instruction following",
+      "Includes extensive trust and safety tools (Llama Guard 2, Code Shield)",
+      "Released under a custom commercial license allowing royalty-free distribution"
     ],
     "rating": 4.5,
     "verified": true,
@@ -30058,11 +30243,13 @@
     "trending": false,
     "slug": "meta-llama-3",
     "tags": [
-      "AI",
-      "Meta",
-      "Open Source",
-      "Multilingual",
-      "Research"
+      "open-source-llm",
+      "multilingual-ai",
+      "text-generation",
+      "meta-ai",
+      "research",
+      "commercial-ai",
+      "instruction-following"
     ],
     "subcategories": [
       "open-source-llm",
@@ -30086,12 +30273,35 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building custom chatbots and virtual assistants",
+      "Powering research and experimentation in AI and NLP",
+      "Enhancing enterprise applications with text generation and summarization",
+      "Developing educational tools and tutoring systems",
+      "Creating content generation and creative writing aids",
+      "Integrating AI reasoning into developer tools and IDEs"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Model weights, inference code, and fine-tuning scripts are available for download at no cost for both research and commercial use under Meta's license agreement."
+      ],
+      "free_tier": "Yes - Full access to model weights and core tools for compliant use.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers and academics",
+      "Developers and startups building AI applications",
+      "Enterprise teams integrating LLMs into products"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "metaflow",
     "name": "Metaflow",
-    "description": "Human-friendly Python library by Netflix for building and managing real-life data science projects with infrastructure abstraction.",
+    "description": "Metaflow is an open-source Python framework designed to simplify the development, orchestration, and deployment of real-world data science and machine learning projects. Its core capability is abstracting complex infrastructure (like compute, data, and scheduling) behind a human-friendly API, enabling data scientists to build scalable workflows locally and deploy them to production seamlessly. It uniquely integrates versioning, dependency management, and artifact tracking directly into the workflow, making it a 'full-stack' framework that bridges the gap between experimental code and robust production systems.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -30101,11 +30311,14 @@
     "website": "https://metaflow.org",
     "pricing": "open-source",
     "features": [
-      "Infrastructure abstraction",
-      "Versioning",
-      "Scaling capabilities",
-      "Deployment automation",
-      "Human-friendly API"
+      "Built-in versioning and artifact tracking for every run, enabling full reproducibility",
+      "Unified API to run workflows locally, on AWS Batch, Kubernetes, or Argo Workflows",
+      "Automatic dependency capture (Python libraries, Conda environments) for each step",
+      "Step-based workflow decorators (@step) for structuring complex data pipelines",
+      "Integrated data management with support for local files and cloud storage (S3)",
+      "Fault-tolerant execution with built-in retry logic and failure handling",
+      "Seamless integration with AWS services (S3, Batch, Step Functions) via Metaflow Sandbox",
+      "Human-readable DAG visualization and CLI for inspecting past runs and results"
     ],
     "rating": 4.5,
     "verified": true,
@@ -30113,11 +30326,14 @@
     "trending": true,
     "slug": "metaflow",
     "tags": [
-      "Netflix",
-      "Data Science",
-      "Infrastructure",
-      "Versioning",
-      "Human-friendly"
+      "workflow-orchestration",
+      "mlops",
+      "reproducibility",
+      "netflix-oss",
+      "python-framework",
+      "production-ml",
+      "data-pipelines",
+      "version-control"
     ],
     "subcategories": [
       "data-science-workflows",
@@ -30141,12 +30357,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building and deploying end-to-end machine learning model training and batch inference pipelines",
+      "Creating reproducible data processing and feature engineering workflows for analytics",
+      "Orchestrating complex, multi-step computational experiments in research and development",
+      "Modernizing legacy ETL/ELT scripts into versioned, scalable, and monitored production workflows",
+      "Implementing MLOps practices by providing a consistent framework from prototyping to production"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Core Framework: Free and open-source (Apache 2.0 License)",
+        "Outerbounds Platform: Paid managed service and enterprise support (custom pricing)"
+      ],
+      "free_tier": "Yes - The entire Metaflow core framework is free to use, modify, and deploy.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Data Scientists and ML Engineers",
+      "Research Scientists and Analysts",
+      "Platform/MLOps Engineers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "microscopy-dance-analysis",
     "name": "Dance Video Analysis",
-    "description": "3D human body pose estimation pipeline specifically designed for challenging dance video archives with visual analytics tools.",
+    "description": "Dance Video Analysis is a specialized research pipeline for extracting accurate 3D human poses from complex, archival dance footage. It is designed to handle the unique challenges of dance videos, such as fast motion, occlusions, and varied camera angles, and provides visual analytics tools for movement study. Its uniqueness lies in its targeted optimization for dance heritage archives and the provision of a large, curated benchmark dataset (AIST-3D) for the research community.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -30154,13 +30393,14 @@
     ],
     "url": "https://www.couleur.org/articles/arXiv-1-2025",
     "website": "https://www.couleur.org",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "3D pose estimation",
-      "Dance analysis",
-      "Video archives",
-      "Visual analytics",
-      "Research dataset"
+      "3D human pose estimation from monocular video",
+      "Processing pipeline optimized for fast, complex dance movements",
+      "Visual analytics dashboard for movement comparison and study",
+      "Large-scale benchmark dataset (AIST-3D) with multi-view and 3D ground truth",
+      "Tools for handling occlusions and challenging camera angles common in archives",
+      "Open-source codebase for research reproducibility"
     ],
     "rating": 4.2,
     "verified": true,
@@ -30168,10 +30408,13 @@
     "trending": false,
     "slug": "microscopy-dance-analysis",
     "tags": [
-      "Pose Estimation",
-      "Dance Analysis",
-      "3D",
-      "Research"
+      "3d-pose-estimation",
+      "motion-analysis",
+      "dance-research",
+      "video-archives",
+      "benchmark-dataset",
+      "human-movement",
+      "cultural-heritage"
     ],
     "subcategories": [
       "pose-estimation",
@@ -30195,12 +30438,34 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research in dance studies and human movement science",
+      "Digitization and movement analysis for dance cultural heritage archives",
+      "Creating datasets for training and benchmarking computer vision models",
+      "Choreography analysis and documentation for dance companies",
+      "Development of interactive educational tools for dance history"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to research code, pre-trained models, and the AIST-3D benchmark dataset for non-commercial research purposes."
+      ],
+      "free_tier": "Yes - Full access to code and dataset for research",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Computer vision and AI researchers",
+      "Dance scholars and movement analysts",
+      "Cultural heritage archivists and institutions"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "microsoft-cntk",
     "name": "Microsoft Cognitive Toolkit (CNTK)",
-    "description": "Production-grade open-source deep learning library with comprehensive support for feedforward, convolutional, and recurrent neural networks.",
+    "description": "Microsoft Cognitive Toolkit (CNTK) is a production-grade, open-source deep learning library designed for building and training commercial-grade deep neural networks. It excels at efficiently scaling across multiple GPUs and servers, supporting feedforward, convolutional, and recurrent networks. Its unique strength lies in its highly optimized C++ core and efficient computational graph description, making it a top choice for researchers and enterprises requiring maximum performance on large datasets and distributed systems.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -30210,11 +30475,12 @@
     "website": "https://www.microsoft.com/en-us/cognitive-toolkit/",
     "pricing": "open-source",
     "features": [
-      "Multi-GPU scaling",
-      "Production deployment",
-      "Multiple language bindings",
-      "Model compression",
-      "Distributed training"
+      "Efficient multi-GPU and multi-server distributed training via 1-bit SGD and block momentum",
+      "Production deployment as a library with C++, C#, and Java evaluation APIs",
+      "Python and BrainScript (own network description language) for model definition",
+      "Optimized computational graph engine for efficient memory and compute usage",
+      "Support for CNN, RNN/LSTM, and feed-forward DNN architectures",
+      "Model compression via quantization for reduced model size and faster inference"
     ],
     "rating": 4.2,
     "verified": true,
@@ -30222,11 +30488,14 @@
     "trending": false,
     "slug": "microsoft-cntk",
     "tags": [
-      "Microsoft",
-      "Production",
-      "Multi-GPU",
-      "C++",
-      "Python"
+      "microsoft",
+      "deep-learning",
+      "distributed-training",
+      "c-plus-plus",
+      "python-api",
+      "multi-gpu",
+      "open-source",
+      "production-deployment"
     ],
     "subcategories": [
       "production-ready",
@@ -30250,26 +30519,48 @@
     "updatedAt": {
       "_seconds": 1648650600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Large-scale speech recognition and acoustic modeling",
+      "Enterprise-grade computer vision applications (image classification, object detection)",
+      "Training deep learning models on distributed clusters for research",
+      "Deploying trained models into C++/C# production environments for low-latency inference"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The entire toolkit is free and open-source under the MIT License"
+      ],
+      "free_tier": "Yes - Full access to source code, libraries, and documentation",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "enterprise ai engineers",
+      "academic & industrial deep learning researchers",
+      "developers needing c++/c# model deployment"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "microsoft-copilot",
     "name": "Microsoft Copilot",
-    "description": "AI assistant integrated across Microsoft 365 apps that helps with writing, analysis, and productivity tasks.",
-    "category": "generative-ai",
+    "description": "Microsoft Copilot is an AI-powered productivity assistant deeply integrated into the Microsoft 365 ecosystem, including Word, Excel, PowerPoint, Outlook, Teams, and Loop. It leverages large language models (like GPT-4) and Microsoft Graph data to help users draft documents, analyze spreadsheets, summarize meetings, and manage workflows directly within their apps. Its key differentiator is its native, contextual understanding of a user's work across Microsoft's enterprise suite, making it a powerful tool for business and knowledge workers.",
+    "category": "enterprise-ai-platforms",
     "categories": [
       "business-productivity",
       "writing-content"
     ],
     "url": "https://copilot.microsoft.com",
     "website": "https://copilot.microsoft.com",
-    "pricing": "freemium",
+    "pricing": "paid",
     "features": [
-      "Office integration",
-      "Document analysis",
-      "Email assistance",
-      "Data insights",
-      "Meeting summaries"
+      "Draft, edit, and summarize documents in Word with full context of other linked files",
+      "Analyze Excel data, generate formulas, and create PivotTables via natural language prompts",
+      "Generate meeting summaries, action items, and transcripts from Microsoft Teams meetings",
+      "Draft, condense, and manage email threads with tone adjustment in Outlook",
+      "Create presentation decks in PowerPoint from a Word document or a simple prompt",
+      "Leverage Microsoft Graph for personalized, context-aware responses based on your calendar, emails, and chats"
     ],
     "rating": 4.3,
     "verified": true,
@@ -30277,11 +30568,13 @@
     "trending": false,
     "slug": "microsoft-copilot",
     "tags": [
-      "AI",
-      "Microsoft",
-      "Office",
-      "Productivity",
-      "Enterprise"
+      "microsoft-365",
+      "productivity-ai",
+      "enterprise-copilot",
+      "office-automation",
+      "business-ai",
+      "workplace-assistant",
+      "microsoft-graph"
     ],
     "subcategories": [
       "office-integration",
@@ -30305,12 +30598,35 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "A project manager generating a status report by synthesizing data from recent emails, Teams chats, and project plans.",
+      "A financial analyst using natural language to query a complex Excel dataset and create visualizations.",
+      "A sales representative quickly drafting a personalized client proposal by pulling data from a CRM and previous communications.",
+      "An executive catching up on a missed hour-long Teams meeting by reading an AI-generated summary with key decisions and action items.",
+      "A marketing team collaboratively brainstorming and drafting campaign copy in a Microsoft Loop component."
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Copilot for Microsoft 365: $30.00 USD per user/month - Requires an eligible Microsoft 365 commercial subscription (E3, E5, Business Standard, Business Premium). Provides full integration across Word, Excel, PowerPoint, Outlook, Teams, etc.",
+        "Enterprise: Custom - Volume licensing and tailored agreements for large organizations, often bundled with Microsoft 365 E5 or as an add-on."
+      ],
+      "free_tier": "No - A limited, consumer-focused version of Copilot (formerly Bing Chat) is available for free at copilot.microsoft.com, but it lacks the deep Microsoft 365 app integration.",
+      "starting_price": "$30.00/month"
+    },
+    "target_audience": [
+      "enterprise knowledge workers",
+      "business professionals",
+      "IT and developer teams within Microsoft ecosystem"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "microsoft-translator",
     "name": "Microsoft Translator",
-    "description": "Cloud-based machine translation service supporting 100+ languages with conversation and document translation.",
+    "description": "Microsoft Translator is a cloud-based neural machine translation service that provides real-time text and speech translation across 100+ languages. It enables developers and businesses to integrate translation capabilities into applications, websites, and workflows through robust APIs, with unique features like custom domain adaptation and conversation mode for multi-person multilingual communication. Its integration with the broader Microsoft Azure ecosystem and enterprise-grade security make it particularly suitable for business and institutional use.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -30320,11 +30636,13 @@
     "website": "https://www.microsoft.com/translator",
     "pricing": "freemium",
     "features": [
-      "Real-time translation",
-      "Conversation translator",
-      "Document translation",
-      "Custom translator",
-      "Speech translation"
+      "Text Translation API supporting 100+ languages",
+      "Speech Translation API for real-time speech-to-speech and speech-to-text",
+      "Document Translation API for processing Office files, PDFs, and HTML while preserving format",
+      "Custom Translator tool for training domain-specific models with parallel data",
+      "Conversation Translator for real-time multi-participant multilingual conversations",
+      "Neural Machine Translation (NMT) models for improved fluency and accuracy",
+      "Integration with Microsoft Office, Edge browser, and Azure services"
     ],
     "rating": 4.4,
     "verified": true,
@@ -30332,9 +30650,13 @@
     "trending": false,
     "slug": "microsoft-translator",
     "tags": [
-      "AI",
-      "NLP",
-      "Microsoft"
+      "machine-translation",
+      "speech-translation",
+      "azure-cognitive-services",
+      "real-time-translation",
+      "multilingual-ai",
+      "api-translation",
+      "enterprise-translation"
     ],
     "subcategories": [
       "machine-translation"
@@ -30357,13 +30679,38 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Localizing websites and applications for global audiences",
+      "Enabling real-time multilingual meetings and customer support calls",
+      "Translating business documents, manuals, and reports while preserving formatting",
+      "Adding speech translation capabilities to mobile apps and IoT devices",
+      "Processing multilingual content for compliance, e-discovery, or knowledge management",
+      "Creating accessible content for non-native speakers in education or government services"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free: Up to 2 million characters per month for standard translation",
+        "Standard (Pay-as-you-go): $10 per million characters for text translation, $15 per hour for custom translation training",
+        "Enterprise: Custom pricing for high-volume needs with dedicated capacity, SLAs, and private endpoints"
+      ],
+      "free_tier": "Yes - 2 million characters per month for text translation",
+      "starting_price": "Free (with usage limits)"
+    },
+    "target_audience": [
+      "Enterprise developers and IT teams",
+      "Global businesses with multilingual operations",
+      "Government and educational institutions"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "midjourney",
     "name": "Midjourney",
-    "description": "Midjourney is an AI-powered image generation tool that creates stunning artwork and visuals from text prompts.",
-    "category": "generative-ai",
+    "description": "Midjourney is a leading AI image generation platform that transforms text prompts into highly detailed, artistic visuals. It operates primarily through Discord, where users interact with a bot to generate images across diverse styles from photorealistic to painterly. Its unique appeal lies in its distinctive aesthetic quality, strong community-driven development, and the ability to produce images that often resemble commissioned artwork.",
+    "category": "image-generation",
     "categories": [
       "image-generation",
       "design-creative"
@@ -30372,11 +30719,13 @@
     "website": "https://www.midjourney.com",
     "pricing": "paid",
     "features": [
-      "Text-to-image generation",
-      "High-quality artwork",
-      "Multiple art styles",
-      "Discord integration",
-      "Commercial usage rights"
+      "Text-to-image generation via Discord bot commands",
+      "Advanced upscaling and variation creation ('Vary' buttons)",
+      "Remix mode for prompt modification during regeneration",
+      "Multiple aspect ratio controls (e.g., --ar 16:9)",
+      "Stylization and weirdness parameter controls (--s, --w)",
+      "Commercial usage rights for paid subscribers on generated images",
+      "Community gallery on the official website"
     ],
     "rating": 4.7,
     "verified": true,
@@ -30384,11 +30733,13 @@
     "trending": false,
     "slug": "midjourney",
     "tags": [
-      "AI",
-      "Image Generation",
-      "Art",
-      "Creative",
-      "Discord"
+      "text-to-image",
+      "discord-bot",
+      "digital-art",
+      "creative-ai",
+      "art-generation",
+      "ai-art",
+      "prompt-engineering"
     ],
     "subcategories": [
       "text-to-image",
@@ -30412,26 +30763,54 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Concept art and visualization for game developers",
+      "Marketing and advertising asset creation",
+      "Book cover and illustration design",
+      "Personal art projects and creative exploration",
+      "Rapid prototyping for product and fashion design",
+      "Social media content and unique visual branding"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Basic Plan: $10/month - ~3.3 hours of Fast GPU time per month, personal bot chat",
+        "Standard Plan: $30/month - ~15 hours of Fast GPU time per month, unlimited Relaxed GPU time, stealth image generation",
+        "Pro Plan: $60/month - ~30 hours of Fast GPU time per month, unlimited Relaxed GPU time, stealth generation, concurrent jobs",
+        "Mega Plan: $120/month - ~60 hours of Fast GPU time per month, all Pro features, higher rate limits"
+      ],
+      "free_tier": "No - A limited free trial was previously offered but is not consistently available. Access requires a paid subscription.",
+      "starting_price": "$10/month"
+    },
+    "target_audience": [
+      "Digital artists and illustrators",
+      "Marketing and content creators",
+      "Game developers and concept artists",
+      "Hobbyists and AI enthusiasts"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "milvus",
     "name": "Milvus",
-    "description": "Open-source vector database built for scalable similarity search and AI applications with cloud-native architecture.",
-    "category": "ml-frameworks",
+    "description": "Milvus is an open-source vector database designed to store, index, and manage massive embedding vectors generated by deep neural networks and other machine learning models. Its key capability is enabling high-performance, low-latency similarity search and analytics on unstructured data at a petabyte scale, making it a foundational component for AI-powered applications. It uniquely features a cloud-native, distributed architecture that separates storage and compute, allowing for flexible scaling and high availability, primarily targeting developers and enterprises building large-scale semantic search, recommendation systems, and AI services.",
+    "category": "search-ai",
     "categories": [
       "machine-learning-frameworks",
       "vector-databases"
     ],
     "url": "https://milvus.io",
     "website": "https://milvus.io",
-    "pricing": "freemium",
+    "pricing": "open-source",
     "features": [
-      "Scalable vector search",
-      "Cloud-native design",
-      "Multiple index types",
-      "Kubernetes deployment",
-      "Real-time processing"
+      "Hybrid search combining vector, scalar, and filtered queries",
+      "Support for multiple index types (e.g., IVF_FLAT, HNSW, DISKANN) for optimized search performance",
+      "Scalable, distributed architecture with separate compute (query nodes) and storage (object storage)",
+      "Real-time upsert and search capabilities with built-in data versioning",
+      "Kubernetes-native deployment via Helm or Milvus Operator for easy orchestration",
+      "SDKs for Python, Java, Go, Node.js, and RESTful API access"
     ],
     "rating": 4.5,
     "verified": true,
@@ -30439,11 +30818,13 @@
     "trending": true,
     "slug": "milvus",
     "tags": [
-      "Vector Database",
-      "Scalable",
-      "Cloud-native",
-      "Kubernetes",
-      "Real-time"
+      "vector-database",
+      "similarity-search",
+      "embedding-storage",
+      "ai-infrastructure",
+      "cloud-native",
+      "real-time-analytics",
+      "high-availability"
     ],
     "subcategories": [
       "vector-databases",
@@ -30467,12 +30848,37 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Semantic search and retrieval-augmented generation (RAG) for LLM applications",
+      "Personalized recommendation systems for e-commerce and media",
+      "Image and video similarity search for content management and copyright detection",
+      "Anomaly detection and fraud prevention through behavioral pattern matching",
+      "Drug discovery and molecular similarity search in bioinformatics",
+      "Large-scale question-answering and chatbot systems"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Community Edition (Open Source): Free - Full-featured, self-managed deployment.",
+        "Milvus Cloud (Zilliz Managed): Usage-based - Fully managed service on AWS, GCP, or Azure. Offers a free trial cluster.",
+        "Enterprise Edition (Zilliz): Custom - On-premises or private cloud deployment with commercial support, advanced security, and management tools."
+      ],
+      "free_tier": "Yes - The core Milvus database is fully open-source under Apache 2.0 License. Milvus Cloud offers a free trial cluster.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML engineers and data scientists",
+      "Software developers building search and recommendation systems",
+      "Enterprise IT architects managing large-scale AI infrastructure"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mindmeld",
     "name": "MindMeld",
-    "description": "Conversational AI framework by Cisco for developing intelligent voice and chat assistants.",
+    "description": "MindMeld is an open-source conversational AI framework developed by Cisco, designed for building production-grade, domain-specific voice and chat assistants. Its key capabilities include deep domain understanding, dialogue state management, and custom machine learning pipelines, enabling the creation of highly accurate and context-aware applications. It is unique for its comprehensive, all-in-one architecture that handles the entire conversational stack, from natural language understanding to dialogue management, specifically optimized for complex, enterprise-grade use cases.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -30480,13 +30886,15 @@
     ],
     "url": "https://github.com/cisco/mindmeld",
     "website": "https://www.cisco.com/c/en/us/products/cloud-systems-management/mind-meld.html",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Domain-specific language understanding",
-      "Dialogue state management",
-      "Custom pipelines",
-      "Entity resolution",
-      "Multi-turn conversations"
+      "Domain-specific intent classification and entity recognition",
+      "Stateful dialogue management for multi-turn conversations",
+      "Customizable NLP pipeline with support for multiple ML models (e.g., spaCy, TensorFlow)",
+      "Built-in entity resolution (linking mentions to knowledge base entries)",
+      "Question Answering system for knowledge base querying",
+      "Automatic speech recognition (ASR) and text-to-speech (TTS) integration points",
+      "Comprehensive blueprint for building conversational applications from scratch"
     ],
     "rating": 4,
     "verified": true,
@@ -30494,9 +30902,14 @@
     "trending": false,
     "slug": "mindmeld",
     "tags": [
-      "AI",
-      "NLP",
-      "Chatbot"
+      "conversational-ai",
+      "voice-assistant",
+      "chatbot-framework",
+      "dialogue-management",
+      "entity-recognition",
+      "open-source",
+      "enterprise-ai",
+      "nlp-pipeline"
     ],
     "subcategories": [
       "conversational-ai"
@@ -30519,12 +30932,34 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Enterprise customer service virtual agents for specific domains (e.g., banking, telecom)",
+      "Intelligent voice-controlled interfaces for IoT devices or home automation",
+      "Internal HR or IT helpdesk assistants for employee self-service",
+      "Food ordering and restaurant reservation chatbots with complex dialogue flows",
+      "Personalized shopping assistants for e-commerce platforms"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the MindMeld framework, source code, and documentation on GitHub"
+      ],
+      "free_tier": "Yes - The entire platform is free and open-source under the Apache 2.0 license",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "enterprise developers",
+      "AI researchers and engineers",
+      "product teams building conversational interfaces"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mindspore",
     "name": "MindSpore",
-    "description": "Deep learning framework by Huawei providing efficient development, training and deployment for AI applications across all scenarios.",
+    "description": "MindSpore is a full-stack, open-source deep learning framework developed by Huawei, designed for efficient development, training, and deployment of AI models across device, edge, and cloud scenarios. Its key capabilities include automatic differentiation, dynamic/static graph unification, and native support for heterogeneous computing. It uniquely emphasizes high performance through built-in optimization technologies like GraphKernel and targets developers building scalable, production-ready AI applications, particularly within Huawei's ecosystem.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -30534,11 +30969,13 @@
     "website": "https://www.mindspore.cn",
     "pricing": "open-source",
     "features": [
-      "All-scenario AI",
-      "Automatic differentiation",
-      "Distributed training",
-      "Hardware optimization",
-      "GraphKernel fusion"
+      "Automatic differentiation supporting both forward and reverse mode",
+      "Unified static and dynamic computational graph execution (a.k.a. 'MindIR')",
+      "Native hardware optimization for Huawei Ascend AI processors and GPUs",
+      "GraphKernel compiler for automatic operator fusion and optimization",
+      "Federated learning framework for privacy-preserving distributed training",
+      "Model compression and quantization tools for edge deployment",
+      "Seamless deployment pipeline from cloud to device (MindSpore Lite)"
     ],
     "rating": 4.2,
     "verified": true,
@@ -30546,11 +30983,14 @@
     "trending": true,
     "slug": "mindspore",
     "tags": [
-      "Huawei",
-      "All-scenario",
-      "Distributed",
-      "Hardware Optimization",
-      "GraphKernel"
+      "huawei",
+      "open-source",
+      "deep-learning",
+      "heterogeneous-computing",
+      "ascend",
+      "distributed-training",
+      "automatic-differentiation",
+      "graphkernel"
     ],
     "subcategories": [
       "deep-learning",
@@ -30574,13 +31014,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Training large-scale vision models (e.g., ResNet, Transformer) on Ascend clusters",
+      "Deploying compressed NLP models to Huawei mobile devices via MindSpore Lite",
+      "Privacy-sensitive healthcare AI using federated learning capabilities",
+      "Edge AI inference for IoT and industrial automation scenarios",
+      "Research and education in deep learning with a PyTorch/TF-like interface"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to framework, tutorials, and community support under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - complete framework, tools, and documentation",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers and academics",
+      "Enterprise developers in Huawei's ecosystem",
+      "Edge/device AI application developers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mindstudio",
     "name": "MindStudio",
-    "description": "No-code platform for building and deploying AI applications with custom workflows.",
-    "category": "generative-ai",
+    "description": "MindStudio is a no-code platform that enables users to build, train, and deploy custom AI applications and agents. Its core capability is creating multi-step, logic-driven workflows that connect various AI models (like GPT-4, Claude, Stable Diffusion) with data sources, APIs, and human-in-the-loop steps. It uniquely targets business professionals and domain experts—not just developers—by abstracting complex AI orchestration into a visual drag-and-drop builder, allowing for rapid prototyping and deployment of enterprise-grade AI solutions.",
+    "category": "agent-platforms",
     "categories": [
       "ai-platforms",
       "business-productivity"
@@ -30589,11 +31051,13 @@
     "website": "https://mindstudio.ai",
     "pricing": "freemium",
     "features": [
-      "No-code AI builder",
-      "Custom workflows",
-      "API integrations",
-      "Model marketplace",
-      "Deployment tools"
+      "Visual, no-code workflow builder with drag-and-drop nodes for logic, AI models, and data",
+      "Integrated marketplace of pre-built AI models (OpenAI, Anthropic, Stability AI, etc.) and templates",
+      "Ability to create complex multi-agent systems with conditional logic and memory",
+      "One-click deployment to web apps, chatbots, or public/private API endpoints",
+      "Built-in tools for data ingestion (files, web scrape, APIs) and structured output (JSON, CSV)",
+      "Team collaboration features with role-based access control (RBAC)",
+      "Comprehensive analytics dashboard for monitoring app usage, costs, and performance"
     ],
     "rating": 4.2,
     "verified": true,
@@ -30601,11 +31065,13 @@
     "trending": false,
     "slug": "mindstudio",
     "tags": [
-      "AI",
-      "No-Code",
-      "Platform",
-      "Workflow",
-      "Builder"
+      "no-code-ai",
+      "ai-agents",
+      "workflow-automation",
+      "custom-llm-apps",
+      "ai-model-orchestration",
+      "business-automation",
+      "drag-and-drop-builder"
     ],
     "subcategories": [
       "no-code-ai",
@@ -30629,13 +31095,38 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building custom internal chatbots trained on company documents and processes",
+      "Automating multi-step customer support workflows with AI classification and human escalation",
+      "Creating content generation pipelines that combine research, drafting, and approval steps",
+      "Developing AI-powered data analysis tools that process uploaded files and generate reports",
+      "Prototyping and deploying AI agents for lead qualification and sales outreach automation"
+    ],
+    "pricing_details": {
+      "model": "subscription (with usage-based elements for AI model calls)",
+      "tiers": [
+        "Free: 1 workspace, 500 credits/mo, public apps, core AI models, community support",
+        "Pro: $99/mo - 5 workspaces, 2,500 credits/mo, private apps, advanced models, priority support",
+        "Teams: $299/mo - 20 workspaces, 10,000 credits/mo, custom branding, SSO, dedicated support",
+        "Enterprise: Custom - Unlimited scale, custom contracts, on-prem deployment, SLA"
+      ],
+      "free_tier": "Yes - Includes 500 monthly credits, access to core models, and ability to build and share public apps.",
+      "starting_price": "Free, then $99/month"
+    },
+    "target_audience": [
+      "business analysts and operations managers",
+      "product managers and startup founders",
+      "citizen developers and domain experts"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mistral-ai",
     "name": "Mistral AI",
-    "description": "European AI company developing open and efficient language models with strong performance and safety features.",
-    "category": "nlp",
+    "description": "Mistral AI is a European company at the forefront of developing open and efficient large language models (LLMs). It provides a suite of powerful models, ranging from small, cost-effective options to massive frontier models, known for their strong multilingual capabilities, robust reasoning, and built-in safety features. Its unique value proposition lies in its commitment to open-source releases, developer-friendly APIs, and a pragmatic approach that balances high performance with commercial viability.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Large Language Models"
@@ -30644,11 +31135,13 @@
     "website": "https://mistral.ai",
     "pricing": "freemium",
     "features": [
-      "Open source models",
-      "Efficient architecture",
-      "Multilingual support",
-      "Commercial licensing",
-      "Safety alignment"
+      "Mistral Large flagship model with strong reasoning & multilingual (EN, FR, ES, DE, IT) capabilities",
+      "Mixtral 8x7B & 8x22B sparse mixture-of-experts (MoE) models for efficient inference",
+      "Open-source model releases (e.g., Mistral 7B, Codestral code model) under permissive Apache 2.0 license",
+      "La Plateforme: hosted API service with pay-as-you-go access to all models",
+      "Native function calling and JSON mode for structured outputs",
+      "Context windows up to 128k tokens on select models",
+      "Moderation endpoint and system-level safety filters"
     ],
     "rating": 4.4,
     "verified": true,
@@ -30656,9 +31149,13 @@
     "trending": true,
     "slug": "mistral-ai",
     "tags": [
-      "AI",
-      "NLP",
-      "Open Source"
+      "large-language-models",
+      "open-source-ai",
+      "multilingual-ai",
+      "api-platform",
+      "european-ai",
+      "model-hosting",
+      "reasoning-ai"
     ],
     "subcategories": [
       "large-language-models"
@@ -30681,26 +31178,53 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Enterprise-grade chatbots and virtual assistants with nuanced understanding",
+      "Multilingual content generation, translation, and summarization",
+      "Code generation, completion, and explanation via the Codestral model",
+      "Retrieval-Augmented Generation (RAG) systems for enterprise knowledge bases",
+      "Complex reasoning and analysis for business intelligence and research",
+      "Building and prototyping custom AI applications via their API and open weights"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free: Access to a limited, older open-weight model (Mistral 7B Instruct v0.2) via self-hosting or certain community endpoints",
+        "Pay-as-you-go (La Plateforme): Direct API access to latest models (e.g., Mistral Large, Mixtral 8x22B) priced per million input/output tokens",
+        "Enterprise: Custom pricing for dedicated deployments, higher throughput, and support"
+      ],
+      "free_tier": "Yes - The open weights of several models (e.g., Mistral 7B, Mixtral 8x7B) are free to download, modify, and self-host. A small free tier for API testing may be offered but is not publicly detailed.",
+      "starting_price": "Usage-based, starting at ~$0.25 per million input tokens for Mistral 7B on La Plateforme"
+    },
+    "target_audience": [
+      "Enterprise developers and CTOs",
+      "AI researchers and academics",
+      "Startups and indie developers building AI applications"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mixtral-8x7b",
     "name": "Mixtral 8x7B",
-    "description": "High-performance mixture of experts model offering efficient inference with strong multilingual capabilities.",
-    "category": "nlp",
+    "description": "Mixtral 8x7B is a high-performance, open-source large language model (LLM) that uses a Mixture of Experts (MoE) architecture. It delivers capabilities comparable to much larger models while being significantly more efficient for inference, making it a powerful tool for text generation, reasoning, and multilingual tasks. Its unique architecture, which selectively activates only a subset of its 47B total parameters for any given input, makes it a top choice for developers and researchers seeking state-of-the-art performance with manageable computational costs.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Large Language Models"
     ],
     "url": "https://mistral.ai/news/mixtral-of-experts",
     "website": "https://mistral.ai",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Mixture of experts",
-      "Efficient inference",
-      "Multilingual",
-      "Open source",
-      "High performance"
+      "Mixture of Experts (MoE) with 8 experts, 7B active parameters per token",
+      "32K token context window",
+      "Strong performance in English, French, Italian, German, and Spanish",
+      "Capabilities in code generation, mathematics, and reasoning",
+      "Apache 2.0 open-source license for model weights",
+      "Supports function calling and structured output generation",
+      "Available via major cloud platforms (AWS, Azure, GCP) and inference endpoints"
     ],
     "rating": 4.5,
     "verified": true,
@@ -30708,9 +31232,13 @@
     "trending": true,
     "slug": "mixtral-8x7b",
     "tags": [
-      "AI",
-      "NLP",
-      "Mixtral"
+      "large-language-model",
+      "mixture-of-experts",
+      "open-source-llm",
+      "text-generation",
+      "multilingual-ai",
+      "efficient-inference",
+      "mistral-ai"
     ],
     "subcategories": [
       "large-language-models"
@@ -30733,12 +31261,36 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building cost-efficient chatbots and virtual assistants",
+      "Multilingual content creation and translation",
+      "Code generation and technical documentation",
+      "Research and experimentation with MoE architectures",
+      "Enterprise applications requiring a powerful, open-source base model"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Model weights are freely available under Apache 2.0 license for download and self-hosting.",
+        "Pro: Not applicable to the core model. Commercial use of the weights is permitted.",
+        "Enterprise: Mistral AI offers paid enterprise-grade deployment, support, and fine-tuning services through its La Plateforme."
+      ],
+      "free_tier": "Yes - The Mixtral 8x7B model weights are free to download, modify, and use commercially.",
+      "starting_price": "Free (for the base model weights)"
+    },
+    "target_audience": [
+      "AI researchers and developers",
+      "Startups and companies building LLM applications",
+      "Enterprises seeking powerful, open-source AI models"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "ml-kit",
     "name": "ML Kit",
-    "description": "Mobile SDK by Google that brings Google's machine learning expertise to Android and iOS apps with on-device and cloud-based APIs.",
+    "description": "ML Kit is a mobile SDK by Google that provides a suite of ready-to-use and customizable machine learning APIs for Android and iOS developers. Its key capabilities include on-device and cloud-based processing for vision, text, language, and face detection, enabling features like barcode scanning, image labeling, and translation without requiring deep ML expertise. It is unique for its seamless integration with Firebase, robust cross-platform support, and the ability to run complex models efficiently on mobile hardware, balancing performance with privacy.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -30748,11 +31300,12 @@
     "website": "https://developers.google.com/ml-kit",
     "pricing": "freemium",
     "features": [
-      "Mobile SDK",
-      "Pre-built APIs",
-      "Custom models",
-      "On-device processing",
-      "Cross-platform"
+      "On-device & cloud-based APIs for vision, text, language, and face detection",
+      "Pre-built models for barcode scanning, image labeling, pose detection, and text translation",
+      "TensorFlow Lite model deployment for custom ML models",
+      "Seamless integration with Firebase for cloud features and management",
+      "Automatic model downloading and updates via Google Play Services",
+      "Optimized for mobile performance with hardware acceleration support"
     ],
     "rating": 4.5,
     "verified": true,
@@ -30762,9 +31315,11 @@
     "tags": [
       "Google",
       "Mobile SDK",
-      "Android",
-      "iOS",
-      "Pre-built APIs"
+      "On-Device ML",
+      "Firebase",
+      "Computer Vision",
+      "Text Recognition",
+      "Cross-Platform"
     ],
     "subcategories": [
       "mobile-ml",
@@ -30788,7 +31343,32 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Scanning barcodes and documents in retail or logistics apps",
+      "Adding real-time text translation or language identification to communication apps",
+      "Implementing face detection or selfie effects in camera and social media apps",
+      "Labeling objects or landmarks in travel and photography applications",
+      "Detecting human poses for fitness or augmented reality experiences",
+      "Extracting text (OCR) from images for business card scanners or document digitization"
+    ],
+    "pricing_details": {
+      "model": "usage-based (for cloud APIs) and free (for on-device APIs)",
+      "tiers": [
+        "Free: On-device APIs are completely free with no quotas; Cloud-based APIs include a free monthly usage tier (e.g., 1,000–5,000 calls/month depending on the API)",
+        "Pro: Usage-based pricing for cloud APIs beyond free tier (e.g., Vision API Cloud Text Recognition costs ~$1.50 per 1,000 units after free quota)",
+        "Enterprise: Custom pricing for high-volume usage via Google Cloud contact sales"
+      ],
+      "free_tier": "Yes - All on-device APIs are free; Cloud APIs have limited free monthly quotas",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Mobile App Developers (Android/iOS)",
+      "Startups and SMBs building ML-powered apps",
+      "Enterprises integrating on-device AI into consumer or business applications"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "ml5-js",
