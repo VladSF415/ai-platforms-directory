@@ -139,22 +139,28 @@ RETURN ONLY THE JSON, NO ADDITIONAL TEXT.`;
 
   const response = await callDeepSeek(prompt);
 
+  // Robustly extract JSON from the response, handling markdown code blocks
   let jsonContent = response;
-  if (response.includes('```json')) {
-    jsonContent = response.match(/```json\n([\s\S]*?)\n```/)?.[1] || response;
-  } else if (response.includes('```')) {
-    jsonContent = response.match(/```\n([\s\S]*?)\n```/)?.[1] || response;
+  try {
+    const jsonMatch = response.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      jsonContent = jsonMatch[0];
+    }
+    const parsed = JSON.parse(jsonContent);
+    
+    // Ensure alternatives have correct slugs
+    parsed.alternatives = parsed.alternatives.map((alt, i) => ({
+      ...alt,
+      slug: alternatives[i]?.slug || alternatives[i]?.id || alt.slug
+    }));
+
+    return parsed;
+  } catch (error) {
+    console.error(`❌ Failed to parse JSON for ${mainPlatform.name} alternatives.`);
+    console.error(`   Error: ${error.message}`);
+    // Return a null or empty object to signify failure without crashing
+    return null;
   }
-
-  const parsed = JSON.parse(jsonContent);
-
-  // Ensure alternatives have correct slugs
-  parsed.alternatives = parsed.alternatives.map((alt, i) => ({
-    ...alt,
-    slug: alternatives[i]?.slug || alternatives[i]?.id || alt.slug
-  }));
-
-  return parsed;
 }
 
 async function main() {
@@ -211,6 +217,12 @@ async function main() {
       console.log(`🤖 Generating: Best ${mainPlatform.name} Alternatives...`);
 
       const content = await generateAIAlternatives(mainPlatform, alternatives);
+      
+      if (!content || !content.slug) {
+        console.log(`   ⚠️  Skipping due to content generation failure.`);
+        continue; // Skip to the next iteration
+      }
+
       const outputPath = path.join(outputDir, `${content.slug}.json`);
 
       fs.writeFileSync(outputPath, JSON.stringify(content, null, 2));
