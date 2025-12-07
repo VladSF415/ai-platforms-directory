@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Black Forest Labs
+## 1. Claude Desktop
 
-**Category:** image-generation
-**Website:** https://blackforestlabs.ai
-**Pricing Model:** paid
+**Category:** llms
+**Website:** https://claude.ai/desktop
+**Pricing Model:** freemium
 
 **Description:**
-Cutting-edge AI image generation platform specializing in photorealistic and artistic image creation with unprecedented detail control and style consistency. Features include advanced composition control, style mixing, and professional-grade output for creatives.
+Desktop application for Anthropic's Claude AI with enhanced privacy, local context, and seamless integration with desktop workflows. Features file analysis, system integration, and offline capabilities. Targets professionals and power users.
 
 **💵 Affiliate Program Details:**
-20% recurring commission via Impact.com, 45-day cookie, $75 minimum payout, requires creative/design-focused audience
+Referral program with $10 credit for referrals via direct program, requires active subscription, unlimited referral potential
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Cutting-edge AI image generation platform specializing in photorealistic and art
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Black Forest Labs** - https://blackforestlabs.ai
+1. [ ] **Claude Desktop** - https://claude.ai/desktop
