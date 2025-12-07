@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Claude Desktop
+## 1. Anthropic Claude Console
 
 **Category:** llms
-**Website:** https://claude.ai/desktop
-**Pricing Model:** freemium
+**Website:** https://console.anthropic.com
+**Pricing Model:** enterprise
 
 **Description:**
-Desktop application for Anthropic's Claude AI with enhanced privacy, local context, and seamless integration with desktop workflows. Features file analysis, system integration, and offline capabilities. Targets professionals and power users.
+Enterprise platform for Anthropic's Claude models with advanced safety features, longer context windows, and enterprise-grade security and compliance.
 
 **💵 Affiliate Program Details:**
-Referral program with $10 credit for referrals via direct program, requires active subscription, unlimited referral potential
+Enterprise partner program with tiered commissions, up to 20% on annual contracts, via direct partnerships
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Referral program with $10 credit for referrals via direct program, requires acti
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Claude Desktop** - https://claude.ai/desktop
+1. [ ] **Anthropic Claude Console** - https://console.anthropic.com
