@@ -56,20 +56,21 @@
       "rank": 3,
       "name": "CLIP",
       "slug": "clip-openai",
-      "description": "OpenAI's vision-language model connecting text and images with zero-shot classification capabilities.",
-      "pricing": "free",
+      "description": "CLIP (Contrastive Language–Image Pre-training) is a foundational neural network model developed by OpenAI that learns visual concepts from natural language supervision. Its key capability is performing zero-shot image classification by comparing image embeddings with text embeddings of various class descriptions, eliminating the need for task-specific training data. This makes it uniquely powerful for researchers, developers, and companies building multimodal AI applications that require flexible understanding across vision and language domains.",
+      "pricing": "open-source",
       "rating": 4.8,
       "verified": true,
       "featured": true,
       "bestFor": "OpenAI",
       "keyFeatures": [
-        "Zero-shot classification",
-        "Vision-language understanding",
-        "Multimodal embeddings"
+        "Zero-shot image classification across arbitrary visual categories",
+        "Generates joint embedding vectors for images and text in a shared latent space",
+        "Enables image retrieval via natural language queries (text-to-image search)"
       ],
       "pros": [
         "Verified platform",
-        "Highly rated"
+        "Highly rated",
+        "Feature-rich"
       ],
       "cons": [
         "May have learning curve"
@@ -77,52 +78,6 @@
     },
     {
       "rank": 4,
-      "name": "Gradio",
-      "slug": "gradio",
-      "description": "Python library for building machine learning demos and web applications with simple interface creation for ML models.",
-      "pricing": "freemium",
-      "rating": 4.8,
-      "verified": true,
-      "featured": true,
-      "bestFor": "UI Framework",
-      "keyFeatures": [
-        "Simple UI creation",
-        "ML model interfaces",
-        "Fast prototyping"
-      ],
-      "pros": [
-        "Verified platform",
-        "Highly rated"
-      ],
-      "cons": [
-        "May have learning curve"
-      ]
-    },
-    {
-      "rank": 5,
-      "name": "Ollama",
-      "slug": "ollama",
-      "description": "Tool for running large language models locally with simple installation and usage for offline AI applications.",
-      "pricing": "open-source",
-      "rating": 4.8,
-      "verified": true,
-      "featured": true,
-      "bestFor": "Local LLM",
-      "keyFeatures": [
-        "Local LLM execution",
-        "Simple installation",
-        "Multiple model support"
-      ],
-      "pros": [
-        "Verified platform",
-        "Highly rated"
-      ],
-      "cons": [
-        "May have learning curve"
-      ]
-    },
-    {
-      "rank": 6,
       "name": "Ray",
       "slug": "ray",
       "description": "Unified framework for scaling AI and Python applications, providing distributed computing primitives and ML libraries for parallel processing.",
@@ -145,7 +100,7 @@
       ]
     },
     {
-      "rank": 7,
+      "rank": 5,
       "name": "Segment Anything Model (SAM)",
       "slug": "segment-anything-model",
       "description": "Meta's revolutionary promptable image segmentation model with zero-shot generalization capabilities.",
@@ -168,7 +123,7 @@
       ]
     },
     {
-      "rank": 8,
+      "rank": 6,
       "name": "Weights & Biases",
       "slug": "wandb",
       "description": "AI developer platform for building better models faster, experiment tracking, dataset versioning, and model evaluation with collaboration tools.",
@@ -191,19 +146,43 @@
       ]
     },
     {
-      "rank": 9,
-      "name": "Apache Spark MLlib",
-      "slug": "apache-spark-mllib",
-      "description": "Distributed machine learning library that runs on Apache Spark, providing scalable algorithms for classification, regression, clustering, and collaborative filtering.",
+      "rank": 7,
+      "name": "LlamaIndex",
+      "slug": "llamaindex",
+      "description": "LlamaIndex is a leading data framework designed to connect private or domain-specific data sources to large language models (LLMs). It provides a comprehensive toolkit for ingesting, structuring, indexing, and querying data to build production-ready Retrieval-Augmented Generation (RAG) applications. Its unique value lies in its extensive suite of composable modules for data connectors, advanced indexing strategies, and query interfaces that abstract away complexity for developers.",
       "pricing": "open-source",
       "rating": 4.7,
       "verified": true,
       "featured": true,
-      "bestFor": "Apache Spark",
+      "bestFor": "RAG",
       "keyFeatures": [
-        "Distributed computing",
-        "Multiple language support",
-        "Streaming ML"
+        "Data Connectors for 100+ sources (APIs, PDFs, SQL DBs, Slack, etc.)",
+        "Advanced indexing strategies (vector, keyword, summary, graph-based)",
+        "Multi-modal data support (text, images, audio via integrations)"
+      ],
+      "pros": [
+        "Verified platform",
+        "Highly rated",
+        "Feature-rich"
+      ],
+      "cons": [
+        "May have learning curve"
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "PyTorch Geometric (PyG)",
+      "slug": "pytorch-geometric",
+      "description": "Library built upon PyTorch for easily writing and training Graph Neural Networks for applications related to structured data.",
+      "pricing": "open-source",
+      "rating": 4.7,
+      "verified": true,
+      "featured": true,
+      "bestFor": "Graph Neural Networks",
+      "keyFeatures": [
+        "Graph neural networks",
+        "PyTorch integration",
+        "Mini-batch loaders"
       ],
       "pros": [
         "Verified platform",
@@ -214,19 +193,44 @@
       ]
     },
     {
-      "rank": 10,
-      "name": "Hugging Face",
-      "slug": "hugging-face",
-      "description": "Open platform for machine learning with model hosting, datasets, and collaborative AI development tools.",
-      "pricing": "freemium",
+      "rank": 9,
+      "name": "Tableau",
+      "slug": "tableau",
+      "description": "Leading data visualization and business intelligence platform for creating interactive dashboards and analyzing data at scale.",
+      "pricing": "paid",
       "rating": 4.7,
       "verified": true,
       "featured": true,
-      "bestFor": "AI",
+      "bestFor": "BI",
       "keyFeatures": [
-        "Model repository",
-        "Dataset hosting",
-        "Spaces for demos"
+        "Data visualization",
+        "Interactive dashboards",
+        "Self-service analytics"
+      ],
+      "pros": [
+        "Verified platform",
+        "Highly rated",
+        "Feature-rich"
+      ],
+      "cons": [
+        "Paid only",
+        "May have learning curve"
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "timm (PyTorch Image Models)",
+      "slug": "timm",
+      "description": "Collection of image models, layers, utilities, optimizers, schedulers, data-loaders, augmentations and training/validation scripts for PyTorch.",
+      "pricing": "open-source",
+      "rating": 4.7,
+      "verified": true,
+      "featured": true,
+      "bestFor": "PyTorch",
+      "keyFeatures": [
+        "Extensive model collection",
+        "PyTorch integration",
+        "Training scripts"
       ],
       "pros": [
         "Verified platform",
@@ -238,18 +242,18 @@
     },
     {
       "rank": 11,
-      "name": "Jupyter Notebooks",
-      "slug": "jupyter-notebooks",
-      "description": "Open-source web application for creating and sharing documents with live code, visualizations, and computer vision experiments.",
-      "pricing": "free",
+      "name": "TorchVision",
+      "slug": "torchvision",
+      "description": "Computer vision package for PyTorch providing popular datasets, model architectures, and common image transformations for computer vision research.",
+      "pricing": "open-source",
       "rating": 4.7,
       "verified": true,
-      "featured": false,
-      "bestFor": "Development Environment",
+      "featured": true,
+      "bestFor": "PyTorch",
       "keyFeatures": [
-        "Interactive development",
-        "Live code execution",
-        "Data visualization"
+        "Pre-trained models",
+        "Popular datasets",
+        "Image transformations"
       ],
       "pros": [
         "Verified platform",
@@ -261,18 +265,18 @@
     },
     {
       "rank": 12,
-      "name": "LightGBM",
-      "slug": "lightgbm",
-      "description": "Fast gradient boosting framework by Microsoft that uses tree-based learning algorithms with optimized memory usage and training speed.",
+      "name": "Triton Inference Server",
+      "slug": "triton-inference-server",
+      "description": "Open-source inference serving software by NVIDIA that streamlines AI inferencing across multiple frameworks and hardware platforms.",
       "pricing": "open-source",
       "rating": 4.7,
       "verified": true,
       "featured": true,
-      "bestFor": "Gradient Boosting",
+      "bestFor": "NVIDIA",
       "keyFeatures": [
-        "Faster training speed",
-        "Lower memory usage",
-        "GPU acceleration"
+        "Multi-framework support",
+        "Dynamic batching",
+        "Model ensembles"
       ],
       "pros": [
         "Verified platform",

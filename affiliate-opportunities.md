@@ -1,42 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2025-12-06
-Total Opportunities: 2
+Generated: 2025-12-07
+Total Opportunities: 1
 
 ---
 
-## 1. Pictory
+## 1. Vercel AI SDK v3
 
-**Category:** video-ai
-**Website:** https://pictory.ai
-**Pricing Model:** freemium
-
-**Description:**
-AI-powered video creation platform that transforms long-form content into engaging short videos for social media. Automatically extracts key moments from webinars, podcasts, and articles to create shareable video clips with captions and branding.
-
-**💵 Affiliate Program Details:**
-Pictory Affiliate Program offers 30% recurring commission via ShareASale, 45-day cookie, $100 minimum payout, provides marketing materials and dedicated support
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 2. Jasper
-
-**Category:** generative-ai
-**Website:** https://www.jasper.ai
-**Pricing Model:** paid
+**Category:** code-ai
+**Website:** https://vercel.com/ai/sdk
+**Pricing Model:** open-source
 
 **Description:**
-AI content creation platform designed for marketing teams and businesses, offering templates for various content types including blogs, ads, emails, and social media posts. Features brand voice customization and collaboration tools for enterprise teams.
+Comprehensive toolkit for building AI-powered applications with streaming, tool calling, and multi-provider support. Enables developers to integrate AI features into applications with production-ready patterns and best practices.
 
 **💵 Affiliate Program Details:**
-Jasper Partner Program offers 30% recurring commission for first year, 30-day cookie, managed through PartnerStack, requires application with marketing experience
+Vercel platform referral program: 10% of referred customer's spend for 12 months, $500 minimum payout, integrates with Vercel's existing partner program
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -50,5 +29,4 @@ Jasper Partner Program offers 30% recurring commission for first year, 30-day co
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Pictory** - https://pictory.ai
-2. [ ] **Jasper** - https://www.jasper.ai
+1. [ ] **Vercel AI SDK v3** - https://vercel.com/ai/sdk
