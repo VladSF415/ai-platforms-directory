@@ -9885,7 +9885,7 @@
   {
     "id": "code-llama",
     "name": "Code Llama",
-    "description": "Specialized version of LLaMA 2 fine-tuned for code generation and programming assistance tasks.",
+    "description": "Code Llama is a family of large language models (LLMs) specifically fine-tuned from Meta's LLaMA 2 for programming and code-related tasks. It excels at generating, explaining, debugging, and completing code across a wide range of popular languages like Python, C++, Java, and JavaScript. It is uniquely positioned as a state-of-the-art, open-source alternative to proprietary code models, offering specialized variants for infilling and long-context support.",
     "category": "code-ai",
     "categories": [
       "Natural Language Processing",
@@ -9893,13 +9893,15 @@
     ],
     "url": "https://github.com/facebookresearch/codellama",
     "website": "https://github.com/facebookresearch/codellama",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Code generation",
-      "LLaMA 2 base",
-      "Programming assistance",
-      "Multiple languages",
-      "Open source"
+      "Code generation from natural language prompts",
+      "Code infilling within existing code context",
+      "Support for over 20 programming languages (Python, C++, Java, Bash, etc.)",
+      "Specialized 7B, 13B, and 34B parameter model sizes",
+      "Extended context length support up to 100,000 tokens (CodeLlama-34B-Instruct variant)",
+      "Zero-shot instruction following for programming tasks",
+      "Open-source weights available for research and commercial use"
     ],
     "rating": 4.5,
     "verified": true,
@@ -9907,9 +9909,13 @@
     "trending": true,
     "slug": "code-llama",
     "tags": [
-      "AI",
-      "NLP",
-      "Code Generation"
+      "llm",
+      "code-generation",
+      "programming-assistant",
+      "open-source",
+      "meta-ai",
+      "software-development",
+      "code-completion"
     ],
     "subcategories": [
       "code-generation"
@@ -9932,7 +9938,30 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automating boilerplate code generation for faster development",
+      "Explaining complex code snippets to learners or for documentation",
+      "Debugging by suggesting fixes for errors in existing code",
+      "Converting code between different programming languages",
+      "Real-time code completion and suggestion within IDEs",
+      "Assisting with writing scripts, SQL queries, and shell commands"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The model weights are released under a custom commercial license, allowing free use, modification, and distribution with some restrictions."
+      ],
+      "free_tier": "Yes - Full access to model weights for research and commercial use under license.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "software developers",
+      "data scientists & engineers",
+      "computer science students & educators"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "codeium",
@@ -9992,21 +10021,23 @@
   {
     "id": "cohere-command",
     "name": "Cohere Command",
-    "description": "Large language model API delivering fast, enterprise-grade text generation and embedding services.",
-    "category": "nlp",
+    "description": "Cohere Command is a suite of enterprise-grade large language models (LLMs) accessible via API, designed for building production-ready AI applications. It specializes in high-quality text generation, semantic search, and retrieval-augmented generation (RAG), with a strong focus on data privacy, security, and developer experience. Its unique value lies in offering powerful, fast, and steerable models that are optimized for business use cases, often positioned as a robust alternative to other leading LLM providers.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Large Language Models"
     ],
     "url": "https://cohere.com",
     "website": "https://cohere.com",
-    "pricing": "paid",
+    "pricing": "freemium",
     "features": [
-      "Text generation",
-      "Semantic search embeddings",
-      "RAG integration",
-      "Fine-tuning",
-      "Multilingual support"
+      "Command & Command-R Text Generation Models: High-performance instruction-following models for tasks like summarization, copywriting, and question answering.",
+      "Embed Models: Generate dense vector embeddings (e.g., embed-english-v3.0, embed-multilingual-v3.0) for semantic search and retrieval.",
+      "RAG Toolkit: Integrated tools for building retrieval-augmented generation pipelines, including a managed vector database (Cohere Embed).",
+      "Fine-tuning API: Ability to fine-tune the Command model on private datasets for domain-specific tasks.",
+      "Multilingual Support: Models and embeddings supporting over 100 languages.",
+      "Developer SDKs & Tooling: Officially supported SDKs for Python, Node.js, and a REST API with comprehensive documentation.",
+      "Enterprise Security Features: SOC 2 Type II compliance, data encryption, and options for data residency and private deployment."
     ],
     "rating": 4.3,
     "verified": true,
@@ -10014,9 +10045,14 @@
     "trending": true,
     "slug": "cohere-command",
     "tags": [
-      "AI",
-      "NLP",
-      "LLM"
+      "large-language-models",
+      "text-generation",
+      "semantic-search",
+      "embeddings",
+      "api",
+      "enterprise-ai",
+      "retrieval-augmented-generation",
+      "fine-tuning"
     ],
     "subcategories": [
       "text-generation"
@@ -10039,12 +10075,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Enterprise Chatbots & Virtual Assistants: Building customer support agents and internal knowledge assistants with RAG.",
+      "Semantic Search & Discovery: Enhancing e-commerce search, document retrieval, and content recommendation systems using embeddings.",
+      "Content Generation & Summarization: Automating marketing copy, report generation, and long-form document summarization.",
+      "Data Enrichment & Classification: Extracting insights, tagging, and categorizing large volumes of unstructured text data."
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free Tier: Limited trial credits for initial experimentation (e.g., 100 free trial units).",
+        "Production (Pay-As-You-Go): Usage-based pricing per unit of input/output tokens for generation and per input record for embeddings. Example: Command generation starts at ~$1.00 per 1M input tokens and $2.00 per 1M output tokens (prices subject to change; check website).",
+        "Enterprise: Custom pricing for high-volume, dedicated infrastructure, private deployment, and enhanced support/SLA."
+      ],
+      "free_tier": "Yes - Limited trial credits for initial API testing.",
+      "starting_price": "Free trial, then usage-based (effectively $0 at low volumes beyond trial)"
+    },
+    "target_audience": [
+      "Enterprise Developers & Engineering Teams",
+      "AI Product Managers",
+      "Startups Building AI-Powered Applications"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "combat-iq",
     "name": "Combat IQ",
-    "description": "Computer vision platform for fan engagement and sports analytics, enhancing spectator experiences through visual analysis.",
+    "description": "Combat IQ is a computer vision platform that transforms live sports venues into intelligent data sources. It uses proprietary AI to analyze video feeds in real-time, generating detailed analytics on fan behavior, venue operations, and game action for combat sports like MMA and boxing. Its unique value lies in its specialized focus on combat sports, providing metrics and insights not available from traditional sports analytics providers.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -10052,13 +10111,16 @@
     ],
     "url": "https://combatiq.ai",
     "website": "https://combatiq.ai",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Fan engagement analytics",
-      "Sports visual analysis",
-      "Spectator tracking",
-      "Event optimization",
-      "Real-time insights"
+      "Real-time fighter strike & position tracking",
+      "Crowd density heatmaps and movement flow analysis",
+      "Concession & merchandise queue length monitoring",
+      "Fan engagement scoring (cheers, reactions, social media activity)",
+      "Sponsorship exposure & brand visibility measurement",
+      "Venue entry/exit traffic pattern analytics",
+      "Customizable dashboard for live and historical data",
+      "Fight-specific performance reports (strikes landed, clinch time, etc.)"
     ],
     "rating": 4,
     "verified": true,
@@ -10066,10 +10128,14 @@
     "trending": true,
     "slug": "combat-iq",
     "tags": [
-      "Sports Analytics",
-      "Fan Engagement",
-      "Event Optimization",
-      "Real-time"
+      "sports-analytics",
+      "mma-analytics",
+      "fan-behavior",
+      "venue-analytics",
+      "real-time-data",
+      "combat-sports",
+      "performance-metrics",
+      "operational-intelligence"
     ],
     "subcategories": [
       "sports-analytics",
@@ -10093,13 +10159,36 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Promoters analyzing fan engagement during different fight moments to improve event pacing",
+      "Venue managers optimizing staffing and concession placement based on real-time crowd flow",
+      "Fight teams reviewing post-fight performance analytics beyond standard stats",
+      "Broadcasters enhancing commentary with real-time visual data and insights",
+      "Sponsors measuring the ROI and screen time of their in-venue branding",
+      "Security teams monitoring crowd density to proactively manage safety"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Tailored package based on venue size, number of events, and required features. Includes full platform access, dedicated support, and API integration."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Combat Sports Promotions & Leagues (e.g., UFC, Bellator, Top Rank)",
+      "Live Event Venues & Arenas",
+      "Sports Broadcast & Media Networks"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "comet-ml",
     "name": "Comet ML",
-    "description": "End-to-end model evaluation platform for AI developers with experiment tracking, production monitoring, and LLM evaluation capabilities.",
-    "category": "llms",
+    "description": "Comet ML is an end-to-end MLOps platform designed to manage, visualize, and optimize the entire machine learning lifecycle. Its key capabilities include experiment tracking, model registry, production monitoring, and specialized tools for evaluating and comparing Large Language Models (LLMs). It is unique for its deep integration with LLM workflows, offering side-by-side comparison of prompts, models, and chains, and its ability to track and version datasets alongside models, making it a central hub for AI teams.",
+    "category": "enterprise-ai-platforms",
     "categories": [
       "machine-learning-frameworks",
       "experiment-tracking"
@@ -10108,11 +10197,13 @@
     "website": "https://comet.ml",
     "pricing": "freemium",
     "features": [
-      "Experiment management",
-      "Model registry",
-      "Production monitoring",
-      "LLM evaluation",
-      "Dataset versioning"
+      "Experiment tracking with hyperparameter, metric, and code logging",
+      "Interactive model registry for versioning, staging, and deployment",
+      "Production monitoring with performance dashboards and alerting",
+      "LLM evaluation toolkit for prompt, model, and chain comparison",
+      "Dataset versioning and lineage tracking",
+      "Collaborative dashboards and reporting for teams",
+      "SDK integrations for PyTorch, TensorFlow, Hugging Face, LangChain, etc."
     ],
     "rating": 4.6,
     "verified": true,
@@ -10120,11 +10211,13 @@
     "trending": true,
     "slug": "comet-ml",
     "tags": [
-      "Experiment Tracking",
-      "Model Registry",
-      "Monitoring",
-      "LLM",
-      "Evaluation"
+      "mlops",
+      "experiment-tracking",
+      "model-registry",
+      "llm-evaluation",
+      "production-monitoring",
+      "model-management",
+      "dataset-versioning"
     ],
     "subcategories": [
       "experiment-tracking",
@@ -10148,12 +10241,36 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Tracking and reproducing hundreds of ML experiments to identify the best model",
+      "Managing the deployment lifecycle of models from staging to production",
+      "Systematically evaluating and optimizing prompts for LLM applications like chatbots",
+      "Monitoring model performance in production to detect drift and degradation",
+      "Auditing model lineage for compliance and governance requirements"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: For individuals. Includes 10GB asset storage, 100GB log storage, unlimited experiments, basic LLM evaluation, and 1 seat.",
+        "Pro: $179/user/month (billed annually). Adds team features, advanced LLM evaluation, custom dashboards, priority support, and more storage.",
+        "Enterprise: Custom pricing. Includes SSO/SAML, on-prem/private cloud deployment, dedicated support, and custom SLAs."
+      ],
+      "free_tier": "Yes - includes core experiment tracking, basic LLM tools, and limited storage.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Machine Learning Engineers",
+      "Data Scientists",
+      "MLOps/Platform Teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "computer-vision-vietnam",
     "name": "Computer Vision Vietnam",
-    "description": "Comprehensive computer vision platform providing AI-powered visual analysis solutions for Southeast Asian markets.",
+    "description": "Computer Vision Vietnam (CVV) is a specialized AI platform providing end-to-end computer vision solutions tailored for businesses and developers in Vietnam and Southeast Asia. Its key capabilities include building custom object detection, image classification, and OCR models, with a strong focus on supporting local languages like Vietnamese and regional use cases. What makes it unique is its deep regional expertise, offering pre-trained models for Southeast Asian contexts and a full-service approach from consulting to deployment and integration.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -10161,13 +10278,16 @@
     ],
     "url": "https://cvvietnam.ai",
     "website": "https://cvvietnam.ai",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Regional AI solutions",
-      "Visual analysis platform",
-      "Custom model development",
-      "Local language support",
-      "Industry-specific tools"
+      "Custom AI model development (object detection, classification, segmentation)",
+      "Pre-trained models optimized for Southeast Asian visual data",
+      "Vietnamese & regional language Optical Character Recognition (OCR)",
+      "API for model integration and inference",
+      "End-to-end project support (data labeling, training, deployment)",
+      "On-premise and cloud deployment options",
+      "Dashboard for model management and performance monitoring",
+      "Industry-specific solution packages (retail, logistics, manufacturing)"
     ],
     "rating": 4.1,
     "verified": true,
@@ -10175,10 +10295,14 @@
     "trending": false,
     "slug": "computer-vision-vietnam",
     "tags": [
-      "Regional Platform",
-      "Visual Analysis",
-      "Southeast Asia",
-      "Custom Models"
+      "custom-computer-vision",
+      "object-detection",
+      "vietnamese-ocr",
+      "southeast-asia-ai",
+      "regional-ai",
+      "model-deployment",
+      "ai-consulting",
+      "local-language-ai"
     ],
     "subcategories": [
       "platform",
@@ -10202,12 +10326,37 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Retail: Shelf monitoring and inventory analysis using image recognition",
+      "Logistics & Warehousing: Automated package sorting and damage detection",
+      "Manufacturing: Visual quality control and defect detection on production lines",
+      "Security & Surveillance: Anomaly detection and license plate recognition (LPR)",
+      "Document Processing: Automating data extraction from Vietnamese invoices and IDs",
+      "Agriculture: Crop health monitoring and yield estimation using drone imagery"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom Quote - For pilot projects with limited scope",
+        "Professional: Custom Quote - For ongoing projects with API access and support",
+        "Enterprise: Custom Quote - Full suite with custom development, SLA, and on-prem deployment"
+      ],
+      "free_tier": "No - but offers a free consultation and proof-of-concept analysis",
+      "starting_price": "Custom Quote (Contact Sales)"
+    },
+    "target_audience": [
+      "Enterprises in Vietnam & Southeast Asia (Retail, Manufacturing, Logistics)",
+      "System Integrators and IT consulting firms in the region",
+      "Government agencies and large institutions needing localized CV solutions"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "connexun-summarization",
     "name": "Connexun Summarization API",
-    "description": "Media-focused summarization API using 13,000+ human-written summaries for news and content generation.",
+    "description": "Connexun Summarization API is a specialized natural language processing service that generates concise, high-quality summaries of news articles and media content. Its key capability lies in leveraging a proprietary dataset of over 13,000 human-written summaries to train its models, ensuring outputs that are coherent, factual, and contextually aware. This makes it uniquely suited for media companies, analysts, and content aggregators who require reliable, real-time summarization to monitor vast information streams.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -10217,11 +10366,12 @@
     "website": "https://connexun.com",
     "pricing": "paid",
     "features": [
-      "News summarization",
-      "Human-trained models",
-      "Media content analysis",
-      "Dependency mapping",
-      "Real-time processing"
+      "News-specific summarization trained on 13,000+ human-written reference summaries",
+      "Real-time processing API for instant summary generation from article URLs or text",
+      "Dependency mapping to identify and preserve key entities, events, and relationships",
+      "Multi-language support for global media monitoring and analysis",
+      "Customizable summary length and focus parameters via API configuration",
+      "Integration with Connexun's broader news intelligence and media tracking ecosystem"
     ],
     "rating": 4.1,
     "verified": true,
@@ -10229,9 +10379,13 @@
     "trending": false,
     "slug": "connexun-summarization",
     "tags": [
-      "AI",
-      "NLP",
-      "Media"
+      "news-summarization",
+      "media-analysis",
+      "content-generation",
+      "real-time-nlp",
+      "enterprise-ai",
+      "text-analysis",
+      "information-extraction"
     ],
     "subcategories": [
       "media-analytics"
@@ -10254,13 +10408,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Media monitoring dashboards for PR and communications teams to track brand mentions",
+      "Content aggregation platforms automatically summarizing news from thousands of sources",
+      "Financial services firms analyzing market-moving news for investment signals",
+      "Research institutions processing large volumes of academic or news literature for insights",
+      "Newsrooms and publishers automating the creation of digests or briefing materials"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom quote - Limited API calls, core summarization features",
+        "Business: Custom quote - Higher volume, advanced features, priority support",
+        "Enterprise: Custom - Full volume, SLA, dedicated support, custom training"
+      ],
+      "free_tier": "No - A free trial or demo may be available upon request, but no permanent free tier is advertised.",
+      "starting_price": null
+    },
+    "target_audience": [
+      "media companies and news agencies",
+      "enterprise market intelligence teams",
+      "content aggregation and curation platforms"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "consensus",
     "name": "Consensus",
-    "description": "AI-powered academic search engine that finds and synthesizes insights from scientific research papers.",
-    "category": "generative-ai",
+    "description": "Consensus is an AI-powered search engine designed specifically for scientific research. It uses large language models (LLMs) to read, extract, and synthesize findings directly from peer-reviewed academic papers, allowing users to ask research questions in plain English and get evidence-based answers with citations. It uniquely focuses on providing consensus-level insights by analyzing multiple studies, making it a powerful tool for students, researchers, and professionals who need to quickly understand the scientific landscape on a topic.",
+    "category": "search-ai",
     "categories": [
       "research-tools",
       "education"
@@ -10269,11 +10447,13 @@
     "website": "https://consensus.app",
     "pricing": "freemium",
     "features": [
-      "Scientific paper search",
-      "Research synthesis",
-      "Evidence summaries",
-      "Citation tracking",
-      "Academic insights"
+      "Plain-language querying of scientific database (e.g., 'Does creatine improve memory?')",
+      "Instant extraction of key findings and 'yes/no' consensus from papers",
+      "One-click generation of evidence-based summaries synthesizing multiple sources",
+      "Direct links to full-text PDFs and DOI for every cited paper",
+      "Filtering of results by study type (e.g., Meta-Analysis, Randomized Controlled Trial)",
+      "Citation export in APA, MLA, and Chicago formats",
+      "Bookmarking and list creation for organizing research"
     ],
     "rating": 4.4,
     "verified": true,
@@ -10281,11 +10461,13 @@
     "trending": false,
     "slug": "consensus",
     "tags": [
-      "AI",
-      "Academic",
-      "Research",
-      "Science",
-      "Evidence"
+      "academic-search",
+      "research-synthesis",
+      "evidence-based",
+      "scientific-consensus",
+      "literature-review",
+      "citation-finder",
+      "scholarly-ai"
     ],
     "subcategories": [
       "academic-search",
@@ -10309,26 +10491,53 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Accelerating literature reviews for academic researchers and students",
+      "Fact-checking health or science claims with peer-reviewed evidence",
+      "Supporting evidence-based decision-making for professionals (e.g., healthcare, policy)",
+      "Finding supporting or contradicting studies for a hypothesis",
+      "Quickly gathering citations and summaries for writing projects or grant proposals",
+      "Staying updated on scientific consensus for journalists and content creators"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 20 AI-powered searches per month, basic filters, citation export",
+        "Premium: $8.99/month (or $6.99/month billed annually) - Unlimited AI searches, advanced filters (study type, sample size), priority support, unlimited bookmarking",
+        "Enterprise: Custom - Team management, enhanced data access, SSO, dedicated support, custom SLAs"
+      ],
+      "free_tier": "Yes - 20 AI searches/month, basic features",
+      "starting_price": "Free, then $8.99/month"
+    },
+    "target_audience": [
+      "University students and academic researchers",
+      "Healthcare professionals and evidence-based practitioners",
+      "Journalists, writers, and science communicators"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "consensus-cloud-solutions",
     "name": "Consensus Cloud Solutions",
-    "description": "AI-powered secure software platform for regulated industries with document processing and compliance features.",
-    "category": "generative-ai",
+    "description": "Consensus Cloud Solutions is a global provider of secure, cloud-based digital fax and intelligent document automation services, specifically engineered for regulated industries. Its core platform leverages AI to transform unstructured data from documents and faxes into structured, actionable information while ensuring end-to-end security and compliance with standards like HIPAA and GDPR. What makes it unique is its deep specialization in healthcare and legal workflows, offering a purpose-built, compliant alternative to generic cloud storage or communication tools.",
+    "category": "workflow-automation",
     "categories": [
       "enterprise-ai",
       "healthcare"
     ],
     "url": "https://consensus.com",
     "website": "https://consensus.com",
-    "pricing": "enterprise",
+    "pricing": "paid",
     "features": [
-      "Secure document processing",
-      "HIPAA compliance",
-      "Digital signatures",
-      "Cloud faxing",
-      "Healthcare workflows"
+      "AI-powered intelligent data extraction from faxes and documents",
+      "End-to-end encrypted cloud faxing with global reach",
+      "HIPAA, GDPR, and SOC 2 compliant digital signature solutions",
+      "Automated workflow routing and integration with EHRs (e.g., Epic, Cerner)",
+      "Secure, audit-ready document storage and archiving",
+      "Advanced analytics and reporting on document workflows",
+      "APIs for integration into existing enterprise systems (Consensus Clarity)"
     ],
     "rating": 4.1,
     "verified": true,
@@ -10336,11 +10545,14 @@
     "trending": false,
     "slug": "consensus-cloud-solutions",
     "tags": [
-      "AI",
-      "Healthcare",
-      "Compliance",
-      "Secure Documents",
-      "Enterprise"
+      "secure-fax",
+      "document-automation",
+      "healthcare-it",
+      "hipaa-compliance",
+      "data-extraction",
+      "enterprise-communications",
+      "legal-tech",
+      "cloud-fax"
     ],
     "subcategories": [
       "healthcare-compliance",
@@ -10364,12 +10576,36 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Healthcare providers securely transmitting PHI via HIPAA-compliant digital fax",
+      "Legal firms exchanging sensitive contracts and discovery documents with verified delivery",
+      "Financial services automating the processing of loan applications and signed forms",
+      "Life sciences companies managing clinical trial documentation and regulatory submissions",
+      "Enterprises replacing physical fax machines with a scalable, cloud-based network",
+      "Organizations automating data entry by extracting structured data from inbound faxes and documents."
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter/Pro Tiers: Typically based on user count and volume of pages (faxes/documents). Specific package names and prices are not publicly listed and require a sales quote.",
+        "Enterprise: Custom - Volume-based pricing, dedicated support, advanced security, and custom integrations."
+      ],
+      "free_tier": "No - but a free trial is typically offered.",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Healthcare organizations (hospitals, clinics, insurers)",
+      "Legal and professional services firms",
+      "Financial services and insurance companies"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "copy-ai",
     "name": "Copy.ai",
-    "description": "AI-powered copywriting tool that generates marketing copy, blog posts, and creative content.",
+    "description": "Copy.ai is an AI-powered content creation platform designed to help businesses and individuals generate high-quality marketing copy, blog posts, and other written content quickly. Its key capabilities include generating text across dozens of formats, adapting to a user's brand voice, and offering workflow tools for team collaboration. It stands out with its extensive template library, user-friendly interface, and focus on marketing and sales content rather than general-purpose writing.",
     "category": "generative-ai",
     "categories": [
       "writing-content",
@@ -10379,11 +10615,13 @@
     "website": "https://copy.ai",
     "pricing": "freemium",
     "features": [
-      "Marketing copy generation",
-      "Blog post creation",
-      "Social media content",
-      "Email templates",
-      "Brand voice customization"
+      "90+ content templates (ads, emails, blogs, product descriptions)",
+      "Infinite Brand Voice profiles to train AI on your tone",
+      "Workflow tools for organizing projects and team collaboration",
+      "Long-form document editor (Blog Wizard, Content Rewriter)",
+      "Browser extension for generating copy anywhere",
+      "Plagiarism checker integration",
+      "Multi-language support (25+ languages)"
     ],
     "rating": 4.4,
     "verified": true,
@@ -10391,11 +10629,13 @@
     "trending": false,
     "slug": "copy-ai",
     "tags": [
-      "AI",
-      "Copywriting",
-      "Marketing",
-      "Content",
-      "Business"
+      "ai-copywriting",
+      "content-generation",
+      "marketing-automation",
+      "sales-copy",
+      "social-media-tools",
+      "seo-content",
+      "brand-voice"
     ],
     "subcategories": [
       "copywriting",
@@ -10419,12 +10659,37 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Generating Facebook/Google ad copy variants for A/B testing",
+      "Writing SEO-optimized blog post outlines and full drafts",
+      "Creating personalized cold email sequences for sales teams",
+      "Producing social media captions and post ideas in bulk",
+      "Writing e-commerce product descriptions at scale",
+      "Brainstorming and refining marketing campaign ideas"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 1 user seat, 2000 words per month, 90+ tools",
+        "Pro: $49/month (or $36/month annually) - 5 user seats, unlimited words, priority support, workflow tools",
+        "Enterprise: Custom pricing - Unlimited seats, SSO, API access, dedicated support, custom templates"
+      ],
+      "free_tier": "Yes - 2000 words/month, 1 seat, 90+ tools",
+      "starting_price": "Free, then $36/month (billed annually)"
+    },
+    "target_audience": [
+      "Marketing professionals & agencies",
+      "Small business owners & entrepreneurs",
+      "Sales teams & freelancers"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "core-ml",
     "name": "Core ML",
-    "description": "Apple's machine learning framework for integrating machine learning models into iOS, macOS, watchOS, and tvOS applications with on-device performance.",
+    "description": "Core ML is Apple's proprietary machine learning framework designed to enable developers to integrate trained machine learning models directly into applications running on iOS, macOS, watchOS, and tvOS. Its key capability is performing fast, on-device inference, leveraging Apple's hardware accelerators (Neural Engine, GPU, CPU) for optimal performance while ensuring user data privacy by keeping processing local. It is unique for its seamless integration with the Apple ecosystem, providing a standardized format (.mlmodel) and tools that simplify the deployment of models from popular training frameworks like TensorFlow and PyTorch.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -10434,11 +10699,13 @@
     "website": "https://developer.apple.com/machine-learning/",
     "pricing": "free",
     "features": [
-      "Apple ecosystem",
-      "On-device inference",
-      "Hardware acceleration",
-      "Privacy focused",
-      "Easy integration"
+      "On-device inference with no network requirement for model execution",
+      "Hardware acceleration via Apple Neural Engine, GPU, and CPU",
+      "Support for a wide range of model types (vision, NLP, audio, tabular data)",
+      "Model conversion tools (Core ML Tools) for TensorFlow, PyTorch, scikit-learn, etc.",
+      "Tight integration with other Apple frameworks (Vision, NaturalLanguage, SoundAnalysis)",
+      "Model encryption and security features for IP protection",
+      "Live model updates via Model Deployment (without app store updates)"
     ],
     "rating": 4.6,
     "verified": true,
@@ -10446,11 +10713,14 @@
     "trending": true,
     "slug": "core-ml",
     "tags": [
-      "Apple",
-      "iOS",
-      "macOS",
-      "On-device",
-      "Privacy"
+      "apple",
+      "on-device-ai",
+      "ios-development",
+      "hardware-acceleration",
+      "privacy-first",
+      "mobile-ml",
+      "model-deployment",
+      "swift"
     ],
     "subcategories": [
       "mobile-ml",
@@ -10474,12 +10744,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Real-time object detection and image classification in camera apps",
+      "On-device speech recognition and natural language processing for virtual assistants",
+      "Augmented reality experiences with scene understanding and object tracking",
+      "Health and fitness apps analyzing sensor data for activity classification",
+      "Photo and video apps applying style transfers, filters, and enhancements",
+      "Predictive text and smart replies in messaging and email clients"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: Full framework, tools, and documentation included with Apple Developer membership (free tier available)"
+      ],
+      "free_tier": "Yes - Core ML framework, conversion tools, and documentation are free to use for development and deployment on Apple platforms. An Apple Developer Program membership ($99/year) is required for app distribution but not for framework use.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ios-macos-app-developers",
+      "mobile-ai-engineers",
+      "enterprise-developers-building-apple-ecosystem-apps"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "cornac",
     "name": "Cornac",
-    "description": "Comparative framework for multimodal recommender systems focusing on models that leverage auxiliary data like item/user features.",
+    "description": "Cornac is an open-source Python framework designed for building, evaluating, and comparing multimodal recommender systems. Its key capability is providing a unified, comparative environment for models that leverage auxiliary data like item descriptions, user demographics, images, or text. It is uniquely tailored for researchers and practitioners who need a reproducible, extensible, and benchmark-focused toolkit for cutting-edge recommendation algorithms beyond simple collaborative filtering.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -10489,11 +10782,11 @@
     "website": "https://github.com/PreferredAI/cornac",
     "pricing": "open-source",
     "features": [
-      "Multimodal recommendations",
-      "Auxiliary data support",
-      "Comparative framework",
-      "Research-oriented",
-      "Evaluation metrics"
+      "Unified interface for 50+ recommendation models (e.g., BPR, VBPR, NeuMF)",
+      "Extensive support for multimodal auxiliary data (text, visual, graph, social)",
+      "Comprehensive benchmark suite with standardized train/test splits and evaluation protocols",
+      "Modular design for easy implementation and integration of new models",
+      "Seamless integration with scientific Python stack (NumPy, SciPy, TensorFlow, PyTorch)"
     ],
     "rating": 4.2,
     "verified": true,
@@ -10501,11 +10794,13 @@
     "trending": false,
     "slug": "cornac",
     "tags": [
-      "Multimodal",
-      "Auxiliary Data",
-      "Comparative",
-      "Research",
-      "Evaluation"
+      "recommender-systems",
+      "multimodal-machine-learning",
+      "research-framework",
+      "model-evaluation",
+      "python-library",
+      "collaborative-filtering",
+      "hybrid-models"
     ],
     "subcategories": [
       "multimodal-recommendations",
@@ -10529,12 +10824,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research and benchmarking of novel recommendation algorithms",
+      "Prototyping and A/B testing hybrid recommender systems for e-commerce",
+      "Building content-aware recommenders using item text descriptions or images",
+      "Developing cold-start solutions by leveraging user/item auxiliary features",
+      "Educational tool for teaching advanced recommender system concepts"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the framework, all models, and source code under the Apache 2.0 license"
+      ],
+      "free_tier": "Yes - The entire framework is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Academic Researchers (PhD students, postdocs, faculty)",
+      "Machine Learning Engineers & Data Scientists in R&D roles",
+      "Advanced Students learning recommender systems"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "cortex",
     "name": "Cortex",
-    "description": "Open-source platform for deploying machine learning models as production web services, providing autoscaling and multi-framework support.",
+    "description": "Cortex is an open-source platform designed to deploy machine learning models as production-grade web services. It provides key capabilities like automatic scaling, multi-framework support (including TensorFlow, PyTorch, and scikit-learn), and infrastructure management, targeting data scientists and ML engineers who need to operationalize models without deep DevOps expertise. What makes it unique is its focus on turning models into scalable, high-performance APIs with minimal configuration, abstracting away the underlying cloud infrastructure.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -10544,11 +10861,14 @@
     "website": "https://cortexlabs.com",
     "pricing": "open-source",
     "features": [
-      "Autoscaling",
-      "Multi-framework support",
-      "Rolling updates",
-      "Cost optimization",
-      "Real-time serving"
+      "Automatic scaling based on traffic with configurable metrics (CPU/memory)",
+      "Multi-framework support for TensorFlow, PyTorch, ONNX, scikit-learn, and more",
+      "Rolling updates for zero-downtime model deployments",
+      "Cost optimization via spot instance integration and resource bin-packing",
+      "Real-time prediction endpoints with monitoring and logging",
+      "Infrastructure as Code (YAML configuration for deployments)",
+      "Built-in model versioning and A/B testing capabilities",
+      "Integration with AWS services (S3, CloudWatch) for storage and observability"
     ],
     "rating": 4.2,
     "verified": true,
@@ -10559,8 +10879,11 @@
       "Model Serving",
       "Autoscaling",
       "Multi-framework",
-      "Production",
-      "Web Services"
+      "Production ML",
+      "Kubernetes",
+      "Real-time Inference",
+      "MLOps",
+      "Cloud Deployment"
     ],
     "subcategories": [
       "model-serving",
@@ -10584,12 +10907,35 @@
     "updatedAt": {
       "_seconds": 1688135400,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Deploying real-time recommendation systems as scalable APIs",
+      "Serving computer vision models for image classification in production",
+      "Hosting NLP models for sentiment analysis or text generation endpoints",
+      "Running batch predictions with on-demand scaling for e-commerce analytics",
+      "A/B testing multiple model versions to optimize performance",
+      "Operationalizing fraud detection models with high availability requirements"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to Cortex's open-source core platform with self-managed infrastructure on AWS, GCP, or Azure"
+      ],
+      "free_tier": "Yes - includes all core features (autoscaling, multi-framework support, etc.) when self-hosted",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Data Scientists seeking to deploy models without DevOps overhead",
+      "ML Engineers building scalable inference pipelines",
+      "Startups and mid-size companies needing production ML infrastructure"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "creme",
     "name": "Creme",
-    "description": "Python library for online machine learning providing incremental learning algorithms for streaming data and adaptive model training.",
+    "description": "Creme is a Python library dedicated to online machine learning, enabling models to learn incrementally from data streams without requiring the entire dataset to be in memory. Its key capabilities include a wide array of algorithms for classification, regression, clustering, and feature extraction designed for streaming data, making it ideal for real-time applications. It uniquely focuses on pure online learning with a scikit-learn-inspired API, targeting data scientists and engineers who need adaptive models for live data sources like IoT sensors, financial tickers, or web traffic.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -10599,11 +10945,13 @@
     "website": "https://github.com/MaxHalford/creme",
     "pricing": "open-source",
     "features": [
-      "Incremental learning",
-      "Streaming algorithms",
-      "Online updates",
-      "Adaptive models",
-      "Real-time processing"
+      "Incremental linear models (logistic regression, perceptron)",
+      "Streaming decision trees (Hoeffding Tree)",
+      "Online clustering algorithms (DBSTREAM)",
+      "Time-aware feature extraction and preprocessing",
+      "Progressive model evaluation metrics",
+      "Compatibility with scikit-learn via `creme.compat`",
+      "Built-in datasets for streaming simulation"
     ],
     "rating": 4.2,
     "verified": true,
@@ -10611,11 +10959,13 @@
     "trending": false,
     "slug": "creme",
     "tags": [
-      "Incremental Learning",
-      "Streaming",
-      "Online Updates",
-      "Adaptive",
-      "Real-time"
+      "online-machine-learning",
+      "streaming-data",
+      "incremental-learning",
+      "python-library",
+      "real-time-ml",
+      "adaptive-models",
+      "scikit-learn-compatible"
     ],
     "subcategories": [
       "incremental-learning",
@@ -10639,26 +10989,51 @@
     "updatedAt": {
       "_seconds": 1640874600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Real-time fraud detection on transaction streams",
+      "Adaptive recommendation systems for live user interactions",
+      "IoT sensor data monitoring and predictive maintenance",
+      "Live social media sentiment analysis",
+      "Dynamic pricing models using real-time market data",
+      "Network intrusion detection from continuous log streams"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to library under MIT license"
+      ],
+      "free_tier": "Yes - entire library with no restrictions",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Data scientists building real-time ML pipelines",
+      "ML engineers working with streaming data infrastructure",
+      "Researchers in online learning and adaptive systems"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "crewai",
     "name": "CrewAI",
-    "description": "Framework for orchestrating role-playing autonomous AI agents enabling collaborative task completion through specialized agent roles.",
-    "category": "ml-frameworks",
+    "description": "CrewAI is an open-source framework for orchestrating autonomous AI agents that collaborate in a structured crew to complete complex tasks. It enables developers to define specialized agents with roles, goals, and tools, and chain them together through processes for sequential, hierarchical, or consensual task execution. It uniquely focuses on multi-agent collaboration, inter-agent delegation, and human-in-the-loop oversight, targeting developers building sophisticated AI-driven workflows.",
+    "category": "agent-platforms",
     "categories": [
       "machine-learning-frameworks",
       "multi-agent"
     ],
     "url": "https://crewai.com",
     "website": "https://github.com/joaomdmoura/crewai",
-    "pricing": "freemium",
+    "pricing": "open-source",
     "features": [
-      "Role-playing agents",
-      "Task orchestration",
-      "Agent collaboration",
-      "Autonomous execution",
-      "Customizable workflows"
+      "Role-based agent definition with custom LLM backends (OpenAI, Anthropic, local models via Ollama/LMStudio)",
+      "Structured processes for agent interaction (Sequential, Hierarchical, Consensual)",
+      "Built-in support for tools and function calling for agent capabilities",
+      "Task delegation and sharing context between agents within a crew",
+      "Human-in-the-loop features for task approval and intervention",
+      "Integration with external tools and data sources (Serper, Exa, custom tools)",
+      "Asynchronous execution support for improved performance"
     ],
     "rating": 4.5,
     "verified": true,
@@ -10666,11 +11041,13 @@
     "trending": true,
     "slug": "crewai",
     "tags": [
-      "Role-playing",
-      "Autonomous",
-      "Orchestration",
-      "Collaboration",
-      "Workflows"
+      "multi-agent-systems",
+      "autonomous-agents",
+      "workflow-orchestration",
+      "llm-orchestration",
+      "task-automation",
+      "python-framework",
+      "agent-collaboration"
     ],
     "subcategories": [
       "multi-agent",
@@ -10694,13 +11071,37 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automated research and content synthesis by a crew of researcher, writer, and editor agents",
+      "Customer support triage and resolution through specialized support agent teams",
+      "Competitive intelligence analysis using researcher and analyst agents",
+      "Automated code review and development workflows with developer and QA agents",
+      "Marketing campaign planning and execution orchestration",
+      "Business process automation for multi-step operational tasks"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Open Source: Full framework access via GitHub - AGPL v3 license",
+        "CrewAI Cloud (Beta): Managed cloud service with additional features - Pricing TBD"
+      ],
+      "free_tier": "Yes - The core framework is completely free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML engineers building multi-agent systems",
+      "Software developers automating complex workflows",
+      "Enterprise teams implementing AI-driven process automation"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "critical-mention",
     "name": "Critical Mention",
-    "description": "Media monitoring service with sentiment analysis for broadcast, online news, and social media coverage tracking.",
-    "category": "nlp",
+    "description": "Critical Mention is an enterprise-grade media intelligence platform that monitors, analyzes, and measures global broadcast TV, online news, radio, podcasts, and social media in real-time. Its key capabilities include AI-powered sentiment analysis, instant alerts, and comprehensive share-of-voice metrics, enabling PR, communications, and marketing teams to prove ROI and manage brand reputation. It is uniquely known for its extensive global broadcast monitoring network, offering searchable access to TV and radio content with near-instant clip generation.",
+    "category": "analytics-bi",
     "categories": [
       "Natural Language Processing",
       "Media Monitoring"
@@ -10709,11 +11110,13 @@
     "website": "https://www.criticalmention.com",
     "pricing": "paid",
     "features": [
-      "Broadcast monitoring",
-      "Sentiment analysis",
-      "Real-time alerts",
-      "Coverage metrics",
-      "Competitive analysis"
+      "Global broadcast TV monitoring with searchable transcripts and clip generation",
+      "AI-driven sentiment analysis (positive/negative/neutral) across all media types",
+      "Real-time email and mobile alerts for brand mentions and crisis detection",
+      "Competitive intelligence dashboards with share-of-voice and impression metrics",
+      "Integrated monitoring of online news, social media, radio, and podcasts",
+      "Customizable reporting and presentation tools with media clip reels",
+      "Media contact database and outreach tools integrated with monitoring"
     ],
     "rating": 4,
     "verified": true,
@@ -10721,9 +11124,13 @@
     "trending": false,
     "slug": "critical-mention",
     "tags": [
-      "AI",
-      "NLP",
-      "Media Monitoring"
+      "media-monitoring",
+      "sentiment-analysis",
+      "broadcast-tv",
+      "pr-analytics",
+      "brand-reputation",
+      "share-of-voice",
+      "real-time-alerts"
     ],
     "subcategories": [
       "media-monitoring"
@@ -10746,13 +11153,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "PR agencies measuring campaign impact and securing broadcast coverage for clients",
+      "Corporate communications teams managing crisis response and brand reputation",
+      "Marketing departments tracking campaign performance and competitive positioning",
+      "Sports and entertainment organizations monitoring sponsor exposure and media value",
+      "Political campaigns tracking candidate coverage and public sentiment across media"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom pricing - Limited markets & channels",
+        "Professional: Custom pricing - Expanded coverage & features",
+        "Enterprise: Custom pricing - Full global coverage, API, dedicated support"
+      ],
+      "free_tier": "No - but a free demo/trial is available",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Public Relations & Communications Agencies",
+      "Corporate Brand & Marketing Teams",
+      "Government & Political Organizations"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "crowdstrike-falcon",
     "name": "CrowdStrike Falcon",
-    "description": "AI-powered endpoint protection platform with next-generation antivirus and threat hunting capabilities.",
-    "category": "generative-ai",
+    "description": "CrowdStrike Falcon is a cloud-native, AI-powered endpoint protection platform (EPP) and endpoint detection and response (EDR) solution. It provides comprehensive security for endpoints like laptops, servers, and virtual machines, leveraging its proprietary Threat Graph® to correlate trillions of security events in real-time for superior threat prevention, detection, and hunting. It is uniquely designed for enterprises and organizations of all sizes, distinguished by its single lightweight agent architecture and its focus on stopping breaches through behavioral analysis and threat intelligence.",
+    "category": "enterprise-ai-platforms",
     "categories": [
       "cybersecurity",
       "endpoint-security"
@@ -10761,11 +11192,13 @@
     "website": "https://crowdstrike.com",
     "pricing": "paid",
     "features": [
-      "Next-gen antivirus",
-      "Endpoint detection and response",
-      "Threat hunting",
-      "Behavioral analysis",
-      "Cloud-native architecture"
+      "Next-Generation Antivirus (NGAV) with machine learning and IOC scanning",
+      "Endpoint Detection and Response (EDR) with 24/7 managed hunting (Falcon OverWatch)",
+      "Threat Graph cloud correlation engine analyzing trillions of events daily",
+      "Integrated Threat Intelligence from CrowdStrike Intelligence",
+      "Identity Threat Detection (Falcon Identity Threat Protection)",
+      "Cloud Workload Protection (Falcon Cloud Security)",
+      "Automated Indicator of Attack (IOA) detection and prevention"
     ],
     "rating": 4.6,
     "verified": true,
@@ -10773,11 +11206,13 @@
     "trending": false,
     "slug": "crowdstrike-falcon",
     "tags": [
-      "AI",
-      "Endpoint Security",
-      "Threat Hunting",
-      "Cybersecurity",
-      "Cloud"
+      "endpoint-protection-platform",
+      "edr",
+      "threat-intelligence",
+      "cloud-security",
+      "incident-response",
+      "managed-detection-response",
+      "zero-trust"
     ],
     "subcategories": [
       "endpoint-protection",
@@ -10801,26 +11236,54 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Preventing ransomware and malware attacks on enterprise endpoints",
+      "Investigating and responding to security incidents with detailed forensic data",
+      "Proactive threat hunting against advanced persistent threats (APTs)",
+      "Securing cloud infrastructure and containerized workloads (IaaS/PaaS)",
+      "Consolidating security vendors with a unified platform (XDR strategy)",
+      "Meeting compliance requirements (e.g., NIST, GDPR, HIPAA) with audit trails"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Falcon Go: ~$5.99/endpoint/month (billed annually) - Core NGAV for SMBs",
+        "Falcon Pro: ~$8.99/endpoint/month (billed annually) - Adds EDR & basic threat intelligence",
+        "Falcon Enterprise: ~$15.99/endpoint/month (billed annually) - Adds managed threat hunting (OverWatch), identity protection, & more",
+        "Falcon Elite: Custom Pricing - Full suite with 24/7 MDR, threat intelligence, & premium support"
+      ],
+      "free_tier": "No - but a 15-day free trial is available",
+      "starting_price": "$5.99 per endpoint per month (estimated, annual commitment)"
+    },
+    "target_audience": [
+      "enterprise-security-teams",
+      "managed-security-service-providers",
+      "it-operations-and-compliance-teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "ctgan-synthetic",
     "name": "CTGAN",
-    "description": "Conditional Table Generation using Adversarial Networks for creating high-fidelity synthetic tabular data with GAN architecture.",
-    "category": "computer-vision",
+    "description": "CTGAN (Conditional Tabular Generative Adversarial Network) is an open-source Python library for generating high-quality synthetic tabular data that mimics the statistical properties and complex relationships of real datasets. It is specifically designed to handle mixed data types (continuous and discrete columns) and skewed distributions, making it uniquely capable of preserving privacy while enabling data augmentation and sharing. Its primary audience includes data scientists, researchers, and developers working in environments with sensitive or limited data.",
+    "category": "generative-ai",
     "categories": [
       "computer-vision",
       "synthetic-data"
     ],
     "url": "https://github.com/sdv-dev/CTGAN",
     "website": "https://github.com/sdv-dev/CTGAN",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "GAN-based generation",
-      "Tabular data synthesis",
-      "High-fidelity output",
-      "Complex relationships",
-      "Data augmentation"
+      "Generates synthetic tabular data preserving column distributions and correlations",
+      "Handles mixed data types (continuous, discrete, categorical) natively",
+      "Uses conditional vectors and training-by-sampling to address imbalanced data",
+      "Integrates with the Synthetic Data Vault (SDV) ecosystem for evaluation and benchmarking",
+      "Provides a PyTorch-based GAN architecture for customizable model training",
+      "Includes differential privacy mechanisms for enhanced data protection",
+      "Supports conditional generation based on specific column values"
     ],
     "rating": 4.4,
     "verified": true,
@@ -10828,10 +11291,14 @@
     "trending": true,
     "slug": "ctgan-synthetic",
     "tags": [
-      "Synthetic Data",
-      "GAN",
-      "Tabular Data",
-      "Open Source"
+      "synthetic-data",
+      "generative-adversarial-networks",
+      "tabular-data",
+      "data-privacy",
+      "data-augmentation",
+      "python-library",
+      "open-source",
+      "sdv-ecosystem"
     ],
     "subcategories": [
       "synthetic-data",
@@ -10855,12 +11322,34 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Creating privacy-preserving synthetic datasets for sharing and collaboration",
+      "Augmenting limited training data for machine learning model development",
+      "Testing software and analytics pipelines with realistic but non-sensitive data",
+      "Enabling data-driven research in domains with strict confidentiality (e.g., healthcare, finance)",
+      "Generating balanced datasets from imbalanced real-world data for fairer model training"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the CTGAN library and source code on GitHub under the MIT License"
+      ],
+      "free_tier": "Yes - The entire library is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Data Scientists and ML Engineers",
+      "Academic and Industrial Researchers",
+      "Developers building data-centric applications"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "cudf",
     "name": "cuDF",
-    "description": "GPU DataFrame library providing pandas-like API for GPU-accelerated data processing and analytics using NVIDIA RAPIDS ecosystem.",
+    "description": "cuDF is a GPU-accelerated DataFrame library that provides a pandas-like API for high-performance data processing and analytics. It enables data scientists and engineers to execute data manipulation, transformation, and analysis workloads on NVIDIA GPUs, delivering order-of-magnitude speedups over CPU-based pandas for large datasets. Its uniqueness lies in its seamless integration into the RAPIDS ecosystem, allowing end-to-end GPU acceleration of data science pipelines without requiring deep CUDA expertise.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -10870,11 +11359,13 @@
     "website": "https://github.com/rapidsai/cudf",
     "pricing": "open-source",
     "features": [
-      "GPU acceleration",
-      "Pandas-like API",
-      "RAPIDS ecosystem",
-      "High performance",
-      "CUDA integration"
+      "Pandas-like DataFrame API with GPU backend for familiar syntax",
+      "Integration with RAPIDS libraries (cuML, cuGraph, cuSpatial) for end-to-end workflows",
+      "Support for common data operations: filtering, joining, grouping, aggregations",
+      "Interoperability with Apache Arrow, Pandas, and PyArrow for zero-copy data transfer",
+      "UDF support via Numba and user-defined functions for custom GPU kernels",
+      "Multi-GPU support through Dask-cuDF for scaling across GPU clusters",
+      "Built on libcudf C++/CUDA core for optimized low-level performance"
     ],
     "rating": 4.6,
     "verified": true,
@@ -10882,11 +11373,14 @@
     "trending": true,
     "slug": "cudf",
     "tags": [
-      "GPU",
-      "Pandas-like",
-      "RAPIDS",
-      "High Performance",
-      "CUDA"
+      "gpu-dataframes",
+      "pandas-api",
+      "nvidia-rapids",
+      "cuda-acceleration",
+      "data-processing",
+      "high-performance-analytics",
+      "python-library",
+      "gpu-computing"
     ],
     "subcategories": [
       "gpu-dataframes",
@@ -10910,12 +11404,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Large-scale data preparation and ETL pipelines for machine learning",
+      "Financial time-series analysis and risk modeling at high frequency",
+      "Accelerating feature engineering for training datasets in ML workflows",
+      "Interactive data exploration and analytics on multi-gigabyte datasets",
+      "Real-time data processing in streaming applications",
+      "Genomics and bioinformatics data processing (e.g., variant calling)"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - complete library with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists",
+      "machine learning engineers",
+      "data engineers working with large datasets"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "cupy",
     "name": "CuPy",
-    "description": "GPU-accelerated computing library for Python that provides NumPy-compatible array operations on NVIDIA CUDA and AMD ROCm platforms.",
+    "description": "CuPy is a GPU-accelerated array library for Python that provides a NumPy-compatible interface for high-performance computing on NVIDIA CUDA and AMD ROCm platforms. It enables seamless execution of array operations on GPUs, dramatically speeding up numerical computations for large-scale data. Its unique value lies in allowing researchers and engineers to port existing NumPy code to GPU with minimal changes, bridging the gap between CPU-based prototyping and GPU-accelerated production.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -10925,11 +11442,13 @@
     "website": "https://cupy.dev",
     "pricing": "open-source",
     "features": [
-      "GPU acceleration",
-      "NumPy compatibility",
-      "CUDA support",
-      "ROCm support",
-      "Sparse matrix operations"
+      "NumPy-compatible GPU array object (cupy.ndarray) with most NumPy functions supported",
+      "CUDA support via NVIDIA GPUs and cuDNN integration for deep learning primitives",
+      "ROCm support for AMD GPUs (HIP backend) enabling cross-vendor compatibility",
+      "Sparse matrix operations (CSR, CSC, COO formats) for large-scale linear algebra",
+      "Custom kernel development via raw CUDA/HIP C++ or Numba-like Python decorators (@cupy.fuse)",
+      "Multi-GPU support through cupyx.scipy.ndimage and communication libraries",
+      "Interoperability with PyTorch, TensorFlow, and Chainer via array exchange protocols"
     ],
     "rating": 4.5,
     "verified": true,
@@ -10937,11 +11456,13 @@
     "trending": true,
     "slug": "cupy",
     "tags": [
-      "GPU",
-      "NumPy",
-      "CUDA",
-      "ROCm",
-      "High Performance"
+      "gpu-computing",
+      "numpy-compatible",
+      "cuda",
+      "rocm",
+      "array-operations",
+      "high-performance",
+      "scientific-computing"
     ],
     "subcategories": [
       "gpu-computing",
@@ -10965,7 +11486,30 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Accelerating large-scale numerical simulations in physics and computational chemistry",
+      "Speeding up data preprocessing and feature engineering pipelines for machine learning",
+      "High-performance linear algebra and sparse matrix computations for scientific research",
+      "Prototyping and running custom GPU kernels without low-level CUDA/ROCm programming",
+      "Accelerating computer vision and image processing algorithms on GPU arrays",
+      "Enabling cross-platform GPU code that runs on both NVIDIA and AMD hardware"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library under MIT license with all features"
+      ],
+      "free_tier": "Yes - complete library with no restrictions",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "scientific researchers and computational scientists",
+      "machine learning engineers and data scientists",
+      "HPC developers and GPU computing practitioners"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "cursor",
@@ -47406,6 +47950,222 @@
       "Technical debt reduction",
       "Code standardization",
       "Legacy system modernization"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "heygen-2-0",
+    "name": "HeyGen 2.0",
+    "description": "Next-generation AI video platform featuring photorealistic AI avatars, voice cloning, and multilingual video translation. Enables businesses to create professional videos with AI presenters speaking 40+ languages.",
+    "url": "https://www.heygen.com",
+    "website": "https://www.heygen.com",
+    "category": "video-generation",
+    "tags": [
+      "ai-avatars",
+      "video-translation",
+      "voice-cloning",
+      "corporate-video",
+      "multilingual",
+      "presentation-tools"
+    ],
+    "pricing": "paid",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T05:21:27.659Z",
+    "features": [
+      "Photorealistic AI avatars",
+      "Voice cloning",
+      "Lip-sync technology",
+      "40+ language translation",
+      "Custom avatar creation"
+    ],
+    "use_cases": [
+      "Training videos",
+      "Marketing content",
+      "Customer support",
+      "E-learning",
+      "Multilingual communications"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "pika-2-0",
+    "name": "Pika 2.0",
+    "description": "AI-powered video editing and generation platform that transforms ideas into videos with simple prompts. Features advanced editing controls, style consistency, and real-time collaboration for teams.",
+    "url": "https://www.pika.art",
+    "website": "https://www.pika.art",
+    "category": "video-generation",
+    "tags": [
+      "video-editing",
+      "text-to-video",
+      "creative-tools",
+      "team-collaboration",
+      "content-creation",
+      "real-time-editing"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T05:21:27.660Z",
+    "features": [
+      "Prompt-based video editing",
+      "Style transfer",
+      "Real-time collaboration",
+      "Asset library",
+      "Export customization"
+    ],
+    "use_cases": [
+      "Social media content",
+      "Product demos",
+      "Educational videos",
+      "Advertising",
+      "Personal projects"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "deepseek-coder",
+    "name": "DeepSeek Coder",
+    "description": "Specialized AI coding assistant focused on enterprise software development with advanced code understanding, security scanning, and compliance checking. Supports 100+ programming languages and frameworks.",
+    "url": "https://coder.deepseek.com",
+    "website": "https://coder.deepseek.com",
+    "category": "code-ai",
+    "tags": [
+      "enterprise-coding",
+      "code-security",
+      "compliance",
+      "software-development",
+      "devops",
+      "code-review"
+    ],
+    "pricing": "enterprise",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T05:21:27.660Z",
+    "features": [
+      "Enterprise code analysis",
+      "Security vulnerability detection",
+      "Compliance checking",
+      "Team collaboration",
+      "CI/CD integration"
+    ],
+    "use_cases": [
+      "Enterprise code review",
+      "Security auditing",
+      "Compliance verification",
+      "Legacy code migration",
+      "Development team scaling"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "mistral-large-2",
+    "name": "Mistral Large 2",
+    "description": "Latest large language model from Mistral AI featuring enhanced reasoning capabilities, 128K context window, and enterprise-grade security. Optimized for complex analysis, coding, and strategic planning tasks.",
+    "url": "https://mistral.ai",
+    "website": "https://mistral.ai",
+    "category": "llms",
+    "tags": [
+      "large-language-model",
+      "enterprise-ai",
+      "reasoning",
+      "french-ai",
+      "api",
+      "cloud-deployment"
+    ],
+    "pricing": "paid",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T05:21:27.661Z",
+    "features": [
+      "128K context window",
+      "Enhanced reasoning",
+      "Enterprise security",
+      "Multi-language support",
+      "API access"
+    ],
+    "use_cases": [
+      "Enterprise analysis",
+      "Strategic planning",
+      "Complex coding",
+      "Research assistance",
+      "Document processing"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "runway-gen-3",
+    "name": "Runway Gen-3",
+    "description": "Third-generation AI video and image generation platform with enhanced control, consistency, and production quality. Features advanced editing tools, style transfer, and professional workflow integration.",
+    "url": "https://runwayml.com",
+    "website": "https://runwayml.com",
+    "category": "video-generation",
+    "tags": [
+      "video-editing",
+      "image-generation",
+      "creative-tools",
+      "production-workflow",
+      "hollywood",
+      "professional-tools"
+    ],
+    "pricing": "paid",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T05:21:27.661Z",
+    "features": [
+      "Advanced video generation",
+      "Style control",
+      "Workflow automation",
+      "Team collaboration",
+      "Professional exports"
+    ],
+    "use_cases": [
+      "Film production",
+      "Advertising",
+      "Design prototyping",
+      "Social media",
+      "Educational content"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "leonardo-diffusion",
+    "name": "Leonardo Diffusion",
+    "description": "AI image generation platform specializing in artistic and design-focused creation with advanced control over style, composition, and artistic elements. Features model training and custom workflows.",
+    "url": "https://leonardo.ai",
+    "website": "https://leonardo.ai",
+    "category": "image-generation",
+    "tags": [
+      "art-generation",
+      "design-tools",
+      "image-creation",
+      "creative-ai",
+      "style-control",
+      "custom-models"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T05:21:27.663Z",
+    "features": [
+      "Advanced image generation",
+      "Style control",
+      "Custom model training",
+      "Batch processing",
+      "API access"
+    ],
+    "use_cases": [
+      "Game asset creation",
+      "Marketing design",
+      "Concept art",
+      "Product visualization",
+      "Social media content"
     ],
     "has_affiliate": true
   }
