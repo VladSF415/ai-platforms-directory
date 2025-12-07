@@ -28,12 +28,67 @@ const __dirname = dirname(__filename);
 const CONFIG = {
   deepseek_api_key: process.env.DEEPSEEK_API_KEY,
   github_token: process.env.GITHUB_TOKEN,
+  github_repo: 'VladSF415/ai-platforms-directory',
   delay_between_tasks: 3000,      // 3 seconds between tasks
   delay_between_cycles: 30000,    // 30 seconds between full cycles
   max_retries: 3,                 // Retry failed tasks
   stats_file: join(__dirname, '../generation-stats.json'),
   repo_dir: join(__dirname, '..')
 };
+
+// Setup git repository - ensures .git exists (Railway doesn't preserve it)
+async function setupGitRepo() {
+  const execOptions = { cwd: CONFIG.repo_dir, encoding: 'utf-8', stdio: 'pipe' };
+
+  // Check if git is available
+  try {
+    execSync('git --version', execOptions);
+    console.log('✅ Git is available');
+  } catch (e) {
+    console.error('❌ Git is NOT installed! Cannot sync to GitHub.');
+    return false;
+  }
+
+  // Check if .git directory exists
+  try {
+    execSync('git rev-parse --git-dir', execOptions);
+    console.log('✅ Git repository already initialized');
+    return true;
+  } catch (e) {
+    console.log('⚠️  No .git directory found, initializing git repo...');
+  }
+
+  if (!CONFIG.github_token) {
+    console.error('❌ GITHUB_TOKEN not set, cannot setup git repo');
+    return false;
+  }
+
+  try {
+    // Initialize git repo
+    execSync('git init', execOptions);
+    console.log('✅ Git initialized');
+
+    // Configure git user
+    execSync('git config user.email "ai-generator@aiplatformslist.com"', execOptions);
+    execSync('git config user.name "AI Content Generator"', execOptions);
+    console.log('✅ Git user configured');
+
+    // Add remote with token
+    const repoUrl = `https://x-access-token:${CONFIG.github_token}@github.com/${CONFIG.github_repo}.git`;
+    execSync(`git remote add origin "${repoUrl}"`, execOptions);
+    console.log('✅ Remote added');
+
+    // Fetch and reset to match remote (keep local files, update git tracking)
+    execSync('git fetch origin master', execOptions);
+    execSync('git reset origin/master', execOptions);
+    console.log('✅ Synced with remote master branch');
+
+    return true;
+  } catch (error) {
+    console.error(`❌ Failed to setup git repo: ${error.message}`);
+    return false;
+  }
+}
 
 // Track statistics
 let stats = {
@@ -472,6 +527,15 @@ async function main() {
   log('🚀 Continuous Content Generator Started', 'rocket');
   log(`DeepSeek API Key: ${CONFIG.deepseek_api_key.slice(0, 10)}...`, 'info');
   log('Press Ctrl+C to stop manually\n', 'info');
+
+  // Setup git repository (Railway doesn't preserve .git directory)
+  log('Setting up git repository...', 'info');
+  const gitReady = await setupGitRepo();
+  if (gitReady) {
+    log('Git repository ready for syncing', 'success');
+  } else {
+    log('Git sync will be disabled (repo setup failed)', 'warning');
+  }
 
   // Handle graceful shutdown
   process.on('SIGINT', async () => {
