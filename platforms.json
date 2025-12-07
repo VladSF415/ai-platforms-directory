@@ -34657,7 +34657,7 @@
   {
     "id": "openai-api",
     "name": "OpenAI API",
-    "description": "Developer platform providing access to GPT models and other AI capabilities for building applications.",
+    "description": "The OpenAI API is a comprehensive developer platform that provides programmatic access to a suite of advanced AI models, including the GPT family, DALL·E, and Whisper. It enables developers and businesses to integrate cutting-edge capabilities like text generation, conversational AI, code completion, image analysis, and audio transcription directly into their applications. Its uniqueness lies in offering industry-leading, state-of-the-art models through a unified, scalable, and well-documented API, backed by one of the most prominent AI research organizations.",
     "category": "generative-ai",
     "categories": [
       "ai-platforms",
@@ -34665,13 +34665,16 @@
     ],
     "url": "https://platform.openai.com",
     "website": "https://openai.com",
-    "pricing": "pay-per-use",
+    "pricing": "paid",
     "features": [
-      "GPT model access",
-      "Embeddings API",
-      "Fine-tuning capabilities",
-      "Function calling",
-      "Vision capabilities"
+      "Chat Completions API (gpt-4, gpt-3.5-turbo) for conversational agents and text generation",
+      "DALL·E API for generating and editing images from text descriptions",
+      "Whisper API for robust speech-to-text transcription and translation",
+      "Text Embeddings API (text-embedding-3-small/large) for search, clustering, and recommendations",
+      "Assistants API with built-in retrieval, code interpreter, and function calling for multi-step agentic workflows",
+      "Batch API for asynchronous, cost-effective processing of large-scale inference jobs",
+      "Fine-tuning API for customizing GPT-3.5 Turbo and legacy models with proprietary data",
+      "Vision capabilities (GPT-4 with Vision) for analyzing and reasoning over uploaded images"
     ],
     "rating": 4.6,
     "verified": true,
@@ -34679,11 +34682,14 @@
     "trending": false,
     "slug": "openai-api",
     "tags": [
-      "AI",
-      "API",
-      "Developer",
-      "GPT",
-      "Platform"
+      "llm-api",
+      "text-generation",
+      "chatgpt-api",
+      "dall-e",
+      "whisper",
+      "ai-developer-tools",
+      "embeddings",
+      "fine-tuning"
     ],
     "subcategories": [
       "developer-api",
@@ -34707,12 +34713,36 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building intelligent chatbots and virtual assistants for customer support",
+      "Developing AI-powered writing assistants for content creation and editing",
+      "Creating applications that generate, edit, or analyze images from natural language",
+      "Adding semantic search and knowledge retrieval to databases or document repositories",
+      "Transcribing and translating audio/video content at scale",
+      "Automating code generation, explanation, and completion within developer tools"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Pay-As-You-Go: Charges per token for input and output, with rates varying significantly by model (e.g., GPT-4 is more expensive than GPT-3.5 Turbo).",
+        "Enterprise: Custom pricing - Includes volume discounts, dedicated support, security reviews, and custom terms."
+      ],
+      "free_tier": "Yes - $5 in free credit for new users during their first 3 months. No ongoing free tier after credits expire.",
+      "starting_price": "Effectively $0 to start with free credits, then usage-based (e.g., ~$0.50 per 1M tokens input for GPT-3.5 Turbo)."
+    },
+    "target_audience": [
+      "software developers and engineers",
+      "startups and product teams",
+      "enterprise IT and innovation departments"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "openai-embeddings",
     "name": "OpenAI Embeddings API",
-    "description": "High-dimensional text embeddings for semantic search, clustering, and similarity tasks.",
+    "description": "The OpenAI Embeddings API is a service that converts text into high-dimensional vector representations, enabling machines to understand semantic meaning and relationships. Its key capabilities include generating dense embeddings for semantic search, document clustering, recommendation systems, and anomaly detection across multiple languages. It uniquely leverages OpenAI's advanced language models to produce state-of-the-art embeddings with built-in safety mitigations, targeting developers and businesses needing scalable, production-ready semantic understanding.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -34720,13 +34750,14 @@
     ],
     "url": "https://platform.openai.com/docs/guides/embeddings",
     "website": "https://openai.com",
-    "pricing": "pay-per-use",
+    "pricing": "paid",
     "features": [
-      "Text embeddings",
-      "Vector dimensions 1536+",
-      "Multilingual support",
-      "Safety filters",
-      "Batch processing"
+      "Generates embeddings with 1536 dimensions (text-embedding-3-small/large) and 3072 dimensions (text-embedding-3-large)",
+      "Supports batch processing for multiple text inputs in a single API call",
+      "Includes multilingual capability for processing text in various languages",
+      "Implements safety filters to reduce harmful content in embeddings",
+      "Offers separate models for balancing accuracy (embedding-3-large) and cost-efficiency (embedding-3-small)",
+      "Provides normalized embedding outputs by default for efficient cosine similarity computation"
     ],
     "rating": 4.6,
     "verified": true,
@@ -34734,9 +34765,13 @@
     "trending": true,
     "slug": "openai-embeddings",
     "tags": [
-      "AI",
-      "NLP",
-      "Embeddings"
+      "text-embeddings",
+      "semantic-search",
+      "vector-database",
+      "machine-learning",
+      "api",
+      "natural-language-processing",
+      "similarity-scoring"
     ],
     "subcategories": [
       "embedding-framework"
@@ -34759,13 +34794,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Semantic search engines for e-commerce or knowledge bases",
+      "Content recommendation and personalization systems",
+      "Document clustering and topic modeling for large corpora",
+      "Anomaly detection in user-generated content or support tickets",
+      "Retrieval-Augmented Generation (RAG) for LLM applications"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free: No standalone free tier; limited credits may be available through general OpenAI trial programs",
+        "Pro: Usage-based pricing per 1K tokens - text-embedding-3-small: $0.02, text-embedding-3-large: $0.13",
+        "Enterprise: Custom pricing for high-volume usage with dedicated support and SLA guarantees"
+      ],
+      "free_tier": "No - but new users may receive initial non-recurring credits",
+      "starting_price": "$0.02 per 1K tokens (embedding-3-small)"
+    },
+    "target_audience": [
+      "software developers and engineers",
+      "data scientists and ML practitioners",
+      "enterprise businesses building AI applications"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "openai-evals",
     "name": "OpenAI Evals",
-    "description": "Framework for evaluating large language models providing standardized benchmarks and evaluation protocols for AI systems.",
-    "category": "nlp",
+    "description": "OpenAI Evals is an open-source framework designed for evaluating the performance of large language models (LLMs) and AI systems. It provides a standardized methodology for creating, running, and benchmarking evaluations, enabling researchers and developers to systematically measure model capabilities, identify weaknesses, and track progress. Its key differentiator is its community-driven approach, allowing for the contribution and sharing of custom evaluation suites, which fosters reproducibility and collective advancement in AI assessment.",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "llm-evaluation"
@@ -34774,11 +34833,13 @@
     "website": "https://github.com/openai/evals",
     "pricing": "open-source",
     "features": [
-      "LLM evaluation",
-      "Standardized benchmarks",
-      "Custom evaluations",
-      "Performance tracking",
-      "Community contributions"
+      "Standardized evaluation templates for consistent test creation",
+      "Support for custom datasets and task-specific evaluation logic",
+      "Integration with OpenAI API and other LLMs for automated grading",
+      "Comprehensive suite of pre-built evaluations (e.g., for reasoning, factuality, coding)",
+      "Tools for performance tracking and comparative analysis across model versions",
+      "CLI and Python library for local and scalable evaluation runs",
+      "Community registry for sharing and discovering evaluation suites"
     ],
     "rating": 4.5,
     "verified": true,
@@ -34786,11 +34847,13 @@
     "trending": true,
     "slug": "openai-evals",
     "tags": [
-      "OpenAI",
-      "LLM Evaluation",
-      "Benchmarks",
-      "Standardized",
-      "Community"
+      "openai",
+      "llm-evaluation",
+      "benchmarking-framework",
+      "model-assessment",
+      "open-source",
+      "reproducible-research",
+      "performance-metrics"
     ],
     "subcategories": [
       "llm-evaluation",
@@ -34814,26 +34877,51 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Researchers benchmarking new LLM architectures against established baselines",
+      "AI teams conducting regression testing during model fine-tuning or updates",
+      "Developers evaluating prompt engineering strategies for specific applications",
+      "Enterprises assessing model suitability for compliance, safety, or accuracy requirements",
+      "Academic institutions teaching standardized methods for AI system evaluation",
+      "Open-source contributors building and sharing novel evaluation benchmarks"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the framework, source code, and community evaluations on GitHub"
+      ],
+      "free_tier": "Yes - The entire framework and its components are freely available",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML Researchers",
+      "LLM Developers & Engineers",
+      "Data Scientists focused on model evaluation"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "openai-gpt4",
     "name": "ChatGPT (GPT-4o)",
-    "description": "Advanced large language model offering state-of-the-art natural language understanding and generation capabilities.",
-    "category": "nlp",
+    "description": "ChatGPT (GPT-4o) is OpenAI's flagship multimodal large language model that processes and generates text, audio, and image inputs and outputs. It excels at complex reasoning, creative tasks, and code generation, offering high-speed, cost-effective performance. It uniquely integrates advanced vision and audio understanding natively within a single model, targeting developers, businesses, and general users seeking a versatile AI assistant.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Large Language Models"
     ],
     "url": "https://platform.openai.com/docs/models/gpt-4",
     "website": "https://openai.com",
-    "pricing": "pay-per-use",
+    "pricing": "freemium",
     "features": [
-      "Advanced reasoning",
-      "Multimodal capabilities",
-      "Code understanding",
-      "Complex problem solving",
-      "Creative generation"
+      "Native multimodal processing (text, vision, audio) in a single neural network",
+      "Advanced reasoning capabilities for complex problem-solving and analysis",
+      "State-of-the-art performance on academic and professional benchmarks",
+      "128K token context window for processing long documents and conversations",
+      "Enhanced code generation, execution, and debugging across programming languages",
+      "Improved speed and 50% cost reduction compared to GPT-4 Turbo for API users",
+      "Vision understanding for image analysis, document parsing, and visual question answering"
     ],
     "rating": 4.8,
     "verified": true,
@@ -34841,9 +34929,13 @@
     "trending": true,
     "slug": "openai-gpt4",
     "tags": [
-      "AI",
-      "NLP",
-      "OpenAI"
+      "large-language-model",
+      "multimodal-ai",
+      "openai",
+      "chatbot",
+      "code-generation",
+      "reasoning-engine",
+      "api-ai"
     ],
     "subcategories": [
       "large-language-models"
@@ -34866,12 +34958,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Enterprise customer support automation with document analysis",
+      "Educational tutoring and personalized learning with multimodal explanations",
+      "Software development assistance, from code writing to debugging and refactoring",
+      "Content creation and marketing copy generation with brand voice tuning",
+      "Research analysis and synthesis of long technical documents or datasets",
+      "Accessibility tools for audio transcription, image description, and real-time translation"
+    ],
+    "pricing_details": {
+      "model": "usage-based (API) and subscription (ChatGPT Plus)",
+      "tiers": [
+        "Free: Access to GPT-3.5 via chat interface with usage limits",
+        "ChatGPT Plus: $20/month - Priority access to GPT-4o, increased limits, early features",
+        "Enterprise: Custom pricing - Dedicated instances, SOC2 compliance, admin controls, higher rate limits"
+      ],
+      "free_tier": "Yes - GPT-3.5 model via web/App, limited messages with GPT-4o",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "software developers and engineers",
+      "enterprise businesses and teams",
+      "content creators and marketers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "openai-gym",
     "name": "OpenAI Gym",
-    "description": "Toolkit for developing and comparing reinforcement learning algorithms providing standardized environments and benchmarks for RL research.",
+    "description": "OpenAI Gym is a widely adopted open-source toolkit for developing and comparing reinforcement learning (RL) algorithms. It provides a standardized collection of environments—from classic control problems and Atari games to robotics simulations—with a unified Python interface, enabling reproducible benchmarking. Its primary value lies in establishing a common experimental framework that has become the de facto standard for RL research and education.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -34881,11 +34998,12 @@
     "website": "https://github.com/openai/gym",
     "pricing": "open-source",
     "features": [
-      "RL environments",
-      "Standardized interface",
-      "Benchmarking",
-      "Wide compatibility",
-      "Research standard"
+      "Extensive environment library (Classic Control, Box2D, Atari, MuJoCo, etc.)",
+      "Unified Python API (env.reset(), env.step(), env.render())",
+      "Benchmarking tools and leaderboards for algorithm comparison",
+      "Support for custom environment creation via a simple interface",
+      "Compatibility with major ML frameworks (TensorFlow, PyTorch, JAX)",
+      "Integration with RL libraries (Stable-Baselines3, Ray RLlib)"
     ],
     "rating": 4.7,
     "verified": true,
@@ -34893,11 +35011,14 @@
     "trending": false,
     "slug": "openai-gym",
     "tags": [
-      "Reinforcement Learning",
-      "OpenAI",
-      "Environments",
-      "Benchmarking",
-      "Standard"
+      "reinforcement-learning",
+      "rl-environments",
+      "benchmarking",
+      "research-toolkit",
+      "open-source",
+      "python",
+      "simulation",
+      "algorithm-development"
     ],
     "subcategories": [
       "reinforcement-learning",
@@ -34921,26 +35042,52 @@
     "updatedAt": {
       "_seconds": 1730298600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research in reinforcement learning algorithms",
+      "Benchmarking new RL models against established baselines",
+      "Educational tool for teaching RL concepts and practices",
+      "Prototyping and testing RL agents before real-world deployment",
+      "Developing and comparing multi-agent reinforcement learning systems",
+      "Creating custom simulated environments for specific problem domains"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: Full access to the core Gym library and environments"
+      ],
+      "free_tier": "Yes - The entire toolkit is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "RL researchers and academics",
+      "Machine learning engineers and practitioners",
+      "Students and educators in AI/ML"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "openai-whisper",
     "name": "OpenAI Whisper",
-    "description": "Open-source automatic speech recognition system trained on diverse audio for robust transcription and translation.",
-    "category": "nlp",
+    "description": "OpenAI Whisper is an open-source automatic speech recognition (ASR) system that transcribes and translates speech from audio across dozens of languages. It is designed to be robust to accents, background noise, and technical language, making it highly versatile. Its unique value lies in being a state-of-the-art, general-purpose model that is freely available for both research and commercial use, trained on a massive and diverse 680,000-hour dataset.",
+    "category": "audio-ai",
     "categories": [
       "Natural Language Processing",
       "Speech Recognition"
     ],
     "url": "https://github.com/openai/whisper",
     "website": "https://openai.com/research/whisper",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Multilingual transcription",
-      "Speech translation",
-      "Noise robustness",
-      "Multiple model sizes",
-      "Timestamp alignment"
+      "Multilingual transcription for 99+ languages",
+      "Speech translation from non-English languages to English",
+      "Robust performance in noisy environments and with diverse accents",
+      "Five model size variants (tiny, base, small, medium, large) for speed/accuracy trade-offs",
+      "Word-level timestamp generation for alignment",
+      "Supports common audio formats (mp3, wav, m4a, etc.)",
+      "Can perform language identification automatically",
+      "Available via Python library and command line interface"
     ],
     "rating": 4.7,
     "verified": true,
@@ -34948,9 +35095,13 @@
     "trending": true,
     "slug": "openai-whisper",
     "tags": [
-      "AI",
-      "NLP",
-      "OpenAI"
+      "speech-recognition",
+      "speech-to-text",
+      "audio-transcription",
+      "multilingual-ai",
+      "open-source-ai",
+      "translation",
+      "asr"
     ],
     "subcategories": [
       "speech-recognition"
@@ -34973,26 +35124,50 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Transcribing podcasts, interviews, and meetings for content creation",
+      "Generating subtitles and closed captions for video content",
+      "Assisting in academic research by transcribing lectures or qualitative interviews",
+      "Powering accessibility tools for the hearing impaired",
+      "Translating foreign-language audio content for analysis",
+      "Ingesting and indexing audio data for search and analytics platforms"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The entire model, code, and weights are freely available under the MIT license for any use."
+      ],
+      "free_tier": "Yes - Full access to all model sizes and capabilities with no cost.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "developers and engineers",
+      "content creators and media professionals",
+      "researchers and academics"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "openchat",
     "name": "OpenChat",
-    "description": "Open-source language model fine-tuned with mixed-quality data using innovative C-RLHF methodology.",
-    "category": "nlp",
+    "description": "OpenChat is an open-source conversational AI framework that fine-tunes large language models (LLMs) using a novel C-RLHF (Conditioned Reinforcement Learning from Human Feedback) methodology. It uniquely leverages mixed-quality data—combining both high-quality and suboptimal examples—to efficiently train models that achieve high performance on benchmarks like the HuggingFace Open LLM Leaderboard. It is primarily targeted at AI researchers, developers, and organizations looking to experiment with and deploy advanced, cost-effective instruction-following models.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Conversational AI"
     ],
     "url": "https://github.com/imoneoi/openchat",
     "website": "https://github.com/imoneoi/openchat",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "C-RLHF training",
-      "Mixed-quality data",
-      "Open source",
-      "High performance",
-      "Research innovation"
+      "C-RLHF (Conditioned Reinforcement Learning from Human Feedback) training methodology",
+      "Fine-tuning with mixed-quality data (e.g., combining ShareGPT and OASST1 datasets)",
+      "Open-source model weights (e.g., OpenChat 3.5 series) released on HuggingFace",
+      "Achieves high performance on the HuggingFace Open LLM Leaderboard (e.g., 7B parameter models competitive with larger ones)",
+      "Supports OpenAI-compatible API for local deployment",
+      "Efficient training pipeline reducing reliance on purely high-quality data"
     ],
     "rating": 4.3,
     "verified": true,
@@ -35000,9 +35175,13 @@
     "trending": false,
     "slug": "openchat",
     "tags": [
-      "AI",
-      "NLP",
-      "Conversational AI"
+      "open-source-llm",
+      "instruction-tuning",
+      "reinforcement-learning",
+      "conversational-ai",
+      "model-fine-tuning",
+      "huggingface",
+      "research"
     ],
     "subcategories": [
       "conversational-ai"
@@ -35025,12 +35204,33 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Deploying a local, open-source alternative to ChatGPT for private applications",
+      "Academic research on efficient LLM fine-tuning and RLHF methodologies",
+      "Building custom conversational agents or chatbots with specific instruction-following capabilities",
+      "Experimenting with model performance using mixed-quality training datasets"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to model weights, code, and training framework on GitHub"
+      ],
+      "free_tier": "Yes - complete framework and pre-trained models",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML researchers",
+      "Open-source LLM developers",
+      "Organizations needing private, self-hosted conversational AI"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "opencv",
     "name": "OpenCV",
-    "description": "Open source computer vision and machine learning library with C++, Python, and Java interfaces supporting various platforms including mobile and embedded systems.",
+    "description": "OpenCV (Open Source Computer Vision Library) is a foundational, open-source library for real-time computer vision and machine learning. It provides over 2,500 optimized algorithms for tasks like object detection, facial recognition, motion tracking, and image stitching, with interfaces in C++, Python, and Java. Its unique value lies in its massive community adoption, extensive documentation, and robust performance across desktop, mobile (iOS/Android), and embedded systems, making it the de facto standard for both academic research and industrial applications.",
     "category": "computer-vision",
     "categories": [
       "machine-learning-frameworks",
@@ -35040,11 +35240,13 @@
     "website": "https://opencv.org",
     "pricing": "open-source",
     "features": [
-      "Computer vision",
-      "Image processing",
-      "Machine learning",
-      "Cross-platform",
-      "Real-time applications"
+      "Comprehensive library of 2500+ optimized algorithms for computer vision and ML",
+      "Real-time performance on CPU with optional GPU acceleration via CUDA and OpenCL",
+      "Cross-platform support (Windows, Linux, macOS, Android, iOS, WebAssembly)",
+      "Pre-trained models for face detection, object recognition (YOLO, SSD), and pose estimation",
+      "Extensive image/video I/O, processing, and GUI capabilities (imshow, HighGUI)",
+      "Deep learning module (DNN) supporting frameworks like TensorFlow, PyTorch, Caffe",
+      "Calibration and 3D reconstruction tools for stereo vision and SLAM"
     ],
     "rating": 4.8,
     "verified": true,
@@ -35052,11 +35254,14 @@
     "trending": true,
     "slug": "opencv",
     "tags": [
-      "Computer Vision",
-      "Image Processing",
-      "Cross-platform",
-      "Real-time",
-      "C++"
+      "computer-vision",
+      "image-processing",
+      "object-detection",
+      "real-time",
+      "open-source",
+      "cross-platform",
+      "machine-learning",
+      "embedded-vision"
     ],
     "subcategories": [
       "computer-vision",
@@ -35080,12 +35285,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automated inspection and quality control in manufacturing using defect detection",
+      "Augmented reality applications with real-time object tracking and overlay",
+      "Security and surveillance systems with facial recognition and motion analysis",
+      "Autonomous vehicle and robotics perception for navigation and obstacle avoidance",
+      "Medical image analysis for tumor detection and cell counting",
+      "Mobile applications with camera-based filters, document scanning, and OCR"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library under Apache 2 License for commercial and research use"
+      ],
+      "free_tier": "Yes - Entire library, source code, and pre-trained models",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "computer vision researchers and academics",
+      "software developers and engineers",
+      "embedded systems and robotics developers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "openpose",
     "name": "OpenPose",
-    "description": "Carnegie Mellon's real-time multi-person pose estimation system detecting 135 keypoints per person.",
+    "description": "OpenPose is an open-source, real-time system for multi-person 2D and 3D pose estimation, body, face, hand, and foot keypoint detection, developed by Carnegie Mellon University's Perceptual Computing Lab. It uniquely captures complex social and physical interactions by simultaneously detecting up to 135 keypoints per person across multiple individuals in images and videos. Its primary audience includes researchers, developers, and creators in fields like human-computer interaction, motion analysis, and augmented reality.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -35095,11 +35323,12 @@
     "website": "https://cmu-perceptual-computing-lab.github.io/openpose",
     "pricing": "open-source",
     "features": [
-      "Multi-person detection",
-      "135 keypoints tracking",
-      "Real-time processing",
-      "Face and hand analysis",
-      "3D pose estimation"
+      "Real-time multi-person 2D pose estimation (body, face, hands, feet) with up to 135 keypoints per person",
+      "Support for 3D pose estimation from single or multiple camera views",
+      "CPU and GPU (CUDA) compatible implementations for flexible deployment",
+      "C++, Python, and MATLAB APIs for integration into various applications",
+      "Pre-trained models for body (25 keypoints), face (70 keypoints), and hands (21 keypoints per hand)",
+      "Capability to handle multiple individuals in a single frame with association and tracking"
     ],
     "rating": 4.5,
     "verified": true,
@@ -35107,10 +35336,14 @@
     "trending": false,
     "slug": "openpose",
     "tags": [
-      "Pose Estimation",
-      "Carnegie Mellon",
-      "Real-time",
-      "Multi-person"
+      "pose-estimation",
+      "keypoint-detection",
+      "multi-person-tracking",
+      "real-time-vision",
+      "cmu-research",
+      "open-source-cv",
+      "body-face-hands",
+      "3d-pose"
     ],
     "subcategories": [
       "pose-estimation",
@@ -35134,12 +35367,35 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Human action recognition and movement analysis for sports science and physical therapy",
+      "Interactive art installations and augmented/virtual reality experiences",
+      "Sign language recognition and gesture-based human-computer interaction",
+      "Video surveillance and crowd behavior analysis",
+      "Animation and character rigging from live actor performance",
+      "Robotics for human pose understanding and responsive navigation"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code, pre-trained models, and documentation under CMU license"
+      ],
+      "free_tier": "Yes - complete library and models",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "academic researchers",
+      "computer vision developers",
+      "digital media artists"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "openvino",
     "name": "Intel OpenVINO",
-    "description": "Open-source toolkit for optimizing and deploying AI inference across Intel hardware platforms, supporting popular frameworks and edge deployment.",
+    "description": "Intel OpenVINO (Open Visual Inference & Neural network Optimization) is an open-source toolkit designed to accelerate high-performance AI inference across Intel hardware, from CPUs and GPUs to VPUs and FPGAs. Its core capability is converting and optimizing models from frameworks like TensorFlow, PyTorch, and ONNX for efficient deployment on edge devices, servers, and cloud environments. What makes it unique is its deep hardware-level optimizations for Intel architectures, enabling developers to write once and deploy optimally across a vast portfolio of Intel silicon.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -35149,11 +35405,13 @@
     "website": "https://www.intel.com/openvino",
     "pricing": "open-source",
     "features": [
-      "Model optimization",
-      "Cross-platform deployment",
-      "Edge computing support",
-      "Hardware acceleration",
-      "Framework integration"
+      "Model Optimizer for converting/optimizing models from TensorFlow, PyTorch, ONNX, etc.",
+      "Inference Engine for unified API across Intel CPU, integrated GPU, discrete GPU (Arc), VPU, and FPGA.",
+      "Post-Training Optimization Toolkit (POT) for quantizing models (INT8) with minimal accuracy loss.",
+      "Open Model Zoo with 250+ pre-trained, optimized models for vision, audio, and NLP tasks.",
+      "Neural Compute Stick 2 (VPU) support for prototyping and deploying low-power edge vision applications.",
+      "Deep Learning Workbench for web-based profiling, benchmarking, and accuracy analysis.",
+      "Auto-device plugin for automatic load balancing inference across available hardware."
     ],
     "rating": 4.5,
     "verified": true,
@@ -35161,11 +35419,14 @@
     "trending": true,
     "slug": "openvino",
     "tags": [
-      "Intel",
-      "Inference",
-      "Edge",
-      "Optimization",
-      "Hardware"
+      "intel",
+      "inference-optimization",
+      "edge-ai",
+      "model-deployment",
+      "hardware-acceleration",
+      "open-source",
+      "computer-vision",
+      "neural-compute-stick"
     ],
     "subcategories": [
       "inference-optimization",
@@ -35189,12 +35450,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Industrial visual inspection: Deploying optimized defect detection models on edge devices in manufacturing.",
+      "Retail analytics: Running people counting, shelf monitoring, and queue management on in-store edge servers.",
+      "Smart cities: Deploying traffic flow analysis, license plate recognition, and anomaly detection at the edge.",
+      "Healthcare imaging: Accelerating inference for medical image analysis models on hospital servers.",
+      "Robotics: Enabling real-time perception and decision-making for autonomous robots using VPUs.",
+      "Broadcast media: Automating live captioning, content moderation, and highlight reel generation."
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full toolkit, runtime, optimizations, and pre-trained models under Apache 2.0 license."
+      ],
+      "free_tier": "Yes - The entire core toolkit and runtime are free and open-source.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ai-application-developers",
+      "edge-solution-architects",
+      "enterprise-devops-mlops"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "optuna",
     "name": "Optuna",
-    "description": "Automatic hyperparameter optimization framework designed for machine learning with efficient algorithms and easy-to-use API for parameter tuning.",
+    "description": "Optuna is an open-source, automatic hyperparameter optimization framework designed specifically for machine learning. Its key capabilities include defining search spaces with a dynamic, Pythonic API and employing efficient sampling and pruning algorithms to accelerate the tuning process. It is unique for its 'define-by-run' paradigm, which allows for dynamic construction of parameter spaces, making it highly flexible and favored by researchers and engineers for complex optimization tasks.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -35204,11 +35488,13 @@
     "website": "https://optuna.org",
     "pricing": "open-source",
     "features": [
-      "Automated hyperparameter tuning",
-      "Pruning algorithms",
-      "Distributed optimization",
-      "Framework integration",
-      "Visualization tools"
+      "Define-by-run API for dynamic search space construction",
+      "Efficient sampling algorithms (TPE, CMA-ES, Grid, Random)",
+      "Built-in pruning algorithms (Median, ASHA, Hyperband) for early trial termination",
+      "Distributed optimization across multiple nodes/GPUs",
+      "Integration with major ML frameworks (PyTorch, TensorFlow, scikit-learn, XGBoost)",
+      "Interactive visualization dashboard for analyzing optimization results",
+      "Lightweight and modular architecture for easy extensibility"
     ],
     "rating": 4.7,
     "verified": true,
@@ -35216,11 +35502,13 @@
     "trending": true,
     "slug": "optuna",
     "tags": [
-      "Hyperparameter Optimization",
-      "AutoML",
-      "Pruning",
-      "Distributed",
-      "Efficient"
+      "hyperparameter-optimization",
+      "automl",
+      "bayesian-optimization",
+      "pruning",
+      "distributed-computing",
+      "python",
+      "machine-learning"
     ],
     "subcategories": [
       "hyperparameter-optimization",
@@ -35244,13 +35532,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Optimizing neural network architectures and hyperparameters for deep learning models",
+      "Tuning gradient boosting models (e.g., XGBoost, LightGBM) for tabular data competitions",
+      "Automating the search for optimal preprocessing and feature engineering pipelines",
+      "Large-scale hyperparameter tuning distributed across a Kubernetes cluster",
+      "Research into novel optimization algorithms by extending Optuna's modular core"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the open-source framework under the MIT license"
+      ],
+      "free_tier": "Yes - The entire framework is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "machine-learning-engineers",
+      "data-scientists",
+      "research-scientists"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "opus-clip",
     "name": "OpusClip",
-    "description": "AI-powered video clipping tool that automatically creates short clips from long videos for social media.",
-    "category": "generative-ai",
+    "description": "OpusClip is an AI-powered video repurposing platform that automatically analyzes long-form videos (like podcasts, webinars, or interviews) and generates multiple short, engaging clips optimized for social media. Its core technology uses AI to detect highlights, create coherent narratives, and add captions and formats tailored for platforms like TikTok, YouTube Shorts, and Instagram Reels. What sets it apart is its 'Viral Score' AI that predicts clip virality and its focus on creating a cohesive content series from a single source video.",
+    "category": "video-ai",
     "categories": [
       "video-editing",
       "social-media"
@@ -35259,11 +35569,13 @@
     "website": "https://opus.pro",
     "pricing": "freemium",
     "features": [
-      "Automatic clip generation",
-      "Social media optimization",
-      "Highlight detection",
-      "Caption generation",
-      "Multi-platform formats"
+      "AI-powered highlight detection from audio & visual cues",
+      "Automatic generation of multiple clip variations (9:16, 1:1, 16:9)",
+      "One-click addition of branded captions & subtitles",
+      "AI 'Viral Score' predicting social media performance",
+      "Multi-speaker detection for interview/podcast formats",
+      "Automatic background music matching & volume ducking",
+      "Direct export to social platforms (TikTok, YouTube, Instagram)"
     ],
     "rating": 4.4,
     "verified": true,
@@ -35271,11 +35583,13 @@
     "trending": true,
     "slug": "opus-clip",
     "tags": [
-      "AI",
-      "Video Clips",
-      "Social Media",
-      "Automation",
-      "Highlights"
+      "video-repurposing",
+      "social-media-clips",
+      "ai-video-editing",
+      "content-creation",
+      "podcast-clips",
+      "automated-captions",
+      "viral-score"
     ],
     "subcategories": [
       "clip-generation",
@@ -35299,12 +35613,37 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Podcasters repurposing episodes into short-form social clips",
+      "Content marketers creating promotional snippets from webinar recordings",
+      "Coaches and educators turning long tutorials into digestible tips",
+      "Businesses amplifying keynote speeches or product launch videos",
+      "Interviewers and journalists highlighting key moments from conversations",
+      "Social media managers streamlining content calendars from video assets"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 60 minutes of video processing/month, 720p export, Opus watermark",
+        "Pro: $19/month - 180 mins/month, 1080p, no watermark, custom branding",
+        "Enterprise: Custom - Unlimited minutes, team collaboration, priority support, API access"
+      ],
+      "free_tier": "Yes - 60 minutes of video processing per month, watermarked exports",
+      "starting_price": "$19/month"
+    },
+    "target_audience": [
+      "Content Creators & Podcasters",
+      "Social Media Marketers & Agencies",
+      "Educators & Coaches (Personal Brands)"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "orange",
     "name": "Orange",
-    "description": "Open-source data visualization, machine learning and data mining toolkit with visual programming interface for exploratory data analysis.",
+    "description": "Orange is an open-source, component-based visual programming software for data mining, machine learning, and interactive data visualization. It enables users to build complex data analysis workflows by connecting visual widgets representing data operations, algorithms, and visualizations, without writing code. Its unique value lies in making advanced analytics accessible to non-programmers, educators, and researchers through an intuitive, widget-based canvas.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -35314,11 +35653,13 @@
     "website": "https://orangedatamining.com",
     "pricing": "open-source",
     "features": [
-      "Visual programming",
-      "Interactive visualizations",
-      "Widget-based interface",
-      "Educational friendly",
-      "Cross-platform support"
+      "Visual workflow builder with drag-and-drop widget canvas",
+      "Extensive library of over 100+ widgets for data I/O, preprocessing, modeling, and visualization",
+      "Interactive data visualization tools (scatter plots, box plots, heatmaps, etc.) with direct data point selection",
+      "Integration of popular Python libraries (scikit-learn, NumPy, pandas) within visual components",
+      "Embedded Python scripting widget for extending functionality and custom analysis",
+      "Support for add-ons (bioinformatics, text mining, network analysis, image analytics)",
+      "Cross-platform desktop application (Windows, macOS, Linux)"
     ],
     "rating": 4.3,
     "verified": true,
@@ -35326,11 +35667,13 @@
     "trending": false,
     "slug": "orange",
     "tags": [
-      "Visual Programming",
-      "Data Visualization",
-      "Educational",
-      "Widgets",
-      "Interactive"
+      "visual-programming",
+      "data-mining",
+      "exploratory-data-analysis",
+      "educational-tool",
+      "python-library",
+      "interactive-visualization",
+      "workflow-automation"
     ],
     "subcategories": [
       "visual-programming",
@@ -35354,26 +35697,50 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Teaching data science and machine learning concepts in academic settings",
+      "Rapid prototyping and exploratory data analysis (EDA) for researchers and analysts",
+      "Building and comparing multiple machine learning models visually without coding",
+      "Creating interactive data reports and dashboards for stakeholder presentations",
+      "Conducting specialized analysis in bioinformatics or text mining via add-ons"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The complete Orange application and library are free and open-source under the GPL license."
+      ],
+      "free_tier": "Yes - The entire platform is free. No paid tiers or subscriptions exist.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data science educators and students",
+      "research scientists and data analysts",
+      "business intelligence users needing visual exploration"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "orbita-pathology",
     "name": "Orbit",
-    "description": "Whole-slide image analysis platform for digital pathology with machine learning integration and scalable processing capabilities.",
-    "category": "computer-vision",
+    "description": "Orbit is a comprehensive, cloud-native platform designed for AI-powered analysis of whole-slide images (WSI) in digital pathology. It enables pathologists and researchers to develop, validate, and deploy machine learning models at scale, directly within their diagnostic workflow. Its unique value lies in its seamless integration of model development tools, a robust inference engine, and a collaborative viewer into a single, secure, and regulatory-ready environment.",
+    "category": "healthcare-ai",
     "categories": [
       "computer-vision",
       "pathology"
     ],
     "url": "https://orbit.bio",
     "website": "https://orbit.bio",
-    "pricing": "freemium",
+    "pricing": "enterprise",
     "features": [
-      "Whole-slide analysis",
-      "Digital pathology",
-      "ML integration",
-      "Scalable processing",
-      "Cloud deployment"
+      "Interactive web-based viewer for annotating and reviewing whole-slide images",
+      "Integrated development environment (IDE) for training and testing pathology AI models",
+      "Scalable, GPU-accelerated inference engine for batch processing of slide libraries",
+      "Tools for rigorous clinical validation and creation of regulatory-ready documentation",
+      "Secure, HIPAA/GDPR-compliant cloud infrastructure with role-based access control",
+      "API for programmatic slide upload, analysis, and result retrieval",
+      "Collaboration features for sharing projects, models, and findings among teams"
     ],
     "rating": 4.5,
     "verified": true,
@@ -35381,10 +35748,13 @@
     "trending": false,
     "slug": "orbita-pathology",
     "tags": [
-      "Digital Pathology",
-      "Whole-slide",
-      "ML Integration",
-      "Cloud"
+      "digital-pathology",
+      "whole-slide-imaging",
+      "medical-ai",
+      "clinical-research",
+      "model-validation",
+      "cloud-computing",
+      "diagnostic-workflow"
     ],
     "subcategories": [
       "pathology",
@@ -35408,26 +35778,51 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Primary diagnosis assistance by flagging regions of interest (e.g., tumor detection)",
+      "Quantification of biomarkers (e.g., scoring PD-L1 expression in immunotherapy)",
+      "Accelerating pharmaceutical R&D by analyzing tissue samples in clinical trials",
+      "Academic research for discovering novel histopathological patterns and correlations",
+      "Quality assurance and second-opinion workflows in diagnostic laboratories",
+      "Building and managing internal AI model portfolios for healthcare institutions"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Includes full platform access, dedicated support, custom SLAs, security review, and onboarding."
+      ],
+      "free_tier": "No - A free trial or demo is available upon request, but no permanent free tier is advertised.",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Academic Medical Centers & Hospitals",
+      "Pharmaceutical & Biotech Companies",
+      "Diagnostic Laboratory Networks"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "osirix-viewer",
     "name": "OsiriX DICOM Viewer",
-    "description": "World's most widely used medical imaging viewer with advanced 3D/4D navigation and comprehensive DICOM support for radiology.",
-    "category": "computer-vision",
+    "description": "OsiriX is a comprehensive DICOM viewer and image processing software specifically designed for medical imaging. It provides advanced 2D, 3D, and 4D (time series) visualization, post-processing, and analysis tools for radiological images from modalities like CT, MRI, PET, and SPECT. Primarily targeted at radiologists, clinicians, and researchers, its uniqueness lies in being one of the first FDA-cleared, Mac-native DICOM workstations with extensive plugin support and a powerful, user-friendly interface for complex volumetric rendering.",
+    "category": "healthcare-ai",
     "categories": [
       "computer-vision",
       "medical-imaging"
     ],
     "url": "https://www.osirix-viewer.com",
     "website": "https://www.osirix-viewer.com",
-    "pricing": "freemium",
+    "pricing": "paid",
     "features": [
-      "DICOM viewer",
-      "3D/4D navigation",
-      "Advanced post-processing",
-      "FDA cleared",
-      "PACS integration"
+      "FDA 510(k) cleared DICOM viewer for diagnostic use",
+      "Advanced 3D MPR (Multi-Planar Reconstruction) and volume rendering",
+      "4D navigation for dynamic studies (e.g., cardiac, perfusion)",
+      "Integrated PACS (Picture Archiving and Communication System) client and workstation",
+      "Extensive plugin architecture for custom tools and AI algorithm integration",
+      "Support for advanced post-processing: MIP, MinIP, Curved MPR, Endoscopy",
+      "DICOM CD/DVD and network import with local database management"
     ],
     "rating": 4.7,
     "verified": true,
@@ -35435,10 +35830,14 @@
     "trending": false,
     "slug": "osirix-viewer",
     "tags": [
-      "Medical Imaging",
-      "DICOM",
-      "Radiology",
-      "FDA Approved"
+      "DICOM-Viewer",
+      "Medical-Imaging",
+      "Radiology-Workstation",
+      "3D-Volumetric-Rendering",
+      "FDA-Cleared",
+      "PACS-Client",
+      "Image-Post-Processing",
+      "MacOS"
     ],
     "subcategories": [
       "medical-imaging",
@@ -35462,13 +35861,38 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Diagnostic reading and reporting of CT, MRI, and PET scans by radiologists",
+      "Surgical planning using 3D volume rendering and anatomical segmentation",
+      "Clinical research involving quantitative analysis of medical image datasets",
+      "Teaching and training with interactive 3D visualization of anatomy and pathology",
+      "Multi-modality image fusion (e.g., PET-CT) for oncology assessment",
+      "Cardiac imaging analysis with 4D navigation for dynamic heart studies"
+    ],
+    "pricing_details": {
+      "model": "one-time purchase (perpetual license)",
+      "tiers": [
+        "OsiriX Lite: Free - Basic DICOM viewing, non-diagnostic use, limited 3D",
+        "OsiriX MD: $799 one-time - Full FDA-cleared diagnostic version for Mac App Store",
+        "OsiriX Pro: Custom Quote - Site license with advanced support, training, and customization"
+      ],
+      "free_tier": "Yes - OsiriX Lite offers basic DICOM viewing and non-diagnostic 3D",
+      "starting_price": "$799 (one-time for OsiriX MD)"
+    },
+    "target_audience": [
+      "Radiologists",
+      "Medical Imaging Researchers",
+      "Hospital IT & Clinical Engineers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "otter-ai",
     "name": "Otter.ai",
-    "description": "AI-powered meeting assistant that provides real-time transcription, summaries, and action items.",
-    "category": "generative-ai",
+    "description": "Otter.ai is an AI-powered meeting assistant that provides real-time transcription, automated summaries, and action item extraction for conversations. Its key capabilities include speaker identification, collaborative note-taking, and integration with popular calendar and conferencing platforms. It uniquely combines high-accuracy transcription with collaborative features, making it a central hub for meeting notes, primarily targeting professionals, students, and teams who need to capture and share insights from discussions.",
+    "category": "audio-ai",
     "categories": [
       "meeting-assistants",
       "business-productivity"
@@ -35477,11 +35901,13 @@
     "website": "https://otter.ai",
     "pricing": "freemium",
     "features": [
-      "Real-time transcription",
-      "Meeting summaries",
-      "Action item extraction",
-      "Speaker identification",
-      "Integration with platforms"
+      "Real-time transcription with live editing and highlighting",
+      "Automated summary generation with keyword extraction",
+      "Action item detection and assignment tracking",
+      "Speaker identification and labeling for multi-person conversations",
+      "Direct integration with Zoom, Microsoft Teams, and Google Meet",
+      "Collaborative workspace for teams to edit and comment on transcripts",
+      "Custom vocabulary support for industry-specific terms"
     ],
     "rating": 4.5,
     "verified": true,
@@ -35489,11 +35915,13 @@
     "trending": false,
     "slug": "otter-ai",
     "tags": [
-      "AI",
-      "Transcription",
-      "Meetings",
-      "Productivity",
-      "Real-time"
+      "meeting-transcription",
+      "speaker-diarization",
+      "note-taking",
+      "productivity-tool",
+      "voice-to-text",
+      "team-collaboration",
+      "meeting-summaries"
     ],
     "subcategories": [
       "meeting-transcription",
@@ -35517,13 +35945,39 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Transcribing client meetings and generating follow-up task lists for consultants",
+      "Capturing lecture content and creating study notes for students",
+      "Documenting stand-ups and project syncs for distributed engineering teams",
+      "Recording interviews and extracting key quotes for journalists and researchers",
+      "Creating accessible records of company all-hands and board meetings",
+      "Generating searchable archives of sales calls for coaching and analysis"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 300 monthly transcription minutes, 30 minutes per conversation, basic features",
+        "Pro: $16.99/user/month (annual) - 1200 monthly minutes, 90 minutes per conversation, advanced export, custom vocabulary",
+        "Business: $30/user/month (annual) - 6000 monthly minutes, 4 hours per conversation, team features, priority support",
+        "Enterprise: Custom pricing - Unlimited transcription, SSO, advanced security, dedicated account management"
+      ],
+      "free_tier": "Yes - 300 monthly transcription minutes, 30 minutes per conversation limit, speaker identification, and basic summaries.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "business professionals and teams",
+      "students and educators",
+      "journalists and researchers"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "outlines",
     "name": "Outlines",
-    "description": "Python library for structured generation with language models providing tools for guided text generation and JSON schema compliance.",
-    "category": "llms",
+    "description": "Outlines is an open-source Python library designed for structured generation with large language models (LLMs), enabling developers to enforce specific output formats and constraints. Its key capabilities include guided text generation, strict JSON schema compliance, and regex pattern enforcement, making it ideal for applications requiring reliable, parsable outputs from LLMs. It uniquely provides a model-agnostic framework that works with multiple backends (like OpenAI, Transformers, vLLM) to apply constraints at the token level during generation, distinguishing it from simple post-processing wrappers.",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "structured-generation"
@@ -35532,11 +35986,13 @@
     "website": "https://github.com/outlines-dev/outlines",
     "pricing": "open-source",
     "features": [
-      "Structured generation",
-      "JSON schema compliance",
-      "Guided text generation",
-      "Multiple model support",
-      "Constraint satisfaction"
+      "Structured generation enforcing JSON schemas for guaranteed valid outputs",
+      "Regex pattern-guided generation to constrain text to specific formats",
+      "Support for multiple LLM backends (OpenAI API, Hugging Face Transformers, vLLM)",
+      "Grammar-based generation using context-free grammars (CFGs)",
+      "Choice constraint to limit generation to predefined options",
+      "Type constraint system for integers, floats, and booleans",
+      "Efficient token-level constraint application during generation (not post-hoc)"
     ],
     "rating": 4.5,
     "verified": true,
@@ -35544,11 +36000,13 @@
     "trending": true,
     "slug": "outlines",
     "tags": [
-      "Structured Generation",
-      "JSON Schema",
-      "Guided Generation",
-      "Constraints",
-      "Multi-model"
+      "structured-generation",
+      "json-schema",
+      "guided-generation",
+      "constraint-satisfaction",
+      "python-library",
+      "llm-integration",
+      "deterministic-outputs"
     ],
     "subcategories": [
       "structured-generation",
@@ -35572,12 +36030,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Generating structured API call arguments from natural language user queries",
+      "Creating consistently formatted data (like dates, IDs, codes) in text generation",
+      "Building reliable chatbots where responses must adhere to a strict schema",
+      "Extracting information into predefined JSON formats from unstructured text",
+      "Generating code snippets that must follow specific syntax patterns",
+      "Producing multiple-choice quiz questions with constrained answer options"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library access under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - entire library is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ai/llm application developers",
+      "ml engineers building production llm pipelines",
+      "researchers needing controlled text generation"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "paddleocr",
     "name": "PaddleOCR",
-    "description": "Industrial-grade multilingual OCR toolkit with 80+ language support and advanced document parsing capabilities.",
+    "description": "PaddleOCR is an open-source, industrial-grade Optical Character Recognition (OCR) toolkit developed by Baidu's PaddlePaddle. It provides comprehensive solutions for text detection, recognition, and document layout analysis, supporting over 80 languages. Its key differentiators are a series of ultra-lightweight models optimized for mobile and edge deployment, and a rich set of practical pre-trained models for complex scenarios like multilingual documents, tables, and handwriting.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -35585,13 +36066,15 @@
     ],
     "url": "https://github.com/PaddlePaddle/PaddleOCR",
     "website": "https://www.paddlepaddle.org.cn/hub/scene/ocr",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "80+ language support",
-      "Ultra-lightweight models",
-      "Document parsing",
-      "Handwriting recognition",
-      "Mobile deployment"
+      "PP-OCR series of ultra-lightweight models (e.g., PP-OCRv4) for mobile and server CPU inference",
+      "Support for recognition of 80+ languages, including major European and Asian languages",
+      "End-to-end document parsing pipeline with layout analysis (Layout-Parser) and table structure recognition",
+      "Specialized models for handwriting text recognition (Chinese/English)",
+      "Comprehensive toolkit including text detection (DB, SAST), recognition (CRNN, SVTR), and direction classification",
+      "Extensive pre-trained and finetunable models available via PaddleHub/PaddleClas",
+      "Support for deployment on multiple platforms: mobile (Android/iOS), server, and embedded devices"
     ],
     "rating": 4.6,
     "verified": true,
@@ -35599,10 +36082,14 @@
     "trending": true,
     "slug": "paddleocr",
     "tags": [
-      "OCR",
-      "PaddlePaddle",
-      "Multilingual",
-      "Industrial"
+      "ocr",
+      "document-ai",
+      "multilingual-ocr",
+      "text-recognition",
+      "paddlepaddle",
+      "open-source",
+      "mobile-deployment",
+      "handwriting-recognition"
     ],
     "subcategories": [
       "ocr",
@@ -35626,12 +36113,34 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Digitizing and extracting text from scanned documents, invoices, and forms in multiple languages",
+      "Real-time text recognition in mobile applications (e.g., translating text via camera)",
+      "Automating data entry and information extraction from business documents and reports",
+      "Processing historical archives or handwritten notes through specialized handwriting models",
+      "Building OCR-powered features into edge devices and IoT systems due to lightweight models"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code, models, and documentation under Apache 2.0 License"
+      ],
+      "free_tier": "Yes - The entire toolkit, including models and code, is free to use, modify, and distribute.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "software developers and engineers",
+      "enterprise IT and automation teams",
+      "researchers and academics in computer vision"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "paddlepaddle",
     "name": "PaddlePaddle",
-    "description": "Deep learning platform by Baidu providing easy-to-use, efficient, flexible and scalable framework for industrial-grade deep learning applications.",
+    "description": "PaddlePaddle (Parallel Distributed Deep Learning) is an open-source deep learning platform developed by Baidu, designed to provide a comprehensive framework for building and deploying industrial-scale AI applications. Its key capabilities include dynamic and static computational graph modes, a rich model zoo (PaddleHub), and integrated tools for end-to-end workflows from training to deployment. It uniquely emphasizes production-readiness, native support for Chinese NLP tasks, and seamless deployment across diverse hardware, making it particularly strong for enterprise and industrial use cases in China and globally.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -35641,11 +36150,13 @@
     "website": "https://www.paddlepaddle.org.cn",
     "pricing": "open-source",
     "features": [
-      "Industrial-grade",
-      "Easy deployment",
-      "Multi-platform support",
-      "Rich models",
-      "Chinese language support"
+      "Dynamic & Static Computational Graph Mode (unified API)",
+      "PaddleHub: pre-trained model zoo with 300+ models",
+      "PaddleSlim: model compression and acceleration toolkit",
+      "Paddle Serving: high-performance inference serving system",
+      "Paddle Lite: lightweight engine for mobile & IoT deployment",
+      "PaddleFL: federated learning framework for privacy-preserving AI",
+      "PaddleX: full-process development toolkit for computer vision"
     ],
     "rating": 4.3,
     "verified": true,
@@ -35653,11 +36164,13 @@
     "trending": true,
     "slug": "paddlepaddle",
     "tags": [
-      "Baidu",
-      "Industrial",
-      "Chinese",
-      "Multi-platform",
-      "Easy Deployment"
+      "deep-learning",
+      "open-source",
+      "industrial-ai",
+      "model-zoo",
+      "distributed-training",
+      "inference-deployment",
+      "chinese-nlp"
     ],
     "subcategories": [
       "deep-learning",
@@ -35681,26 +36194,50 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Industrial defect detection in manufacturing using computer vision",
+      "Large-scale Chinese language processing (e.g., sentiment analysis, text generation)",
+      "Autonomous driving systems with real-time sensor fusion and inference",
+      "Smart city applications like traffic flow prediction and video analytics",
+      "Financial risk assessment models with federated learning for data privacy",
+      "Edge AI deployment on devices like smartphones and embedded systems"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to core framework, libraries, and tools under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - includes all core features, pre-trained models, and community support",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "enterprise AI teams in manufacturing & industry",
+      "Chinese AI developers & researchers",
+      "edge computing and IoT solution developers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "palantir-foundry",
     "name": "Palantir Foundry",
-    "description": "Data integration and analytics platform with machine learning capabilities for large-scale data operations and model deployment.",
-    "category": "ml-frameworks",
+    "description": "Palantir Foundry is an enterprise-grade operating system for data that transforms how organizations manage, integrate, and analyze their information. It enables users to build and deploy data pipelines, machine learning models, and operational applications on a unified platform with built-in governance, security, and lineage tracking. Its unique value lies in its ontology-driven data modeling, which creates a single source of truth across siloed systems, allowing for complex operational workflows and decision-making at scale.",
+    "category": "enterprise-ai-platforms",
     "categories": [
       "machine-learning-frameworks",
       "data-integration"
     ],
     "url": "https://palantir.com/platforms/foundry/",
     "website": "https://palantir.com",
-    "pricing": "commercial",
+    "pricing": "enterprise",
     "features": [
-      "Data integration",
-      "Large-scale operations",
-      "ML model deployment",
-      "Governance framework",
-      "Real-time analytics"
+      "Ontology-centric data modeling for unifying disparate data sources into a single logical layer",
+      "Built-in data lineage, provenance tracking, and granular access controls for full governance",
+      "Low-code/no-code application builder (Contour) for creating operational dashboards and workflows",
+      "Integrated machine learning environment (Foundry ML) for model training, deployment, and monitoring",
+      "Foundry Functions for serverless Python/Spark code execution within pipelines",
+      "Real-time data processing and streaming analytics capabilities"
     ],
     "rating": 4.1,
     "verified": true,
@@ -35708,11 +36245,13 @@
     "trending": false,
     "slug": "palantir-foundry",
     "tags": [
-      "Palantir",
-      "Data Integration",
-      "Large Scale",
-      "Governance",
-      "Real-time"
+      "data-fabric",
+      "enterprise-ontology",
+      "operational-workflows",
+      "data-lineage",
+      "model-operationalization",
+      "governed-analytics",
+      "supply-chain-ai"
     ],
     "subcategories": [
       "data-integration",
@@ -35736,7 +36275,29 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Supply chain optimization: Modeling end-to-end supply networks to predict disruptions and automate logistics.",
+      "Pharmaceutical R&D: Integrating clinical trial data, lab results, and real-world evidence to accelerate drug development.",
+      "Financial crime detection: Building entity-resolution graphs to uncover fraud and money laundering patterns across transactions.",
+      "Manufacturing operations: Creating digital twins of production lines to predict maintenance needs and optimize throughput.",
+      "Government intelligence: Fusing multi-intelligence data sources for comprehensive situational awareness and analysis."
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Full platform access, dedicated infrastructure, SLA guarantees, professional services, and custom onboarding. Pricing is highly customized based on data volume, users, and required modules."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Large enterprises (Fortune 500)",
+      "Government and defense agencies",
+      "Heavily regulated industries (pharma, finance, aerospace)"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "palm-2",
@@ -58221,6 +58782,111 @@
       "Marketing graphics",
       "Product visualization",
       "Illustration"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "replicate-ai",
+    "name": "Replicate AI",
+    "description": "Cloud platform for running and scaling open-source AI models with one line of code, featuring thousands of pre-trained models for image, video, audio, and text generation. Provides GPU infrastructure and API access. Used by developers, researchers, and startups.",
+    "url": "https://replicate.com",
+    "website": "https://replicate.com",
+    "category": "ml-frameworks",
+    "tags": [
+      "open-source-ai",
+      "model-hosting",
+      "api-platform",
+      "gpu-infrastructure",
+      "ai-deployment"
+    ],
+    "pricing": "paid",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T20:54:41.611Z",
+    "features": [
+      "One-click model deployment",
+      "Auto-scaling infrastructure",
+      "Version control",
+      "API management",
+      "Cost optimization"
+    ],
+    "use_cases": [
+      "AI model prototyping",
+      "Production deployment",
+      "Research experimentation",
+      "Startup MVP development",
+      "Enterprise AI integration"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "poe-ai",
+    "name": "Poe AI",
+    "description": "Platform for discovering, creating, and chatting with millions of AI bots across multiple models including GPT-4, Claude, and custom creations. Features include bot creation tools, monetization options, and community features. Targets AI enthusiasts, creators, and developers.",
+    "url": "https://poe.com",
+    "website": "https://poe.com",
+    "category": "agent-platforms",
+    "tags": [
+      "ai-chatbots",
+      "bot-platform",
+      "multi-model",
+      "creator-economy",
+      "community"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T20:54:41.614Z",
+    "features": [
+      "Multi-model access",
+      "Bot creation tools",
+      "Creator monetization",
+      "Community features",
+      "API access"
+    ],
+    "use_cases": [
+      "Specialized AI assistants",
+      "Educational bots",
+      "Entertainment chatbots",
+      "Customer service prototypes",
+      "AI experimentation"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "lindsey-ai",
+    "name": "Lindsey AI",
+    "description": "AI legal assistant that automates contract review, legal research, and document analysis for law firms and corporate legal teams. Features include clause analysis, risk assessment, and compliance checking. Targets legal professionals and businesses.",
+    "url": "https://lindsey.ai",
+    "website": "https://lindsey.ai",
+    "category": "legal-ai",
+    "tags": [
+      "legal-tech",
+      "contract-analysis",
+      "legal-research",
+      "compliance",
+      "document-automation"
+    ],
+    "pricing": "enterprise",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T20:54:41.615Z",
+    "features": [
+      "Contract review automation",
+      "Legal research assistant",
+      "Compliance checking",
+      "Risk assessment",
+      "Document generation"
+    ],
+    "use_cases": [
+      "Contract review",
+      "Legal due diligence",
+      "Regulatory compliance",
+      "Document automation",
+      "Legal research"
     ],
     "has_affiliate": true
   }

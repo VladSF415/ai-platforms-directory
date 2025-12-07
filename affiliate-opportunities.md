@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
 Generated: 2025-12-07
-Total Opportunities: 2
+Total Opportunities: 3
 
 ---
 
-## 1. Replicate API
+## 1. Replicate AI
 
 **Category:** ml-frameworks
 **Website:** https://replicate.com
 **Pricing Model:** paid
 
 **Description:**
-Platform for running open-source AI models in production with simple API calls, automatic scaling, and GPU optimization. Provides access to thousands of models without infrastructure management for developers and companies.
+Cloud platform for running and scaling open-source AI models with one line of code, featuring thousands of pre-trained models for image, video, audio, and text generation. Provides GPU infrastructure and API access. Used by developers, researchers, and startups.
 
 **💵 Affiliate Program Details:**
-Credit-based referral program, $10 credit per signup, 10% of referred user's spend for 12 months, no minimum requirements
+Replicate Partner Program, 15% commission on customer spend, 90-day cookie, enterprise referrals earn 20%, technical background preferred
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -26,17 +26,38 @@ Credit-based referral program, $10 credit per signup, 10% of referred user's spe
 
 ---
 
-## 2. Leonardo AI Canvas
+## 2. Poe AI
 
-**Category:** image-generation
-**Website:** https://leonardo.ai/canvas
+**Category:** agent-platforms
+**Website:** https://poe.com
 **Pricing Model:** freemium
 
 **Description:**
-Advanced AI image generation and editing platform with real-time canvas editing, inpainting/outpainting, and style control. Designed for professional artists and designers needing precise control over AI-generated artwork.
+Platform for discovering, creating, and chatting with millions of AI bots across multiple models including GPT-4, Claude, and custom creations. Features include bot creation tools, monetization options, and community features. Targets AI enthusiasts, creators, and developers.
 
 **💵 Affiliate Program Details:**
-30% recurring commission via direct program, 90-day cookie, special rates for design community influencers
+Poe Creator Program (includes affiliate earnings), revenue share on bot usage, additional commission on subscription referrals, requires active bot creation
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 3. Lindsey AI
+
+**Category:** legal-ai
+**Website:** https://lindsey.ai
+**Pricing Model:** enterprise
+
+**Description:**
+AI legal assistant that automates contract review, legal research, and document analysis for law firms and corporate legal teams. Features include clause analysis, risk assessment, and compliance checking. Targets legal professionals and businesses.
+
+**💵 Affiliate Program Details:**
+Lindsey Partner Program for legal professionals and consultants, 15% commission on annual contracts, enterprise-focused, legal industry experience required
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -50,5 +71,6 @@ Advanced AI image generation and editing platform with real-time canvas editing,
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Replicate API** - https://replicate.com
-2. [ ] **Leonardo AI Canvas** - https://leonardo.ai/canvas
+1. [ ] **Replicate AI** - https://replicate.com
+2. [ ] **Poe AI** - https://poe.com
+3. [ ] **Lindsey AI** - https://lindsey.ai
