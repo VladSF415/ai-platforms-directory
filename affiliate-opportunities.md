@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
 Generated: 2025-12-07
-Total Opportunities: 3
+Total Opportunities: 4
 
 ---
 
-## 1. Durable
+## 1. ElevenLabs Professional
 
-**Category:** website-ai
-**Website:** https://durable.co
+**Category:** audio-ai
+**Website:** https://elevenlabs.io
 **Pricing Model:** freemium
 
 **Description:**
-AI website builder that creates complete business websites with copy, images, and contact forms in seconds, then allows customization with AI-powered editing tools.
+Advanced AI voice generation and cloning platform with emotional control, voice consistency, and professional audio editing tools. Features studio-quality voice synthesis for commercial use.
 
 **💵 Affiliate Program Details:**
-30% recurring commission via PartnerStack, 90-day cookie, $50 minimum payout, open to digital marketers, web designers, and business consultants
+30% recurring commission via ShareASale, 45-day cookie, $100 minimum payout, requires content creation or production background
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -26,17 +26,17 @@ AI website builder that creates complete business websites with copy, images, an
 
 ---
 
-## 2. Lindsey
+## 2. D-ID Agents
 
-**Category:** legal-ai
-**Website:** https://lindsey.ai
+**Category:** agent-platforms
+**Website:** https://www.d-id.com
 **Pricing Model:** enterprise
 
 **Description:**
-AI legal assistant that helps with contract review, legal research, and document analysis using specialized legal language models trained on case law and regulations.
+Interactive AI agent platform with photorealistic digital humans that can converse in real-time with natural facial expressions and gestures. Enables creation of customer service, training, and entertainment agents.
 
 **💵 Affiliate Program Details:**
-Enterprise referral program with 15% of first-year contract, $5k minimum deal size, requires legal industry connections or enterprise software sales experience
+Enterprise referral program with 15% first-year contract, direct sales partnership, minimum $25K deal size, requires enterprise solution provider status
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -47,17 +47,38 @@ Enterprise referral program with 15% of first-year contract, $5k minimum deal si
 
 ---
 
-## 3. Tavus
+## 3. Leonardo AI Phoenix
 
-**Category:** video-generation
-**Website:** https://tavus.io
-**Pricing Model:** enterprise
+**Category:** image-generation
+**Website:** https://leonardo.ai
+**Pricing Model:** freemium
 
 **Description:**
-AI video personalization platform that creates customized videos for each viewer using voice cloning and facial reenactment technology for hyper-personalized marketing.
+Next-generation image generation platform with unprecedented prompt understanding and artistic style control. Features real-time generation, extensive style libraries, and commercial asset creation tools.
 
 **💵 Affiliate Program Details:**
-20% recurring commission via PartnerStack, 90-day cookie, $500 minimum payout, requires marketing agency partnership or enterprise sales experience
+25% recurring commission via Impact.com, 90-day cookie, $100 minimum payout, requires creative portfolio and minimum social following
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 4. AssemblyAI Gemini
+
+**Category:** audio-ai
+**Website:** https://www.assemblyai.com
+**Pricing Model:** freemium
+
+**Description:**
+Advanced audio intelligence platform that transcribes, analyzes, and extracts insights from audio/video content with industry-leading accuracy. Features real-time processing and enterprise-scale deployment.
+
+**💵 Affiliate Program Details:**
+20% recurring commission via PartnerStack, 60-day cookie, $500 minimum payout, requires enterprise or high-volume usage
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -71,6 +92,7 @@ AI video personalization platform that creates customized videos for each viewer
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Durable** - https://durable.co
-2. [ ] **Lindsey** - https://lindsey.ai
-3. [ ] **Tavus** - https://tavus.io
+1. [ ] **ElevenLabs Professional** - https://elevenlabs.io
+2. [ ] **D-ID Agents** - https://www.d-id.com
+3. [ ] **Leonardo AI Phoenix** - https://leonardo.ai
+4. [ ] **AssemblyAI Gemini** - https://www.assemblyai.com
