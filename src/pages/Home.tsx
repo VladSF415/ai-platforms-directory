@@ -433,7 +433,7 @@ function Home() {
           </h2>
         )}
 
-        <div className="filters">
+        <div id="categories" className="filters">
           <button
             className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
             onClick={() => setSelectedCategory('all')}

@@ -26,9 +26,11 @@ const CONFIG = {
   deepseek_api_key: process.env.DEEPSEEK_API_KEY,
   mode: process.argv.includes('--discover') ? 'discover' :
         process.argv.includes('--enrich') ? 'enrich' :
+        process.argv.includes('--recategorize') ? 'recategorize' :
         process.argv.includes('--fix-all') ? 'fix-all' : 'analyze',
   auto_add: process.argv.includes('--auto-add'),
   max_new_platforms: parseInt(process.argv.find(arg => arg.startsWith('--max='))?.split('=')[1]) || 10,
+  max_recategorize: parseInt(process.argv.find(arg => arg.startsWith('--recat-max='))?.split('=')[1]) || 30,
   verbose: process.argv.includes('--verbose'),
   dry_run: process.argv.includes('--dry-run'),
   provider: process.argv.find(arg => arg.startsWith('--provider='))?.split('=')[1] || 'auto'
@@ -511,6 +513,119 @@ async function autoFixWithAI() {
   return fixed;
 }
 
+// 5. RECATEGORIZE PLATFORMS TO BETTER-FITTING CATEGORIES
+async function recategorizePlatforms() {
+  console.log('🔄 AI-powered recategorization...\n');
+
+  // Get all existing categories
+  const existingCategories = [...new Set(platforms.map(p => p.category).filter(Boolean))].sort();
+  console.log(`📊 Found ${existingCategories.length} existing categories:\n   ${existingCategories.join(', ')}\n`);
+
+  // Find platforms that might need recategorization
+  // Priority: platforms in generic categories that might fit better in specific ones
+  const genericCategories = ['generative-ai', 'llms', 'ml-frameworks'];
+  const specificCategories = existingCategories.filter(c => !genericCategories.includes(c));
+
+  // Get platforms to check - prioritize those in generic categories
+  const platformsToCheck = platforms
+    .filter(p => genericCategories.includes(p.category) || !p.recategorized_date)
+    .slice(0, CONFIG.max_recategorize);
+
+  if (platformsToCheck.length === 0) {
+    console.log('✅ All platforms have been recategorized recently\n');
+    return 0;
+  }
+
+  console.log(`📋 Checking ${platformsToCheck.length} platforms for better category fits...\n`);
+
+  let recategorized = 0;
+
+  // Process in batches to reduce API calls
+  const batchSize = 10;
+  for (let i = 0; i < platformsToCheck.length; i += batchSize) {
+    const batch = platformsToCheck.slice(i, i + batchSize);
+
+    const prompt = `You are an AI platform categorization expert. Review these platforms and suggest better category assignments.
+
+AVAILABLE CATEGORIES:
+${existingCategories.map(c => `- ${c}`).join('\n')}
+
+PLATFORMS TO REVIEW:
+${batch.map((p, idx) => `
+${idx + 1}. ${p.name}
+   Current category: ${p.category}
+   Description: ${p.description || 'N/A'}
+   Tags: ${(p.tags || []).join(', ') || 'N/A'}
+   URL: ${p.url || p.website || 'N/A'}
+`).join('\n')}
+
+TASK: For each platform, determine if it should be recategorized to a more specific/appropriate category.
+
+RULES:
+1. Only suggest a change if the new category is CLEARLY better
+2. Prefer specific categories over generic ones (e.g., "audio-ai" over "generative-ai" for voice tools)
+3. Consider the platform's primary function, not secondary features
+4. If current category is already the best fit, keep it
+
+Return JSON array:
+[
+  {
+    "name": "Platform Name",
+    "current_category": "current-category",
+    "new_category": "better-category or null if no change needed",
+    "confidence": 0.0-1.0,
+    "reasoning": "Brief explanation"
+  }
+]
+
+ONLY return platforms that NEED category changes (confidence > 0.8). If a platform is already in the best category, omit it from the response.`;
+
+    const response = await callAI(prompt);
+    if (!response) continue;
+
+    try {
+      const jsonMatch = response.match(/\[[\s\S]*\]/);
+      if (jsonMatch) {
+        const suggestions = JSON.parse(jsonMatch[0]);
+
+        for (const suggestion of suggestions) {
+          if (!suggestion.new_category || suggestion.confidence < 0.8) continue;
+
+          // Find and update the platform
+          const platform = platforms.find(p =>
+            p.name.toLowerCase() === suggestion.name.toLowerCase()
+          );
+
+          if (platform && suggestion.new_category !== platform.category) {
+            const oldCategory = platform.category;
+            platform.category = suggestion.new_category;
+            platform.recategorized_date = new Date().toISOString();
+            platform.recategorized_from = oldCategory;
+
+            recategorized++;
+            console.log(`  🔄 ${platform.name}: ${oldCategory} → ${suggestion.new_category}`);
+            if (CONFIG.verbose) {
+              console.log(`     Reason: ${suggestion.reasoning}`);
+            }
+          }
+        }
+      }
+    } catch (error) {
+      if (CONFIG.verbose) {
+        console.error(`  ⚠️  Failed to parse recategorization response:`, error.message);
+      }
+    }
+
+    // Rate limiting
+    if (i + batchSize < platformsToCheck.length) {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+    }
+  }
+
+  console.log(`\n✅ Recategorized ${recategorized} platforms\n`);
+  return recategorized;
+}
+
 // SAVE AFFILIATE OPPORTUNITIES
 function saveAffiliateOpportunities() {
   if (affiliateOpportunities.length === 0) return;
@@ -646,11 +761,19 @@ async function main() {
     console.log('MODE: Enrich existing platforms\n');
     enriched = await autoFixWithAI();
 
+  } else if (CONFIG.mode === 'recategorize') {
+    console.log('MODE: Recategorize platforms to better-fitting categories\n');
+    enriched = await recategorizePlatforms();
+
   } else if (CONFIG.mode === 'fix-all') {
     console.log('MODE: Comprehensive AI fix\n');
 
     // Enrich
     enriched = await autoFixWithAI();
+
+    // Recategorize
+    const recategorized = await recategorizePlatforms();
+    enriched += recategorized;
 
     // Detect duplicates
     duplicateDecisions = await detectIntelligentDuplicates(platforms);
@@ -659,14 +782,16 @@ async function main() {
     console.log('MODE: Analyze only (no changes)\n');
 
     console.log('Available modes:');
-    console.log('  --discover    Discover and add new platforms');
-    console.log('  --enrich      Enrich existing platform data');
-    console.log('  --fix-all     Comprehensive fix (enrich + duplicates)');
+    console.log('  --discover       Discover and add new platforms');
+    console.log('  --enrich         Enrich existing platform data');
+    console.log('  --recategorize   Recategorize platforms to better categories');
+    console.log('  --fix-all        Comprehensive fix (enrich + recategorize + duplicates)');
     console.log('\nFlags:');
-    console.log('  --auto-add    Automatically add discovered platforms');
-    console.log('  --max=N       Max new platforms to discover (default: 10)');
-    console.log('  --verbose     Show detailed output');
-    console.log('  --dry-run     Don\'t save changes\n');
+    console.log('  --auto-add       Automatically add discovered platforms');
+    console.log('  --max=N          Max new platforms to discover (default: 10)');
+    console.log('  --recat-max=N    Max platforms to recategorize (default: 30)');
+    console.log('  --verbose        Show detailed output');
+    console.log('  --dry-run        Don\'t save changes\n');
     return;
   }
 

@@ -82,6 +82,26 @@ export default function Navigation() {
     setIsCategoriesOpen(false);
   };
 
+  const scrollToCategories = () => {
+    closeMenu();
+    // If already on home page, just scroll
+    if (window.location.pathname === '/') {
+      const el = document.getElementById('categories');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Navigate to home then scroll
+      navigate('/');
+      setTimeout(() => {
+        const el = document.getElementById('categories');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <nav className={`main-nav ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
@@ -190,21 +210,25 @@ export default function Navigation() {
                     </Link>
                   ))}
                 </div>
-                <Link
-                  to="/"
-                  onClick={closeMenu}
+                <button
+                  onClick={scrollToCategories}
                   style={{
                     display: 'block',
+                    width: '100%',
                     textAlign: 'center',
                     padding: '16px',
                     borderTop: '4px solid #000000',
+                    borderLeft: 'none',
+                    borderRight: 'none',
+                    borderBottom: 'none',
+                    background: 'transparent',
                     color: '#000000',
-                    textDecoration: 'none',
                     fontWeight: 900,
                     fontSize: '14px',
                     fontFamily: "'Courier New', 'Courier', monospace",
                     textTransform: 'uppercase',
-                    letterSpacing: '1px'
+                    letterSpacing: '1px',
+                    cursor: 'pointer'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = '#000000';
@@ -216,7 +240,7 @@ export default function Navigation() {
                   }}
                 >
                   View All Categories →
-                </Link>
+                </button>
               </div>
             )}
           </li>
@@ -305,26 +329,26 @@ export default function Navigation() {
                       </Link>
                     ))}
                   </div>
-                  <Link
-                    to="/"
-                    onClick={closeMenu}
+                  <button
+                    onClick={scrollToCategories}
                     style={{
                       display: 'block',
+                      width: '100%',
                       textAlign: 'center',
                       padding: '12px 18px',
                       background: '#000000',
                       color: '#ffffff',
-                      textDecoration: 'none',
                       border: '4px solid #000000',
                       fontFamily: "'Courier New', 'Courier', monospace",
                       fontWeight: 900,
                       textTransform: 'uppercase',
                       fontSize: '13px',
-                      letterSpacing: '1px'
+                      letterSpacing: '1px',
+                      cursor: 'pointer'
                     }}
                   >
                     View All Categories →
-                  </Link>
+                  </button>
                 </div>
               )}
             </li>

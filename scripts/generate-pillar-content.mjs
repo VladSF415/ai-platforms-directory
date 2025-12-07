@@ -25,8 +25,8 @@ if (!DEEPSEEK_API_KEY) {
   process.exit(1);
 }
 
-// Category metadata
-const CATEGORIES = {
+// Base category metadata (can be extended dynamically)
+const BASE_CATEGORIES = {
   'code-ai': {
     name: 'Code AI',
     fullName: 'AI Coding Assistants',
@@ -110,14 +110,169 @@ const CATEGORIES = {
     fullName: 'AI Workflow Automation',
     description: 'AI tools for automating business workflows and processes',
     targetKeywords: ['AI workflow automation', 'business process automation', 'AI process optimization', 'automated workflows']
+  },
+  'audio-ai': {
+    name: 'Audio AI',
+    fullName: 'AI Audio Tools',
+    description: 'AI-powered audio generation, voice synthesis, and audio processing tools',
+    targetKeywords: ['AI voice generator', 'text to speech AI', 'AI audio tools', 'voice cloning AI', 'AI music generator']
+  },
+  'search-ai': {
+    name: 'Search AI',
+    fullName: 'AI Search Tools',
+    description: 'AI-powered search engines, semantic search, and information retrieval platforms',
+    targetKeywords: ['AI search engine', 'semantic search', 'vector search AI', 'AI information retrieval']
+  },
+  '3d-generation': {
+    name: '3D Generation',
+    fullName: 'AI 3D Generation Tools',
+    description: 'AI tools for generating 3D models, scenes, and environments from text or images',
+    targetKeywords: ['AI 3D generator', 'text to 3D AI', '3D model AI', 'AI 3D creation']
+  },
+  'document-ai': {
+    name: 'Document AI',
+    fullName: 'AI Document Processing',
+    description: 'AI tools for document analysis, OCR, extraction, and processing',
+    targetKeywords: ['AI document processing', 'intelligent document processing', 'AI OCR', 'document extraction AI']
+  },
+  'robotics-ai': {
+    name: 'Robotics AI',
+    fullName: 'AI Robotics Platforms',
+    description: 'AI platforms for robotics, automation, and physical world AI applications',
+    targetKeywords: ['AI robotics', 'robotic automation', 'AI robot platform', 'autonomous robots']
+  },
+  'healthcare-ai': {
+    name: 'Healthcare AI',
+    fullName: 'AI Healthcare Tools',
+    description: 'AI tools for healthcare, medical imaging, diagnostics, and patient care',
+    targetKeywords: ['AI healthcare', 'medical AI', 'AI diagnostics', 'healthcare automation AI']
+  },
+  'finance-ai': {
+    name: 'Finance AI',
+    fullName: 'AI Finance Tools',
+    description: 'AI tools for financial analysis, trading, risk assessment, and fintech',
+    targetKeywords: ['AI finance', 'AI trading', 'financial AI tools', 'AI risk assessment']
+  },
+  'marketing-ai': {
+    name: 'Marketing AI',
+    fullName: 'AI Marketing Tools',
+    description: 'AI-powered marketing automation, content creation, and campaign optimization',
+    targetKeywords: ['AI marketing', 'marketing automation AI', 'AI content marketing', 'AI advertising']
+  },
+  'sales-ai': {
+    name: 'Sales AI',
+    fullName: 'AI Sales Tools',
+    description: 'AI tools for sales automation, lead generation, and CRM enhancement',
+    targetKeywords: ['AI sales tools', 'sales automation AI', 'AI lead generation', 'AI CRM']
+  },
+  'customer-service-ai': {
+    name: 'Customer Service AI',
+    fullName: 'AI Customer Service Tools',
+    description: 'AI chatbots, support automation, and customer experience tools',
+    targetKeywords: ['AI customer service', 'AI chatbot', 'customer support AI', 'AI help desk']
+  },
+  'legal-ai': {
+    name: 'Legal AI',
+    fullName: 'AI Legal Tools',
+    description: 'AI tools for legal research, contract analysis, and legal automation',
+    targetKeywords: ['AI legal', 'legal AI tools', 'contract analysis AI', 'AI law']
+  },
+  'education-ai': {
+    name: 'Education AI',
+    fullName: 'AI Education Tools',
+    description: 'AI tools for learning, tutoring, course creation, and educational content',
+    targetKeywords: ['AI education', 'AI tutoring', 'educational AI', 'AI learning platform']
+  },
+  'security-ai': {
+    name: 'Security AI',
+    fullName: 'AI Security Tools',
+    description: 'AI-powered cybersecurity, threat detection, and security automation',
+    targetKeywords: ['AI security', 'AI cybersecurity', 'threat detection AI', 'security automation']
+  },
+  'hr-ai': {
+    name: 'HR AI',
+    fullName: 'AI HR Tools',
+    description: 'AI tools for recruiting, employee management, and HR automation',
+    targetKeywords: ['AI HR', 'AI recruiting', 'HR automation AI', 'AI talent management']
+  },
+  'ecommerce-ai': {
+    name: 'E-commerce AI',
+    fullName: 'AI E-commerce Tools',
+    description: 'AI tools for e-commerce optimization, product recommendations, and retail automation',
+    targetKeywords: ['AI ecommerce', 'AI product recommendations', 'retail AI', 'ecommerce automation']
   }
 };
+
+// Generate category metadata dynamically for unknown categories
+function generateCategoryMeta(slug, platforms) {
+  // Check if we have a predefined category
+  if (BASE_CATEGORIES[slug]) {
+    return BASE_CATEGORIES[slug];
+  }
+
+  // Generate metadata based on the slug
+  const words = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1));
+  const name = words.join(' ');
+  const fullName = `AI ${name} Tools`;
+
+  // Get descriptions from platforms in this category to help with keywords
+  const platformDescriptions = platforms
+    .filter(p => p.category === slug)
+    .slice(0, 5)
+    .map(p => p.description || '')
+    .join(' ');
+
+  // Extract common words for keywords
+  const commonKeywords = [
+    `AI ${name.toLowerCase()}`,
+    `${name.toLowerCase()} AI tools`,
+    `best ${name.toLowerCase()} AI`,
+    `${name.toLowerCase()} automation`
+  ];
+
+  return {
+    name: name,
+    fullName: fullName,
+    description: `AI-powered ${name.toLowerCase()} tools and platforms`,
+    targetKeywords: commonKeywords
+  };
+}
+
+// Get all categories from platforms.json (dynamic discovery)
+function discoverCategories(platforms) {
+  const categoryCounts = {};
+  platforms.forEach(p => {
+    if (p.category) {
+      categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
+    }
+  });
+
+  // Build CATEGORIES object dynamically
+  const CATEGORIES = { ...BASE_CATEGORIES };
+
+  Object.keys(categoryCounts).forEach(slug => {
+    if (!CATEGORIES[slug]) {
+      CATEGORIES[slug] = generateCategoryMeta(slug, platforms);
+      console.log(`📦 Discovered new category: ${slug} (${categoryCounts[slug]} platforms)`);
+    }
+  });
+
+  return CATEGORIES;
+}
+
+// Will be populated after loading platforms
+let CATEGORIES = { ...BASE_CATEGORIES };
 
 async function loadPlatforms() {
   const platformsPath = path.join(__dirname, '..', 'platforms.json');
   const data = JSON.parse(fs.readFileSync(platformsPath, 'utf-8'));
   // platforms.json is an array directly, not { platforms: [...] }
-  return Array.isArray(data) ? data : (data.platforms || []);
+  const platforms = Array.isArray(data) ? data : (data.platforms || []);
+
+  // Discover and register all categories from platforms
+  CATEGORIES = discoverCategories(platforms);
+
+  return platforms;
 }
 
 async function generatePillarContent(category, platforms) {
@@ -272,13 +427,16 @@ async function savePillarContent(content) {
 }
 
 async function generateForCategory(category) {
+  // Load platforms first to discover all categories
+  const platforms = await loadPlatforms();
+
+  // Check if category exists (after dynamic discovery)
   if (!CATEGORIES[category]) {
     console.error(`❌ Unknown category: ${category}`);
     console.log(`Available categories: ${Object.keys(CATEGORIES).join(', ')}`);
     return;
   }
 
-  const platforms = await loadPlatforms();
   const categoryPlatforms = platforms.filter(p => p.category === category);
 
   if (categoryPlatforms.length === 0) {
@@ -298,19 +456,33 @@ async function generateAll() {
   console.log('🚀 Generating pillar content for ALL categories...\n');
 
   const platforms = await loadPlatforms();
-  const categoriesWithPlatforms = [...new Set(platforms.map(p => p.category))];
+  // Get all unique categories from platforms (dynamic discovery already happened in loadPlatforms)
+  const categoriesWithPlatforms = [...new Set(platforms.map(p => p.category).filter(Boolean))];
+
+  console.log(`📊 Found ${categoriesWithPlatforms.length} categories with platforms\n`);
 
   let successCount = 0;
   let errorCount = 0;
 
   for (const category of categoriesWithPlatforms) {
+    // All categories should be in CATEGORIES now after dynamic discovery
     if (!CATEGORIES[category]) {
       console.log(`⏭️  Skipping unknown category: ${category}`);
       continue;
     }
 
     try {
-      await generateForCategory(category);
+      const categoryPlatforms = platforms.filter(p => p.category === category);
+
+      if (categoryPlatforms.length === 0) {
+        console.warn(`⚠️  No platforms found for category: ${category}`);
+        continue;
+      }
+
+      const content = await generatePillarContent(category, categoryPlatforms);
+      await savePillarContent(content);
+
+      console.log(`\n🎉 Successfully generated pillar page for ${CATEGORIES[category].fullName}`);
       successCount++;
 
       // Rate limiting: wait 2 seconds between requests

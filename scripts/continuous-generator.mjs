@@ -40,6 +40,7 @@ let stats = {
   started: new Date().toISOString(),
   cycles_completed: 0,
   platforms_discovered: 0,
+  platforms_recategorized: 0,
   pillar_pages_generated: 0,
   comparisons_generated: 0,
   alternatives_generated: 0,
@@ -153,6 +154,19 @@ function runScript(scriptPath, args = []) {
   });
 }
 
+// Get all categories dynamically from platforms.json
+function getAllCategoriesFromPlatforms() {
+  try {
+    const platformsPath = join(__dirname, '../platforms.json');
+    const platforms = JSON.parse(readFileSync(platformsPath, 'utf-8'));
+    const categories = [...new Set(platforms.map(p => p.category).filter(Boolean))];
+    return categories.sort();
+  } catch (error) {
+    log(`Failed to load categories: ${error.message}`, 'error');
+    return [];
+  }
+}
+
 // Get categories that don't have pillar content yet
 function getMissingPillarCategories() {
   const pillarDir = join(__dirname, '../pillar-content');
@@ -160,15 +174,10 @@ function getMissingPillarCategories() {
     ? readdirSync(pillarDir).filter(f => f.endsWith('.json')).map(f => f.replace('.json', ''))
     : [];
 
-  const allCategories = [
-    'code-ai', 'llms', 'generative-ai', 'computer-vision', 'nlp',
-    'image-generation', 'video-ai', 'ml-frameworks', 'analytics-bi',
-    'agent-platforms', 'data-governance', 'video-generation',
-    'website-ai', 'workflow-automation', 'audio-ai', 'search-ai',
-    'document-ai', 'robotics-ai', 'healthcare-ai', 'finance-ai',
-    'marketing-ai', 'sales-ai', 'customer-service-ai', 'legal-ai',
-    'education-ai', 'security-ai', 'hr-ai', 'ecommerce-ai'
-  ];
+  // Dynamically discover ALL categories from platforms.json
+  const allCategories = getAllCategoriesFromPlatforms();
+
+  log(`Found ${allCategories.length} categories in platforms.json`, 'info');
 
   return allCategories.filter(c =>
     !existingPillars.some(p => p.includes(c))
@@ -190,17 +199,29 @@ const TASKS = [
     frequency: 2  // Run every 2nd cycle
   },
   {
+    name: 'Recategorize Platforms',
+    script: 'scripts/ai-powered-organizer.mjs',
+    args: ['--recategorize', '--recat-max=20', '--provider=deepseek'],
+    onSuccess: () => { stats.platforms_recategorized = (stats.platforms_recategorized || 0) + 20; },
+    frequency: 3  // Run every 3rd cycle
+  },
+  {
     name: 'Generate Pillar Content',
     script: 'scripts/generate-pillar-content.mjs',
     getDynamicArgs: () => {
       const missing = getMissingPillarCategories();
       if (missing.length > 0) {
+        log(`Missing pillar content for: ${missing[0]}`, 'info');
         return ['--category', missing[0]];
       }
-      // Pick random category for refresh
-      const cats = ['code-ai', 'llms', 'generative-ai', 'video-ai', 'agent-platforms',
-                    'image-generation', 'nlp', 'analytics-bi', 'workflow-automation'];
-      return ['--category', cats[Math.floor(Math.random() * cats.length)]];
+      // Pick random category for refresh (dynamically from platforms.json)
+      const allCategories = getAllCategoriesFromPlatforms();
+      if (allCategories.length > 0) {
+        const randomCat = allCategories[Math.floor(Math.random() * allCategories.length)];
+        log(`Refreshing pillar content for: ${randomCat}`, 'info');
+        return ['--category', randomCat];
+      }
+      return ['--category', 'llms']; // Fallback
     },
     onSuccess: () => { stats.pillar_pages_generated++; }
   },
@@ -291,6 +312,7 @@ function printSummary() {
   console.log(`Cycles Completed:     ${stats.cycles_completed}`);
   console.log(`API Calls Made:       ${stats.api_calls}`);
   console.log(`Platforms Discovered: ${stats.platforms_discovered}`);
+  console.log(`Platforms Recategorized: ${stats.platforms_recategorized || 0}`);
   console.log(`Pillar Pages:         ${stats.pillar_pages_generated}`);
   console.log(`Comparisons:          ${stats.comparisons_generated}`);
   console.log(`Alternatives:         ${stats.alternatives_generated}`);
