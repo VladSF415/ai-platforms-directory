@@ -36302,21 +36302,21 @@
   {
     "id": "palm-2",
     "name": "Google PaLM 2",
-    "description": "Google's Pathways Language Model offering improved multilingual, reasoning, and coding capabilities for NLP tasks.",
-    "category": "nlp",
+    "description": "Google PaLM 2 is a state-of-the-art large language model (LLM) developed by Google, powering its Bard chatbot and foundational AI services. It excels in advanced reasoning, multilingual understanding across 100+ languages, and code generation, making it a versatile tool for complex NLP tasks. Its unique architecture, trained on a diverse mix of scientific papers, web pages, and source code, is optimized for efficiency and performance across various model sizes (Gecko, Otter, Bison, Unicorn).",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Large Language Models"
     ],
     "url": "https://ai.google/discover/palm2",
     "website": "https://ai.google",
-    "pricing": "pay-per-use",
+    "pricing": "freemium",
     "features": [
-      "Multilingual proficiency",
-      "Mathematical reasoning",
-      "Code generation",
-      "Creative writing",
-      "Logical inference"
+      "Multilingual proficiency in over 100 languages with nuanced understanding of idioms and grammar",
+      "Advanced logical reasoning and mathematical problem-solving capabilities",
+      "Proficient code generation and debugging in over 20 programming languages (e.g., Python, JavaScript, Prolog)",
+      "Scientific knowledge distillation trained on scientific and mathematical datasets",
+      "Efficient model scaling with four distinct size variants (Gecko, Otter, Bison, Unicorn) for different deployment needs"
     ],
     "rating": 4.5,
     "verified": true,
@@ -36324,9 +36324,13 @@
     "trending": false,
     "slug": "palm-2",
     "tags": [
-      "AI",
-      "NLP",
-      "Google"
+      "large-language-model",
+      "google-ai",
+      "multilingual-llm",
+      "code-generation",
+      "reasoning-ai",
+      "foundation-model",
+      "bard"
     ],
     "subcategories": [
       "large-language-models"
@@ -36349,13 +36353,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Powering conversational AI and chatbots (e.g., Google Bard)",
+      "Multilingual content creation, translation, and summarization",
+      "Assisting developers with code generation, explanation, and debugging",
+      "Enhancing enterprise search and knowledge retrieval systems",
+      "Academic and scientific research assistance and paper analysis"
+    ],
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free: Access via Google Bard with usage limits; limited API access through Google AI Studio with free tier quotas",
+        "Paid: Usage-based pricing via Vertex AI API (e.g., PaLM 2 for Text). Pricing is per 1,000 characters. Example: $0.0005 - $0.0025 per 1K characters for input, depending on model size.",
+        "Enterprise: Custom pricing via Google Cloud Vertex AI with dedicated support, security, and compliance features"
+      ],
+      "free_tier": "Yes - Access to Google Bard and limited quotas in Google AI Studio/Vertex AI",
+      "starting_price": "Free (with usage limits); paid API usage starts at ~$0.0005 per 1K characters"
+    },
+    "target_audience": [
+      "enterprise-developers",
+      "ai-researchers",
+      "software-developers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "pandera",
     "name": "Pandera",
-    "description": "Open-source framework for validating DataFrame-like objects providing flexible and expressive API for data validation with statistical typing.",
-    "category": "ml-frameworks",
+    "description": "Pandera is an open-source Python library designed for validating the structure and content of DataFrame-like objects, such as pandas, Dask, and PySpark DataFrames. It provides a flexible, expressive API for defining schemas with statistical typing, enabling data scientists and engineers to catch data quality issues early in pipelines. Its key differentiator is a declarative, type-system-inspired approach to validation that integrates seamlessly with scientific computing workflows, offering both runtime and static-type checking capabilities.",
+    "category": "data-governance",
     "categories": [
       "machine-learning-frameworks",
       "data-validation"
@@ -36364,11 +36392,13 @@
     "website": "https://github.com/unionai-oss/pandera",
     "pricing": "open-source",
     "features": [
-      "DataFrame validation",
-      "Statistical typing",
-      "Multi-framework support",
-      "Custom checks",
-      "Schema inference"
+      "Declarative schema definition for pandas, Dask, Modin, and PySpark DataFrames",
+      "Statistical data typing (e.g., checks for distributions, correlations, uniqueness)",
+      "Integration with Pydantic for data validation in FastAPI and other web frameworks",
+      "Schema inference from existing DataFrames to bootstrap validation rules",
+      "Custom check functions and hypothesis testing for complex validation logic",
+      "Support for runtime validation and static type checking with mypy/pyright",
+      "Validation decorators to easily wrap data processing functions"
     ],
     "rating": 4.3,
     "verified": true,
@@ -36376,11 +36406,14 @@
     "trending": true,
     "slug": "pandera",
     "tags": [
-      "DataFrame",
-      "Validation",
-      "Statistical",
-      "Multi-framework",
-      "Schema"
+      "data-validation",
+      "data-quality",
+      "pandas",
+      "schema-definition",
+      "python",
+      "dataframes",
+      "statistical-typing",
+      "pydantic-integration"
     ],
     "subcategories": [
       "data-validation",
@@ -36404,13 +36437,36 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Validating input data in machine learning pipelines before model training",
+      "Ensuring data quality and consistency in ETL/ELT processes",
+      "Enforcing contract-like schemas for data exchanged between microservices",
+      "Data testing within scientific research to maintain reproducibility",
+      "API request/response validation in web services using Pydantic integration",
+      "Data quality monitoring in production data pipelines"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to library under MIT license"
+      ],
+      "free_tier": "Yes - entire library",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists",
+      "data engineers",
+      "ML engineers"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "panel",
     "name": "Panel",
-    "description": "High-level app and dashboarding solution for Python enabling creation of custom analytics apps from Jupyter notebooks and scripts.",
-    "category": "ml-frameworks",
+    "description": "Panel is a high-level Python library for creating interactive web applications, dashboards, and data exploration tools directly from Jupyter notebooks or standalone scripts. It enables data scientists and developers to build custom analytics apps with rich, interactive widgets and visualizations that can be easily deployed. What makes it unique is its deep integration with the HoloViz ecosystem (like HoloViews, Datashader) and its ability to serve apps from notebooks without requiring extensive web development knowledge.",
+    "category": "analytics-bi",
     "categories": [
       "machine-learning-frameworks",
       "dashboard-frameworks"
@@ -36419,11 +36475,14 @@
     "website": "https://panel.holoviz.org",
     "pricing": "open-source",
     "features": [
-      "High-level dashboards",
-      "Jupyter integration",
-      "Custom analytics apps",
-      "Interactive widgets",
-      "Deployment options"
+      "Create web apps from Jupyter notebooks or .py scripts",
+      "Wide range of interactive widgets (sliders, selectors, buttons)",
+      "Support for multiple plotting libraries (Matplotlib, Plotly, Bokeh, Altair)",
+      "Server deployment options (Bokeh server, Tornado, Flask, Django)",
+      "Reactive programming model for live data updates",
+      "Theming and custom CSS styling for apps",
+      "Integration with HoloViews for declarative data visualization",
+      "Export apps to standalone HTML files"
     ],
     "rating": 4.4,
     "verified": true,
@@ -36431,11 +36490,14 @@
     "trending": true,
     "slug": "panel",
     "tags": [
-      "Dashboards",
-      "Jupyter",
-      "Analytics Apps",
-      "Interactive",
-      "Deployment"
+      "python-dashboards",
+      "interactive-visualization",
+      "holoviz-ecosystem",
+      "jupyter-notebooks",
+      "data-apps",
+      "bokeh-backend",
+      "web-deployment",
+      "analytics-tools"
     ],
     "subcategories": [
       "dashboard-frameworks",
@@ -36459,12 +36521,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building internal business intelligence dashboards for sales or operations data",
+      "Creating interactive data exploration tools for scientific research teams",
+      "Developing monitoring and control panels for IoT or manufacturing systems",
+      "Prototyping and deploying machine learning model interfaces for stakeholders",
+      "Publishing interactive educational content or reports with live visualizations",
+      "Building custom admin panels for data management and visualization"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full open-source library under BSD-3-Clause license"
+      ],
+      "free_tier": "Yes - Entire library and all features are free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Data scientists and analysts",
+      "Python developers building web apps",
+      "Researchers and academics"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "paperspace",
     "name": "Paperspace",
-    "description": "Cloud platform for machine learning and AI development providing GPU instances, notebooks, and deployment solutions.",
+    "description": "Paperspace is a cloud platform designed for machine learning and AI development, providing on-demand access to high-performance GPU instances (including NVIDIA A100s, H100s) for training and inference. Its core offering, Gradient, is a managed environment that integrates notebooks, job orchestration, and model deployment into a unified workflow, simplifying the ML lifecycle from experimentation to production. It uniquely targets developers and teams seeking a streamlined, infrastructure-agnostic alternative to managing complex cloud services directly.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -36474,11 +36559,13 @@
     "website": "https://paperspace.com",
     "pricing": "freemium",
     "features": [
-      "GPU instances",
-      "Gradient notebooks",
-      "Model deployment",
-      "Team collaboration",
-      "Workflow automation"
+      "On-demand & dedicated GPU instances (NVIDIA P5000, RTX 4000/5000/6000, A100, H100)",
+      "Gradient Notebooks: Pre-configured, persistent Jupyter notebooks with automatic versioning and dataset mounting",
+      "Gradient Jobs: CLI and SDK for scalable, reproducible training and batch inference jobs",
+      "Gradient Deployments: One-click deployment of models as autoscaling REST API endpoints",
+      "Private Datasets & Model Registry: Centralized storage and versioning for datasets and trained models",
+      "Team Workspaces: Project-based collaboration with role-based access control (RBAC)",
+      "Infrastructure as Code: Define and manage stacks (resources) via the Gradient SDK or Terraform"
     ],
     "rating": 4.4,
     "verified": true,
@@ -36486,11 +36573,13 @@
     "trending": false,
     "slug": "paperspace",
     "tags": [
-      "GPU Instances",
-      "Notebooks",
-      "Deployment",
-      "Collaboration",
-      "Workflow"
+      "GPU Cloud",
+      "Managed Notebooks",
+      "MLOps",
+      "Model Deployment",
+      "Team Collaboration",
+      "Workflow Orchestration",
+      "AI Infrastructure"
     ],
     "subcategories": [
       "ml-platform",
@@ -36514,26 +36603,54 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Training large language models (LLMs) or diffusion models on scalable GPU clusters",
+      "Building and deploying computer vision models for real-time object detection via API endpoints",
+      "Running reproducible hyperparameter tuning and experiment tracking for research teams",
+      "Providing a centralized, collaborative platform for data science teams to manage the full ML lifecycle",
+      "Prototyping and developing AI applications without managing underlying cloud infrastructure"
+    ],
+    "pricing_details": {
+      "model": "hybrid (subscription + usage-based)",
+      "tiers": [
+        "Free: Includes 1 free CPU instance, basic Gradient Notebooks, and 5 GB of storage. No free GPU.",
+        "Core (Subscription): $8/month per user. Unlocks team features, private projects, and higher resource limits.",
+        "GPU Instances (Usage-Based): Paid separately. Prices start at ~$0.45/hr for an NVIDIA P4000 GPU. High-end GPUs (A100, H100) are significantly more.",
+        "Gradient Features (Usage-Based): Additional costs for Gradient Jobs, Deployments, and Data Storage based on consumption.",
+        "Enterprise: Custom pricing. Includes dedicated infrastructure, SLA, premium support, and security compliance."
+      ],
+      "free_tier": "Yes - Includes 1 free CPU instance, basic notebooks, and 5 GB storage.",
+      "starting_price": "$8/user/month (Core subscription) + usage costs for GPUs/features."
+    },
+    "target_audience": [
+      "ML Engineers & Data Scientists",
+      "AI Research Teams",
+      "Startups & SMBs developing AI products"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "pathml",
     "name": "PathML",
-    "description": "Python toolkit for computational pathology with tools for preprocessing, feature extraction, and machine learning on pathology images.",
-    "category": "computer-vision",
+    "description": "PathML is an open-source Python toolkit designed specifically for computational pathology, enabling researchers to process, analyze, and extract insights from whole-slide images (WSIs). It provides a unified pipeline for preprocessing (e.g., tiling, staining normalization), feature extraction (handcrafted and deep learning-based), and seamless integration with popular ML frameworks like PyTorch and TensorFlow. Its unique value lies in its modular, extensible design tailored for high-throughput pathology workflows, bridging the gap between raw histopathology data and machine learning-ready datasets.",
+    "category": "healthcare-ai",
     "categories": [
       "computer-vision",
       "computational-pathology"
     ],
     "url": "https://github.com/Dana-Farber-AIOS/pathml",
     "website": "https://github.com/Dana-Farber-AIOS/pathml",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Computational pathology",
-      "Python toolkit",
-      "Feature extraction",
-      "ML integration",
-      "Preprocessing tools"
+      "Modular preprocessing pipeline for WSIs (tiling, staining normalization, artifact removal)",
+      "Integration with openslide and libvips for efficient slide reading",
+      "Support for handcrafted feature extraction (e.g., morphological, texture features)",
+      "Deep learning integration via PyTorch/TensorFlow hooks for model training/inference",
+      "Annotation tools for region-of-interest (ROI) masking and label management",
+      "High-performance tile sampling and data augmentation strategies",
+      "Export utilities for generating patches and metadata for ML pipelines"
     ],
     "rating": 4.4,
     "verified": true,
@@ -36541,10 +36658,13 @@
     "trending": true,
     "slug": "pathml",
     "tags": [
-      "Computational Pathology",
-      "Python",
-      "ML",
-      "Feature Extraction"
+      "computational-pathology",
+      "whole-slide-imaging",
+      "python-toolkit",
+      "histopathology",
+      "medical-image-analysis",
+      "open-source",
+      "biomedical-research"
     ],
     "subcategories": [
       "computational-pathology",
@@ -36568,12 +36688,35 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Quantifying tumor microenvironment features in cancer research",
+      "Developing AI models for automated diagnosis (e.g., breast cancer grading)",
+      "Large-scale biomarker discovery from digitized histopathology archives",
+      "Preprocessing pipelines for clinical trial image analysis",
+      "Educational tool for pathology residents learning computational methods",
+      "Validation of digital pathology algorithms in research settings"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code, documentation, and community support via GitHub"
+      ],
+      "free_tier": "Yes - entire toolkit under MIT license",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "biomedical researchers",
+      "computational pathologists",
+      "AI/ML engineers in healthcare"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "pattern",
     "name": "Pattern",
-    "description": "Web mining module for Python with tools for NLP, machine learning, network analysis, and visualization.",
+    "description": "Pattern is a comprehensive web mining module and natural language processing toolkit for Python. It provides a unified interface for data mining from web services (Google, Twitter, Wikipedia), natural language processing (morphology, syntax, semantics), machine learning (vector space modeling, classification, clustering), network analysis, and visualization. Its unique value lies in being a lightweight, all-in-one solution that bundles practical NLP and web scraping tools with a simple API, making it particularly accessible for academic researchers, data journalists, and Python developers needing quick prototyping without heavy dependencies.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -36581,13 +36724,15 @@
     ],
     "url": "https://github.com/clips/pattern",
     "website": "https://www.clips.uantwerpen.be/pages/pattern",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Part-of-speech tagging",
-      "Sentiment analysis",
-      "Lemma and stemming",
-      "Pattern-based search",
-      "Machine learning integration"
+      "Part-of-speech tagging for English, Spanish, German, French, Italian, and Dutch",
+      "Sentiment analysis (polarity/subjectivity) for English, Dutch, German, and French",
+      "Web mining modules for Google, Twitter, Wikipedia, and generic web page/feed parsing",
+      "Vector space model, k-means clustering, and classification algorithms (perceptron, SVM)",
+      "Network analysis and visualization with graph centrality algorithms",
+      "Morphological analysis including lemmatization, inflection, and pluralization",
+      "Pattern-based search and shallow parsing (chunking) for text"
     ],
     "rating": 4.1,
     "verified": true,
@@ -36595,9 +36740,13 @@
     "trending": false,
     "slug": "pattern",
     "tags": [
-      "AI",
-      "NLP",
-      "Python"
+      "python-library",
+      "web-mining",
+      "sentiment-analysis",
+      "data-scraping",
+      "text-analysis",
+      "network-analysis",
+      "machine-learning"
     ],
     "subcategories": [
       "nlp-library"
@@ -36620,13 +36769,36 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research and linguistic analysis requiring multilingual NLP tools",
+      "Social media monitoring and brand sentiment tracking via Twitter/Google data",
+      "Data journalism projects involving web scraping and text analysis",
+      "Prototyping machine learning models for text classification and clustering",
+      "Building educational tools for teaching NLP and data mining concepts",
+      "Creating custom web crawlers for specific data collection needs"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code and all features under BSD license"
+      ],
+      "free_tier": "Yes - complete library with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "academic researchers and students",
+      "data scientists and python developers",
+      "data journalists and digital humanities scholars"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "pear-bio",
     "name": "Pear Bio",
-    "description": "3D immune-microtumor platform for precision medicine using computer vision pipeline for medical image analysis and treatment optimization.",
-    "category": "computer-vision",
+    "description": "Pear Bio is a biotechnology company that has developed a functional precision oncology platform. It creates living 3D microtumors from a patient's own cancer and immune cells, then uses automated confocal imaging and a proprietary computer vision pipeline to analyze how these mini-tumors respond to different drug treatments in real-time. This unique ex vivo testing platform provides clinicians with actionable data on treatment efficacy and resistance, aiming to directly inform personalized therapy decisions for cancer patients.",
+    "category": "healthcare-ai",
     "categories": [
       "computer-vision",
       "medical-imaging"
@@ -36635,11 +36807,13 @@
     "website": "https://pear.bio",
     "pricing": "enterprise",
     "features": [
-      "3D medical imaging",
-      "Immune cell analysis",
-      "Treatment optimization",
-      "Confocal imaging",
-      "Proprietary CV pipeline"
+      "Automated generation of patient-derived 3D tumor microenvironments",
+      "High-content, time-lapse confocal imaging of live microtumors",
+      "Proprietary computer vision pipeline for quantifying tumor growth and immune cell killing",
+      "Integrated analysis of treatment response metrics (e.g., tumor killing, stasis, growth)",
+      "Generation of patient-specific treatment efficacy reports for clinicians",
+      "Biobank of characterized patient-derived models for drug discovery",
+      "Assay protocols for various solid tumor types (e.g., breast, ovarian, pancreatic)"
     ],
     "rating": 4.6,
     "verified": true,
@@ -36647,10 +36821,13 @@
     "trending": true,
     "slug": "pear-bio",
     "tags": [
-      "Medical AI",
-      "3D Imaging",
-      "Precision Medicine",
-      "Cancer Research"
+      "functional precision oncology",
+      "3D cell culture",
+      "ex vivo testing",
+      "cancer treatment prediction",
+      "confocal imaging analysis",
+      "personalized medicine",
+      "drug response profiling"
     ],
     "subcategories": [
       "medical-imaging",
@@ -36674,12 +36851,34 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Informing first-line or later-line therapy selection for oncology patients",
+      "Identifying effective drug combinations for refractory cancers",
+      "De-risking clinical trial design for pharmaceutical companies by pre-testing therapies on patient-derived models",
+      "Accelerating oncology drug discovery and development in biopharma R&D",
+      "Providing functional evidence to complement genomic profiling in precision medicine programs"
+    ],
+    "pricing_details": {
+      "model": "enterprise",
+      "tiers": [
+        "Enterprise: Custom - Pricing is not publicly listed and is based on a service model for hospitals, research institutions, and biopharma partners. Costs likely depend on the scope of testing (number of samples, drugs tested, tumor types)."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Oncologists and hospital networks",
+      "Biopharmaceutical companies (R&D and clinical development)",
+      "Academic cancer research centers"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "peckish",
     "name": "Peckish",
-    "description": "Automated inventory management system using computer vision for retail and warehouse optimization.",
+    "description": "Peckish is an AI-powered platform that automates inventory management for retail and warehouse operations using computer vision. It leverages existing security cameras to provide real-time, accurate stock level data, shelf analytics, and out-of-stock alerts without requiring manual scans or RFID tags. Its unique value proposition is a non-invasive, camera-first approach that transforms passive surveillance infrastructure into an active inventory intelligence system.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -36689,11 +36888,13 @@
     "website": "https://peckish.ai",
     "pricing": "paid",
     "features": [
-      "Automated inventory tracking",
-      "Retail optimization",
-      "Warehouse management",
-      "Stock level monitoring",
-      "Analytics dashboard"
+      "Real-time inventory tracking via existing CCTV/IP cameras",
+      "Automated out-of-stock and low-stock alerts with location mapping",
+      "Planogram compliance monitoring and shelf share analytics",
+      "Heatmaps showing customer interaction with product displays",
+      "RESTful API for integration with existing POS and ERP systems (e.g., Shopify, NetSuite)",
+      "Cloud-based dashboard with customizable reports and analytics",
+      "Support for multiple camera feeds and store/warehouse locations"
     ],
     "rating": 4.2,
     "verified": true,
@@ -36701,10 +36902,14 @@
     "trending": true,
     "slug": "peckish",
     "tags": [
-      "Inventory Management",
-      "Retail",
-      "Warehouse",
-      "Automation"
+      "inventory-management",
+      "retail-analytics",
+      "computer-vision",
+      "supply-chain-optimization",
+      "shelf-monitoring",
+      "out-of-stock-detection",
+      "warehouse-automation",
+      "real-time-analytics"
     ],
     "subcategories": [
       "inventory-management",
@@ -36728,12 +36933,37 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Grocery and convenience stores automating perishable and high-turnover item restocking",
+      "Electronics retailers monitoring high-value inventory and planogram execution",
+      "Warehouses optimizing pick-and-pack processes and verifying stock in bins/shelves",
+      "Pharmaceutical chains ensuring compliance and managing shelf stock of regulated products",
+      "Quick-service restaurants (QSRs) monitoring ingredient levels and reducing waste",
+      "Consumer packaged goods (CPG) brands gaining real-time insights into retail execution"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom Quote - For single-location pilots or small stores.",
+        "Growth: Custom Quote - For multi-location small chains or specific departments.",
+        "Enterprise: Custom Quote - For large retail chains with complex, multi-site deployments."
+      ],
+      "free_tier": "No",
+      "starting_price": "Custom Quote (Contact Sales)"
+    },
+    "target_audience": [
+      "Retail Chains & Store Managers",
+      "Warehouse & Logistics Operators",
+      "CPG Brands & Field Sales Teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "peft",
     "name": "PEFT",
-    "description": "Parameter-Efficient Fine-Tuning library by Hugging Face providing methods to fine-tune large models with minimal computational resources.",
+    "description": "PEFT (Parameter-Efficient Fine-Tuning) is a Hugging Face library that enables efficient adaptation of large pre-trained language models (LLMs) by fine-tuning only a small subset of parameters, drastically reducing computational and memory costs. It provides state-of-the-art methods like LoRA, Prefix Tuning, and Adapters, making it uniquely suited for researchers and practitioners who need to customize models for specific tasks without full retraining. Its seamless integration with the Hugging Face ecosystem makes it the go-to tool for parameter-efficient transfer learning.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -36743,11 +36973,13 @@
     "website": "https://github.com/huggingface/peft",
     "pricing": "open-source",
     "features": [
-      "Parameter-efficient methods",
-      "LoRA implementation",
-      "Adapter methods",
-      "Prefix tuning",
-      "Low resource requirements"
+      "LoRA (Low-Rank Adaptation) for efficient weight updates",
+      "Multiple adapter methods (e.g., Houlsby, Pfeiffer configurations)",
+      "Prefix Tuning for conditioning on learned virtual tokens",
+      "P-Tuning for prompt-based parameter efficiency",
+      "IA3 (Infused Adapter by Inhibiting and Amplifying Inner Activations)",
+      "Seamless integration with Hugging Face Transformers and Accelerate",
+      "Support for multi-modal and encoder-decoder architectures"
     ],
     "rating": 4.7,
     "verified": true,
@@ -36755,11 +36987,13 @@
     "trending": true,
     "slug": "peft",
     "tags": [
-      "Parameter Efficient",
-      "LoRA",
-      "Adapters",
-      "Hugging Face",
-      "Low Resource"
+      "parameter-efficient-fine-tuning",
+      "lora",
+      "adapters",
+      "huggingface",
+      "low-resource-ai",
+      "transfer-learning",
+      "llm-fine-tuning"
     ],
     "subcategories": [
       "parameter-efficient",
@@ -36783,12 +37017,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Fine-tuning large language models (e.g., LLaMA, GPT) on domain-specific datasets with limited GPU memory",
+      "Rapid prototyping of multiple model adaptations for A/B testing in research",
+      "Deploying personalized AI assistants by efficiently tuning base models on private data",
+      "Enabling cost-effective model customization for startups and academic labs",
+      "Adapting multilingual models to low-resource languages with minimal data",
+      "Efficiently fine-tuning vision-language models for specialized visual QA tasks"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to library under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - complete library with all methods, no restrictions",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ai-researchers",
+      "ml-engineers",
+      "data-scientists"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "pegasus",
     "name": "PEGASUS",
-    "description": "Pre-training with Extracted Gap-sentences for Abstractive SUmmarization Sequence-to-sequence model.",
+    "description": "PEGASUS is a state-of-the-art Transformer-based model developed by Google Research specifically for abstractive text summarization. Its key innovation is a novel pre-training objective called Gap Sentences Generation (GSG), where it learns to generate missing sentences from a document, making it exceptionally effective at producing coherent, high-quality summaries. It is primarily targeted at researchers, developers, and enterprises looking to integrate advanced, domain-adaptable summarization into their NLP pipelines.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -36796,13 +37053,14 @@
     ],
     "url": "https://github.com/google-research/pegasus",
     "website": "https://github.com/google-research/pegasus",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Abstractive summarization",
-      "Gap-sentence pre-training",
-      "State-of-the-art summaries",
-      "Multiple domains",
-      "Google Research"
+      "Gap Sentences Generation (GSG) pre-training objective for summarization-specific learning",
+      "Pre-trained checkpoints available for multiple domains (C4, HugeNews, arXiv, PubMed, etc.)",
+      "State-of-the-art performance on 12 downstream summarization datasets (e.g., CNN/DailyMail, XSum)",
+      "Available via the Hugging Face Transformers library for easy integration",
+      "Support for fine-tuning on custom datasets for domain-specific summarization",
+      "Implementation based on the standard Transformer encoder-decoder architecture"
     ],
     "rating": 4.3,
     "verified": true,
@@ -36810,9 +37068,13 @@
     "trending": false,
     "slug": "pegasus",
     "tags": [
-      "AI",
-      "NLP",
-      "Summarization"
+      "abstractive-summarization",
+      "transformer-model",
+      "google-research",
+      "text-generation",
+      "pre-trained-models",
+      "huggingface",
+      "sota-nlp"
     ],
     "subcategories": [
       "text-summarization"
@@ -36835,13 +37097,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automated news article summarization for media monitoring services",
+      "Generating concise abstracts from long academic papers (arXiv, PubMed)",
+      "Condensing legal documents or lengthy reports for quick review",
+      "Creating summaries of customer feedback or support tickets for analysis",
+      "Integrating summarization into content aggregation or knowledge management platforms"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to model code, pre-trained weights, and research paper under the Apache License 2.0"
+      ],
+      "free_tier": "Yes - includes all model weights, code, and research paper",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/NLP Researchers",
+      "Machine Learning Engineers",
+      "Data Scientists building text-processing applications"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "perplexity-ai",
     "name": "Perplexity AI",
-    "description": "AI-powered research and answer engine that provides real-time information with source citations.",
-    "category": "generative-ai",
+    "description": "Perplexity AI is an AI-powered conversational answer engine that combines the capabilities of a large language model with real-time web search to provide accurate, up-to-date information with source citations. It excels at research tasks by synthesizing information from multiple sources, generating concise summaries, and allowing for iterative exploration through follow-up questions. Its unique value proposition is delivering the depth of a research assistant with the immediacy of a search engine, prioritizing verifiable information through its citation-centric approach.",
+    "category": "search-ai",
     "categories": [
       "research-tools",
       "business-productivity"
@@ -36850,11 +37134,13 @@
     "website": "https://perplexity.ai",
     "pricing": "freemium",
     "features": [
-      "Real-time search",
-      "Source citations",
-      "Follow-up questions",
-      "Research summaries",
-      "Multi-source analysis"
+      "Real-time web search & information retrieval",
+      "Inline source citations for all factual claims",
+      "Threaded conversation with follow-up questions",
+      "Focus mode for specific search types (e.g., academic, writing)",
+      "File upload (PDF, text) for document-based querying",
+      "AI model selection (e.g., GPT-4, Claude, experimental models)",
+      "Shareable conversation threads and answers"
     ],
     "rating": 4.6,
     "verified": true,
@@ -36862,11 +37148,13 @@
     "trending": true,
     "slug": "perplexity-ai",
     "tags": [
-      "AI",
-      "Research",
-      "Search",
-      "Citations",
-      "Real-time"
+      "conversational-search",
+      "answer-engine",
+      "research-assistant",
+      "real-time-data",
+      "source-citations",
+      "summarization",
+      "web-search"
     ],
     "subcategories": [
       "ai-search",
@@ -36890,12 +37178,37 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research and literature review",
+      "Market analysis and competitive intelligence",
+      "Journalistic fact-checking and article research",
+      "Technical deep-dives and learning complex topics",
+      "Quick, verified answers to current events questions",
+      "Analyzing and querying uploaded documents (PDFs, articles)"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Limited daily searches, access to basic models (e.g., Perplexity Online), 5 file uploads per day",
+        "Pro: $20/month or $200/year - Unlimited searches, access to advanced models (GPT-4, Claude 3, etc.), unlimited file uploads, increased usage limits for API",
+        "Enterprise: Custom Pricing - Dedicated support, enhanced security, SSO, custom models, and data governance"
+      ],
+      "free_tier": "Yes - Limited daily searches, basic AI models, 5 file uploads/day",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "researchers",
+      "students",
+      "professionals"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "phenom-3d-reconstruction",
     "name": "Phenom 3D Reconstruction",
-    "description": "Desktop SEM 3D imaging software using shape-from-shading technology for surface roughness measurements and visual interpretation.",
+    "description": "Phenom 3D Reconstruction is a specialized software solution for desktop scanning electron microscopes (SEMs) that generates three-dimensional surface topography from standard 2D SEM images using shape-from-shading algorithms. It enables quantitative surface roughness measurements (Sa, Sq, Sz) and enhanced visual interpretation without requiring complex stage tilting, making 3D analysis accessible on benchtop SEM systems. Its unique value lies in bringing advanced 3D metrology capabilities to routine desktop SEM workflows, bridging the gap between high-end research instruments and quality control applications.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -36905,11 +37218,12 @@
     "website": "https://www.thermofisher.com",
     "pricing": "paid",
     "features": [
-      "SEM 3D imaging",
-      "Shape-from-shading",
-      "Roughness measurement",
-      "No stage tilt required",
-      "Desktop SEM integration"
+      "Generates 3D surface models from single 2D SEM images using photometric stereo/shape-from-shading",
+      "Calculates ISO 25178-compliant surface roughness parameters (Sa, Sq, Sz, etc.)",
+      "Integrates directly with Thermo Fisher Phenom desktop SEM operating software",
+      "No mechanical stage tilt required, simplifying operation and reducing measurement artifacts",
+      "Export 3D models in STL, PLY, and CSV formats for further analysis",
+      "Real-time rendering and interactive visualization of 3D topography"
     ],
     "rating": 4.2,
     "verified": true,
@@ -36917,10 +37231,13 @@
     "trending": false,
     "slug": "phenom-3d-reconstruction",
     "tags": [
-      "Microscopy",
-      "3D Imaging",
-      "SEM",
-      "Surface Analysis"
+      "sem-microscopy",
+      "3d-surface-metrology",
+      "shape-from-shading",
+      "surface-roughness",
+      "materials-science",
+      "quality-control",
+      "desktop-sem"
     ],
     "subcategories": [
       "microscopy",
@@ -36944,26 +37261,50 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Failure analysis of material surfaces (fractures, wear, corrosion) in manufacturing",
+      "Quality control of surface treatments (coating thickness, polishing, etching)",
+      "Research in materials science for characterizing microstructure and texture",
+      "Forensic analysis of tool marks, fractures, or material traces",
+      "Additive manufacturing quality assessment (powder morphology, layer roughness)"
+    ],
+    "pricing_details": {
+      "model": "one-time license (typically sold with SEM systems)",
+      "tiers": [
+        "Not publicly tiered; sold as an add-on module to Phenom desktop SEM systems"
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Materials scientists and researchers",
+      "Quality control/assurance engineers in manufacturing",
+      "Failure analysis and forensic laboratories"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "phidata",
     "name": "Phidata",
-    "description": "Framework for building AI assistants with memory, knowledge, and tools enabling persistent and intelligent AI applications.",
-    "category": "ml-frameworks",
+    "description": "Phidata is an open-source framework for building robust, stateful AI Assistants that can perform actions using tools and have long-term memory via a structured knowledge base. It enables developers to create intelligent applications with persistent context, allowing assistants to remember past interactions, learn from uploaded documents, and execute tasks like data analysis or web searches. Its unique value lies in its agentic architecture that combines LLMs with a scalable postgres-based memory system, making it ideal for building production-grade, autonomous assistants.",
+    "category": "agent-platforms",
     "categories": [
       "machine-learning-frameworks",
       "ai-assistants"
     ],
     "url": "https://phidata.com",
     "website": "https://github.com/phidatahq/phidata",
-    "pricing": "freemium",
+    "pricing": "open-source",
     "features": [
-      "AI assistants",
-      "Memory management",
-      "Knowledge integration",
-      "Tool usage",
-      "Persistent context"
+      "Structured memory using PostgreSQL with pgvector for long-term conversation history",
+      "Knowledge Base with RAG (Retrieval-Augmented Generation) from uploaded documents (PDF, TXT, DOCX)",
+      "Tool calling for actions like web search, data analysis (via DuckDuckGo, SQL, Python)",
+      "Agentic workflow with planning, execution, and self-correction capabilities",
+      "Support for multiple LLM providers (OpenAI, Anthropic, Groq, Ollama)",
+      "Pre-built templates for AI Researchers, Data Analysts, and Investment Analysts",
+      "Streamlit and FastAPI integrations for building web applications"
     ],
     "rating": 4.4,
     "verified": true,
@@ -36971,11 +37312,14 @@
     "trending": true,
     "slug": "phidata",
     "tags": [
-      "AI Assistants",
-      "Memory",
-      "Knowledge",
-      "Tools",
-      "Persistent"
+      "ai-agents",
+      "assistant-framework",
+      "agent-memory",
+      "knowledge-graph",
+      "postgres-vector",
+      "open-source",
+      "tool-calling",
+      "python-library"
     ],
     "subcategories": [
       "ai-assistants",
@@ -36999,12 +37343,33 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building a customer support assistant with access to product documentation and ticket history",
+      "Creating a data analysis agent that can query databases, generate reports, and answer business questions",
+      "Developing a research assistant that summarizes academic papers and maintains a knowledge graph",
+      "Implementing a personal AI that remembers user preferences, tasks, and past conversations"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Open Source: Full framework access via Apache 2.0 license on GitHub"
+      ],
+      "free_tier": "Yes - The entire framework is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML Engineers building production assistants",
+      "Software Developers integrating AI into applications",
+      "Data Scientists creating analytical AI agents"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "phind-codellama",
     "name": "Phind CodeLlama",
-    "description": "Fine-tuned Code Llama model optimized for programming questions and code generation tasks.",
+    "description": "Phind CodeLlama is a fine-tuned version of Meta's Code Llama 34B model, specifically optimized for programming assistance and code generation. It excels at understanding complex technical questions, generating syntactically correct code across multiple languages, and providing detailed explanations for developers. What makes it unique is its focus on high-quality, production-ready code output and its enhanced reasoning capabilities for solving intricate programming challenges, setting it apart from more general-purpose coding assistants.",
     "category": "code-ai",
     "categories": [
       "Natural Language Processing",
@@ -37012,13 +37377,15 @@
     ],
     "url": "https://huggingface.co/Phind/Phind-CodeLlama-34B-v2",
     "website": "https://www.phind.com",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Programming Q&A",
-      "Code optimization",
-      "Multiple languages",
-      "Enhanced reasoning",
-      "Developer focused"
+      "Code generation in 80+ programming languages",
+      "Context window of 16,384 tokens for handling large codebases",
+      "Optimized for zero-shot programming question answering",
+      "Enhanced reasoning for algorithmic problem-solving",
+      "Direct integration via Hugging Face Transformers library",
+      "Supports code completion, debugging, and optimization",
+      "Fine-tuned specifically on high-quality code datasets"
     ],
     "rating": 4.3,
     "verified": true,
@@ -37026,9 +37393,14 @@
     "trending": false,
     "slug": "phind-codellama",
     "tags": [
-      "AI",
-      "NLP",
-      "Code Generation"
+      "code-generation",
+      "programming-assistant",
+      "large-language-model",
+      "developer-tools",
+      "code-llama",
+      "technical-qa",
+      "open-source-model",
+      "huggingface"
     ],
     "subcategories": [
       "code-generation"
@@ -37051,12 +37423,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automated code generation for software development projects",
+      "Real-time programming assistance and debugging support",
+      "Educational tool for learning new programming languages and concepts",
+      "Technical documentation generation from code comments",
+      "Code review assistance and optimization suggestions",
+      "Prototyping and boilerplate code creation for rapid development"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Complete open-source access under permissive license",
+        "Pro: Not applicable - fully open source model",
+        "Enterprise: Not applicable - fully open source model"
+      ],
+      "free_tier": "Yes - full model weights available for download and commercial use",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "software developers and engineers",
+      "data scientists and ML engineers",
+      "computer science students and educators"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "pico-ai",
     "name": "Pico AI",
-    "description": "Fully automated app-building platform that creates mobile and web applications through AI-driven development.",
+    "description": "Pico AI is a no-code platform that uses generative AI to automatically build and deploy functional mobile and web applications from a simple text description. Its key capability is translating user prompts into fully working apps with front-end UI, back-end logic, and database integration, significantly reducing development time. It uniquely targets entrepreneurs, small businesses, and non-technical creators who need to rapidly prototype or launch applications without writing any code.",
     "category": "generative-ai",
     "categories": [
       "code-ai",
@@ -37066,11 +37463,12 @@
     "website": "https://picoapps.xyz",
     "pricing": "freemium",
     "features": [
-      "Automated app creation",
-      "Mobile and web apps",
-      "AI-driven development",
-      "Template library",
-      "Deployment automation"
+      "Text-to-app generation from natural language prompts",
+      "One-click deployment to a live, shareable URL",
+      "Built-in database and backend logic automation",
+      "Export generated application source code (React/Node.js)",
+      "Template library for common app types (e.g., waitlist, dashboard)",
+      "Real-time preview during the build process"
     ],
     "rating": 4,
     "verified": true,
@@ -37078,11 +37476,13 @@
     "trending": false,
     "slug": "pico-ai",
     "tags": [
-      "AI",
-      "Automated Development",
-      "Mobile Apps",
-      "Web Apps",
-      "Templates"
+      "no-code-platform",
+      "app-generator",
+      "prototyping-tool",
+      "full-stack-automation",
+      "rapid-development",
+      "ai-app-builder",
+      "saas-tools"
     ],
     "subcategories": [
       "automated-development",
@@ -37106,12 +37506,35 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Creating a MVP (Minimum Viable Product) for startup validation",
+      "Building internal tools like admin dashboards or data entry forms",
+      "Prototyping a customer-facing web app (e.g., a booking system)",
+      "Generating a landing page with a waitlist or contact form",
+      "Developing simple mobile-friendly productivity or utility apps"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 1 project, basic templates, Pico-branded subdomain",
+        "Pro: $40/month - Unlimited projects, custom domain, code export, premium templates, priority support"
+      ],
+      "free_tier": "Yes - Includes 1 project, basic templates, and deployment to a picoapps.xyz subdomain.",
+      "starting_price": "$40/month"
+    },
+    "target_audience": [
+      "Non-technical entrepreneurs and startup founders",
+      "Product managers and designers for rapid prototyping",
+      "Small business owners needing custom web tools"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "picsellia",
     "name": "Picsellia",
-    "description": "End-to-end MLOps platform for computer vision with comprehensive data management and model lifecycle tools.",
+    "description": "Picsellia is an end-to-end MLOps platform specifically designed for computer vision projects. It provides a unified environment for data scientists and ML engineers to manage datasets, train models, track experiments, and deploy computer vision models at scale. Its key differentiator is a strong focus on data-centric AI, offering robust versioning for both data and models, and seamless integration with popular CV frameworks and cloud infrastructure.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -37121,11 +37544,13 @@
     "website": "https://picsellia.com",
     "pricing": "paid",
     "features": [
-      "MLOps for computer vision",
-      "Data management",
-      "Model lifecycle",
-      "Annotation tools",
-      "Deployment automation"
+      "Visual dataset management with versioning (DVC integration)",
+      "Experiment tracking and hyperparameter comparison",
+      "Integrated annotation tools and workforce management",
+      "Automated model training pipelines (supports PyTorch, TensorFlow)",
+      "Model registry with versioning and stage promotion",
+      "One-click deployment to cloud endpoints (AWS, GCP, Azure) or edge",
+      "Performance monitoring and data drift detection in production"
     ],
     "rating": 4.4,
     "verified": true,
@@ -37133,10 +37558,13 @@
     "trending": true,
     "slug": "picsellia",
     "tags": [
-      "MLOps",
-      "Data Management",
-      "Model Lifecycle",
-      "Annotation"
+      "mlops",
+      "computer-vision-platform",
+      "model-training",
+      "data-versioning",
+      "experiment-tracking",
+      "model-deployment",
+      "collaboration-tools"
     ],
     "subcategories": [
       "mlops",
@@ -37160,13 +37588,38 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Quality inspection and defect detection in manufacturing",
+      "Retail analytics for shelf monitoring and customer insights",
+      "Aerial and satellite imagery analysis for agriculture or geospatial intelligence",
+      "Automated document processing and data extraction",
+      "Video analytics for security and surveillance",
+      "Developing and operationalizing autonomous vehicle perception systems"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: $499/month - Includes 5 users, 500 GB storage, standard support",
+        "Pro: Custom Pricing - Unlimited users, priority support, advanced security & SSO",
+        "Enterprise: Custom Pricing - Dedicated infrastructure, on-premise deployment, SLA"
+      ],
+      "free_tier": "Yes - 14-day free trial of the Pro plan, no permanent free tier",
+      "starting_price": "$499/month"
+    },
+    "target_audience": [
+      "Computer Vision Teams in Enterprises",
+      "MLOps Engineers & Data Scientists",
+      "AI Product Managers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "pika-labs",
     "name": "Pika Labs",
-    "description": "AI video generation platform that transforms images and text into creative video content.",
-    "category": "generative-ai",
+    "description": "Pika Labs is an AI-powered platform that specializes in generating and editing short videos from text prompts, images, or existing video clips. It enables users to create cinematic scenes, animate static images, and modify videos with effects, style changes, and object additions/removals using simple text commands. It is particularly popular among content creators, marketers, and hobbyists for its user-friendly interface, rapid generation speed, and strong community-driven features hosted primarily on Discord.",
+    "category": "video-generation",
     "categories": [
       "video-generation",
       "design-creative"
@@ -37175,11 +37628,13 @@
     "website": "https://pika.art",
     "pricing": "freemium",
     "features": [
-      "Text-to-video conversion",
-      "Image-to-video animation",
-      "Creative effects",
-      "Discord integration",
-      "Community features"
+      "Text-to-video generation with adjustable aspect ratios (e.g., 16:9, 9:16, 1:1)",
+      "Image-to-video animation (animate still images into short clips)",
+      "Video-to-video editing (modify existing videos with AI using text prompts)",
+      "Inpainting/Outpainting for object removal, addition, or extending video frames",
+      "Style and character consistency tools for multi-shot scenes",
+      "Direct generation and community sharing via integrated Discord server",
+      "Lip-sync capability for adding synchronized speech to characters"
     ],
     "rating": 4.3,
     "verified": true,
@@ -37187,11 +37642,13 @@
     "trending": true,
     "slug": "pika-labs",
     "tags": [
-      "AI",
-      "Creative",
-      "Animation",
-      "Discord",
-      "Community"
+      "ai-video",
+      "text-to-video",
+      "video-editing",
+      "discord-community",
+      "content-creation",
+      "video-animation",
+      "generative-ai"
     ],
     "subcategories": [
       "text-to-video",
@@ -37215,13 +37672,38 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Social media content creation (short clips, stories, ads for TikTok, Instagram, YouTube)",
+      "Storyboarding and concept visualization for filmmakers and animators",
+      "Marketing and promotional video prototyping",
+      "Educational and explainer video production",
+      "Personalized video messages and greetings",
+      "Rapid ideation and mood video creation for creative projects"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Limited generations per day, standard resolution, Pika watermark, access to community features on Discord",
+        "Pro: $58/month or $580/year - Increased daily generations, higher priority queue, no watermark, commercial license, early access to features",
+        "Enterprise: Custom pricing - Dedicated infrastructure, enhanced security, custom models, team management, API access (as per reports)"
+      ],
+      "free_tier": "Yes - Includes a limited number of daily video generations with a watermark and access to the Discord community.",
+      "starting_price": "$58/month (Pro tier)"
+    },
+    "target_audience": [
+      "social media content creators and influencers",
+      "digital marketers and advertising professionals",
+      "independent filmmakers and video hobbyists"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "pillow",
     "name": "Pillow (PIL)",
-    "description": "Python Imaging Library providing image processing capabilities including loading, manipulating, and saving images in various formats for computer vision tasks.",
-    "category": "ml-frameworks",
+    "description": "Pillow (PIL Fork) is the definitive Python library for opening, manipulating, and saving many different image file formats. It provides extensive capabilities for basic image processing, including cropping, resizing, filtering, drawing, and color space conversions, making it a foundational tool for developers working with images. Its key differentiator is being a robust, well-maintained fork of the original Python Imaging Library (PIL), offering Python 3 support and continued development for a wide range of image handling tasks.",
+    "category": "computer-vision",
     "categories": [
       "machine-learning-frameworks",
       "image-processing"
@@ -37230,11 +37712,13 @@
     "website": "https://python-pillow.org",
     "pricing": "open-source",
     "features": [
-      "Image manipulation",
-      "Format support",
-      "Image filters",
-      "Drawing capabilities",
-      "Color space conversions"
+      "Open and save images in over 30 formats (e.g., PNG, JPEG, TIFF, WebP, BMP)",
+      "Perform core image operations: resize, crop, rotate, flip, and paste",
+      "Apply a suite of built-in image filters (e.g., BLUR, CONTOUR, DETAIL, EDGE_ENHANCE)",
+      "Draw 2D graphics and text onto images using the ImageDraw module",
+      "Convert between color spaces (e.g., RGB, CMYK, grayscale, L*a*b*)",
+      "Extract and manipulate image histogram data",
+      "Support for image sequences (animation) and basic image enhancement"
     ],
     "rating": 4.6,
     "verified": true,
@@ -37242,11 +37726,13 @@
     "trending": false,
     "slug": "pillow",
     "tags": [
-      "Image Processing",
-      "Python",
-      "Image Manipulation",
-      "Formats",
-      "Filters"
+      "python-library",
+      "image-processing",
+      "pil-fork",
+      "image-formats",
+      "image-manipulation",
+      "computer-vision-toolkit",
+      "open-source"
     ],
     "subcategories": [
       "image-processing",
@@ -37270,13 +37756,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Preprocessing image datasets for machine learning and computer vision pipelines",
+      "Automating batch image resizing, format conversion, and watermarking for web content",
+      "Generating thumbnails and preparing images for display in web applications",
+      "Creating simple image compositions, memes, or adding annotations for reports",
+      "Extracting basic image metadata and performing quality checks in data workflows"
+    ],
+    "pricing_details": {
+      "model": "free/open-source",
+      "tiers": [
+        "Free: The entire library is free and open-source under the HPND License"
+      ],
+      "free_tier": "Yes - The entire library is free to use",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "python-developers",
+      "data-scientists-ml-engineers",
+      "web-developers-backend"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "pinecone",
     "name": "Pinecone",
-    "description": "Fully managed vector database for high-performance AI applications providing fast and accurate similarity search at scale.",
-    "category": "ml-frameworks",
+    "description": "Pinecone is a fully managed, cloud-native vector database designed to power AI applications that require fast and accurate similarity search at massive scale. It enables developers to store, index, and query high-dimensional vector embeddings generated by machine learning models, making it a critical component for building retrieval-augmented generation (RAG), recommendation systems, and semantic search. Its key differentiator is a serverless architecture that automatically scales to handle billions of vectors with minimal operational overhead, coupled with enterprise-grade security and data isolation.",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "vector-databases"
@@ -37285,11 +37793,13 @@
     "website": "https://www.pinecone.io",
     "pricing": "freemium",
     "features": [
-      "Managed vector database",
-      "High-performance search",
-      "Real-time updates",
-      "Scalable infrastructure",
-      "Enterprise security"
+      "Serverless vector indexing with automatic scaling and infrastructure management",
+      "Single-stage filtering for combining metadata filters with vector search in a single query",
+      "Multiple index types (pod-based and serverless) for optimizing cost vs. performance",
+      "Real-time upsert and update capabilities for fresh, dynamic data",
+      "Private, fully isolated indexes with SOC2 Type II compliance and encryption",
+      "Integrations with major AI ecosystems (OpenAI, LangChain, LlamaIndex, Hugging Face)",
+      "gRPC and REST API for low-latency, high-throughput querying"
     ],
     "rating": 4.6,
     "verified": true,
@@ -37297,11 +37807,14 @@
     "trending": true,
     "slug": "pinecone",
     "tags": [
-      "Vector Database",
-      "Managed",
-      "High Performance",
-      "Scalable",
-      "Enterprise"
+      "vector-database",
+      "similarity-search",
+      "retrieval-augmented-generation",
+      "serverless",
+      "managed-service",
+      "embeddings",
+      "ai-infrastructure",
+      "semantic-search"
     ],
     "subcategories": [
       "vector-databases",
@@ -37325,12 +37838,36 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Retrieval-Augmented Generation (RAG) for grounding LLMs in private, up-to-date knowledge bases",
+      "Semantic search and product recommendations for e-commerce and content platforms",
+      "Image and multimedia similarity search for content moderation or catalog management",
+      "Anomaly and fraud detection by comparing transaction patterns against historical vector data",
+      "Personalized chatbots and AI agents with long-term memory and contextual awareness"
+    ],
+    "pricing_details": {
+      "model": "usage-based subscription",
+      "tiers": [
+        "Free: 1 project, 1 index, up to 100K vectors, 5GB metadata storage, limited query/upsert pod capacity",
+        "Serverless Starter: $0.0983 per 1M read units, $0.392 per 1M write units (prices as of Q2 2024, based on AWS us-east-1)",
+        "Enterprise: Custom pricing - dedicated support, SLAs, custom security reviews, private deployments"
+      ],
+      "free_tier": "Yes - includes 1 project, 1 index, 100K vectors, and 5GB metadata storage",
+      "starting_price": "Free tier available; paid usage starts with Serverless pricing per million operations."
+    },
+    "target_audience": [
+      "AI/ML Engineers building production RAG systems",
+      "Software Developers integrating semantic search into applications",
+      "Enterprise Architects scaling AI infrastructure with security and compliance needs"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "pitch-ai",
     "name": "Pitch AI",
-    "description": "AI-powered presentation platform designed for sales teams with smart templates and collaboration features.",
+    "description": "Pitch is an AI-powered presentation software designed to help teams create, collaborate on, and deliver beautiful presentations faster. It combines smart, data-driven templates with real-time collaboration tools and analytics to streamline the entire presentation workflow, from creation to follow-up. Its unique value lies in its focus on team-wide brand consistency, live collaboration features, and actionable insights into how presentations are performing.",
     "category": "generative-ai",
     "categories": [
       "presentation-tools",
@@ -37340,11 +37877,14 @@
     "website": "https://pitch.com",
     "pricing": "freemium",
     "features": [
-      "Smart presentation templates",
-      "Team collaboration",
-      "Real-time editing",
-      "Analytics tracking",
-      "Brand consistency"
+      "AI-powered content generation and slide refinement",
+      "Real-time multi-user editing with comments and @mentions",
+      "Dynamic, data-linked templates for consistent branding",
+      "Presentation analytics (views, time spent, most engaged slides)",
+      "Integrations with Slack, Google Drive, Figma, and Salesforce",
+      "Customizable Workspaces for different teams/projects",
+      "Offline presenting mode and presenter notes",
+      "Export to PDF, PPTX, and embeddable live links"
     ],
     "rating": 4.2,
     "verified": true,
@@ -37352,11 +37892,13 @@
     "trending": false,
     "slug": "pitch-ai",
     "tags": [
-      "AI",
-      "Presentations",
-      "Sales",
-      "Collaboration",
-      "Templates"
+      "presentation-software",
+      "sales-enablement",
+      "team-collaboration",
+      "presentation-analytics",
+      "content-creation",
+      "brand-templates",
+      "real-time-editing"
     ],
     "subcategories": [
       "sales-presentations",
@@ -37380,7 +37922,32 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Sales teams creating and tracking prospect-facing pitch decks",
+      "Marketing teams developing on-brand campaign presentations",
+      "Startups crafting investor decks and company overviews",
+      "Consultants building client reports and proposals",
+      "Product teams presenting roadmaps and launch plans",
+      "Educators and trainers developing course materials"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited presentations, 3 custom templates, basic analytics, 50 AI credits/mo",
+        "Pro: $25/editor/month - Unlimited AI credits, advanced analytics, custom fonts, unlimited templates, priority support",
+        "Enterprise: Custom pricing - SSO/SAML, advanced security, dedicated support, workspace analytics, contract signing"
+      ],
+      "free_tier": "Yes - Includes unlimited presentations for unlimited viewers, basic collaboration, and 50 AI credits per month.",
+      "starting_price": "Free, then $25/month per editor"
+    },
+    "target_audience": [
+      "Sales and Revenue Teams",
+      "Marketing and Brand Teams",
+      "Startups and SMBs"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "pixelshine",
