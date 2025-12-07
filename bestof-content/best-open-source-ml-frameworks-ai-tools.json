@@ -8,6 +8,30 @@
   "platforms": [
     {
       "rank": 1,
+      "name": "PyTorch",
+      "slug": "pytorch",
+      "description": "PyTorch is an open-source deep learning framework developed primarily by Meta AI that provides a flexible, Pythonic platform for building and training neural networks. Its key capability is dynamic computation graphs (eager execution), which allows for intuitive debugging and rapid prototyping, while TorchScript enables seamless conversion to static graphs for optimized production deployment. It uniquely bridges the gap between research experimentation and high-performance production, making it a favorite in academic and industrial AI labs.",
+      "pricing": "open-source",
+      "rating": 4.8,
+      "verified": true,
+      "featured": true,
+      "bestFor": "deep-learning",
+      "keyFeatures": [
+        "Imperative eager execution for dynamic computation graphs and intuitive debugging",
+        "TorchScript for tracing and scripting models to export for production without Python dependency",
+        "Native support for distributed training via torch.distributed (DDP, RPC, collective communications)"
+      ],
+      "pros": [
+        "Verified platform",
+        "Highly rated",
+        "Feature-rich"
+      ],
+      "cons": [
+        "May have learning curve"
+      ]
+    },
+    {
+      "rank": 2,
       "name": "TensorFlow",
       "slug": "tensorflow",
       "description": "End-to-end open-source platform by Google for scalable machine learning and deep-learning model development, training, and deployment.",
@@ -30,7 +54,7 @@
       ]
     },
     {
-      "rank": 2,
+      "rank": 3,
       "name": "Hugging Face Transformers",
       "slug": "huggingface-transformers",
       "description": "Hugging Face Transformers is an open-source Python library that provides a unified API for downloading, training, and deploying thousands of state-of-the-art pre-trained transformer models for Natural Language Processing (NLP), computer vision, audio, and multimodal tasks. It is the de facto standard for the AI research and developer community, enabling rapid prototyping and production deployment. Its uniqueness lies in the massive, community-driven Hugging Face Hub, which hosts models, datasets, and demos, creating a central ecosystem for sharing and discovering AI artifacts.",
@@ -54,7 +78,7 @@
       ]
     },
     {
-      "rank": 3,
+      "rank": 4,
       "name": "Jupyter Notebooks",
       "slug": "jupyter-notebooks",
       "description": "Jupyter Notebooks is an open-source web application that allows users to create and share documents containing live code, equations, visualizations, and narrative text. Its key capability is interactive, exploratory computing, enabling users to run code in multiple programming languages (like Python, R, Julia) in a cell-based environment and see results immediately. It is uniquely powerful for data science, scientific research, and education due to its blend of executable code, rich media output, and explanatory text in a single, shareable document.",
@@ -78,7 +102,7 @@
       ]
     },
     {
-      "rank": 4,
+      "rank": 5,
       "name": "OpenAI Gym",
       "slug": "openai-gym",
       "description": "OpenAI Gym is a widely adopted open-source toolkit for developing and comparing reinforcement learning (RL) algorithms. It provides a standardized collection of environments—from classic control problems and Atari games to robotics simulations—with a unified Python interface, enabling reproducible benchmarking. Its primary value lies in establishing a common experimental framework that has become the de facto standard for RL research and education.",
@@ -102,7 +126,7 @@
       ]
     },
     {
-      "rank": 5,
+      "rank": 6,
       "name": "AutoGluon",
       "slug": "autogluon",
       "description": "AutoGluon is an open-source AutoML toolkit developed by Amazon that automates the end-to-end machine learning pipeline, from data preprocessing to model deployment. Its key capabilities include robust automated model selection, hyperparameter tuning, and ensembling, with specialized support for tabular, text, and image data. It uniquely targets both practitioners and researchers by offering state-of-the-art performance 'out-of-the-box' while remaining extensible for custom modeling tasks, significantly reducing the expertise and time required to build high-quality ML models.",
@@ -126,7 +150,7 @@
       ]
     },
     {
-      "rank": 6,
+      "rank": 7,
       "name": "CatBoost",
       "slug": "catboost",
       "description": "CatBoost is an open-source gradient boosting library developed by Yandex, specifically engineered for high performance on datasets with categorical features. Its key capabilities include advanced handling of categorical data without extensive preprocessing, symmetric tree structures for faster inference, and ordered boosting to reduce overfitting. It uniquely targets data scientists and machine learning engineers who need robust, out-of-the-box performance on heterogeneous data, particularly in tabular prediction tasks where categorical variables are prevalent.",
@@ -150,7 +174,7 @@
       ]
     },
     {
-      "rank": 7,
+      "rank": 8,
       "name": "ClearML",
       "slug": "clearml",
       "description": "ClearML is an open-source, end-to-end MLOps platform designed to streamline the entire machine learning lifecycle. It provides a unified suite for experiment tracking, orchestration of training pipelines, dataset versioning, model registry, and production deployment. Its key differentiator is its 'auto-magical' integration that automatically logs experiments, code, and artifacts with minimal code changes, making it highly popular with data scientists and ML engineers for its ease of adoption and powerful automation.",
@@ -174,43 +198,19 @@
       ]
     },
     {
-      "rank": 8,
-      "name": "BentoML",
-      "slug": "bentoml",
-      "description": "BentoML is an open-source platform for building, shipping, and scaling AI applications. It standardizes the process of packaging trained models, their dependencies, and serving logic into a portable, production-ready artifact called a 'Bento'. Its key capability is providing a unified framework-agnostic workflow that bridges the gap between data science experimentation and robust, scalable deployment. This makes it unique by offering a developer-first experience with high-performance serving, native support for batch inference, and seamless integration across cloud providers and Kubernetes.",
-      "pricing": "open-source",
-      "rating": 4.5,
-      "verified": true,
-      "featured": true,
-      "bestFor": "model-serving",
-      "keyFeatures": [
-        "Unified model packaging format (Bento) for any ML framework (PyTorch, TensorFlow, Scikit-learn, etc.)",
-        "High-performance API server with adaptive micro-batching for online serving",
-        "Native support for distributed batch inference jobs"
-      ],
-      "pros": [
-        "Verified platform",
-        "Highly rated",
-        "Feature-rich"
-      ],
-      "cons": [
-        "May have learning curve"
-      ]
-    },
-    {
       "rank": 9,
-      "name": "Evidently",
-      "slug": "evidently-ai",
-      "description": "Evidently is an open-source ML observability platform designed to evaluate, test, and monitor machine learning models and LLMs in production. It provides comprehensive tools for detecting data drift, tracking model performance, and generating automated reports and dashboards. Its key differentiator is a modular, code-first approach that integrates seamlessly into existing ML pipelines, making it particularly popular among data scientists and ML engineers for maintaining model reliability.",
+      "name": "Prophet",
+      "slug": "prophet",
+      "description": "Prophet is an open-source forecasting procedure developed by Facebook's Core Data Science team for time series data. It is designed to handle time series with strong seasonal effects (multiple seasonalities) and several seasons of historical data, making it robust to missing data and shifts in the trend. Its key capability is providing high-quality, interpretable forecasts with intuitive parameters, targeting analysts and developers without deep expertise in time series modeling. What makes it unique is its decomposable model (trend, seasonality, holidays) and its automatic handling of outliers, missing data, and trend changes, which simplifies the forecasting workflow significantly.",
       "pricing": "open-source",
-      "rating": 4.5,
+      "rating": 4.6,
       "verified": true,
       "featured": true,
-      "bestFor": "ml-observability",
+      "bestFor": "time-series-forecasting",
       "keyFeatures": [
-        "Interactive dashboards for visualizing data drift, target drift, and model quality metrics",
-        "Pre-built metrics and tests for tabular data, text data, and LLM outputs (e.g., sentiment, toxicity, hallucinations)",
-        "Integration with ML pipelines via Python library, Airflow, and Prefect"
+        "Automatic detection of changepoints in the trend",
+        "Modeling of multiple seasonalities (yearly, weekly, daily) using Fourier series",
+        "Incorporation of holiday and event effects as adjustable regressors"
       ],
       "pros": [
         "Verified platform",
@@ -223,18 +223,18 @@
     },
     {
       "rank": 10,
-      "name": "Feast",
-      "slug": "feast",
-      "description": "Feast is an open-source, end-to-end feature store designed to manage, store, and serve machine learning features consistently across training and online serving environments. Its key capabilities include unifying batch and real-time feature data, providing a centralized registry for feature definitions, and enabling low-latency feature retrieval for online inference. It uniquely offers a vendor-agnostic, cloud-native architecture that decouples feature storage from compute, making it highly portable across cloud providers and on-premises systems, primarily targeting data scientists and ML engineers building production ML systems.",
+      "name": "BentoML",
+      "slug": "bentoml",
+      "description": "BentoML is an open-source platform for building, shipping, and scaling AI applications. It standardizes the process of packaging trained models, their dependencies, and serving logic into a portable, production-ready artifact called a 'Bento'. Its key capability is providing a unified framework-agnostic workflow that bridges the gap between data science experimentation and robust, scalable deployment. This makes it unique by offering a developer-first experience with high-performance serving, native support for batch inference, and seamless integration across cloud providers and Kubernetes.",
       "pricing": "open-source",
       "rating": 4.5,
       "verified": true,
       "featured": true,
-      "bestFor": "feature-store",
+      "bestFor": "model-serving",
       "keyFeatures": [
-        "Unified feature registry with versioning and metadata management",
-        "Low-latency online feature serving via gRPC/HTTP APIs",
-        "Batch feature retrieval for model training and batch scoring"
+        "Unified model packaging format (Bento) for any ML framework (PyTorch, TensorFlow, Scikit-learn, etc.)",
+        "High-performance API server with adaptive micro-batching for online serving",
+        "Native support for distributed batch inference jobs"
       ],
       "pros": [
         "Verified platform",
@@ -265,5 +265,5 @@
     "Assess scalability for future growth",
     "Consider support and documentation quality"
   ],
-  "verdict": "All 10 open source ml frameworks AI tools on this list are excellent choices, each with unique strengths. TensorFlow leads with AI, while Hugging Face Transformers offers transformer-models. Your best choice depends on your specific requirements, budget, and technical expertise."
+  "verdict": "All 10 open source ml frameworks AI tools on this list are excellent choices, each with unique strengths. PyTorch leads with deep-learning, while TensorFlow offers AI. Your best choice depends on your specific requirements, budget, and technical expertise."
 }
