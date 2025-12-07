@@ -5,59 +5,17 @@ Total Opportunities: 6
 
 ---
 
-## 1. HeyGen 2.0
+## 1. Coveo Relevance Cloud
 
-**Category:** video-generation
-**Website:** https://www.heygen.com
-**Pricing Model:** paid
-
-**Description:**
-Next-generation AI video platform featuring photorealistic AI avatars, voice cloning, and multilingual video translation. Enables businesses to create professional videos with AI presenters speaking 40+ languages.
-
-**💵 Affiliate Program Details:**
-HeyGen Ambassador Program, 20% recurring commission, $100 bonus for 5+ referrals/month, dedicated affiliate dashboard, enterprise referrals earn 15% of first-year contract
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 2. Pika 2.0
-
-**Category:** video-generation
-**Website:** https://www.pika.art
-**Pricing Model:** freemium
-
-**Description:**
-AI-powered video editing and generation platform that transforms ideas into videos with simple prompts. Features advanced editing controls, style consistency, and real-time collaboration for teams.
-
-**💵 Affiliate Program Details:**
-Pika Partner Program via Impact.com, 25% commission on all referrals, 60-day cookie, tiered bonuses for volume, requires minimum social media following
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 3. DeepSeek Coder
-
-**Category:** code-ai
-**Website:** https://coder.deepseek.com
+**Category:** search-ai
+**Website:** https://www.coveo.com
 **Pricing Model:** enterprise
 
 **Description:**
-Specialized AI coding assistant focused on enterprise software development with advanced code understanding, security scanning, and compliance checking. Supports 100+ programming languages and frameworks.
+AI-powered search and recommendation platform that delivers personalized experiences across websites, apps, and internal systems. Features real-time personalization, behavioral analytics, and no-code configuration. Targets e-commerce and enterprise businesses.
 
 **💵 Affiliate Program Details:**
-DeepSeek Enterprise Partner Program, 20% commission on first-year contracts, $5,000+ referral bonuses for large deals, dedicated partner managers, technical certification available
+Technology partner program with 20% commission, tiered up to 30% for strategic partners, $50K minimum annual revenue, via direct partnership
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -68,17 +26,38 @@ DeepSeek Enterprise Partner Program, 20% commission on first-year contracts, $5,
 
 ---
 
-## 4. Mistral Large 2
+## 2. Adept Fuyu-Heavy
+
+**Category:** workflow-automation
+**Website:** https://www.adept.ai
+**Pricing Model:** enterprise
+
+**Description:**
+Multimodal AI model specialized in understanding and interacting with computer interfaces. Can navigate websites, use software applications, and perform digital tasks through natural language commands. Targets enterprise automation and RPA.
+
+**💵 Affiliate Program Details:**
+Enterprise automation partner program with 25% first-year commission, minimum $100K deal size, direct application, requires automation consulting experience
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 3. Anthropic Claude 3.5 Sonnet
 
 **Category:** llms
-**Website:** https://mistral.ai
+**Website:** https://www.anthropic.com
 **Pricing Model:** paid
 
 **Description:**
-Latest large language model from Mistral AI featuring enhanced reasoning capabilities, 128K context window, and enterprise-grade security. Optimized for complex analysis, coding, and strategic planning tasks.
+Enhanced version of Claude 3 with improved reasoning, coding capabilities, and vision processing. Features reduced latency, better instruction following, and enhanced safety features. Targets enterprises and developers.
 
 **💵 Affiliate Program Details:**
-Mistral Partner Network, 15% commission on API usage referrals, enterprise deal registration protection, dedicated technical support, minimum referral volume required
+Developer partner program with 15% recurring commission, $1000 minimum quarterly revenue, direct application, requires technical implementation
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -89,38 +68,59 @@ Mistral Partner Network, 15% commission on API usage referrals, enterprise deal 
 
 ---
 
-## 5. Runway Gen-3
+## 4. Stability AI Stable Audio 2.0
 
-**Category:** video-generation
-**Website:** https://runwayml.com
-**Pricing Model:** paid
-
-**Description:**
-Third-generation AI video and image generation platform with enhanced control, consistency, and production quality. Features advanced editing tools, style transfer, and professional workflow integration.
-
-**💵 Affiliate Program Details:**
-Runway Partner Program, 20% recurring commission, special bonuses for education and enterprise referrals, 90-day cookie, application requires creative portfolio
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 6. Leonardo Diffusion
-
-**Category:** image-generation
-**Website:** https://leonardo.ai
+**Category:** audio-ai
+**Website:** https://stability.ai
 **Pricing Model:** freemium
 
 **Description:**
-AI image generation platform specializing in artistic and design-focused creation with advanced control over style, composition, and artistic elements. Features model training and custom workflows.
+Advanced audio generation platform for creating music, sound effects, and complete audio tracks from text prompts. Features longer audio generation, style transfer, and professional mixing tools. Targets musicians and audio professionals.
 
 **💵 Affiliate Program Details:**
-Leonardo Affiliate Program via ShareASale, 25% commission on premium plans, additional bonuses for annual subscriptions, 45-day cookie, creative community focus
+20% commission via ShareASale, 45-day cookie, $50 minimum payout, requires music/audio focused platform
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 5. Glean AI Search
+
+**Category:** search-ai
+**Website:** https://www.glean.com
+**Pricing Model:** enterprise
+
+**Description:**
+Enterprise AI search platform that connects to all company data sources to provide accurate, contextual answers. Features natural language queries, source citation, and access control. Targets large enterprises and organizations.
+
+**💵 Affiliate Program Details:**
+Technology partner program with 20% first-year commission, minimum $50K deal, direct partnership, requires enterprise IT background
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 6. Descript Overdub Pro
+
+**Category:** audio-ai
+**Website:** https://www.descript.com
+**Pricing Model:** paid
+
+**Description:**
+Advanced AI voice cloning and synthesis platform for creating realistic voiceovers and dubbing. Features emotion control, accent modification, and multi-language support. Targets content creators, filmmakers, and businesses.
+
+**💵 Affiliate Program Details:**
+25% recurring commission via Impact.com, 60-day cookie, $100 minimum payout, requires video/audio content platform
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -134,9 +134,9 @@ Leonardo Affiliate Program via ShareASale, 25% commission on premium plans, addi
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **HeyGen 2.0** - https://www.heygen.com
-2. [ ] **Pika 2.0** - https://www.pika.art
-3. [ ] **DeepSeek Coder** - https://coder.deepseek.com
-4. [ ] **Mistral Large 2** - https://mistral.ai
-5. [ ] **Runway Gen-3** - https://runwayml.com
-6. [ ] **Leonardo Diffusion** - https://leonardo.ai
+1. [ ] **Coveo Relevance Cloud** - https://www.coveo.com
+2. [ ] **Adept Fuyu-Heavy** - https://www.adept.ai
+3. [ ] **Anthropic Claude 3.5 Sonnet** - https://www.anthropic.com
+4. [ ] **Stability AI Stable Audio 2.0** - https://stability.ai
+5. [ ] **Glean AI Search** - https://www.glean.com
+6. [ ] **Descript Overdub Pro** - https://www.descript.com
