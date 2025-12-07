@@ -1,42 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
 Generated: 2025-12-07
-Total Opportunities: 3
+Total Opportunities: 2
 
 ---
 
-## 1. Pika Labs 1.5
-
-**Category:** video-generation
-**Website:** https://www.pika.art
-**Pricing Model:** freemium
-
-**Description:**
-Next-generation AI video platform that transforms images, text, and existing videos into stylized animations with precise control over motion, style, and composition. Features advanced editing tools and real-time preview capabilities.
-
-**💵 Affiliate Program Details:**
-20% recurring commission via PartnerStack, 90-day cookie, $100 minimum payout, requires creative portfolio or established content platform
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 2. Descript Overdub
+## 1. Bland AI
 
 **Category:** audio-ai
-**Website:** https://www.descript.com/overdub
+**Website:** https://bland.ai
 **Pricing Model:** paid
 
 **Description:**
-AI voice generation and editing platform that creates realistic voice clones, edits audio through text, and generates natural-sounding speech for content creation, podcasting, and video production.
+AI phone call platform that enables natural, human-like voice conversations for customer service, sales, and appointment scheduling. Features real-time voice synthesis, interruption handling, and call analytics.
 
 **💵 Affiliate Program Details:**
-30% recurring commission via Impact.com, 60-day cookie, $100 minimum payout, requires content creation or podcasting audience
+Bland Partner Program via PartnerStack, 20% recurring commission, 90-day cookie, enterprise referral bonuses, agency partnerships encouraged
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -47,17 +26,17 @@ AI voice generation and editing platform that creates realistic voice clones, ed
 
 ---
 
-## 3. Continue.dev
+## 2. Krea AI
 
-**Category:** code-ai
-**Website:** https://continue.dev
+**Category:** image-generation
+**Website:** https://krea.ai
 **Pricing Model:** freemium
 
 **Description:**
-AI-powered IDE extension that provides context-aware code completion, documentation generation, and refactoring assistance with deep understanding of codebases and development patterns.
+Real-time AI image generation and editing platform with instant previews, style transfer, and collaborative features. Enables artists to work interactively with AI as a creative partner.
 
 **💵 Affiliate Program Details:**
-20% recurring commission via direct program, 90-day cookie, requires developer audience or programming tutorial content
+Krea Creator Program with 25% commission, artist ambassador program, educational institution partnerships, minimum follower count for influencers
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -71,6 +50,5 @@ AI-powered IDE extension that provides context-aware code completion, documentat
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Pika Labs 1.5** - https://www.pika.art
-2. [ ] **Descript Overdub** - https://www.descript.com/overdub
-3. [ ] **Continue.dev** - https://continue.dev
+1. [ ] **Bland AI** - https://bland.ai
+2. [ ] **Krea AI** - https://krea.ai
