@@ -3407,7 +3407,7 @@
     "id": "apache-nifi-ml",
     "name": "Apache NiFi ML",
     "description": "Apache NiFi is an open-source, scalable data integration and automation platform designed to automate the flow of data between disparate systems. Its core strength lies in its visual, drag-and-drop interface for building complex data pipelines, robust data provenance tracking, and a flexible architecture that supports real-time data ingestion, routing, transformation, and delivery. While not a native ML framework, its 'Apache NiFi ML' extensions enable seamless integration of machine learning models (e.g., from scikit-learn, TensorFlow) into these data flows, making it unique for operationalizing ML models within enterprise-scale, reliable data workflows.",
-    "category": "ml-frameworks",
+    "category": "workflow-automation",
     "categories": [
       "machine-learning-frameworks",
       "data-flow"
@@ -3484,14 +3484,14 @@
     ],
     "has_api": true,
     "has_affiliate": false,
-    "recategorized_date": "2025-12-07T12:59:45.142Z",
-    "recategorized_from": "workflow-automation"
+    "recategorized_date": "2025-12-07T14:51:38.275Z",
+    "recategorized_from": "ml-frameworks"
   },
   {
     "id": "apache-opennlp",
     "name": "Apache OpenNLP",
     "description": "Apache OpenNLP is an open-source machine learning toolkit for natural language processing (NLP) written in Java. It provides a library of pre-trained models and tools for tasks like tokenization, part-of-speech tagging, named entity recognition, and parsing, enabling developers to build robust text processing pipelines. Its key differentiator is being a mature, production-ready Apache project focused on traditional, deterministic NLP tasks with strong support for training custom models on domain-specific data.",
-    "category": "ml-frameworks",
+    "category": "nlp",
     "categories": [
       "Natural Language Processing",
       "NLP Libraries"
@@ -3567,8 +3567,8 @@
     ],
     "has_api": true,
     "has_affiliate": false,
-    "recategorized_date": "2025-12-07T12:59:45.142Z",
-    "recategorized_from": "nlp"
+    "recategorized_date": "2025-12-07T14:51:38.275Z",
+    "recategorized_from": "ml-frameworks"
   },
   {
     "id": "apache-spark-mllib",
@@ -24765,7 +24765,7 @@
   {
     "id": "jax",
     "name": "JAX",
-    "description": "Python library for accelerator-oriented array computation and program transformation, designed for high-performance numerical computing and large-scale machine learning.",
+    "description": "JAX is a high-performance Python library for numerical computing and machine learning research that provides composable function transformations. It combines NumPy's familiar API with automatic differentiation, just-in-time (JIT) compilation via XLA, and automatic vectorization/parallelization capabilities. What makes it unique is its functional programming paradigm and ability to efficiently scale computations across GPUs and TPUs while maintaining mathematical purity.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -24775,11 +24775,13 @@
     "website": "https://github.com/google/jax",
     "pricing": "open-source",
     "features": [
-      "JIT compilation",
-      "Automatic differentiation",
-      "Vectorization",
-      "NumPy compatibility",
-      "GPU/TPU optimization"
+      "Just-in-time compilation via XLA for CPU/GPU/TPU optimization",
+      "Automatic differentiation (forward/reverse mode) with grad() function",
+      "Automatic vectorization with vmap() for batch processing",
+      "Automatic parallelization with pmap() across multiple accelerators",
+      "NumPy-compatible API for familiar array operations",
+      "Composable function transformations (jit, grad, vmap, pmap)",
+      "Support for custom gradient definitions and higher-order gradients"
     ],
     "rating": 4.7,
     "verified": true,
@@ -24788,11 +24790,12 @@
     "slug": "jax",
     "tags": [
       "Google",
-      "NumPy",
-      "GPU",
-      "TPU",
       "XLA",
-      "Functional Programming"
+      "automatic-differentiation",
+      "high-performance-computing",
+      "TPU",
+      "functional-programming",
+      "numerical-computing"
     ],
     "subcategories": [
       "numerical-computing",
@@ -24816,12 +24819,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Large-scale neural network training and research",
+      "Scientific computing and physics simulations",
+      "High-performance numerical linear algebra",
+      "Machine learning research requiring custom gradients",
+      "Optimization problems with complex objective functions",
+      "Probabilistic programming and Bayesian inference"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library access with Apache 2.0 license"
+      ],
+      "free_tier": "Yes - complete library with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ML researchers and scientists",
+      "Academic institutions",
+      "Tech companies with large-scale ML needs"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "joblib",
     "name": "Joblib",
-    "description": "Lightweight pipelining library providing efficient tools for parallel computing and caching in Python, widely used in scikit-learn.",
+    "description": "Joblib is a Python library designed to provide lightweight pipelining for computationally intensive tasks, with a focus on efficient parallel computing and intelligent caching of results to disk. Its key capabilities include transparent disk-caching of output values, easy parallelization of loops, and memory-mapped storage for large arrays, making it particularly useful for avoiding redundant computations in iterative workflows. It is uniquely integrated with and heavily relied upon by scikit-learn for tasks like grid search and model persistence, but serves a broader audience of data scientists and researchers needing simple, robust tools for performance optimization.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -24831,11 +24857,13 @@
     "website": "https://joblib.readthedocs.io",
     "pricing": "open-source",
     "features": [
-      "Parallel computing",
-      "Efficient caching",
-      "Lightweight pipelining",
-      "Scikit-learn integration",
-      "Memory mapping"
+      "Transparent disk-caching of Python function outputs (memoization pattern)",
+      "Simple parallelization using multiprocessing or threading backends",
+      "Efficient memory-mapped storage for large NumPy arrays",
+      "Lazy re-evaluation only when input arguments change",
+      "Seamless integration for caching scikit-learn estimators and pipelines",
+      "Compression support (e.g., zlib, lz4) for cached objects",
+      "Cross-platform persistence and cache sharing"
     ],
     "rating": 4.5,
     "verified": true,
@@ -24843,11 +24871,14 @@
     "trending": false,
     "slug": "joblib",
     "tags": [
-      "Parallel Computing",
-      "Caching",
-      "Lightweight",
-      "Scikit-learn",
-      "Memory Mapping"
+      "parallel-computing",
+      "memoization",
+      "python-library",
+      "scikit-learn-integration",
+      "performance-optimization",
+      "disk-caching",
+      "memory-mapping",
+      "scientific-computing"
     ],
     "subcategories": [
       "parallel-computing",
@@ -24871,26 +24902,52 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Caching intermediate results in machine learning hyperparameter tuning (e.g., scikit-learn's GridSearchCV)",
+      "Parallelizing data preprocessing or feature engineering loops across CPU cores",
+      "Persisting and reloading large trained models or datasets efficiently via memory mapping",
+      "Speeding up interactive data analysis in Jupyter notebooks by caching expensive function calls",
+      "Building reproducible research pipelines by saving computational steps to disk",
+      "Optimizing iterative development workflows in scientific computing by avoiding redundant calculations"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library access under BSD 3-Clause license"
+      ],
+      "free_tier": "Yes - entire library with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data-scientists",
+      "machine-learning-engineers",
+      "research-scientists",
+      "python-developers-working-with-numerical-data"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "jukebox",
     "name": "Jukebox",
-    "description": "Neural network by OpenAI that generates music with singing in the raw audio domain, including rudimentary lyrics and diverse musical styles.",
-    "category": "ml-frameworks",
+    "description": "Jukebox is a generative AI system developed by OpenAI that produces original music, including singing with rudimentary lyrics, directly in the raw audio domain. It can generate music in a wide variety of genres and artist styles by conditioning on genre, artist, and lyrical content. Its unique capability lies in its multi-scale VQ-VAE architecture that models long-range musical structure at the raw audio level, a significant technical challenge that sets it apart from symbolic MIDI-based generators.",
+    "category": "audio-ai",
     "categories": [
       "machine-learning-frameworks",
       "music-generation"
     ],
     "url": "https://openai.com/blog/jukebox/",
     "website": "https://github.com/openai/jukebox",
-    "pricing": "open-source",
+    "pricing": "free",
     "features": [
-      "Music generation",
-      "Raw audio domain",
-      "Singing synthesis",
-      "Lyric generation",
-      "Multiple genres"
+      "Generates original musical compositions in raw audio (44.1 kHz)",
+      "Conditions music generation on genre, artist, and optional lyric snippets",
+      "Produces singing vocals with phonemically plausible, though often nonsensical, lyrics",
+      "Uses a hierarchical VQ-VAE architecture with a prior model to capture long-term structure",
+      "Includes a large dataset of 1.2 million songs (Lyrics-Conditional subset) for training",
+      "Capable of generating music continuations from a provided audio sample",
+      "Supports generation at multiple levels of compression (top-level, middle-level, bottom-level)"
     ],
     "rating": 4.2,
     "verified": true,
@@ -24898,11 +24955,13 @@
     "trending": false,
     "slug": "jukebox",
     "tags": [
-      "Music Generation",
-      "OpenAI",
-      "Audio Synthesis",
-      "Singing",
-      "Neural Network"
+      "music-generation",
+      "raw-audio-synthesis",
+      "neural-audio-codec",
+      "openai",
+      "generative-music",
+      "vq-vae",
+      "multiscale-modeling"
     ],
     "subcategories": [
       "music-generation",
@@ -24926,12 +24985,34 @@
     "updatedAt": {
       "_seconds": 1656599400,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "AI research and development in generative audio and music modeling",
+      "Creative tool for musicians and composers seeking inspiration or novel sonic material",
+      "Prototyping soundtracks and background music for media projects",
+      "Academic study of music representation learning and long-sequence generation",
+      "Demonstrating the capabilities and limitations of raw audio generation models"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: Full access to research code, model weights, and tools on GitHub"
+      ],
+      "free_tier": "Yes - All research materials, pre-trained models, and Colab notebooks are freely available",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/Machine Learning Researchers",
+      "Computational Musicologists",
+      "Experimental Musicians & Sound Artists"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "julia-ml",
     "name": "MLJ.jl",
-    "description": "Machine learning framework for Julia providing consistent interface to machine learning models with emphasis on composability and flexibility.",
+    "description": "MLJ.jl is a comprehensive machine learning framework for the Julia programming language that provides a unified interface to hundreds of models from multiple Julia packages. Its key capabilities include model composition, hyperparameter tuning, and performance evaluation with a strong emphasis on type safety and reproducibility. What makes it unique is its 'composability-first' design, allowing researchers and data scientists to create complex machine learning pipelines through simple model stacking and nesting while maintaining Julia's native performance.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -24941,11 +25022,14 @@
     "website": "https://github.com/alan-turing-institute/MLJ.jl",
     "pricing": "open-source",
     "features": [
-      "Julia performance",
-      "Composable models",
-      "Type-safe interfaces",
-      "Automatic tuning",
-      "Probabilistic programming"
+      "Unified interface to 200+ models from 40+ Julia packages",
+      "Model stacking and composition via learning networks",
+      "Built-in hyperparameter tuning with nested resampling",
+      "Automatic type checking and data schema validation",
+      "Performance evaluation with multiple resampling strategies",
+      "Probabilistic predictions with proper uncertainty quantification",
+      "Serialization support for model persistence",
+      "Integration with Julia's scientific computing ecosystem"
     ],
     "rating": 4.4,
     "verified": true,
@@ -24953,11 +25037,13 @@
     "trending": true,
     "slug": "julia-ml",
     "tags": [
-      "Julia",
-      "Performance",
-      "Composable",
-      "Type-safe",
-      "Probabilistic"
+      "Julia-language",
+      "machine-learning",
+      "model-composition",
+      "hyperparameter-tuning",
+      "type-safe",
+      "reproducible-research",
+      "scientific-computing"
     ],
     "subcategories": [
       "julia-ml",
@@ -24981,26 +25067,51 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research requiring reproducible machine learning experiments",
+      "Data science workflows needing flexible model composition and tuning",
+      "Scientific computing applications where type safety is critical",
+      "Benchmarking and comparing multiple machine learning algorithms",
+      "Developing custom machine learning pipelines with reusable components",
+      "Educational purposes for teaching machine learning concepts in Julia"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to all features under MIT license"
+      ],
+      "free_tier": "Yes - complete framework with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Julia programming language users",
+      "Academic researchers and data scientists",
+      "Scientific computing professionals"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "jupyter-notebooks",
     "name": "Jupyter Notebooks",
-    "description": "Open-source web application for creating and sharing documents with live code, visualizations, and computer vision experiments.",
-    "category": "computer-vision",
+    "description": "Jupyter Notebooks is an open-source web application that allows users to create and share documents containing live code, equations, visualizations, and narrative text. Its key capability is interactive, exploratory computing, enabling users to run code in multiple programming languages (like Python, R, Julia) in a cell-based environment and see results immediately. It is uniquely powerful for data science, scientific research, and education due to its blend of executable code, rich media output, and explanatory text in a single, shareable document.",
+    "category": "ml-frameworks",
     "categories": [
       "computer-vision",
       "development-environment"
     ],
     "url": "https://jupyter.org",
     "website": "https://jupyter.org",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Interactive development",
-      "Live code execution",
-      "Data visualization",
-      "CV library integration",
-      "Collaborative sharing"
+      "Cell-based execution of code in over 40 programming languages via kernels",
+      "Inline display of rich outputs: plots, images, HTML, LaTeX, Markdown",
+      "Integration with major data science libraries (Pandas, NumPy, Matplotlib, Scikit-learn)",
+      "Tools for interactive widgets and data visualization (ipywidgets, Plotly)",
+      "Support for extensions and plugins to customize the interface and functionality",
+      "Ability to convert notebooks to various formats (PDF, HTML, slides) via nbconvert",
+      "Integration with big data tools (Apache Spark) and version control (Git)"
     ],
     "rating": 4.7,
     "verified": true,
@@ -25008,10 +25119,14 @@
     "trending": false,
     "slug": "jupyter-notebooks",
     "tags": [
-      "Development Environment",
-      "Interactive",
-      "Data Science",
-      "Visualization"
+      "open-source",
+      "interactive-computing",
+      "data-science",
+      "scientific-computing",
+      "reproducible-research",
+      "python",
+      "education",
+      "prototyping"
     ],
     "subcategories": [
       "development-environment",
@@ -25035,12 +25150,33 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Data cleaning, transformation, statistical modeling, and visualization for data analysis",
+      "Teaching programming, data science, and scientific concepts with interactive examples",
+      "Prototyping machine learning models and sharing reproducible research papers",
+      "Exploratory data analysis and creating interactive dashboards with widgets"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The core Jupyter Notebook software is completely free and open-source under the BSD license"
+      ],
+      "free_tier": "Yes - The entire core platform is free. Commercial hosting/services (like JupyterHub deployments) may have costs.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists",
+      "researchers and academics",
+      "educators and students"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "kafka-ml",
     "name": "Kafka-ML",
-    "description": "Framework connecting data streams with ML/AI frameworks on Kubernetes, managing pipelines for TensorFlow, Keras, and PyTorch models.",
+    "description": "Kafka-ML is an open-source framework for managing and deploying continuous learning pipelines for machine learning models in production. It uniquely integrates Apache Kafka data streams directly with training and inference processes for TensorFlow, Keras, and PyTorch models, orchestrating everything on Kubernetes. Its key capability is enabling 'infinite' online learning from live data streams, making it ideal for scenarios where models must adapt to constantly changing data patterns without manual retraining cycles.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -25050,11 +25186,12 @@
     "website": "https://github.com/ertis-research/kafka-ml",
     "pricing": "open-source",
     "features": [
-      "Streaming ML pipelines",
-      "Kafka integration",
-      "Kubernetes deployment",
-      "Multi-framework support",
-      "Web UI management"
+      "Unified pipeline management for training, validation, and inference via a Web UI",
+      "Direct integration of Apache Kafka topics as data sources for model training",
+      "Automatic deployment of models as scalable inference services on Kubernetes",
+      "Support for TensorFlow, Keras, and PyTorch frameworks within the same platform",
+      "Configuration and monitoring of pipelines through a REST API",
+      "Pipeline versioning and model storage management"
     ],
     "rating": 4.3,
     "verified": true,
@@ -25062,11 +25199,13 @@
     "trending": true,
     "slug": "kafka-ml",
     "tags": [
-      "Kafka",
-      "Streaming",
-      "Kubernetes",
-      "TensorFlow",
-      "PyTorch"
+      "streaming-ml",
+      "online-learning",
+      "mlops",
+      "kubernetes-orchestration",
+      "apache-kafka",
+      "model-deployment",
+      "continuous-training"
     ],
     "subcategories": [
       "streaming-ml",
@@ -25090,12 +25229,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Real-time fraud detection systems that continuously learn from new transaction streams",
+      "IoT sensor analytics where models adapt to evolving equipment behavior or environmental conditions",
+      "Dynamic recommendation engines that update based on live user interaction data",
+      "Monitoring and predictive maintenance for industrial machinery using telemetry streams",
+      "Adaptive NLP models for social media or news sentiment analysis on live feeds"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code (Apache 2.0 License) for deployment on own infrastructure"
+      ],
+      "free_tier": "Yes - The entire platform is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ML Engineers building streaming/online learning systems",
+      "Data Scientists requiring production pipelines for real-time model updates",
+      "DevOps/MLOps teams managing scalable ML deployments on Kubernetes"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "kafka-streams-ml",
     "name": "Kafka Streams ML",
-    "description": "Examples and patterns for deploying machine learning models in Apache Kafka Streams for real-time analytics and predictions.",
+    "description": "Kafka Streams ML is a curated collection of examples and architectural patterns for deploying and operationalizing machine learning models directly within Apache Kafka Streams applications. It provides concrete implementations for real-time inference, model updating, and A/B testing, enabling low-latency predictions on streaming data. This resource is unique for its focus on production-ready, JVM-native ML integration within the Kafka ecosystem, bypassing external serving systems for simpler architectures.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -25105,11 +25266,13 @@
     "website": "https://github.com/kaiwaehner/kafka-streams-machine-learning-examples",
     "pricing": "open-source",
     "features": [
-      "Real-time ML inference",
-      "Stream processing",
-      "Model deployment",
-      "Scalable analytics",
-      "Production patterns"
+      "Real-time model inference embedded within Kafka Streams topology",
+      "Patterns for online model updates (hot-swapping) without downtime",
+      "A/B testing and champion-challenger model deployment strategies",
+      "Integration with PMML and TensorFlow for Java for model import",
+      "Examples for stateful stream processing with model scoring",
+      "Demonstrations of handling windowed aggregations for ML features",
+      "Patterns for model serialization/deserialization (Serdes) within Kafka"
     ],
     "rating": 4.2,
     "verified": true,
@@ -25117,11 +25280,13 @@
     "trending": false,
     "slug": "kafka-streams-ml",
     "tags": [
-      "Kafka Streams",
-      "Real-time",
-      "ML Inference",
-      "Analytics",
-      "Production"
+      "apache-kafka",
+      "stream-processing",
+      "model-deployment",
+      "real-time-inference",
+      "jvm-ml",
+      "production-ml",
+      "microservices"
     ],
     "subcategories": [
       "stream-analytics",
@@ -25145,12 +25310,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Real-time fraud detection on financial transaction streams",
+      "Dynamic pricing and recommendation engines for e-commerce",
+      "Predictive maintenance on streaming IoT sensor data",
+      "Real-time content personalization and click-through rate prediction",
+      "Anomaly detection in network security or application logs",
+      "Live sentiment analysis on social media or customer feedback streams"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to all code examples and patterns under the Apache 2.0 license"
+      ],
+      "free_tier": "Yes - The entire repository, including all examples and documentation, is freely available",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data engineers building real-time ML pipelines",
+      "machine learning engineers focusing on production deployment",
+      "Java/Scala developers implementing event-driven microservices with ML"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "kairos",
     "name": "Kairos",
-    "description": "AI-driven identity verification platform offering facial recognition, liveness detection, document scanning, and age estimation.",
+    "description": "Kairos is an enterprise-grade AI platform specializing in secure and ethical identity verification and facial recognition. Its core capabilities include real-time facial recognition, liveness detection to prevent spoofing, and document authentication, primarily serving businesses in finance, retail, and security. The platform distinguishes itself with a strong emphasis on privacy, offering on-premise deployment options and a commitment to algorithmic fairness.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -25161,11 +25349,13 @@
     "website": "https://www.kairos.com",
     "pricing": "paid",
     "features": [
-      "Face recognition API",
-      "Real-time liveness detection",
-      "ID document scanning & authentication",
-      "Age and gender estimation",
-      "Fraud detection"
+      "Face Recognition API for 1:1 verification and 1:N identification",
+      "Interactive and passive liveness detection (motion/texture analysis)",
+      "Global ID document scanning and authentication (checks for forgeries)",
+      "Real-time age estimation and verification",
+      "Emotion and gender analysis via facial characteristics",
+      "On-premise/private cloud deployment for data sovereignty",
+      "Dashboard for enrollment, watchlist management, and audit logs"
     ],
     "rating": 4.2,
     "verified": true,
@@ -25173,10 +25363,14 @@
     "trending": false,
     "slug": "kairos",
     "tags": [
-      "Facial Recognition",
-      "Liveness",
-      "ID Verification",
-      "Biometrics"
+      "facial-recognition",
+      "identity-verification",
+      "liveness-detection",
+      "biometric-authentication",
+      "document-verification",
+      "fraud-prevention",
+      "age-verification",
+      "compliance"
     ],
     "subcategories": [
       "face-recognition",
@@ -25200,26 +25394,52 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Know Your Customer (KYC) and Anti-Money Laundering (AML) compliance for fintech and banking",
+      "Secure user onboarding and login for mobile and web applications",
+      "Age verification for age-restricted goods (e.g., alcohol, cannabis) or online content",
+      "Physical access control and time/attendance systems",
+      "Retail customer analytics and personalized experiences",
+      "Fraud prevention in transactions and account recovery processes"
+    ],
+    "pricing_details": {
+      "model": "subscription (with usage-based API calls)",
+      "tiers": [
+        "Starter: Custom quote - Up to 50K API transactions/month, includes core APIs & support",
+        "Enterprise: Custom quote - Unlimited transactions, on-premise deployment, SLAs, dedicated support"
+      ],
+      "free_tier": "No - but offers a free trial with a limited number of API credits",
+      "starting_price": "Custom quote (Contact sales)"
+    },
+    "target_audience": [
+      "Financial Services & Fintech Companies",
+      "Retail & E-commerce Businesses",
+      "Security & Access Control Providers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "kaldi",
     "name": "Kaldi",
-    "description": "Speech recognition toolkit widely used in research and production with support for custom model training.",
-    "category": "nlp",
+    "description": "Kaldi is an open-source speech recognition toolkit designed for both research and production environments. It provides a comprehensive framework for building speech recognition systems with state-of-the-art techniques, featuring extensive support for custom acoustic and language model training. What makes Kaldi unique is its robust C++ core with efficient WFST-based decoding, extensive documentation of research methods, and its role as a foundational codebase that has influenced many commercial and academic speech systems.",
+    "category": "audio-ai",
     "categories": [
       "Natural Language Processing",
       "Speech Recognition"
     ],
     "url": "https://kaldi-asr.org",
     "website": "https://kaldi-asr.org",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Speech recognition",
-      "Custom model training",
-      "Command-line interface",
-      "Research-grade accuracy",
-      "Production deployment"
+      "WFST-based decoder for efficient speech recognition",
+      "Extensive C++ library for speech processing algorithms",
+      "Support for DNN, TDNN, and CNN acoustic models",
+      "Kaldi recipes for reproducible research benchmarks",
+      "Command-line tools for data preparation and alignment",
+      "Compatibility with external language modeling toolkits",
+      "Python wrappers (kaldi-python) for easier integration"
     ],
     "rating": 4.3,
     "verified": true,
@@ -25227,9 +25447,13 @@
     "trending": false,
     "slug": "kaldi",
     "tags": [
-      "AI",
-      "NLP",
-      "Speech Recognition"
+      "speech-recognition",
+      "speech-to-text",
+      "open-source",
+      "acoustic-modeling",
+      "wfst",
+      "voice-processing",
+      "research-toolkit"
     ],
     "subcategories": [
       "speech-recognition"
@@ -25252,13 +25476,36 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research in speech recognition and audio processing",
+      "Building custom speech recognition systems for low-resource languages",
+      "Telecommunications companies developing voice-based services",
+      "Call center analytics for transcription and speaker diarization",
+      "Assistive technology for voice-controlled applications",
+      "Embedded speech recognition in IoT devices"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Complete access to source code under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - full access to all features and source code",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Speech recognition researchers and academics",
+      "ML engineers building custom speech systems",
+      "Telecommunications and voice technology companies"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "kapiche",
     "name": "Kapiche",
-    "description": "Customer feedback analytics platform turning unstructured text into actionable insights.",
-    "category": "nlp",
+    "description": "Kapiche is an AI-powered customer feedback analytics platform that specializes in analyzing unstructured text data from sources like surveys, reviews, and support tickets. Its key capability is using proprietary Natural Language Processing (NLP) to automatically discover themes, quantify sentiment, and track trends over time, transforming raw feedback into a structured, queryable dataset. It uniquely targets product, customer experience, and insights teams by focusing on deep, contextual understanding rather than simple keyword counting, enabling users to ask complex, iterative questions of their data.",
+    "category": "analytics-bi",
     "categories": [
       "Natural Language Processing",
       "Customer Analytics"
@@ -25267,11 +25514,13 @@
     "website": "https://www.kapiche.com",
     "pricing": "paid",
     "features": [
-      "Theme detection",
-      "Sentiment tracking",
-      "Dashboard visualization",
-      "Trend analysis",
-      "VOC integration"
+      "Proprietary NLP engine for theme detection and clustering",
+      "Dynamic sentiment tracking with contextual scoring",
+      "Interactive dashboard with drag-and-drop query builder",
+      "Trend analysis over custom time periods",
+      "Integration with VOC sources (Qualtrics, Medallia, SurveyMonkey)",
+      "Real-time data processing and visualization",
+      "Collaborative workspace with shared insights and filters"
     ],
     "rating": 4.2,
     "verified": true,
@@ -25279,9 +25528,14 @@
     "trending": false,
     "slug": "kapiche",
     "tags": [
-      "AI",
-      "NLP",
-      "Customer Experience"
+      "customer-feedback-analytics",
+      "text-analytics",
+      "voice-of-customer",
+      "sentiment-analysis",
+      "theme-detection",
+      "qualitative-data",
+      "product-insights",
+      "cx-analytics"
     ],
     "subcategories": [
       "text-analytics"
@@ -25304,13 +25558,38 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Analyzing open-ended NPS/CSAT survey responses at scale",
+      "Identifying root causes of customer churn from support interactions",
+      "Tracking product feature requests and sentiment from user reviews",
+      "Measuring the impact of a new product launch on customer perception",
+      "Consolidating feedback from multiple channels (reviews, surveys, social) into a single source of truth",
+      "Conducting thematic analysis for academic or market research projects"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: $499/month - Up to 5,000 feedback entries/month, core analytics, 1 user",
+        "Professional: Custom Pricing - Higher volume, advanced analytics, multiple users & collaboration",
+        "Enterprise: Custom Pricing - Unlimited volume, full feature set, SSO, API, dedicated support & onboarding"
+      ],
+      "free_tier": "No",
+      "starting_price": "$499/month"
+    },
+    "target_audience": [
+      "Product Managers",
+      "Customer Experience (CX) Leaders",
+      "Market Research & Insights Teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "keatext",
     "name": "Keatext",
-    "description": "Customer experience analytics platform using NLP to extract insights from customer feedback and identify trends.",
-    "category": "nlp",
+    "description": "Keatext is an AI-powered customer experience analytics platform that uses proprietary NLP and machine learning to automatically analyze unstructured customer feedback from sources like surveys, reviews, and support tickets. It goes beyond simple sentiment to identify key drivers of satisfaction and dissatisfaction, pinpoint root causes, and generate actionable insights for CX, product, and operations teams. Its unique value lies in its 'Smart Summaries' that translate complex data into clear, prioritized business recommendations, bridging the gap between raw feedback and strategic action.",
+    "category": "analytics-bi",
     "categories": [
       "Natural Language Processing",
       "Customer Analytics"
@@ -25319,11 +25598,13 @@
     "website": "https://keatext.ai",
     "pricing": "paid",
     "features": [
-      "Feedback categorization",
-      "Sentiment trend analysis",
-      "Root cause identification",
-      "Automated reporting",
-      "CX improvement insights"
+      "Automated categorization of feedback into custom themes and topics using NLP",
+      "Granular sentiment analysis (positive, negative, mixed, neutral) with driver identification",
+      "Root cause analysis linking negative sentiment to specific product or service issues",
+      "Smart Summary reports that auto-generate insights and prioritized action plans",
+      "Integration with survey tools (Qualtrics, Medallia), review sites, and help desks (Zendesk)",
+      "Real-time dashboards and alerts for tracking sentiment trends and emerging issues",
+      "Collaboration tools to share insights and assign action items within teams"
     ],
     "rating": 4.2,
     "verified": true,
@@ -25331,9 +25612,13 @@
     "trending": false,
     "slug": "keatext",
     "tags": [
-      "AI",
-      "NLP",
-      "Customer Experience"
+      "customer-feedback-analytics",
+      "text-analytics",
+      "sentiment-analysis",
+      "voice-of-customer",
+      "root-cause-analysis",
+      "cx-management",
+      "nlp"
     ],
     "subcategories": [
       "customer-analytics"
@@ -25356,12 +25641,37 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Analyzing open-ended NPS, CSAT, and CES survey responses at scale",
+      "Monitoring product review sites (G2, Capterra) to identify feature requests and pain points",
+      "Triaging support ticket content to find common complaints and reduce ticket volume",
+      "Providing product teams with data-driven evidence for roadmap prioritization",
+      "Enabling customer success managers to identify at-risk accounts proactively",
+      "Measuring the impact of CX initiatives by tracking sentiment changes over time"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom Quote - For small teams, includes core analytics, 1 data source, basic dashboards.",
+        "Professional: Custom Quote - For growing companies, includes multiple data sources, advanced analytics, Smart Summaries, API access.",
+        "Enterprise: Custom Quote - For large organizations, includes unlimited data sources, custom ML models, dedicated support, SSO, advanced governance."
+      ],
+      "free_tier": "No - but a free demo/trial is available",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Customer Experience (CX) Leaders",
+      "Product Managers",
+      "Customer Success Teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "kedro",
     "name": "Kedro",
-    "description": "Open-source Python framework for creating reproducible, maintainable and modular data science code with pipeline abstractions.",
+    "description": "Kedro is an open-source Python framework that provides a standardized project template and pipeline abstraction layer for production-ready data science and machine learning workflows. Its key capabilities include a data catalog for managing datasets, modular pipeline construction, and built-in configuration management, enabling teams to create reproducible, maintainable, and collaborative data projects. What makes it unique is its opinionated project structure that bridges the gap between research experimentation and production deployment while remaining framework-agnostic.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -25371,11 +25681,14 @@
     "website": "https://kedro.org",
     "pricing": "open-source",
     "features": [
-      "Modular pipelines",
-      "Data catalog",
-      "Configuration management",
-      "Reproducibility",
-      "Plugin ecosystem"
+      "Modular pipeline abstraction with node-based execution",
+      "Data catalog system supporting multiple formats (CSV, Parquet, SQL, Pickle, etc.)",
+      "Project template with standardized folder structure (conf/, data/, src/)",
+      "Configuration layer with environment-specific configs",
+      "Pipeline visualization via Kedro-Viz extension",
+      "Plugin system for extensibility (Airflow, Prefect, MLflow integration)",
+      "Built-in dataset versioning and serialization",
+      "CLI tools for project scaffolding and pipeline execution"
     ],
     "rating": 4.4,
     "verified": true,
@@ -25383,11 +25696,13 @@
     "trending": true,
     "slug": "kedro",
     "tags": [
-      "Modular",
-      "Reproducible",
-      "Data Catalog",
-      "Configuration",
-      "Plugins"
+      "data-pipelines",
+      "ml-ops",
+      "reproducible-research",
+      "project-templates",
+      "data-catalog",
+      "workflow-orchestration",
+      "python-framework"
     ],
     "subcategories": [
       "pipeline-frameworks",
@@ -25411,12 +25726,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building reproducible ML pipelines for model training and evaluation",
+      "Creating maintainable ETL workflows for data processing",
+      "Standardizing data science projects across team members",
+      "Transitioning research code to production ML systems",
+      "Managing complex data dependencies in analytics projects",
+      "Orchestrating data workflows with external schedulers (Airflow, Prefect)"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full open-source framework under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - complete framework with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists",
+      "ml engineers",
+      "data engineers"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "keras",
     "name": "Keras",
-    "description": "High-level neural-network API offering fast experimentation on top of TensorFlow, JAX, and PyTorch.",
+    "description": "Keras is a high-level neural network API written in Python, designed to enable fast experimentation and prototyping of deep learning models. It provides a user-friendly, modular, and extensible interface that abstracts the complexities of lower-level frameworks, allowing developers to build, train, and deploy models with minimal code. Its key uniqueness lies in its multi-backend support, seamlessly running on top of TensorFlow, JAX, and PyTorch, making it a versatile and framework-agnostic tool for the deep learning community.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -25426,11 +25764,13 @@
     "website": "https://keras.io",
     "pricing": "open-source",
     "features": [
-      "Intuitive layer API",
-      "Multi-backend support",
-      "Pretrained applications",
-      "Model serialization",
-      "Integrated visualization"
+      "Intuitive Sequential and Functional APIs for building complex model architectures",
+      "Native multi-backend execution engine (TensorFlow default, with opt-in for JAX & PyTorch)",
+      "Extensive library of prebuilt layers, optimizers, and loss functions",
+      "Built-in utilities for data loading, preprocessing, and augmentation (tf.keras)",
+      "Comprehensive model serialization to SavedModel, H5, and JSON formats",
+      "Integrated training visualization and metrics tracking via TensorBoard callback",
+      "Production-ready model deployment to TensorFlow Serving, TFLite, and TF.js"
     ],
     "rating": 4.7,
     "verified": true,
@@ -25438,9 +25778,14 @@
     "trending": false,
     "slug": "keras",
     "tags": [
-      "API",
-      "Deep Learning",
-      "Prototyping"
+      "deep-learning",
+      "neural-networks",
+      "model-prototyping",
+      "tensorflow",
+      "pytorch",
+      "jax",
+      "python-api",
+      "computer-vision"
     ],
     "subcategories": [
       "high-level-api"
@@ -25463,12 +25808,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Rapid prototyping and academic research in deep learning",
+      "Developing computer vision models for image classification and object detection",
+      "Building and fine-tuning natural language processing (NLP) models",
+      "Creating recommendation systems and time-series forecasting models",
+      "Educational tool for teaching deep learning concepts and workflows"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: Full access to the Keras API, source code, and documentation under the Apache 2.0 license"
+      ],
+      "free_tier": "Yes - The entire platform is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "deep-learning researchers",
+      "machine-learning engineers",
+      "data scientists",
+      "students and educators"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "khan-academy-ai",
     "name": "Khan Academy AI",
-    "description": "AI-powered personalized learning platform with adaptive exercises and intelligent tutoring.",
+    "description": "Khan Academy AI is a non-profit educational platform that leverages artificial intelligence to provide personalized, mastery-based learning experiences. Its key capabilities include adaptive exercises, real-time progress tracking, and an AI-powered tutoring assistant (Khanmigo) that offers step-by-step guidance and Socratic dialogue. It uniquely serves a global audience of students, teachers, and parents with a completely free core curriculum, distinguishing it from commercial adaptive learning platforms.",
     "category": "generative-ai",
     "categories": [
       "education",
@@ -25476,13 +25844,14 @@
     ],
     "url": "https://khanacademy.org",
     "website": "https://khanacademy.org",
-    "pricing": "free",
+    "pricing": "freemium",
     "features": [
-      "Personalized learning",
-      "Adaptive exercises",
-      "Progress tracking",
-      "AI tutoring",
-      "Skill mastery"
+      "AI-powered tutor (Khanmigo) for interactive, conversational guidance in math, science, and humanities",
+      "Adaptive practice exercises that adjust difficulty based on student performance",
+      "Mastery-based progress tracking with detailed skill dashboards",
+      "Personalized learning paths and course recommendations",
+      "Real-time hints and step-by-step problem-solving support",
+      "Tools for teachers to monitor class and individual student progress"
     ],
     "rating": 4.6,
     "verified": true,
@@ -25490,11 +25859,13 @@
     "trending": false,
     "slug": "khan-academy-ai",
     "tags": [
-      "AI",
-      "Education",
-      "Learning",
-      "Adaptive",
-      "Free"
+      "adaptive-learning",
+      "k-12-education",
+      "ai-tutoring",
+      "mastery-learning",
+      "free-education",
+      "edtech",
+      "personalized-learning"
     ],
     "subcategories": [
       "adaptive-learning",
@@ -25518,12 +25889,36 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Students seeking supplemental instruction and homework help outside the classroom",
+      "Teachers implementing blended learning and differentiated instruction in their classrooms",
+      "Parents looking to support their child's learning and monitor academic progress",
+      "Adult learners and homeschoolers following self-paced curricula",
+      "Schools and districts adopting a free, scalable supplemental learning resource"
+    ],
+    "pricing_details": {
+      "model": "donation-supported/freemium",
+      "tiers": [
+        "Free: Complete access to all core learning content, practice exercises, progress tracking, and teacher tools.",
+        "Khanmigo (AI Tutor): $9/month or $99/year per user - provides access to the conversational AI tutor for learners and specific tools for teachers. Previously offered at $4/month for early supporters.",
+        "Enterprise/District: Custom pricing - for school-wide or district-wide implementation of Khanmigo and associated reporting."
+      ],
+      "free_tier": "Yes - The entire library of lessons, videos, practice exercises, and teacher tools for core subjects remains completely free and ad-free, supported by donations.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "K-12 students",
+      "Teachers and educators",
+      "Parents and homeschoolers"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "kickresume",
     "name": "Kickresume",
-    "description": "AI resume builder that creates professional resumes and cover letters with industry-specific templates.",
+    "description": "Kickresume is an AI-powered career toolkit that helps users create professional resumes, cover letters, and career websites. Its core capabilities include generating tailored content from a user's work history, providing industry-specific templates, and optimizing documents for Applicant Tracking Systems (ATS). It uniquely combines AI writing assistance with a vast library of successful, real-world resume examples from professionals at top companies, guiding users toward proven formats and phrasing.",
     "category": "generative-ai",
     "categories": [
       "business-productivity",
@@ -25533,11 +25928,13 @@
     "website": "https://kickresume.com",
     "pricing": "freemium",
     "features": [
-      "AI resume writing",
-      "Cover letter generation",
-      "Professional templates",
-      "ATS optimization",
-      "Career advice"
+      "AI Writer: Generates resume bullet points and cover letter paragraphs based on job description and your experience",
+      "ATS Resume Checker: Scans and scores your resume for compatibility with applicant tracking systems",
+      "Professional Template Library: 100+ industry-specific, ATS-friendly resume and cover letter templates",
+      "Career Website Builder: Create a personal portfolio website that mirrors your resume with one click",
+      "Real Resume Examples: Access to a database of successful resumes from hires at Google, Apple, etc.",
+      "Cover Letter Matching: AI that tailors your cover letter to a specific job description",
+      "Multi-Format Export: Download documents as PDF, DOCX, TXT, or share via a unique link"
     ],
     "rating": 4.1,
     "verified": true,
@@ -25545,11 +25942,13 @@
     "trending": false,
     "slug": "kickresume",
     "tags": [
-      "AI",
-      "Resume Builder",
-      "Cover Letters",
-      "ATS",
-      "Professional"
+      "ai-resume-builder",
+      "cover-letter-generator",
+      "ats-optimization",
+      "career-website-builder",
+      "resume-templates",
+      "job-search-tool",
+      "career-advice"
     ],
     "subcategories": [
       "resume-building",
@@ -25573,12 +25972,37 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Job seekers crafting a tailored resume and cover letter for a specific application",
+      "Career changers needing to reframe existing experience for a new industry",
+      "Students and recent graduates creating their first professional resume from scratch",
+      "Professionals wanting to build a personal career website/online portfolio quickly",
+      "Individuals seeking to optimize an existing resume for ATS screening algorithms",
+      "Users looking for proven examples of successful resumes in their target field"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Access to basic templates, limited AI generation (5 credits), PDF export with watermark",
+        "Pro: $19/month (Monthly) or $9/month (Annual) - Unlimited AI credits, all templates, no watermarks, ATS checker, career website",
+        "Enterprise: Custom pricing - Dedicated support, team management, custom templates, SSO, analytics"
+      ],
+      "free_tier": "Yes - Basic templates, 5 AI credits, watermarked PDF export",
+      "starting_price": "$9/month (billed annually)"
+    },
+    "target_audience": [
+      "job-seekers",
+      "students-and-graduates",
+      "career-changers"
+    ],
+    "has_api": false,
+    "has_affiliate": true
   },
   {
     "id": "knet-jl",
     "name": "Knet.jl",
-    "description": "Deep learning framework for Julia providing automatic differentiation and GPU computing with dynamic computational graphs and high-level abstractions.",
+    "description": "Knet.jl is a deep learning framework for the Julia programming language, designed for high-performance machine learning research and production. It provides automatic differentiation via dynamic computational graphs, seamless GPU acceleration through CUDA integration, and high-level abstractions for building complex neural networks. Its unique value lies in being a pure Julia solution that leverages the language's speed and expressiveness, making it particularly appealing for researchers and developers who want to avoid the overhead of interfacing with external C++/Python backends.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -25588,11 +26012,13 @@
     "website": "https://github.com/denizyuret/Knet.jl",
     "pricing": "open-source",
     "features": [
-      "Dynamic computation graphs",
-      "Automatic differentiation",
-      "GPU computing",
-      "High-level abstractions",
-      "Julia ecosystem"
+      "Dynamic computation graphs for flexible model building and debugging",
+      "Automatic differentiation (reverse-mode) via source-to-source compilation",
+      "Native GPU support using CUDA.jl for NVIDIA GPUs",
+      "High-level layer abstractions (e.g., Dense, Conv, RNN) similar to Keras",
+      "Integration with Julia's package ecosystem (e.g., Flux.jl compatibility layers)",
+      "Support for custom kernels and low-level operations written in Julia",
+      "Tools for model training, evaluation, and data loading"
     ],
     "rating": 4.2,
     "verified": true,
@@ -25601,10 +26027,12 @@
     "slug": "knet-jl",
     "tags": [
       "Julia",
-      "Dynamic Graphs",
-      "GPU",
-      "Automatic Differentiation",
-      "High-level"
+      "Deep-Learning",
+      "GPU-Computing",
+      "Automatic-Differentiation",
+      "Dynamic-Graphs",
+      "Research",
+      "High-Performance"
     ],
     "subcategories": [
       "julia-ml",
@@ -25628,12 +26056,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research in deep learning and numerical computation",
+      "Prototyping novel neural network architectures in Julia",
+      "Teaching machine learning with a focus on implementation clarity",
+      "Production deployment of Julia-based ML models with GPU acceleration",
+      "Natural language processing and computer vision experiments",
+      "Scientific machine learning (SciML) and hybrid modeling"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code and all features under the MIT License"
+      ],
+      "free_tier": "Yes - entire framework is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Julia programming language researchers and enthusiasts",
+      "Academic researchers in machine learning and scientific computing",
+      "Developers building high-performance numerical applications in Julia"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "knime",
     "name": "KNIME",
-    "description": "Open-source analytics platform for data science workflows with visual programming interface and extensive machine learning capabilities.",
+    "description": "KNIME Analytics Platform is an open-source, low-code/no-code software for creating data science workflows via a visual, drag-and-drop interface. It enables data blending, advanced analytics, machine learning, and reporting, targeting data scientists, analysts, and business users. Its unique strength lies in its modular, extensible architecture with thousands of community and commercial integrations, allowing seamless connection to virtually any data source, tool, or deployment environment.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -25643,11 +26094,12 @@
     "website": "https://knime.com",
     "pricing": "freemium",
     "features": [
-      "Visual programming",
-      "Workflow creation",
-      "Extensive integrations",
-      "Community extensions",
-      "Enterprise features"
+      "Visual workflow builder with drag-and-drop nodes for data access, transformation, modeling, and visualization",
+      "Extensive integration library (KNIME Hub) with 10,000+ nodes for databases, Python/R, BI tools, cloud services, and AI/ML libraries",
+      "Integrated tools for full ML lifecycle: data prep, model training, validation, deployment (batch/real-time), and monitoring",
+      "Native support for team collaboration, versioning, and workflow governance via KNIME Business Hub",
+      "Deployment options: desktop, server, containerized (Docker/Kubernetes), and cloud (AWS, Azure, GCP)",
+      "Built-in reporting and dashboarding capabilities to share insights"
     ],
     "rating": 4.4,
     "verified": true,
@@ -25655,11 +26107,13 @@
     "trending": false,
     "slug": "knime",
     "tags": [
-      "Visual Programming",
-      "Workflow",
-      "Integrations",
-      "Community",
-      "Enterprise"
+      "visual-programming",
+      "low-code-data-science",
+      "workflow-automation",
+      "data-blending",
+      "extensible-integrations",
+      "enterprise-mlops",
+      "open-source-analytics"
     ],
     "subcategories": [
       "visual-analytics",
@@ -25683,12 +26137,37 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Customer Churn Prediction: Blend CRM and transaction data to build and deploy predictive models for marketing teams.",
+      "Financial Fraud Detection: Create real-time scoring workflows that integrate with transaction processing systems.",
+      "Pharmaceutical Research: Streamline drug discovery by connecting to lab instruments, performing statistical analysis, and generating reports.",
+      "Retail Demand Forecasting: Combine point-of-sale, inventory, and external data (e.g., weather) to optimize supply chain logistics.",
+      "Automated Document Processing: Use KNIME's text processing and computer vision extensions to classify and extract data from invoices or forms."
+    ],
+    "pricing_details": {
+      "model": "subscription (for commercial products); core platform is open-source and free",
+      "tiers": [
+        "Free: KNIME Analytics Platform (open-source desktop software) with all core features and community extensions.",
+        "Team: Part of KNIME Business Hub, starting at $50/user/month (billed annually) - adds workflow collaboration, scheduling, and shared repositories.",
+        "Enterprise: Part of KNIME Business Hub, custom pricing - adds advanced access control, high availability, dedicated support, and audit capabilities."
+      ],
+      "free_tier": "Yes - Full-featured KNIME Analytics Platform (desktop) with unlimited use.",
+      "starting_price": "Free (Desktop). Team plans start at $50/user/month."
+    },
+    "target_audience": [
+      "data scientists",
+      "data analysts",
+      "business analysts",
+      "enterprise IT/MLOps teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "kubeflow",
     "name": "Kubeflow",
-    "description": "Machine learning toolkit for Kubernetes that provides end-to-end ML workflows from experimentation to production deployment on cloud platforms.",
+    "description": "Kubeflow is an open-source, Kubernetes-native platform designed to orchestrate, deploy, and manage end-to-end machine learning workflows on Kubernetes. Its key capabilities include building portable, scalable ML pipelines, simplifying the deployment of complex ML stacks (like Jupyter, TensorFlow, PyTorch), and enabling multi-user collaboration. It is uniquely positioned as a cloud-agnostic framework that brings DevOps practices (like CI/CD and versioning) to ML operations (MLOps), primarily targeting data scientists and ML engineers working in containerized, hybrid, or multi-cloud environments.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -25698,11 +26177,12 @@
     "website": "https://www.kubeflow.org",
     "pricing": "open-source",
     "features": [
-      "Kubernetes native",
-      "ML pipelines",
-      "Multi-user support",
-      "Cloud platform support",
-      "Component reusability"
+      "Kubernetes-native ML pipeline orchestration using the Kubeflow Pipelines SDK",
+      "Multi-tenancy and collaboration features with role-based access control (RBAC)",
+      "Integrated components for notebooks (Jupyter), training (TFJob, PyTorchJob), and serving (KFServing, Seldon Core)",
+      "Experiment tracking and metadata management for model and pipeline versioning",
+      "Hyperparameter tuning via Katib for automated model optimization",
+      "Portable deployment across on-premises, cloud (AWS, GCP, Azure), and hybrid setups"
     ],
     "rating": 4.4,
     "verified": true,
@@ -25710,11 +26190,13 @@
     "trending": true,
     "slug": "kubeflow",
     "tags": [
-      "Kubernetes",
-      "ML Pipelines",
-      "Cloud Native",
-      "Multi-user",
-      "Orchestration"
+      "mlops",
+      "kubernetes",
+      "ml-pipelines",
+      "model-deployment",
+      "experiment-tracking",
+      "multi-cloud",
+      "open-source"
     ],
     "subcategories": [
       "kubernetes-ml",
@@ -25738,12 +26220,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building reproducible ML pipelines for model training, validation, and deployment",
+      "Managing multi-user ML workspaces in enterprise research and development teams",
+      "Deploying and scaling trained models as inference services with canary rollouts",
+      "Orchestrating large-scale hyperparameter tuning and automated machine learning (AutoML) experiments",
+      "Implementing end-to-end MLOps practices with CI/CD integration for ML models"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The core Kubeflow project is completely free and open-source under the Apache 2.0 license."
+      ],
+      "free_tier": "Yes - Full access to all core Kubeflow components and source code.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ml-engineers",
+      "data-scientists",
+      "devops-engineers-mlops"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "labelbox",
     "name": "Labelbox",
-    "description": "Enterprise data-centric AI platform for labeling, curation, and model diagnostics across images, video, text, and 3D data.",
+    "description": "Labelbox is an enterprise-grade data-centric AI platform that enables organizations to build and deploy high-quality AI applications. It provides a unified environment for data labeling, curation, model training, and performance diagnostics across multiple data types including images, video, text, and 3D sensor data. The platform is designed for AI teams at large enterprises and is distinguished by its comprehensive tooling that connects the entire AI development lifecycle from data preparation to model evaluation.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -25753,11 +26257,13 @@
     "website": "https://labelbox.com",
     "pricing": "paid",
     "features": [
-      "Model-assisted labeling",
-      "Ontology management",
-      "Quality assurance",
-      "Python SDK & APIs",
-      "Model error analysis"
+      "Automated data labeling with model-assisted pre-labeling to accelerate annotation workflows",
+      "Customizable ontology management with support for nested classifications and relationships",
+      "Comprehensive quality control system with consensus scoring, review workflows, and audit trails",
+      "Python SDK and REST APIs for programmatic integration and automation",
+      "Model diagnostics dashboard for error analysis, confusion matrices, and performance metrics",
+      "Collaborative labeling environment with role-based permissions and project management",
+      "Support for specialized data types: LiDAR point clouds, DICOM medical imaging, geospatial data"
     ],
     "rating": 4.5,
     "verified": true,
@@ -25765,9 +26271,14 @@
     "trending": false,
     "slug": "labelbox",
     "tags": [
-      "Data Labeling",
-      "Enterprise",
-      "AI"
+      "data-labeling",
+      "model-training",
+      "data-annotation",
+      "ml-ops",
+      "quality-control",
+      "enterprise-ai",
+      "computer-vision",
+      "model-evaluation"
     ],
     "subcategories": [
       "data-labeling",
@@ -25791,12 +26302,37 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Autonomous vehicle development: Labeling sensor fusion data (camera, LiDAR, radar) for perception systems",
+      "Medical AI: Annotating medical images (X-rays, MRIs) for diagnostic model training with HIPAA compliance",
+      "Retail analytics: Labeling store footage for inventory management, customer behavior analysis, and loss prevention",
+      "Aerial imagery analysis: Annotating satellite and drone imagery for agriculture, insurance, and urban planning",
+      "Document processing: Extracting and labeling information from scanned documents and forms for automation",
+      "Content moderation: Identifying and classifying inappropriate content across images, video, and text"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom pricing - Basic labeling tools, limited seats, standard support",
+        "Professional: Custom pricing - Advanced features, more seats, priority support, SLA",
+        "Enterprise: Custom pricing - Full platform, unlimited scale, dedicated support, custom integrations"
+      ],
+      "free_tier": "No - but offers free trial/demo",
+      "starting_price": "Custom/Contact sales"
+    },
+    "target_audience": [
+      "enterprise-ai-teams",
+      "computer-vision-engineers",
+      "data-science-teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "labellerr-video",
     "name": "Labellerr Video",
-    "description": "Ultimate computer vision annotation platform with AI-powered auto-labeling, cutting annotation time by up to 90% with enterprise features.",
+    "description": "Labellerr Video is a specialized computer vision data annotation platform designed to accelerate the creation of high-quality training datasets for video and image models. It leverages AI-powered auto-labeling, active learning workflows, and robust quality control tools to reduce manual annotation time by up to 90%. The platform uniquely targets enterprise teams and AI developers who need scalable, secure, and collaborative annotation pipelines with integrated project management.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -25804,13 +26340,15 @@
     ],
     "url": "https://www.labellerr.com",
     "website": "https://www.labellerr.com",
-    "pricing": "freemium",
+    "pricing": "paid",
     "features": [
-      "AI-powered auto-labeling",
-      "Video annotation",
-      "Active learning",
-      "Quality control",
-      "API access"
+      "AI-assisted pre-labeling for objects, segmentation, and tracking in video",
+      "Frame-by-frame and interpolated video annotation tools",
+      "Active learning pipeline to prioritize the most valuable frames for review",
+      "Comprehensive QA workflows with consensus scoring and reviewer assignments",
+      "REST API for dataset import/export and pipeline integration",
+      "Enterprise-grade security with on-premise deployment options",
+      "Project management dashboard with user role & workload management"
     ],
     "rating": 4.6,
     "verified": true,
@@ -25818,10 +26356,13 @@
     "trending": true,
     "slug": "labellerr-video",
     "tags": [
-      "Video Annotation",
-      "AI Automation",
-      "Quality Control",
-      "Enterprise"
+      "video-annotation",
+      "auto-labeling",
+      "data-labeling-platform",
+      "active-learning",
+      "quality-control",
+      "computer-vision",
+      "training-data"
     ],
     "subcategories": [
       "video-annotation",
@@ -25845,7 +26386,32 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Annotating video footage for autonomous vehicle perception systems (cars, drones)",
+      "Creating datasets for retail analytics (customer movement, shelf monitoring)",
+      "Labeling sports footage for player tracking and action recognition",
+      "Preparing medical imaging videos for diagnostic AI models",
+      "Generating training data for surveillance and security anomaly detection",
+      "Annotating agricultural drone footage for crop and livestock monitoring"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: $99/month - Includes 5,000 AI-generated labels, basic project management, standard support.",
+        "Pro: Custom Pricing - Higher label volumes, advanced QA, priority support, SLAs.",
+        "Enterprise: Custom Pricing - Full feature set, on-premise deployment, dedicated CSM, custom integrations."
+      ],
+      "free_tier": "Yes - 14-day free trial of the Pro plan features, no credit card required.",
+      "starting_price": "$99/month"
+    },
+    "target_audience": [
+      "Computer Vision & ML Engineering Teams",
+      "AI Research Departments in Enterprises",
+      "Data Operations (DataOps) Managers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "lambda-labs",
@@ -54004,6 +54570,111 @@
       "Design automation",
       "Marketing assets",
       "Educational tools"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "pika-labs-1-5",
+    "name": "Pika Labs 1.5",
+    "description": "Next-generation AI video platform that transforms images, text, and existing videos into stylized animations with precise control over motion, style, and composition. Features advanced editing tools and real-time preview capabilities.",
+    "url": "https://www.pika.art",
+    "website": "https://www.pika.art",
+    "category": "video-generation",
+    "tags": [
+      "video-editing",
+      "style-transfer",
+      "animation",
+      "real-time-preview",
+      "content-creation"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T14:42:45.208Z",
+    "features": [
+      "Image/video to animation",
+      "Style transfer",
+      "Motion control",
+      "Real-time editing",
+      "Sound effects generation"
+    ],
+    "use_cases": [
+      "Social media animations",
+      "Explainer videos",
+      "Product demonstrations",
+      "Educational content",
+      "Creative projects"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "descript-overdub",
+    "name": "Descript Overdub",
+    "description": "AI voice generation and editing platform that creates realistic voice clones, edits audio through text, and generates natural-sounding speech for content creation, podcasting, and video production.",
+    "url": "https://www.descript.com/overdub",
+    "website": "https://www.descript.com/overdub",
+    "category": "audio-ai",
+    "tags": [
+      "voice-cloning",
+      "audio-editing",
+      "podcast-production",
+      "text-to-speech",
+      "content-creation"
+    ],
+    "pricing": "paid",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T14:42:45.209Z",
+    "features": [
+      "Voice cloning",
+      "Text-based audio editing",
+      "Multi-speaker support",
+      "Noise removal",
+      "Real-time generation"
+    ],
+    "use_cases": [
+      "Podcast editing",
+      "Video voiceovers",
+      "Audiobook production",
+      "Content localization",
+      "Accessibility features"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "continue-dev",
+    "name": "Continue.dev",
+    "description": "AI-powered IDE extension that provides context-aware code completion, documentation generation, and refactoring assistance with deep understanding of codebases and development patterns.",
+    "url": "https://continue.dev",
+    "website": "https://continue.dev",
+    "category": "code-ai",
+    "tags": [
+      "ide-extension",
+      "code-completion",
+      "refactoring",
+      "documentation",
+      "developer-tools"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T14:42:45.211Z",
+    "features": [
+      "Context-aware completion",
+      "Code refactoring",
+      "Documentation generation",
+      "Multi-IDE support",
+      "Custom model integration"
+    ],
+    "use_cases": [
+      "Code completion",
+      "Refactoring assistance",
+      "Documentation writing",
+      "Learning new codebases",
+      "Code review"
     ],
     "has_affiliate": true
   }
