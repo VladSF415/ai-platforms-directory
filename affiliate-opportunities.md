@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
 Generated: 2025-12-07
-Total Opportunities: 2
+Total Opportunities: 3
 
 ---
 
-## 1. Mistral AI Platform
+## 1. Anthropic Claude API
 
-**Category:** enterprise-ai-platforms
-**Website:** https://mistral.ai
-**Pricing Model:** enterprise
+**Category:** llms
+**Website:** https://www.anthropic.com/claude
+**Pricing Model:** pay-per-use
 
 **Description:**
-Enterprise AI platform from Mistral AI featuring their latest models, fine-tuning capabilities, and deployment tools with strong European data compliance and multilingual support. Includes both cloud and on-premise deployment options. Targets European enterprises.
+Enterprise-grade AI assistant API with advanced reasoning capabilities, long context windows, and constitutional AI principles for safe, reliable business applications at scale.
 
 **💵 Affiliate Program Details:**
-Enterprise partner program with 20% recurring commission, EU-focused, requires enterprise sales experience, minimum €50k annual contract
+Enterprise referral program with 15% commission for first year, minimum $10K monthly spend, targets enterprise software vendors
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -26,17 +26,38 @@ Enterprise partner program with 20% recurring commission, EU-focused, requires e
 
 ---
 
-## 2. Continue AI
+## 2. Adept AI
 
-**Category:** code-ai
-**Website:** https://continue.dev
-**Pricing Model:** freemium
+**Category:** workflow-automation
+**Website:** https://www.adept.ai
+**Pricing Model:** enterprise
 
 **Description:**
-AI coding assistant that integrates deeply with VS Code and JetBrains IDEs, featuring local model support, offline capabilities, and open-source extensibility. Focuses on privacy and developer control. Targets privacy-conscious developers and enterprises.
+AI systems that can interact with any software interface to automate complex workflows, turning natural language instructions into actions across web applications and desktop software.
 
 **💵 Affiliate Program Details:**
-Partner program with 15% recurring commission, 30-day cookie, requires developer audience or technical content site
+Enterprise partner program with revenue sharing, minimum $50K deal size, targets business process automation consultants
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 3. Cohere
+
+**Category:** enterprise-ai-platforms
+**Website:** https://cohere.com
+**Pricing Model:** enterprise
+
+**Description:**
+Enterprise AI platform specializing in retrieval-augmented generation and language models optimized for business applications, with strong focus on data privacy and customization.
+
+**💵 Affiliate Program Details:**
+Channel partner program with 20% margin, minimum $100K annual revenue, targets system integrators and consulting firms
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -50,5 +71,6 @@ Partner program with 15% recurring commission, 30-day cookie, requires developer
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Mistral AI Platform** - https://mistral.ai
-2. [ ] **Continue AI** - https://continue.dev
+1. [ ] **Anthropic Claude API** - https://www.anthropic.com/claude
+2. [ ] **Adept AI** - https://www.adept.ai
+3. [ ] **Cohere** - https://cohere.com
