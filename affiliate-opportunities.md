@@ -5,17 +5,17 @@ Total Opportunities: 2
 
 ---
 
-## 1. Bland AI
+## 1. Klingo AI
 
-**Category:** audio-ai
-**Website:** https://bland.ai
-**Pricing Model:** paid
+**Category:** nlp
+**Website:** https://klingo.ai
+**Pricing Model:** enterprise
 
 **Description:**
-AI phone call platform that enables natural, human-like voice conversations for customer service, sales, and appointment scheduling. Features real-time voice synthesis, interruption handling, and call analytics.
+AI platform for real-time language translation and interpretation with near-human accuracy, supporting 100+ languages with cultural context awareness and specialized domain adaptation for business and legal use.
 
 **💵 Affiliate Program Details:**
-Bland Partner Program via PartnerStack, 20% recurring commission, 90-day cookie, enterprise referral bonuses, agency partnerships encouraged
+Enterprise partner program with 15% commission on annual contracts, direct referral system, minimum $50K deal size, co-marketing opportunities
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -26,17 +26,17 @@ Bland Partner Program via PartnerStack, 20% recurring commission, 90-day cookie,
 
 ---
 
-## 2. Krea AI
+## 2. Scenario
 
 **Category:** image-generation
-**Website:** https://krea.ai
-**Pricing Model:** freemium
+**Website:** https://www.scenario.com
+**Pricing Model:** enterprise
 
 **Description:**
-Real-time AI image generation and editing platform with instant previews, style transfer, and collaborative features. Enables artists to work interactively with AI as a creative partner.
+AI platform for generating consistent visual assets and brand elements with style training capabilities, allowing businesses to create on-brand visuals across marketing materials, products, and digital experiences.
 
 **💵 Affiliate Program Details:**
-Krea Creator Program with 25% commission, artist ambassador program, educational institution partnerships, minimum follower count for influencers
+Agency partner program with 20% commission, 90-day cookie, minimum 3 referrals for premium status, dedicated partner support and resources
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -50,5 +50,5 @@ Krea Creator Program with 25% commission, artist ambassador program, educational
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Bland AI** - https://bland.ai
-2. [ ] **Krea AI** - https://krea.ai
+1. [ ] **Klingo AI** - https://klingo.ai
+2. [ ] **Scenario** - https://www.scenario.com

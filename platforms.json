@@ -26416,7 +26416,7 @@
   {
     "id": "lambda-labs",
     "name": "Lambda Labs",
-    "description": "GPU cloud platform optimized for AI and machine learning providing high-performance compute with pre-configured environments.",
+    "description": "Lambda Labs provides a cloud platform specifically designed for AI and machine learning workloads, offering on-demand access to high-performance GPU instances (including NVIDIA H100, A100, and RTX). Its key capabilities include pre-configured, optimized software stacks (like PyTorch, TensorFlow, CUDA), persistent storage, and collaborative team features. It uniquely targets developers, researchers, and startups by removing the complexity of infrastructure setup, offering a simpler and more cost-effective alternative to major hyperscalers for GPU-intensive tasks.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -26424,13 +26424,15 @@
     ],
     "url": "https://lambdalabs.com",
     "website": "https://lambdalabs.com",
-    "pricing": "pay-as-you-go",
+    "pricing": "paid",
     "features": [
-      "Optimized for AI/ML",
-      "Pre-configured environments",
-      "High-performance GPUs",
-      "Jupyter notebooks",
-      "Team collaboration"
+      "On-demand NVIDIA GPU instances (H100, A100, A10, A6000, RTX)",
+      "Pre-installed & optimized ML stacks (PyTorch, TensorFlow, CUDA, Docker)",
+      "Persistent cloud storage with snapshot capabilities",
+      "Web-based JupyterLab interface with terminal access",
+      "Team management with shared instances and billing",
+      "SSH access and VSCode remote development support",
+      "Global low-latency cloud infrastructure"
     ],
     "rating": 4.5,
     "verified": true,
@@ -26438,11 +26440,13 @@
     "trending": true,
     "slug": "lambda-labs",
     "tags": [
-      "GPU Cloud",
-      "AI Optimized",
-      "Pre-configured",
-      "High Performance",
-      "Team"
+      "gpu-cloud",
+      "ai-training",
+      "deep-learning",
+      "jupyter-notebooks",
+      "nvidia-gpus",
+      "team-collaboration",
+      "pre-configured-environments"
     ],
     "subcategories": [
       "gpu-cloud",
@@ -26466,26 +26470,52 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Training and fine-tuning large language models (LLMs)",
+      "Running complex computer vision and deep learning experiments",
+      "Academic and industrial AI research requiring scalable GPU power",
+      "Prototyping and deploying ML models without managing physical servers",
+      "Collaborative AI development across distributed teams",
+      "On-demand rendering and simulation workloads"
+    ],
+    "pricing_details": {
+      "model": "usage-based (per hour) with subscription options",
+      "tiers": [
+        "On-Demand: Pay by the hour for instances (e.g., $1.10/hr for 1x RTX 6000, ~$2.00/hr for 1x A100, ~$4.50/hr for 1x H100)",
+        "Reserved (1-year/3-year): Significant discount for committed use (e.g., ~40-60% off on-demand)",
+        "Enterprise: Custom pricing for large-scale deployments, support, and private deployments"
+      ],
+      "free_tier": "No",
+      "starting_price": "Approximately $1.10/hour (varies by GPU instance)"
+    },
+    "target_audience": [
+      "AI/ML Researchers",
+      "Data Scientists & ML Engineers",
+      "Startups & Scale-ups in AI"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "langchain",
     "name": "LangChain",
-    "description": "Framework for developing applications powered by language models with tools for chaining prompts, agents, and memory management.",
-    "category": "nlp",
+    "description": "LangChain is an open-source framework and development toolkit designed for building context-aware, reasoning applications powered by large language models (LLMs). Its core capability is orchestrating chains of calls to LLMs, tools, and data sources, enabling the creation of sophisticated agents, chatbots, and automation workflows. It uniquely abstracts the complexity of integrating memory, external APIs, and multi-step reasoning, making it a foundational layer for developers building production-grade generative AI applications.",
+    "category": "agent-platforms",
     "categories": [
       "machine-learning-frameworks",
       "llm-frameworks"
     ],
     "url": "https://langchain.com",
     "website": "https://github.com/langchain-ai/langchain",
-    "pricing": "freemium",
+    "pricing": "open-source",
     "features": [
-      "LLM application development",
-      "Prompt chaining",
-      "Agent frameworks",
-      "Memory management",
-      "Tool integration"
+      "Modular Components for models (OpenAI, Anthropic, open-source), prompts, memory, and indexes",
+      "Agent architectures that can decide to use tools (APIs, searches, calculators)",
+      "Built-in support for Retrieval-Augmented Generation (RAG) with vector store integrations",
+      "Chains for orchestrating sequences of calls to LLMs or other utilities",
+      "LangSmith platform for debugging, testing, and monitoring LLM applications",
+      "LangServe for deploying LangChain chains as REST APIs"
     ],
     "rating": 4.8,
     "verified": true,
@@ -26493,11 +26523,13 @@
     "trending": true,
     "slug": "langchain",
     "tags": [
-      "LLM",
-      "Prompt Chaining",
-      "Agents",
-      "Memory",
-      "Tools"
+      "llm-framework",
+      "ai-agents",
+      "prompt-engineering",
+      "retrieval-augmented-generation",
+      "workflow-orchestration",
+      "open-source",
+      "python-javascript"
     ],
     "subcategories": [
       "llm-frameworks",
@@ -26521,13 +26553,37 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building conversational AI assistants with long-term memory and web search",
+      "Creating intelligent document analysis and Q&A systems over private data (RAG)",
+      "Developing autonomous agents that can execute tasks using software tools",
+      "Prototyping and productionizing complex LLM-powered workflows for businesses"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Core Framework (LangChain): Free & Open-Source - MIT License",
+        "LangSmith (Developer Platform): Freemium - $0 for up to 1,000 traces/month",
+        "LangSmith (Developer Platform): Team - $49/month per seat (billed annually) for advanced features",
+        "LangSmith (Developer Platform): Enterprise - Custom pricing for SSO, dedicated support, etc."
+      ],
+      "free_tier": "Yes - The core LangChain library is completely free. LangSmith offers a free tier with 1,000 monthly traces.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML Engineers & Developers",
+      "Data Scientists building LLM applications",
+      "Enterprise teams prototyping generative AI solutions"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "langfuse",
     "name": "Langfuse",
-    "description": "Open-source LLM engineering platform providing observability, analytics, and testing for language model applications.",
-    "category": "nlp",
+    "description": "Langfuse is an open-source LLM engineering platform designed to provide comprehensive observability, analytics, and testing for applications built with large language models. It enables developers and teams to trace, debug, and optimize LLM calls, manage prompts, monitor performance, and track costs across complex workflows. Its unique value lies in being a self-hostable, developer-centric toolkit that integrates deeply into the development lifecycle, offering granular insights beyond basic monitoring.",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "llm-observability"
@@ -26536,11 +26592,13 @@
     "website": "https://github.com/langfuse/langfuse",
     "pricing": "freemium",
     "features": [
-      "LLM observability",
-      "Trace analytics",
-      "Prompt management",
-      "Performance monitoring",
-      "Cost tracking"
+      "End-to-end tracing of LLM calls, tools, and agents in complex workflows",
+      "Centralized prompt management with versioning, testing, and deployment",
+      "Detailed analytics dashboard for latency, token usage, and cost per trace/session",
+      "Automated evaluation of LLM outputs using custom metrics and model-based scorers",
+      "Real-time monitoring and alerting for application performance and errors",
+      "Integration with popular frameworks (LangChain, LlamaIndex) and SDKs (Python/JS)",
+      "Self-hostable deployment option with full data control"
     ],
     "rating": 4.5,
     "verified": true,
@@ -26548,11 +26606,14 @@
     "trending": true,
     "slug": "langfuse",
     "tags": [
-      "LLM",
-      "Observability",
-      "Analytics",
-      "Monitoring",
-      "Tracing"
+      "llm-observability",
+      "prompt-engineering",
+      "tracing",
+      "llm-analytics",
+      "cost-tracking",
+      "llm-testing",
+      "open-source",
+      "model-evaluation"
     ],
     "subcategories": [
       "llm-observability",
@@ -26576,13 +26637,37 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Debugging and improving the reliability of production LLM applications (e.g., chatbots, agents)",
+      "Comparing performance and cost of different models, prompts, and parameters during development",
+      "Managing and versioning prompts across development, staging, and production environments",
+      "Conducting automated evaluations and A/B tests for LLM features before deployment",
+      "Monitoring application health, user costs, and identifying inefficient or erroneous LLM calls"
+    ],
+    "pricing_details": {
+      "model": "subscription (usage-based seats) + open-source",
+      "tiers": [
+        "Free (Cloud): 1,000 traces/month, 1 seat, 7-day data retention, core features",
+        "Pro (Cloud): $29/seat/month - 10,000 included traces/seat/month, longer retention, SSO, advanced features",
+        "Enterprise (Cloud & Self-Host): Custom pricing - unlimited traces, dedicated support, SLA, full data isolation"
+      ],
+      "free_tier": "Yes - 1,000 traces/month on Cloud, unlimited on self-hosted open-source version",
+      "starting_price": "Free (Cloud), $29/seat/month (Pro Cloud)"
+    },
+    "target_audience": [
+      "LLM/GenAI application developers",
+      "ML/LLM engineers and platform teams",
+      "Product teams building AI-powered features"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "langgraph",
     "name": "LangGraph",
-    "description": "Library for building stateful, multi-actor applications with LLMs enabling complex workflows with cycles, controllability, and persistence.",
-    "category": "llms",
+    "description": "LangGraph is a Python library from the LangChain ecosystem designed for building sophisticated, stateful, multi-actor applications with large language models (LLMs). It enables developers to construct complex, cyclic workflows—like agent simulations, autonomous systems, and long-running processes—with built-in support for persistence, human-in-the-loop intervention, and precise control over execution flow. Its unique value lies in treating workflows as directed graphs with cycles, making it distinct from purely linear DAG-based tools and ideal for orchestrating dynamic, stateful AI interactions.",
+    "category": "agent-platforms",
     "categories": [
       "machine-learning-frameworks",
       "ai-agents"
@@ -26591,11 +26676,13 @@
     "website": "https://github.com/langchain-ai/langgraph",
     "pricing": "open-source",
     "features": [
-      "Stateful workflows",
-      "Multi-actor systems",
-      "Cycle support",
-      "Human-in-the-loop",
-      "State persistence"
+      "Graph-based workflow definition with cyclic support",
+      "Built-in persistence for saving/loading application state",
+      "Checkpointing for human-in-the-loop intervention and approval",
+      "Streaming support for real-time updates and intermediate results",
+      "Integration with LangChain's tooling and LLM ecosystem",
+      "Multi-actor (multi-agent) coordination within a shared state",
+      "Subgraph composition for modular, reusable workflow components"
     ],
     "rating": 4.6,
     "verified": true,
@@ -26603,11 +26690,13 @@
     "trending": true,
     "slug": "langgraph",
     "tags": [
-      "Stateful",
-      "Multi-actor",
-      "Workflows",
-      "LLM",
-      "Controllable"
+      "langchain",
+      "agent-framework",
+      "workflow-orchestration",
+      "state-management",
+      "multi-agent-systems",
+      "llm-applications",
+      "graph-based-workflows"
     ],
     "subcategories": [
       "ai-agents",
@@ -26631,13 +26720,36 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building autonomous AI agents with memory and tool-use (e.g., customer support bots)",
+      "Orchestrating multi-agent simulations for research or gaming",
+      "Creating complex, stateful chatbots with long-term memory and branching logic",
+      "Developing automated data analysis pipelines with human review checkpoints",
+      "Implementing recursive problem-solving agents (e.g., coding assistants that debug iteratively)",
+      "Running persistent, long-horizon workflows like content generation with iterative refinement"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the LangGraph library under the MIT License"
+      ],
+      "free_tier": "Yes - The entire library is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML Engineers building production LLM applications",
+      "Researchers prototyping multi-agent or autonomous systems",
+      "Software Developers creating complex, stateful workflow automation"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "langsmith",
     "name": "LangSmith",
-    "description": "Developer platform for building, testing, and monitoring LLM applications with comprehensive tracing and evaluation capabilities.",
-    "category": "llms",
+    "description": "LangSmith is a unified developer platform for building, debugging, testing, and monitoring production-grade LLM applications. It provides comprehensive tracing to visualize chain and agent executions, alongside robust evaluation tools to assess performance, quality, and cost. It is uniquely positioned as the integrated, first-party observability and evaluation suite for the popular LangChain framework ecosystem, targeting developers and teams moving from prototype to production.",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "llm-development"
@@ -26646,11 +26758,13 @@
     "website": "https://smith.langchain.com",
     "pricing": "freemium",
     "features": [
-      "LLM application testing",
-      "Comprehensive tracing",
-      "Performance evaluation",
-      "Debugging tools",
-      "Team collaboration"
+      "End-to-end tracing of LLM calls, chain steps, and tool usage with detailed inputs/outputs and latency",
+      "Dataset management for curating and versioning prompts, inputs, and expected outputs",
+      "Automated and human-in-the-loop evaluation workflows with custom and pre-built metrics (e.g., correctness, relevance)",
+      "Playground for rapid iteration and A/B testing of different prompts, models, and chains",
+      "Collaboration tools for sharing traces, datasets, and feedback within teams",
+      "Production monitoring dashboards with analytics on cost, latency, and error rates",
+      "Integration with the LangChain framework and SDK for seamless instrumentation"
     ],
     "rating": 4.6,
     "verified": true,
@@ -26658,11 +26772,13 @@
     "trending": true,
     "slug": "langsmith",
     "tags": [
-      "LLM Development",
-      "Testing",
-      "Tracing",
-      "Debugging",
-      "Collaboration"
+      "llm-observability",
+      "llm-evaluation",
+      "llm-debugging",
+      "prompt-engineering",
+      "agent-tracing",
+      "llm-testing",
+      "production-monitoring"
     ],
     "subcategories": [
       "llm-development",
@@ -26686,12 +26802,37 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Debugging complex agent or chain failures by stepping through a visual trace of execution",
+      "Systematically testing and comparing multiple LLM model providers (OpenAI, Anthropic, etc.) and prompts on a curated dataset",
+      "Monitoring a live LLM application's performance, tracking drift in outputs, and identifying costly or slow operations",
+      "Building a regression test suite for an LLM pipeline to ensure updates don't degrade answer quality",
+      "Collaborating on prompt engineering by sharing successful traces and evaluation results with team members"
+    ],
+    "pricing_details": {
+      "model": "subscription (usage-based seats + compute credits)",
+      "tiers": [
+        "Free: 1 user seat, 1,000 traces/month, basic support",
+        "Pro: $199/user/month - 5,000 traces/user/month included, additional traces at $0.10/1k, advanced evaluation credits, priority support",
+        "Team: $499/user/month - 25,000 traces/user/month included, additional traces at $0.08/1k, SSO/SAML, dedicated support",
+        "Enterprise: Custom - Unlimited traces, custom data retention, dedicated infrastructure, 24/7 support"
+      ],
+      "free_tier": "Yes - 1 user seat, 1,000 traces per month, 1 dataset, 1 evaluation",
+      "starting_price": "Free, then $199/user/month"
+    },
+    "target_audience": [
+      "LLM/GenAI Application Developers",
+      "ML Engineers & MLOps Teams",
+      "Enterprise AI/Product Teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "language-computer-corp",
     "name": "Language Computer Corporation",
-    "description": "Text extraction and analysis tools provider offering multilingual NLP solutions for enterprise applications.",
+    "description": "Language Computer Corporation (LCC) is a specialized provider of advanced natural language processing (NLP) software and APIs for extracting structured information from unstructured text. Its core technology focuses on deep semantic analysis, multilingual processing, and domain-specific customization for complex enterprise applications. What makes it unique is its long-standing expertise in handling challenging, domain-specific language (e.g., legal, biomedical, intelligence) and its hybrid approach that combines statistical methods with symbolic reasoning and ontologies.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -26699,13 +26840,16 @@
     ],
     "url": "https://www.languagecomputer.com",
     "website": "https://www.languagecomputer.com",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Multilingual processing",
-      "Text extraction",
-      "Entity recognition",
-      "Question answering",
-      "Information extraction"
+      "Multilingual entity and relationship extraction (supports 20+ languages)",
+      "Deep semantic role labeling and event extraction",
+      "Domain-adaptable NLP models (e.g., for legal, biomedical, intelligence domains)",
+      "Abbreviation detection and coreference resolution",
+      "Temporal expression recognition and normalization",
+      "Question Answering system for fact-based queries",
+      "Sentiment and opinion analysis",
+      "API and on-premise deployment options"
     ],
     "rating": 4.1,
     "verified": true,
@@ -26713,9 +26857,13 @@
     "trending": false,
     "slug": "language-computer-corp",
     "tags": [
-      "AI",
-      "NLP",
-      "Enterprise"
+      "information-extraction",
+      "entity-recognition",
+      "multilingual-nlp",
+      "enterprise-ai",
+      "semantic-analysis",
+      "text-analytics",
+      "domain-adaptation"
     ],
     "subcategories": [
       "enterprise-nlp"
@@ -26738,12 +26886,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Intelligence and security: Analyzing reports, transcripts, and documents for threat detection.",
+      "Biomedical research: Extracting drug, gene, and disease relationships from scientific literature.",
+      "Legal document review: Identifying parties, dates, obligations, and clauses in contracts.",
+      "Financial compliance: Monitoring communications and documents for regulatory violations.",
+      "Media monitoring: Tracking entities, events, and sentiment across global news sources.",
+      "Customer insight analysis: Extracting key themes and complaints from support tickets and surveys."
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Includes licensing for software/APIs, professional services for customization, training, and support. Pricing is quote-based and scales with deployment size, data volume, and required features."
+      ],
+      "free_tier": "No - No publicly listed free tier or trial. Evaluation licenses may be available upon request.",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Government and defense agencies",
+      "Large enterprises in legal, financial, and pharmaceutical sectors",
+      "Research institutions and universities"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "las-x-core",
     "name": "LAS X Core",
-    "description": "Free software from Leica for opening and analyzing images acquired on Leica microscopes with LAS X control.",
+    "description": "LAS X Core is the free, foundational software suite from Leica Microsystems for acquiring, visualizing, and performing basic analysis on images from Leica microscopes. It provides a unified interface for microscope control, live image viewing, and essential measurement tools, specifically designed to work seamlessly with Leica's hardware. Its uniqueness lies in being the official, vendor-supported gateway software that unlocks the full ecosystem of Leica imaging systems and optional premium modules.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -26753,11 +26924,13 @@
     "website": "https://www.leica-microsystems.com",
     "pricing": "free",
     "features": [
-      "Leica image support",
-      "Microscopy analysis",
-      "LAS X integration",
-      "Basic measurements",
-      "Image processing"
+      "Unified control interface for Leica digital microscopes, confocals, and stereo microscopes",
+      "Native support for proprietary Leica image file formats (.lif, .lei, .xlef)",
+      "Basic image processing tools (contrast, brightness, gamma correction, scaling)",
+      "Fundamental measurement tools for distance, angle, area, and point counts",
+      "Multi-dimensional acquisition support for time series (Time-lapse) and Z-stacks",
+      "Interactive stitching of large area scans (Tile Scan)",
+      "Direct integration with Leica Application Suite X (LAS X) premium modules"
     ],
     "rating": 4,
     "verified": true,
@@ -26765,10 +26938,13 @@
     "trending": false,
     "slug": "las-x-core",
     "tags": [
-      "Microscopy",
-      "Leica",
-      "Image Analysis",
-      "LAS X"
+      "microscopy-software",
+      "scientific-imaging",
+      "image-acquisition",
+      "life-sciences",
+      "material-science",
+      "leica-microsystems",
+      "digital-pathology"
     ],
     "subcategories": [
       "microscopy-software",
@@ -26792,13 +26968,36 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Basic quality control and inspection in industrial or material science labs",
+      "Routine brightfield and fluorescence imaging in academic core facilities",
+      "Initial image acquisition and visualization for life science research projects",
+      "Educational use in university teaching labs for microscopy training",
+      "Preliminary analysis and screening before advanced quantification",
+      "Viewing and sharing images captured on Leica systems across a research team"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: Full access to LAS X Core software for basic acquisition and analysis. Requires a Leica microscope or a valid demo license."
+      ],
+      "free_tier": "Yes - The entire LAS X Core platform is free, including basic acquisition, viewing, and measurement tools.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "academic-researchers",
+      "industrial-lab-technicians",
+      "core-facility-managers"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "leonardo-ai",
     "name": "Leonardo AI",
-    "description": "AI-powered creative platform for generating production-quality visual assets with fine-tuned control.",
-    "category": "generative-ai",
+    "description": "Leonardo AI is a specialized generative AI platform focused on creating high-quality, production-ready visual assets for games, apps, and media. It provides fine-tuned control over image generation through proprietary and community-trained models, with unique strengths in generating consistent character art, game assets, and 3D textures. It stands out by catering specifically to professional creatives and developers who need commercial-grade, stylistically consistent assets with predictable outputs.",
+    "category": "image-generation",
     "categories": [
       "image-generation",
       "design-creative"
@@ -26807,11 +27006,13 @@
     "website": "https://leonardo.ai",
     "pricing": "freemium",
     "features": [
-      "Production-quality images",
-      "Fine-tuned models",
-      "3D texture generation",
-      "Real-time generation",
-      "Commercial licensing"
+      "Access to 20+ fine-tuned AI models (e.g., Leonardo Diffusion, RPG 4.0)",
+      "Real-time Canvas for in-painting and out-painting edits",
+      "3D Texture Generation from text or image prompts",
+      "AI Canvas with layer-based editing and control features",
+      "Prompt Generation tool to help refine image descriptions",
+      "Asset Library with community-generated and personal images",
+      "Model Training: ability to train custom LoRA models on personal datasets"
     ],
     "rating": 4.5,
     "verified": true,
@@ -26819,11 +27020,13 @@
     "trending": true,
     "slug": "leonardo-ai",
     "tags": [
-      "AI",
-      "Creative",
-      "Production",
-      "3D",
-      "Commercial"
+      "image-generation",
+      "game-dev",
+      "3d-texturing",
+      "character-design",
+      "asset-creation",
+      "stable-diffusion",
+      "creative-tools"
     ],
     "subcategories": [
       "text-to-image",
@@ -26847,12 +27050,38 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Generating concept art and character designs for video games",
+      "Creating marketing assets and product visuals for e-commerce",
+      "Producing consistent graphic novel or comic book artwork",
+      "Texturing 3D models for game development or animation",
+      "Rapid prototyping of UI/UX elements and app icons",
+      "Creating stock photography and illustrative content for blogs/media"
+    ],
+    "pricing_details": {
+      "model": "subscription (token-based usage within tiers)",
+      "tiers": [
+        "Free: 150 tokens/day (renews daily), access to basic models, limited features",
+        "Apprentice: $12/month - 8,500 tokens/month, faster generation, more features",
+        "Artisan: $30/month - 25,000 tokens/month, priority queue, early access",
+        "Maestro: $60/month - 60,000 tokens/month, highest priority, full platform access"
+      ],
+      "free_tier": "Yes - 150 tokens per day (renews daily), access to a selection of models, image generation, and basic features.",
+      "starting_price": "Free, with paid plans starting at $12/month"
+    },
+    "target_audience": [
+      "Game Developers & Designers",
+      "Digital Artists & Illustrators",
+      "Marketing & Content Creators"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "levit",
     "name": "LeViT",
-    "description": "Hybrid neural network combining CNN and Vision Transformer principles for fast inference image classification.",
+    "description": "LeViT (LeViT: a Vision Transformer in ConvNet's Clothing for Faster Inference) is a hybrid neural network architecture designed for efficient image classification, combining principles from Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs). It targets researchers and engineers needing fast, accurate vision models for deployment on resource-constrained devices, uniquely achieving a favorable speed-accuracy trade-off by integrating a CNN-like stem for early feature extraction with transformer blocks using attention bias for reduced computational cost.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -26862,11 +27091,12 @@
     "website": "https://github.com/facebookresearch/LeViT",
     "pricing": "open-source",
     "features": [
-      "Hybrid CNN-Transformer",
-      "Fast inference",
-      "Attention bias",
-      "Multi-resolution",
-      "Efficient classification"
+      "Hybrid CNN-Transformer backbone with a 4-layer CNN stem",
+      "Attention bias mechanism replacing positional embeddings for efficiency",
+      "Multi-resolution pyramid structure for hierarchical feature processing",
+      "Distillation-friendly design compatible with teacher-student training",
+      "Optimized for low-latency inference on CPU/GPU (e.g., under 5ms per image on modern hardware)",
+      "Pre-trained models available (LeViT-128S, 256, 384) with ImageNet-1k weights"
     ],
     "rating": 4.5,
     "verified": true,
@@ -26874,10 +27104,13 @@
     "trending": false,
     "slug": "levit",
     "tags": [
-      "Hybrid Architecture",
-      "Fast Inference",
-      "Facebook Research",
-      "CNN-Transformer"
+      "vision-transformer",
+      "hybrid-architecture",
+      "fast-inference",
+      "image-classification",
+      "efficient-ai",
+      "facebook-research",
+      "model-optimization"
     ],
     "subcategories": [
       "hybrid-architectures",
@@ -26901,12 +27134,34 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Mobile and edge device image classification (e.g., smartphone object recognition)",
+      "Real-time visual inspection in manufacturing for defect detection",
+      "Embedded vision systems in robotics for scene understanding",
+      "Low-latency content moderation for image filtering on platforms",
+      "Efficient medical image analysis where inference speed is critical"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to code, pre-trained models, and research papers under MIT License"
+      ],
+      "free_tier": "Yes - includes all features, weights, and training/evaluation code",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "computer-vision researchers focusing on efficient architectures",
+      "ML engineers deploying models to edge/mobile devices",
+      "data scientists building low-latency image classification pipelines"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "lexalytics",
     "name": "Lexalytics",
-    "description": "Enterprise text analytics platform delivering on-prem and cloud sentiment, categorization, and entity extraction.",
+    "description": "Lexalytics is an enterprise-grade natural language processing (NLP) and text analytics platform. It specializes in deriving actionable insights from unstructured text data through core capabilities like sentiment analysis, intent detection, entity extraction, and thematic categorization. Its key differentiator is a highly accurate, rules-based 'Semantria' engine combined with machine learning, offering deep configurability, on-premise deployment for data security, and pre-built taxonomies for specific industries like finance and healthcare.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -26914,13 +27169,15 @@
     ],
     "url": "https://www.lexalytics.com",
     "website": "https://www.lexalytics.com",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Sentiment & intention",
-      "Theme detection",
-      "Entity extraction",
-      "Industry taxonomies",
-      "On-prem deployment"
+      "Granular sentiment & emotion scoring (positive/negative/neutral, plus emotions like anger, joy)",
+      "Configurable entity extraction (people, places, brands, custom types)",
+      "Theme & concept detection using industry-specific taxonomies (e.g., finance, hospitality)",
+      "Intention/Intent detection (e.g., complaint, inquiry, recommendation)",
+      "Fully on-premise or private cloud deployment option for data sovereignty",
+      "RESTful API and SDKs (Python, Java, etc.) for integration",
+      "Multi-language support (20+ languages including English, Spanish, Chinese)"
     ],
     "rating": 4.1,
     "verified": true,
@@ -26928,9 +27185,14 @@
     "trending": false,
     "slug": "lexalytics",
     "tags": [
-      "AI",
-      "NLP",
-      "Enterprise"
+      "sentiment-analysis",
+      "text-analytics",
+      "entity-extraction",
+      "intent-analysis",
+      "on-premise-ai",
+      "enterprise-software",
+      "customer-feedback",
+      "business-intelligence"
     ],
     "subcategories": [
       "text-analytics"
@@ -26953,13 +27215,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Analyzing customer feedback from surveys, reviews, and support tickets to track sentiment and emerging issues",
+      "Monitoring brand and competitor mentions across social media and news for market intelligence",
+      "Categorizing and routing internal documents or customer communications for workflow automation",
+      "Extracting key entities and themes from financial news, research reports, or legal documents",
+      "Powering voice-of-customer (VoC) programs by unifying and analyzing qualitative data from multiple sources"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom Pricing - Includes full platform access, on-prem/cloud deployment, dedicated support, custom taxonomy development, and SLA guarantees."
+      ],
+      "free_tier": "No - but a free trial/demo is available upon request.",
+      "starting_price": "Custom"
+    },
+    "target_audience": [
+      "Large Enterprises (Fortune 500, Global 2000)",
+      "Market Research and Business Intelligence Firms",
+      "Financial Services and Healthcare Organizations (with compliance needs)"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "librosa",
     "name": "librosa",
-    "description": "Python library for music and audio analysis providing building blocks for music information retrieval systems and audio feature extraction.",
-    "category": "ml-frameworks",
+    "description": "Librosa is a core Python library for music and audio signal analysis, providing the fundamental building blocks for extracting features like tempo, pitch, and timbre from audio files. It is specifically designed for music information retrieval (MIR) and audio analysis tasks, offering robust implementations of spectral analysis, beat tracking, and chroma feature extraction. Its unique value lies in being a free, research-grade, and de facto standard tool for academics, data scientists, and developers working on audio-based machine learning, distinguishing itself from general-purpose signal processing libraries with its music-specific algorithms and ease of use.",
+    "category": "audio-ai",
     "categories": [
       "machine-learning-frameworks",
       "audio-processing"
@@ -26968,11 +27252,13 @@
     "website": "https://librosa.org",
     "pricing": "open-source",
     "features": [
-      "Audio analysis",
-      "Music information retrieval",
-      "Feature extraction",
-      "Spectral analysis",
-      "Beat tracking"
+      "Load and resample audio from various file formats (MP3, WAV, FLAC, etc.)",
+      "Compute mel-spectrograms, MFCCs (Mel-Frequency Cepstral Coefficients), and chroma features",
+      "Detect beat and tempo using dynamic programming",
+      "Decompose audio into harmonic and percussive components",
+      "Estimate pitch (fundamental frequency) using various algorithms",
+      "Generate time-frequency representations (CQT, STFT)",
+      "Sync features to beat-synchronous or time-varying analysis frames"
     ],
     "rating": 4.6,
     "verified": true,
@@ -26980,11 +27266,14 @@
     "trending": true,
     "slug": "librosa",
     "tags": [
-      "Audio Processing",
-      "Music Analysis",
-      "Feature Extraction",
-      "Spectral",
-      "Beat Tracking"
+      "audio-processing",
+      "music-information-retrieval",
+      "spectral-analysis",
+      "feature-extraction",
+      "beat-tracking",
+      "python-library",
+      "signal-processing",
+      "music-analysis"
     ],
     "subcategories": [
       "audio-processing",
@@ -27008,12 +27297,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research in musicology and music information retrieval",
+      "Building preprocessing pipelines for music recommendation systems",
+      "Developing machine learning models for genre classification or mood detection",
+      "Creating audio analysis tools for DJ software or digital audio workstations",
+      "Analyzing podcast or speech audio for rhythmic and tonal features",
+      "Prototyping and teaching signal processing concepts in educational settings"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: Full access to library under ISC license"
+      ],
+      "free_tier": "Yes - The entire library is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "audio researchers and academics",
+      "data scientists in music/audio tech",
+      "software developers building audio analysis tools"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "lightgbm",
     "name": "LightGBM",
-    "description": "Fast gradient boosting framework by Microsoft that uses tree-based learning algorithms with optimized memory usage and training speed.",
+    "description": "LightGBM is a high-performance gradient boosting framework developed by Microsoft that implements tree-based machine learning algorithms. It's designed for efficiency and speed, featuring optimized histogram-based learning, leaf-wise tree growth, and direct support for categorical features. Its unique architecture makes it particularly well-suited for large-scale datasets where training speed and memory efficiency are critical constraints.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -27023,11 +27335,13 @@
     "website": "https://github.com/Microsoft/LightGBM",
     "pricing": "open-source",
     "features": [
-      "Faster training speed",
-      "Lower memory usage",
-      "GPU acceleration",
-      "Distributed learning",
-      "Categorical feature support"
+      "Histogram-based learning algorithm for faster training",
+      "Leaf-wise tree growth with depth limitation for better accuracy",
+      "Direct categorical feature support without one-hot encoding",
+      "GPU acceleration for both training and inference",
+      "Parallel and distributed learning capabilities",
+      "Optimized memory usage through exclusive feature bundling",
+      "Support for multiple metrics and early stopping"
     ],
     "rating": 4.7,
     "verified": true,
@@ -27035,11 +27349,13 @@
     "trending": true,
     "slug": "lightgbm",
     "tags": [
-      "Gradient Boosting",
-      "Microsoft",
-      "Fast Training",
-      "Memory Efficient",
-      "GPU"
+      "gradient-boosting",
+      "tree-algorithms",
+      "machine-learning",
+      "microsoft-research",
+      "high-performance",
+      "large-scale-data",
+      "distributed-computing"
     ],
     "subcategories": [
       "gradient-boosting",
@@ -27063,12 +27379,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Click-through rate prediction for online advertising platforms",
+      "Fraud detection in financial transaction systems",
+      "Customer churn prediction for telecommunications companies",
+      "Search ranking and recommendation systems",
+      "Risk assessment in insurance and banking",
+      "Anomaly detection in IoT and industrial systems"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full open-source under MIT license with all features"
+      ],
+      "free_tier": "Yes - complete framework with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists working with large datasets",
+      "machine learning engineers building production systems",
+      "researchers requiring efficient gradient boosting implementations"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "linguamatics",
     "name": "Linguamatics (IQVIA)",
-    "description": "NLP-based enterprise text mining software for high-value knowledge discovery and decision support in life sciences.",
+    "description": "Linguamatics is an enterprise-grade, NLP-based text mining platform developed by IQVIA, designed to transform unstructured text into structured, actionable insights. Its core capability is using interactive natural language processing (I2E) to rapidly query and extract precise information from vast document repositories, scientific literature, patents, and clinical notes. It is uniquely positioned for the life sciences and healthcare sectors, offering pre-built, domain-specific query libraries and ontologies that accelerate knowledge discovery, competitive intelligence, and regulatory workflows.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -27076,13 +27415,15 @@
     ],
     "url": "https://www.iqvia.com/solutions/technologies/linguamatics",
     "website": "https://www.iqvia.com",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Biomedical text mining",
-      "Knowledge discovery",
-      "Regulatory compliance",
-      "Clinical research support",
-      "Pharmacovigilance"
+      "Interactive NLP (I2E) engine for querying text with natural language or patterns",
+      "Pre-built biomedical ontologies and taxonomies (e.g., genes, diseases, chemicals)",
+      "High-speed querying across millions of documents (internal & external sources)",
+      "Automated relationship and entity extraction for knowledge graph creation",
+      "Sentiment and assertion analysis for clinical note review",
+      "Integration APIs for embedding insights into existing R&D and safety systems",
+      "Dashboard and visualization tools for trend analysis and hypothesis testing"
     ],
     "rating": 4.2,
     "verified": true,
@@ -27090,9 +27431,14 @@
     "trending": false,
     "slug": "linguamatics",
     "tags": [
-      "AI",
-      "NLP",
-      "Life Sciences"
+      "enterprise-nlp",
+      "text-mining",
+      "biomedical-informatics",
+      "pharmacovigilance",
+      "clinical-research",
+      "life-sciences-ai",
+      "knowledge-graph",
+      "drug-discovery"
     ],
     "subcategories": [
       "life-sciences-nlp"
@@ -27115,26 +27461,50 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Accelerating drug discovery by identifying novel gene-disease relationships from literature",
+      "Enhancing pharmacovigilance by mining adverse event reports and social media for safety signals",
+      "Supporting regulatory submissions by extracting evidence from clinical trial documents",
+      "Powering competitive intelligence by tracking drug pipelines and patent landscapes",
+      "Optimizing clinical trial design by analyzing patient cohorts from electronic health records (EHRs)"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Includes platform license, user seats, implementation services, and ongoing support. Pricing is highly customized based on deployment scope, data volume, and required connectors."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "pharmaceutical R&D teams",
+      "medical affairs and pharmacovigilance professionals",
+      "biotech research informatics groups"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "litellm",
     "name": "LiteLLM",
-    "description": "Unified interface for calling 100+ LLMs using the OpenAI format, simplifying multi-provider LLM integration.",
-    "category": "llms",
+    "description": "LiteLLM is an open-source library that provides a unified OpenAI-compatible API interface for calling over 100+ large language models (LLMs) from various providers like OpenAI, Anthropic, Cohere, Hugging Face, and Replicate. Its key capabilities include standardized input/output, automatic fallbacks, load balancing, and detailed cost tracking, simplifying multi-provider LLM integration and management. It uniquely enables developers and businesses to build resilient, cost-effective applications by abstracting provider-specific complexities and offering powerful operational tooling.",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "llm-integration"
     ],
     "url": "https://litellm.ai",
     "website": "https://github.com/BerriAI/litellm",
-    "pricing": "freemium",
+    "pricing": "open-source",
     "features": [
-      "Unified LLM interface",
-      "100+ provider support",
-      "OpenAI format",
-      "Load balancing",
-      "Cost tracking"
+      "Unified OpenAI-compatible API for 100+ LLMs (GPT-4, Claude, Llama, etc.)",
+      "Automatic fallback routing between models/providers on failure or overload",
+      "Consistent logging, streaming, and output parsing across all providers",
+      "Real-time cost tracking and budgeting per project, model, and user",
+      "Weighted load balancing across multiple API keys and model deployments",
+      "Proxy server with managed UI for team usage, logging, and key management",
+      "Support for Azure, AWS Sagemaker, and Bedrock deployments"
     ],
     "rating": 4.6,
     "verified": true,
@@ -27142,11 +27512,13 @@
     "trending": true,
     "slug": "litellm",
     "tags": [
-      "Unified Interface",
-      "Multi-provider",
-      "OpenAI Format",
-      "Load Balancing",
-      "Cost Tracking"
+      "api-unification",
+      "llm-gateway",
+      "cost-management",
+      "fallback-routing",
+      "open-source",
+      "model-agnostic",
+      "load-balancing"
     ],
     "subcategories": [
       "llm-integration",
@@ -27170,26 +27542,52 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building a resilient AI application with automatic failover to backup models if the primary is down",
+      "Creating a cost-optimized chatbot that routes queries to the most cost-effective model based on complexity",
+      "Developing a single codebase that can seamlessly switch between OpenAI GPT-4, Anthropic Claude, and open-source models",
+      "Managing and tracking LLM API spending across different teams and projects in a centralized dashboard",
+      "Implementing an internal gateway for an engineering team to securely use multiple LLM APIs with shared keys and quotas"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Core Library (litellm): Free & Open-Source - MIT License",
+        "Proxy Server & Managed UI (litellm-proxy): Free & Open-Source",
+        "Enterprise Support & Hosting: Custom - Contact for details"
+      ],
+      "free_tier": "Yes - The entire core library and proxy server are free and open-source under the MIT license.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML Engineers and Developers building multi-model applications",
+      "Startups and Product Teams needing cost control and resilience in LLM integrations",
+      "Enterprise DevOps & Platform Teams managing internal LLM API infrastructure"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "llama",
     "name": "Meta LLaMA",
-    "description": "Open-weight large language model series optimized for research and on-premise deployment.",
-    "category": "nlp",
+    "description": "Meta LLaMA (Large Language Model Meta AI) is a foundational series of open-weight large language models designed for efficient research and commercial on-premise deployment. It provides a suite of models ranging from 7B to 70B+ parameters, optimized for strong performance while being more computationally efficient than many contemporaries. Its unique value lies in its permissive, non-commercial research license (evolving to more open licenses for newer versions) that grants broad access to the model weights, fostering transparency and enabling extensive customization and fine-tuning by the community.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Large Language Models"
     ],
     "url": "https://ai.facebook.com/blog/large-language-model-llama",
     "website": "https://ai.facebook.com",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Open weights",
-      "Fine-tuning support",
-      "Token efficient",
-      "Instruction datasets",
-      "Multilingual variants"
+      "Open-weight model series (7B, 13B, 33B, 65B, 70B parameters)",
+      "Trained on publicly available datasets (CommonCrawl, Wikipedia, etc.)",
+      "Optimized for inference efficiency with fewer tokens required for training",
+      "Includes instruction-following fine-tuned variants (e.g., LLaMA 2-Chat)",
+      "Supports extensive fine-tuning via frameworks like Hugging Face Transformers",
+      "Available in multilingual variants covering 20+ languages",
+      "Designed for deployment on consumer and enterprise-grade hardware"
     ],
     "rating": 4.5,
     "verified": true,
@@ -27197,9 +27595,13 @@
     "trending": true,
     "slug": "llama",
     "tags": [
-      "AI",
-      "NLP",
-      "LLM"
+      "open-source-llm",
+      "foundation-model",
+      "transformer",
+      "research-tool",
+      "fine-tuning",
+      "multilingual-nlp",
+      "on-premise-ai"
     ],
     "subcategories": [
       "text-generation"
@@ -27222,26 +27624,51 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic and industrial AI research (benchmarking, safety, alignment studies)",
+      "Building custom, private chatbots and virtual assistants for enterprises",
+      "Powering on-premise text generation, summarization, and translation tools",
+      "Fine-tuning for domain-specific applications (legal, medical, customer support)",
+      "Serving as a cost-effective base model for startups and developers",
+      "Comparative analysis and prototyping against closed-source LLMs (GPT, Claude)"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to model weights under a non-commercial/research license for LLaMA 1; a more permissive commercial license for LLaMA 2 and 3 for most users."
+      ],
+      "free_tier": "Yes - Access to model weights, training recipes, and model cards for approved research and commercial use (subject to license terms and acceptable use policy).",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers and academics",
+      "Enterprise IT/ML teams needing on-premise deployment",
+      "Developers and startups building custom LLM applications"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "llama-3-meta",
     "name": "Meta LLaMA 3",
-    "description": "Latest generation of Meta's open-weight large language model with improved reasoning and multilingual capabilities.",
-    "category": "nlp",
+    "description": "Meta LLaMA 3 is the latest generation of Meta's open-weight large language model series, designed for advanced natural language understanding and generation. It excels in complex reasoning, code generation, and multilingual tasks, offering significant improvements in instruction following and factual accuracy over its predecessors. Its unique value lies in being a state-of-the-art, openly available model with a permissive commercial license, enabling broad development and deployment by researchers, developers, and businesses.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Large Language Models"
     ],
     "url": "https://ai.meta.com/llama",
     "website": "https://ai.meta.com",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Open weights",
-      "Improved reasoning",
-      "Multilingual support",
-      "Fine-tuning friendly",
-      "Commercial license"
+      "Open-weight models (8B and 70B parameter versions available for download)",
+      "Extended 128K token context window for processing long documents",
+      "Enhanced reasoning and instruction-following capabilities",
+      "Strong multilingual performance across 30+ languages",
+      "Optimized for common programming languages and code generation",
+      "Released under a custom commercial license with broad usage rights",
+      "Trained on a dataset over 7x larger than LLaMA 2"
     ],
     "rating": 4.6,
     "verified": true,
@@ -27249,9 +27676,13 @@
     "trending": true,
     "slug": "llama-3-meta",
     "tags": [
-      "AI",
-      "NLP",
-      "Meta"
+      "large-language-model",
+      "open-source-ai",
+      "meta-ai",
+      "text-generation",
+      "multilingual-ai",
+      "reasoning-ai",
+      "commercial-license"
     ],
     "subcategories": [
       "large-language-models"
@@ -27274,12 +27705,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building custom chatbots and AI assistants for customer service",
+      "Enterprise knowledge synthesis and document analysis",
+      "Multilingual content creation and translation services",
+      "AI-powered coding assistants and software development tools",
+      "Academic research and experimentation in NLP and AI safety",
+      "Powering internal business intelligence and data analysis workflows"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: Model weights and starting code are available for download and commercial use under Meta's license agreement."
+      ],
+      "free_tier": "Yes - Full access to model weights, inference code, and a permissive commercial license.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers and developers",
+      "Startups and tech companies",
+      "Enterprise IT and innovation teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "llamacpp",
     "name": "llama.cpp",
-    "description": "Port of Facebook's LLaMA model in C/C++ enabling efficient inference on commodity hardware without GPU requirements.",
+    "description": "llama.cpp is a high-performance, open-source C/C++ port of Meta's LLaMA and Llama 2 language models, designed to enable efficient inference of large language models (LLMs) directly on CPU-based hardware. Its key capabilities include advanced quantization, memory optimization, and cross-platform support, allowing models to run on commodity hardware without requiring a dedicated GPU. It uniquely targets developers and researchers seeking to deploy or experiment with LLMs in resource-constrained environments, from laptops to servers, with minimal dependencies.",
     "category": "llms",
     "categories": [
       "machine-learning-frameworks",
@@ -27289,11 +27743,14 @@
     "website": "https://github.com/ggerganov/llama.cpp",
     "pricing": "open-source",
     "features": [
-      "CPU-optimized inference",
-      "Quantization support",
-      "Cross-platform",
-      "Memory efficient",
-      "No GPU required"
+      "Pure C/C++ implementation for CPU-based LLM inference",
+      "Support for 4-bit, 5-bit, and 8-bit quantization (GGUF format)",
+      "Cross-platform compatibility (Windows, macOS, Linux, ARM, Docker)",
+      "Memory-efficient operation enabling multi-billion parameter models on RAM",
+      "Interactive inference mode with command-line and server options",
+      "Support for LLaMA, Llama 2, and other compatible model architectures",
+      "OpenBLAS, cuBLAS, and CLBlast backends for optional acceleration",
+      "Embedding generation and model fine-tuning support"
     ],
     "rating": 4.7,
     "verified": true,
@@ -27301,11 +27758,14 @@
     "trending": true,
     "slug": "llamacpp",
     "tags": [
-      "CPU Inference",
-      "Quantization",
-      "Cross-platform",
-      "Memory Efficient",
-      "No GPU"
+      "cpu-inference",
+      "model-quantization",
+      "open-source-llm",
+      "cross-platform",
+      "memory-optimization",
+      "local-llm",
+      "c-plus-plus",
+      "llama-2"
     ],
     "subcategories": [
       "efficient-inference",
@@ -27329,26 +27789,50 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Local LLM deployment on consumer laptops or servers without GPUs",
+      "Privacy-sensitive AI applications where data must remain on-premises",
+      "Edge computing and IoT devices with limited hardware resources",
+      "Research and experimentation with quantized model performance",
+      "Educational tool for understanding LLM inference and quantization",
+      "Building lightweight AI assistants into desktop applications"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code, all features, no cost"
+      ],
+      "free_tier": "Yes - entire project is free and open-source under MIT license",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ai-researchers",
+      "software-developers",
+      "hobbyists-makers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "llamaindex",
     "name": "LlamaIndex",
-    "description": "Data framework for LLM applications providing tools for ingesting, structuring, and accessing private or domain-specific data.",
-    "category": "llms",
+    "description": "LlamaIndex is a leading data framework designed to connect private or domain-specific data sources to large language models (LLMs). It provides a comprehensive toolkit for ingesting, structuring, indexing, and querying data to build production-ready Retrieval-Augmented Generation (RAG) applications. Its unique value lies in its extensive suite of composable modules for data connectors, advanced indexing strategies, and query interfaces that abstract away complexity for developers.",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "rag-frameworks"
     ],
     "url": "https://llamaindex.ai",
     "website": "https://github.com/run-llama/llama_index",
-    "pricing": "freemium",
+    "pricing": "open-source",
     "features": [
-      "Data ingestion",
-      "Knowledge indexing",
-      "RAG applications",
-      "Query engines",
-      "Multi-modal support"
+      "Data Connectors for 100+ sources (APIs, PDFs, SQL DBs, Slack, etc.)",
+      "Advanced indexing strategies (vector, keyword, summary, graph-based)",
+      "Multi-modal data support (text, images, audio via integrations)",
+      "Composable query engines (sub-question, multi-step, knowledge graph)",
+      "Agent and tool abstractions for multi-step reasoning workflows",
+      "Evaluation modules for benchmarking RAG pipeline performance"
     ],
     "rating": 4.7,
     "verified": true,
@@ -27357,10 +27841,12 @@
     "slug": "llamaindex",
     "tags": [
       "RAG",
-      "Data Framework",
-      "LLM",
-      "Knowledge",
-      "Query"
+      "Vector Database",
+      "Data Pipeline",
+      "LLM Integration",
+      "Semantic Search",
+      "Document Indexing",
+      "Query Engine"
     ],
     "subcategories": [
       "rag-frameworks",
@@ -27384,13 +27870,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building enterprise chatbots with access to internal documentation",
+      "Creating semantic search interfaces over private knowledge bases",
+      "Developing AI research assistants that can cite sources from PDF libraries",
+      "Implementing customer support automation with up-to-date product data",
+      "Powering internal company wikis with natural language Q&A capabilities"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the open-source LlamaIndex Python/TS libraries and core framework"
+      ],
+      "free_tier": "Yes - The entire core framework is free and open-source under the MIT license",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML Engineers building RAG applications",
+      "Enterprise Developers integrating LLMs with internal data",
+      "Data Scientists prototyping LLM-powered data agents"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "localai",
     "name": "LocalAI",
-    "description": "Self-hosted OpenAI-compatible API for running LLMs, audio transcription, and image generation on consumer hardware.",
-    "category": "image-generation",
+    "description": "LocalAI is a self-hosted, OpenAI-compatible API server that enables users to run large language models (LLMs), generate images, and transcribe audio locally on their own hardware. Its key capabilities include providing a drop-in replacement for the OpenAI API, supporting a wide range of open-source models, and operating entirely offline for enhanced privacy and data control. It uniquely targets developers, researchers, and privacy-conscious individuals who want the power of generative AI without relying on external cloud services or incurring API costs.",
+    "category": "generative-ai",
     "categories": [
       "machine-learning-frameworks",
       "self-hosted-ai"
@@ -27399,11 +27907,13 @@
     "website": "https://github.com/mudler/LocalAI",
     "pricing": "open-source",
     "features": [
-      "OpenAI-compatible API",
-      "Self-hosted deployment",
-      "Multi-modal support",
-      "Consumer hardware",
-      "Privacy focused"
+      "Drop-in replacement REST API compatible with OpenAI's specifications (e.g., /v1/chat/completions)",
+      "Supports multiple backends for running various open-source LLMs (e.g., llama.cpp, gpt4all, rwkv.cpp)",
+      "Includes image generation capabilities using models like Stable Diffusion",
+      "Provides audio transcription functionality via models such as Whisper",
+      "Runs entirely locally on consumer-grade hardware (CPU/GPU), no internet required after setup",
+      "Model gallery with pre-configured, downloadable models for easy setup",
+      "Docker deployment for simplified installation and management"
     ],
     "rating": 4.6,
     "verified": true,
@@ -27411,11 +27921,14 @@
     "trending": true,
     "slug": "localai",
     "tags": [
-      "Self-hosted",
-      "OpenAI Compatible",
-      "Multi-modal",
-      "Privacy",
-      "Consumer Hardware"
+      "self-hosted",
+      "openai-compatible",
+      "local-inference",
+      "privacy-first",
+      "multi-modal",
+      "open-source",
+      "consumer-hardware",
+      "llm-server"
     ],
     "subcategories": [
       "self-hosted-ai",
@@ -27439,12 +27952,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Developing and testing AI applications locally without incurring cloud API costs",
+      "Building privacy-sensitive applications where data must not leave the local environment",
+      "Creating offline-capable AI tools for education or research in low-connectivity settings",
+      "Prototyping AI features with specific open-source models before cloud deployment",
+      "Running a personal, customizable AI assistant on a home server or workstation"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The core LocalAI software is completely free and open-source under the MIT license."
+      ],
+      "free_tier": "Yes - The entire platform is free. Costs are only associated with the user's own hardware and electricity.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "developers and software engineers",
+      "ai researchers and hobbyists",
+      "privacy and security-conscious organizations"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "looka",
     "name": "Looka",
-    "description": "AI-powered logo maker and brand design platform that creates professional logos and brand assets.",
+    "description": "Looka is an AI-powered logo maker and brand identity platform that helps users create professional logos, brand kits, and marketing materials in minutes. Its core capability is generating custom logo concepts based on user preferences for style, color, and iconography, then extending that design into a full suite of cohesive brand assets. It uniquely targets entrepreneurs, small businesses, and non-designers by combining a simple, guided AI design process with the ability to purchase high-resolution, commercially usable files.",
     "category": "generative-ai",
     "categories": [
       "design-creative",
@@ -27454,11 +27989,14 @@
     "website": "https://looka.com",
     "pricing": "freemium",
     "features": [
-      "AI logo generation",
-      "Brand kit creation",
-      "Business card design",
-      "Social media assets",
-      "Brand guidelines"
+      "AI logo generator with unlimited concepts and revisions",
+      "Complete brand kit with primary/secondary logos, color palettes, and fonts",
+      "Business card designer with print-ready file export",
+      "Social media asset kit (profile pics, covers, posts) for multiple platforms",
+      "Brand guidelines PDF showcasing logo usage and visual identity",
+      "One-click application of branding across 300+ marketing material templates",
+      "High-resolution file downloads (PNG, JPG, PDF, SVG)",
+      "Ownership of final logo design with commercial rights"
     ],
     "rating": 4.4,
     "verified": true,
@@ -27466,11 +28004,14 @@
     "trending": false,
     "slug": "looka",
     "tags": [
-      "AI",
-      "Logo Design",
-      "Branding",
-      "Business Assets",
-      "Design"
+      "ai-logo-maker",
+      "brand-identity",
+      "small-business-tools",
+      "graphic-design",
+      "brand-kit",
+      "marketing-assets",
+      "business-cards",
+      "social-media-templates"
     ],
     "subcategories": [
       "logo-design",
@@ -27494,7 +28035,33 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Startups needing a quick, affordable, and professional logo and brand identity",
+      "Small business owners rebranding or establishing their visual presence",
+      "Freelancers and solopreneurs creating a branded toolkit for their services",
+      "Marketing teams at SMBs generating on-brand social media graphics and ads",
+      "Non-profit organizations developing a cohesive visual identity on a budget",
+      "E-commerce sellers creating branded packaging and store graphics"
+    ],
+    "pricing_details": {
+      "model": "subscription (annual or monthly) and one-time purchase",
+      "tiers": [
+        "Free: AI logo design & basic previews only (no downloads)",
+        "Basic Logo Package: One-time $20 fee for low-res files and basic rights",
+        "Premium Logo Package: One-time $65 fee for high-res files, full rights, and basic brand assets",
+        "Brand Kit Subscription: $96/year or $12/month for all features, unlimited assets, and full brand suite"
+      ],
+      "free_tier": "Yes - AI logo design process and low-res previews only; no downloadable files.",
+      "starting_price": "$20 (one-time) for downloadable files"
+    },
+    "target_audience": [
+      "entrepreneurs and startups",
+      "small to medium business (SMB) owners",
+      "freelancers and solopreneurs"
+    ],
+    "has_api": false,
+    "has_affiliate": true
   },
   {
     "id": "lovable",
@@ -54747,6 +55314,78 @@
       "Style exploration",
       "Team collaboration",
       "Educational workshops"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "klingo-ai",
+    "name": "Klingo AI",
+    "description": "AI platform for real-time language translation and interpretation with near-human accuracy, supporting 100+ languages with cultural context awareness and specialized domain adaptation for business and legal use.",
+    "url": "https://klingo.ai",
+    "website": "https://klingo.ai",
+    "category": "nlp",
+    "tags": [
+      "real-time-translation",
+      "interpretation",
+      "multilingual",
+      "cultural-context",
+      "business-communication",
+      "legal-translation"
+    ],
+    "pricing": "enterprise",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T15:52:29.836Z",
+    "features": [
+      "Real-time speech translation",
+      "Cultural context adaptation",
+      "Domain-specific models",
+      "Meeting interpretation",
+      "Document translation"
+    ],
+    "use_cases": [
+      "International business meetings",
+      "Customer support localization",
+      "Legal document translation",
+      "Educational content adaptation",
+      "Healthcare interpretation"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "scenario",
+    "name": "Scenario",
+    "description": "AI platform for generating consistent visual assets and brand elements with style training capabilities, allowing businesses to create on-brand visuals across marketing materials, products, and digital experiences.",
+    "url": "https://www.scenario.com",
+    "website": "https://www.scenario.com",
+    "category": "image-generation",
+    "tags": [
+      "brand-consistency",
+      "style-training",
+      "marketing-assets",
+      "product-design",
+      "visual-identity",
+      "custom-models"
+    ],
+    "pricing": "enterprise",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T15:52:29.837Z",
+    "features": [
+      "Custom style training",
+      "Brand consistency tools",
+      "Asset library management",
+      "Team collaboration",
+      "API integration"
+    ],
+    "use_cases": [
+      "Marketing campaign assets",
+      "Product visualization",
+      "Social media content",
+      "E-commerce imagery",
+      "Brand guideline enforcement"
     ],
     "has_affiliate": true
   }
