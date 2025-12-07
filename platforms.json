@@ -28068,8 +28068,8 @@
   {
     "id": "lovable",
     "name": "Lovable",
-    "description": "AI-powered app builder that creates full-stack applications from natural language descriptions.",
-    "category": "generative-ai",
+    "description": "Lovable is an AI-powered development platform that transforms natural language descriptions into fully functional, full-stack web applications. It enables users to describe an app idea in plain English and instantly generates a live, editable application with a frontend, backend, and database. It uniquely targets both non-technical founders for rapid prototyping and professional developers seeking to accelerate early-stage development, bridging the gap between idea and a working product.",
+    "category": "code-ai",
     "categories": [
       "code-ai",
       "business-productivity"
@@ -28078,11 +28078,12 @@
     "website": "https://lovable.dev",
     "pricing": "freemium",
     "features": [
-      "Natural language to app",
-      "Full-stack generation",
-      "Real-time preview",
-      "Code export",
-      "Rapid prototyping"
+      "Natural language to full-stack app (generates React frontend, Node.js backend, PostgreSQL DB)",
+      "Real-time, collaborative live preview of the running application",
+      "Visual editor for modifying generated UI components and styles",
+      "One-click deployment to Lovable's cloud hosting",
+      "Code export for full ownership and further development (HTML/CSS/JS, React, API code)",
+      "Integrated AI chat within the editor for iterative changes and debugging"
     ],
     "rating": 4.3,
     "verified": true,
@@ -28090,11 +28091,14 @@
     "trending": true,
     "slug": "lovable",
     "tags": [
-      "AI",
-      "App Builder",
-      "No-Code",
-      "Full-Stack",
-      "Rapid Development"
+      "ai-app-builder",
+      "full-stack-generation",
+      "rapid-prototyping",
+      "natural-language-to-code",
+      "low-code",
+      "react",
+      "nodejs",
+      "postgresql"
     ],
     "subcategories": [
       "app-builder",
@@ -28118,12 +28122,36 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Validating a startup idea by building a functional MVP in hours",
+      "Creating internal tools like admin dashboards or data management portals",
+      "Prototyping new features or concepts for existing products",
+      "Building simple public-facing web apps (e.g., landing pages with forms, basic CRUD apps)",
+      "Teaching programming concepts by showing the translation from description to working code"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 1 project, basic AI generations, Lovable subdomain, community support",
+        "Pro: $39/month per user - Unlimited projects, premium AI, custom domains, priority support, unlimited deployments",
+        "Enterprise: Custom - Team management, SSO, security review, dedicated support"
+      ],
+      "free_tier": "Yes - Includes 1 project, basic AI generations, and deployment on a lovable.dev subdomain.",
+      "starting_price": "$39/month"
+    },
+    "target_audience": [
+      "Non-technical founders and entrepreneurs",
+      "Product managers and designers",
+      "Full-stack and frontend developers"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "lrp-qvit",
     "name": "LRP-QViT",
-    "description": "Mixed-precision Vision Transformer quantization framework using Layer-wise Relevance Propagation for optimized deployment.",
+    "description": "LRP-QViT is an open-source research framework for quantizing Vision Transformer (ViT) models to lower precision (e.g., INT8) for efficient deployment on edge devices. Its key innovation is using Layer-wise Relevance Propagation (LRP) to analyze each layer's contribution to model predictions, enabling automated, mixed-precision quantization where critical layers retain higher precision to preserve accuracy. It uniquely targets researchers and engineers needing to compress large ViTs for resource-constrained environments without manual trial-and-error.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -28133,11 +28161,14 @@
     "website": "https://github.com/lrp-qvit",
     "pricing": "open-source",
     "features": [
-      "Mixed-precision quantization",
-      "Layer-wise relevance",
-      "ViT optimization",
-      "Resource efficiency",
-      "Model compression"
+      "Automated mixed-precision quantization using LRP-based sensitivity analysis",
+      "Support for standard Vision Transformer architectures (ViT, DeiT)",
+      "Quantization-aware training (QAT) and post-training quantization (PTQ) pipelines",
+      "Configurable bit-width allocation per layer (e.g., 8/4/2-bit)",
+      "Integration with PyTorch and common quantization libraries",
+      "Metrics for accuracy vs. model size/latency trade-offs",
+      "Export to ONNX format for deployment",
+      "Extensible codebase for custom ViT variants"
     ],
     "rating": 4.2,
     "verified": true,
@@ -28145,10 +28176,14 @@
     "trending": false,
     "slug": "lrp-qvit",
     "tags": [
-      "Quantization",
-      "Vision Transformer",
-      "Model Optimization",
-      "LRP"
+      "model-quantization",
+      "vision-transformer",
+      "model-compression",
+      "edge-ai",
+      "mixed-precision",
+      "neural-network-optimization",
+      "research-framework",
+      "pytorch"
     ],
     "subcategories": [
       "model-optimization",
@@ -28172,12 +28207,34 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Deploying ViT models on mobile or embedded devices with limited compute",
+      "Reducing inference latency and memory footprint for real-time vision applications",
+      "Academic research on efficient transformer architectures and quantization methods",
+      "Optimizing vision models for cloud inference cost reduction",
+      "Prototyping compressed models for IoT or edge AI vision systems"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to source code, training scripts, and pre-trained models on GitHub"
+      ],
+      "free_tier": "Yes - entire framework is free and open-source under MIT/Apache 2.0 license",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers focusing on model efficiency",
+      "ML engineers deploying vision models to edge devices",
+      "Students studying quantization or transformer architectures"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "ludwig",
     "name": "Ludwig",
-    "description": "Declarative machine learning framework by Uber that enables training and testing deep learning models without writing code through configuration files.",
+    "description": "Ludwig is an open-source, declarative machine learning framework developed by Uber that allows users to train and test deep learning models using simple YAML configuration files without writing code. It uniquely supports multi-modal data types (text, images, audio, tabular) in a unified pipeline, automating preprocessing, training, and evaluation. Its primary audience includes data scientists, ML engineers, and domain experts seeking to rapidly prototype and deploy models with minimal boilerplate.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -28187,11 +28244,13 @@
     "website": "https://ludwig.ai",
     "pricing": "open-source",
     "features": [
-      "Declarative configuration",
-      "No-code training",
-      "Multi-modal support",
-      "Automatic preprocessing",
-      "Model interpretation"
+      "Declarative YAML-based model configuration for defining inputs, outputs, and training parameters",
+      "Native multi-modal data support (text, image, audio, CSV, etc.) with automatic preprocessing",
+      "AutoML capabilities for hyperparameter tuning and model architecture search",
+      "Built-in model interpretation tools (e.g., visualization, saliency maps)",
+      "Pre-trained model zoo (Ludwig Model Zoo) for transfer learning",
+      "Distributed training support via Horovod and Ray",
+      "Export models to TorchScript or ONNX for production deployment"
     ],
     "rating": 4.5,
     "verified": true,
@@ -28199,11 +28258,13 @@
     "trending": true,
     "slug": "ludwig",
     "tags": [
-      "Declarative ML",
-      "Uber",
-      "No-code",
-      "Multi-modal",
-      "Configuration"
+      "declarative-ml",
+      "multi-modal-ai",
+      "open-source",
+      "automl",
+      "model-training",
+      "yaml-configuration",
+      "uber"
     ],
     "subcategories": [
       "declarative-ml",
@@ -28227,12 +28288,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Multi-modal classification (e.g., product categorization using images and descriptions)",
+      "Text sentiment analysis and intent classification for customer support",
+      "Image captioning and visual question answering (VQA) systems",
+      "Tabular data prediction for business analytics (sales, churn)",
+      "Rapid prototyping of AI models by non-expert domain specialists",
+      "Benchmarking and comparing model architectures across data types"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to Ludwig core framework, Model Zoo, and community support"
+      ],
+      "free_tier": "Yes - entire framework is free and open-source under Apache 2.0 license",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists",
+      "machine learning engineers",
+      "domain experts (non-coders)"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "luis",
     "name": "Language Understanding Intelligent Service (LUIS)",
-    "description": "Legacy Microsoft LUIS platform for intent classification and entity extraction in conversational apps.",
+    "description": "Language Understanding Intelligent Service (LUIS) is a legacy Microsoft Azure cloud service for building custom natural language understanding (NLU) models. It enables developers to add intent classification and entity extraction capabilities to conversational applications like chatbots and voice assistants. While it was a key component of Microsoft's conversational AI stack, it has been officially deprecated in favor of Azure Cognitive Services for Language, which offers enhanced capabilities and unified tooling.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -28240,13 +28324,15 @@
     ],
     "url": "https://www.luis.ai",
     "website": "https://www.luis.ai",
-    "pricing": "pay-per-use",
+    "pricing": "paid",
     "features": [
-      "Intent classification",
-      "Prebuilt domains",
-      "Phrase lists",
-      "Versioning",
-      "Batch testing"
+      "Custom intent classification with active learning suggestions",
+      "Entity extraction for prebuilt, machine-learned, list, and pattern-based entities",
+      "Prebuilt domains and entities for common scenarios (e.g., calendar, places)",
+      "Phrase list features to boost recognition of key vocabulary",
+      "Collaborative authoring with versioning and review workflows",
+      "Batch testing panel for model evaluation and performance metrics",
+      "Direct integration with Azure Bot Service and Microsoft Bot Framework"
     ],
     "rating": 4.1,
     "verified": true,
@@ -28254,9 +28340,13 @@
     "trending": false,
     "slug": "luis",
     "tags": [
-      "AI",
-      "NLP",
-      "Microsoft"
+      "microsoft",
+      "azure",
+      "intent-classification",
+      "entity-extraction",
+      "chatbot",
+      "nlp-api",
+      "deprecated"
     ],
     "subcategories": [
       "conversational-ai"
@@ -28279,13 +28369,35 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building enterprise chatbots for customer service and FAQ handling",
+      "Adding voice command understanding to IoT and smart device applications",
+      "Processing and routing user queries in internal helpdesk systems",
+      "Extracting structured information (like dates, locations) from unstructured text"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free (F0): Up to 5 transactions per second, 10,000 total transactions per month",
+        "Standard (S0): $1.413 per 1,000 transactions - includes unlimited transactions with tiered pricing"
+      ],
+      "free_tier": "Yes - 10,000 transactions per month, limited to 5 TPS",
+      "starting_price": "Free tier available; paid tier starts at ~$1.41 per 1000 transactions"
+    },
+    "target_audience": [
+      "enterprise developers",
+      "chatbot developers",
+      "Microsoft Azure ecosystem users"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "luma-dream-machine",
     "name": "Luma Dream Machine",
-    "description": "AI model that generates high-quality, realistic videos quickly from text and images.",
-    "category": "generative-ai",
+    "description": "Luma Dream Machine is a state-of-the-art AI model that generates high-fidelity, realistic videos from text prompts and images. It is designed for speed, producing high-quality video clips in seconds, and is known for its exceptional photorealism, strong motion generation, and cinematic quality. It uniquely targets creators and professionals seeking a fast, accessible, and powerful tool for video synthesis without requiring complex 3D modeling or animation skills.",
+    "category": "video-generation",
     "categories": [
       "video-generation",
       "design-creative"
@@ -28294,11 +28406,12 @@
     "website": "https://lumalabs.ai",
     "pricing": "freemium",
     "features": [
-      "Fast video generation",
-      "Realistic outputs",
-      "Text and image inputs",
-      "High-quality results",
-      "User-friendly interface"
+      "Generates 5-second, 120-frame videos from text prompts in approximately 120 seconds",
+      "Accepts image inputs for image-to-video generation and stylization",
+      "Produces outputs at 1024x576 resolution with high visual fidelity",
+      "Features a simple, web-based interface requiring no installation",
+      "Demonstrates strong physics simulation and coherent motion in outputs",
+      "Offers a public API for developers to integrate video generation"
     ],
     "rating": 4.4,
     "verified": true,
@@ -28306,11 +28419,13 @@
     "trending": true,
     "slug": "luma-dream-machine",
     "tags": [
-      "AI",
-      "Video Generation",
-      "Realistic",
-      "Fast",
-      "Quality"
+      "ai-video",
+      "text-to-video",
+      "video-synthesis",
+      "photorealistic",
+      "fast-generation",
+      "cinematic",
+      "creator-tools"
     ],
     "subcategories": [
       "text-to-video",
@@ -28334,12 +28449,37 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Rapid prototyping of video concepts and storyboards for filmmakers",
+      "Creating dynamic social media content and short-form video ads",
+      "Generating visual assets and mockups for game developers and designers",
+      "Producing educational and explainer video content quickly",
+      "Experimenting with visual styles and cinematic shots for artists"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 30 generations per month, standard priority queue, public generations",
+        "Standard: $29.99/month - 600 fast generations per month, high priority, private generations, commercial license",
+        "Pro: $99.99/month - 2400 fast generations per month, highest priority, private generations, commercial license",
+        "Enterprise: Custom - Volume pricing, dedicated support, custom models"
+      ],
+      "free_tier": "Yes - 30 monthly generations, standard queue, public outputs",
+      "starting_price": "Free, with paid plans starting at $29.99/month"
+    },
+    "target_audience": [
+      "digital creators & artists",
+      "social media marketers",
+      "indie filmmakers & game developers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "luma-genie",
     "name": "Luma Genie",
-    "description": "AI-powered 3D capture and modeling platform that creates photorealistic 3D models from photos.",
+    "description": "Luma Genie is an AI-powered platform that transforms simple photos or videos into high-fidelity, interactive 3D models and NeRFs (Neural Radiance Fields). Its key capability is enabling rapid, photorealistic 3D capture using just a smartphone, making professional-grade 3D asset creation accessible. It uniquely combines ease of use with cinematic-quality visual outputs, primarily targeting creators, developers, and businesses for applications in AR/VR, e-commerce, and digital content.",
     "category": "generative-ai",
     "categories": [
       "3d-ar-vr",
@@ -28349,11 +28489,13 @@
     "website": "https://lumalabs.ai",
     "pricing": "freemium",
     "features": [
-      "Photo-to-3D conversion",
-      "Photorealistic models",
-      "NeRF technology",
-      "Mobile capture",
-      "AR/VR compatibility"
+      "AI-powered 3D capture from iPhone video (Luma AI app)",
+      "Generate interactive NeRF and Gaussian Splatting models",
+      "One-click background removal and environment matting for models",
+      "Export to glTF, USDZ, and other standard 3D formats",
+      "Direct publishing to Sketchfab and other platforms",
+      "Real-time, cinematic-quality rendering in browser viewer",
+      "API access for developers to integrate capture & rendering"
     ],
     "rating": 4.5,
     "verified": true,
@@ -28361,11 +28503,14 @@
     "trending": true,
     "slug": "luma-genie",
     "tags": [
-      "AI",
-      "3D Capture",
-      "NeRF",
-      "Photorealistic",
-      "AR/VR"
+      "3d-modeling",
+      "neural-radiance-fields",
+      "photogrammetry",
+      "ar-vr-development",
+      "e-commerce-3d",
+      "3d-capture",
+      "computer-vision",
+      "digital-asset-creation"
     ],
     "subcategories": [
       "3d-capture",
@@ -28389,12 +28534,37 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Creating 3D product models for e-commerce websites and AR try-ons",
+      "Generating digital assets and environments for game development and VR experiences",
+      "Architectural visualization and virtual staging for real estate",
+      "Documenting cultural heritage artifacts and museum pieces in 3D",
+      "Producing visual effects (VFX) assets and pre-visualization for film/TV",
+      "Creating 3D content for marketing materials and social media campaigns"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 30 credits/month, 3 concurrent renders, 5GB storage, 720p exports",
+        "Pro: $29/month - 400 credits/month, 10 concurrent renders, 100GB storage, 4K exports, API access",
+        "Enterprise: Custom - Volume discounts, dedicated support, SAML/SSO, custom SLAs"
+      ],
+      "free_tier": "Yes - 30 credits/month, 3 concurrent renders, 5GB storage, standard export formats",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "3D Artists & Digital Content Creators",
+      "E-commerce Brands & Product Marketers",
+      "AR/VR Developers & Game Studios"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "lumeo",
     "name": "Lumeo",
-    "description": "No-code video analytics platform transforming video surveillance into actionable business intelligence with customizable workflows.",
+    "description": "Lumeo is a no-code video analytics platform that enables businesses to build and deploy custom AI-powered video analysis applications. Its core capability is a drag-and-drop designer that connects camera feeds to pre-built or custom AI models to trigger automated alerts, data logging, and actions. It uniquely targets operational teams and system integrators, allowing them to create tailored video intelligence solutions without writing any code, transforming passive surveillance into proactive operational tools.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -28404,11 +28574,13 @@
     "website": "https://lumeo.com",
     "pricing": "paid",
     "features": [
-      "No-code video analytics",
-      "Drag-and-drop interface",
-      "Automated responses",
-      "Custom dashboards",
-      "Real-time insights"
+      "Drag-and-drop workflow designer (Canvas)",
+      "Library of 50+ pre-built AI models (people/vehicle detection, PPE, etc.)",
+      "Support for custom AI models (TensorFlow, PyTorch, ONNX)",
+      "Real-time alerting via SMS, email, webhooks, and API calls",
+      "Customizable data dashboards and reporting tools",
+      "Direct integration with major camera brands (Axis, Hanwha, Bosch) and VMSs",
+      "Cloud-based or on-premises/edge deployment options"
     ],
     "rating": 4.4,
     "verified": true,
@@ -28416,10 +28588,13 @@
     "trending": true,
     "slug": "lumeo",
     "tags": [
-      "Video Analytics",
-      "No Code",
-      "Business Intelligence",
-      "Real-time"
+      "video-analytics",
+      "no-code-ai",
+      "iot-platform",
+      "smart-cities",
+      "retail-analytics",
+      "workflow-automation",
+      "real-time-alerts"
     ],
     "subcategories": [
       "video-analytics",
@@ -28443,26 +28618,52 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Retail: Analyzing customer dwell time, queue management, and heat mapping.",
+      "Manufacturing: Ensuring worker safety compliance (hard hats, vests) and monitoring production lines.",
+      "Smart Cities: Managing traffic flow, detecting parking violations, and monitoring public spaces.",
+      "Construction: Monitoring site security, safety protocol adherence, and asset tracking.",
+      "Logistics: Optimizing loading dock activity, pallet counting, and warehouse traffic analysis."
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: $99/month - Includes 2 camera licenses, core AI models, and basic alerts.",
+        "Professional: Custom Pricing - Unlimited cameras, advanced AI models, full API access, and premium support.",
+        "Enterprise: Custom Pricing - On-prem deployment, custom AI model hosting, SLA, and dedicated account management."
+      ],
+      "free_tier": "Yes - 30-day full-featured free trial (no credit card required).",
+      "starting_price": "$99/month"
+    },
+    "target_audience": [
+      "Physical Security & Operations Managers",
+      "System Integrators & VARs",
+      "Retail & Facility Operations Teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "luminance",
     "name": "Luminance",
-    "description": "AI platform for legal document review that detects anomalies and uncovers risks in legal documents.",
-    "category": "generative-ai",
+    "description": "Luminance is an AI-powered platform designed specifically for the legal industry, automating the review and analysis of complex legal documents. Its core capability is using proprietary machine learning trained on legal data to instantly identify anomalies, assess risks, and extract key clauses from contracts and other legal texts. It uniquely targets law firms and corporate legal teams, offering a 'human-in-the-loop' AI that augments lawyer expertise rather than replacing it.",
+    "category": "legal-ai",
     "categories": [
       "legal",
       "document-analysis"
     ],
     "url": "https://luminance.com",
     "website": "https://luminance.com",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Document anomaly detection",
-      "Risk visualization",
-      "Compliance reviews",
-      "Legal analytics",
-      "Pattern recognition"
+      "Automated contract review and analysis",
+      "Anomaly detection against a learned standard",
+      "Instant due diligence for M&A transactions",
+      "Customizable compliance and policy checking",
+      "Side-by-side document comparison tool",
+      "Centralized repository with searchable insights",
+      "Real-time negotiation analytics and reporting"
     ],
     "rating": 4.1,
     "verified": true,
@@ -28470,11 +28671,13 @@
     "trending": false,
     "slug": "luminance",
     "tags": [
-      "AI",
-      "Legal",
-      "Document Review",
-      "Risk Analysis",
-      "Compliance"
+      "contract-review",
+      "legal-tech",
+      "due-diligence",
+      "m-a",
+      "compliance-ai",
+      "document-analysis",
+      "risk-assessment"
     ],
     "subcategories": [
       "document-review",
@@ -28498,12 +28701,35 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Accelerating M&A due diligence by reviewing thousands of contracts",
+      "Ensuring compliance with internal policies and regulatory standards",
+      "Standardizing and de-risking routine contract reviews (e.g., NDAs, procurement)",
+      "Conducting pre-signature analysis of counterparty documents",
+      "Managing and auditing post-signature contract portfolios",
+      "Identifying non-standard or risky clauses in lease agreements or employment contracts"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Tailored deployment, volume-based licensing, dedicated support, and full platform access."
+      ],
+      "free_tier": "No - A free trial or demo is available upon request, but no permanent free tier.",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Law Firms",
+      "Corporate Legal & In-House Counsel",
+      "Financial Services & Insurance Companies"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "luminoso",
     "name": "Luminoso",
-    "description": "Real-time NLP platform using unsupervised machine learning to uncover hidden patterns in textual data.",
+    "description": "Luminoso is an AI-powered text analytics platform that uses unsupervised machine learning and proprietary common-sense knowledge bases to rapidly analyze unstructured text data. It excels at uncovering themes, emotions, and actionable insights from sources like customer feedback, surveys, and social media without requiring manual setup or training. Its unique value lies in its speed-to-insight and ability to understand nuanced human language, making it a powerful tool for business analysts and customer experience teams.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -28511,13 +28737,14 @@
     ],
     "url": "https://luminoso.com",
     "website": "https://luminoso.com",
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Real-time text analysis",
-      "Topic modeling",
-      "Concept clustering",
-      "Multilingual support",
-      "Unsupervised learning"
+      "Unsupervised topic modeling with automatic concept extraction and clustering",
+      "Real-time sentiment and emotion analysis (e.g., joy, frustration, anger)",
+      "Multilingual text analysis supporting 15+ languages without translation",
+      "Interactive visualization dashboards for exploring themes and relationships",
+      "API for integration with CRM, survey tools, and business intelligence platforms",
+      "Upload and analyze data from CSV, Excel, and direct social media connectors"
     ],
     "rating": 4,
     "verified": true,
@@ -28525,9 +28752,13 @@
     "trending": false,
     "slug": "luminoso",
     "tags": [
-      "AI",
-      "NLP",
-      "Topic Modeling"
+      "text-analytics",
+      "unsupervised-learning",
+      "customer-feedback-analysis",
+      "sentiment-analysis",
+      "concept-clustering",
+      "multilingual-nlp",
+      "insight-discovery"
     ],
     "subcategories": [
       "text-analytics"
@@ -28550,13 +28781,36 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Analyzing customer support tickets to identify root causes of complaints",
+      "Mining product reviews to track feature sentiment and emerging trends",
+      "Interpreting open-ended survey responses for market research insights",
+      "Monitoring brand perception and themes in social media conversations",
+      "Extracting key themes from employee feedback and engagement surveys"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free Trial: Typically a time-limited demo or proof-of-concept access",
+        "Enterprise: Custom pricing - includes full platform access, dedicated support, custom integrations, and volume-based data processing"
+      ],
+      "free_tier": "No (trial only)",
+      "starting_price": null
+    },
+    "target_audience": [
+      "customer-experience-managers",
+      "market-researchers",
+      "business-intelligence-analysts"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "machinetranslation-com",
     "name": "MachineTranslation.com",
-    "description": "AI translation platform comparing multiple LLMs and translation engines with quality scoring and ranking.",
-    "category": "generative-ai",
+    "description": "MachineTranslation.com is a comprehensive platform that allows users to compare the output quality of multiple AI translation engines and Large Language Models (LLMs) side-by-side. It provides objective quality scoring and ranking to help professionals and businesses select the best engine for their specific content and language pair. Its unique value lies in its benchmarking methodology, which removes guesswork from engine selection by providing data-driven insights into translation performance.",
+    "category": "nlp",
     "categories": [
       "translation",
       "ai-platforms"
@@ -28565,11 +28819,13 @@
     "website": "https://machinetranslation.com",
     "pricing": "freemium",
     "features": [
-      "Multiple AI engine comparison",
-      "Quality scoring",
-      "270+ languages",
-      "File translation",
-      "Custom glossaries"
+      "Side-by-side comparison of 10+ major engines (e.g., Google, DeepL, OpenAI, Amazon, Microsoft, ModernMT)",
+      "Automated quality scoring (MQM framework) and ranking for each translation",
+      "Support for 270+ languages and dialects",
+      "File translation for documents (PDF, DOCX, PPTX, XLSX) and subtitles",
+      "Custom glossary/termbase creation and application for brand consistency",
+      "API access for integrating comparison and scoring into custom workflows",
+      "Detailed analytics and historical comparison reports"
     ],
     "rating": 4.4,
     "verified": true,
@@ -28577,11 +28833,12 @@
     "trending": true,
     "slug": "machinetranslation-com",
     "tags": [
-      "AI",
-      "Translation Comparison",
-      "Quality Scoring",
-      "Multiple Engines",
-      "Professional"
+      "translation-comparison",
+      "quality-evaluation",
+      "llm-benchmarking",
+      "multilingual-ai",
+      "localization-tools",
+      "enterprise-translation"
     ],
     "subcategories": [
       "translation-comparison",
@@ -28605,13 +28862,37 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Localization managers selecting the optimal MT engine for a new language pair or project type",
+      "Enterprise teams building a custom, multi-engine translation pipeline based on performance data",
+      "Freelance translators and LSPs benchmarking AI output to improve post-editing efficiency",
+      "Global businesses ensuring brand terminology consistency across all automated translations",
+      "Researchers and developers evaluating and benchmarking the performance of different LLMs for translation tasks"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 5,000 characters/month, 2 file translations/month, access to all engines, basic quality scores",
+        "Pro: $29/month - 500,000 characters/month, 50 file translations/month, advanced quality metrics, custom glossaries, API access (5,000 requests/month)",
+        "Enterprise: Custom - Volume discounts, unlimited glossaries, dedicated support, custom engine integration, SLA"
+      ],
+      "free_tier": "Yes - 5,000 characters and 2 file translations per month with access to core comparison features.",
+      "starting_price": "Free, with paid plans starting at $29/month"
+    },
+    "target_audience": [
+      "Localization & Translation Professionals",
+      "Global Enterprise Teams",
+      "AI/ML Developers & Researchers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "maestroqa",
     "name": "MaestroQA",
-    "description": "AI-powered quality assurance platform that analyzes customer service interactions and team performance.",
-    "category": "generative-ai",
+    "description": "MaestroQA is an AI-powered quality assurance platform designed to analyze customer service interactions across channels like voice, email, chat, and social media. It automates the evaluation process, provides detailed performance analytics, and offers coaching tools to improve agent performance and customer satisfaction. What makes it unique is its focus on combining AI-driven scoring with human-in-the-loop workflows and deep integrations with major CRMs and help desks, enabling scalable, consistent QA for customer support teams.",
+    "category": "analytics-bi",
     "categories": [
       "customer-service",
       "data-analytics"
@@ -28620,11 +28901,14 @@
     "website": "https://maestroqa.com",
     "pricing": "paid",
     "features": [
-      "Quality assurance",
-      "Performance analytics",
-      "Trend detection",
-      "Team coaching",
-      "Customer insights"
+      "AI-powered interaction scoring for calls, emails, and chats",
+      "Automated evaluation forms and calibration workflows",
+      "Real-time performance dashboards and trend analytics",
+      "Integrated coaching tools with feedback and action plans",
+      "Speech-to-text analytics with sentiment and topic detection",
+      "Customizable QA scorecards and compliance tracking",
+      "CRM integrations (Salesforce, Zendesk, ServiceNow, etc.)",
+      "Team benchmarking and performance ranking reports"
     ],
     "rating": 4.2,
     "verified": true,
@@ -28632,11 +28916,13 @@
     "trending": false,
     "slug": "maestroqa",
     "tags": [
-      "AI",
-      "Quality Assurance",
-      "Customer Service",
-      "Analytics",
-      "Performance"
+      "quality-assurance",
+      "customer-service-analytics",
+      "agent-coaching",
+      "speech-analytics",
+      "performance-management",
+      "contact-center-ai",
+      "customer-experience"
     ],
     "subcategories": [
       "quality-assurance",
@@ -28660,13 +28946,38 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automating quality assurance for high-volume contact centers",
+      "Identifying coaching opportunities for customer support agents",
+      "Tracking compliance and adherence to service level agreements (SLAs)",
+      "Analyzing customer sentiment and emerging issue trends",
+      "Reducing manual QA time and increasing evaluation consistency",
+      "Improving customer satisfaction (CSAT) and Net Promoter Score (NPS)"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom pricing - For small teams, includes core QA, basic analytics, and limited integrations.",
+        "Growth: Custom pricing - For scaling teams, adds advanced analytics, more integrations, and enhanced coaching tools.",
+        "Enterprise: Custom pricing - For large organizations, includes full feature set, custom AI models, dedicated support, and enterprise security."
+      ],
+      "free_tier": "No",
+      "starting_price": "Custom (contact sales)"
+    },
+    "target_audience": [
+      "customer support managers",
+      "contact center operations leaders",
+      "quality assurance specialists"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "magenta",
     "name": "Magenta",
-    "description": "Research project by Google exploring the role of machine learning as a tool in the creative process for generating music and art.",
-    "category": "ml-frameworks",
+    "description": "Magenta is an open-source research project from Google that explores the intersection of machine learning, music, and art. It provides a suite of TensorFlow-based tools and models for generating novel audio, music, and visual content, enabling artists, developers, and researchers to use AI as a creative collaborator. Its uniqueness lies in its deep focus on long-form, structured creative generation (like melodies and rhythms) and its commitment to open-source, accessible research in creative AI.",
+    "category": "generative-ai",
     "categories": [
       "machine-learning-frameworks",
       "creative-ai"
@@ -28675,11 +28986,13 @@
     "website": "https://magenta.tensorflow.org",
     "pricing": "open-source",
     "features": [
-      "Music generation",
-      "Art generation",
-      "Creative AI",
-      "TensorFlow based",
-      "Interactive tools"
+      "MusicVAE and Music Transformer models for melody and long-form music generation",
+      "DDSP (Differentiable Digital Signal Processing) library for neural audio synthesis",
+      "Sketch-RNN and GAN-based models for drawing and visual pattern generation",
+      "Interactive web applications (like Magenta Studio) for real-time AI music co-creation",
+      "Pre-trained models and datasets (e.g., NSynth, MAESTRO) for immediate use and fine-tuning",
+      "Full integration with TensorFlow and Python libraries for custom model development",
+      "Command-line tools and Jupyter notebooks for prototyping and experimentation"
     ],
     "rating": 4.4,
     "verified": true,
@@ -28687,11 +29000,13 @@
     "trending": false,
     "slug": "magenta",
     "tags": [
-      "Creative AI",
-      "Google",
-      "Music Generation",
-      "Art",
-      "TensorFlow"
+      "open-source",
+      "music-generation",
+      "art-generation",
+      "tensorflow",
+      "creative-tools",
+      "google-research",
+      "audio-synthesis"
     ],
     "subcategories": [
       "creative-ai",
@@ -28715,12 +29030,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Musicians and composers generating melodic ideas, harmonies, or drum patterns as creative inspiration",
+      "Developers building interactive music or art applications with embedded AI generation",
+      "Researchers and students experimenting with state-of-the-art generative models for audio and visual media",
+      "Digital artists creating novel visual patterns, sketches, or animations using neural networks",
+      "Educators teaching concepts of machine learning and creativity in academic or workshop settings"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "All software, models, and research are freely available under open-source licenses (e.g., Apache 2.0)"
+      ],
+      "free_tier": "Yes - Full access to all code, pre-trained models, tools, and research papers.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "creative developers and programmers",
+      "musicians and digital artists",
+      "AI/machine learning researchers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mahotas",
     "name": "Mahotas",
-    "description": "Fast Python library for computer vision and image processing, offering efficient C++ implementations wrapped in a simple Python interface.",
+    "description": "Mahotas is a fast, pure-Python computer vision and image processing library that provides efficient, C++-backed implementations of common algorithms through a clean NumPy-compatible interface. It is designed for researchers, data scientists, and developers who need high-performance operations like morphology, feature extraction, and segmentation without the overhead of larger frameworks. Its unique value lies in its simplicity, speed, and focus on being a lightweight, dependency-minimal tool for scientific image analysis.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -28728,13 +29065,16 @@
     ],
     "url": "https://mahotas.readthedocs.io",
     "website": "https://github.com/luispedro/mahotas",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Generic feature extraction",
-      "Texture analysis (Haralick)",
-      "Watershed segmentation",
-      "Binary morphology",
-      "Image filtering"
+      "Binary and grayscale morphological operations (erosion, dilation, opening, closing)",
+      "Haralick texture feature extraction for image classification",
+      "Watershed-based image segmentation algorithm",
+      "Image filtering (Gaussian, median, sobel, etc.)",
+      "Local Binary Patterns (LBP) for texture analysis",
+      "Polygon and point set operations for region analysis",
+      "Distance transforms and convex hull calculations",
+      "Thresholding methods (Otsu, Riddler-Calvard)"
     ],
     "rating": 4.2,
     "verified": true,
@@ -28742,10 +29082,13 @@
     "trending": false,
     "slug": "mahotas",
     "tags": [
-      "Python",
-      "C++",
-      "Morphology",
-      "Segmentation"
+      "python",
+      "image-processing",
+      "morphology",
+      "segmentation",
+      "feature-extraction",
+      "scientific-computing",
+      "numpy"
     ],
     "subcategories": [
       "library",
@@ -28769,13 +29112,35 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Biological and medical image analysis (cell counting, tissue segmentation)",
+      "Texture-based material classification in industrial inspection",
+      "Document image processing and layout analysis",
+      "Feature extraction for machine learning pipelines in computer vision",
+      "Prototyping and research in academic settings for image algorithms"
+    ],
+    "pricing_details": {
+      "model": "free/open-source",
+      "tiers": [
+        "Free: Full library access under MIT license"
+      ],
+      "free_tier": "Yes - Entire library with no restrictions",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "academic researchers",
+      "data scientists",
+      "python developers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "make-ai-agents",
     "name": "Make AI Agents",
-    "description": "Visual automation platform with AI agents that adapt workflows in real-time based on changing conditions.",
-    "category": "generative-ai",
+    "description": "Make (formerly Integromat) is a visual automation platform that enables users to build complex workflows connecting apps and services without coding. Its AI Agents feature introduces autonomous workflows that can analyze data, make decisions, and adapt processes in real-time based on changing conditions. This makes it particularly valuable for businesses needing dynamic automation that responds to live data rather than following rigid, predefined paths.",
+    "category": "workflow-automation",
     "categories": [
       "autonomous-agents",
       "workflow-automation"
@@ -28784,11 +29149,13 @@
     "website": "https://make.com",
     "pricing": "freemium",
     "features": [
-      "Visual workflow builder",
-      "Adaptive automation",
-      "Real-time decision making",
-      "App integrations",
-      "Drag-and-drop interface"
+      "Visual scenario builder with drag-and-drop interface",
+      "AI Agents that monitor conditions and trigger actions autonomously",
+      "Connections to 1,000+ apps and services (APIs, databases, etc.)",
+      "Conditional logic, filters, and routers for complex workflow paths",
+      "Error handling and built-in data transformation tools",
+      "Real-time execution monitoring and detailed logs",
+      "Team collaboration features with role-based permissions"
     ],
     "rating": 4.5,
     "verified": true,
@@ -28796,11 +29163,13 @@
     "trending": true,
     "slug": "make-ai-agents",
     "tags": [
-      "AI",
-      "Visual Automation",
-      "Workflow",
-      "Integration",
-      "No-Code"
+      "visual-automation",
+      "ai-agents",
+      "no-code",
+      "app-integration",
+      "adaptive-workflows",
+      "business-automation",
+      "real-time-decision"
     ],
     "subcategories": [
       "visual-automation",
@@ -28824,12 +29193,38 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Dynamic customer support: Automatically escalate tickets based on sentiment analysis and SLAs",
+      "Adaptive marketing campaigns: Trigger personalized follow-ups based on real-time engagement data",
+      "Intelligent order processing: Route orders differently based on inventory levels, shipping costs, and customer value",
+      "Proactive IT operations: Monitor system metrics and automatically initiate remediation workflows",
+      "Smart data synchronization: Sync data between apps only when specific conditions are met to reduce API calls"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 1,000 operations/month, limited active scenarios, basic apps",
+        "Core: $9/month - 10,000 operations, unlimited active scenarios, premium apps",
+        "Pro: $16/month - 10,000 operations, unlimited scenarios, premium apps, custom variables",
+        "Teams: $29/month/user - 10,000 operations, team features, shared workspace",
+        "Enterprise: Custom pricing - High-volume operations, SSO, dedicated support, SLA"
+      ],
+      "free_tier": "Yes - 1,000 operations/month with core functionality",
+      "starting_price": "$9/month"
+    },
+    "target_audience": [
+      "business operations teams",
+      "marketing automation specialists",
+      "IT and system administrators"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "marteye-livestock",
     "name": "MartEye",
-    "description": "Explainable AI video analytics platform for livestock mart industry using computer vision for animal assessment and pricing.",
+    "description": "MartEye is an explainable AI video analytics platform designed specifically for the livestock auction mart industry. It uses computer vision to analyze video streams of cattle and sheep in real-time, providing objective assessments of animal characteristics like weight, breed, and conformation to aid in pricing and sales. Its unique value lies in bringing data-driven transparency and standardization to a traditionally subjective and experience-based marketplace, directly serving auctioneers, farmers, and buyers.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -28839,11 +29234,14 @@
     "website": "https://marteye.ai",
     "pricing": "enterprise",
     "features": [
-      "Livestock assessment",
-      "Explainable AI",
-      "Video analytics",
-      "Price prediction",
-      "Animal quality analysis"
+      "Real-time livestock video analysis (cattle & sheep)",
+      "Objective animal weight and conformation scoring",
+      "Explainable AI overlays showing assessment rationale on video",
+      "Automated price guidance and prediction models",
+      "Digital lotting and catalog creation from video analysis",
+      "Breed identification and classification",
+      "Historical data tracking for animal performance",
+      "Integration with existing mart camera systems"
     ],
     "rating": 4.1,
     "verified": true,
@@ -28851,10 +29249,14 @@
     "trending": false,
     "slug": "marteye-livestock",
     "tags": [
-      "Livestock",
-      "Explainable AI",
-      "Agriculture",
-      "Video Analytics"
+      "livestock",
+      "agriculture-tech",
+      "video-analytics",
+      "explainable-ai",
+      "auction",
+      "animal-assessment",
+      "precision-agriculture",
+      "supply-chain"
     ],
     "subcategories": [
       "livestock",
@@ -28878,12 +29280,35 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Providing objective, data-backed pricing guidance for auctioneers during sales",
+      "Enabling remote buyers to assess livestock quality and value via video streams",
+      "Helping farmers benchmark their animals against market standards before sale",
+      "Digitizing and automating the creation of sale catalogs and lot sheets",
+      "Reducing disputes and increasing trust through transparent, explainable assessments",
+      "Creating a searchable digital history of animal sales and pricing trends for marts"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Tailored per mart, based on throughput, number of rings, and required features. Includes hardware integration, software, and support."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Livestock auction marts and sales arenas",
+      "Commercial farmers and livestock producers",
+      "Professional livestock buyers and agents"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "marvin",
     "name": "Marvin",
-    "description": "Lightweight AI toolkit for building natural language interfaces that feels like writing traditional software with AI-native functions.",
+    "description": "Marvin is a lightweight, high-level AI toolkit designed to build reliable and scalable AI-powered software. It provides AI-native functions, bots, and workflows that integrate seamlessly into Python applications, allowing developers to write deterministic, type-safe code that interacts with LLMs. Its unique value is making AI interactions feel like writing traditional, maintainable software by abstracting away API complexities and focusing on developer experience.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -28893,11 +29318,13 @@
     "website": "https://github.com/prefecthq/marvin",
     "pricing": "open-source",
     "features": [
-      "Natural language interfaces",
-      "AI-native functions",
-      "Lightweight design",
-      "Type-safe operations",
-      "Easy integration"
+      "AI-native functions (decorators that turn Python functions into LLM calls)",
+      "Deterministic structured outputs with Pydantic models",
+      "Built-in bots for conversational state management",
+      "Pre-built components for knowledge, search, and data extraction",
+      "Seamless integration with OpenAI, Anthropic, and other LLM providers",
+      "Lightweight, dependency-minimal library for easy deployment",
+      "Interactive tutorials and cookbooks for rapid onboarding"
     ],
     "rating": 4.4,
     "verified": true,
@@ -28905,11 +29332,13 @@
     "trending": true,
     "slug": "marvin",
     "tags": [
-      "Natural Language",
-      "AI Functions",
-      "Lightweight",
-      "Type-safe",
-      "Integration"
+      "ai-functions",
+      "python-toolkit",
+      "llm-integration",
+      "type-safe-ai",
+      "workflow-automation",
+      "developer-tools",
+      "open-source"
     ],
     "subcategories": [
       "ai-toolkit",
@@ -28933,12 +29362,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Building a customer support chatbot with structured data extraction",
+      "Automating content moderation and classification workflows",
+      "Creating intelligent data parsing and normalization pipelines from unstructured text",
+      "Developing AI-powered agents for task automation and orchestration",
+      "Prototyping and deploying natural language interfaces for internal tools",
+      "Enhancing applications with semantic search and reasoning capabilities"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Open Source: Full access to the Marvin library and core features on GitHub under the MIT license"
+      ],
+      "free_tier": "Yes - The entire toolkit is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Python developers and software engineers",
+      "ML/AI engineers prototyping AI features",
+      "Startups and product teams building AI-powered applications"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "matlab-visual-inspection",
     "name": "MATLAB Automated Visual Inspection",
-    "description": "Comprehensive toolbox for automated visual inspection using machine learning and deep learning for industrial defect detection.",
+    "description": "MATLAB Automated Visual Inspection is a specialized toolbox within MATLAB's Computer Vision System Toolbox designed for developing and deploying automated visual inspection (AVI) systems. It provides engineers and researchers with a comprehensive suite of algorithms, apps, and workflows for detecting, localizing, and classifying defects in manufactured products using traditional machine learning and deep learning (including CNNs and YOLO). Its uniqueness lies in its tight integration with the MATLAB ecosystem, enabling seamless progression from algorithm development and simulation to C/C++ code generation and deployment on embedded devices and production servers, all within a single environment.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -28948,11 +29400,12 @@
     "website": "https://www.mathworks.com",
     "pricing": "paid",
     "features": [
-      "Defect detection",
-      "Anomaly localization",
-      "YOLO integration",
-      "Quality assurance",
-      "Industrial workflows"
+      "Interactive Image Labeler app for ground truth labeling",
+      "Pre-trained defect detection models (YOLO v2, v3, v4) and anomaly detection networks",
+      "Workflow for training custom detectors like ACF, Faster R-CNN, and YOLO",
+      "Tools for synthetic data generation to augment training sets",
+      "Automated report generation for inspection results",
+      "Support for deployment as standalone applications, C/C++ libraries, or to embedded GPUs"
     ],
     "rating": 4.4,
     "verified": true,
@@ -28961,9 +29414,12 @@
     "slug": "matlab-visual-inspection",
     "tags": [
       "MATLAB",
-      "Visual Inspection",
-      "Quality Control",
-      "Industrial"
+      "industrial-automation",
+      "defect-detection",
+      "quality-control",
+      "deep-learning",
+      "computer-vision-toolbox",
+      "model-deployment"
     ],
     "subcategories": [
       "automated-inspection",
@@ -28987,12 +29443,34 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Surface defect inspection on semiconductor wafers or metal sheets",
+      "Automated assembly verification in automotive or electronics manufacturing",
+      "Bottled goods inspection for fill level, label placement, and cap integrity",
+      "Print quality inspection and OCR verification on packaging",
+      "Dimensional measurement and tolerance checking of machined parts"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "MATLAB Automated Visual Inspection is not sold as a standalone product. It is a core part of the 'Computer Vision System Toolbox', which is itself an add-on to a base MATLAB license. Pricing is based on a commercial annual license."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Vision Systems Engineers in manufacturing",
+      "Industrial Automation Researchers",
+      "Quality Assurance and Control Specialists"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "matroid",
     "name": "Matroid",
-    "description": "Enterprise no-code computer vision platform for automated visual inspections, assembly verification, and intelligent video monitoring.",
+    "description": "Matroid is an enterprise-grade, no-code computer vision platform that enables organizations to build, deploy, and manage custom visual AI detectors for real-time video and image analysis. Its key capabilities include automated visual inspections, assembly verification, safety compliance monitoring, and intelligent video surveillance, all without requiring users to write code. The platform uniquely combines a user-friendly drag-and-drop interface with industrial-grade scalability, making advanced computer vision accessible to operations teams, security personnel, and manufacturing engineers.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -29000,13 +29478,15 @@
     ],
     "url": "https://www.matroid.com",
     "website": "https://www.matroid.com",
-    "pricing": "enterprise",
+    "pricing": "paid",
     "features": [
-      "No-code development",
-      "Visual inspection automation",
-      "Camera-agnostic platform",
-      "Real-time monitoring",
-      "Custom detector studio"
+      "No-code drag-and-drop detector builder (Custom Detector Studio)",
+      "Real-time video stream processing from IP cameras, RTSP, and webcams",
+      "Pre-trained detectors for common objects, safety PPE, and anomalies",
+      "Scalable cloud-based deployment with on-premises options",
+      "API for integration with existing systems and alerting platforms",
+      "Detailed analytics dashboard with event logs and performance metrics",
+      "Camera-agnostic platform supporting thousands of camera models"
     ],
     "rating": 4.6,
     "verified": true,
@@ -29014,10 +29494,13 @@
     "trending": true,
     "slug": "matroid",
     "tags": [
-      "No Code",
-      "Enterprise",
-      "Visual Inspection",
-      "Real-time"
+      "no-code",
+      "enterprise",
+      "real-time",
+      "video-analytics",
+      "visual-inspection",
+      "safety-compliance",
+      "manufacturing-ai"
     ],
     "subcategories": [
       "no-code",
@@ -29041,26 +29524,53 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Manufacturing quality control and assembly line verification",
+      "Workplace safety monitoring for PPE compliance and hazard detection",
+      "Retail analytics for customer behavior and inventory management",
+      "Construction site monitoring for safety protocol adherence",
+      "Infrastructure monitoring for public spaces and transportation hubs",
+      "Supply chain and logistics package tracking and damage inspection"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom pricing - includes limited detectors and camera streams",
+        "Professional: Custom pricing - expanded streams, priority support, advanced features",
+        "Enterprise: Custom pricing - full platform, on-prem deployment, SLA, dedicated support"
+      ],
+      "free_tier": "Yes - 14-day free trial with full platform access",
+      "starting_price": "Custom (contact sales)"
+    },
+    "target_audience": [
+      "manufacturing and industrial operations teams",
+      "corporate security and loss prevention departments",
+      "retail and supply chain analytics managers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "mckinsey-ai",
     "name": "McKinsey AI",
-    "description": "Management consulting firm providing AI strategy, implementation, and organizational transformation services.",
-    "category": "generative-ai",
+    "description": "McKinsey AI is the artificial intelligence practice of global management consulting firm McKinsey & Company. It provides end-to-end AI advisory and implementation services, helping large enterprises and institutions formulate AI strategy, build technical capabilities, redesign organizations, and scale AI solutions for measurable business impact. Its unique position combines deep industry expertise, proprietary research (like the McKinsey Global Institute), and a vast network of AI practitioners to deliver transformation grounded in real-world execution.",
+    "category": "enterprise-ai-platforms",
     "categories": [
       "consulting-services",
       "enterprise-ai"
     ],
     "url": "https://mckinsey.com/capabilities/mckinsey-digital/our-insights/artificial-intelligence",
     "website": "https://mckinsey.com",
-    "pricing": "consulting",
+    "pricing": "enterprise",
     "features": [
-      "Strategic AI planning",
-      "Organizational design",
-      "Performance improvement",
-      "Research insights",
-      "Executive education"
+      "End-to-end AI strategy development and roadmap creation",
+      "AI capability building and talent strategy for organizations",
+      "Design and implementation of proprietary and third-party AI solutions",
+      "AI-powered performance transformation (e.g., supply chain, customer experience)",
+      "Proprietary research and insights from McKinsey Global Institute on AI economics",
+      "Leadership alignment workshops and executive education programs",
+      "AI governance, risk management, and ethical AI framework design"
     ],
     "rating": 4.3,
     "verified": true,
@@ -29068,11 +29578,13 @@
     "trending": false,
     "slug": "mckinsey-ai",
     "tags": [
-      "AI",
-      "Strategy Consulting",
-      "Management",
-      "Transformation",
-      "Research"
+      "management-consulting",
+      "ai-strategy",
+      "digital-transformation",
+      "enterprise-ai",
+      "organizational-change",
+      "ai-implementation",
+      "c-suite-advisory"
     ],
     "subcategories": [
       "strategic-planning",
@@ -29096,12 +29608,34 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "A global bank developing an enterprise-wide GenAI strategy and piloting customer service copilots",
+      "A manufacturing company implementing AI for predictive maintenance and supply chain optimization",
+      "A retail conglomerate using AI to personalize marketing and optimize inventory management",
+      "A healthcare provider building an AI roadmap for administrative automation and clinical decision support",
+      "A government agency designing responsible AI governance policies and procurement strategies"
+    ],
+    "pricing_details": {
+      "model": "custom-project-based",
+      "tiers": [
+        "Enterprise: Custom - Engagements are highly customized, typically multi-million dollar projects scoped to client needs. No public pricing."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "C-suite executives (CEO, CDO, CTO)",
+      "Large enterprise leadership teams",
+      "Government and public sector institutions"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "meaningcloud",
     "name": "MeaningCloud",
-    "description": "Cloud-based text analytics APIs for sentiment, classification, and social media monitoring.",
+    "description": "MeaningCloud is a cloud-based Natural Language Processing (NLP) platform providing a suite of APIs for advanced text analytics. Its key capabilities include deep semantic analysis, sentiment and emotion detection, topic extraction, and text classification, enabling businesses to derive actionable insights from unstructured data. It uniquely focuses on delivering highly accurate, industry-specific models for sectors like finance and media, and offers powerful features like aspect-based sentiment analysis and multi-language support, targeting enterprises, developers, and data scientists.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -29111,11 +29645,13 @@
     "website": "https://www.meaningcloud.com",
     "pricing": "freemium",
     "features": [
-      "Sentiment & irony",
-      "Deep categorization",
-      "Aspect-based analysis",
-      "Language detection",
-      "Voice of customer"
+      "Sentiment & Emotion Analysis: Detects polarity (positive/negative/neutral) and emotional states (anger, joy, etc.) in text.",
+      "Deep Categorization: Classifies text into a customizable, hierarchical taxonomy (IPTC, IAB, or custom).",
+      "Aspect-Based Sentiment Analysis: Identifies specific features/aspects in a product or service and evaluates sentiment for each.",
+      "Topic Extraction & Entity Recognition: Automatically identifies and tags key topics, entities (people, organizations), and concepts.",
+      "Language Detection & Multilingual Support: Detects text language and provides analysis for over 20 languages.",
+      "Text Clustering: Groups large collections of documents by similarity without pre-defined categories.",
+      "Summarization: Generates extractive summaries of documents."
     ],
     "rating": 4,
     "verified": true,
@@ -29123,9 +29659,13 @@
     "trending": false,
     "slug": "meaningcloud",
     "tags": [
-      "AI",
-      "NLP",
-      "Text Analytics"
+      "text-analytics",
+      "sentiment-analysis",
+      "topic-extraction",
+      "text-classification",
+      "nlp-api",
+      "semantic-analysis",
+      "multilingual-nlp"
     ],
     "subcategories": [
       "text-analytics"
@@ -29148,7 +29688,31 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Customer Experience & VoC Analysis: Analyze customer reviews, surveys, and support tickets to identify pain points and sentiment drivers.",
+      "Market & Social Media Intelligence: Monitor brand reputation, track campaign performance, and analyze trends across social media and news.",
+      "Content Classification & Management: Automatically tag, route, and organize large volumes of documents, articles, or internal content.",
+      "Financial News Analysis: Extract signals and sentiment from financial reports, news, and filings for investment research.",
+      "Compliance & Risk Monitoring: Scan internal communications and public documents for compliance risks or specific topics of concern."
+    ],
+    "pricing_details": {
+      "model": "subscription (usage-based API calls)",
+      "tiers": [
+        "Free: 40,000 API calls/month, 2 requests/sec rate limit, standard support.",
+        "Pro: Starts at $499/month - 200,000 API calls/month, higher rate limits, priority support, custom categories.",
+        "Enterprise: Custom Pricing - Millions of API calls, dedicated infrastructure, SLA, advanced security, and professional services."
+      ],
+      "free_tier": "Yes - 40,000 API calls/month with access to most core APIs.",
+      "starting_price": "$499/month (Pro tier)"
+    },
+    "target_audience": [
+      "Enterprise Data & Insights Teams",
+      "SaaS Developers & Product Managers",
+      "Market Research & Consulting Firms"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "medallia-experience-cloud",
@@ -55388,6 +55952,376 @@
       "Social media content",
       "E-commerce imagery",
       "Brand guideline enforcement"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "lume-ai",
+    "name": "Lume AI",
+    "description": "AI-powered data mapping and transformation platform that automatically understands and connects disparate data sources using machine learning. It eliminates manual data mapping by learning from existing transformations and suggesting intelligent connections for data engineers and analysts.",
+    "url": "https://www.lume.ai",
+    "website": "https://www.lume.ai",
+    "category": "data-governance",
+    "tags": [
+      "data-mapping",
+      "etl",
+      "data-integration",
+      "machine-learning",
+      "data-pipelines",
+      "enterprise-data",
+      "automation"
+    ],
+    "pricing": "enterprise",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.212Z",
+    "features": [
+      "AI-powered data mapping suggestions",
+      "Automated schema matching",
+      "Data quality monitoring",
+      "Collaborative mapping workspace",
+      "Integration with data warehouses and lakes"
+    ],
+    "use_cases": [
+      "Legacy system migration",
+      "Data warehouse modernization",
+      "M&A data integration",
+      "Regulatory compliance reporting",
+      "Customer data platform implementation"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "pulze-ai",
+    "name": "Pulze AI",
+    "description": "Performance optimization platform for LLM applications that helps developers monitor, analyze, and improve their AI model performance and costs. It provides real-time analytics, A/B testing, and optimization recommendations for production AI applications using multiple LLM providers.",
+    "url": "https://www.pulze.ai",
+    "website": "https://www.pulze.ai",
+    "category": "llm-ops",
+    "tags": [
+      "llm-monitoring",
+      "cost-optimization",
+      "performance-analytics",
+      "a-b-testing",
+      "model-comparison",
+      "developer-tools",
+      "saas"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.213Z",
+    "features": [
+      "Real-time LLM performance monitoring",
+      "Cost optimization across providers",
+      "A/B testing framework for models",
+      "Prompt versioning and management",
+      "Usage analytics and forecasting"
+    ],
+    "use_cases": [
+      "Reducing LLM API costs by 30-70%",
+      "Optimizing response times for chatbots",
+      "Comparing model performance across providers",
+      "Managing prompt engineering experiments",
+      "Monitoring production AI application health"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "reverie-labs",
+    "name": "Reverie Labs",
+    "description": "AI-powered drug discovery platform that uses machine learning to accelerate pharmaceutical research and development. The platform combines computational chemistry with generative AI to design novel drug candidates, predict properties, and optimize molecular structures for biotech and pharma companies.",
+    "url": "https://www.reverielabs.com",
+    "website": "https://www.reverielabs.com",
+    "category": "healthcare-ai",
+    "tags": [
+      "drug-discovery",
+      "computational-chemistry",
+      "generative-ai",
+      "pharmaceutical",
+      "biotech",
+      "molecular-design",
+      "life-sciences"
+    ],
+    "pricing": "enterprise",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.213Z",
+    "features": [
+      "Generative molecular design",
+      "Property prediction models",
+      "High-throughput virtual screening",
+      "Patent landscape analysis",
+      "Collaborative research platform"
+    ],
+    "use_cases": [
+      "Novel drug candidate generation",
+      "Lead optimization",
+      "Toxicity prediction",
+      "Drug repurposing analysis",
+      "Clinical trial candidate selection"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "spellbook",
+    "name": "Spellbook",
+    "description": "AI contract review and drafting platform that integrates directly with Microsoft Word to help legal professionals draft, review, and analyze contracts using large language models. It provides clause suggestions, risk analysis, and negotiation support within familiar document workflows.",
+    "url": "https://www.spellbook.legal",
+    "website": "https://www.spellbook.legal",
+    "category": "legal-ai",
+    "tags": [
+      "contract-review",
+      "legal-tech",
+      "document-analysis",
+      "microsoft-word",
+      "clause-suggestions",
+      "risk-assessment",
+      "legal-professionals"
+    ],
+    "pricing": "paid",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.214Z",
+    "features": [
+      "MS Word integration",
+      "AI-powered clause suggestions",
+      "Risk assessment and scoring",
+      "Precedent comparison",
+      "Negotiation playbook"
+    ],
+    "use_cases": [
+      "Contract drafting and review",
+      "M&A due diligence",
+      "Compliance checking",
+      "Contract template management",
+      "Legal team productivity enhancement"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "vellum",
+    "name": "Vellum",
+    "description": "Full-stack platform for building, deploying, and monitoring LLM-powered applications. It provides tools for prompt engineering, workflow orchestration, evaluation, and deployment to help developers move from prototypes to production-grade AI applications efficiently.",
+    "url": "https://www.vellum.ai",
+    "website": "https://www.vellum.ai",
+    "category": "llm-ops",
+    "tags": [
+      "prompt-engineering",
+      "llm-workflows",
+      "ai-application-development",
+      "model-evaluation",
+      "deployment",
+      "developer-platform",
+      "saas"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.214Z",
+    "features": [
+      "Visual prompt engineering interface",
+      "LLM workflow orchestration",
+      "Automated evaluation and testing",
+      "Production deployment pipelines",
+      "Performance monitoring and analytics"
+    ],
+    "use_cases": [
+      "Building customer support chatbots",
+      "Developing content generation tools",
+      "Creating AI-powered search applications",
+      "Implementing document analysis systems",
+      "Prototyping and testing AI features"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "aisera",
+    "name": "Aisera",
+    "description": "AI-driven service experience platform that automates IT, HR, and customer service operations using conversational AI and workflow automation. It combines AI service desk, proactive resolution, and enterprise search to deliver autonomous service experiences for employees and customers.",
+    "url": "https://www.aisera.com",
+    "website": "https://www.aisera.com",
+    "category": "enterprise-ai-platforms",
+    "tags": [
+      "service-desk",
+      "conversational-ai",
+      "it-automation",
+      "hr-automation",
+      "enterprise-search",
+      "workflow-automation",
+      "enterprise"
+    ],
+    "pricing": "enterprise",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.215Z",
+    "features": [
+      "Conversational AI for service requests",
+      "Proactive issue resolution",
+      "Enterprise knowledge search",
+      "Workflow automation engine",
+      "Multi-channel support integration"
+    ],
+    "use_cases": [
+      "IT service desk automation",
+      "HR service request handling",
+      "Customer support automation",
+      "Employee onboarding workflows",
+      "Enterprise knowledge management"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "codiumai",
+    "name": "CodiumAI",
+    "description": "AI-powered code integrity platform that helps developers write meaningful tests, detect issues, and improve code quality. It integrates with IDEs to provide real-time code analysis, test generation, and behavior explanation using advanced code understanding models.",
+    "url": "https://www.codium.ai",
+    "website": "https://www.codium.ai",
+    "category": "code-ai",
+    "tags": [
+      "code-testing",
+      "test-generation",
+      "code-quality",
+      "ide-integration",
+      "developer-tools",
+      "code-analysis",
+      "saas"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.215Z",
+    "features": [
+      "AI-powered test generation",
+      "Real-time code analysis",
+      "Behavior explanation and documentation",
+      "IDE integration (VS Code, JetBrains)",
+      "Code review automation"
+    ],
+    "use_cases": [
+      "Automated unit test generation",
+      "Code review assistance",
+      "Legacy code documentation",
+      "Test coverage improvement",
+      "Bug prevention in development"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "deepgram",
+    "name": "Deepgram",
+    "description": "Advanced speech recognition and audio intelligence platform that provides real-time transcription, speech-to-text, and audio understanding APIs. It uses novel end-to-end deep learning models to deliver highly accurate transcription with low latency for developers and enterprises.",
+    "url": "https://deepgram.com",
+    "website": "https://deepgram.com",
+    "category": "audio-ai",
+    "tags": [
+      "speech-recognition",
+      "audio-processing",
+      "transcription",
+      "speech-to-text",
+      "audio-intelligence",
+      "real-time",
+      "api"
+    ],
+    "pricing": "paid",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.216Z",
+    "features": [
+      "Real-time speech recognition API",
+      "Audio intelligence features",
+      "Multiple language support",
+      "Custom model training",
+      "Enterprise-grade scalability"
+    ],
+    "use_cases": [
+      "Meeting transcription and analysis",
+      "Contact center analytics",
+      "Media content transcription",
+      "Voice assistant development",
+      "Accessibility applications"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "glean",
+    "name": "Glean",
+    "description": "AI-powered enterprise search and knowledge discovery platform that connects to all company data sources to provide relevant answers and insights. It understands context, relationships, and permissions to deliver personalized search results and knowledge recommendations for employees.",
+    "url": "https://www.glean.com",
+    "website": "https://www.glean.com",
+    "category": "search-ai",
+    "tags": [
+      "enterprise-search",
+      "knowledge-management",
+      "workplace-search",
+      "semantic-search",
+      "data-discovery",
+      "employee-productivity",
+      "enterprise"
+    ],
+    "pricing": "enterprise",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.216Z",
+    "features": [
+      "Unified enterprise search across all apps",
+      "Context-aware result ranking",
+      "Personalized knowledge recommendations",
+      "Access control and security",
+      "Analytics on knowledge gaps"
+    ],
+    "use_cases": [
+      "Employee information finding",
+      "Expertise location within organizations",
+      "Onboarding and knowledge transfer",
+      "Compliance and audit support",
+      "Reducing duplicate work"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "mendable",
+    "name": "Mendable",
+    "description": "AI-powered search and chat platform for documentation and knowledge bases that provides instant, accurate answers to user questions. It integrates with existing documentation sites to deliver conversational search experiences, reducing support tickets and improving user satisfaction.",
+    "url": "https://www.mendable.ai",
+    "website": "https://www.mendable.ai",
+    "category": "search-ai",
+    "tags": [
+      "documentation-search",
+      "knowledge-base",
+      "chatbot",
+      "developer-docs",
+      "customer-support",
+      "saas",
+      "api"
+    ],
+    "pricing": "paid",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-07T16:55:56.217Z",
+    "features": [
+      "Conversational documentation search",
+      "Multi-source knowledge integration",
+      "Analytics on user questions",
+      "Customizable chat interface",
+      "API for custom implementations"
+    ],
+    "use_cases": [
+      "Developer documentation search",
+      "Customer support knowledge base",
+      "Internal company documentation",
+      "Product documentation sites",
+      "Training and onboarding materials"
     ],
     "has_affiliate": true
   }
