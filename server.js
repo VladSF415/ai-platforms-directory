@@ -1094,14 +1094,17 @@ const start = async () => {
     await fastify.listen({ port, host: '0.0.0.0' });
     console.log(`🚀 AI Platforms Directory running on port ${port}`);
 
-    // Start Telegram bot if token is provided
-    if (process.env.TELEGRAM_BOT_TOKEN) {
+    // Start Telegram bot ONLY if explicitly enabled (prevents conflicts)
+    // This should ONLY be enabled in the worker service, NOT main service
+    if (process.env.TELEGRAM_BOT_TOKEN && process.env.ENABLE_TELEGRAM_BOT === 'true') {
       try {
         await import('./telegram-bot.js');
         console.log('🤖 Telegram bot started');
       } catch (botError) {
         console.error('Failed to start Telegram bot:', botError.message);
       }
+    } else if (process.env.TELEGRAM_BOT_TOKEN) {
+      console.log('ℹ️  TELEGRAM_BOT_TOKEN present but ENABLE_TELEGRAM_BOT not set to true - bot not started');
     } else {
       console.log('ℹ️  TELEGRAM_BOT_TOKEN not set, bot not started');
     }
