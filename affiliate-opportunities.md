@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Runway (Gen-3)
+## 1. Veed.io AI Tools
 
-**Category:** video-generation
-**Website:** https://runwayml.com
+**Category:** video-ai
+**Website:** https://www.veed.io
 **Pricing Model:** freemium
 
 **Description:**
-Next-generation video generation platform that enables creators to produce high-quality, stylized video content from text, images, or video clips. The Gen-3 model represents a significant leap in temporal consistency, motion control, and visual fidelity, powering a suite of creative tools for filmmaking, marketing, and design.
+Online video editing platform enhanced with AI features including auto-subtitles, background removal, noise cancellation, and AI avatars. Designed for easy, browser-based video creation for marketers, educators, and small businesses.
 
 **💵 Affiliate Program Details:**
-Runway Partner Program for creators, educators, and agencies. Includes revenue share on subscription referrals, promotional codes, and featured placement for partner content. Managed through a dedicated partner portal.
+30% recurring commission via PartnerStack, 90-day cookie, $100 minimum payout, requires content creation or marketing focus
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Runway Partner Program for creators, educators, and agencies. Includes revenue s
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Runway (Gen-3)** - https://runwayml.com
+1. [ ] **Veed.io AI Tools** - https://www.veed.io
