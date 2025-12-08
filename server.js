@@ -9,7 +9,30 @@ import sharp from 'sharp';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const fastify = Fastify({ logger: true });
+const fastify = Fastify({
+  logger: true,
+  // Add error handling to prevent 5xx crashes
+  onError: (request, reply, error) => {
+    console.error('[Server Error]', error);
+    reply.code(500).send({ error: 'Internal Server Error' });
+  }
+});
+
+// Global error handler
+fastify.setErrorHandler((error, request, reply) => {
+  console.error('[Error Handler]', {
+    url: request.url,
+    method: request.method,
+    error: error.message
+  });
+
+  // Don't expose internal errors to clients
+  if (error.statusCode && error.statusCode < 500) {
+    reply.code(error.statusCode).send({ error: error.message });
+  } else {
+    reply.code(500).send({ error: 'Internal Server Error' });
+  }
+});
 
 // Initialize Stripe (only if API key is provided)
 const stripe = process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
@@ -93,6 +116,110 @@ try {
 // CORS for development
 fastify.register(import('@fastify/cors'), {
   origin: true
+});
+
+// ===========================================
+// SEO: 301 Redirects for old URL patterns
+// ===========================================
+
+// Helper to find platform by old naming conventions
+function findPlatformByOldSlug(oldSlug) {
+  // Try to extract platform name from old format like "platform-emailmgmt-mailytica"
+  const parts = oldSlug.replace('platform-', '').split('-');
+  // Remove category prefix (first part) and join the rest
+  const nameGuess = parts.slice(1).join(' ');
+
+  return platforms.find(p => {
+    const pName = p.name.toLowerCase();
+    const pSlug = (p.slug || p.id || '').toLowerCase();
+    return pName.includes(nameGuess) ||
+           pSlug.includes(parts.slice(1).join('-')) ||
+           nameGuess.includes(pName.split(' ')[0]);
+  });
+}
+
+// Redirect old /platforms/[firebaseId] URLs (404 cleanup)
+fastify.get('/platforms/:firebaseId', async (request, reply) => {
+  // These are old Firebase-style URLs - redirect to homepage
+  reply.redirect(301, '/');
+});
+
+// Redirect old /platform/platform-[category]-[name] format
+fastify.get('/platform/platform-:rest', async (request, reply) => {
+  const oldSlug = `platform-${request.params.rest}`;
+  const platform = findPlatformByOldSlug(oldSlug);
+
+  if (platform) {
+    const newSlug = platform.slug || platform.id || platform.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    reply.redirect(301, `/platform/${newSlug}`);
+  } else {
+    // No match found - redirect to homepage
+    reply.redirect(301, '/');
+  }
+});
+
+// Redirect old blog URLs to new blog page
+fastify.get('/blog/:category/:slug', async (request, reply) => {
+  // Old blog URL format - redirect to main blog
+  reply.redirect(301, '/blog');
+});
+
+// Redirect old category URLs with different naming
+const oldCategoryMappings = {
+  'speech-recognition-ai': 'audio-ai',
+  'text-generation-ai': 'llms',
+  'conversational-ai': 'agent-platforms',
+  'autonomous-agents': 'agent-platforms',
+  'ai-simulation-platforms': 'ml-frameworks',
+  'ai-cybersecurity': 'analytics-bi',
+  'generative-design-ai': 'generative-ai',
+  'ai-dev-frameworks': 'ml-frameworks',
+  'emotion-recognition-ai': 'nlp',
+  'audio-generation-ai': 'audio-ai',
+  'image-generation-ai': 'image-generation',
+  'ai-model-training': 'ml-frameworks',
+  'ai-deployment-platforms': 'ml-frameworks',
+  'data-analysis-ai': 'analytics-bi',
+  'computer-vision-ai': 'computer-vision',
+  'ethical-ai-monitoring': 'analytics-bi',
+  'knowledge-graph-ai': 'nlp',
+  'gen-ai-assistants': 'llms',
+  'recommendation-systems': 'analytics-bi',
+  'predictive-ai': 'analytics-bi',
+  'ai-for-synthetic-data': 'generative-ai',
+  'ai-driven-email-management': 'workflow-automation',
+  'ai-anomaly-detection': 'analytics-bi',
+  'ai-personalization-engines': 'analytics-bi',
+  'specialized-industry-ai': 'enterprise-ai-platforms',
+  'ai-workflow-automation': 'workflow-automation',
+  'gaming-ai': 'generative-ai',
+  'video-generation-ai': 'video-generation',
+  // Handle spaces and different cases
+  'Knowledge Graph AI': 'nlp',
+  'AI Workflow Automation': 'workflow-automation',
+  'AI for Cybersecurity': 'analytics-bi',
+  'Speech Recognition AI': 'audio-ai',
+  'AI for Anomaly Detection': 'analytics-bi',
+  'Conversational AI': 'agent-platforms',
+  'AI Deployment Platforms': 'ml-frameworks'
+};
+
+fastify.get('/category/:oldCategory', async (request, reply) => {
+  const oldCat = request.params.oldCategory;
+  const newCat = oldCategoryMappings[oldCat];
+
+  if (newCat) {
+    reply.redirect(301, `/category/${newCat}`);
+  } else {
+    // Check if it's a valid current category
+    const validCategories = [...new Set(platforms.map(p => p.category).filter(Boolean))];
+    if (validCategories.includes(oldCat)) {
+      // It's valid, let it pass through to the SPA
+      return;
+    }
+    // Invalid category - redirect to homepage
+    reply.redirect(301, '/');
+  }
 });
 
 // Serve static files in production
@@ -556,6 +683,30 @@ fastify.get('/sitemap.xml', async (request, reply) => {
   sitemap += '    <priority>0.8</priority>\n';
   sitemap += '  </url>\n';
 
+  // Blog page
+  sitemap += '  <url>\n';
+  sitemap += `    <loc>${baseUrl}/blog</loc>\n`;
+  sitemap += `    <lastmod>${today}</lastmod>\n`;
+  sitemap += '    <changefreq>daily</changefreq>\n';
+  sitemap += '    <priority>0.9</priority>\n';
+  sitemap += '  </url>\n';
+
+  // About page
+  sitemap += '  <url>\n';
+  sitemap += `    <loc>${baseUrl}/about</loc>\n`;
+  sitemap += `    <lastmod>${today}</lastmod>\n`;
+  sitemap += '    <changefreq>monthly</changefreq>\n';
+  sitemap += '    <priority>0.7</priority>\n';
+  sitemap += '  </url>\n';
+
+  // Contact page
+  sitemap += '  <url>\n';
+  sitemap += `    <loc>${baseUrl}/contact</loc>\n`;
+  sitemap += `    <lastmod>${today}</lastmod>\n`;
+  sitemap += '    <changefreq>monthly</changefreq>\n';
+  sitemap += '    <priority>0.6</priority>\n';
+  sitemap += '  </url>\n';
+
   // Category pages
   const categoryMap = new Map();
   platforms.forEach(platform => {
@@ -656,9 +807,22 @@ Sitemap: ${baseUrl}/sitemap.xml
 # Crawl-delay
 Crawl-delay: 1
 
-# Disallow admin/private paths (if any)
+# Disallow admin/private paths
 Disallow: /api/
-Disallow: /*.json$`;
+Disallow: /*.json$
+
+# Disallow URLs with query parameters (prevent duplicate content)
+Disallow: /*?search=*
+Disallow: /*?category=*
+Disallow: /*?*=*
+
+# Disallow old URL patterns (now redirected)
+Disallow: /platforms/
+Disallow: /platform/platform-*
+Disallow: /blog/*/
+
+# Allow clean blog page
+Allow: /blog$`;
 
   reply.type('text/plain').send(robots);
 });
