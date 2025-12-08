@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Rooftop
+## 1. Runway (Gen-3)
 
-**Category:** legal-ai
-**Website:** https://rooftop.ai
-**Pricing Model:** enterprise
+**Category:** video-generation
+**Website:** https://runwayml.com
+**Pricing Model:** freemium
 
 **Description:**
-AI-powered legal research and document analysis platform that helps lawyers and legal teams quickly find relevant case law, statutes, and precedents while analyzing legal documents for risks and opportunities. Uses specialized legal LLMs trained on millions of legal documents.
+Next-generation video generation platform that enables creators to produce high-quality, stylized video content from text, images, or video clips. The Gen-3 model represents a significant leap in temporal consistency, motion control, and visual fidelity, powering a suite of creative tools for filmmaking, marketing, and design.
 
 **💵 Affiliate Program Details:**
-High-value referral program: 15% of first year contract value (average $20K+ deals), 12-month cookie, law firm partnerships prioritized
+Runway Partner Program for creators, educators, and agencies. Includes revenue share on subscription referrals, promotional codes, and featured placement for partner content. Managed through a dedicated partner portal.
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ High-value referral program: 15% of first year contract value (average $20K+ dea
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Rooftop** - https://rooftop.ai
+1. [ ] **Runway (Gen-3)** - https://runwayml.com
