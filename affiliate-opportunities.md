@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Ideogram
+## 1. Vercel AI SDK 3.0
 
-**Category:** image-generation
-**Website:** https://ideogram.ai
-**Pricing Model:** freemium
+**Category:** code-ai
+**Website:** https://vercel.com/ai
+**Pricing Model:** open-source
 
 **Description:**
-AI image generation platform specializing in typography and text rendering within images. Creates images with readable, stylized text integrated naturally. Used by designers, marketers, and content creators.
+Comprehensive toolkit for building AI-powered applications with React, Next.js, and other frameworks. Features include streaming UI components, model abstraction, and edge deployment optimization. Targets web developers and AI application builders.
 
 **💵 Affiliate Program Details:**
-15% recurring commission via in-house program, 30-day cookie, $75 minimum payout, designer community focus
+Platform partnership program with revenue sharing on deployed applications, 30-day cookie, requires active Vercel deployment and AI integration
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ AI image generation platform specializing in typography and text rendering withi
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Ideogram** - https://ideogram.ai
+1. [ ] **Vercel AI SDK 3.0** - https://vercel.com/ai
