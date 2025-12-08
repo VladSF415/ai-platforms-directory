@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Replicate Cognee
+## 1. Ideogram
 
-**Category:** agent-platforms
-**Website:** https://replicate.com/cognee
-**Pricing Model:** paid
+**Category:** image-generation
+**Website:** https://ideogram.ai
+**Pricing Model:** freemium
 
 **Description:**
-AI agent platform for building, deploying, and scaling autonomous AI agents with memory, reasoning, and tool-use capabilities. Features visual agent builder, deployment infrastructure, and monitoring tools. Targets developers and businesses building AI agents.
+AI image generation platform specializing in typography and text rendering within images. Creates images with readable, stylized text integrated naturally. Used by designers, marketers, and content creators.
 
 **💵 Affiliate Program Details:**
-15% recurring commission via PartnerStack, 60-day cookie, requires technical blog or developer audience, minimum 5K monthly visitors
+15% recurring commission via in-house program, 30-day cookie, $75 minimum payout, designer community focus
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ AI agent platform for building, deploying, and scaling autonomous AI agents with
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Replicate Cognee** - https://replicate.com/cognee
+1. [ ] **Ideogram** - https://ideogram.ai
