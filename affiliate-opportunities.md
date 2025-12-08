@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Krisp
+## 1. Replicate Cognee
 
-**Category:** audio-ai
-**Website:** https://krisp.ai
-**Pricing Model:** freemium
+**Category:** agent-platforms
+**Website:** https://replicate.com/cognee
+**Pricing Model:** paid
 
 **Description:**
-AI-powered noise cancellation and meeting enhancement platform that removes background noise, echoes, and improves voice clarity in real-time. Works across all communication apps with minimal latency and CPU usage.
+AI agent platform for building, deploying, and scaling autonomous AI agents with memory, reasoning, and tool-use capabilities. Features visual agent builder, deployment infrastructure, and monitoring tools. Targets developers and businesses building AI agents.
 
 **💵 Affiliate Program Details:**
-Affiliate program with 30% recurring commission, 90-day cookie, $100 minimum payout, tracked via Rewardful, requires tech/productivity audience, bonus for annual plan referrals
+15% recurring commission via PartnerStack, 60-day cookie, requires technical blog or developer audience, minimum 5K monthly visitors
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Affiliate program with 30% recurring commission, 90-day cookie, $100 minimum pay
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Krisp** - https://krisp.ai
+1. [ ] **Replicate Cognee** - https://replicate.com/cognee
