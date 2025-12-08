@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Veed.io AI Tools
+## 1. Marqo AI
 
-**Category:** video-ai
-**Website:** https://www.veed.io
+**Category:** search-ai
+**Website:** https://marqo.ai
 **Pricing Model:** freemium
 
 **Description:**
-Online video editing platform enhanced with AI features including auto-subtitles, background removal, noise cancellation, and AI avatars. Designed for easy, browser-based video creation for marketers, educators, and small businesses.
+End-to-end vector search platform that simplifies building AI search applications with integrated embedding generation, retrieval, and ranking in a single solution.
 
 **💵 Affiliate Program Details:**
-30% recurring commission via PartnerStack, 90-day cookie, $100 minimum payout, requires content creation or marketing focus
+15% recurring commission via PartnerStack, 90-day cookie, $50 minimum payout, requires developer/technical audience
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Online video editing platform enhanced with AI features including auto-subtitles
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Veed.io AI Tools** - https://www.veed.io
+1. [ ] **Marqo AI** - https://marqo.ai
