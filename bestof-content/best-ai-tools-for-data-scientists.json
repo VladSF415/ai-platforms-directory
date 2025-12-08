@@ -129,20 +129,21 @@
       "rank": 6,
       "name": "timm (PyTorch Image Models)",
       "slug": "timm",
-      "description": "Collection of image models, layers, utilities, optimizers, schedulers, data-loaders, augmentations and training/validation scripts for PyTorch.",
+      "description": "timm (PyTorch Image Models) is a comprehensive open-source library providing a vast collection of pre-trained computer vision models, training scripts, and reusable components for PyTorch. It is designed for researchers and engineers to rapidly prototype, benchmark, and deploy image classification and related vision tasks. Its uniqueness lies in its extensive, unified model zoo with consistent interfaces, advanced training techniques (like training recipes from papers), and strong community-driven model implementations.",
       "pricing": "open-source",
       "rating": 4.7,
       "verified": true,
       "featured": true,
       "bestFor": "PyTorch",
       "keyFeatures": [
-        "Extensive model collection",
-        "PyTorch integration",
-        "Training scripts"
+        "Over 900 pre-trained image models (ResNet, EfficientNet, Vision Transformers, etc.)",
+        "Unified model creation and loading API (`timm.create_model`)",
+        "Reproducible training scripts with modern optimizers (AdamW, Lion) and schedulers"
       ],
       "pros": [
         "Verified platform",
-        "Highly rated"
+        "Highly rated",
+        "Feature-rich"
       ],
       "cons": [
         "May have learning curve"
@@ -150,22 +151,23 @@
     },
     {
       "rank": 7,
-      "name": "TorchVision",
-      "slug": "torchvision",
-      "description": "Computer vision package for PyTorch providing popular datasets, model architectures, and common image transformations for computer vision research.",
+      "name": "Triton Inference Server",
+      "slug": "triton-inference-server",
+      "description": "NVIDIA Triton Inference Server is an open-source, high-performance inference serving software designed to deploy, run, and scale AI models from any framework (like TensorFlow, PyTorch, ONNX, TensorRT) on any GPU or CPU-based infrastructure. It uniquely enables production AI workloads by providing features like dynamic batching, concurrent model execution, and model ensembles to maximize throughput and utilization. Its primary audience is ML engineers and DevOps teams building scalable, multi-framework inference pipelines in data centers, cloud, or edge environments.",
       "pricing": "open-source",
       "rating": 4.7,
       "verified": true,
       "featured": true,
-      "bestFor": "PyTorch",
+      "bestFor": "NVIDIA",
       "keyFeatures": [
-        "Pre-trained models",
-        "Popular datasets",
-        "Image transformations"
+        "Multi-framework support (TensorFlow, PyTorch, ONNX, TensorRT, OpenVINO, Python, etc.)",
+        "Dynamic batching to combine inference requests for higher throughput",
+        "Concurrent execution of multiple models on same GPU/CPU"
       ],
       "pros": [
         "Verified platform",
-        "Highly rated"
+        "Highly rated",
+        "Feature-rich"
       ],
       "cons": [
         "May have learning curve"
@@ -173,29 +175,6 @@
     },
     {
       "rank": 8,
-      "name": "Triton Inference Server",
-      "slug": "triton-inference-server",
-      "description": "Open-source inference serving software by NVIDIA that streamlines AI inferencing across multiple frameworks and hardware platforms.",
-      "pricing": "open-source",
-      "rating": 4.7,
-      "verified": true,
-      "featured": true,
-      "bestFor": "NVIDIA",
-      "keyFeatures": [
-        "Multi-framework support",
-        "Dynamic batching",
-        "Model ensembles"
-      ],
-      "pros": [
-        "Verified platform",
-        "Highly rated"
-      ],
-      "cons": [
-        "May have learning curve"
-      ]
-    },
-    {
-      "rank": 9,
       "name": "caret",
       "slug": "caret",
       "description": "caret (Classification And Regression Training) is a comprehensive R package that provides a unified interface for training and evaluating hundreds of machine learning models. Its key capabilities include streamlined data preprocessing, model tuning, resampling, and feature selection, all within a consistent framework. It is uniquely valuable for R users in academia and industry who need a single, well-documented toolkit to compare and deploy a vast array of algorithms from different R packages without learning each one's specific syntax.",
@@ -219,7 +198,7 @@
       ]
     },
     {
-      "rank": 10,
+      "rank": 9,
       "name": "H2O.ai",
       "slug": "h2o-ai",
       "description": "H2O.ai is an open-source, distributed machine learning and AI platform designed to make advanced analytics accessible. Its core product, H2O-3, provides scalable in-memory machine learning for Python, R, and Java, featuring a robust AutoML module for automatic model training and tuning. It uniquely targets both data scientists, by offering a familiar coding environment with high-performance algorithms (GLM, GBM, XGBoost, Deep Learning), and enterprise deployments, through its commercial H2O AI Cloud platform that operationalizes models and applications.",
@@ -243,30 +222,7 @@
       ]
     },
     {
-      "rank": 11,
-      "name": "TRL (Transformer Reinforcement Learning)",
-      "slug": "trl",
-      "description": "Library for training transformer language models with Reinforcement Learning using techniques like PPO and human feedback.",
-      "pricing": "open-source",
-      "rating": 4.6,
-      "verified": true,
-      "featured": true,
-      "bestFor": "RLHF",
-      "keyFeatures": [
-        "RLHF training",
-        "PPO implementation",
-        "Human feedback"
-      ],
-      "pros": [
-        "Verified platform",
-        "Highly rated"
-      ],
-      "cons": [
-        "May have learning curve"
-      ]
-    },
-    {
-      "rank": 12,
+      "rank": 10,
       "name": "Unsloth",
       "slug": "unsloth",
       "description": "Fast and memory-efficient library for fine-tuning large language models with significant speed improvements and reduced memory usage.",
@@ -279,6 +235,52 @@
         "Fast fine-tuning",
         "Memory efficiency",
         "LoRA support"
+      ],
+      "pros": [
+        "Verified platform",
+        "Highly rated"
+      ],
+      "cons": [
+        "May have learning curve"
+      ]
+    },
+    {
+      "rank": 11,
+      "name": "Weights & Biases",
+      "slug": "weights-biases-cv",
+      "description": "MLOps platform for computer vision experiment tracking, model versioning, and collaborative ML workflows.",
+      "pricing": "freemium",
+      "rating": 4.6,
+      "verified": true,
+      "featured": true,
+      "bestFor": "MLOps",
+      "keyFeatures": [
+        "Experiment tracking",
+        "Model versioning",
+        "Hyperparameter tuning"
+      ],
+      "pros": [
+        "Verified platform",
+        "Highly rated"
+      ],
+      "cons": [
+        "May have learning curve"
+      ]
+    },
+    {
+      "rank": 12,
+      "name": "xarray",
+      "slug": "xarray",
+      "description": "N-D labeled arrays and datasets in Python providing pandas-like functionality for multidimensional data including climate and weather data.",
+      "pricing": "open-source",
+      "rating": 4.6,
+      "verified": true,
+      "featured": true,
+      "bestFor": "N-D Arrays",
+      "keyFeatures": [
+        "N-D labeled arrays",
+        "Multidimensional data",
+        "Pandas-like API"
       ],
       "pros": [
         "Verified platform",
