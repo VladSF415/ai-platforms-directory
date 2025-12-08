@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Civitai
+## 1. Tavily
 
-**Category:** image-generation
-**Website:** https://civitai.com
+**Category:** search-ai
+**Website:** https://tavily.com
 **Pricing Model:** freemium
 
 **Description:**
-Community platform for sharing, discovering, and discussing AI-generated art models, particularly focused on Stable Diffusion. Features model marketplace, image generation tools, and community collaboration features.
+AI research assistant that performs deep web searches, analyzes information, and synthesizes comprehensive reports from multiple sources. Designed for researchers, analysts, and businesses needing accurate, up-to-date information synthesis.
 
 **💵 Affiliate Program Details:**
-Creator partnership program with 20% commission on premium sales, 30-day cookie, requires active creator account and content production
+Affiliate program with 30% recurring commission, 90-day cookie, direct signup via website, targets researchers and content creators
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Creator partnership program with 20% commission on premium sales, 30-day cookie,
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Civitai** - https://civitai.com
+1. [ ] **Tavily** - https://tavily.com
