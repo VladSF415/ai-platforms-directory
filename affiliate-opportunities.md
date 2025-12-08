@@ -1,63 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
 Generated: 2025-12-08
-Total Opportunities: 3
+Total Opportunities: 1
 
 ---
 
-## 1. Inflection-2.5
+## 1. Rooftop
 
-**Category:** generative-ai
-**Website:** https://inflection.ai
-**Pricing Model:** freemium
-
-**Description:**
-Personal AI assistant focused on emotional intelligence, personal growth, and supportive conversations. Combines strong reasoning with empathetic responses for mental wellness, coaching, and personal development applications.
-
-**💵 Affiliate Program Details:**
-15% recurring commission via PartnerStack, wellness professional partnership program, $50+ average monthly subscription value, requires approved application
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 2. 01.AI
-
-**Category:** llms
-**Website:** https://01.ai
-**Pricing Model:** freemium
+**Category:** legal-ai
+**Website:** https://rooftop.ai
+**Pricing Model:** enterprise
 
 **Description:**
-Chinese AI company offering open-source and proprietary models with strong performance on coding, mathematics, and reasoning tasks. Features Yi series models optimized for Chinese and English with enterprise deployment options.
+AI-powered legal research and document analysis platform that helps lawyers and legal teams quickly find relevant case law, statutes, and precedents while analyzing legal documents for risks and opportunities. Uses specialized legal LLMs trained on millions of legal documents.
 
 **💵 Affiliate Program Details:**
-Enterprise partner program with revenue sharing, 15-30% commission based on volume, technical certification required, deal registration protection
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 3. Gamma AI
-
-**Category:** generative-ai
-**Website:** https://gamma.app
-**Pricing Model:** freemium
-
-**Description:**
-AI-powered presentation and document creation platform that generates visually stunning decks, reports, and documents from simple prompts. Features automatic design, content structuring, and brand consistency for business communications.
-
-**💵 Affiliate Program Details:**
-25% recurring commission via PartnerStack, 60-day cookie duration, team plan bonuses, requires business or educational audience
+High-value referral program: 15% of first year contract value (average $20K+ deals), 12-month cookie, law firm partnerships prioritized
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -71,6 +29,4 @@ AI-powered presentation and document creation platform that generates visually s
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Inflection-2.5** - https://inflection.ai
-2. [ ] **01.AI** - https://01.ai
-3. [ ] **Gamma AI** - https://gamma.app
+1. [ ] **Rooftop** - https://rooftop.ai
