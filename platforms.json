@@ -475,7 +475,7 @@
     "id": "adanet",
     "name": "AdaNet",
     "description": "AdaNet is an open-source, lightweight framework built on TensorFlow that automates the design and training of high-quality neural network models. Its key capability is performing adaptive neural architecture search and ensemble learning to discover optimal model structures with minimal manual tuning. What makes it unique is its focus on learning both the architecture and ensemble weights simultaneously, providing strong theoretical guarantees on generalization performance while remaining computationally efficient.",
-    "category": "ml-frameworks",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "automl"
@@ -551,7 +551,9 @@
       "Data Scientists"
     ],
     "has_api": true,
-    "has_affiliate": false
+    "has_affiliate": false,
+    "recategorized_date": "2025-12-08T00:11:48.229Z",
+    "recategorized_from": "ml-frameworks"
   },
   {
     "id": "adcreative-ai",
@@ -1496,7 +1498,7 @@
     "id": "allennlp",
     "name": "AllenNLP",
     "description": "AllenNLP is an open-source natural language processing (NLP) research library built on PyTorch, designed to make it easier to build, experiment with, and evaluate state-of-the-art deep learning models for a wide range of language understanding tasks. It provides a high-level, modular framework for model development, along with a suite of pre-trained models, data processing tools, and interactive demos. Its unique value lies in its strong academic and research pedigree from the Allen Institute for AI (AI2), offering robust, well-documented implementations that prioritize reproducibility and best practices in NLP research over rapid prototyping.",
-    "category": "nlp",
+    "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
       "nlp"
@@ -1570,7 +1572,9 @@
       "Data Scientists building advanced text analysis systems"
     ],
     "has_api": false,
-    "has_affiliate": false
+    "has_affiliate": false,
+    "recategorized_date": "2025-12-08T00:11:48.230Z",
+    "recategorized_from": "nlp"
   },
   {
     "id": "allganize",
@@ -44080,8 +44084,8 @@
   {
     "id": "qdrant",
     "name": "Qdrant",
-    "description": "Vector similarity search engine with extended filtering capabilities designed for neural network or semantic-based applications.",
-    "category": "ml-frameworks",
+    "description": "Qdrant is a high-performance, open-source vector database and similarity search engine designed for production-scale AI applications. It enables efficient storage, retrieval, and management of vector embeddings with advanced filtering capabilities, making it ideal for building semantic search, recommendation systems, and RAG (Retrieval-Augmented Generation) pipelines. Its unique value lies in being written in Rust for optimal speed and memory efficiency, offering both cloud-managed and self-hosted deployment options with strong consistency guarantees.",
+    "category": "search-ai",
     "categories": [
       "machine-learning-frameworks",
       "vector-databases"
@@ -44090,11 +44094,14 @@
     "website": "https://qdrant.tech",
     "pricing": "freemium",
     "features": [
-      "Vector similarity search",
-      "Extended filtering",
-      "Rust performance",
-      "Distributed deployment",
-      "Snapshot support"
+      "High-performance vector similarity search (HNSW, IVF) with configurable metrics",
+      "Advanced query filtering with payload indexing (keyword, range, geo, full-text)",
+      "Native Rust implementation for low-latency and memory-efficient operation",
+      "Distributed deployment mode with replication and sharding support",
+      "Point-in-time snapshot creation and recovery for data integrity",
+      "gRPC and REST API with official Python, Go, and Rust clients",
+      "Integrations with LangChain, LlamaIndex, and OpenAI for RAG workflows",
+      "Cloud-native design with Kubernetes (K8s) operator for orchestration"
     ],
     "rating": 4.4,
     "verified": true,
@@ -44102,11 +44109,13 @@
     "trending": true,
     "slug": "qdrant",
     "tags": [
-      "Vector Search",
-      "Similarity",
-      "Filtering",
-      "Rust",
-      "Distributed"
+      "vector-database",
+      "similarity-search",
+      "embedding-retrieval",
+      "rust",
+      "rag",
+      "neural-search",
+      "production-ai"
     ],
     "subcategories": [
       "vector-databases",
@@ -44130,12 +44139,38 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Semantic search and recommendation engines for e-commerce or content platforms",
+      "Retrieval-Augmented Generation (RAG) for LLMs to ground responses in private data",
+      "Image or video similarity search for media management and copyright detection",
+      "Anomaly detection and clustering in high-dimensional machine learning data",
+      "Personalized chatbots and AI assistants with contextual memory retrieval",
+      "Matching and ranking systems for recruitment or dating applications"
+    ],
+    "pricing_details": {
+      "model": "subscription (cloud) / open-source (self-hosted)",
+      "tiers": [
+        "Free (Cloud): 1GB storage, 1 cluster, limited to 1GB RAM, community support",
+        "Starter: $25/month - 5GB storage, 2 clusters, 2GB RAM, standard support",
+        "Growth: $100/month - 20GB storage, 5 clusters, 4GB RAM, priority support",
+        "Enterprise (Cloud): Custom pricing - unlimited scaling, dedicated infrastructure, SLA, 24/7 support"
+      ],
+      "free_tier": "Yes - includes 1GB storage and basic features on Qdrant Cloud; self-hosted version is completely free (Apache 2.0 license)",
+      "starting_price": "Free (self-hosted) or $25/month (cloud)"
+    },
+    "target_audience": [
+      "AI/ML engineers building production embedding applications",
+      "Data scientists implementing semantic search or RAG systems",
+      "DevOps teams managing scalable, low-latency vector databases"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "qubika-cv",
     "name": "Qubika",
-    "description": "Software development agency creating computer vision solutions with expertise in advanced algorithms and enterprise applications.",
+    "description": "Qubika is a full-service software development agency that specializes in building custom AI and computer vision solutions for enterprise clients. They combine deep technical expertise in advanced algorithms, machine learning, and cloud infrastructure to deliver scalable applications that solve complex business problems. What sets them apart is their end-to-end, consultative approach, acting as a strategic partner from ideation and POC development through to deployment, integration, and ongoing support.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -44145,11 +44180,14 @@
     "website": "https://qubika.com",
     "pricing": "enterprise",
     "features": [
-      "Advanced algorithms",
-      "Enterprise applications",
-      "Custom development",
-      "Scalable solutions",
-      "Technical expertise"
+      "Custom Computer Vision Model Development",
+      "End-to-end AI Solution Lifecycle Management",
+      "Cloud Architecture & DevOps (AWS, Azure, GCP)",
+      "Legacy System Modernization & API Integration",
+      "Real-time Data Processing & Analytics Pipelines",
+      "Cross-platform Application Development (Web, Mobile, Desktop)",
+      "UI/UX Design for Complex Data Applications",
+      "Dedicated Agile Development Teams"
     ],
     "rating": 4.1,
     "verified": true,
@@ -44157,9 +44195,14 @@
     "trending": false,
     "slug": "qubika-cv",
     "tags": [
-      "Development Services",
-      "Enterprise",
-      "Advanced Algorithms"
+      "Custom Software Development",
+      "Enterprise AI",
+      "Machine Learning Consulting",
+      "Cloud-Native Solutions",
+      "Computer Vision",
+      "Data Engineering",
+      "IoT Integration",
+      "Digital Transformation"
     ],
     "subcategories": [
       "development-services",
@@ -44183,12 +44226,35 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Automated Quality Inspection & Defect Detection in Manufacturing",
+      "Retail Analytics (Shelf Monitoring, Customer Behavior, Loss Prevention)",
+      "Document Processing & Data Extraction for Finance and Insurance",
+      "Predictive Maintenance for Industrial IoT Systems",
+      "Access Control & Security Surveillance Systems",
+      "Augmented Reality (AR) Applications for Field Service"
+    ],
+    "pricing_details": {
+      "model": "custom-project-based",
+      "tiers": [
+        "Enterprise: Custom - Project-based scoping or dedicated team models. Pricing is tailored to project complexity, scope, and team composition."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Large Enterprises & Corporations",
+      "Mid-to-Large Size Manufacturing & Industrial Companies",
+      "Retail Chains & E-commerce Platforms"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "quillbot",
     "name": "QuillBot",
-    "description": "AI-powered paraphrasing tool and writing assistant with grammar checking and citation generation.",
+    "description": "QuillBot is an AI-powered writing assistant primarily designed to help users rewrite, enhance, and refine text. Its core capabilities include advanced paraphrasing across multiple modes, grammar and plagiarism checking, summarization, and citation generation, making it a comprehensive toolkit for improving writing clarity and originality. It uniquely combines these features into a single, user-friendly platform, distinguishing itself with its depth of control over paraphrasing style and its strong focus on academic and professional writing support.",
     "category": "generative-ai",
     "categories": [
       "writing-content",
@@ -44198,11 +44264,14 @@
     "website": "https://quillbot.com",
     "pricing": "freemium",
     "features": [
-      "Text paraphrasing",
-      "Grammar checking",
-      "Citation generation",
-      "Summarization",
-      "Translation"
+      "Multi-mode paraphrasing (Standard, Fluency, Formal, Simple, Creative, Expand, Shorten)",
+      "AI-powered grammar and spell checker",
+      "Plagiarism Checker (scans against billions of web pages)",
+      "Text summarizer (key sentence and paragraph modes)",
+      "Citation generator (APA, MLA, Chicago styles)",
+      "Co-writer interface combining all tools in a single document editor",
+      "Translation support for over 30 languages",
+      "Browser extensions (Chrome, Word, macOS)"
     ],
     "rating": 4.3,
     "verified": true,
@@ -44210,11 +44279,13 @@
     "trending": false,
     "slug": "quillbot",
     "tags": [
-      "AI",
-      "Paraphrasing",
-      "Academic",
-      "Writing",
-      "Education"
+      "paraphrasing-tool",
+      "grammar-checker",
+      "writing-assistant",
+      "academic-writing",
+      "plagiarism-checker",
+      "text-summarization",
+      "citation-generator"
     ],
     "subcategories": [
       "paraphrasing",
@@ -44238,12 +44309,37 @@
     "updatedAt": {
       "_seconds": 1751239020,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Students paraphrasing research papers and generating citations to avoid plagiarism",
+      "Non-native English speakers refining their writing for clarity and fluency",
+      "Content creators and bloggers rewriting content for different platforms or audiences",
+      "Professionals drafting and polishing emails, reports, and business communications",
+      "Researchers summarizing long articles or papers to extract key points"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 125 words in Paraphraser, Standard & Fluency modes only, 1,200 words in Summarizer, limited use of Synonym Slider",
+        "Pro (Annual): $8.33/month ($99.95 billed annually) - Unlimited words, all 7 paraphrasing modes, full Summarizer, Plagiarism Checker (20 pages/month), faster processing, tone insights",
+        "Pro (Monthly): $19.95/month - Same features as annual plan",
+        "Enterprise: Custom pricing - For teams, with centralized billing, shared templates, and priority support"
+      ],
+      "free_tier": "Yes - Includes core paraphrasing (with word limit), grammar check, and summarizer (with word limit).",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "students and academics",
+      "content writers and marketers",
+      "non-native English speakers"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "quillbot-translator",
     "name": "QuillBot Translator",
-    "description": "Free AI-powered translation tool supporting 52 languages with context-aware translations and integrated writing tools.",
+    "description": "QuillBot Translator is a specialized AI-powered translation tool that goes beyond word-for-word conversion by providing context-aware translations across 52 languages. It is uniquely integrated within the broader QuillBot writing suite, allowing users to not only translate text but also refine it with paraphrasing, grammar checking, and synonym replacement tools in one workflow. This makes it particularly valuable for writers, students, and professionals who need to produce high-quality, nuanced content in multiple languages.",
     "category": "generative-ai",
     "categories": [
       "translation",
@@ -44253,11 +44349,13 @@
     "website": "https://quillbot.com",
     "pricing": "freemium",
     "features": [
-      "52 language support",
-      "Context-aware translation",
-      "Transliteration",
-      "Synonym replacement",
-      "Integrated writing tools"
+      "Translation across 52 languages (including major ones like Spanish, French, Chinese, Arabic)",
+      "Context-aware translation engine that considers sentence meaning",
+      "Integrated transliteration for select languages",
+      "Real-time synonym replacement and word choice adjustment within translations",
+      "Direct integration with QuillBot's Paraphraser, Grammar Checker, and Summarizer tools",
+      "Unlimited text translation in the free tier",
+      "Copy-to-clipboard and download options for translated text"
     ],
     "rating": 4.2,
     "verified": true,
@@ -44265,11 +44363,13 @@
     "trending": false,
     "slug": "quillbot-translator",
     "tags": [
-      "AI",
-      "Free Translation",
-      "Context-Aware",
-      "Writing Tools",
-      "Multilingual"
+      "ai-translation",
+      "multilingual-writing",
+      "context-aware-translation",
+      "paraphrasing-tool",
+      "writing-assistant",
+      "freemium-ai",
+      "text-enhancement"
     ],
     "subcategories": [
       "free-translation",
@@ -44293,12 +44393,36 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Students translating and paraphrasing research material or assignments from foreign sources",
+      "Content creators adapting blog posts, social media content, or marketing copy for international audiences",
+      "Professionals (e.g., freelancers, consultants) communicating with clients or reviewing documents in multiple languages",
+      "Non-native English speakers improving the fluency and clarity of their translated English text",
+      "Language learners comparing translations and exploring word choice nuances",
+      "Academics and researchers quickly grasping the meaning of texts published in other languages"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited translation, standard processing speed, access to basic paraphrasing modes (2), 1200 words in the Summarizer, limited use of Synonym Slider.",
+        "Premium: $9.95 USD/month (billed annually) or $19.95/month (billed monthly). Includes full access to all paraphrasing modes, faster processing, 6000 words in the Summarizer, unlimited Synonym Slider, plagiarism checker, and tone detection features. Translation is a core feature available in both tiers."
+      ],
+      "free_tier": "Yes - Includes unlimited use of the Translator with all 52 languages and basic writing tools.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "students and academics",
+      "content writers and marketers",
+      "non-native English speakers and language learners"
+    ],
+    "has_api": false,
+    "has_affiliate": true
   },
   {
     "id": "qupath",
     "name": "QuPath",
-    "description": "Free open-source software for annotation and analysis of large-format whole-slide images in pathology and biomedical research.",
+    "description": "QuPath is a free, open-source software platform designed for the quantitative analysis of large, high-resolution whole-slide images (WSI) in digital pathology and biomedical research. Its key capabilities include interactive annotation, object detection, cell classification, and biomarker quantification, enabling reproducible, scriptable workflows. It uniquely bridges the gap between user-friendly visualization and powerful, extensible analysis, making advanced computational pathology accessible to researchers and pathologists without requiring deep programming expertise.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -44306,13 +44430,15 @@
     ],
     "url": "https://qupath.github.io",
     "website": "https://qupath.github.io",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Whole-slide image analysis",
-      "Pathology annotation",
-      "Biomedical research",
-      "Multi-channel fluorescence",
-      "Scriptable workflows"
+      "Interactive annotation tools for regions, points, lines, and cells on whole-slide images",
+      "Machine learning-based pixel and object classifiers for tissue and cell detection",
+      "Comprehensive cell detection, measurement, and classification for H&E and multiplex fluorescence images",
+      "Extensible scripting with Groovy and Java for custom analysis pipelines and automation",
+      "Integration with ImageJ/Fiji and support for common WSI formats (e.g., SVS, TIFF, NDPI)",
+      "Batch processing capabilities for high-throughput analysis of image cohorts",
+      "Tools for tissue microarray (TMA) dearraying and core analysis"
     ],
     "rating": 4.6,
     "verified": true,
@@ -44320,10 +44446,14 @@
     "trending": false,
     "slug": "qupath",
     "tags": [
-      "Pathology",
-      "Biomedical",
-      "Whole-slide Imaging",
-      "Open Source"
+      "digital-pathology",
+      "whole-slide-image-analysis",
+      "bioimage-informatics",
+      "open-source-software",
+      "histopathology",
+      "quantitative-analysis",
+      "cell-detection",
+      "biomedical-research"
     ],
     "subcategories": [
       "biomedical-imaging",
@@ -44347,26 +44477,51 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Quantifying tumor-infiltrating lymphocytes (TILs) in cancer research biopsies",
+      "Scoring biomarker expression (e.g., HER2, PD-L1) in immunohistochemistry (IHC) slides",
+      "Analyzing multiplex immunofluorescence images to study spatial relationships between cell phenotypes",
+      "Conducting high-throughput, reproducible analysis for large-scale digital pathology studies",
+      "Validating and developing machine learning models for computational pathology",
+      "Teaching digital pathology and quantitative image analysis in academic settings"
+    ],
+    "pricing_details": {
+      "model": "free",
+      "tiers": [
+        "Free: The core QuPath application is completely free and open-source under the GPLv3 license."
+      ],
+      "free_tier": "Yes - The entire software platform is free, including all core analysis and annotation features.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "biomedical-researchers",
+      "pathologists-clinical-research",
+      "bioimage-informaticians"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "quuu-ai",
     "name": "Quuu",
-    "description": "AI-powered content curation platform that suggests and creates relevant social media content across 500+ categories.",
-    "category": "nlp",
+    "description": "Quuu is an AI-powered content curation and social media management platform that helps businesses and marketers discover, customize, and schedule high-quality, relevant content. Its key capability lies in combining AI suggestions across 500+ interest categories with a human review process to ensure content quality and relevance. What makes it unique is its 'human-in-the-loop' curation system, which vets AI-recommended content for brand safety and value before it reaches the user's queue.",
+    "category": "workflow-automation",
     "categories": [
       "Natural Language Processing",
       "Content Curation"
     ],
     "url": "https://quuu.co",
     "website": "https://quuu.co",
-    "pricing": "paid",
+    "pricing": "freemium",
     "features": [
-      "Content curation",
-      "500+ interest categories",
-      "Human review process",
-      "Automated scheduling",
-      "Brand tone customization"
+      "AI-driven content discovery across 500+ specific interest categories (e.g., Digital Marketing, Leadership, FinTech)",
+      "Human-reviewed content suggestions to filter out low-quality or irrelevant links",
+      "Automated scheduling to Buffer, Hootsuite, and other social media platforms",
+      "Brand tone customization and personalization for each shared post",
+      "Content recommendation engine that learns from user feedback (upvotes/downvotes)",
+      "RSS feed integration for adding custom content sources",
+      "Content calendar and queue management for consistent posting"
     ],
     "rating": 4.2,
     "verified": true,
@@ -44374,9 +44529,12 @@
     "trending": false,
     "slug": "quuu-ai",
     "tags": [
-      "AI",
-      "NLP",
-      "Content Curation"
+      "content-curation",
+      "social-media-scheduling",
+      "content-marketing",
+      "brand-voice",
+      "workflow-automation",
+      "social-media-management"
     ],
     "subcategories": [
       "content-curation"
@@ -44399,13 +44557,38 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Social media managers maintaining a consistent brand presence across multiple channels",
+      "Small business owners saving time on finding and sharing industry-relevant content",
+      "Marketing agencies managing content curation for multiple client accounts",
+      "Solo entrepreneurs and consultants establishing thought leadership in their niche",
+      "Content marketers filling gaps in their editorial calendar with curated third-party content"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Curate up to 3 interest categories, schedule to 1 social profile, basic customization",
+        "Pro: $15/month (billed annually) or $20/month (billed monthly) - Unlimited categories, schedule to 5 social profiles, advanced customization, RSS feeds, priority support",
+        "Enterprise: Custom Pricing - Unlimited social profiles, team collaboration, white-label reports, dedicated account manager, API access"
+      ],
+      "free_tier": "Yes - 3 interest categories, 1 social profile, basic post customization",
+      "starting_price": "$15/month (annual plan)"
+    },
+    "target_audience": [
+      "social media managers",
+      "small to medium business owners",
+      "digital marketing agencies",
+      "solo entrepreneurs and consultants"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "ragas",
     "name": "RAGAS",
-    "description": "Framework for evaluating Retrieval Augmented Generation pipelines providing metrics and tools for RAG system assessment.",
-    "category": "ml-frameworks",
+    "description": "Ragas is an open-source framework specifically designed for evaluating Retrieval-Augmented Generation (RAG) pipelines. It provides a comprehensive suite of metrics to assess both the retrieval and generation components of a RAG system, including faithfulness, answer relevance, context precision/recall, and semantic similarity. Its unique value lies in its metric-driven, LLM-agnostic approach that enables data scientists and ML engineers to quantitatively measure RAG performance, identify failure modes, and iterate without relying on ground-truth human annotations for every test.",
+    "category": "llm-ops",
     "categories": [
       "machine-learning-frameworks",
       "rag-evaluation"
@@ -44414,11 +44597,13 @@
     "website": "https://github.com/explodinggradients/ragas",
     "pricing": "open-source",
     "features": [
-      "RAG evaluation",
-      "Retrieval metrics",
-      "Generation assessment",
-      "Pipeline testing",
-      "Benchmark datasets"
+      "Automated metric calculation for RAG pipelines (e.g., Faithfulness, Answer Relevancy, Context Precision/Recall)",
+      "LLM-agnostic evaluation supporting OpenAI, Anthropic, Azure, Gemini, and open-source models via LiteLLM",
+      "Integration with tracing tools like LangSmith and LlamaIndex for evaluation on production traces",
+      "Synthetic test data generation to create evaluation sets for RAG pipelines",
+      "Benchmarking capabilities with public datasets like FiQA and WikiEval",
+      "Modular design allowing custom metric creation and integration into existing CI/CD workflows",
+      "Detailed evaluation reports visualizing performance across different metrics and aspects"
     ],
     "rating": 4.4,
     "verified": true,
@@ -44426,11 +44611,14 @@
     "trending": true,
     "slug": "ragas",
     "tags": [
-      "RAG",
-      "Evaluation",
-      "Retrieval",
-      "Generation",
-      "Assessment"
+      "rag-evaluation",
+      "llm-evaluation",
+      "retrieval-metrics",
+      "generation-metrics",
+      "python-library",
+      "open-source",
+      "rag-testing",
+      "benchmarking"
     ],
     "subcategories": [
       "rag-evaluation",
@@ -44454,12 +44642,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Quantitatively comparing different embedding models or retrieval strategies within a RAG pipeline",
+      "Monitoring RAG application performance in production by evaluating LLM traces",
+      "Generating synthetic question-answer pairs to create robust test sets for RAG systems lacking labeled data",
+      "Identifying specific failure modes (e.g., hallucination, poor retrieval) during RAG development and A/B testing",
+      "Benchmarking a custom RAG pipeline against established public datasets and metrics",
+      "Incorporating automated RAG quality gates into a continuous integration pipeline"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The entire framework is open-source under the MIT License with all features available."
+      ],
+      "free_tier": "Yes - The entire framework is free and open-source.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Machine Learning Engineers building RAG applications",
+      "Data Scientists specializing in NLP and LLM evaluation",
+      "AI/ML Researchers focusing on retrieval and generation systems"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "randomforest-r",
     "name": "randomForest",
-    "description": "Random Forest algorithm implementation for R providing classification and regression with variable importance measures and proximity computation.",
+    "description": "randomForest is a widely-used R package that provides a robust implementation of the Random Forest machine learning algorithm for both classification and regression tasks. It is designed for data scientists, statisticians, and researchers working in R, offering key capabilities like variable importance assessment, proximity computation for outlier detection, and built-in handling of missing data. Its uniqueness lies in being the original, high-performance, and stable reference implementation of Random Forest for the R ecosystem, directly ported from Leo Breiman and Adele Cutler's Fortran code, making it a trusted standard for ensemble tree modeling.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -44469,11 +44680,14 @@
     "website": "https://cran.r-project.org/package=randomForest",
     "pricing": "open-source",
     "features": [
-      "Random Forest algorithm",
-      "Variable importance",
-      "Proximity measures",
-      "Missing value imputation",
-      "R native"
+      "Random Forest algorithm for classification & regression",
+      "Gini & permutation-based variable importance measures",
+      "Proximity matrix computation for outlier/group detection",
+      "Internal missing value imputation via proximity",
+      "Out-of-bag (OOB) error estimation",
+      "Partial dependence plots for variable effects",
+      "Support for large datasets via parallel execution (with extensions)",
+      "Model export for prediction on new data"
     ],
     "rating": 4.5,
     "verified": true,
@@ -44483,9 +44697,12 @@
     "tags": [
       "R",
       "Random Forest",
+      "Ensemble Learning",
       "Variable Importance",
-      "Missing Values",
-      "Tree Ensemble"
+      "Missing Data Imputation",
+      "Classification",
+      "Regression",
+      "Statistical Computing"
     ],
     "subcategories": [
       "r-ml",
@@ -44509,13 +44726,36 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Predictive modeling in academic research and bioinformatics",
+      "Feature selection and importance ranking in data analysis",
+      "Handling datasets with missing values without pre-processing",
+      "Creating robust baseline models for classification tasks",
+      "Anomaly detection using proximity-based outlier measures",
+      "Ecological and environmental species distribution modeling"
+    ],
+    "pricing_details": {
+      "model": "free/open-source",
+      "tiers": [
+        "Free: Complete package under GPL-2 | GPL-3 license"
+      ],
+      "free_tier": "Yes - full functionality, no cost",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Academic researchers and statisticians",
+      "R-based data scientists and analysts",
+      "Bioinformaticians and computational biologists"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "rapidminer",
     "name": "RapidMiner",
-    "description": "Data science platform providing visual workflow design for machine learning, data preparation, and predictive analytics with enterprise-grade features.",
-    "category": "ml-frameworks",
+    "description": "RapidMiner is a comprehensive data science platform that enables users to build, deploy, and manage machine learning models through a visual, code-optional workflow designer. It provides a unified environment for the entire AI lifecycle, from data preparation and model building to operationalization and governance, making it distinct with its strong emphasis on enterprise-grade collaboration, security, and explainability. It is designed for data scientists, business analysts, and IT teams seeking to scale AI initiatives with governance.",
+    "category": "enterprise-ai-platforms",
     "categories": [
       "machine-learning-frameworks",
       "data-science-platforms"
@@ -44524,11 +44764,13 @@
     "website": "https://rapidminer.com",
     "pricing": "freemium",
     "features": [
-      "Visual workflow design",
-      "Enterprise deployment",
-      "AutoML capabilities",
-      "Model governance",
-      "Team collaboration"
+      "Drag-and-drop visual workflow designer for building ML pipelines",
+      "Automated Machine Learning (AutoML) for model selection and tuning",
+      "Centralized platform for model deployment, monitoring, and management (Model Ops)",
+      "Integrated data preparation, blending, and transformation tools",
+      "Role-based access control, audit trails, and compliance features for governance",
+      "Team collaboration with shared repositories, projects, and versioning",
+      "Support for code integration (Python, R, SQL) within visual workflows"
     ],
     "rating": 4.5,
     "verified": true,
@@ -44536,11 +44778,13 @@
     "trending": false,
     "slug": "rapidminer",
     "tags": [
-      "Visual Programming",
-      "Enterprise",
-      "AutoML",
-      "Collaboration",
-      "Governance"
+      "visual-workflow",
+      "data-preparation",
+      "model-ops",
+      "automated-machine-learning",
+      "enterprise-governance",
+      "predictive-analytics",
+      "team-collaboration"
     ],
     "subcategories": [
       "visual-programming",
@@ -44564,12 +44808,37 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Predictive maintenance for manufacturing equipment",
+      "Customer churn prediction and retention marketing",
+      "Fraud detection and risk modeling in financial services",
+      "Supply chain optimization and demand forecasting",
+      "Clinical data analysis and patient outcome prediction in healthcare",
+      "Credit scoring and loan approval automation"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: RapidMiner Studio (Desktop) - Core visual design, limited data size, local execution only",
+        "Professional: Contact for quote - Advanced AutoML, larger data, scheduling, basic collaboration",
+        "Enterprise: Custom - Full platform (Studio, Server, AI Hub), centralized governance, deployment, team features, premium support"
+      ],
+      "free_tier": "Yes - RapidMiner Studio (Desktop version) with core visual design features for local use.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Enterprise Data Scientists",
+      "Citizen Data Scientists / Business Analysts",
+      "IT & MLOps Teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "rapids-cugraph",
     "name": "RAPIDS cuGraph",
-    "description": "GPU-accelerated graph analytics library providing NetworkX-like API for graph algorithms and network analysis on NVIDIA GPUs.",
+    "description": "RAPIDS cuGraph is a GPU-accelerated graph analytics library that provides a NetworkX-like API for executing graph algorithms and network analysis on NVIDIA GPUs. It enables data scientists and researchers to analyze massive graphs with billions of edges at unprecedented speeds by leveraging parallel computing architectures. Its unique value lies in offering familiar Python interfaces while delivering orders-of-magnitude performance improvements over CPU-based graph libraries.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -44579,11 +44848,13 @@
     "website": "https://github.com/rapidsai/cugraph",
     "pricing": "open-source",
     "features": [
-      "GPU graph analytics",
-      "NetworkX-like API",
-      "Graph algorithms",
-      "Network analysis",
-      "High-performance computing"
+      "NetworkX-compatible Python API for easy adoption",
+      "GPU-accelerated implementations of 30+ graph algorithms (PageRank, Louvain, BFS, SSSP, etc.)",
+      "Support for multiple graph representations (CSR, COO, CSC) optimized for GPU memory",
+      "Seamless integration with RAPIDS cuDF for GPU DataFrames and data preprocessing",
+      "Multi-GPU support for scaling to trillion-edge graphs",
+      "Integration with Dask for distributed graph computations",
+      "Support for property graph model with vertex and edge properties"
     ],
     "rating": 4.4,
     "verified": true,
@@ -44591,11 +44862,13 @@
     "trending": true,
     "slug": "rapids-cugraph",
     "tags": [
-      "GPU Graph",
-      "NetworkX-like",
-      "Graph Algorithms",
-      "Network Analysis",
-      "High Performance"
+      "gpu-acceleration",
+      "graph-analytics",
+      "network-analysis",
+      "python-library",
+      "nvidia-rapids",
+      "high-performance-computing",
+      "parallel-algorithms"
     ],
     "subcategories": [
       "gpu-graph-analytics",
@@ -44619,12 +44892,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Fraud detection through large-scale transaction network analysis",
+      "Social network analysis for recommendation systems and community detection",
+      "Cybersecurity threat detection via network traffic pattern analysis",
+      "Bioinformatics research analyzing protein-protein interaction networks",
+      "Supply chain optimization through logistics network analysis",
+      "Knowledge graph processing for semantic search and AI applications"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - Complete library with all features",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "data scientists working with graph data",
+      "research scientists in computational fields",
+      "enterprise developers building graph analytics applications"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "rapids-cuml",
     "name": "RAPIDS cuML",
-    "description": "GPU-accelerated machine learning library providing scikit-learn compatible API for high-performance ML algorithms on NVIDIA GPUs.",
+    "description": "RAPIDS cuML is a GPU-accelerated machine learning library that provides a scikit-learn compatible API, enabling data scientists and engineers to execute ML algorithms with massive performance gains on NVIDIA GPUs without significant code changes. It offers a comprehensive suite of algorithms for tasks like clustering, regression, and dimensionality reduction, all optimized for the CUDA platform. Its unique value lies in being a core component of the open-source RAPIDS ecosystem, designed for end-to-end data science and analytics pipelines that run entirely on GPUs.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -44634,11 +44930,13 @@
     "website": "https://github.com/rapidsai/cuml",
     "pricing": "open-source",
     "features": [
-      "GPU-accelerated ML",
-      "Scikit-learn compatibility",
-      "High-performance algorithms",
-      "NVIDIA GPU support",
-      "RAPIDS integration"
+      "Scikit-learn compatible API for model training and inference",
+      "GPU-accelerated implementations of algorithms (e.g., DBSCAN, Random Forests, SVM, PCA)",
+      "Seamless integration with other RAPIDS libraries (cuDF, cuGraph) for GPU dataframes and graph analytics",
+      "Multi-GPU and multi-node scaling using Dask for large datasets",
+      "Support for NVIDIA GPUs with Pascal architecture or newer",
+      "Includes model explainability tools like SHAP for GPU",
+      "Native support for single-precision (FP32) and double-precision (FP64) computations"
     ],
     "rating": 4.5,
     "verified": true,
@@ -44646,11 +44944,13 @@
     "trending": true,
     "slug": "rapids-cuml",
     "tags": [
-      "GPU ML",
-      "Scikit-learn",
-      "High Performance",
-      "NVIDIA",
-      "RAPIDS"
+      "gpu-ml",
+      "scikit-learn-api",
+      "nvidia-cuda",
+      "high-performance-computing",
+      "open-source-ml",
+      "rapids-ecosystem",
+      "python-library"
     ],
     "subcategories": [
       "gpu-ml",
@@ -44674,12 +44974,35 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Large-scale customer segmentation and clustering on transactional data",
+      "High-frequency financial forecasting and risk modeling",
+      "Accelerating drug discovery pipelines through rapid molecular property prediction",
+      "Real-time fraud detection on streaming transaction logs",
+      "Dimensionality reduction for visualization of high-dimensional genomics data",
+      "Training machine learning models on massive datasets that exceed CPU memory capacity"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The entire RAPIDS cuML library is available under the Apache 2.0 license on GitHub with full functionality."
+      ],
+      "free_tier": "Yes - The entire library is free and open-source.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Data Scientists & ML Engineers needing to scale sklearn workflows",
+      "Researchers in computational sciences (bioinformatics, physics, finance)",
+      "Enterprise AI/ML teams building large-scale, GPU-accelerated analytics platforms"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "rasa",
     "name": "Rasa",
-    "description": "Open-source framework for building contextual AI assistants with customizable NLU and dialogue management.",
+    "description": "Rasa is an open-source framework for building production-ready, contextual AI assistants and chatbots. Its core capabilities include highly customizable natural language understanding (NLU) and dialogue management, enabling developers to create assistants that handle complex, multi-turn conversations. It is uniquely designed for developers and enterprises that require full data control, the ability to run on-premises or in private clouds, and deep customization beyond simple rule-based bots.",
     "category": "nlp",
     "categories": [
       "Natural Language Processing",
@@ -44687,13 +45010,15 @@
     ],
     "url": "https://rasa.com",
     "website": "https://rasa.com",
-    "pricing": "free",
+    "pricing": "open-source and enterprise",
     "features": [
-      "Intent recognition",
-      "Entity extraction",
-      "Dialogue management",
-      "Custom components",
-      "On-prem deployment"
+      "Rasa NLU for intent classification and entity extraction using transformer models (e.g., DIET)",
+      "Rasa Core for probabilistic dialogue management using machine learning policies",
+      "Rasa SDK for building custom actions and integrating with backend systems",
+      "Rasa X (now Rasa Pro/Enterprise) for conversation review, annotation, and model improvement",
+      "End-to-end encryption and full on-premises or private cloud deployment",
+      "Interactive learning and conversation-driven development tools",
+      "Integration with messaging channels (Slack, Teams, WhatsApp, etc.) and APIs"
     ],
     "rating": 4.5,
     "verified": true,
@@ -44701,9 +45026,13 @@
     "trending": true,
     "slug": "rasa",
     "tags": [
-      "AI",
-      "NLP",
-      "Chatbot"
+      "conversational-ai",
+      "chatbot-framework",
+      "nlp-framework",
+      "open-source",
+      "dialogue-management",
+      "on-premise",
+      "enterprise-ai"
     ],
     "subcategories": [
       "conversational-ai"
@@ -44726,13 +45055,38 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Enterprise customer service automation with complex troubleshooting flows",
+      "Internal HR and IT helpdesk assistants for employee self-service",
+      "Personalized banking or insurance assistants handling sensitive data securely",
+      "E-commerce shopping assistants guiding users through product discovery and checkout",
+      "Healthcare triage bots for initial symptom assessment and appointment scheduling",
+      "Multilingual virtual assistants for global customer support"
+    ],
+    "pricing_details": {
+      "model": "subscription (for commercial products) and open-source",
+      "tiers": [
+        "Rasa Open Source: Free - Full NLU & dialogue framework, self-hosted, community support",
+        "Rasa Pro: $25,000/year (approx $2,083/mo) - Includes Rasa X features, team collaboration tools, and commercial SLAs for up to 10k monthly conversations",
+        "Rasa Enterprise: Custom Pricing - Unlimited conversations, dedicated support, security & compliance features, professional services"
+      ],
+      "free_tier": "Yes - Rasa Open Source includes the core framework for building and deploying assistants.",
+      "starting_price": "Free (Open Source)"
+    },
+    "target_audience": [
+      "enterprise developers",
+      "conversational AI engineers",
+      "product teams building custom assistants"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "rask-ai",
     "name": "Rask AI",
-    "description": "AI-powered video localization platform that translates and dubs videos into multiple languages with voice cloning.",
-    "category": "generative-ai",
+    "description": "Rask AI is an AI-powered video localization and dubbing platform that enables creators and businesses to translate their video content into over 130 languages. Its core capabilities include automated translation, multi-speaker voice cloning with emotion preservation, and lip-sync adjustment to make dubbed speech appear natural. It uniquely targets content creators, marketers, and educators who need to efficiently scale their video reach globally without traditional dubbing studios.",
+    "category": "video-ai",
     "categories": [
       "translation",
       "video-generation"
@@ -44741,11 +45095,14 @@
     "website": "https://rask.ai",
     "pricing": "freemium",
     "features": [
-      "Video translation",
-      "Voice cloning",
-      "Lip-sync technology",
-      "Multi-language dubbing",
-      "Subtitle generation"
+      "Translate video audio & text into 130+ languages",
+      "AI voice cloning for multiple speakers with tone/pitch control",
+      "Automatic lip-sync adjustment for dubbed audio",
+      "Generate and burn subtitles directly into video",
+      "Text-to-speech in 100+ languages and accents",
+      "One-click translation of YouTube videos via URL",
+      "Multi-speaker detection and separate voice assignment",
+      "Download separate SRT subtitle files"
     ],
     "rating": 4.3,
     "verified": true,
@@ -44753,11 +45110,14 @@
     "trending": true,
     "slug": "rask-ai",
     "tags": [
-      "AI",
-      "Video Translation",
-      "Voice Cloning",
-      "Dubbing",
-      "Localization"
+      "video-localization",
+      "ai-dubbing",
+      "voice-cloning",
+      "multilingual-video",
+      "subtitle-generation",
+      "lip-sync",
+      "content-localization",
+      "video-translation"
     ],
     "subcategories": [
       "video-translation",
@@ -44781,12 +45141,39 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Localizing educational courses and tutorials for international students",
+      "Dubbing marketing and promotional videos for global ad campaigns",
+      "Translating YouTube content to grow channel's international audience",
+      "Adapting corporate training and internal communication videos",
+      "Creating accessible content with accurate subtitles for the hearing impaired",
+      "Dubbing indie films and documentaries for film festivals"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free Trial: 1-minute video credit for testing features",
+        "Basic: $59/month - 25 minutes of video translation/month",
+        "Pro: $149/month - 100 minutes of video translation/month",
+        "Business: $399/month - 300 minutes of video translation/month",
+        "Enterprise: Custom - Unlimited minutes, priority support, custom features"
+      ],
+      "free_tier": "Yes - A 1-minute credit trial to test core features, no ongoing free plan.",
+      "starting_price": "$59/month"
+    },
+    "target_audience": [
+      "Content Creators & YouTubers",
+      "Marketing & Social Media Teams",
+      "E-learning & EdTech Companies"
+    ],
+    "has_api": true,
+    "has_affiliate": true
   },
   {
     "id": "rasterio",
     "name": "Rasterio",
-    "description": "Python library for reading and writing geospatial raster datasets enabling efficient access to geospatial data for machine learning applications.",
+    "description": "Rasterio is a Python library that provides a clean, Pythonic interface for reading and writing geospatial raster data (e.g., GeoTIFF, JPEG2000). It wraps the powerful GDAL library for high-performance data access while integrating seamlessly with NumPy arrays and popular data science libraries, making it a cornerstone for geospatial data processing. Its unique value lies in its simplicity and efficiency, abstracting GDAL's complexity to enable developers and scientists to work with raster data in familiar Python workflows.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -44796,11 +45183,12 @@
     "website": "https://github.com/rasterio/rasterio",
     "pricing": "open-source",
     "features": [
-      "Raster data access",
-      "Geospatial datasets",
-      "Efficient reading/writing",
-      "GDAL integration",
-      "NumPy compatibility"
+      "Read/write support for 80+ raster formats via GDAL drivers",
+      "Direct conversion of raster bands to NumPy arrays for numerical computation",
+      "Spatial referencing and coordinate transformation using PROJ",
+      "Efficient windowed reading for large datasets with minimal memory usage",
+      "Raster algebra and masking operations integrated with NumPy",
+      "Metadata access and manipulation for geospatial tags and statistics"
     ],
     "rating": 4.5,
     "verified": true,
@@ -44808,11 +45196,14 @@
     "trending": false,
     "slug": "rasterio",
     "tags": [
-      "Raster Data",
-      "Geospatial",
-      "GDAL",
-      "NumPy",
-      "Efficient"
+      "geospatial-analysis",
+      "raster-data",
+      "python-library",
+      "gdal-wrapper",
+      "remote-sensing",
+      "gis",
+      "numpy-integration",
+      "data-processing"
     ],
     "subcategories": [
       "raster-data",
@@ -44836,12 +45227,34 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Satellite imagery preprocessing for machine learning models (e.g., land cover classification)",
+      "Environmental monitoring and analysis (e.g., NDVI calculation for vegetation health)",
+      "Terrain modeling and hydrologic analysis from digital elevation models (DEMs)",
+      "Automated geospatial data pipelines for ETL (Extract, Transform, Load) workflows",
+      "Integration of raster data into web mapping applications via tile serving"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full library access under BSD 3-Clause license"
+      ],
+      "free_tier": "Yes - complete functionality with no restrictions",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "geospatial-data-scientists",
+      "gis-developers",
+      "remote-sensing-researchers"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "ray",
     "name": "Ray",
-    "description": "Unified framework for scaling AI and Python applications, providing distributed computing primitives and ML libraries for parallel processing.",
+    "description": "Ray is an open-source, unified compute framework that enables developers to scale Python and AI applications from a laptop to a large cluster with minimal code changes. Its core provides low-level distributed computing primitives (tasks, actors, objects) and high-level libraries for machine learning (Ray Train, Tune, Serve, RLlib), making it uniquely suited for building end-to-end, distributed AI applications. It is primarily targeted at ML engineers, researchers, and data scientists who need to parallelize workloads, manage complex compute clusters, and productionize AI models efficiently.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -44851,11 +45264,14 @@
     "website": "https://ray.io",
     "pricing": "open-source",
     "features": [
-      "Distributed computing",
-      "Auto-scaling",
-      "ML ecosystem integration",
-      "Hyperparameter tuning",
-      "Reinforcement learning"
+      "Universal distributed execution with simple @ray.remote decorator for tasks and actors",
+      "Ray Tune for scalable hyperparameter tuning and experiment management",
+      "Ray Serve for scalable model serving and deployment as microservices",
+      "Ray Train for distributed training across frameworks (PyTorch, TensorFlow, XGBoost)",
+      "Ray RLlib for industry-grade, scalable reinforcement learning",
+      "Ray Datasets for distributed data loading and preprocessing",
+      "Automatic resource management and cluster orchestration (on-prem, cloud, K8s)",
+      "Stateful, fault-tolerant computation via the Ray Actor model"
     ],
     "rating": 4.8,
     "verified": true,
@@ -44863,11 +45279,14 @@
     "trending": true,
     "slug": "ray",
     "tags": [
-      "Distributed Computing",
-      "Scaling",
-      "Auto-scaling",
-      "ML Ecosystem",
-      "Python"
+      "distributed-computing",
+      "parallel-processing",
+      "ml-ops",
+      "hyperparameter-tuning",
+      "model-serving",
+      "reinforcement-learning",
+      "python",
+      "scalability"
     ],
     "subcategories": [
       "distributed-computing",
@@ -44891,12 +45310,36 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Distributed training and hyperparameter optimization of large ML models",
+      "Building and deploying low-latency, scalable model inference APIs with Ray Serve",
+      "Running large-scale simulation environments for reinforcement learning research",
+      "Parallelizing data preprocessing and ETL pipelines across a cluster",
+      "Orchestrating complex, multi-step AI workflows (e.g., training, tuning, serving)",
+      "Scaling batch inference jobs across thousands of cores"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Core Ray Framework: Free and open-source under the Apache 2.0 License",
+        "Anyscale Platform (Managed): Commercial offering with enterprise support and features"
+      ],
+      "free_tier": "Yes - The full Ray core framework and its high-level libraries (Train, Tune, Serve, RLlib) are completely free to use.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ml-engineers-and-researchers",
+      "data-scientists",
+      "ai-platform-and-infrastructure-teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "recbole",
     "name": "RecBole",
-    "description": "Unified and comprehensive framework for recommendation systems providing implementations of various recommendation algorithms.",
+    "description": "RecBole is a unified, comprehensive, and efficient open-source framework for developing and evaluating recommendation algorithms. It provides standardized implementations of a wide range of models—from classic collaborative filtering to state-of-the-art deep learning and sequential recommenders—within a consistent data processing, training, and evaluation pipeline. Its primary target audience is researchers and practitioners in academia and industry who need a reliable, reproducible, and extensible benchmark for recommendation system development, setting it apart through its rigorous focus on fairness, reproducibility, and comprehensive coverage of the recommendation research landscape.",
     "category": "ml-frameworks",
     "categories": [
       "machine-learning-frameworks",
@@ -44906,11 +45349,14 @@
     "website": "https://github.com/RUCAIBox/RecBole",
     "pricing": "open-source",
     "features": [
-      "Comprehensive recommendation framework",
-      "Multiple algorithms",
-      "Unified interface",
-      "Evaluation metrics",
-      "Hyperparameter tuning"
+      "Over 70+ implemented recommendation algorithms (e.g., BPR, LightGCN, SASRec, BERT4Rec)",
+      "Unified data format (atomic files) and automatic data processing for 28+ benchmark datasets",
+      "Comprehensive and extensible evaluation pipeline with 20+ metrics (e.g., Hit Rate, NDCG, MRR, Recall, Precision, Novelty)",
+      "Efficient hyperparameter tuning support via grid search, random search, and Bayesian optimization",
+      "Modular and extensible architecture for easy implementation of new models and datasets",
+      "Support for multiple recommendation tasks: general, sequential, context-aware, and knowledge-based",
+      "Built-in support for fairness evaluation metrics and debiasing techniques",
+      "Extensive logging, model saving, and result analysis tools for reproducible experiments"
     ],
     "rating": 4.5,
     "verified": true,
@@ -44918,11 +45364,14 @@
     "trending": true,
     "slug": "recbole",
     "tags": [
-      "Recommendation Framework",
-      "Multiple Algorithms",
-      "Unified",
-      "Evaluation",
-      "Tuning"
+      "recommendation-systems",
+      "research-framework",
+      "model-benchmarking",
+      "reproducible-research",
+      "deep-learning",
+      "collaborative-filtering",
+      "sequential-recommendation",
+      "open-source"
     ],
     "subcategories": [
       "recommendation-frameworks",
@@ -44946,13 +45395,36 @@
     "updatedAt": {
       "_seconds": 1751293800,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic researchers benchmarking new recommendation algorithms against established baselines",
+      "Data scientists prototyping and evaluating different recommendation models for a production system",
+      "Students and educators learning about recommendation system concepts through hands-on experimentation",
+      "Industry teams conducting reproducible A/B testing offline evaluations before deployment",
+      "Developing and testing fairness-aware recommendation models to mitigate bias",
+      "Building sequential recommendation engines for next-item prediction in e-commerce or media streaming"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to the framework, source code, documentation, and pre-trained models under the MIT License"
+      ],
+      "free_tier": "Yes - The entire framework is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "academic-researchers",
+      "data-scientists-ml-engineers",
+      "graduate-students-educators"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "reclaim-ai",
     "name": "Reclaim AI",
-    "description": "AI scheduling assistant that automatically blocks time for tasks, habits, and meetings to optimize productivity.",
-    "category": "generative-ai",
+    "description": "Reclaim AI is an intelligent scheduling assistant that automatically finds and blocks time in your calendar for tasks, habits, and meetings by syncing with Google Calendar. Its key capabilities include dynamically defending your time against conflicts, optimizing schedules for focus and work-life balance, and integrating with popular project management tools. It uniquely uses AI to adapt schedules in real-time, making it ideal for busy professionals, managers, and teams who need to protect their time and reduce manual calendar management.",
+    "category": "workflow-automation",
     "categories": [
       "business-productivity",
       "scheduling"
@@ -44961,11 +45433,14 @@
     "website": "https://reclaim.ai",
     "pricing": "freemium",
     "features": [
-      "Automatic scheduling",
-      "Time blocking",
-      "Habit scheduling",
-      "Meeting optimization",
-      "Calendar integration"
+      "Smart 1:1 Meeting Scheduling with automated link sharing and buffer time",
+      "Dynamic Time Blocking for tasks with automatic rescheduling when conflicts arise",
+      "Habit Scheduling to recurringly protect time for routines, breaks, and learning",
+      "Calendar Sync & Defense integrating with Google Calendar to prevent overbooking",
+      "Task Integration pulling from tools like Asana, Jira, ClickUp, and Linear",
+      "Smart Breaks & Buffer Time automatically added between events",
+      "Team Scheduling Links for coordinating group meetings and syncs",
+      "Analytics Dashboard showing time allocation across meetings, tasks, and habits"
     ],
     "rating": 4.4,
     "verified": true,
@@ -44973,11 +45448,13 @@
     "trending": false,
     "slug": "reclaim-ai",
     "tags": [
-      "AI",
-      "Scheduling",
-      "Time Management",
-      "Productivity",
-      "Calendar"
+      "ai-scheduling",
+      "calendar-automation",
+      "time-blocking",
+      "productivity-tools",
+      "meeting-optimization",
+      "workflow-integration",
+      "smart-calendar"
     ],
     "subcategories": [
       "scheduling",
@@ -45001,12 +45478,38 @@
     "updatedAt": {
       "_seconds": 1751249640,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Protecting deep work time by automatically blocking and defending focus hours on the calendar",
+      "Automating the scheduling of recurring habits like daily exercise, learning, or team stand-ups",
+      "Reducing meeting fatigue by optimizing schedules with smart buffers and break times",
+      "Synchronizing task deadlines from project management apps with available calendar time",
+      "Managing a team's shared calendar events and syncs with intelligent scheduling links",
+      "Balancing work commitments with personal time by automatically scheduling life routines"
+    ],
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: For individuals, includes smart scheduling for 2 calendars, task sync for 2 integrations, habit scheduling, and basic analytics.",
+        "Pro: $10/user/month (billed annually) or $12/user/month (billed monthly). Includes unlimited calendars, unlimited task integrations, advanced analytics, priority support, and team scheduling links.",
+        "Business: $18/user/month (billed annually). Adds team availability insights, admin controls, centralized billing, and dedicated support.",
+        "Enterprise: Custom pricing. Includes SAML/SSO, advanced security, compliance features, and custom integrations."
+      ],
+      "free_tier": "Yes - Smart scheduling for 2 calendars, 2 task integrations, habit scheduling, basic analytics.",
+      "starting_price": "Free, with paid plans starting at $10/user/month (annual billing)"
+    },
+    "target_audience": [
+      "busy professionals & individual contributors",
+      "managers & team leads",
+      "remote & hybrid teams"
+    ],
+    "has_api": true,
+    "has_affiliate": false
   },
   {
     "id": "rectlabel",
     "name": "RectLabel",
-    "description": "Simple image annotation tool for macOS with support for object detection, classification, and segmentation tasks with export capabilities.",
+    "description": "RectLabel is a native macOS application designed for annotating images to create training data for computer vision models. It specializes in object detection, image classification, and segmentation tasks, offering a streamlined, offline workflow. Its key differentiator is its focus on the macOS ecosystem, providing a simple, intuitive, and fast desktop experience for individual researchers, students, and small teams who need a no-fuss annotation tool without web-based complexities.",
     "category": "computer-vision",
     "categories": [
       "computer-vision",
@@ -45016,11 +45519,12 @@
     "website": "https://rectlabel.com",
     "pricing": "paid",
     "features": [
-      "macOS native app",
-      "Object detection labels",
-      "Classification support",
-      "Segmentation tools",
-      "Export formats"
+      "Native macOS application with offline functionality",
+      "Draw bounding boxes, polygons, and semantic segmentation masks",
+      "Export annotations in YOLO, COCO JSON, Pascal VOC XML, and CSV formats",
+      "Support for image classification via tagging and attribute assignment",
+      "Keyboard shortcuts and automation with AppleScript for faster labeling",
+      "Import and manage labeled datasets from cloud storage (e.g., iCloud, Google Drive)"
     ],
     "rating": 4.2,
     "verified": true,
@@ -45028,10 +45532,14 @@
     "trending": false,
     "slug": "rectlabel",
     "tags": [
-      "macOS",
-      "Annotation",
-      "Object Detection",
-      "Simple Interface"
+      "macos",
+      "image-annotation",
+      "bounding-box",
+      "semantic-segmentation",
+      "dataset-creation",
+      "offline-tool",
+      "yolo-export",
+      "coco-export"
     ],
     "subcategories": [
       "annotation-tool",
@@ -45055,26 +45563,50 @@
     "updatedAt": {
       "_seconds": 1751310540,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Creating labeled datasets for custom object detection models in academic research",
+      "Annotating images for autonomous vehicle perception systems (e.g., traffic signs, pedestrians)",
+      "Preparing training data for wildlife conservation image analysis from camera traps",
+      "Labeling product images for retail/e-commerce visual search and inventory systems",
+      "Annotating medical imaging datasets for educational or prototype ML projects (non-diagnostic)"
+    ],
+    "pricing_details": {
+      "model": "one-time",
+      "tiers": [
+        "Free Trial: 14-day trial with full functionality",
+        "Pro License: One-time purchase - details"
+      ],
+      "free_tier": "No",
+      "starting_price": "$99 (one-time payment for a license)"
+    },
+    "target_audience": [
+      "Computer vision researchers and students",
+      "Independent ML developers and small AI startups",
+      "Data scientists and engineers building custom CV models on macOS"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "redpajama",
     "name": "RedPajama",
-    "description": "Open dataset and model recreation of LLaMA training data for transparent and reproducible language models.",
-    "category": "nlp",
+    "description": "RedPajama is an open-source project that provides a fully reproduced, high-quality training dataset and model suite designed to replicate Meta's LLaMA. It enables researchers and developers to train large language models with full transparency and reproducibility, using a meticulously curated corpus of text and code. Its unique value lies in its commitment to open science, offering a complete data pipeline and pre-trained models to democratize access to state-of-the-art LLM development.",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Open Datasets"
     ],
     "url": "https://github.com/togethercomputer/RedPajama-Data",
     "website": "https://github.com/togethercomputer/RedPajama-Data",
-    "pricing": "free",
+    "pricing": "open-source",
     "features": [
-      "Open training data",
-      "LLaMA recreation",
-      "Transparent process",
-      "Reproducible research",
-      "Community driven"
+      "The 1.2 trillion token RedPajama-Data v1 dataset, covering Common Crawl, C4, GitHub, Wikipedia, Books, and ArXiv",
+      "Fully reproduced and open-sourced LLaMA model weights (e.g., RedPajama-INCITE-7B-Base)",
+      "Complete data preprocessing and deduplication pipeline code",
+      "Detailed data provenance and documentation for all sources",
+      "Tools for dataset filtering, quality checking, and tokenization",
+      "Community-driven development and validation process"
     ],
     "rating": 4.1,
     "verified": true,
@@ -45082,9 +45614,13 @@
     "trending": false,
     "slug": "redpajama",
     "tags": [
-      "AI",
-      "NLP",
-      "Open Data"
+      "open-source-llm",
+      "training-dataset",
+      "model-reproduction",
+      "transparent-ai",
+      "reproducible-research",
+      "language-model",
+      "foundation-models"
     ],
     "subcategories": [
       "open-datasets"
@@ -45107,7 +45643,29 @@
     "updatedAt": {
       "_seconds": 1751241600,
       "_nanoseconds": 0
-    }
+    },
+    "use_cases": [
+      "Academic research into LLM training, biases, and capabilities",
+      "Developing transparent and auditable foundation models from scratch",
+      "Fine-tuning custom, domain-specific language models on a verified dataset",
+      "Benchmarking and comparing model performance against the LLaMA architecture",
+      "Educational resource for understanding large-scale dataset construction"
+    ],
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "All code, data, and model weights are freely available under open-source licenses (e.g., Apache 2.0)"
+      ],
+      "free_tier": "Yes - Full access to datasets, model weights, and code repositories",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML researchers",
+      "Open-source developers",
+      "Data scientists and engineers"
+    ],
+    "has_api": false,
+    "has_affiliate": false
   },
   {
     "id": "regie-ai",
@@ -60113,6 +60671,42 @@
       "Legacy code modernization",
       "Continuous integration testing",
       "Developer onboarding and training"
+    ],
+    "has_affiliate": true
+  },
+  {
+    "id": "krisp",
+    "name": "Krisp",
+    "description": "AI-powered noise cancellation and meeting enhancement platform that removes background noise, echoes, and improves voice clarity in real-time. Works across all communication apps with minimal latency and CPU usage.",
+    "url": "https://krisp.ai",
+    "website": "https://krisp.ai",
+    "category": "audio-ai",
+    "tags": [
+      "noise-cancellation",
+      "audio-enhancement",
+      "meeting-software",
+      "voice-clarity",
+      "real-time-processing",
+      "productivity"
+    ],
+    "pricing": "freemium",
+    "featured": false,
+    "verified": false,
+    "added_by": "ai-auto-discovery",
+    "added_date": "2025-12-08T00:03:22.039Z",
+    "features": [
+      "AI noise cancellation",
+      "Echo removal",
+      "Voice clarity enhancement",
+      "Meeting transcription",
+      "Background voice detection"
+    ],
+    "use_cases": [
+      "Remote team meetings",
+      "Podcast recording",
+      "Customer support calls",
+      "Online education",
+      "Content creation"
     ],
     "has_affiliate": true
   }
