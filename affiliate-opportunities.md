@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Harvey AI
+## 1. BoltAI
 
-**Category:** legal-ai
-**Website:** https://harvey.ai
-**Pricing Model:** enterprise
+**Category:** workflow-automation
+**Website:** https://boltai.com
+**Pricing Model:** paid
 
 **Description:**
-Specialized AI platform for legal professionals that assists with research, drafting, document review, and case strategy. Built on custom-trained legal models with compliance safeguards for confidential client work.
+Native macOS AI assistant that integrates across all applications with global hotkey access. Provides context-aware assistance, document analysis, and workflow automation without switching windows. Targets macOS power users and professionals.
 
 **💵 Affiliate Program Details:**
-Harvey Legal Partner Program with 15% commission on first-year contracts, 10% recurring thereafter, minimum $100K deal size, exclusive to law firms and legal consultancies, white-glove onboarding support
+30% commission via Lemon Squeezy affiliate program, 365-day cookie, instant payouts, no minimum, targets productivity audience
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Harvey Legal Partner Program with 15% commission on first-year contracts, 10% re
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Harvey AI** - https://harvey.ai
+1. [ ] **BoltAI** - https://boltai.com
