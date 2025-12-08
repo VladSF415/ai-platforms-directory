@@ -1,21 +1,42 @@
 # 💰 Affiliate Program Opportunities
 
 Generated: 2025-12-08
-Total Opportunities: 1
+Total Opportunities: 2
 
 ---
 
-## 1. Vercel AI SDK 3.0
+## 1. ElevenLabs Voice Isolate
 
-**Category:** code-ai
-**Website:** https://vercel.com/ai
-**Pricing Model:** open-source
+**Category:** audio-ai
+**Website:** https://elevenlabs.io/voice-isolate
+**Pricing Model:** freemium
 
 **Description:**
-Comprehensive toolkit for building AI-powered applications with React, Next.js, and other frameworks. Features include streaming UI components, model abstraction, and edge deployment optimization. Targets web developers and AI application builders.
+Advanced audio separation technology that isolates and enhances voices from noisy recordings, removes background noise, and improves audio quality for podcasts, interviews, and video production.
 
 **💵 Affiliate Program Details:**
-Platform partnership program with revenue sharing on deployed applications, 30-day cookie, requires active Vercel deployment and AI integration
+ElevenLabs Affiliate Program offers 30% recurring commission via Impact.com, 90-day cookie, tiered rewards, $100 minimum payout, requires application approval
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 2. Marblism
+
+**Category:** code-ai
+**Website:** https://marblism.com
+**Pricing Model:** freemium
+
+**Description:**
+AI-powered web application generator that creates fully functional, production-ready web apps from natural language descriptions. Generates frontend, backend, database schemas, and deployment configurations in minutes.
+
+**💵 Affiliate Program Details:**
+Marblism Ambassador Program offers 40% commission on annual plans via direct referral system, lifetime commissions, bonus for enterprise referrals, dashboard access
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +50,5 @@ Platform partnership program with revenue sharing on deployed applications, 30-d
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Vercel AI SDK 3.0** - https://vercel.com/ai
+1. [ ] **ElevenLabs Voice Isolate** - https://elevenlabs.io/voice-isolate
+2. [ ] **Marblism** - https://marblism.com
