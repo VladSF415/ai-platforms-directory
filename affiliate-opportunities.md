@@ -5,38 +5,17 @@ Total Opportunities: 3
 
 ---
 
-## 1. DeepSeek-V3
-
-**Category:** llms
-**Website:** https://www.deepseek.com
-**Pricing Model:** freemium
-
-**Description:**
-Chinese AI research company's latest multimodal model offering competitive performance with strong reasoning capabilities and extensive context handling. Features include code generation, mathematical reasoning, and research assistance tools.
-
-**💵 Affiliate Program Details:**
-API usage commission via custom partner program, enterprise referral bonuses, requires developer community presence
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 2. Stability AI 3.0
+## 1. Inflection-2.5
 
 **Category:** generative-ai
-**Website:** https://stability.ai
+**Website:** https://inflection.ai
 **Pricing Model:** freemium
 
 **Description:**
-Latest iteration of the popular open-source AI platform with enhanced image, video, and audio generation capabilities. Features improved coherence, better prompt understanding, and enterprise deployment options with commercial licensing.
+Personal AI assistant focused on emotional intelligence, personal growth, and supportive conversations. Combines strong reasoning with empathetic responses for mental wellness, coaching, and personal development applications.
 
 **💵 Affiliate Program Details:**
-Developer referral program via custom portal, API usage commissions, enterprise deal referrals 10-15%
+15% recurring commission via PartnerStack, wellness professional partnership program, $50+ average monthly subscription value, requires approved application
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -47,17 +26,38 @@ Developer referral program via custom portal, API usage commissions, enterprise 
 
 ---
 
-## 3. Midjourney v7
+## 2. 01.AI
 
-**Category:** image-generation
-**Website:** https://www.midjourney.com
-**Pricing Model:** paid
+**Category:** llms
+**Website:** https://01.ai
+**Pricing Model:** freemium
 
 **Description:**
-Latest version of the popular AI image generation platform with significantly improved coherence, detail, and prompt understanding. Features enhanced artistic control, style consistency, and commercial licensing options for professional use.
+Chinese AI company offering open-source and proprietary models with strong performance on coding, mathematics, and reasoning tasks. Features Yi series models optimized for Chinese and English with enterprise deployment options.
 
 **💵 Affiliate Program Details:**
-Custom affiliate program via Discord community, commission on subscription upgrades, special rates for educational institutions
+Enterprise partner program with revenue sharing, 15-30% commission based on volume, technical certification required, deal registration protection
+
+**Action Items:**
+- [ ] Visit website and locate partner/affiliate program page
+- [ ] Sign up for affiliate program
+- [ ] Get your unique affiliate link
+- [ ] Add affiliate link to platform entry
+- [ ] Test the affiliate link
+
+---
+
+## 3. Gamma AI
+
+**Category:** generative-ai
+**Website:** https://gamma.app
+**Pricing Model:** freemium
+
+**Description:**
+AI-powered presentation and document creation platform that generates visually stunning decks, reports, and documents from simple prompts. Features automatic design, content structuring, and brand consistency for business communications.
+
+**💵 Affiliate Program Details:**
+25% recurring commission via PartnerStack, 60-day cookie duration, team plan bonuses, requires business or educational audience
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -71,6 +71,6 @@ Custom affiliate program via Discord community, commission on subscription upgra
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **DeepSeek-V3** - https://www.deepseek.com
-2. [ ] **Stability AI 3.0** - https://stability.ai
-3. [ ] **Midjourney v7** - https://www.midjourney.com
+1. [ ] **Inflection-2.5** - https://inflection.ai
+2. [ ] **01.AI** - https://01.ai
+3. [ ] **Gamma AI** - https://gamma.app
