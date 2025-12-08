@@ -113,6 +113,22 @@ try {
   console.error('Failed to load best-of content:', error);
 }
 
+// Load blog posts
+let blogPosts = [];
+try {
+  const blogDir = join(__dirname, 'blog-posts');
+  if (existsSync(blogDir)) {
+    const files = readdirSync(blogDir).filter(f => f.endsWith('.json'));
+    blogPosts = files.map(file => {
+      const data = readFileSync(join(blogDir, file), 'utf-8');
+      return JSON.parse(data);
+    });
+    console.log(`✅ Loaded ${blogPosts.length} blog posts`);
+  }
+} catch (error) {
+  console.error('Failed to load blog posts:', error);
+}
+
 // CORS for development
 fastify.register(import('@fastify/cors'), {
   origin: true
@@ -395,6 +411,35 @@ fastify.get('/api/best-of/:slug', async (request, reply) => {
   }
 
   return bestOf;
+});
+
+// Get blog posts list
+fastify.get('/api/blog', async () => {
+  return blogPosts
+    .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
+    .map(p => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      category: p.category,
+      readTime: p.readTime,
+      publishedDate: p.publishedDate,
+      featured: p.featured,
+      keywords: p.keywords
+    }));
+});
+
+// Get single blog post
+fastify.get('/api/blog/:slug', async (request, reply) => {
+  const { slug } = request.params;
+  const post = blogPosts.find(p => p.slug === slug);
+
+  if (!post) {
+    reply.code(404).send({ error: 'Blog post not found' });
+    return;
+  }
+
+  return post;
 });
 
 // Stats endpoint
@@ -759,9 +804,19 @@ fastify.get('/sitemap.xml', async (request, reply) => {
   bestOfContent.forEach(bestOf => {
     sitemap += '  <url>\n';
     sitemap += `    <loc>${baseUrl}/best/${bestOf.slug}</loc>\n`;
-    sitemap += `    <lastmod>${today}</lastmod>\n`;
+    sitemap += `    <lastmod>${today}</lastmod>\n';
     sitemap += '    <changefreq>monthly</changefreq>\n';
     sitemap += '    <priority>0.8</priority>\n';
+    sitemap += '  </url>\n';
+  });
+
+  // Blog posts
+  blogPosts.forEach(post => {
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+    sitemap += `    <lastmod>${post.publishedDate?.split('T')[0] || today}</lastmod>\n`;
+    sitemap += '    <changefreq>monthly</changefreq>\n';
+    sitemap += '    <priority>0.9</priority>\n';
     sitemap += '  </url>\n';
   });
 

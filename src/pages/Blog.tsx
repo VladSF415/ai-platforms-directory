@@ -29,8 +29,20 @@ interface BestOfContent {
   category: string;
 }
 
+interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  readTime: string;
+  publishedDate: string;
+  featured: boolean;
+  keywords: string[];
+}
+
 export default function Blog() {
-  const [activeTab, setActiveTab] = useState<'guides' | 'comparisons' | 'alternatives' | 'bestof'>('guides');
+  const [activeTab, setActiveTab] = useState<'blogposts' | 'guides' | 'comparisons' | 'alternatives' | 'bestof'>('blogposts');
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [pillarContent, setPillarContent] = useState<PillarContent[]>([]);
   const [comparisons, setComparisons] = useState<ComparisonContent[]>([]);
   const [alternatives, setAlternatives] = useState<AlternativeContent[]>([]);
@@ -40,13 +52,15 @@ export default function Blog() {
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const [pillarRes, compRes, altRes, bestRes] = await Promise.all([
+        const [blogRes, pillarRes, compRes, altRes, bestRes] = await Promise.all([
+          fetch('/api/blog').then(r => r.json()).catch(() => []),
           fetch('/api/pillar').then(r => r.json()).catch(() => []),
           fetch('/api/comparisons').then(r => r.json()).catch(() => []),
           fetch('/api/alternatives').then(r => r.json()).catch(() => []),
           fetch('/api/bestof').then(r => r.json()).catch(() => [])
         ]);
 
+        setBlogPosts(blogRes);
         setPillarContent(pillarRes);
         setComparisons(compRes);
         setAlternatives(altRes);
@@ -62,13 +76,14 @@ export default function Blog() {
   }, []);
 
   const tabs = [
+    { id: 'blogposts' as const, label: 'Blog Posts', count: blogPosts.length },
     { id: 'guides' as const, label: 'Guides', count: pillarContent.length },
     { id: 'comparisons' as const, label: 'Comparisons', count: comparisons.length },
     { id: 'alternatives' as const, label: 'Alternatives', count: alternatives.length },
     { id: 'bestof' as const, label: 'Best Of', count: bestOf.length }
   ];
 
-  const totalContent = pillarContent.length + comparisons.length + alternatives.length + bestOf.length;
+  const totalContent = blogPosts.length + pillarContent.length + comparisons.length + alternatives.length + bestOf.length;
 
   return (
     <>
@@ -179,6 +194,118 @@ export default function Blog() {
               </div>
             ) : (
               <>
+                {/* Blog Posts Tab */}
+                {activeTab === 'blogposts' && (
+                  <div>
+                    <h2 style={{
+                      fontFamily: "'Courier New', monospace",
+                      textTransform: 'uppercase',
+                      letterSpacing: '2px',
+                      marginBottom: '1.5rem',
+                      borderBottom: '4px solid #000000',
+                      paddingBottom: '0.5rem'
+                    }}>
+                      Latest Articles
+                    </h2>
+                    {blogPosts.length === 0 ? (
+                      <p style={{ fontFamily: "'Courier New', monospace", color: '#666' }}>
+                        No blog posts available yet. Check back soon!
+                      </p>
+                    ) : (
+                      <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                        gap: '1.5rem'
+                      }}>
+                        {blogPosts.slice(0, 50).map(post => {
+                          const publishDate = new Date(post.publishedDate).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          });
+
+                          return (
+                            <Link
+                              key={post.slug}
+                              to={`/blog/${post.slug}`}
+                              style={{
+                                display: 'block',
+                                padding: '1.5rem',
+                                background: '#ffffff',
+                                border: '4px solid #000000',
+                                textDecoration: 'none',
+                                color: '#000000',
+                                transition: 'all 0.2s'
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = '#000000';
+                                e.currentTarget.style.color = '#ffffff';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = '#ffffff';
+                                e.currentTarget.style.color = '#000000';
+                              }}
+                            >
+                              <div style={{
+                                fontSize: '0.7rem',
+                                textTransform: 'uppercase',
+                                letterSpacing: '1px',
+                                marginBottom: '0.75rem',
+                                fontFamily: "'Courier New', monospace",
+                                background: '#FFFF00',
+                                color: '#000000',
+                                display: 'inline-block',
+                                padding: '2px 8px'
+                              }}>
+                                {post.category}
+                              </div>
+                              <h3 style={{
+                                fontFamily: "'Courier New', monospace",
+                                fontWeight: '900',
+                                margin: '0.5rem 0',
+                                fontSize: '1.1rem',
+                                lineHeight: '1.4'
+                              }}>
+                                {post.title}
+                              </h3>
+                              <p style={{
+                                fontSize: '0.85rem',
+                                color: 'inherit',
+                                opacity: 0.8,
+                                marginBottom: '1rem',
+                                fontFamily: "'Courier New', monospace",
+                                lineHeight: '1.6'
+                              }}>
+                                {post.excerpt}
+                              </p>
+                              <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                fontSize: '0.75rem',
+                                fontFamily: "'Courier New', monospace",
+                                opacity: 0.7
+                              }}>
+                                <span>{publishDate}</span>
+                                <span>{post.readTime}</span>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                    {blogPosts.length > 50 && (
+                      <p style={{
+                        marginTop: '1.5rem',
+                        fontFamily: "'Courier New', monospace",
+                        textAlign: 'center',
+                        color: '#666'
+                      }}>
+                        Showing 50 of {blogPosts.length} blog posts
+                      </p>
+                    )}
+                  </div>
+                )}
+
                 {/* Guides Tab */}
                 {activeTab === 'guides' && (
                   <div>

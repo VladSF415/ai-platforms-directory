@@ -318,6 +318,13 @@ const TASKS = [
     args: ['--count=5'],
     onSuccess: () => { stats.bestof_generated += 5; },
     frequency: 2
+  },
+  {
+    name: 'Blog Posts',
+    script: 'scripts/generate-blog-posts.mjs',
+    args: ['--count=2'],
+    onSuccess: () => { stats.blog_posts_generated = (stats.blog_posts_generated || 0) + 2; },
+    frequency: 2  // Generate 2 blog posts every 2nd cycle
   }
 ];
 
@@ -383,6 +390,7 @@ function printSummary() {
   console.log(`Comparisons:          ${stats.comparisons_generated}`);
   console.log(`Alternatives:         ${stats.alternatives_generated}`);
   console.log(`Best-Of Pages:        ${stats.bestof_generated}`);
+  console.log(`Blog Posts:           ${stats.blog_posts_generated || 0}`);
   console.log(`Errors:               ${stats.errors.length}`);
   console.log(`Credits Exhausted:    ${stats.credits_exhausted ? 'YES' : 'No'}`);
   console.log(`Git Syncs:            ${stats.git_syncs || 0}`);
@@ -472,7 +480,8 @@ async function syncToGitHub() {
       'pillar-content/',
       'comparison-content/',
       'alternatives-content/',
-      'bestof-content/'
+      'bestof-content/',
+      'blog-posts/'
     ];
 
     let stagedCount = 0;

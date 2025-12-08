@@ -10,6 +10,7 @@ import ComparisonPage from './pages/ComparisonPage';
 import AlternativesPage from './pages/AlternativesPage';
 import BestOfPage from './pages/BestOfPage';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/legal/PrivacyPolicy';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/submit" element={<SubmitTool />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/category/:category" element={<CategoryPage />} />
           <Route path="/guide/:slug" element={<PillarPage />} />
