@@ -445,6 +445,14 @@ async function syncToGitHub() {
       return true;
     }
 
+    // Log what files changed
+    if (status) {
+      log('Changed files:', 'info');
+      status.split('\n').forEach(line => {
+        log(`  ${line}`, 'info');
+      });
+    }
+
     // Stage all content files
     const filesToAdd = [
       'platforms.json',
@@ -456,19 +464,29 @@ async function syncToGitHub() {
       'bestof-content/'
     ];
 
+    let stagedCount = 0;
     for (const file of filesToAdd) {
       try {
-        execSync(`git add ${file}`, execOptions);
+        execSync(`git add "${file}"`, execOptions);
+        const addedFiles = execSync(`git diff --cached --name-only`, execOptions).toString();
+        if (addedFiles.includes(file.replace('/', ''))) {
+          stagedCount++;
+          log(`  ✓ Staged: ${file}`, 'info');
+        }
       } catch (e) {
         // File might not exist yet - that's ok
+        log(`  ⊘ Skipped: ${file} (not found or unchanged)`, 'info');
       }
     }
+
+    log(`Total staged: ${stagedCount} files/folders`, 'info');
 
     // Check if there are staged changes
     const stagedStatus = execSync('git diff --cached --name-only', execOptions).toString().trim();
 
     if (!stagedStatus) {
       log('No staged changes to commit', 'info');
+      log('⚠️  This usually means files were not written by child scripts!', 'warning');
       return true;
     }
 
