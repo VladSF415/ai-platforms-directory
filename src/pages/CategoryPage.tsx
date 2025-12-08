@@ -4,6 +4,11 @@ import type { Platform } from '../types';
 import { ItemListSchema } from '../components/ItemListSchema';
 import { BreadcrumbSchema, VisualBreadcrumb } from '../components/BreadcrumbSchema';
 import { SocialMetaTags } from '../components/SocialMetaTags';
+import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
+import { categoryFAQs } from '../data/categoryFAQs';
+import { NewsletterSignup } from '../components/NewsletterSignup';
+import { ComparisonTable } from '../components/ComparisonTable';
+import { categoryComparisons } from '../data/categoryComparisons';
 
 function CategoryPage() {
   const { category } = useParams<{ category: string }>();
@@ -265,6 +270,16 @@ function CategoryPage() {
           </p>
         </div>
 
+        {/* Comparison Table */}
+        {category && categoryComparisons[category] && (
+          <ComparisonTable
+            title={categoryComparisons[category].title}
+            description={categoryComparisons[category].description}
+            platforms={categoryComparisons[category].platforms}
+            features={categoryComparisons[category].features}
+          />
+        )}
+
         {/* Platforms Grid */}
         <h2 className="category-platforms-heading">
           All {categoryName} AI Tools ({platforms.length})
@@ -309,6 +324,21 @@ function CategoryPage() {
             <p>No {categoryName.toLowerCase()} AI tools found yet. Check back soon!</p>
           </div>
         )}
+
+        {/* FAQ Section */}
+        {category && categoryFAQs[category] && (
+          <>
+            <FAQSchema faqs={categoryFAQs[category]} />
+            <VisualFAQ faqs={categoryFAQs[category]} />
+          </>
+        )}
+
+        {/* Newsletter Signup */}
+        <NewsletterSignup
+          variant="inline"
+          title={`Stay Updated on ${categoryName} AI Tools`}
+          description={`Get weekly updates on new ${categoryName.toLowerCase()} tools, comparison guides, and exclusive insights. Join 10,000+ AI enthusiasts.`}
+        />
       </div>
     </div>
   );
