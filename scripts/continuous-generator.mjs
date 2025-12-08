@@ -185,7 +185,13 @@ function runScript(scriptPath, args = []) {
         saveStats();
         resolve({ success: false, credits_exhausted: true });
       } else if (code === 0) {
-        resolve({ success: true, stdout, stderr });
+        // Check if script actually wrote files by looking for success indicators in output
+        const hasWrites = stdout.includes('Saved') || stdout.includes('✅') || stdout.includes('💾');
+        if (!hasWrites) {
+          log(`⚠️  Script completed but may not have written files`, 'warning');
+          log(`Last 200 chars of output: ${stdout.slice(-200)}`, 'info');
+        }
+        resolve({ success: true, stdout, stderr, hasWrites });
       } else {
         stats.errors.push({
           script: scriptName,
@@ -342,8 +348,13 @@ async function runCycle() {
       return false;
     }
 
-    if (result.success && task.onSuccess) {
-      task.onSuccess();
+    if (result.success) {
+      if (!result.hasWrites) {
+        log(`⚠️  ${task.name}: No file writes detected, skipping stat increment`, 'warning');
+      } else if (task.onSuccess) {
+        task.onSuccess();
+        log(`✅ ${task.name}: Stats updated`, 'success');
+      }
     }
 
     saveStats();
