@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Marqo AI
+## 1. Harvey AI
 
-**Category:** search-ai
-**Website:** https://marqo.ai
-**Pricing Model:** freemium
+**Category:** legal-ai
+**Website:** https://harvey.ai
+**Pricing Model:** enterprise
 
 **Description:**
-End-to-end vector search platform that simplifies building AI search applications with integrated embedding generation, retrieval, and ranking in a single solution.
+Specialized AI platform for legal professionals that assists with research, drafting, document review, and case strategy. Built on custom-trained legal models with compliance safeguards for confidential client work.
 
 **💵 Affiliate Program Details:**
-15% recurring commission via PartnerStack, 90-day cookie, $50 minimum payout, requires developer/technical audience
+Harvey Legal Partner Program with 15% commission on first-year contracts, 10% recurring thereafter, minimum $100K deal size, exclusive to law firms and legal consultancies, white-glove onboarding support
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ End-to-end vector search platform that simplifies building AI search application
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Marqo AI** - https://marqo.ai
+1. [ ] **Harvey AI** - https://harvey.ai
