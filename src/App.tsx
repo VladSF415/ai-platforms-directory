@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import ScrollButtons from './components/ScrollButtons';
+import ChatWidget from './components/ChatWidget';
 import Home from './pages/Home';
 import SubmitTool from './pages/SubmitTool';
 import PlatformDetail from './pages/PlatformDetail';
@@ -49,6 +50,7 @@ function App() {
           <Route path="/disclaimer" element={<Disclaimer />} />
         </Routes>
         <ScrollButtons />
+        <ChatWidget />
         <Footer />
       </div>
     </Router>

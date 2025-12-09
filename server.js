@@ -5,6 +5,7 @@ import { dirname, join } from 'path';
 import Stripe from 'stripe';
 import satori from 'satori';
 import sharp from 'sharp';
+import chatService from './ai-chat-service.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -1126,6 +1127,62 @@ ${message}
   }
 
   return { success: true, message: 'Message received! We will get back to you soon.' };
+});
+
+// AI Chat endpoint
+fastify.post('/api/chat', async (request, reply) => {
+  const { message, sessionId } = request.body;
+
+  // Validate required fields
+  if (!message) {
+    reply.code(400).send({ error: 'Message is required' });
+    return;
+  }
+
+  // Generate session ID if not provided
+  const session = sessionId || `web_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+  console.log('[Chat] Message received:', { session, message: message.substring(0, 50) });
+
+  try {
+    // Get AI response
+    const response = await chatService.chat(session, message);
+
+    console.log('[Chat] Response generated:', { session, intent: response.intent });
+
+    return {
+      success: true,
+      sessionId: session,
+      response: response.message,
+      platforms: response.platforms || [],
+      intent: response.intent,
+      timestamp: new Date().toISOString()
+    };
+  } catch (error) {
+    console.error('[Chat] Error:', error);
+    reply.code(500).send({
+      error: 'Failed to process chat message',
+      message: "I'm having trouble processing your request. Please try again."
+    });
+  }
+});
+
+// Clear chat history endpoint
+fastify.post('/api/chat/clear', async (request, reply) => {
+  const { sessionId } = request.body;
+
+  if (!sessionId) {
+    reply.code(400).send({ error: 'Session ID is required' });
+    return;
+  }
+
+  chatService.clearHistory(sessionId);
+  return { success: true, message: 'Chat history cleared' };
+});
+
+// Chat statistics endpoint
+fastify.get('/api/chat/stats', async () => {
+  return chatService.getStats();
 });
 
 // Serve React app for all other routes (SPA)

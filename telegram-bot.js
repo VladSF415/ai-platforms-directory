@@ -2,6 +2,7 @@ import TelegramBot from 'node-telegram-bot-api';
 import { readFileSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import chatService from './ai-chat-service.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -39,6 +40,155 @@ console.log(`📁 Available categories: ${categories.length}`);
 function escapeMarkdown(text) {
   if (!text) return '';
   return text.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+}
+
+// ============================================================================
+// MENU BUILDERS
+// ============================================================================
+
+function getMainMenu() {
+  return {
+    inline_keyboard: [
+      [
+        { text: '🤖 Ask AI', callback_data: 'menu_ai' },
+        { text: '🔍 Search', callback_data: 'menu_search' }
+      ],
+      [
+        { text: '📂 Categories', callback_data: 'menu_categories' },
+        { text: '🔥 Trending', callback_data: 'menu_trending' }
+      ],
+      [
+        { text: '💡 Recommendations', callback_data: 'menu_recommend' },
+        { text: '🎲 Random', callback_data: 'random_platform' }
+      ],
+      [
+        { text: '🚀 Submit Platform', url: `${BASE_URL}/submit` },
+        { text: '🌐 Website', url: BASE_URL }
+      ],
+      [
+        { text: '❓ Help', callback_data: 'menu_help' },
+        { text: '⚙️ Settings', callback_data: 'menu_settings' }
+      ]
+    ]
+  };
+}
+
+function getCategoriesMenu(page = 0) {
+  const itemsPerPage = 8;
+  const start = page * itemsPerPage;
+  const end = start + itemsPerPage;
+  const pageCategories = categories.slice(start, end);
+
+  const buttons = pageCategories.map(cat => [{
+    text: `${cat} (${platforms.filter(p => p.category === cat).length})`,
+    callback_data: `cat_${cat}`
+  }]);
+
+  // Add navigation buttons
+  const navButtons = [];
+  if (page > 0) {
+    navButtons.push({ text: '◀️ Previous', callback_data: `catpage_${page - 1}` });
+  }
+  if (end < categories.length) {
+    navButtons.push({ text: 'Next ▶️', callback_data: `catpage_${page + 1}` });
+  }
+  if (navButtons.length > 0) {
+    buttons.push(navButtons);
+  }
+
+  // Add back button
+  buttons.push([{ text: '🏠 Main Menu', callback_data: 'main_menu' }]);
+
+  return { inline_keyboard: buttons };
+}
+
+function getRecommendMenu() {
+  return {
+    inline_keyboard: [
+      [
+        { text: '✍️ Writing & Content', callback_data: 'rec_writing' },
+        { text: '💻 Code & Dev', callback_data: 'rec_code' }
+      ],
+      [
+        { text: '🎨 Image Generation', callback_data: 'rec_image' },
+        { text: '🎥 Video Creation', callback_data: 'rec_video' }
+      ],
+      [
+        { text: '💬 Chat & Assistants', callback_data: 'rec_chat' },
+        { text: '📊 Data & Analytics', callback_data: 'rec_data' }
+      ],
+      [
+        { text: '🎵 Audio & Music', callback_data: 'rec_audio' },
+        { text: '🔬 Research & Science', callback_data: 'rec_research' }
+      ],
+      [{ text: '🏠 Main Menu', callback_data: 'main_menu' }]
+    ]
+  };
+}
+
+function getSettingsMenu(chatId) {
+  const isAdmin = chatId.toString() === ADMIN_CHAT_ID;
+
+  const buttons = [
+    [
+      { text: '🔔 Notifications', callback_data: 'settings_notifications' },
+      { text: '🌐 Language', callback_data: 'settings_language' }
+    ],
+    [
+      { text: '📊 My Stats', callback_data: 'settings_stats' },
+      { text: '⭐ Favorites', callback_data: 'settings_favorites' }
+    ]
+  ];
+
+  if (isAdmin) {
+    buttons.push([
+      { text: '👑 Admin Panel', callback_data: 'admin_panel' }
+    ]);
+  }
+
+  buttons.push([{ text: '🏠 Main Menu', callback_data: 'main_menu' }]);
+
+  return { inline_keyboard: buttons };
+}
+
+function getAdminMenu() {
+  return {
+    inline_keyboard: [
+      [
+        { text: '📋 Pending Submissions', callback_data: 'admin_pending' },
+        { text: '📊 Statistics', callback_data: 'admin_stats' }
+      ],
+      [
+        { text: '👥 User Analytics', callback_data: 'admin_users' },
+        { text: '🔥 Top Platforms', callback_data: 'admin_top' }
+      ],
+      [
+        { text: '📢 Broadcast Message', callback_data: 'admin_broadcast' },
+        { text: '⚡ Clear Cache', callback_data: 'admin_cache' }
+      ],
+      [{ text: '🏠 Main Menu', callback_data: 'main_menu' }]
+    ]
+  };
+}
+
+function getHelpMenu() {
+  return {
+    inline_keyboard: [
+      [
+        { text: '🚀 Getting Started', callback_data: 'help_start' },
+        { text: '🔍 How to Search', callback_data: 'help_search' }
+      ],
+      [
+        { text: '🤖 AI Assistant', callback_data: 'help_ai' },
+        { text: '📂 Categories Guide', callback_data: 'help_categories' }
+      ],
+      [
+        { text: '💡 Tips & Tricks', callback_data: 'help_tips' },
+        { text: '❓ FAQ', callback_data: 'help_faq' }
+      ],
+      [{ text: '🏠 Main Menu', callback_data: 'main_menu' }]
+    ]
+  };
 }
 
 function formatPlatform(platform, includeDescription = true) {
@@ -98,29 +248,26 @@ bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
   const firstName = msg.from.first_name || 'there';
 
-  const welcomeMessage = `👋 Welcome to *AI Platforms List Bot*, ${escapeMarkdown(firstName)}\\!\n\n` +
-    `Discover ${platforms.length}\\+ AI tools and platforms\\.\n\n` +
-    `*What can I do?*\n` +
-    `🔍 Search platforms \\- /search \\[query\\]\n` +
-    `📂 Browse categories \\- /category\n` +
-    `🎲 Random platform \\- /random\n` +
-    `🔥 Trending tools \\- /trending\n` +
-    `💡 Get recommendations \\- /recommend\n` +
-    `❓ Help \\- /help\n\n` +
-    `You can also use inline search\\! Type @${escapeMarkdown(bot.options.username || 'aiplatformsbot')} in any chat to search\\.`;
-
-  const keyboard = {
-    inline_keyboard: [
-      [{ text: '🔍 Search Platforms', switch_inline_query_current_chat: '' }],
-      [{ text: '📂 Browse Categories', callback_data: 'browse_categories' }],
-      [{ text: '🎲 Random Platform', callback_data: 'random_platform' }],
-      [{ text: '🌐 Visit Website', url: BASE_URL }]
-    ]
-  };
+  const welcomeMessage = `👋 *Welcome to AI Platforms List*, ${escapeMarkdown(firstName)}\\!\n\n` +
+    `🔍 Discover ${platforms.length}\\+ AI tools and platforms\n` +
+    `🤖 Get AI\\-powered recommendations\n` +
+    `📂 Browse by category\n` +
+    `🔥 Find trending tools\n\n` +
+    `*Choose an action below or type /menu anytime\\!*`;
 
   bot.sendMessage(chatId, welcomeMessage, {
     parse_mode: 'MarkdownV2',
-    reply_markup: keyboard
+    reply_markup: getMainMenu()
+  });
+});
+
+// /menu command - Show main menu anytime
+bot.onText(/\/menu/, (msg) => {
+  const chatId = msg.chat.id;
+
+  bot.sendMessage(chatId, '📱 *Main Menu*\n\nChoose an option:', {
+    parse_mode: 'MarkdownV2',
+    reply_markup: getMainMenu()
   });
 });
 
@@ -131,6 +278,7 @@ bot.onText(/\/help/, (msg) => {
   const helpMessage = `*📚 AI Platforms List Bot \\- Help*\n\n` +
     `*Commands:*\n` +
     `/start \\- Show welcome message\n` +
+    `/ask \\[question\\] \\- Chat with AI assistant\n` +
     `/search \\[query\\] \\- Search for AI platforms\n` +
     `/category \\- Browse platforms by category\n` +
     `/random \\- Get a random AI platform\n` +
@@ -253,6 +401,66 @@ bot.onText(/\/recommend/, (msg) => {
   });
 });
 
+// /ask command - AI-powered conversational assistant
+bot.onText(/\/ask(?:\s+(.+))?/, async (msg, match) => {
+  const chatId = msg.chat.id;
+  const question = match[1];
+
+  if (!question) {
+    bot.sendMessage(chatId, `🤖 *AI Assistant*\n\nAsk me anything about AI platforms\\!\n\nUsage: /ask \\[your question\\]\n\nExamples:\n\\- /ask I need an AI tool for writing blog posts\n\\- /ask What\\'s the best free image generator?\n\\- /ask I want to submit my platform`, {
+      parse_mode: 'MarkdownV2'
+    });
+    return;
+  }
+
+  // Send typing indicator
+  bot.sendChatAction(chatId, 'typing');
+
+  try {
+    // Generate session ID for this user
+    const sessionId = `telegram_${chatId}`;
+
+    // Get AI response
+    const response = await chatService.chat(sessionId, question);
+
+    // Send the AI response
+    let message = response.message;
+
+    // Check if this is about submitting a platform
+    if (response.intent === 'submit' || message.toLowerCase().includes('submit')) {
+      message += `\n\n💡 *Submit Your Platform:*\nVisit: ${BASE_URL}/submit`;
+    }
+
+    // If there are platform recommendations, add them
+    if (response.platforms && response.platforms.length > 0) {
+      bot.sendMessage(chatId, message);
+
+      // Send each platform as a separate message with buttons
+      response.platforms.forEach((platform, index) => {
+        setTimeout(() => {
+          const fullPlatform = platforms.find(p => p.slug === platform.slug);
+          if (fullPlatform) {
+            bot.sendMessage(chatId, formatPlatform(fullPlatform, false), {
+              parse_mode: 'MarkdownV2',
+              reply_markup: getPlatformKeyboard(fullPlatform),
+              disable_web_page_preview: true
+            });
+          }
+        }, index * 100);
+      });
+    } else {
+      // No platforms, just send the message
+      bot.sendMessage(chatId, message);
+    }
+
+  } catch (error) {
+    console.error('AI chat error:', error);
+    bot.sendMessage(chatId, `❌ Sorry, I\\'m having trouble processing your request\\. Please try again or use /search to find platforms manually\\.`, {
+      parse_mode: 'MarkdownV2'
+    });
+  }
+});
+
 // ============================================================================
 // ADMIN COMMANDS
 // ============================================================================
@@ -325,6 +533,348 @@ bot.onText(/\/stats/, (msg) => {
 bot.on('callback_query', (query) => {
   const chatId = query.message.chat.id;
   const data = query.data;
+  const messageId = query.message.message_id;
+
+  // ==================== MAIN MENU ====================
+  if (data === 'main_menu') {
+    bot.editMessageText('📱 *Main Menu*\n\nChoose an option:', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: getMainMenu()
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  // ==================== MENU ACTIONS ====================
+  if (data === 'menu_ai') {
+    bot.editMessageText('🤖 *AI Assistant*\n\nAsk me anything about AI platforms\\!\n\nUsage: /ask \\[your question\\]\n\nExamples:\n• /ask I need a tool for video editing\n• /ask Best free chatbot platforms\n• /ask I want to submit my platform', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '🏠 Main Menu', callback_data: 'main_menu' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'menu_search') {
+    bot.editMessageText('🔍 *Search Platforms*\n\nUse /search \\[query\\] to find platforms\n\nOr tap below to use inline search\\!', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: '🔍 Start Inline Search', switch_inline_query_current_chat: '' }],
+          [{ text: '🏠 Main Menu', callback_data: 'main_menu' }]
+        ]
+      }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'menu_categories') {
+    bot.editMessageText('📂 *Browse by Category*\n\nSelect a category:', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: getCategoriesMenu(0)
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'menu_trending') {
+    const trending = platforms.sort(() => Math.random() - 0.5).slice(0, 5);
+
+    bot.editMessageText('🔥 *Trending AI Platforms*\n\nTop platforms right now:', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '🏠 Main Menu', callback_data: 'main_menu' }]] }
+    });
+
+    trending.forEach((platform, index) => {
+      setTimeout(() => {
+        bot.sendMessage(chatId, `${index + 1}\\. ${formatPlatform(platform, false)}`, {
+          parse_mode: 'MarkdownV2',
+          reply_markup: getPlatformKeyboard(platform),
+          disable_web_page_preview: true
+        });
+      }, index * 100);
+    });
+
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'menu_recommend') {
+    bot.editMessageText('💡 *Get Recommendations*\n\nWhat type of AI tool are you looking for?', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: getRecommendMenu()
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'menu_help') {
+    bot.editMessageText('❓ *Help & Support*\n\nSelect a topic:', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: getHelpMenu()
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'menu_settings') {
+    bot.editMessageText('⚙️ *Settings*\n\nManage your preferences:', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: getSettingsMenu(chatId)
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  // ==================== CATEGORIES PAGINATION ====================
+  if (data.startsWith('catpage_')) {
+    const page = parseInt(data.split('_')[1]);
+    bot.editMessageText('📂 *Browse by Category*\n\nSelect a category:', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: getCategoriesMenu(page)
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  // ==================== HELP MENU ====================
+  if (data === 'help_start') {
+    const helpText = '🚀 *Getting Started*\n\n' +
+      '1️⃣ Use /menu to open the main menu\n' +
+      '2️⃣ Browse categories or search for platforms\n' +
+      '3️⃣ Ask the AI assistant with /ask\n' +
+      '4️⃣ Get random platform with /random\n' +
+      '5️⃣ Submit your platform via the website\n\n' +
+      '*Quick tips:*\n' +
+      '• Use inline search in any chat\\!\n' +
+      '• Type @' + escapeMarkdown(bot.options.username || 'aiplatformsbot') + ' \\[query\\]\n';
+
+    bot.editMessageText(helpText, {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '« Back to Help', callback_data: 'menu_help' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'help_search') {
+    const helpText = '🔍 *How to Search*\n\n' +
+      '*Command Search:*\n' +
+      '/search \\[query\\] \\- Search platforms\n\n' +
+      '*Inline Search:*\n' +
+      'Type @' + escapeMarkdown(bot.options.username || 'aiplatformsbot') + ' in any chat\n\n' +
+      '*Examples:*\n' +
+      '• /search chatbot\n' +
+      '• /search image generation\n' +
+      '• /search free tools\n';
+
+    bot.editMessageText(helpText, {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '« Back to Help', callback_data: 'menu_help' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'help_ai') {
+    const helpText = '🤖 *AI Assistant Guide*\n\n' +
+      '*How to use:*\n' +
+      '/ask \\[your question\\]\n\n' +
+      '*What can it do?*\n' +
+      '• Find perfect platforms for your needs\n' +
+      '• Provide personalized recommendations\n' +
+      '• Compare different tools\n' +
+      '• Guide you to submit platforms\n\n' +
+      '*Example questions:*\n' +
+      '• "I need an AI for coding"\n' +
+      '• "Best free video editors?"\n' +
+      '• "Compare GPT\\-4 vs Claude"\n';
+
+    bot.editMessageText(helpText, {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '« Back to Help', callback_data: 'menu_help' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'help_categories') {
+    const categoryList = categories.slice(0, 10).map(c => `• ${escapeMarkdown(c)}`).join('\n');
+    const helpText = `📂 *Categories Guide*\n\n` +
+      `We have ${categories.length} categories:\n\n` +
+      `${categoryList}\n` +
+      `\\.\\.\\.and more\\!\n\n` +
+      `Use /category to browse all\\.`;
+
+    bot.editMessageText(helpText, {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '« Back to Help', callback_data: 'menu_help' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'help_tips') {
+    const helpText = '💡 *Tips & Tricks*\n\n' +
+      '🔥 *Pro Tips:*\n' +
+      '1️⃣ Save time with inline search\n' +
+      '2️⃣ Use AI assistant for complex queries\n' +
+      '3️⃣ Browse by category for discovery\n' +
+      '4️⃣ Check trending for popular tools\n' +
+      '5️⃣ Get random platforms for inspiration\n\n' +
+      '⭐ *Did you know?*\n' +
+      `• We have ${platforms.length}\\+ platforms\n` +
+      '• New tools added daily\n' +
+      '• All platforms are curated\n';
+
+    bot.editMessageText(helpText, {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '« Back to Help', callback_data: 'menu_help' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'help_faq') {
+    const helpText = '❓ *Frequently Asked Questions*\n\n' +
+      '*Q: How do I submit my platform?*\n' +
+      'A: Visit our website or use the Submit button\\!\n\n' +
+      '*Q: Are all tools free?*\n' +
+      'A: No, we list both free and paid tools\\.\n\n' +
+      '*Q: How often is the list updated?*\n' +
+      'A: Daily\\! New platforms added regularly\\.\n\n' +
+      '*Q: Can I suggest a platform?*\n' +
+      'A: Yes\\! Use the submit form\\.\n\n' +
+      `*Need more help?*\nContact: ${escapeMarkdown(BASE_URL)}/contact`;
+
+    bot.editMessageText(helpText, {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '« Back to Help', callback_data: 'menu_help' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  // ==================== ADMIN PANEL ====================
+  if (data === 'admin_panel') {
+    if (chatId.toString() !== ADMIN_CHAT_ID) {
+      bot.answerCallbackQuery(query.id, { text: '❌ Admin only', show_alert: true });
+      return;
+    }
+
+    bot.editMessageText('👑 *Admin Panel*\n\nSelect an action:', {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: getAdminMenu()
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'admin_stats') {
+    if (chatId.toString() !== ADMIN_CHAT_ID) {
+      bot.answerCallbackQuery(query.id, { text: '❌ Admin only', show_alert: true });
+      return;
+    }
+
+    const stats = `📊 *Bot Statistics*\n\n` +
+      `🤖 Total Platforms: ${platforms.length}\n` +
+      `📂 Categories: ${categories.length}\n` +
+      `📋 Pending Submissions: ${pendingSubmissions.length}\n` +
+      `🌐 Website: ${escapeMarkdown(BASE_URL)}\n\n` +
+      `Updated: ${new Date().toLocaleString()}`;
+
+    bot.editMessageText(stats, {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '« Back to Admin', callback_data: 'admin_panel' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'admin_pending') {
+    if (chatId.toString() !== ADMIN_CHAT_ID) {
+      bot.answerCallbackQuery(query.id, { text: '❌ Admin only', show_alert: true });
+      return;
+    }
+
+    if (pendingSubmissions.length === 0) {
+      bot.answerCallbackQuery(query.id, { text: '✅ No pending submissions', show_alert: true });
+      return;
+    }
+
+    bot.answerCallbackQuery(query.id, { text: `${pendingSubmissions.length} pending` });
+    // Show pending submissions
+    return;
+  }
+
+  // ==================== SETTINGS ====================
+  if (data === 'settings_stats') {
+    const userStats = '📊 *Your Statistics*\n\n' +
+      '🔍 Searches: \\-\\-\n' +
+      '💬 AI Chats: \\-\\-\n' +
+      '⭐ Favorites: 0\n' +
+      '📅 Member since: Today\n\n' +
+      '\\(Stats tracking coming soon\\!\\)';
+
+    bot.editMessageText(userStats, {
+      chat_id: chatId,
+      message_id: messageId,
+      parse_mode: 'MarkdownV2',
+      reply_markup: { inline_keyboard: [[{ text: '« Back to Settings', callback_data: 'menu_settings' }]] }
+    });
+    bot.answerCallbackQuery(query.id);
+    return;
+  }
+
+  if (data === 'settings_notifications') {
+    bot.answerCallbackQuery(query.id, { text: '🔔 Notifications: ON (Coming soon!)' });
+    return;
+  }
+
+  if (data === 'settings_language') {
+    bot.answerCallbackQuery(query.id, { text: '🌐 Language: English (More coming soon!)' });
+    return;
+  }
+
+  if (data === 'settings_favorites') {
+    bot.answerCallbackQuery(query.id, { text: '⭐ Favorites feature coming soon!' });
+    return;
+  }
 
   // Handle category selection
   if (data.startsWith('cat_')) {
