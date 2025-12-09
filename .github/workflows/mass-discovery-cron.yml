@@ -60,16 +60,19 @@ jobs:
             exit 0
           fi
 
-          git commit -m "GitHub Actions: +${{ env.ADDED }} platforms (total: ${{ env.TOTAL }})
+          git commit -m "$(cat <<'EOF'
+          GitHub Actions: +${{ env.ADDED }} platforms (total: ${{ env.TOTAL }})
 
-Automated mass discovery via GitHub Actions cron
-- Added: ${{ env.ADDED }} new platforms
-- Total: ${{ env.TOTAL }} platforms
-- Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+          Automated mass discovery via GitHub Actions cron
+          - Added: ${{ env.ADDED }} new platforms
+          - Total: ${{ env.TOTAL }} platforms
+          - Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
 
-🤖 Generated with [Claude Code](https://claude.com/claude-code) - GitHub Actions
+          🤖 Generated with [Claude Code](https://claude.com/claude-code) - GitHub Actions
 
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
+          Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+          EOF
+          )"
 
           git push
 
