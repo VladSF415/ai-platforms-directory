@@ -3,6 +3,7 @@ import { readFileSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import chatService from './ai-chat-service.js';
+import { getAnalytics } from './chat-analytics.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -524,6 +525,136 @@ bot.onText(/\/stats/, (msg) => {
     `🌐 Website: ${escapeMarkdown(BASE_URL)}`;
 
   bot.sendMessage(chatId, stats, { parse_mode: 'MarkdownV2' });
+});
+
+// /analytics command (admin only) - Website chatbot analytics
+bot.onText(/\/analytics/, (msg) => {
+  const chatId = msg.chat.id;
+
+  if (chatId.toString() !== ADMIN_CHAT_ID) {
+    bot.sendMessage(chatId, '❌ This command is only available to administrators.');
+    return;
+  }
+
+  try {
+    const analytics = getAnalytics();
+
+    if (!analytics || !analytics.summary) {
+      bot.sendMessage(chatId, '❌ No analytics data available yet.');
+      return;
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const todayStats = analytics.today || { messages: 0, sessions: 0, platformsRecommended: 0 };
+
+    // Build summary message
+    let message = `📊 *Website Chatbot Analytics*\n\n`;
+    message += `*Total Stats:*\n`;
+    message += `💬 Messages: ${analytics.summary.totalMessages}\n`;
+    message += `👥 Total Sessions: ${analytics.summary.totalSessions}\n`;
+    message += `✨ Unique Users: ${analytics.summary.uniqueSessions}\n`;
+    message += `📈 Avg Messages/Session: ${analytics.summary.averageMessagesPerSession}\n\n`;
+
+    message += `*Today (${today}):*\n`;
+    message += `💬 Messages: ${todayStats.messages || 0}\n`;
+    message += `👥 Sessions: ${todayStats.sessions || 0}\n`;
+    message += `🤖 Platforms Recommended: ${todayStats.platformsRecommended || 0}\n\n`;
+
+    // Top queries
+    if (analytics.topQueries && analytics.topQueries.length > 0) {
+      message += `*Top Queries:*\n`;
+      analytics.topQueries.slice(0, 5).forEach((query, idx) => {
+        message += `${idx + 1}\\. ${escapeMarkdown(query.keyword)} \\(${query.count}\\)\n`;
+      });
+      message += `\n`;
+    }
+
+    // Intent distribution
+    if (analytics.intentDistribution && analytics.intentDistribution.length > 0) {
+      message += `*User Intent:*\n`;
+      analytics.intentDistribution.forEach(intent => {
+        message += `${escapeMarkdown(intent.intent)}: ${intent.count}\n`;
+      });
+      message += `\n`;
+    }
+
+    // Last 7 days
+    if (analytics.last7Days && analytics.last7Days.length > 0) {
+      message += `*Last 7 Days:*\n`;
+      const totalLast7Days = analytics.last7Days.reduce((sum, day) => sum + (day.messages || 0), 0);
+      message += `📊 Total Messages: ${totalLast7Days}\n`;
+    }
+
+    message += `\n💡 Use /analytics\\_detail for more info`;
+
+    bot.sendMessage(chatId, message, { parse_mode: 'MarkdownV2' });
+  } catch (error) {
+    console.error('[Analytics] Error:', error);
+    bot.sendMessage(chatId, '❌ Failed to retrieve analytics data.');
+  }
+});
+
+// /analytics_detail command (admin only) - Detailed analytics
+bot.onText(/\/analytics_detail/, (msg) => {
+  const chatId = msg.chat.id;
+
+  if (chatId.toString() !== ADMIN_CHAT_ID) {
+    bot.sendMessage(chatId, '❌ This command is only available to administrators.');
+    return;
+  }
+
+  try {
+    const analytics = getAnalytics();
+
+    if (!analytics) {
+      bot.sendMessage(chatId, '❌ No analytics data available yet.');
+      return;
+    }
+
+    // Last 7 days breakdown
+    if (analytics.last7Days && analytics.last7Days.length > 0) {
+      let message = `📅 *Last 7 Days Breakdown:*\n\n`;
+
+      analytics.last7Days.reverse().forEach(day => {
+        message += `*${escapeMarkdown(day.date)}*\n`;
+        message += `💬 Messages: ${day.messages || 0}\n`;
+        message += `👥 Sessions: ${day.sessions || 0}\n`;
+        message += `✨ New Sessions: ${day.newSessions || 0}\n`;
+        message += `🤖 Platforms: ${day.platformsRecommended || 0}\n\n`;
+      });
+
+      bot.sendMessage(chatId, message, { parse_mode: 'MarkdownV2' });
+    }
+
+    // Recent interactions
+    if (analytics.recentInteractions && analytics.recentInteractions.length > 0) {
+      let message = `💬 *Recent Interactions \\(Last ${analytics.recentInteractions.length}\\):*\n\n`;
+
+      analytics.recentInteractions.slice(0, 10).forEach((interaction, idx) => {
+        const time = new Date(interaction.timestamp).toLocaleTimeString();
+        message += `${idx + 1}\\. ${escapeMarkdown(time)}\n`;
+        message += `   "${escapeMarkdown(interaction.message.substring(0, 50))}..."\n`;
+        message += `   Intent: ${escapeMarkdown(interaction.intent || 'unknown')}\n\n`;
+      });
+
+      bot.sendMessage(chatId, message, { parse_mode: 'MarkdownV2' });
+    }
+
+    // Top 20 queries
+    if (analytics.topQueries && analytics.topQueries.length > 5) {
+      let message = `🔍 *Top 20 Search Queries:*\n\n`;
+
+      analytics.topQueries.slice(0, 20).forEach((query, idx) => {
+        message += `${idx + 1}\\. ${escapeMarkdown(query.keyword)} \\(${query.count}\\)\n`;
+      });
+
+      bot.sendMessage(chatId, message, { parse_mode: 'MarkdownV2' });
+    }
+
+  } catch (error) {
+    console.error('[Analytics Detail] Error:', error);
+    bot.sendMessage(chatId, '❌ Failed to retrieve detailed analytics.');
+  }
 });
 
 // ============================================================================
