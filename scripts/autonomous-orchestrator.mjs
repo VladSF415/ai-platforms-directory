@@ -25,7 +25,7 @@ const CONFIG = {
     mass_discover: {
       name: 'Mass Platform Discovery',
       script: 'mass-discovery.mjs',
-      args: '--batch=25 --batches=12 --workers=3', // 300 platforms per run!
+      args: '--batch=15 --batches=12 --workers=3', // 180 platforms per run!
       frequency: 'daily',
       enabled: true
     },

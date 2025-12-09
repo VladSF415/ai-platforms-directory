@@ -173,23 +173,40 @@ CATEGORIES: ${categories.join(', ')}
 DISCOVERY SOURCES TO SEARCH:
 ${DISCOVERY_SOURCES.join('\n')}
 
-TASK: Find ${platformsPerBatch} COMPLETELY NEW platforms (BATCH ${batchNum}):
+TASK: Find UP TO ${platformsPerBatch} COMPLETELY NEW platforms (BATCH ${batchNum}):
+
+🚨 CRITICAL - DO NOT HALLUCINATE OR MAKE UP PLATFORMS! 🚨
+- ONLY suggest platforms you can VERIFY exist
+- ONLY include platforms from REAL sources (Product Hunt, GitHub, news articles)
+- If you can't find ${platformsPerBatch} REAL platforms, return FEWER
+- Fake platforms will be automatically detected and removed
+- We prefer QUALITY over QUANTITY - 10 real platforms > 25 fake ones
 
 REQUIREMENTS:
-✅ Launched or updated in 2024-2025
-✅ NOT in existing list (check carefully!)
+✅ MUST have a working website with CORRECT URL
+✅ MUST be a REAL company/product (not made up)
+✅ MUST be launched or updated in 2024-2025
+✅ MUST NOT be in existing list (check carefully!)
 ✅ Different domain from existing platforms
-✅ Real, working products (no vaporware)
-✅ Active user base
+✅ Active user base or recent activity
 ❌ NO duplicates or variations of existing platforms
 ❌ NO defunct/shutdown platforms
+❌ NO made-up or imaginary platforms
+❌ NO guessed URLs - must be actual verified URLs
 
-PRIORITIZATION:
-1. 🔥 PAID platforms with active affiliate programs (highest priority!)
-2. 💰 SaaS with subscription models
-3. 🚀 Recently funded startups
-4. ⭐ Popular new launches (Product Hunt featured, trending GitHub)
-5. 🏢 Enterprise AI platforms
+PRIORITIZATION (in order of importance):
+1. ⭐ VERIFIED platforms from Product Hunt (featured, trending, recently launched)
+2. 🔥 VERIFIED platforms from GitHub (trending repos with >1000 stars)
+3. 📰 VERIFIED platforms from tech news (TechCrunch, VentureBeat, The Verge)
+4. 🚀 VERIFIED Y Combinator startups (W24, S24, W25 batches)
+5. 💰 VERIFIED SaaS platforms with public pricing pages
+
+FOCUS ON WELL-KNOWN PLATFORMS that have:
+- Product Hunt launches with 100+ upvotes
+- GitHub repos with >1000 stars
+- Tech news coverage from major outlets
+- Active social media presence
+- Public pricing and feature pages
 
 DIVERSITY:
 - Include platforms from DIFFERENT sources
@@ -231,7 +248,24 @@ Return ONLY valid JSON array:
   }
 ]
 
-IMPORTANT: Each platform must be UNIQUE - different name AND different domain!`;
+IMPORTANT REMINDERS:
+1. Each platform must be UNIQUE - different name AND different domain
+2. VERIFY the URL is correct - don't guess domain names
+3. ONLY include platforms you're CONFIDENT are real
+4. If unsure about a platform's existence, SKIP IT
+5. It's better to return 15 REAL platforms than 25 fake ones
+6. Focus on POPULAR, WELL-KNOWN platforms from verified sources
+
+EXAMPLES OF GOOD SOURCES:
+- "Product Hunt #1 Product of the Day Dec 2024"
+- "GitHub trending (15k stars)"
+- "TechCrunch AI news Nov 2024 - funding announcement"
+- "Y Combinator W25 batch"
+
+BAD RESPONSES (will be rejected):
+- Made-up domain names like "cooltool.ai" without verification
+- Generic names like "AI Assistant Pro" without specific details
+- Platforms with no verifiable source or presence`;
 
   const response = await callDeepSeek(prompt);
   if (!response) return [];

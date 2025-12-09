@@ -262,10 +262,10 @@ function getMissingPillarCategories() {
 // Main task definitions - ALL use DeepSeek AI
 const TASKS = [
   {
-    name: 'Mass Platform Discovery (300 per run)',
+    name: 'Mass Platform Discovery (180 per run)',
     script: 'scripts/mass-discovery.mjs',
-    args: ['--batch=25', '--batches=12', '--workers=3'],
-    onSuccess: () => { stats.platforms_discovered += 300; }
+    args: ['--batch=15', '--batches=12', '--workers=3'],
+    onSuccess: () => { stats.platforms_discovered += 180; }
   },
   {
     name: 'Enrich Platform Data',
