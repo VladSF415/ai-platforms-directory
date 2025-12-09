@@ -154,13 +154,23 @@ function log(message, type = 'info') {
 function isCreditsExhausted(error) {
   const creditErrors = [
     'insufficient_quota',
+    'insufficient quota',
     'rate_limit',
+    'rate limit',
     'billing',
     'credit',
+    'credits',
     'quota exceeded',
+    'quota_exceeded',
     'payment required',
+    'payment_required',
+    'balance',
+    'insufficient balance',
     '402',
-    '429'
+    '429',
+    'too many requests',
+    'exceed',
+    'limit reached'
   ];
   const errorStr = String(error).toLowerCase();
   return creditErrors.some(e => errorStr.includes(e));
@@ -197,15 +207,22 @@ function runScript(scriptPath, args = []) {
       if (isCreditsExhausted(stderr) || isCreditsExhausted(stdout)) {
         stats.credits_exhausted = true;
         saveStats();
+        log(`💰 API credits exhausted detected!`, 'money');
         resolve({ success: false, credits_exhausted: true });
       } else if (code === 0) {
         // Check if script actually wrote files by looking for success indicators in output
-        const hasWrites = stdout.includes('Saved') || stdout.includes('✅') || stdout.includes('💾');
+        const hasWrites = stdout.includes('Saved') || stdout.includes('✅') || stdout.includes('💾') ||
+                         stdout.includes('Added') || stdout.includes('Updated') ||
+                         stdout.includes('Generated') || stdout.includes('Created');
         if (!hasWrites) {
-          log(`⚠️  Script completed but may not have written files`, 'warning');
-          log(`Last 200 chars of output: ${stdout.slice(-200)}`, 'info');
+          log(`⚠️  Script completed but DID NOT write any files!`, 'warning');
+          log(`   This means the API call likely failed silently`, 'warning');
+          log(`   Last 300 chars of output: ${stdout.slice(-300)}`, 'info');
+          // Treat this as a failure - don't increment stats
+          resolve({ success: false, error: 'No files written', hasWrites: false });
+        } else {
+          resolve({ success: true, stdout, stderr, hasWrites: true });
         }
-        resolve({ success: true, stdout, stderr, hasWrites });
       } else {
         stats.errors.push({
           script: scriptName,
@@ -359,6 +376,9 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 async function runCycle() {
   log(`Starting Cycle #${stats.cycles_completed + 1}`, 'cycle');
 
+  let tasksSucceeded = 0;
+  let tasksFailed = 0;
+
   for (const task of TASKS) {
     // Check frequency (some tasks run less often)
     if (task.frequency && (stats.cycles_completed % task.frequency !== 0)) {
@@ -382,10 +402,17 @@ async function runCycle() {
     if (result.success) {
       if (!result.hasWrites) {
         log(`⚠️  ${task.name}: No file writes detected, skipping stat increment`, 'warning');
+        tasksFailed++;
       } else if (task.onSuccess) {
         task.onSuccess();
         log(`✅ ${task.name}: Stats updated`, 'success');
+        tasksSucceeded++;
+      } else {
+        tasksSucceeded++;
       }
+    } else {
+      tasksFailed++;
+      log(`❌ ${task.name}: Failed - ${result.error || 'Unknown error'}`, 'error');
     }
 
     saveStats();
@@ -397,6 +424,33 @@ async function runCycle() {
 
   stats.cycles_completed++;
   saveStats();
+
+  // Check if entire cycle was unproductive
+  if (tasksSucceeded === 0 && tasksFailed > 0) {
+    log(`⚠️  CYCLE FAILED: 0 tasks succeeded, ${tasksFailed} tasks failed!`, 'error');
+    log(`   This usually means API credits are exhausted or API is down`, 'warning');
+
+    // Track consecutive failed cycles
+    stats.consecutive_failed_cycles = (stats.consecutive_failed_cycles || 0) + 1;
+    saveStats();
+
+    if (stats.consecutive_failed_cycles >= 3) {
+      log(`❌ STOPPING: ${stats.consecutive_failed_cycles} consecutive failed cycles`, 'error');
+      log(`   Something is wrong - likely out of API credits`, 'error');
+      stats.credits_exhausted = true;
+      saveStats();
+      return false;
+    }
+
+    return true; // Continue but mark as failed
+  }
+
+  // Reset failed cycle counter on success
+  if (tasksSucceeded > 0) {
+    stats.consecutive_failed_cycles = 0;
+    saveStats();
+  }
+
   return true;
 }
 
@@ -405,19 +459,21 @@ function printSummary() {
   console.log('\n' + '='.repeat(60));
   console.log('📊 GENERATION SUMMARY');
   console.log('='.repeat(60));
-  console.log(`Started:              ${stats.started}`);
-  console.log(`Cycles Completed:     ${stats.cycles_completed}`);
-  console.log(`API Calls Made:       ${stats.api_calls}`);
-  console.log(`Platforms Discovered: ${stats.platforms_discovered}`);
-  console.log(`Platforms Recategorized: ${stats.platforms_recategorized || 0}`);
-  console.log(`Pillar Pages:         ${stats.pillar_pages_generated}`);
-  console.log(`Comparisons:          ${stats.comparisons_generated}`);
-  console.log(`Alternatives:         ${stats.alternatives_generated}`);
-  console.log(`Best-Of Pages:        ${stats.bestof_generated}`);
-  console.log(`Blog Posts:           ${stats.blog_posts_generated || 0}`);
-  console.log(`Errors:               ${stats.errors.length}`);
-  console.log(`Credits Exhausted:    ${stats.credits_exhausted ? 'YES' : 'No'}`);
-  console.log(`Git Syncs:            ${stats.git_syncs || 0}`);
+  console.log(`Started:                  ${stats.started}`);
+  console.log(`Cycles Completed:         ${stats.cycles_completed}`);
+  console.log(`API Calls Made:           ${stats.api_calls}`);
+  console.log(`Platforms Discovered:     ${stats.platforms_discovered}`);
+  console.log(`Platforms Recategorized:  ${stats.platforms_recategorized || 0}`);
+  console.log(`Pillar Pages:             ${stats.pillar_pages_generated}`);
+  console.log(`Comparisons:              ${stats.comparisons_generated}`);
+  console.log(`Alternatives:             ${stats.alternatives_generated}`);
+  console.log(`Best-Of Pages:            ${stats.bestof_generated}`);
+  console.log(`Blog Posts:               ${stats.blog_posts_generated || 0}`);
+  console.log(`Errors:                   ${stats.errors.length}`);
+  console.log(`Credits Exhausted:        ${stats.credits_exhausted ? 'YES' : 'No'}`);
+  console.log(`Git Syncs:                ${stats.git_syncs || 0}`);
+  console.log(`Failed Cycles (consec):   ${stats.consecutive_failed_cycles || 0}`);
+  console.log(`Cycles w/o Commits:       ${stats.cycles_without_commits || 0}`);
   console.log('='.repeat(60));
   console.log(`\n📁 Stats saved to: generation-stats.json\n`);
 }
@@ -524,10 +580,23 @@ async function syncToGitHub() {
     const stagedStatus = execSync('git diff --cached --name-only', execOptions).toString().trim();
 
     if (!stagedStatus) {
-      log('No staged changes to commit', 'info');
+      log('⚠️  No staged changes to commit!', 'warning');
       log('⚠️  This usually means files were not written by child scripts!', 'warning');
-      return true;
+
+      // This is a critical indicator that the cycle was unproductive
+      stats.cycles_without_commits = (stats.cycles_without_commits || 0) + 1;
+      saveStats();
+
+      if (stats.cycles_without_commits >= 3) {
+        log(`❌ WARNING: ${stats.cycles_without_commits} consecutive cycles with no commits`, 'error');
+        log(`   This suggests API failures or credit exhaustion`, 'error');
+      }
+
+      return false; // Return false to indicate sync failed
     }
+
+    // Reset counter on successful commit
+    stats.cycles_without_commits = 0;
 
     // Count changes
     const changedFiles = stagedStatus.split('\n').filter(f => f).length;
@@ -602,18 +671,34 @@ async function main() {
     process.exit(0);
   });
 
-  // Main loop - runs until credits exhausted
+  // Main loop - runs until credits exhausted or too many failures
   while (!stats.credits_exhausted) {
     const shouldContinue = await runCycle();
 
     if (!shouldContinue) {
+      log('Cycle indicated we should stop', 'warning');
       break;
     }
 
     log(`Cycle ${stats.cycles_completed} complete.`, 'success');
 
     // Sync to GitHub after each cycle
-    await syncToGitHub();
+    const syncSuccess = await syncToGitHub();
+
+    // Check for persistent failures (no commits for multiple cycles)
+    if (!syncSuccess && (stats.cycles_without_commits || 0) >= 5) {
+      log(`❌ STOPPING: ${stats.cycles_without_commits} cycles without any commits!`, 'error');
+      log(`   Worker appears stuck - likely API issues or credit exhaustion`, 'error');
+      stats.credits_exhausted = true;
+      saveStats();
+      break;
+    }
+
+    // Safety check: if we've had many consecutive failed cycles, stop
+    if ((stats.consecutive_failed_cycles || 0) >= 3) {
+      log(`❌ STOPPING: Too many consecutive failed cycles`, 'error');
+      break;
+    }
 
     log(`Waiting ${CONFIG.delay_between_cycles / 1000}s before next cycle...`, 'info');
     await sleep(CONFIG.delay_between_cycles);
