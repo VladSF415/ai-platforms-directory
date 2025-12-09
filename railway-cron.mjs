@@ -3,7 +3,7 @@
  * Railway Cron Job - Mass Discovery
  *
  * Runs on Railway's servers every 4 hours
- * Discovers 500 platforms per run = 3000/day
+ * Discovers 300 platforms per run = 1800/day
  */
 
 import { execSync } from 'child_process';
@@ -25,7 +25,7 @@ try {
   // Run mass discovery
   console.log('\n🔍 Running mass-discovery...');
 
-  const output = execSync('node scripts/mass-discovery.mjs --batch=50 --batches=10 --workers=3', {
+  const output = execSync('node scripts/mass-discovery.mjs --batch=25 --batches=12 --workers=3', {
     encoding: 'utf-8',
     stdio: 'inherit',
     env: { ...process.env }
