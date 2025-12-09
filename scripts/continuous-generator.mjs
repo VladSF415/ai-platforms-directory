@@ -325,6 +325,16 @@ const TASKS = [
     args: ['--count=2'],
     onSuccess: () => { stats.blog_posts_generated = (stats.blog_posts_generated || 0) + 2; },
     frequency: 2  // Generate 2 blog posts every 2nd cycle
+  },
+  {
+    name: 'URL Validation & Cleanup',
+    script: 'scripts/validate-urls.mjs',
+    args: ['--remove'],
+    onSuccess: () => {
+      stats.url_validations = (stats.url_validations || 0) + 1;
+      stats.last_url_validation = new Date().toISOString();
+    },
+    frequency: 10  // Run every 10th cycle (weekly with ~7 cycles/day)
   }
 ];
 
