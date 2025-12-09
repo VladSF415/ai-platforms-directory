@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SocialMetaTags } from '../components/SocialMetaTags';
+import { getGuideDescription } from '../data/guideDescriptions';
 import './legal/LegalPage.css';
 
 interface PillarContent {
@@ -372,17 +373,16 @@ export default function Blog() {
                             }}>
                               {item.title}
                             </h3>
-                            {item.metaDescription && (
-                              <p style={{
-                                fontSize: '0.85rem',
-                                color: 'inherit',
-                                opacity: 0.8,
-                                margin: 0,
-                                fontFamily: "'Courier New', monospace"
-                              }}>
-                                {item.metaDescription.substring(0, 100)}...
-                              </p>
-                            )}
+                            <p style={{
+                              fontSize: '0.85rem',
+                              color: 'inherit',
+                              opacity: 0.8,
+                              margin: '0.75rem 0 0 0',
+                              fontFamily: "'Courier New', monospace",
+                              lineHeight: '1.5'
+                            }}>
+                              {getGuideDescription(item.slug)}
+                            </p>
                           </Link>
                         ))}
                       </div>

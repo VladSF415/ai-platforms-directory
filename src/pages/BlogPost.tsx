@@ -16,6 +16,14 @@ interface BlogPostData {
   publishedDate: string;
   author: string;
   featured: boolean;
+  reviewedBy?: string;
+  methodology?: string;
+  lastUpdated?: string;
+  nextReview?: string;
+  sources?: string[];
+  toolsAnalyzed?: number;
+  dataCurrent?: string;
+  trustScore?: string;
 }
 
 export default function BlogPost() {
@@ -154,6 +162,72 @@ export default function BlogPost() {
               {post.excerpt}
             </p>
           </div>
+
+          {/* Trust Signals Section */}
+          {(post.methodology || post.lastUpdated || post.sources || post.toolsAnalyzed) && (
+            <div style={{
+              margin: '2rem auto',
+              maxWidth: '900px',
+              padding: '1.5rem',
+              background: '#f8f9fa',
+              border: '3px solid #000',
+              fontFamily: "'Courier New', monospace",
+              fontSize: '0.85rem'
+            }}>
+              <div style={{
+                fontWeight: '900',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                marginBottom: '1rem',
+                fontSize: '0.9rem'
+              }}>
+                📊 Research Transparency
+              </div>
+
+              <div style={{ display: 'grid', gap: '0.75rem' }}>
+                {post.lastUpdated && (
+                  <div>
+                    <strong>Last Updated:</strong> {new Date(post.lastUpdated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </div>
+                )}
+
+                {post.reviewedBy && (
+                  <div>
+                    <strong>Reviewed By:</strong> {post.reviewedBy}
+                  </div>
+                )}
+
+                {post.toolsAnalyzed && (
+                  <div>
+                    <strong>Tools Analyzed:</strong> {post.toolsAnalyzed} platforms
+                  </div>
+                )}
+
+                {post.dataCurrent && (
+                  <div>
+                    <strong>Data Current As Of:</strong> {post.dataCurrent}
+                  </div>
+                )}
+
+                {post.methodology && (
+                  <div style={{ marginTop: '0.5rem', paddingTop: '0.75rem', borderTop: '2px solid #ddd' }}>
+                    <strong>Methodology:</strong> {post.methodology}
+                  </div>
+                )}
+
+                {post.sources && post.sources.length > 0 && (
+                  <div style={{ marginTop: '0.5rem', paddingTop: '0.75rem', borderTop: '2px solid #ddd' }}>
+                    <strong>Sources:</strong>
+                    <ul style={{ margin: '0.5rem 0 0 1.25rem', padding: 0 }}>
+                      {post.sources.map((source, idx) => (
+                        <li key={idx} style={{ marginBottom: '0.25rem' }}>{source}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="legal-content">
             {/* Blog content with markdown rendering */}
