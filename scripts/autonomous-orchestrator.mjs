@@ -70,6 +70,13 @@ const CONFIG = {
       args: '--recategorize --recat-max=30 --provider=deepseek',
       frequency: 'weekly',
       enabled: true
+    },
+    url_validation: {
+      name: 'URL Validation & Cleanup',
+      script: 'validate-urls.mjs',
+      args: '--remove', // Auto-remove dead URLs
+      frequency: 'weekly', // Run once per week to clean up
+      enabled: true
     }
   }
 };
