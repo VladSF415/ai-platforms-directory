@@ -50,6 +50,10 @@ export default function Blog() {
   const [bestOf, setBestOf] = useState<BestOfContent[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Pagination state
+  const [comparisonsLimit, setComparisonsLimit] = useState(50);
+  const [alternativesLimit, setAlternativesLimit] = useState(50);
+
   useEffect(() => {
     const fetchContent = async () => {
       try {
@@ -413,53 +417,95 @@ export default function Blog() {
                         gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
                         gap: '1rem'
                       }}>
-                        {comparisons.slice(0, 50).map(item => (
-                          <Link
-                            key={item.slug}
-                            to={`/compare/${item.slug}`}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'space-between',
-                              padding: '1rem 1.5rem',
-                              background: '#ffffff',
-                              border: '4px solid #000000',
-                              textDecoration: 'none',
-                              color: '#000000',
-                              transition: 'all 0.2s',
-                              fontFamily: "'Courier New', monospace",
-                              fontWeight: '900'
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.background = '#000000';
-                              e.currentTarget.style.color = '#ffffff';
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.background = '#ffffff';
-                              e.currentTarget.style.color = '#000000';
-                            }}
-                          >
-                            <span>{item.platform1}</span>
-                            <span style={{
-                              background: '#FFFF00',
-                              color: '#000000',
-                              padding: '2px 8px',
-                              fontSize: '0.7rem'
-                            }}>VS</span>
-                            <span>{item.platform2}</span>
-                          </Link>
-                        ))}
+                        {comparisons.slice(0, comparisonsLimit).map(item => {
+                          // Extract platform names from title (format: "Platform1 vs Platform2: ...")
+                          const titleMatch = item.title.match(/^(.+?)\s+vs\s+(.+?):/);
+                          const platform1 = titleMatch ? titleMatch[1] : item.platform1 || 'Platform A';
+                          const platform2 = titleMatch ? titleMatch[2] : item.platform2 || 'Platform B';
+
+                          return (
+                            <Link
+                              key={item.slug}
+                              to={`/compare/${item.slug}`}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                padding: '1rem 1.5rem',
+                                background: '#ffffff',
+                                border: '4px solid #000000',
+                                textDecoration: 'none',
+                                color: '#000000',
+                                transition: 'all 0.2s',
+                                fontFamily: "'Courier New', monospace",
+                                fontWeight: '900',
+                                fontSize: '0.85rem'
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = '#000000';
+                                e.currentTarget.style.color = '#ffffff';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = '#ffffff';
+                                e.currentTarget.style.color = '#000000';
+                              }}
+                            >
+                              <span style={{ flex: '1', textAlign: 'left', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                {platform1}
+                              </span>
+                              <span style={{
+                                background: '#FFFF00',
+                                color: '#000000',
+                                padding: '4px 10px',
+                                fontSize: '0.7rem',
+                                margin: '0 8px',
+                                flexShrink: 0
+                              }}>VS</span>
+                              <span style={{ flex: '1', textAlign: 'right', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                {platform2}
+                              </span>
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
-                    {comparisons.length > 50 && (
-                      <p style={{
-                        marginTop: '1.5rem',
-                        fontFamily: "'Courier New', monospace",
-                        textAlign: 'center',
-                        color: '#666'
-                      }}>
-                        Showing 50 of {comparisons.length} comparisons
-                      </p>
+                    {comparisons.length > comparisonsLimit && (
+                      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+                        <button
+                          onClick={() => setComparisonsLimit(prev => prev + 50)}
+                          style={{
+                            padding: '1rem 2rem',
+                            background: '#000',
+                            color: '#fff',
+                            border: '4px solid #000',
+                            fontFamily: "'Courier New', monospace",
+                            fontWeight: '900',
+                            fontSize: '1rem',
+                            textTransform: 'uppercase',
+                            cursor: 'pointer',
+                            transition: 'all 0.2s'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = '#FFFF00';
+                            e.currentTarget.style.color = '#000';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = '#000';
+                            e.currentTarget.style.color = '#fff';
+                          }}
+                        >
+                          Show More ({comparisons.length - comparisonsLimit} remaining)
+                        </button>
+                        <p style={{
+                          marginTop: '1rem',
+                          fontFamily: "'Courier New', monospace",
+                          textAlign: 'center',
+                          color: '#666',
+                          fontSize: '0.9rem'
+                        }}>
+                          Showing {comparisonsLimit} of {comparisons.length} comparisons
+                        </p>
+                      </div>
                     )}
                   </div>
                 )}
@@ -487,7 +533,7 @@ export default function Blog() {
                         gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
                         gap: '1rem'
                       }}>
-                        {alternatives.slice(0, 50).map(item => (
+                        {alternatives.slice(0, alternativesLimit).map(item => (
                           <Link
                             key={item.slug}
                             to={`/alternatives/${item.slug}`}
@@ -516,15 +562,43 @@ export default function Blog() {
                         ))}
                       </div>
                     )}
-                    {alternatives.length > 50 && (
-                      <p style={{
-                        marginTop: '1.5rem',
-                        fontFamily: "'Courier New', monospace",
-                        textAlign: 'center',
-                        color: '#666'
-                      }}>
-                        Showing 50 of {alternatives.length} alternatives
-                      </p>
+                    {alternatives.length > alternativesLimit && (
+                      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+                        <button
+                          onClick={() => setAlternativesLimit(prev => prev + 50)}
+                          style={{
+                            padding: '1rem 2rem',
+                            background: '#000',
+                            color: '#fff',
+                            border: '4px solid #000',
+                            fontFamily: "'Courier New', monospace",
+                            fontWeight: '900',
+                            fontSize: '1rem',
+                            textTransform: 'uppercase',
+                            cursor: 'pointer',
+                            transition: 'all 0.2s'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = '#FFFF00';
+                            e.currentTarget.style.color = '#000';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = '#000';
+                            e.currentTarget.style.color = '#fff';
+                          }}
+                        >
+                          Show More ({alternatives.length - alternativesLimit} remaining)
+                        </button>
+                        <p style={{
+                          marginTop: '1rem',
+                          fontFamily: "'Courier New', monospace",
+                          textAlign: 'center',
+                          color: '#666',
+                          fontSize: '0.9rem'
+                        }}>
+                          Showing {alternativesLimit} of {alternatives.length} alternatives
+                        </p>
+                      </div>
                     )}
                   </div>
                 )}
