@@ -3,7 +3,6 @@ import { readFileSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import chatService from './ai-chat-service.js';
-import { getAnalytics } from './chat-analytics.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,6 +11,20 @@ const __dirname = dirname(__filename);
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const ADMIN_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const BASE_URL = process.env.BASE_URL || 'https://aiplatformslist.com';
+
+// Helper function to fetch analytics from main service
+async function fetchAnalytics() {
+  try {
+    const response = await fetch(`${BASE_URL}/api/chat/analytics`);
+    if (!response.ok) {
+      throw new Error(`API returned ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('[Analytics] Fetch error:', error);
+    return null;
+  }
+}
 
 if (!BOT_TOKEN) {
   console.error('❌ TELEGRAM_BOT_TOKEN is required!');
@@ -528,7 +541,7 @@ bot.onText(/\/stats/, (msg) => {
 });
 
 // /analytics command (admin only) - Website chatbot analytics
-bot.onText(/\/analytics/, (msg) => {
+bot.onText(/\/analytics/, async (msg) => {
   const chatId = msg.chat.id;
 
   if (chatId.toString() !== ADMIN_CHAT_ID) {
@@ -537,7 +550,7 @@ bot.onText(/\/analytics/, (msg) => {
   }
 
   try {
-    const analytics = getAnalytics();
+    const analytics = await fetchAnalytics();
 
     if (!analytics || !analytics.summary) {
       bot.sendMessage(chatId, '❌ No analytics data available yet.');
@@ -595,7 +608,7 @@ bot.onText(/\/analytics/, (msg) => {
 });
 
 // /analytics_detail command (admin only) - Detailed analytics
-bot.onText(/\/analytics_detail/, (msg) => {
+bot.onText(/\/analytics_detail/, async (msg) => {
   const chatId = msg.chat.id;
 
   if (chatId.toString() !== ADMIN_CHAT_ID) {
@@ -604,7 +617,7 @@ bot.onText(/\/analytics_detail/, (msg) => {
   }
 
   try {
-    const analytics = getAnalytics();
+    const analytics = await fetchAnalytics();
 
     if (!analytics) {
       bot.sendMessage(chatId, '❌ No analytics data available yet.');
