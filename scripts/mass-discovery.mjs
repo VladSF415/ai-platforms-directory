@@ -102,7 +102,7 @@ async function callDeepSeek(prompt) {
         model: 'deepseek-chat',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.8, // Higher creativity for diverse results
-        max_tokens: 4000
+        max_tokens: 8000 // Increased to prevent truncation
       })
     });
 
@@ -236,15 +236,41 @@ IMPORTANT: Each platform must be UNIQUE - different name AND different domain!`;
 
   try {
     let jsonText = response;
-    const jsonMatch = response.match(/\[[\s\S]*\]/);
-    if (jsonMatch) jsonText = jsonMatch[0];
+
+    // Extract JSON array - try multiple patterns
+    let jsonMatch = response.match(/\[[\s\S]*\]/);
+    if (jsonMatch) {
+      jsonText = jsonMatch[0];
+    } else {
+      // Try to find start of array
+      const arrayStart = response.indexOf('[');
+      if (arrayStart !== -1) {
+        jsonText = response.substring(arrayStart);
+        // Try to fix incomplete JSON by finding last complete object
+        const lastCompleteObj = jsonText.lastIndexOf('}');
+        if (lastCompleteObj !== -1) {
+          jsonText = jsonText.substring(0, lastCompleteObj + 1);
+          // Ensure array is closed
+          if (!jsonText.endsWith(']')) {
+            jsonText += ']';
+          }
+        }
+      }
+    }
 
     const discovered = JSON.parse(jsonText);
-    console.log(`  Batch ${batchNum}: Received ${discovered.length} platforms from AI`);
+    if (!Array.isArray(discovered)) {
+      console.error(`  Batch ${batchNum}: Response is not an array`);
+      return [];
+    }
 
+    console.log(`  Batch ${batchNum}: Received ${discovered.length} platforms from AI`);
     return discovered;
   } catch (error) {
     console.error(`  Batch ${batchNum}: Failed to parse response:`, error.message);
+    if (CONFIG.verbose) {
+      console.error('  Response preview:', response?.substring(0, 500));
+    }
     return [];
   }
 }
