@@ -86,7 +86,7 @@ export default function Navigation() {
     closeMenu();
     // If already on home page, just scroll
     if (window.location.pathname === '/') {
-      const el = document.getElementById('categories');
+      const el = document.getElementById('all-categories');
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -94,7 +94,7 @@ export default function Navigation() {
       // Navigate to home then scroll
       navigate('/');
       setTimeout(() => {
-        const el = document.getElementById('categories');
+        const el = document.getElementById('all-categories');
         if (el) {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
