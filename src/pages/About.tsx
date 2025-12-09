@@ -66,26 +66,112 @@ export default function About() {
 
             <section>
               <h2>Our Categories</h2>
-              <p>We organize AI tools into intuitive categories to help you find exactly what you need:</p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-                <ul style={{ margin: 0 }}>
-                  <li>Writing & Content</li>
-                  <li>Code & Development</li>
-                  <li>Image Generation</li>
-                  <li>Video Creation</li>
-                </ul>
-                <ul style={{ margin: 0 }}>
-                  <li>Voice & Audio</li>
-                  <li>Chat & Assistants</li>
-                  <li>Data & Analytics</li>
-                  <li>Marketing & SEO</li>
-                </ul>
-                <ul style={{ margin: 0 }}>
-                  <li>Design & Graphics</li>
-                  <li>Productivity</li>
-                  <li>Education</li>
-                  <li>And many more...</li>
-                </ul>
+              <p>We organize AI tools into intuitive categories to help you find exactly what you need. Each category features in-depth guides, comparisons, and curated tool selections:</p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
+                <div style={{ border: '3px solid #000', padding: '20px', background: '#fff' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🤖 Large Language Models (LLMs)</h3>
+                  <p style={{ lineHeight: '1.6', marginBottom: '10px' }}>
+                    Discover powerful language models like ChatGPT, Claude, GPT-4, and open-source alternatives. Compare capabilities,
+                    pricing, and use cases for content generation, coding, research, and conversational AI.
+                  </p>
+                  <Link to="/category/llms" style={{ color: '#000', textDecoration: 'underline', fontWeight: '900', textDecorationThickness: '2px' }}>
+                    Explore LLMs →
+                  </Link>
+                </div>
+
+                <div style={{ border: '3px solid #000', padding: '20px', background: '#fff' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>✨ Generative AI Tools</h3>
+                  <p style={{ lineHeight: '1.6', marginBottom: '10px' }}>
+                    Explore cutting-edge generative AI platforms for creating text, images, videos, and audio. From Midjourney and DALL-E
+                    to music generators and video synthesis tools.
+                  </p>
+                  <Link to="/category/generative-ai" style={{ color: '#000', textDecoration: 'underline', fontWeight: '900', textDecorationThickness: '2px' }}>
+                    Explore Generative AI →
+                  </Link>
+                </div>
+
+                <div style={{ border: '3px solid #000', padding: '20px', background: '#fff' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>💻 Code AI Assistants</h3>
+                  <p style={{ lineHeight: '1.6', marginBottom: '10px' }}>
+                    Find the best AI coding tools including GitHub Copilot alternatives, code completion, debugging assistants, and
+                    automated testing platforms to boost developer productivity.
+                  </p>
+                  <Link to="/category/code-ai" style={{ color: '#000', textDecoration: 'underline', fontWeight: '900', textDecorationThickness: '2px' }}>
+                    Explore Code AI →
+                  </Link>
+                </div>
+
+                <div style={{ border: '3px solid #000', padding: '20px', background: '#fff' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>👁️ Computer Vision</h3>
+                  <p style={{ lineHeight: '1.6', marginBottom: '10px' }}>
+                    Access advanced computer vision platforms for object detection, facial recognition, image classification, OCR, and
+                    visual AI applications across industries.
+                  </p>
+                  <Link to="/category/computer-vision" style={{ color: '#000', textDecoration: 'underline', fontWeight: '900', textDecorationThickness: '2px' }}>
+                    Explore Computer Vision →
+                  </Link>
+                </div>
+
+                <div style={{ border: '3px solid #000', padding: '20px', background: '#fff' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>📝 Natural Language Processing</h3>
+                  <p style={{ lineHeight: '1.6', marginBottom: '10px' }}>
+                    Discover NLP tools for text analysis, sentiment detection, entity extraction, translation, summarization, and
+                    language understanding capabilities.
+                  </p>
+                  <Link to="/category/nlp" style={{ color: '#000', textDecoration: 'underline', fontWeight: '900', textDecorationThickness: '2px' }}>
+                    Explore NLP →
+                  </Link>
+                </div>
+
+                <div style={{ border: '3px solid #000', padding: '20px', background: '#fff' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🎨 Image Generation</h3>
+                  <p style={{ lineHeight: '1.6', marginBottom: '10px' }}>
+                    Compare the best AI image generators from text-to-image tools like Midjourney and DALL-E to specialized art AI platforms.
+                  </p>
+                  <Link to="/category/image-generation" style={{ color: '#000', textDecoration: 'underline', fontWeight: '900', textDecorationThickness: '2px' }}>
+                    Explore Image Generation →
+                  </Link>
+                </div>
+
+                <div style={{ border: '3px solid #000', padding: '20px', background: '#fff' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🎬 Video & Audio AI</h3>
+                  <p style={{ lineHeight: '1.6', marginBottom: '10px' }}>
+                    Find AI video editing, generation, and image creation tools. From text-to-video platforms to AI-powered editing
+                    suites and audio synthesis software.
+                  </p>
+                  <Link to="/category/video-ai" style={{ color: '#000', textDecoration: 'underline', fontWeight: '900', textDecorationThickness: '2px' }}>
+                    Explore Video AI →
+                  </Link>
+                </div>
+
+                <div style={{ border: '3px solid #000', padding: '20px', background: '#fff' }}>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>📊 Analytics & BI</h3>
+                  <p style={{ lineHeight: '1.6', marginBottom: '10px' }}>
+                    Discover AI-powered analytics and business intelligence tools for data analysis, visualization, and automated insights
+                    that drive better decisions.
+                  </p>
+                  <Link to="/category/analytics-bi" style={{ color: '#000', textDecoration: 'underline', fontWeight: '900', textDecorationThickness: '2px' }}>
+                    Explore Analytics →
+                  </Link>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+                <Link to="/" style={{
+                  display: 'inline-block',
+                  padding: '14px 28px',
+                  background: '#000',
+                  color: '#fff',
+                  textDecoration: 'none',
+                  fontFamily: "'Courier New', monospace",
+                  fontWeight: '900',
+                  fontSize: '14px',
+                  textTransform: 'uppercase',
+                  border: '4px solid #000'
+                }}>
+                  View All Categories →
+                </Link>
               </div>
             </section>
 

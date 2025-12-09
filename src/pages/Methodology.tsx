@@ -181,6 +181,92 @@ export default function Methodology() {
               <li><strong>Correction policy:</strong> Errors are corrected promptly with notation</li>
             </ul>
 
+            <h2>How to Use This Directory to Choose AI Tools</h2>
+            <p>
+              Beyond our curation, here's a framework for making the right choice for your specific needs:
+            </p>
+
+            <div style={{
+              background: '#f5f5f5',
+              border: '4px solid #000',
+              padding: '2rem',
+              marginBottom: '2rem',
+              marginTop: '1.5rem'
+            }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px', marginTop: 0 }}>Step 1: Define Your Use Case</h3>
+              <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+                Start by clearly identifying what you need the AI tool to accomplish. Are you looking for content creation, code assistance,
+                data analysis, or automation? Different tools excel at different tasks.
+              </p>
+              <p style={{ lineHeight: '1.6', marginBottom: '0' }}>
+                <strong>Questions to ask:</strong> What problem am I solving? What's my primary workflow? What outputs do I need?
+              </p>
+            </div>
+
+            <div style={{
+              background: '#f5f5f5',
+              border: '4px solid #000',
+              padding: '2rem',
+              marginBottom: '2rem'
+            }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px', marginTop: 0 }}>Step 2: Consider Pricing & Budget</h3>
+              <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+                AI platforms range from free tools to enterprise solutions costing thousands per month. Compare pricing tiers, free trials,
+                and what features are included at each level. Many tools offer freemium models with generous free tiers.
+              </p>
+              <p style={{ lineHeight: '1.6', marginBottom: '0' }}>
+                <strong>Pro tip:</strong> Calculate cost per use, not just monthly fees. A $20/month tool you use daily may be cheaper than a $5/month tool with usage limits.
+              </p>
+            </div>
+
+            <div style={{
+              background: '#f5f5f5',
+              border: '4px solid #000',
+              padding: '2rem',
+              marginBottom: '2rem'
+            }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px', marginTop: 0 }}>Step 3: Evaluate Integration Capabilities</h3>
+              <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+                Check if the AI tool integrates with your existing workflow, tech stack, and favorite applications. API access, SDKs,
+                and pre-built integrations can save significant implementation time.
+              </p>
+              <p style={{ lineHeight: '1.6', marginBottom: '0' }}>
+                <strong>Key considerations:</strong> Does it have an API? SDKs for your programming language? Zapier/Make.com integrations? Native app integrations?
+              </p>
+            </div>
+
+            <div style={{
+              background: '#f5f5f5',
+              border: '4px solid #000',
+              padding: '2rem',
+              marginBottom: '2rem'
+            }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px', marginTop: 0 }}>Step 4: Review Performance & Quality</h3>
+              <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+                Test output quality, speed, accuracy, and reliability. Read user reviews, compare benchmarks, and try free trials before
+                committing to paid plans. Different models have different strengths.
+              </p>
+              <p style={{ lineHeight: '1.6', marginBottom: '0' }}>
+                <strong>Testing checklist:</strong> Run the same prompts across platforms. Check output quality. Measure response times. Test edge cases. Read recent reviews.
+              </p>
+            </div>
+
+            <div style={{
+              background: '#f5f5f5',
+              border: '4px solid #000',
+              padding: '2rem',
+              marginBottom: '2rem'
+            }}>
+              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px', marginTop: 0 }}>Step 5: Check Support & Documentation</h3>
+              <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
+                Ensure the platform offers adequate documentation, tutorials, customer support, and community resources. Good support
+                can make the difference between success and frustration.
+              </p>
+              <p style={{ lineHeight: '1.6', marginBottom: '0' }}>
+                <strong>Support essentials:</strong> Comprehensive docs? Active community forum? Responsive support team? Regular updates and changelogs?
+              </p>
+            </div>
+
             <h2>Limitations & Disclosure</h2>
             <p>
               We believe in transparency about our methodology's limitations:

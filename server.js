@@ -248,7 +248,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // API Routes
 fastify.get('/api/platforms', async (request, reply) => {
-  const { category, search, featured, limit = 1000, offset = 0 } = request.query;
+  const { category, search, featured, limit = 1000, offset = 0, sort, order = 'desc' } = request.query;
 
   let filtered = platforms;
 
@@ -270,6 +270,38 @@ fastify.get('/api/platforms', async (request, reply) => {
       p.description?.toLowerCase().includes(searchLower) ||
       p.tags?.some(t => t.toLowerCase().includes(searchLower))
     );
+  }
+
+  // Sorting
+  if (sort) {
+    filtered = filtered.sort((a, b) => {
+      let aVal = a[sort];
+      let bVal = b[sort];
+
+      // Handle created_at / added_date fields
+      if (sort === 'created_at' || sort === 'added_date') {
+        aVal = new Date(a.added_date || a.created_at || 0).getTime();
+        bVal = new Date(b.added_date || b.created_at || 0).getTime();
+      }
+
+      // Handle rating/numeric fields
+      if (sort === 'rating' || sort === 'clicks') {
+        aVal = parseFloat(aVal) || 0;
+        bVal = parseFloat(bVal) || 0;
+      }
+
+      // Handle string fields
+      if (typeof aVal === 'string') {
+        aVal = aVal.toLowerCase();
+        bVal = (bVal || '').toLowerCase();
+      }
+
+      if (order === 'asc') {
+        return aVal > bVal ? 1 : aVal < bVal ? -1 : 0;
+      } else {
+        return aVal < bVal ? 1 : aVal > bVal ? -1 : 0;
+      }
+    });
   }
 
   // Pagination
@@ -750,6 +782,22 @@ fastify.get('/sitemap.xml', async (request, reply) => {
   sitemap += `    <lastmod>${today}</lastmod>\n`;
   sitemap += '    <changefreq>monthly</changefreq>\n';
   sitemap += '    <priority>0.6</priority>\n';
+  sitemap += '  </url>\n';
+
+  // Guides page
+  sitemap += '  <url>\n';
+  sitemap += `    <loc>${baseUrl}/guides</loc>\n`;
+  sitemap += `    <lastmod>${today}</lastmod>\n`;
+  sitemap += '    <changefreq>weekly</changefreq>\n';
+  sitemap += '    <priority>0.8</priority>\n';
+  sitemap += '  </url>\n';
+
+  // Methodology page
+  sitemap += '  <url>\n';
+  sitemap += `    <loc>${baseUrl}/methodology</loc>\n`;
+  sitemap += `    <lastmod>${today}</lastmod>\n`;
+  sitemap += '    <changefreq>monthly</changefreq>\n';
+  sitemap += '    <priority>0.7</priority>\n';
   sitemap += '  </url>\n';
 
   // Category pages

@@ -5,11 +5,38 @@ import { analytics } from '../utils/analytics';
 import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
 import { SocialMetaTags } from '../components/SocialMetaTags';
 
+// Category icon mapping
+const categoryIcons: Record<string, string> = {
+  'llms': '🤖',
+  'generative-ai': '✨',
+  'code-ai': '💻',
+  'computer-vision': '👁️',
+  'nlp': '📝',
+  'image-generation': '🎨',
+  'video-ai': '🎬',
+  'video-generation': '📹',
+  'analytics-bi': '📊',
+  'ml-frameworks': '🔧',
+  'agent-platforms': '🤝',
+  'search-ai': '🔍',
+  'audio-ai': '🎵',
+  'workflow-automation': '⚙️',
+  'enterprise-ai-platforms': '🏢',
+  'healthcare-ai': '⚕️',
+  'legal-ai': '⚖️',
+  'data-governance': '🔐',
+  'llm-ops': '🛠️',
+  'marketplace-ai': '🏪',
+  'website-ai': '🌐',
+};
+
 function Home() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [platforms, setPlatforms] = useState<Platform[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [featuredPlatforms, setFeaturedPlatforms] = useState<Platform[]>([]);
+  const [recentPlatforms, setRecentPlatforms] = useState<Platform[]>([]);
   const [loading, setLoading] = useState(true);
   const search = searchParams.get('search') || '';
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -21,6 +48,8 @@ function Home() {
   useEffect(() => {
     fetchPlatforms();
     fetchCategories();
+    fetchFeaturedPlatforms();
+    fetchRecentPlatforms();
   }, [selectedCategory, search, showFeatured]);
 
   // Auto-scroll to results when search is active
@@ -93,12 +122,32 @@ function Home() {
     }
   };
 
+  const fetchFeaturedPlatforms = async () => {
+    try {
+      const response = await fetch('/api/platforms?featured=true&limit=8');
+      const data = await response.json();
+      setFeaturedPlatforms(data.platforms);
+    } catch (error) {
+      console.error('Failed to fetch featured platforms:', error);
+    }
+  };
+
+  const fetchRecentPlatforms = async () => {
+    try {
+      const response = await fetch('/api/platforms?limit=6&sort=created_at&order=desc');
+      const data = await response.json();
+      setRecentPlatforms(data.platforms);
+    } catch (error) {
+      console.error('Failed to fetch recent platforms:', error);
+    }
+  };
+
   const handlePlatformClick = (platform: Platform) => {
     // Navigate to platform detail page
     navigate(`/platform/${platform.slug || platform.id}`);
   };
 
-  // FAQ data for schema
+  // Condensed FAQ data
   const faqs = [
     {
       question: 'What is the best AI tool in 2025?',
@@ -113,24 +162,8 @@ function Home() {
       answer: 'Consider these factors: (1) Your specific use case and requirements, (2) Pricing and budget constraints, (3) Integration capabilities with your existing tools, (4) Output quality and performance benchmarks, (5) API access and customization options, (6) Support and documentation quality. Try free trials when available to test before committing.'
     },
     {
-      question: 'What are LLMs (Large Language Models)?',
-      answer: 'Large Language Models (LLMs) are AI systems trained on vast amounts of text data to understand and generate human-like text. Examples include ChatGPT (GPT-4), Claude, Gemini, and LLaMA. They excel at tasks like content creation, code generation, question answering, translation, and conversational AI. Our directory features 30+ LLM platforms with detailed comparisons.'
-    },
-    {
       question: 'Can I submit my AI tool to this directory?',
       answer: 'Yes! We accept AI tool submissions from developers and companies. Click the "Submit Your AI Tool" button to add your platform. Basic listings are $49, with featured placement options available starting at $99/month. All submissions are reviewed before going live.'
-    },
-    {
-      question: 'How often is the directory updated?',
-      answer: 'Our directory is updated daily through an automated discovery system powered by DeepSeek AI. We continuously monitor for new AI platforms, pricing changes, and feature updates. Platform information is verified and enriched with detailed descriptions, use cases, and pricing details.'
-    },
-    {
-      question: 'What categories of AI tools do you cover?',
-      answer: `We cover ${categories.length}+ categories including: Large Language Models (LLMs), Generative AI, Code AI Assistants, Computer Vision, Natural Language Processing (NLP), Image Generation, Video AI, Machine Learning Frameworks, Analytics & BI, Agent Platforms, and more. Each category has dedicated landing pages with comprehensive guides.`
-    },
-    {
-      question: 'Are the AI tools on this site affiliate links?',
-      answer: 'Some platforms in our directory participate in affiliate programs, which helps us maintain and improve the service. We only list AI tools based on their quality and usefulness, regardless of affiliate status. Affiliate participation does not influence our curation or recommendations.'
     }
   ];
 
@@ -147,6 +180,7 @@ function Home() {
       {/* FAQ Schema for SEO */}
       <FAQSchema faqs={faqs} />
 
+      {/* Hero Section */}
       <div className="container" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '-2px', color: '#000000' }}>
@@ -154,8 +188,7 @@ function Home() {
           </h1>
           <p style={{ fontSize: '1.1rem', fontWeight: '700', maxWidth: '900px', margin: '0 auto 30px', color: '#000000', lineHeight: '1.6' }}>
             THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,
-            PRICING, AND REVIEWS ACROSS {categories.length}+ CATEGORIES INCLUDING LLMS, GENERATIVE AI,
-            CODE ASSISTANTS, COMPUTER VISION, NLP, AND MORE.
+            PRICING, AND REVIEWS ACROSS {categories.length}+ CATEGORIES.
           </p>
           <a href="/submit" className="submit-btn">
             SUBMIT YOUR AI TOOL
@@ -163,110 +196,243 @@ function Home() {
         </div>
       </div>
 
-      {/* SEO Content Section */}
+      {/* Visual Category Grid - Immediately accessible */}
+      <div className="container" style={{ marginBottom: '60px' }}>
+        <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900', textAlign: 'center' }}>
+          Browse by Category
+        </h2>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '20px',
+          marginBottom: '20px'
+        }}>
+          {categories.slice(0, 12).map((category) => (
+            <div
+              key={category.slug}
+              onClick={() => navigate(`/category/${category.slug}`)}
+              style={{
+                border: '4px solid #000',
+                padding: '24px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                background: '#fff',
+                textAlign: 'center'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ fontSize: '48px', marginBottom: '12px' }}>
+                {categoryIcons[category.slug] || '⚡'}
+              </div>
+              <h3 style={{
+                fontSize: '18px',
+                fontWeight: '900',
+                marginBottom: '8px',
+                textTransform: 'uppercase',
+                fontFamily: "'Courier New', monospace"
+              }}>
+                {category.name}
+              </h3>
+              <div style={{
+                fontSize: '14px',
+                fontWeight: '700',
+                color: '#666',
+                fontFamily: "'Courier New', monospace"
+              }}>
+                {category.count} tools
+              </div>
+            </div>
+          ))}
+        </div>
+        {categories.length > 12 && (
+          <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <button
+              onClick={() => {
+                const el = document.getElementById('all-categories');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+              style={{
+                padding: '14px 28px',
+                background: '#000',
+                color: '#fff',
+                border: '4px solid #000',
+                fontFamily: "'Courier New', monospace",
+                fontWeight: '900',
+                fontSize: '14px',
+                textTransform: 'uppercase',
+                cursor: 'pointer'
+              }}
+            >
+              View All {categories.length} Categories →
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Featured Platforms Section */}
+      {featuredPlatforms.length > 0 && (
+        <div style={{ background: '#f5f5f5', padding: '60px 0', marginBottom: '60px' }}>
+          <div className="container">
+            <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
+              ⭐ Featured AI Tools
+            </h2>
+            <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
+              Top-rated platforms trusted by thousands of users
+            </p>
+
+            <div className="platforms-grid">
+              {featuredPlatforms.map((platform) => (
+                <div
+                  key={platform.id}
+                  className="platform-card"
+                  onClick={() => handlePlatformClick(platform)}
+                >
+                  <div className="platform-header">
+                    <div>
+                      <div className="platform-name">{platform.name}</div>
+                    </div>
+                    <div className="platform-badges">
+                      <span className="badge featured">⭐ Featured</span>
+                      {platform.verified && (
+                        <span className="badge verified">✓ Verified</span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="platform-description">
+                    {platform.description}
+                  </div>
+
+                  {platform.tags && platform.tags.length > 0 && (
+                    <div className="platform-tags">
+                      {platform.tags.slice(0, 3).map((tag, i) => (
+                        <span key={i} className="tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="platform-footer">
+                    <div>
+                      {platform.rating && (
+                        <div className="rating">
+                          ★ {platform.rating.toFixed(1)}
+                        </div>
+                      )}
+                      {platform.pricing && (
+                        <div className="platform-pricing">
+                          {platform.pricing}
+                        </div>
+                      )}
+                    </div>
+                    <button
+                      className="visit-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePlatformClick(platform);
+                      }}
+                    >
+                      Visit →
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Recently Added Section */}
+      {recentPlatforms.length > 0 && (
+        <div className="container" style={{ marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
+            🆕 Recently Added
+          </h2>
+          <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
+            Discover the latest AI tools added to our directory
+          </p>
+
+          <div className="platforms-grid">
+            {recentPlatforms.map((platform) => (
+              <div
+                key={platform.id}
+                className="platform-card"
+                onClick={() => handlePlatformClick(platform)}
+              >
+                <div className="platform-header">
+                  <div>
+                    <div className="platform-name">{platform.name}</div>
+                  </div>
+                  <div className="platform-badges">
+                    {platform.featured && (
+                      <span className="badge featured">⭐ Featured</span>
+                    )}
+                    {platform.verified && (
+                      <span className="badge verified">✓ Verified</span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="platform-description">
+                  {platform.description}
+                </div>
+
+                {platform.tags && platform.tags.length > 0 && (
+                  <div className="platform-tags">
+                    {platform.tags.slice(0, 3).map((tag, i) => (
+                      <span key={i} className="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="platform-footer">
+                  <div>
+                    {platform.rating && (
+                      <div className="rating">
+                        ★ {platform.rating.toFixed(1)}
+                      </div>
+                    )}
+                    {platform.pricing && (
+                      <div className="platform-pricing">
+                        {platform.pricing}
+                      </div>
+                    )}
+                  </div>
+                  <button
+                    className="visit-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePlatformClick(platform);
+                    }}
+                  >
+                    Visit →
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Condensed SEO Content Section */}
       <div className="container seo-content-section" style={{ maxWidth: '1200px', margin: '60px auto', padding: '0 20px' }}>
         <section style={{ marginBottom: '60px' }}>
           <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
             What is an AI Platform Directory?
           </h2>
           <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px' }}>
-            An AI platform directory is a curated collection of artificial intelligence tools, software, and services designed to help
-            businesses, developers, and individuals discover the right AI solutions for their needs. Our directory features {totalPlatforms}+
-            AI platforms across {categories.length}+ specialized categories, from large language models (LLMs) and generative AI to computer
-            vision, natural language processing, and code assistants.
+            An AI platform directory is a curated collection of artificial intelligence tools designed to help
+            businesses, developers, and individuals discover the right AI solutions. Our directory features {totalPlatforms}+
+            AI platforms across {categories.length}+ specialized categories, from large language models (LLMs) to computer
+            vision and code assistants. Whether you're looking for ChatGPT alternatives, AI image generators, or business intelligence tools,
+            our comprehensive database provides detailed information on features, pricing, and user reviews.
           </p>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px' }}>
-            Whether you're looking for the best ChatGPT alternatives, AI image generators, coding assistants, or business intelligence tools,
-            our comprehensive database provides detailed information on features, pricing, use cases, and user reviews. Each platform listing
-            includes direct links, pricing information, and comparisons to help you make informed decisions.
-          </p>
-        </section>
-
-        <section style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
-            Top AI Tool Categories
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '20px' }}>
-            <div>
-              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🤖 Large Language Models (LLMs)</h3>
-              <p style={{ lineHeight: '1.6' }}>
-                Discover powerful language models like ChatGPT, Claude, GPT-4, and open-source alternatives. Compare capabilities,
-                pricing, and use cases for content generation, coding, research, and conversational AI.
-              </p>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🎨 Generative AI Tools</h3>
-              <p style={{ lineHeight: '1.6' }}>
-                Explore cutting-edge generative AI platforms for creating text, images, videos, and audio. From Midjourney and DALL-E
-                to music generators and video synthesis tools.
-              </p>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>💻 Code AI Assistants</h3>
-              <p style={{ lineHeight: '1.6' }}>
-                Find the best AI coding tools including GitHub Copilot alternatives, code completion, debugging assistants, and
-                automated testing platforms to boost developer productivity.
-              </p>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>👁️ Computer Vision</h3>
-              <p style={{ lineHeight: '1.6' }}>
-                Access advanced computer vision platforms for object detection, facial recognition, image classification, OCR, and
-                visual AI applications across industries.
-              </p>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>📝 Natural Language Processing</h3>
-              <p style={{ lineHeight: '1.6' }}>
-                Discover NLP tools for text analysis, sentiment detection, entity extraction, translation, summarization, and
-                language understanding capabilities.
-              </p>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '10px' }}>🎬 Video & Image AI</h3>
-              <p style={{ lineHeight: '1.6' }}>
-                Find AI video editing, generation, and image creation tools. From text-to-video platforms to AI-powered editing
-                suites and image enhancement software.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
-            How to Choose the Right AI Tool
-          </h2>
-          <div style={{ background: '#f5f5f5', border: '4px solid #000', padding: '30px', marginBottom: '20px' }}>
-            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>1. Define Your Use Case</h3>
-            <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
-              Start by clearly identifying what you need the AI tool to accomplish. Are you looking for content creation, code assistance,
-              data analysis, or automation? Different tools excel at different tasks.
-            </p>
-
-            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>2. Consider Pricing & Budget</h3>
-            <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
-              AI platforms range from free tools to enterprise solutions costing thousands per month. Compare pricing tiers, free trials,
-              and what features are included at each level. Many tools offer freemium models with generous free tiers.
-            </p>
-
-            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>3. Evaluate Integration Capabilities</h3>
-            <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
-              Check if the AI tool integrates with your existing workflow, tech stack, and favorite applications. API access, SDKs,
-              and pre-built integrations can save significant implementation time.
-            </p>
-
-            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>4. Review Performance & Quality</h3>
-            <p style={{ lineHeight: '1.6', marginBottom: '20px' }}>
-              Test output quality, speed, accuracy, and reliability. Read user reviews, compare benchmarks, and try free trials before
-              committing to paid plans. Different models have different strengths.
-            </p>
-
-            <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '15px' }}>5. Check Support & Documentation</h3>
-            <p style={{ lineHeight: '1.6' }}>
-              Ensure the platform offers adequate documentation, tutorials, customer support, and community resources. Good support
-              can make the difference between success and frustration.
-            </p>
-          </div>
         </section>
 
         <section style={{ marginBottom: '60px' }}>
@@ -305,6 +471,7 @@ function Home() {
           </div>
         </section>
 
+        {/* FAQ Section */}
         <section style={{ marginBottom: '60px' }}>
           <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900' }}>
             Frequently Asked Questions
@@ -313,21 +480,21 @@ function Home() {
         </section>
 
         {/* Featured Guides Section */}
-        <section style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
-            Featured AI Guides
-          </h2>
-          <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
-            In-depth guides to help you master AI tools and make informed decisions
-          </p>
+        {pillarPages.length > 0 && (
+          <section style={{ marginBottom: '60px' }}>
+            <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
+              📚 Featured AI Guides
+            </h2>
+            <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
+              In-depth guides to help you master AI tools and make informed decisions
+            </p>
 
-          {pillarPages.length > 0 && (
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
               gap: '20px'
             }}>
-              {pillarPages.map((guide) => (
+              {pillarPages.slice(0, 6).map((guide) => (
                 <div
                   key={guide.slug}
                   onClick={() => navigate(`/guide/${guide.slug}`)}
@@ -375,11 +542,32 @@ function Home() {
                 </div>
               ))}
             </div>
-          )}
-        </section>
+            {pillarPages.length > 6 && (
+              <div style={{ textAlign: 'center', marginTop: '30px' }}>
+                <button
+                  onClick={() => navigate('/guides')}
+                  style={{
+                    padding: '14px 28px',
+                    background: '#000',
+                    color: '#fff',
+                    border: '4px solid #000',
+                    fontFamily: "'Courier New', monospace",
+                    fontWeight: '900',
+                    fontSize: '14px',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer'
+                  }}
+                >
+                  View All Guides →
+                </button>
+              </div>
+            )}
+          </section>
+        )}
       </div>
 
-      <div className="container" ref={resultsRef}>
+      {/* All Platforms Section */}
+      <div className="container" ref={resultsRef} id="all-categories">
         {search ? (
           <div style={{
             display: 'flex',
@@ -433,7 +621,7 @@ function Home() {
           </h2>
         )}
 
-        <div id="categories" className="filters">
+        <div className="filters">
           <button
             className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
             onClick={() => setSelectedCategory('all')}
