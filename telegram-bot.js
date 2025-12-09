@@ -550,17 +550,23 @@ bot.onText(/\/analytics/, async (msg) => {
   }
 
   try {
+    // Send "loading" message
+    const loadingMsg = await bot.sendMessage(chatId, '⏳ Fetching analytics...');
+
     const analytics = await fetchAnalytics();
 
     if (!analytics || !analytics.summary) {
-      bot.sendMessage(chatId, '❌ No analytics data available yet.');
+      bot.editMessageText('❌ No analytics data available yet.', {
+        chat_id: chatId,
+        message_id: loadingMsg.message_id
+      });
       return;
     }
 
     const today = new Date().toISOString().split('T')[0];
     const todayStats = analytics.today || { messages: 0, sessions: 0, platformsRecommended: 0 };
 
-    // Build summary message
+    // Build summary message (no markdown escaping for numbers)
     let message = `📊 *Website Chatbot Analytics*\n\n`;
     message += `*Total Stats:*\n`;
     message += `💬 Messages: ${analytics.summary.totalMessages}\n`;
@@ -568,10 +574,10 @@ bot.onText(/\/analytics/, async (msg) => {
     message += `✨ Unique Users: ${analytics.summary.uniqueSessions}\n`;
     message += `📈 Avg Messages/Session: ${analytics.summary.averageMessagesPerSession}\n\n`;
 
-    message += `*Today (${today}):*\n`;
+    message += `*Today \\(${escapeMarkdown(today)}\\):*\n`;
     message += `💬 Messages: ${todayStats.messages || 0}\n`;
     message += `👥 Sessions: ${todayStats.sessions || 0}\n`;
-    message += `🤖 Platforms Recommended: ${todayStats.platformsRecommended || 0}\n\n`;
+    message += `🤖 Platforms: ${todayStats.platformsRecommended || 0}\n\n`;
 
     // Top queries
     if (analytics.topQueries && analytics.topQueries.length > 0) {
@@ -580,30 +586,35 @@ bot.onText(/\/analytics/, async (msg) => {
         message += `${idx + 1}\\. ${escapeMarkdown(query.keyword)} \\(${query.count}\\)\n`;
       });
       message += `\n`;
+    } else {
+      message += `_No search queries yet_\n\n`;
     }
 
     // Intent distribution
     if (analytics.intentDistribution && analytics.intentDistribution.length > 0) {
       message += `*User Intent:*\n`;
       analytics.intentDistribution.forEach(intent => {
-        message += `${escapeMarkdown(intent.intent)}: ${intent.count}\n`;
+        message += `• ${escapeMarkdown(intent.intent)}: ${intent.count}\n`;
       });
       message += `\n`;
     }
 
     // Last 7 days
     if (analytics.last7Days && analytics.last7Days.length > 0) {
-      message += `*Last 7 Days:*\n`;
       const totalLast7Days = analytics.last7Days.reduce((sum, day) => sum + (day.messages || 0), 0);
-      message += `📊 Total Messages: ${totalLast7Days}\n`;
+      message += `*Last 7 Days:* ${totalLast7Days} messages\n\n`;
     }
 
-    message += `\n💡 Use /analytics\\_detail for more info`;
+    message += `💡 Use /analytics\\_detail for more info`;
 
-    bot.sendMessage(chatId, message, { parse_mode: 'MarkdownV2' });
+    // Delete loading message and send final message
+    await bot.deleteMessage(chatId, loadingMsg.message_id);
+    await bot.sendMessage(chatId, message, { parse_mode: 'MarkdownV2' });
+
   } catch (error) {
     console.error('[Analytics] Error:', error);
-    bot.sendMessage(chatId, '❌ Failed to retrieve analytics data.');
+    console.error('[Analytics] Error stack:', error.stack);
+    bot.sendMessage(chatId, `❌ Error: ${error.message}`);
   }
 });
 
