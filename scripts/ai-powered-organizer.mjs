@@ -296,18 +296,26 @@ Return ONLY valid JSON array:
     for (const newPlatform of newPlatforms) {
       let isDuplicate = false;
 
-      // Check against ALL existing platforms with fuzzy matching
+      // Check against ALL existing platforms with fuzzy matching AND URL-based detection
       for (const existing of platforms) {
         if (!existing.name) continue;
 
         const similarity = calculateSimilarity(newPlatform.name, existing.name);
-        const urlMatch = newPlatform.url && existing.url &&
-          (newPlatform.url.toLowerCase().includes(existing.url.split('/')[2]?.replace('www.', '')) ||
-           existing.url.toLowerCase().includes(newPlatform.url.split('/')[2]?.replace('www.', '')));
 
-        if (similarity >= 0.75 || urlMatch) {
+        // Enhanced URL-based duplicate detection
+        const newDomain = extractDomain(newPlatform.url);
+        const existingDomain = extractDomain(existing.url || existing.website);
+        const urlMatch = newDomain && existingDomain && newDomain === existingDomain;
+
+        if (similarity >= 0.75) {
           isDuplicate = true;
-          console.log(`  ⚠️  DUPLICATE DETECTED: "${newPlatform.name}" matches "${existing.name}" (${(similarity * 100).toFixed(0)}% similar)`);
+          console.log(`  ⚠️  DUPLICATE DETECTED (Name): "${newPlatform.name}" matches "${existing.name}" (${(similarity * 100).toFixed(0)}% similar)`);
+          break;
+        }
+
+        if (urlMatch) {
+          isDuplicate = true;
+          console.log(`  ⚠️  DUPLICATE DETECTED (URL): "${newPlatform.name}" has same domain as "${existing.name}" (${newDomain})`);
           break;
         }
       }
@@ -397,6 +405,17 @@ IMPORTANT:
   return null;
 }
 
+// Extract domain from URL for proper URL-based duplicate detection
+function extractDomain(url) {
+  if (!url) return null;
+  try {
+    const urlObj = new URL(url.startsWith('http') ? url : 'https://' + url);
+    return urlObj.hostname.replace('www.', '').toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
 // Enhanced fuzzy matching for better duplicate detection
 function calculateSimilarity(str1, str2) {
   const s1 = str1.toLowerCase().trim();
@@ -473,13 +492,10 @@ async function detectIntelligentDuplicates(platforms) {
       // Enhanced similarity check with fuzzy matching
       const nameSimilarity = calculateSimilarity(platform1.name, platform2.name);
 
-      // Check URL similarity
-      const url1 = platform1.url || platform1.website || '';
-      const url2 = platform2.url || platform2.website || '';
-      const urlSimilar = url1 && url2 && (
-        url1.includes(url2.split('/')[2]?.replace('www.', '')) ||
-        url2.includes(url1.split('/')[2]?.replace('www.', ''))
-      );
+      // Check URL similarity using domain extraction
+      const domain1 = extractDomain(platform1.url || platform1.website);
+      const domain2 = extractDomain(platform2.url || platform2.website);
+      const urlSimilar = domain1 && domain2 && domain1 === domain2;
 
       // Mark as similar if name similarity > 0.75 or URLs match
       if (nameSimilarity >= 0.75 || urlSimilar) {
