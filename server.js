@@ -6,10 +6,16 @@ import Stripe from 'stripe';
 import satori from 'satori';
 import sharp from 'sharp';
 import chatService from './ai-chat-service.js';
-import { trackChatInteraction, getAnalytics } from './chat-analytics.js';
 
-// Export getAnalytics for Telegram bot
-export { getAnalytics } from './chat-analytics.js';
+// Use database-based analytics if DATABASE_URL is set, otherwise fallback to file-based
+import { trackChatInteraction as trackDB, getAnalytics as getDB, initAnalyticsDB } from './db-analytics.js';
+import { trackChatInteraction as trackFile, getAnalytics as getFile } from './chat-analytics.js';
+
+const useDatabase = !!process.env.DATABASE_URL;
+console.log(`[Analytics] Using ${useDatabase ? 'PostgreSQL' : 'File-based'} storage`);
+
+export const trackChatInteraction = useDatabase ? trackDB : trackFile;
+export const getAnalytics = useDatabase ? getDB : getFile;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -1222,6 +1228,11 @@ if (process.env.NODE_ENV === 'production') {
 // Start server
 const start = async () => {
   try {
+    // Initialize database analytics if DATABASE_URL is set
+    if (useDatabase) {
+      await initAnalyticsDB();
+    }
+
     const port = process.env.PORT || 3001;
     await fastify.listen({ port, host: '0.0.0.0' });
     console.log(`🚀 AI Platforms Directory running on port ${port}`);
