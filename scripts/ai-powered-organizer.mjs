@@ -290,7 +290,36 @@ Return ONLY valid JSON array:
     const newPlatforms = JSON.parse(jsonText);
 
     console.log(`✨ Discovered ${newPlatforms.length} new platforms:\n`);
-    newPlatforms.forEach((p, i) => {
+
+    // PRE-CHECK: Filter out any duplicates before adding
+    const filteredPlatforms = [];
+    for (const newPlatform of newPlatforms) {
+      let isDuplicate = false;
+
+      // Check against ALL existing platforms with fuzzy matching
+      for (const existing of platforms) {
+        if (!existing.name) continue;
+
+        const similarity = calculateSimilarity(newPlatform.name, existing.name);
+        const urlMatch = newPlatform.url && existing.url &&
+          (newPlatform.url.toLowerCase().includes(existing.url.split('/')[2]?.replace('www.', '')) ||
+           existing.url.toLowerCase().includes(newPlatform.url.split('/')[2]?.replace('www.', '')));
+
+        if (similarity >= 0.75 || urlMatch) {
+          isDuplicate = true;
+          console.log(`  ⚠️  DUPLICATE DETECTED: "${newPlatform.name}" matches "${existing.name}" (${(similarity * 100).toFixed(0)}% similar)`);
+          break;
+        }
+      }
+
+      if (!isDuplicate) {
+        filteredPlatforms.push(newPlatform);
+      }
+    }
+
+    console.log(`\n📊 Duplicate check: ${newPlatforms.length} discovered → ${filteredPlatforms.length} unique\n`);
+
+    filteredPlatforms.forEach((p, i) => {
       console.log(`  ${i + 1}. ${p.name} (${p.category})`);
       console.log(`     ${p.description}`);
       console.log(`     URL: ${p.url}`);
@@ -300,7 +329,7 @@ Return ONLY valid JSON array:
       console.log();
     });
 
-    return newPlatforms;
+    return filteredPlatforms;
 
   } catch (error) {
     console.error('❌ Failed to parse AI response:', error.message);
@@ -368,33 +397,95 @@ IMPORTANT:
   return null;
 }
 
+// Enhanced fuzzy matching for better duplicate detection
+function calculateSimilarity(str1, str2) {
+  const s1 = str1.toLowerCase().trim();
+  const s2 = str2.toLowerCase().trim();
+
+  // Exact match
+  if (s1 === s2) return 1.0;
+
+  // One contains the other
+  if (s1.includes(s2) || s2.includes(s1)) return 0.9;
+
+  // Remove common words and check again
+  const commonWords = ['ai', 'the', 'platform', 'tool', 'app', 'software', 'api', 'by', 'for'];
+  const clean1 = s1.split(' ').filter(w => !commonWords.includes(w)).join(' ');
+  const clean2 = s2.split(' ').filter(w => !commonWords.includes(w)).join(' ');
+
+  if (clean1 === clean2) return 0.85;
+  if (clean1.includes(clean2) || clean2.includes(clean1)) return 0.8;
+
+  // Levenshtein distance for similar spellings
+  const maxLen = Math.max(s1.length, s2.length);
+  const distance = levenshteinDistance(s1, s2);
+  const similarity = 1 - (distance / maxLen);
+
+  return similarity;
+}
+
+function levenshteinDistance(str1, str2) {
+  const matrix = [];
+  for (let i = 0; i <= str2.length; i++) {
+    matrix[i] = [i];
+  }
+  for (let j = 0; j <= str1.length; j++) {
+    matrix[0][j] = j;
+  }
+  for (let i = 1; i <= str2.length; i++) {
+    for (let j = 1; j <= str1.length; j++) {
+      if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        );
+      }
+    }
+  }
+  return matrix[str2.length][str1.length];
+}
+
 // 3. INTELLIGENT DUPLICATE DETECTION
 async function detectIntelligentDuplicates(platforms) {
   console.log('🔍 Using AI to detect intelligent duplicates...\n');
 
-  // Group similar platforms
+  // Group similar platforms with enhanced fuzzy matching
   const groups = [];
   const processed = new Set();
 
-  for (let i = 0; i < platforms.length && groups.length < 10; i++) {
+  for (let i = 0; i < platforms.length && groups.length < 20; i++) {
     if (processed.has(i)) continue;
 
     const platform1 = platforms[i];
+    if (!platform1.name) continue;
+
     const similar = [platform1];
 
     for (let j = i + 1; j < platforms.length; j++) {
       if (processed.has(j)) continue;
 
       const platform2 = platforms[j];
+      if (!platform2.name) continue;
 
-      // Quick similarity check
-      const name1 = platform1.name.toLowerCase();
-      const name2 = platform2.name.toLowerCase();
+      // Enhanced similarity check with fuzzy matching
+      const nameSimilarity = calculateSimilarity(platform1.name, platform2.name);
 
-      if (name1.includes(name2) || name2.includes(name1) ||
-          (platform1.url && platform2.url && platform1.url.includes(platform2.url.split('/')[2]))) {
+      // Check URL similarity
+      const url1 = platform1.url || platform1.website || '';
+      const url2 = platform2.url || platform2.website || '';
+      const urlSimilar = url1 && url2 && (
+        url1.includes(url2.split('/')[2]?.replace('www.', '')) ||
+        url2.includes(url1.split('/')[2]?.replace('www.', ''))
+      );
+
+      // Mark as similar if name similarity > 0.75 or URLs match
+      if (nameSimilarity >= 0.75 || urlSimilar) {
         similar.push(platform2);
         processed.add(j);
+        console.log(`  📌 Found similar: "${platform1.name}" ≈ "${platform2.name}" (similarity: ${(nameSimilarity * 100).toFixed(0)}%)`);
       }
     }
 
