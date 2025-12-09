@@ -53,14 +53,19 @@ async function setupGitRepo() {
   try {
     execSync('git rev-parse --git-dir', execOptions);
     console.log('✅ Git repository already initialized');
+
+    // Ensure git user is configured
+    try {
+      execSync('git config user.email "ai-generator@aiplatformslist.com"', execOptions);
+      execSync('git config user.name "AI Content Generator"', execOptions);
+      console.log('✅ Git user configured');
+    } catch (e) {
+      // Ignore if already configured
+    }
+
     return true;
   } catch (e) {
     console.log('⚠️  No .git directory found, initializing git repo...');
-  }
-
-  if (!CONFIG.github_token) {
-    console.error('❌ GITHUB_TOKEN not set, cannot setup git repo');
-    return false;
   }
 
   try {
@@ -73,8 +78,16 @@ async function setupGitRepo() {
     execSync('git config user.name "AI Content Generator"', execOptions);
     console.log('✅ Git user configured');
 
-    // Add remote with token
-    const repoUrl = `https://x-access-token:${CONFIG.github_token}@github.com/${CONFIG.github_repo}.git`;
+    // Add remote (use HTTPS or SSH depending on what's available)
+    let repoUrl;
+    if (CONFIG.github_token) {
+      // Use token if available
+      repoUrl = `https://x-access-token:${CONFIG.github_token}@github.com/${CONFIG.github_repo}.git`;
+    } else {
+      // Use standard HTTPS URL (Railway might have git credentials configured)
+      repoUrl = `https://github.com/${CONFIG.github_repo}.git`;
+    }
+
     execSync(`git remote add origin "${repoUrl}"`, execOptions);
     console.log('✅ Remote added');
 
@@ -86,6 +99,7 @@ async function setupGitRepo() {
     return true;
   } catch (error) {
     console.error(`❌ Failed to setup git repo: ${error.message}`);
+    console.error(`   This is OK if running locally - git sync will be disabled`);
     return false;
   }
 }
@@ -410,11 +424,6 @@ function printSummary() {
 
 // Git sync - commit and push all changes to GitHub
 async function syncToGitHub() {
-  if (!CONFIG.github_token) {
-    log('GITHUB_TOKEN not set, skipping git sync', 'warning');
-    return false;
-  }
-
   log('📤 Syncing changes to GitHub...', 'info');
 
   const execOptions = {

@@ -160,11 +160,13 @@ async function discoverBatch(batchNum, platformsPerBatch) {
 
   const prompt = `You are discovering NEW AI platforms launched in 2024-2025.
 
-CRITICAL - AVOID THESE EXISTING PLATFORMS (${platforms.length} total):
-${existingNames.slice(0, 200).join(', ')}... and ${existingNames.length - 200} more
+CRITICAL - We already have ${platforms.length} platforms. DO NOT suggest duplicates!
 
-EXISTING DOMAINS TO SKIP:
-${Array.from(existingDomains).slice(0, 100).join(', ')}
+Sample existing platforms to avoid:
+${existingNames.slice(0, 50).join(', ')}... (and ${existingNames.length - 50} more)
+
+Sample existing domains to avoid:
+${Array.from(existingDomains).slice(0, 30).join(', ')}... (and ${Array.from(existingDomains).length - 30} more)
 
 CATEGORIES: ${categories.join(', ')}
 
