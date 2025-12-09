@@ -2,7 +2,7 @@ name: Mass Discovery Cron
 
 on:
   schedule:
-    # Run every 4 hours (6 times per day = 3000 platforms/day)
+    # Run every 4 hours (6 times per day = 1800 platforms/day)
     - cron: '0 */4 * * *'  # Every 4 hours
   workflow_dispatch:  # Allow manual trigger
 
@@ -36,7 +36,7 @@ jobs:
           echo "Current platforms: $BEFORE_COUNT"
 
           # Run mass discovery
-          node scripts/mass-discovery.mjs --batch=50 --batches=10 --workers=3
+          node scripts/mass-discovery.mjs --batch=25 --batches=12 --workers=3
 
           AFTER_COUNT=$(node -e "console.log(require('./platforms.json').length)")
           ADDED=$((AFTER_COUNT - BEFORE_COUNT))
