@@ -22,12 +22,19 @@ const CONFIG = {
 
   // Task configurations
   tasks: {
+    mass_discover: {
+      name: 'Mass Platform Discovery',
+      script: 'mass-discovery.mjs',
+      args: '--batch=50 --batches=10 --workers=3', // 500 platforms per run!
+      frequency: 'daily',
+      enabled: true
+    },
     discover: {
-      name: 'Platform Discovery',
+      name: 'Platform Discovery (Standard)',
       script: 'ai-powered-organizer.mjs',
       args: '--discover --auto-add --max=10 --provider=deepseek',
-      frequency: 'daily', // Run once per day
-      enabled: true
+      frequency: 'daily',
+      enabled: false // Disabled in favor of mass_discover
     },
     enrich: {
       name: 'Data Enrichment',
