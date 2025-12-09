@@ -101,8 +101,12 @@ class AIChatService {
       return { type: 'submit', confidence: 0.9 };
     }
 
-    // Check if user is looking for platforms
-    const searchKeywords = ['find', 'looking for', 'need', 'recommend', 'suggest', 'best', 'tool for', 'platform for'];
+    // Check if user is looking for platforms (expanded keywords)
+    const searchKeywords = [
+      'find', 'looking for', 'need', 'recommend', 'suggest', 'best',
+      'tool for', 'platform for', 'wanna', 'want to', 'help me',
+      'i want', 'make', 'create', 'build', 'generate', 'use for'
+    ];
     if (searchKeywords.some(keyword => lowerMessage.includes(keyword))) {
       return { type: 'search', confidence: 0.8 };
     }
@@ -113,7 +117,7 @@ class AIChatService {
       return { type: 'question', confidence: 0.7 };
     }
 
-    // Default to search
+    // Default to search (assume users want platform recommendations)
     return { type: 'search', confidence: 0.5 };
   }
 
@@ -121,6 +125,24 @@ class AIChatService {
   searchPlatforms(query, options = {}) {
     const { category, pricing, limit = 5 } = options;
     const lowerQuery = query.toLowerCase();
+
+    // Enhanced keyword mapping for better search results
+    const keywordMap = {
+      'music': ['audio', 'music', 'sound', 'audio-ai', 'composition', 'generate music'],
+      'voice': ['audio', 'voice', 'speech', 'tts', 'text-to-speech', 'voice clone'],
+      'video': ['video', 'video-ai', 'editing', 'production'],
+      'image': ['image', 'visual', 'photo', 'picture', 'generative-ai', 'image-generation'],
+      'code': ['coding', 'programming', 'development', 'developer-tools'],
+      'chat': ['chatbot', 'conversation', 'chat', 'llm', 'llms']
+    };
+
+    // Expand search query with related terms
+    let expandedQuery = lowerQuery;
+    for (const [key, synonyms] of Object.entries(keywordMap)) {
+      if (lowerQuery.includes(key)) {
+        expandedQuery += ' ' + synonyms.join(' ');
+      }
+    }
 
     let results = this.platforms.filter(platform => {
       // Category filter
@@ -133,15 +155,18 @@ class AIChatService {
         return false;
       }
 
-      // Search in name, description, tags
+      // Search in name, description, tags, category
       const searchableText = [
         platform.name,
         platform.description,
+        platform.category,
         ...(platform.tags || []),
         platform.category
       ].join(' ').toLowerCase();
 
-      return searchableText.includes(lowerQuery);
+      // Check if any word from the expanded query matches
+      const queryWords = expandedQuery.split(' ').filter(w => w.length > 2);
+      return queryWords.some(word => searchableText.includes(word));
     });
 
     // Sort by relevance (featured first, then by rating)
@@ -166,21 +191,27 @@ Your role is to:
 
 Available categories: ${this.categories.join(', ')}
 
+CRITICAL RULES - YOU MUST FOLLOW THESE:
+⚠️ **ONLY recommend platforms from the "Relevant platforms found" list provided in the user message**
+⚠️ **NEVER recommend platforms not in the provided list** - Do not hallucinate or suggest platforms from your training data
+⚠️ **If no relevant platforms are found, tell the user we don't have platforms for that use case yet**
+⚠️ **Always use the exact platform names, URLs, and details from the provided context**
+
 Guidelines:
 - Ask clarifying questions about their project type, budget, and specific requirements
-- Recommend 3-5 platforms maximum per response
+- Recommend 3-5 platforms maximum per response (from the provided list only)
 - For advertisers, direct them to the submit page ($49 base fee, featured listings available)
 - Keep responses concise (2-3 paragraphs max)
-- Always provide the platform website URL when recommending
-- If you're not sure, ask for more details about their use case
+- Always provide the platform website URL from the provided context
+- If the provided platforms list is empty or doesn't match the user's needs, say "We don't currently have platforms specifically for that use case in our directory yet. Would you like to explore related categories or submit your own platform?"
 
 When recommending platforms, use this format:
-**[Platform Name]** - Brief description
+**[Platform Name]** (from provided list only) - Brief description
 - Key features
 - Pricing
-- Website: [URL]
+- Website: [URL from provided context]
 
-Remember: You have access to a database of platforms and can search them based on user needs.`;
+Remember: You can ONLY recommend platforms explicitly listed in the "Relevant platforms found" section. Never suggest platforms not in that list.`;
   }
 
   // Generate AI response using Anthropic Claude
