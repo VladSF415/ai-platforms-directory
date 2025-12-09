@@ -8,8 +8,8 @@ Complete automation suite powered by DeepSeek AI for **MASSIVE SCALE** autonomou
 # 1. Set DeepSeek API key
 export DEEPSEEK_API_KEY="sk-..."
 
-# 2. MASS DISCOVERY - Discover 500 platforms in one run!
-node scripts/mass-discovery.mjs --batch=50 --batches=10 --workers=3
+# 2. MASS DISCOVERY - Discover 300 platforms in one run!
+node scripts/mass-discovery.mjs --batch=25 --batches=12 --workers=3
 
 # 3. CONTINUOUS MODE - 3000 platforms per day on autopilot
 node scripts/continuous-discovery.mjs --continuous --target=3000
@@ -45,7 +45,7 @@ node scripts/blog-generator.mjs --num=3 --type=category
 **Run manually:**
 ```bash
 # Standard: 500 platforms
-node scripts/mass-discovery.mjs --batch=50 --batches=10 --workers=3
+node scripts/mass-discovery.mjs --batch=25 --batches=12 --workers=3
 
 # Aggressive: 1000 platforms
 node scripts/mass-discovery.mjs --batch=100 --batches=10 --workers=5
