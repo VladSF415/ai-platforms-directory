@@ -533,33 +533,40 @@ export default function Blog() {
                         gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
                         gap: '1rem'
                       }}>
-                        {alternatives.slice(0, alternativesLimit).map(item => (
-                          <Link
-                            key={item.slug}
-                            to={`/alternatives/${item.slug}`}
-                            style={{
-                              display: 'block',
-                              padding: '1rem 1.5rem',
-                              background: '#ffffff',
-                              border: '4px solid #000000',
-                              textDecoration: 'none',
-                              color: '#000000',
-                              transition: 'all 0.2s',
-                              fontFamily: "'Courier New', monospace",
-                              fontWeight: '900'
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.background = '#000000';
-                              e.currentTarget.style.color = '#ffffff';
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.background = '#ffffff';
-                              e.currentTarget.style.color = '#000000';
-                            }}
-                          >
-                            Best {item.platformName} Alternatives
-                          </Link>
-                        ))}
+                        {alternatives.slice(0, alternativesLimit).map(item => {
+                          // Extract platform name from title (format: "Best [Platform] Alternatives in 2025: ...")
+                          const titleMatch = item.title.match(/^Best\s+(.+?)\s+Alternatives/);
+                          const platformName = titleMatch ? titleMatch[1] : item.platformName || 'Platform';
+
+                          return (
+                            <Link
+                              key={item.slug}
+                              to={`/alternatives/${item.slug}`}
+                              style={{
+                                display: 'block',
+                                padding: '1rem 1.5rem',
+                                background: '#ffffff',
+                                border: '4px solid #000000',
+                                textDecoration: 'none',
+                                color: '#000000',
+                                transition: 'all 0.2s',
+                                fontFamily: "'Courier New', monospace",
+                                fontWeight: '900',
+                                fontSize: '0.9rem'
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = '#000000';
+                                e.currentTarget.style.color = '#ffffff';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = '#ffffff';
+                                e.currentTarget.style.color = '#000000';
+                              }}
+                            >
+                              Best {platformName} Alternatives
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
                     {alternatives.length > alternativesLimit && (
