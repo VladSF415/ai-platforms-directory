@@ -279,10 +279,18 @@ function getMissingPillarCategories() {
 // Main task definitions - ALL use DeepSeek AI
 const TASKS = [
   {
-    name: 'Mass Platform Discovery (180 per run)',
+    name: 'Mass Platform Discovery',
     script: 'scripts/mass-discovery.mjs',
     args: ['--batch=15', '--batches=12', '--workers=3'],
-    onSuccess: () => { stats.platforms_discovered += 180; }
+    onSuccess: (stdout) => {
+      // Parse actual platforms added from output
+      const match = stdout.match(/✅.*?Added (\d+) new platform/i);
+      if (match) {
+        const added = parseInt(match[1]);
+        stats.platforms_discovered += added;
+        log(`📊 Actually added ${added} new platforms (rest were duplicates)`, 'info');
+      }
+    }
   },
   {
     name: 'Enrich Platform Data',
@@ -404,7 +412,7 @@ async function runCycle() {
         log(`⚠️  ${task.name}: No file writes detected, skipping stat increment`, 'warning');
         tasksFailed++;
       } else if (task.onSuccess) {
-        task.onSuccess();
+        task.onSuccess(result.stdout || '');
         log(`✅ ${task.name}: Stats updated`, 'success');
         tasksSucceeded++;
       } else {
