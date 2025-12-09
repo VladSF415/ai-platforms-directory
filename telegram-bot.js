@@ -566,7 +566,7 @@ bot.onText(/\/analytics/, async (msg) => {
     const today = new Date().toISOString().split('T')[0];
     const todayStats = analytics.today || { messages: 0, sessions: 0, platformsRecommended: 0 };
 
-    // Build summary message (no markdown escaping for numbers)
+    // Build summary message (escape all text properly for MarkdownV2)
     let message = `📊 *Website Chatbot Analytics*\n\n`;
     message += `*Total Stats:*\n`;
     message += `💬 Messages: ${analytics.summary.totalMessages}\n`;
@@ -605,7 +605,7 @@ bot.onText(/\/analytics/, async (msg) => {
       message += `*Last 7 Days:* ${totalLast7Days} messages\n\n`;
     }
 
-    message += `💡 Use /analytics\\_detail for more info`;
+    message += `💡 Use /analytics\\_detail for more info\\.`;
 
     // Delete loading message and send final message
     await bot.deleteMessage(chatId, loadingMsg.message_id);
