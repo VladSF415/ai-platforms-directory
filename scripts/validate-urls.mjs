@@ -44,12 +44,23 @@ async function checkURL(url, platformName) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), CONFIG.timeout);
 
-    const response = await fetch(url, {
+    // Try HEAD first (faster)
+    let response = await fetch(url, {
       method: 'HEAD',
       headers: { 'User-Agent': CONFIG.user_agent },
       signal: controller.signal,
       redirect: 'follow'
     });
+
+    // If HEAD fails with 403/405, try GET (some sites block HEAD)
+    if (response.status === 403 || response.status === 405) {
+      response = await fetch(url, {
+        method: 'GET',
+        headers: { 'User-Agent': CONFIG.user_agent },
+        signal: controller.signal,
+        redirect: 'follow'
+      });
+    }
 
     clearTimeout(timeoutId);
 
