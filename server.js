@@ -5,6 +5,8 @@ import { dirname, join } from 'path';
 import Stripe from 'stripe';
 import satori from 'satori';
 import sharp from 'sharp';
+import twilio from 'twilio';
+import jwt from 'jsonwebtoken';
 import chatService from './ai-chat-service.js';
 import { trackChatInteraction, getAnalytics } from './chat-analytics.js';
 
@@ -38,6 +40,20 @@ fastify.setErrorHandler((error, request, reply) => {
 
 // Initialize Stripe (only if API key is provided)
 const stripe = process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
+
+// Initialize Twilio for SMS verification
+const twilioClient = process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN
+  ? twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
+  : null;
+
+// Analytics authentication config
+const ANALYTICS_PASSWORD = process.env.ANALYTICS_PASSWORD || 'admin123';
+const ANALYTICS_PHONE = process.env.ANALYTICS_PHONE || '+1234567890'; // Authorized phone number
+const JWT_SECRET = process.env.JWT_SECRET || 'change-this-secret-key-in-production';
+const TWILIO_PHONE = process.env.TWILIO_PHONE_NUMBER || '+1234567890'; // Your Twilio number
+
+// Store SMS codes temporarily (in production, use Redis)
+const smsCodes = new Map(); // { phone: { code, expires, password } }
 
 // Load platforms data
 let platforms = [];
@@ -1189,8 +1205,145 @@ fastify.post('/api/chat/clear', async (request, reply) => {
   return { success: true, message: 'Chat history cleared' };
 });
 
-// Chat analytics endpoint
-fastify.get('/api/chat/analytics', async (request, reply) => {
+// Analytics Authentication Routes
+
+// Request SMS code
+fastify.post('/api/analytics/request-code', async (request, reply) => {
+  try {
+    const { password, phone } = request.body;
+
+    // Validate password
+    if (password !== ANALYTICS_PASSWORD) {
+      return reply.code(401).send({ error: 'Invalid password' });
+    }
+
+    // Validate phone number matches authorized number
+    const normalizedPhone = phone.replace(/[\s()-]/g, '');
+    const normalizedAuthPhone = ANALYTICS_PHONE.replace(/[\s()-]/g, '');
+
+    if (normalizedPhone !== normalizedAuthPhone) {
+      return reply.code(401).send({ error: 'Unauthorized phone number' });
+    }
+
+    // Generate 6-digit code
+    const code = Math.floor(100000 + Math.random() * 900000).toString();
+    const expires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+    // Store code
+    smsCodes.set(normalizedPhone, { code, expires, password });
+
+    // Send SMS via Twilio
+    if (twilioClient) {
+      try {
+        await twilioClient.messages.create({
+          body: `Your AI Platforms Analytics verification code: ${code}\nValid for 10 minutes.`,
+          from: TWILIO_PHONE,
+          to: phone
+        });
+        console.log(`[Auth] SMS sent to ${phone}`);
+      } catch (twilioError) {
+        console.error('[Auth] Twilio error:', twilioError);
+        return reply.code(500).send({ error: 'Failed to send SMS' });
+      }
+    } else {
+      // Dev mode: log code to console
+      console.log(`[Auth] SMS Code for ${phone}: ${code}`);
+    }
+
+    // Clean up expired codes
+    for (const [phone, data] of smsCodes.entries()) {
+      if (new Date() > data.expires) {
+        smsCodes.delete(phone);
+      }
+    }
+
+    return { success: true, message: 'SMS code sent' };
+  } catch (error) {
+    console.error('[Auth] Request code error:', error);
+    return reply.code(500).send({ error: 'Server error' });
+  }
+});
+
+// Verify SMS code and issue JWT token
+fastify.post('/api/analytics/verify', async (request, reply) => {
+  try {
+    const { password, phone, code } = request.body;
+
+    const normalizedPhone = phone.replace(/[\s()-]/g, '');
+    const storedData = smsCodes.get(normalizedPhone);
+
+    // Check if code exists
+    if (!storedData) {
+      return reply.code(401).send({ error: 'No code found. Request a new one.' });
+    }
+
+    // Check if expired
+    if (new Date() > storedData.expires) {
+      smsCodes.delete(normalizedPhone);
+      return reply.code(401).send({ error: 'Code expired. Request a new one.' });
+    }
+
+    // Verify code and password
+    if (storedData.code !== code || storedData.password !== password) {
+      return reply.code(401).send({ error: 'Invalid code or password' });
+    }
+
+    // Delete used code
+    smsCodes.delete(normalizedPhone);
+
+    // Generate JWT token (valid for 24 hours)
+    const token = jwt.sign(
+      { phone: normalizedPhone, type: 'analytics' },
+      JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+
+    const expires = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+
+    console.log(`[Auth] Login successful for ${phone}`);
+
+    return {
+      success: true,
+      token,
+      expires
+    };
+  } catch (error) {
+    console.error('[Auth] Verify error:', error);
+    return reply.code(500).send({ error: 'Server error' });
+  }
+});
+
+// Middleware to verify JWT token
+function verifyAnalyticsToken(request, reply, done) {
+  try {
+    const authHeader = request.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return reply.code(401).send({ error: 'Unauthorized' });
+    }
+
+    const token = authHeader.substring(7);
+
+    try {
+      const decoded = jwt.verify(token, JWT_SECRET);
+
+      if (decoded.type !== 'analytics') {
+        return reply.code(401).send({ error: 'Invalid token type' });
+      }
+
+      request.user = decoded;
+      done();
+    } catch (jwtError) {
+      return reply.code(401).send({ error: 'Invalid or expired token' });
+    }
+  } catch (error) {
+    console.error('[Auth] Token verification error:', error);
+    return reply.code(500).send({ error: 'Server error' });
+  }
+}
+
+// Chat analytics endpoint (protected)
+fastify.get('/api/chat/analytics', { preHandler: verifyAnalyticsToken }, async (request, reply) => {
   try {
     const analytics = getAnalytics();
     if (!analytics) {

@@ -195,8 +195,13 @@
 </head>
 <body>
   <div class="container">
-    <h1>📊 CHATBOT ANALYTICS</h1>
-    <p class="subtitle">Real-time website chat statistics</p>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+      <div style="flex: 1;">
+        <h1>📊 CHATBOT ANALYTICS</h1>
+        <p class="subtitle">Real-time website chat statistics</p>
+      </div>
+      <button class="refresh-btn" onclick="logout()" style="background: #666666; border-color: #666666; width: auto; padding: 10px 20px; font-size: 0.85rem;">🚪 LOGOUT</button>
+    </div>
 
     <button class="refresh-btn" onclick="loadAnalytics()">🔄 REFRESH DATA</button>
 
@@ -261,7 +266,31 @@
   </div>
 
   <script>
+    // Check authentication before loading
+    function checkAuth() {
+      const token = localStorage.getItem('analytics_token');
+      const expires = localStorage.getItem('analytics_expires');
+
+      if (!token || !expires) {
+        window.location.href = '/analytics-login.html';
+        return false;
+      }
+
+      // Check if token expired
+      if (new Date(expires) < new Date()) {
+        localStorage.removeItem('analytics_token');
+        localStorage.removeItem('analytics_expires');
+        window.location.href = '/analytics-login.html';
+        return false;
+      }
+
+      return token;
+    }
+
     async function loadAnalytics() {
+      const token = checkAuth();
+      if (!token) return;
+
       const loading = document.getElementById('loading');
       const error = document.getElementById('error');
       const content = document.getElementById('content');
@@ -271,7 +300,11 @@
       content.style.display = 'none';
 
       try {
-        const response = await fetch('/api/chat/analytics');
+        const response = await fetch('/api/chat/analytics', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
         if (!response.ok) throw new Error('Failed to load analytics');
 
         const data = await response.json();
@@ -382,6 +415,12 @@
           </tr>
         `;
       }).join('') || '<tr><td colspan="4" style="text-align: center;">No interactions yet</td></tr>';
+    }
+
+    function logout() {
+      localStorage.removeItem('analytics_token');
+      localStorage.removeItem('analytics_expires');
+      window.location.href = '/analytics-login.html';
     }
 
     // Load analytics on page load
