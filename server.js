@@ -6,6 +6,7 @@ import Stripe from 'stripe';
 import satori from 'satori';
 import sharp from 'sharp';
 import chatService from './ai-chat-service.js';
+import { trackChatInteraction, getAnalytics } from './chat-analytics.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -1150,6 +1151,14 @@ fastify.post('/api/chat', async (request, reply) => {
 
     console.log('[Chat] Response generated:', { session, intent: response.intent });
 
+    // Track analytics
+    trackChatInteraction(
+      session,
+      message,
+      response.intent,
+      response.platforms ? response.platforms.length : 0
+    );
+
     return {
       success: true,
       sessionId: session,
@@ -1178,6 +1187,21 @@ fastify.post('/api/chat/clear', async (request, reply) => {
 
   chatService.clearHistory(sessionId);
   return { success: true, message: 'Chat history cleared' };
+});
+
+// Chat analytics endpoint
+fastify.get('/api/chat/analytics', async (request, reply) => {
+  try {
+    const analytics = getAnalytics();
+    if (!analytics) {
+      reply.code(500).send({ error: 'Failed to load analytics' });
+      return;
+    }
+    return analytics;
+  } catch (error) {
+    console.error('[Analytics] Error:', error);
+    reply.code(500).send({ error: 'Failed to retrieve analytics' });
+  }
 });
 
 // Chat statistics endpoint
