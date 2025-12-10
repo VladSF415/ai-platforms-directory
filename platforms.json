@@ -4461,7 +4461,7 @@
     "id": "bert-google",
     "name": "Google BERT",
     "description": "Google BERT (Bidirectional Encoder Representations from Transformers) is a groundbreaking pre-trained language model that fundamentally advanced natural language processing by enabling deep bidirectional context understanding. Its key capability is generating contextualized word embeddings, allowing it to interpret the meaning of a word based on all surrounding words in a sentence, which significantly improved performance on tasks like question answering and sentiment analysis. What makes it unique is its transformer-based architecture and the 'masked language model' pre-training objective, which set a new standard for NLP research and practical applications, making it a foundational model for both researchers and developers.",
-    "category": "nlp",
+    "category": "llms",
     "categories": [
       "Natural Language Processing",
       "Language Models"
@@ -4536,7 +4536,9 @@
       "Data scientists focusing on text analytics"
     ],
     "has_api": false,
-    "has_affiliate": false
+    "has_affiliate": false,
+    "recategorized_date": "2025-12-10T00:17:53.240Z",
+    "recategorized_from": "nlp"
   },
   {
     "id": "bing-ai",
@@ -4620,7 +4622,7 @@
     "id": "bling-fire",
     "name": "Bling Fire",
     "description": "Bling Fire is an open-source, high-performance text processing library developed by Microsoft, specializing in ultra-fast tokenization and text segmentation using deterministic finite automata (DFA). Its key capabilities include multilingual tokenization, sentence breaking, and word normalization, designed to handle large-scale text preprocessing with minimal memory overhead. It uniquely provides production-ready, pre-compiled models for over 100 languages and is optimized for speed, making it a go-to tool for integrating efficient text processing into NLP pipelines.",
-    "category": "nlp",
+    "category": "llm-ops",
     "categories": [
       "Natural Language Processing",
       "Tokenization"
@@ -4693,7 +4695,9 @@
       "software-developers-building-nlp-systems"
     ],
     "has_api": false,
-    "has_affiliate": false
+    "has_affiliate": false,
+    "recategorized_date": "2025-12-10T00:17:53.241Z",
+    "recategorized_from": "nlp"
   },
   {
     "id": "bloomz",
@@ -5277,7 +5281,7 @@
     "id": "brandwatch",
     "name": "Brandwatch",
     "description": "Brandwatch is a comprehensive social intelligence and consumer insights platform that leverages advanced AI and natural language processing (NLP) to analyze online conversations across social media, news, reviews, and forums. It enables brands to monitor their reputation, understand consumer sentiment, identify emerging trends, and gain competitive intelligence. Its unique strength lies in its massive, historical data archive and sophisticated analytics tailored for large enterprises and agencies.",
-    "category": "analytics-bi",
+    "category": "nlp",
     "categories": [
       "Natural Language Processing",
       "Social Intelligence"
@@ -5354,7 +5358,9 @@
       "market research professionals"
     ],
     "has_api": true,
-    "has_affiliate": false
+    "has_affiliate": false,
+    "recategorized_date": "2025-12-10T00:17:53.241Z",
+    "recategorized_from": "analytics-bi"
   },
   {
     "id": "breeze",
@@ -56343,29 +56349,33 @@
   },
   {
     "name": "OpenWebUI",
-    "description": "A feature-rich, self-hostable web UI for interacting with local LLMs (like Ollama) and remote APIs. It offers a ChatGPT-like experience with advanced features for power users.",
+    "description": "OpenWebUI (formerly Ollama WebUI) is a fully self-hostable, extensible web interface designed for interacting with local and remote Large Language Models. It provides a user-friendly, ChatGPT-like experience while offering advanced features like multimodal chat, document-based RAG, and a powerful plugin system, primarily targeting users who want privacy, customization, and direct control over their LLM interactions without relying on commercial cloud services. Its unique value lies in being a community-driven, open-source project that deeply integrates with local inference engines like Ollama while remaining compatible with major remote APIs.",
     "url": "https://openwebui.com",
     "category": "llm-ops",
     "tags": [
       "self-hosted",
-      "web-ui",
+      "open-source",
       "ollama",
       "local-llm",
-      "open-source",
-      "chat-interface"
+      "chat-interface",
+      "rag",
+      "docker",
+      "multimodal-ai"
     ],
     "pricing": "open-source",
     "features": [
-      "Full multimodal support (images, audio)",
-      "RAG (Retrieval Augmented Generation) integration",
-      "Model management for Ollama and OpenAI",
-      "Extensive plugin system and theming"
+      "Local-First Chat Interface: Full conversation management with markdown, code highlighting, and prompt templates for models running via Ollama.",
+      "Multimodal Capabilities: Native support for image upload/analysis, audio transcription (via Whisper), and text-to-speech within chats.",
+      "Document RAG System: Ingests and creates embeddings from uploaded documents (PDF, TXT, DOCX) for context-aware question answering.",
+      "Multi-API & Model Management: Unified interface for local Ollama models, OpenAI-compatible endpoints, Google Gemini, and Anthropic Claude.",
+      "Extensible Plugin Architecture: Community-developed plugins for features like web search, additional TTS engines, and tool integrations.",
+      "Advanced User Management: Supports multi-user setup with authentication, conversation privacy settings, and admin controls for self-hosted deployments."
     ],
     "use_cases": [
-      "Private, offline AI chat",
-      "Document Q&A with local files",
-      "Experimenting with different LLMs",
-      "Building custom AI interfaces"
+      "Private, Local AI Chat: Running and chatting with uncensored or specialized LLMs (like Llama 3, Mistral) entirely on personal hardware without data leaving the local network.",
+      "Research & Development: A customizable sandbox for developers and researchers to test different models, prompts, and RAG configurations with a consistent UI.",
+      "Internal Knowledge Base Q&A: Self-hosting OpenWebUI with the RAG feature to create a secure, internal chatbot that answers questions based on company documents.",
+      "Educational Tool: Deploying in a lab or classroom setting to provide students with hands-on access to various open-source LLMs and AI concepts in a controlled environment."
     ],
     "launched_date": "2024-01",
     "has_affiliate": false,
@@ -56378,34 +56388,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The core application is 100% free and open-source (MIT License) with all features available for self-hosting."
+      ],
+      "free_tier": "Yes - The entire project is free and open-source. No paid tiers or hosted service is offered by the core project.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "ai hobbyists and enthusiasts",
+      "developers and data scientists",
+      "privacy-conscious individuals and organizations"
+    ],
+    "has_api": true
   },
   {
     "name": "Bolt.new",
-    "description": "An AI-native presentation tool that creates full slide decks from a text prompt in seconds. Includes design, layouts, images, and speaker notes. Aimed at professionals, educators, and students needing to create presentations quickly.",
+    "description": "Bolt.new is an AI-native presentation tool that generates complete, visually designed slide decks from a simple text prompt in seconds. It uniquely automates the entire creation process, including layout design, content structuring, image generation, and speaker notes, significantly reducing the time from idea to presentation. It is primarily targeted at professionals, educators, and students who need to produce high-quality presentations under tight deadlines.",
     "url": "https://bolt.new",
     "category": "productivity",
     "tags": [
-      "presentations",
+      "presentation-ai",
       "text-to-deck",
-      "ai-design",
-      "productivity",
+      "ai-design-tool",
       "slide-generation",
-      "business-tools"
+      "real-time-collaboration",
+      "ai-image-generation",
+      "productivity-tool",
+      "business-presentations"
     ],
     "pricing": "freemium",
     "features": [
-      "Instant deck generation from text",
-      "AI-powered editing & rewriting",
-      "Integrated AI image generation",
-      "Customizable themes & templates",
-      "Real-time collaboration"
+      "Instant AI deck generation from a text prompt",
+      "In-line AI editing for rewriting and refining slide content",
+      "Integrated AI image generator (DALL-E) for creating custom visuals",
+      "Library of customizable professional themes and templates",
+      "Real-time multi-user collaboration and commenting",
+      "Export to PowerPoint (PPTX), PDF, and shareable web links",
+      "Automatic generation of speaker notes for each slide"
     ],
     "use_cases": [
-      "Sales pitches",
-      "Educational lectures",
-      "Business reports",
-      "Startup fundraising decks"
+      "Sales professionals quickly creating pitch decks for new prospects",
+      "Educators and students generating lecture or project presentation outlines",
+      "Startup founders building investor decks from a business idea summary",
+      "Marketing teams rapidly prototyping campaign presentation concepts",
+      "Consultants drafting report frameworks and executive summaries",
+      "Team leads preparing weekly stand-up or project update presentations"
     ],
     "launched_date": "2024-05",
     "has_affiliate": false,
@@ -56418,34 +56448,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 3 AI presentations per month, basic templates, Bolt branding",
+        "Pro: $20/mo billed annually ($240/yr) - Unlimited AI presentations, premium templates, custom branding, priority support",
+        "Enterprise: Custom pricing - Advanced security, SSO, team management, dedicated support"
+      ],
+      "free_tier": "Yes - 3 AI presentations/month, basic templates, Bolt watermark",
+      "starting_price": "Free, then $20/month"
+    },
+    "target_audience": [
+      "business professionals",
+      "educators and academics",
+      "students"
+    ],
+    "has_api": false
   },
   {
     "name": "Augment",
-    "description": "An AI-powered code completion tool built by former GitHub Copilot founders, focusing on enterprise-grade security, privacy, and codebase-aware suggestions.",
+    "description": "Augment is an enterprise-grade AI coding assistant that provides context-aware code completions and suggestions by analyzing a company's entire private codebase. Its key capabilities include on-premises or VPC deployment for maximum data privacy and security, and the ability to fine-tune its models on proprietary code. It is uniquely positioned for security-conscious enterprises, financial institutions, and government agencies, as it was built by the original creators of GitHub Copilot with a foundational focus on data sovereignty and compliance.",
     "url": "https://www.augment.ai",
     "category": "code-ai",
     "tags": [
-      "code-completion",
       "enterprise-ai",
-      "privacy",
-      "ide-plugin",
-      "developer-productivity",
-      "github-copilot-alternative"
+      "code-completion",
+      "on-premise-ai",
+      "developer-tools",
+      "vscode-extension",
+      "jetbrains-plugin",
+      "data-privacy",
+      "copilot-alternative"
     ],
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "Context-aware code suggestions from entire codebase",
-      "On-premise deployment for full data privacy",
-      "Supports multiple IDEs (VS Code, JetBrains)",
-      "Custom model fine-tuning for enterprise code",
-      "Compliance with strict security standards"
+      "Full codebase awareness for context, analyzing entire repositories, not just open files",
+      "On-premises or single-tenant VPC deployment ensuring code never leaves customer infrastructure",
+      "Fine-tuning on private enterprise codebases to tailor suggestions to internal patterns and libraries",
+      "IDE plugins for VS Code and the full JetBrains suite (IntelliJ IDEA, PyCharm, etc.)",
+      "SOC 2 Type II compliance and adherence to enterprise data governance standards",
+      "Support for major programming languages including Python, JavaScript, TypeScript, Java, and C++"
     ],
     "use_cases": [
-      "Enterprise software development in regulated industries",
-      "Proprietary codebase assistance",
-      "Teams requiring full data control",
-      "Large-scale development with custom libraries"
+      "Accelerating development velocity in regulated industries (finance, healthcare, government) where code cannot be sent to external AI services.",
+      "Onboarding new developers by providing code completions consistent with the company's specific architectural patterns and internal APIs.",
+      "Reducing security vulnerabilities by training the model on an organization's own secure code standards.",
+      "Maintaining code consistency across large, distributed engineering teams by reinforcing internal best practices.",
+      "Modernizing legacy codebases with AI-assisted refactoring and documentation."
     ],
     "launched_date": "2024-10",
     "has_affiliate": false,
@@ -56458,34 +56508,51 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom pricing - Includes full platform access, on-prem/VPC deployment, custom fine-tuning, dedicated support, and security compliance"
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "Enterprise engineering organizations",
+      "Financial services and fintech companies",
+      "Government and defense contractors"
+    ],
+    "has_api": false
   },
   {
     "name": "Exa (formerly Metaphor)",
-    "description": "A search engine designed specifically for AI agents and developers, providing a clean, API-first interface that returns high-quality, content-rich results ideal for LLM consumption.",
+    "description": "Exa (formerly Metaphor) is a search engine API purpose-built for AI agents and developers, providing web search results optimized for consumption by large language models (LLMs). Its key capabilities include retrieving high-quality, content-rich web pages with automatic keyword and semantic search, returning clean HTML content and structured metadata. It uniquely focuses on delivering 'agent-native' results—complete, context-rich, and less prone to hallucinations—making it distinct from traditional search APIs designed for human-facing SERPs.",
     "url": "https://exa.ai",
     "category": "search-ai",
     "tags": [
-      "ai-search",
-      "api",
-      "developer-tools",
-      "web-search",
+      "ai-search-api",
       "agent-tools",
-      "semantic-search"
+      "semantic-search",
+      "llm-integration",
+      "developer-tools",
+      "web-search-api",
+      "content-retrieval"
     ],
     "pricing": "freemium",
     "features": [
-      "Search API optimized for AI agents",
-      "High-quality, content-focused results",
-      "Automatic keyword and semantic search",
-      "Fast, reliable uptime",
-      "Simple integration"
+      "Search API with automatic keyword & semantic query understanding",
+      "Returns high-quality, full HTML content from web pages (not just snippets)",
+      "Includes structured metadata (title, author, date, site info) with results",
+      "`Neural Ranking` system trained to identify content valuable for LLMs/agents",
+      "`Contents` API endpoint to retrieve the cleaned text/HTML of a specific URL",
+      "High reliability and fast response times optimized for programmatic use",
+      "Filtering options by date, domain, and content type"
     ],
     "use_cases": [
-      "Powering AI agent research capabilities",
-      "Building LLM applications with real-time data",
-      "Content aggregation and monitoring",
-      "Developer tools needing web search"
+      "AI agents and chatbots that need to retrieve and cite up-to-date web information",
+      "RAG (Retrieval-Augmented Generation) pipelines requiring clean, context-rich documents",
+      "Research and content aggregation tools for developers and analysts",
+      "Automated monitoring systems that track specific topics or sources on the web"
     ],
     "launched_date": "2024-01",
     "has_affiliate": false,
@@ -56498,34 +56565,55 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "usage-based subscription",
+      "tiers": [
+        "Free: 1,000 searches/month, Standard speed, Basic filters",
+        "Pro: $250/month - 10,000 searches/month, High speed, All filters, Email support",
+        "Scale: Custom pricing - High-volume searches, Dedicated support, Custom features"
+      ],
+      "free_tier": "Yes - 1,000 searches per month",
+      "starting_price": "Free, then $250/month"
+    },
+    "target_audience": [
+      "AI/ML developers building agentic systems",
+      "Startups and companies implementing RAG",
+      "Researchers and data scientists needing web data"
+    ],
+    "has_api": true
   },
   {
     "name": "Rerun",
-    "description": "Computer vision debugging and visualization platform that helps developers understand what their AI models see. It provides real-time visualization of neural network activations, bounding boxes, and model predictions.",
+    "description": "Rerun is an open-source SDK and visualization platform for building computer vision and robotics applications. It specializes in logging and visualizing multimodal data streams—like images, point clouds, bounding boxes, and 3D transforms—in real-time or from recordings. It uniquely provides a temporal, context-rich visual debugger that helps developers, researchers, and ML engineers understand complex spatial and temporal model behavior, bridging the gap between raw data and actionable insights.",
     "url": "https://rerun.io",
     "category": "computer-vision",
     "tags": [
       "computer-vision",
+      "robotics-visualization",
       "model-debugging",
-      "visualization",
-      "ml-ops",
-      "developer-tools",
-      "open-source"
+      "3d-visualization",
+      "data-logging-sdk",
+      "open-source-tools",
+      "mlops"
     ],
     "pricing": "open-source",
     "features": [
-      "Real-time visualization",
-      "3D scene understanding",
-      "Model debugging tools",
-      "Python SDK",
-      "Web viewer"
+      "Python & Rust SDKs for logging multimodal data (images, tensors, 3D points, text logs)",
+      "Time-traveling web viewer for inspecting logged data streams frame-by-frame",
+      "Real-time streaming visualization for live applications (e.g., robotics, drones)",
+      "Native support for 2D & 3D spatial data visualization (cameras, point clouds, bounding boxes)",
+      "Blueprint system for creating custom, reusable visualization layouts and dashboards",
+      "Recording & playback functionality for sharing and debugging sessions offline",
+      "Integration with common data formats (e.g., .rrrd recordings, image files, numpy arrays)"
     ],
     "use_cases": [
-      "Autonomous vehicle development",
-      "Robotics vision systems",
-      "AR/VR applications",
-      "Quality inspection AI"
+      "Debugging and visualizing the perception stack of autonomous vehicles and robots",
+      "Analyzing computer vision model outputs (detections, segmentations) across video sequences",
+      "Visualizing sensor fusion data (e.g., combining camera, LiDAR, and IMU feeds)",
+      "Developing and testing AR/VR applications with spatial tracking data",
+      "Educational tool for teaching computer vision and robotics concepts",
+      "Post-mortem analysis of field data from deployed ML systems"
     ],
     "launched_date": "2024-08",
     "has_affiliate": false,
@@ -56538,34 +56626,51 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free & Open-Source: Full access to SDK, viewer, and core features under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - The entire platform is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Computer Vision & Robotics Engineers",
+      "ML/MLOps Engineers working with spatial data",
+      "Research Scientists in AI/Perception"
+    ],
+    "has_api": true
   },
   {
     "name": "Plandex",
-    "description": "AI coding agent that handles complex, multi-file tasks by breaking them down into manageable steps. It maintains context across files and sessions, making it ideal for large refactors and feature implementations.",
+    "description": "Plandex is an AI-powered coding agent designed to tackle complex, multi-step software engineering tasks. It uniquely breaks down large objectives—like major refactors, feature additions, or bug hunts—into manageable steps, maintaining persistent context across multiple files and terminal sessions. This makes it a powerful tool for developers and teams needing to automate and scale complex coding workflows beyond simple snippet generation.",
     "url": "https://plandex.ai",
     "category": "code-ai",
     "tags": [
-      "ai-agent",
-      "coding-assistant",
-      "software-development",
-      "refactoring",
-      "productivity",
-      "developer-tools"
+      "ai-coding-agent",
+      "multi-file-context",
+      "terminal-ai",
+      "software-refactoring",
+      "complex-task-automation",
+      "developer-workflow",
+      "long-running-sessions"
     ],
     "pricing": "freemium",
     "features": [
-      "Multi-file context",
-      "Task breakdown",
-      "Session persistence",
-      "Git integration",
-      "Terminal interface"
+      "Persistent, multi-file context management across coding sessions",
+      "Automated breakdown of complex tasks into sequential, verifiable steps",
+      "Integrated terminal for executing commands and reviewing outputs in context",
+      "Git integration for change management and branch-aware development",
+      "Support for multiple AI models (OpenAI, Anthropic Claude, local models via LM Studio)",
+      "Sandboxed environment for safe code execution and testing"
     ],
     "use_cases": [
-      "Large code refactoring",
-      "Feature implementation",
-      "Bug fixing across files",
-      "Code migration"
+      "Implementing a new feature that requires changes across numerous files and directories",
+      "Executing a large-scale codebase refactoring (e.g., updating an API, renaming conventions)",
+      "Investigating and fixing complex bugs that span multiple modules",
+      "Automating repetitive development chores like writing boilerplate or documentation",
+      "Onboarding to a new codebase by having the agent explain and navigate the structure"
     ],
     "launched_date": "2024-07",
     "has_affiliate": false,
@@ -56578,37 +56683,56 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited usage with the Plandex Cloud model (limited capacity). Access to core features.",
+        "Pro: $19/month (billed annually) or $29/month (billed monthly). Bring Your Own Key (BYOK) to use OpenAI, Anthropic, or local models. Priority support, unlimited cloud model usage, and early access to new features.",
+        "Enterprise: Custom pricing. Includes SSO, team management, deployment options, and dedicated support."
+      ],
+      "free_tier": "Yes - Unlimited use of the Plandex Cloud model with core features.",
+      "starting_price": "Free, with Pro tier starting at $19/month (annual)"
+    },
+    "target_audience": [
+      "software developers",
+      "engineering teams",
+      "tech leads & architects"
+    ],
+    "has_api": false
   },
   {
     "name": "Recall",
-    "description": "AI-powered memory assistant that records, transcribes, and summarizes your meetings, calls, and conversations. It creates searchable knowledge bases from your interactions and helps you remember important details.",
+    "description": "Recall.ai is a developer-focused API platform that provides unified access to real-time transcription and meeting data from platforms like Zoom, Google Meet, and Microsoft Teams. Its core capability is ingesting raw video/audio feeds to deliver structured transcripts, participant events, and metadata, enabling developers to build AI meeting assistants, analytics tools, and automated workflows. What makes it unique is its focus as an infrastructure layer for developers, handling the complexity of connecting to various video conferencing SDKs and providing a single, normalized API.",
     "url": "https://recall.ai",
     "category": "workflow-automation",
     "tags": [
-      "meeting-notes",
-      "transcription",
-      "knowledge-management",
-      "productivity",
+      "meeting-api",
+      "real-time-transcription",
+      "developer-tools",
+      "video-conferencing-data",
       "automation",
-      "saas"
+      "saas",
+      "api-platform"
     ],
-    "pricing": "freemium",
+    "pricing": "paid",
     "features": [
-      "Automatic transcription",
-      "AI summaries",
-      "Searchable knowledge base",
-      "Calendar integration",
-      "Team collaboration"
+      "Unified API for Zoom, Google Meet, Teams, and 10+ other platforms",
+      "Real-time transcription and audio streaming (via WebSocket)",
+      "Structured meeting metadata (participant join/leave, talk time, screenshare status)",
+      "Post-meeting summary generation with LLM integration points",
+      "Automated meeting recording and storage",
+      "Webhook triggers for meeting events (start, end, participant changes)"
     ],
     "use_cases": [
-      "Meeting documentation",
-      "Customer call tracking",
-      "Research interviews",
-      "Personal memory aid"
+      "Building custom AI meeting co-pilots that provide live summaries",
+      "Creating analytics dashboards for sales call performance and engagement",
+      "Automating post-meeting workflows (e.g., syncing action items to Jira, sending recap emails)",
+      "Developing compliance and quality assurance tools for recorded conversations",
+      "Powering research platforms that analyze patterns across thousands of interviews"
     ],
     "launched_date": "2024-11",
-    "has_affiliate": true,
+    "has_affiliate": false,
     "affiliate_commission": "25% first payment",
     "monthly_pricing": "Free for 10 hours/month, Pro $15/month",
     "source": "Product Hunt trending Nov 2024",
@@ -56618,34 +56742,57 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "usage-based subscription",
+      "tiers": [
+        "Free Trial: 5 hours of transcription for testing",
+        "Pay-As-You-Go: Starts at $0.20 per audio hour transcribed",
+        "Scale: Custom volume pricing for high-volume usage",
+        "Enterprise: Custom - includes SSO, dedicated support, SLA"
+      ],
+      "free_tier": "Yes - 5-hour free trial (no credit card required)",
+      "starting_price": "$0.20/audio hour (Pay-As-You-Go)"
+    },
+    "target_audience": [
+      "Software Developers & Engineering Teams",
+      "Product Managers building meeting intelligence features",
+      "Startups & Enterprises creating workflow automation tools"
+    ],
+    "has_api": true
   },
   {
     "name": "Voxal",
-    "description": "AI voice generation platform with emotional control and style transfer capabilities. It creates realistic voiceovers with precise control over tone, emotion, and delivery style for content creators and businesses.",
+    "description": "Voxal is an AI voice generation platform that transforms text into highly realistic, expressive speech. It empowers content creators, marketers, and businesses with precise control over vocal emotion, style, and delivery, enabling the creation of professional voiceovers without hiring voice actors. Its unique selling point is the granular 'emotional control' and 'style transfer' features, allowing users to fine-tune the exact tone and inflection of the generated voice.",
     "url": "https://voxal.ai",
     "category": "audio-ai",
     "tags": [
-      "voice-generation",
-      "text-to-speech",
+      "ai-voice-generation",
+      "emotional-tts",
       "voice-cloning",
+      "voice-style-transfer",
       "audio-production",
       "content-creation",
-      "emotional-ai"
+      "multilingual-tts",
+      "voiceover-tool"
     ],
-    "pricing": "paid",
+    "pricing": "freemium",
     "features": [
-      "Emotional voice control",
-      "Style transfer",
-      "Voice cloning",
-      "Multi-language support",
-      "Batch processing"
+      "Emotional Voice Control: Adjust specific emotions like happiness, sadness, anger, or excitement on a sliding scale.",
+      "Voice Style Transfer: Apply speaking styles (e.g., conversational, authoritative, cheerful) from one voice to another.",
+      "AI Voice Cloning: Create a custom digital voice clone from a short audio sample (requires consent).",
+      "Multilingual Support: Generate speech in over 50 languages and accents.",
+      "Batch Processing: Convert multiple text scripts to audio files simultaneously.",
+      "High-Fidelity Output: Generate studio-quality voiceovers in formats like MP3 and WAV.",
+      "Voice Library: Access to a diverse catalog of 200+ pre-built, realistic AI voices."
     ],
     "use_cases": [
-      "Podcast production",
-      "Video voiceovers",
-      "Audiobook creation",
-      "IVR systems"
+      "Creating engaging and emotionally resonant voiceovers for YouTube videos, explainers, and ads.",
+      "Producing consistent, on-brand audio for e-learning modules and corporate training materials.",
+      "Generating dynamic voiceovers for audiobooks or podcast trailers with varied character voices.",
+      "Localizing marketing and product videos by generating voiceovers in multiple languages.",
+      "Developing interactive voice responses (IVR) and audio for chatbots and virtual assistants.",
+      "Producing audio content for social media (TikTok, Instagram Reels) quickly and affordably."
     ],
     "launched_date": "2024-09",
     "has_affiliate": true,
@@ -56658,37 +56805,57 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Limited access to basic voices, watermark on downloads, and usage caps.",
+        "Creator: $19/month - Full access to all voices, 2 hours of generation/month, commercial license, no watermark.",
+        "Pro: $49/month - 10 hours of generation/month, priority generation, advanced voice cloning.",
+        "Enterprise: Custom - Unlimited generation, dedicated support, custom voice cloning, SLA."
+      ],
+      "free_tier": "Yes - Limited voice library, watermarked audio, and monthly character limit.",
+      "starting_price": "$19/month"
+    },
+    "target_audience": [
+      "digital content creators & marketers",
+      "e-learning developers & educators",
+      "small to medium businesses (SMBs)"
+    ],
+    "has_api": true
   },
   {
     "name": "Fini",
-    "description": "AI customer support agent that learns from your knowledge base and past conversations to handle customer inquiries autonomously. It integrates with popular support platforms and improves over time.",
+    "description": "Fini is an AI-powered customer support agent that transforms a company's existing knowledge base and past conversation history into an autonomous support specialist. It connects directly to platforms like Slack, Discord, and web widgets to answer customer questions instantly, 24/7. Its key differentiator is its ability to learn continuously from new interactions and knowledge updates without manual retraining, ensuring answers stay accurate and improve over time.",
     "url": "https://fini.ai",
     "category": "enterprise-ai-platforms",
     "tags": [
-      "customer-support",
-      "chatbot",
-      "automation",
+      "customer-support-automation",
+      "knowledge-base-ai",
+      "slack-bot",
+      "discord-bot",
+      "autonomous-agent",
       "saas",
-      "business-ai",
       "conversational-ai"
     ],
-    "pricing": "paid",
+    "pricing": "freemium",
     "features": [
-      "Knowledge base training",
-      "Multi-platform integration",
-      "Conversation analytics",
-      "Human handoff",
-      "Continuous learning"
+      "Connect knowledge sources (Notion, Confluence, Zendesk, PDFs, websites) in <5 minutes",
+      "Deploy as a live chat widget, Slack bot, or Discord bot",
+      "Real-time analytics dashboard showing resolved queries, deflection rate, and user feedback",
+      "Configurable automatic handoff to human agents when confidence is low",
+      "Continuous, autonomous learning from new knowledge base updates and conversation outcomes",
+      "Multi-language support for global customer bases"
     ],
     "use_cases": [
-      "24/7 customer support",
-      "FAQ automation",
-      "Lead qualification",
-      "Order status inquiries"
+      "Providing 24/7 instant answers to common customer FAQs on a website or app",
+      "Reducing support ticket volume by deflecting repetitive questions in a company's Slack community",
+      "Onboarding new customer support agents by giving them an AI co-pilot trained on all company knowledge",
+      "Scaling support for a growing SaaS product without linearly increasing headcount",
+      "Managing and answering community questions in a Discord server for a game or product"
     ],
     "launched_date": "2024-08",
-    "has_affiliate": true,
+    "has_affiliate": false,
     "affiliate_commission": "20% recurring",
     "monthly_pricing": "Starting at $299/month",
     "source": "Y Combinator W24 batch",
@@ -56698,34 +56865,53 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 50 monthly answered questions, 1 knowledge source, basic analytics, Slack/Discord integration",
+        "Starter: $99/month - 500 answered questions, 5 knowledge sources, advanced analytics, web widget",
+        "Pro: $499/month - 2500 answered questions, 15 knowledge sources, full analytics suite, API access",
+        "Enterprise: Custom Pricing - Unlimited questions, unlimited sources, SSO, dedicated support, custom SLAs"
+      ],
+      "free_tier": "Yes - 50 monthly answered questions, 1 knowledge source, basic integrations and analytics",
+      "starting_price": "$99/month"
+    },
+    "target_audience": [
+      "SaaS companies",
+      "E-commerce businesses",
+      "Online communities and DAOs"
+    ],
+    "has_api": true
   },
   {
     "name": "Artifact",
-    "description": "AI-powered news and content discovery platform that learns your interests and delivers personalized articles, research papers, and blog posts. It summarizes content and connects related pieces.",
+    "description": "Artifact is an AI-powered news and content discovery platform that curates a personalized feed of articles, research papers, and blog posts based on your reading habits and interests. Its key capabilities include generating concise AI summaries, linking related pieces across the web, and learning from user feedback to refine content recommendations. It uniquely combines the depth of a research tool with the serendipity of a social feed, targeting professionals and curious readers who want to efficiently stay informed beyond headlines.",
     "url": "https://artifact.news",
     "category": "nlp",
     "tags": [
-      "content-discovery",
       "news-aggregator",
-      "personalization",
-      "summarization",
-      "research",
-      "reading"
+      "content-curation",
+      "personalized-recommendations",
+      "ai-summarization",
+      "knowledge-discovery",
+      "reading-app"
     ],
     "pricing": "freemium",
     "features": [
-      "Personalized feeds",
-      "AI summaries",
-      "Interest learning",
-      "Cross-source linking",
-      "Save for later"
+      "Personalized 'For You' feed powered by a proprietary interest-learning algorithm",
+      "AI-generated 'Key Points' summaries for most articles (TL;DR)",
+      "Ability to mark articles as clickbait to improve feed quality for the community",
+      "'Read Later' saving functionality with offline access",
+      "Discovery features like 'Links in this Article' and 'Related Reads' to explore topics deeply",
+      "Text-to-speech functionality for listening to articles"
     ],
     "use_cases": [
-      "Research assistance",
-      "News monitoring",
-      "Content discovery",
-      "Learning new topics"
+      "Professionals staying updated on industry trends without spending hours browsing",
+      "Researchers discovering related academic papers and long-form commentary on a topic",
+      "Curious readers breaking out of algorithmic filter bubbles with serendipitous, quality content",
+      "Students compiling research materials and saving articles with summaries for later review",
+      "Commuters listening to summarized versions of saved articles via text-to-speech"
     ],
     "launched_date": "2024-01",
     "has_affiliate": false,
@@ -56738,37 +56924,56 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Full access to core features (personalized feed, summaries, saving).",
+        "Pro: $X/month - Unlocks advanced features like text-to-speech, link history, and potentially ad-free experience. (Note: Exact Pro pricing was not publicly confirmed before service wind-down.)",
+        "Enterprise: N/A - Platform was consumer-focused."
+      ],
+      "free_tier": "Yes - Includes personalized feed, AI summaries, article saving, and core discovery features.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "knowledge workers and professionals",
+      "academics and researchers",
+      "avid readers and lifelong learners"
+    ],
+    "has_api": false
   },
   {
     "name": "Kapa",
-    "description": "AI-powered technical support automation platform that answers developer questions by searching documentation, forums, and code repositories. It reduces response time for technical queries.",
+    "description": "Kapa is an AI-powered knowledge platform that automates technical support and developer onboarding by providing instant, accurate answers from a company's documentation, code repositories, and community forums. It uses fine-tuned language models to understand technical context, reducing support ticket volume and improving developer experience. Its key differentiator is its deep integration with developer workflows (like Slack, Discord, and VS Code) and its ability to learn from private codebases and API references without exposing sensitive data.",
     "url": "https://kapa.ai",
     "category": "enterprise-ai-platforms",
     "tags": [
       "developer-support",
-      "documentation",
-      "technical-help",
-      "automation",
-      "saas",
-      "api"
+      "knowledge-base-ai",
+      "technical-documentation",
+      "slack-bot",
+      "discord-bot",
+      "api-documentation",
+      "saas"
     ],
-    "pricing": "paid",
+    "pricing": "freemium",
     "features": [
-      "Documentation search",
-      "Code repository indexing",
-      "API reference understanding",
-      "Slack/Discord integration",
-      "Analytics"
+      "AI-powered Q&A chatbot trained on private documentation (Markdown, PDF, Notion)",
+      "Automatic code repository indexing (GitHub, GitLab) for code-aware answers",
+      "API reference understanding and automatic OpenAPI/Swagger ingestion",
+      "Native integrations for Slack, Discord, VS Code, and web widgets",
+      "Real-time analytics dashboard showing unanswered questions and knowledge gaps",
+      "Continuous learning from user feedback to improve answer accuracy"
     ],
     "use_cases": [
-      "Developer community support",
-      "API documentation assistance",
-      "Internal technical help",
-      "Open source project support"
+      "Providing 24/7 instant answers to developer questions in team Slack/Discord",
+      "Reducing repetitive support tickets for API and SDK-related queries",
+      "Onboarding new engineers by giving them a conversational interface to internal docs",
+      "Identifying gaps in documentation by tracking what questions the AI cannot answer",
+      "Maintaining a searchable knowledge base from scattered internal wikis and repos"
     ],
     "launched_date": "2024-05",
-    "has_affiliate": true,
+    "has_affiliate": false,
     "affiliate_commission": "15% recurring",
     "monthly_pricing": "Starting at $199/month",
     "source": "Product Hunt launch May 2024",
@@ -56778,34 +56983,56 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Up to 500 monthly active users, 1 data source, basic analytics",
+        "Pro: $250/month - Unlimited data sources, advanced analytics, custom branding, priority support",
+        "Enterprise: Custom pricing - SSO/SAML, dedicated instance, SLA, custom integrations"
+      ],
+      "free_tier": "Yes - Includes core Q&A, one data source, and basic Slack/Discord integration",
+      "starting_price": "Free, then $250/month for Pro"
+    },
+    "target_audience": [
+      "developer relations teams",
+      "engineering managers",
+      "SaaS companies with developer APIs"
+    ],
+    "has_api": true
   },
   {
     "name": "Lazarus",
-    "description": "AI that turns screenshots of documents, forms, and receipts into structured data. It extracts information from images and PDFs with high accuracy for automation and data entry workflows.",
+    "description": "Lazarus is an AI-powered document automation platform that specializes in extracting structured data from unstructured documents like invoices, receipts, forms, and contracts. It goes beyond basic OCR by using natural language processing and computer vision to understand context, identify key fields, and deliver highly accurate, ready-to-use data. Its primary target audience includes businesses and developers seeking to automate manual data entry workflows, and its unique value lies in its pre-trained, no-code 'Lenses' for specific document types and its ability to handle complex, variable layouts with high precision.",
     "url": "https://lazarus.ai",
     "category": "computer-vision",
     "tags": [
       "document-ai",
       "data-extraction",
       "ocr",
-      "automation",
+      "workflow-automation",
       "forms-processing",
-      "business-tools"
+      "invoice-processing",
+      "receipt-parsing",
+      "api-first"
     ],
     "pricing": "freemium",
     "features": [
-      "Document understanding",
-      "Form extraction",
-      "Receipt processing",
-      "API integration",
-      "Batch processing"
+      "Pre-trained 'Lenses' for 50+ document types (invoices, W-9s, receipts, etc.)",
+      "No-code form builder for custom document templates",
+      "REST API for seamless integration into business systems",
+      "Batch processing for high-volume document queues",
+      "Human-in-the-loop validation interface for accuracy review",
+      "Data export in JSON, CSV, or direct database/webhook sync",
+      "Advanced table extraction from complex document layouts"
     ],
     "use_cases": [
-      "Invoice processing",
-      "Form digitization",
-      "Receipt management",
-      "Document archiving"
+      "Automating accounts payable by extracting line-item data from supplier invoices",
+      "Streamlining patient onboarding by parsing insurance forms and IDs in healthcare",
+      "Accelerating loan processing by extracting financial data from bank statements and tax forms",
+      "Simplifying expense management by capturing merchant, date, and amount from receipt photos",
+      "Automating data entry from PDF application forms into a CRM or database",
+      "Processing regulatory and compliance documents like W-9s or I-9 forms"
     ],
     "launched_date": "2024-07",
     "has_affiliate": false,
@@ -56818,34 +57045,53 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 50 pages/month, 1 user, Standard Support",
+        "Pro: $299/month - 2,500 pages/month, 5 users, Priority Support, Custom Lenses",
+        "Enterprise: Custom - Volume pricing, Unlimited users, Dedicated support, SSO, On-premise deployment"
+      ],
+      "free_tier": "Yes - 50 pages per month, access to core pre-trained Lenses, API & webhook access",
+      "starting_price": "$299/month"
+    },
+    "target_audience": [
+      "Finance & Accounting Teams",
+      "Operations & IT Managers",
+      "Software Developers & Product Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Lindy",
-    "description": "AI personal assistant that manages your calendar, emails, and tasks autonomously. It schedules meetings, responds to emails, and handles administrative tasks based on your preferences.",
+    "description": "Lindy is an AI-powered autonomous personal assistant that acts as an intelligent agent to manage your calendar, email, and tasks. It goes beyond simple automation by learning your preferences and communication style to schedule meetings, draft and send email responses, and handle routine administrative work on your behalf. Its unique selling point is its high degree of autonomy as a persistent 'agent' that operates continuously, aiming to replace the need for a human executive assistant.",
     "url": "https://lindy.ai",
     "category": "workflow-automation",
     "tags": [
-      "personal-assistant",
-      "productivity",
+      "ai-agent",
+      "autonomous-assistant",
+      "executive-assistant",
       "calendar-management",
       "email-automation",
       "saas",
-      "ai-agent"
+      "productivity"
     ],
     "pricing": "freemium",
     "features": [
-      "Calendar management",
-      "Email response",
-      "Meeting scheduling",
-      "Task automation",
-      "Learning preferences"
+      "Autonomous email drafting & sending based on learned style",
+      "Intelligent calendar management & conflict-free meeting scheduling",
+      "Context-aware task creation & prioritization from conversations",
+      "Two-way sync with Google Calendar & Gmail",
+      "Learning engine that adapts to user preferences over time",
+      "Natural language interface for assigning tasks and setting rules"
     ],
     "use_cases": [
-      "Executive assistance",
-      "Meeting coordination",
-      "Email management",
-      "Task automation"
+      "Busy executives & founders delegating administrative overhead",
+      "Sales professionals automating meeting scheduling and follow-ups",
+      "Recruiters managing high-volume candidate communication",
+      "Consultants & freelancers coordinating client calendars and emails",
+      "Teams looking to reduce internal meeting scheduling friction"
     ],
     "launched_date": "2024-09",
     "has_affiliate": true,
@@ -56858,37 +57104,57 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 1 Lindy, 50 actions/month, email & calendar support",
+        "Pro: $29/month (billed annually) - Unlimited actions, priority support, Slack integration",
+        "Enterprise: Custom - Advanced security, dedicated support, custom integrations"
+      ],
+      "free_tier": "Yes - Includes 1 Lindy assistant, 50 monthly actions, and core email/calendar features.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Busy professionals and executives",
+      "Entrepreneurs and solopreneurs",
+      "Sales and business development teams"
+    ],
+    "has_api": true
   },
   {
     "name": "OpenRouter",
-    "description": "A unified API for accessing multiple LLM providers with a single interface. Offers cost comparison, automatic failover, and standardized pricing across different AI models.",
+    "description": "OpenRouter is a unified API gateway that provides developers and businesses with a single interface to access and query a vast marketplace of large language models (LLMs) from multiple providers, including OpenAI, Anthropic, Google, and open-source leaders. Its key capabilities include real-time cost and latency comparison, automatic failover between models, and standardized billing, which simplifies development and optimizes costs. What makes it unique is its model-agnostic approach, acting as a 'router' that intelligently directs requests to the most cost-effective or performant model based on the user's needs, abstracting away provider complexity.",
     "url": "https://openrouter.ai",
-    "category": "llms",
+    "category": "llm-ops",
     "tags": [
       "api-aggregator",
-      "llm-provider",
-      "cost-comparison",
-      "unified-api",
+      "llm-gateway",
       "model-marketplace",
-      "developer-tools"
+      "cost-optimization",
+      "developer-tools",
+      "unified-ai-api",
+      "failover-routing"
     ],
-    "pricing": "pay-as-you-go",
+    "pricing": "freemium",
     "features": [
-      "Single API for multiple providers",
-      "Real-time cost comparison",
-      "Automatic failover",
-      "Standardized pricing",
-      "Usage analytics"
+      "Single REST API endpoint compatible with OpenAI's format for accessing 100+ models",
+      "Real-time cost-per-token comparison dashboard across all integrated providers",
+      "Automatic failover routing to backup models when primary is rate-limited or down",
+      "Unified billing and usage analytics with a single monthly invoice",
+      "Support for streaming, function calling, and structured JSON outputs",
+      "Ability to set global or per-request budget and latency constraints",
+      "Public leaderboard ranking models by price, speed, and popularity"
     ],
     "use_cases": [
-      "Multi-provider AI apps",
-      "Cost optimization",
-      "Redundancy planning",
-      "Model comparison"
+      "Developers building AI applications who want to easily test and switch between models without changing code",
+      "Startups and businesses needing to optimize LLM inference costs by dynamically routing to the cheapest capable model",
+      "Production systems requiring high reliability through automatic failover to avoid provider outages",
+      "Researchers comparing performance and outputs across multiple LLMs for benchmarking",
+      "Teams standardizing their AI stack with a single API key and consolidated billing"
     ],
     "launched_date": "2024-02",
-    "has_affiliate": false,
+    "has_affiliate": true,
     "affiliate_commission": "",
     "monthly_pricing": "Pay-per-token",
     "source": "Product Hunt trending Feb 2024, GitHub",
@@ -56898,33 +57164,56 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free: Pay only for model usage at listed per-token rates; no platform subscription fee",
+        "Pro: $20/month - Includes higher rate limits, priority support, and advanced analytics",
+        "Enterprise: Custom - Dedicated infrastructure, SLA guarantees, custom integrations, and volume discounts"
+      ],
+      "free_tier": "Yes - No monthly fee; pay-as-you-go for model inference only",
+      "starting_price": "Free (pay-as-you-go for model usage)"
+    },
+    "target_audience": [
+      "AI Application Developers",
+      "Startups & SMBs",
+      "Enterprise DevOps & MLOps Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Morphic",
-    "description": "AI-powered design tool that transforms sketches, wireframes, or text descriptions into production-ready UI code for React, Vue, and other frameworks.",
+    "description": "Morphic is an AI-powered design-to-code platform that instantly converts visual designs—including sketches, wireframes, Figma files, and text descriptions—into clean, production-ready React, Vue, or HTML/Tailwind CSS code. It uniquely focuses on generating maintainable, component-based code that integrates with existing design systems and component libraries, significantly accelerating the handoff between designers and developers. Its core value is bridging the gap between design intent and functional code, reducing manual translation work.",
     "url": "https://morphic.sh",
     "category": "code-ai",
     "tags": [
-      "ui-design",
-      "code-generation",
-      "react",
-      "vue",
-      "design-to-code"
+      "design-to-code",
+      "frontend-development",
+      "react-codegen",
+      "vue-codegen",
+      "figma-plugin",
+      "tailwind-css",
+      "prototyping",
+      "developer-tools"
     ],
     "pricing": "freemium",
     "features": [
-      "Sketch to code",
-      "design system integration",
-      "multiple framework support",
-      "component generation",
-      "responsive design"
+      "Convert Figma designs to React/Vue/Tailwind code",
+      "Generate code from hand-drawn sketches or wireframes",
+      "Text-to-UI generation via descriptive prompts",
+      "One-click export to CodeSandbox or local projects",
+      "Integration with specific design systems (e.g., Material-UI, Chakra UI)",
+      "Responsive code generation with breakpoint controls",
+      "Support for popular icon libraries (Lucide, Heroicons)"
     ],
     "use_cases": [
-      "Prototyping",
-      "design system implementation",
-      "frontend development",
-      "design handoff"
+      "Rapidly prototyping UI concepts from sketches for stakeholder review",
+      "Converting finalized Figma designs into developer-ready components",
+      "Generating boilerplate code for new projects to jumpstart development",
+      "Creating consistent, reusable UI components aligned with a company's design system",
+      "Enabling designers to produce functional prototypes without deep coding knowledge",
+      "Assisting developers in translating complex design specs into accurate code faster"
     ],
     "launched_date": "2024-07",
     "has_affiliate": false,
@@ -56937,35 +57226,58 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Limited generations per month, basic frameworks, community support",
+        "Pro: $39/month (billed annually) or $49/month - Unlimited generations, priority support, advanced frameworks, design system integrations",
+        "Enterprise: Custom Pricing - Team features, SSO, custom components, dedicated support"
+      ],
+      "free_tier": "Yes - Limited to 25 AI generations per month, access to core frameworks (React, Vue, HTML/Tailwind), and community support.",
+      "starting_price": "$39/month (annual billing)"
+    },
+    "target_audience": [
+      "Frontend Developers",
+      "UI/UX Designers",
+      "Product Managers & Startup Founders"
+    ],
+    "has_api": false
   },
   {
     "name": "Gamma",
-    "description": "An AI-powered tool for creating presentations, documents, and web pages with minimal effort. It generates visually appealing, modern designs from a prompt and allows easy editing and collaboration.",
+    "description": "Gamma is an AI-native content creation platform that transforms text prompts into complete, visually polished presentations, documents, and web pages. It uniquely combines generative AI for initial design and layout with a user-friendly editor for easy customization, enabling professionals to create modern, engaging content in minutes without design expertise. Its key differentiator is a cohesive, design-aware AI that handles structure, visuals, and formatting as a unified system.",
     "url": "https://gamma.app",
     "category": "productivity",
     "tags": [
-      "presentations",
-      "documents",
-      "design",
+      "ai-presentations",
+      "ai-documents",
       "content-creation",
-      "collaboration"
+      "design-automation",
+      "real-time-collaboration",
+      "no-code-design",
+      "business-communication"
     ],
     "pricing": "freemium",
     "features": [
-      "AI-generated layouts",
-      "Real-time collaboration",
-      "Interactive embeds",
-      "Analytics on views"
+      "AI-powered generation of full presentations/docs from a text prompt",
+      "Smart editor for reshaping, refining, and restyling AI-generated content",
+      "Real-time multi-user collaboration with comments and editing",
+      "Embed interactive elements (charts, videos, maps, forms, apps)",
+      "Publish to the web with a shareable link and view analytics",
+      "Export to PDF, PowerPoint (PPTX), and Markdown formats",
+      "Customizable themes, fonts, and brand colors"
     ],
     "use_cases": [
-      "Creating pitch decks",
-      "Building internal wikis",
-      "Designing training guides",
-      "Making one-page websites"
+      "Creating investor pitch decks and business proposals quickly",
+      "Building internal training manuals and onboarding documents",
+      "Designing modern marketing one-pagers and sales collateral",
+      "Developing interactive lesson plans and educational content",
+      "Crafting personal portfolios and project showcase websites",
+      "Generating reports and data-driven summaries with embedded analytics"
     ],
     "launched_date": "2024-01",
-    "has_affiliate": false,
+    "has_affiliate": true,
     "affiliate_commission": "",
     "monthly_pricing": "Free tier, Pro $10/month",
     "source": "Product Hunt #1 Product of the Day 2024, TechCrunch",
@@ -56975,34 +57287,52 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited creations, basic templates, Gamma-branded analytics, public visibility",
+        "Pro: $10/month (billed annually) or $15/month (monthly) - Remove Gamma branding, private content, custom themes, advanced analytics, export to PDF/PPTX",
+        "Enterprise: Custom pricing - SSO/SAML, team management, dedicated support, custom contracts, volume discounts"
+      ],
+      "free_tier": "Yes - Unlimited creations, basic templates, Gamma-branded analytics, public visibility",
+      "starting_price": "$10/month (annual plan)"
+    },
+    "target_audience": [
+      "business professionals & consultants",
+      "educators & trainers",
+      "marketers & content creators"
+    ],
+    "has_api": false
   },
   {
     "name": "Abridge",
-    "description": "An AI-powered clinical documentation tool that generates structured medical notes from patient-clinician conversations in real-time. Integrates with major EHR systems. Targets healthcare providers and clinicians.",
+    "description": "Abridge is an AI-powered clinical documentation platform that listens to patient-clinician conversations in real-time and automatically generates structured medical notes, visit summaries, and after-visit instructions. Its core capability is ambiently capturing dialogue and integrating the resulting documentation directly into major EHR workflows. It uniquely focuses on creating a shared understanding by generating both clinician-facing SOAP notes and simplified, plain-language summaries for patients, aiming to reduce administrative burden and improve patient engagement.",
     "url": "https://abridge.com",
     "category": "healthcare-ai",
     "tags": [
+      "ambient-clinical-intelligence",
       "clinical-documentation",
-      "medical-notes",
       "ehr-integration",
-      "ambient-ai",
-      "healthcare",
-      "voice-to-text"
+      "medical-transcription",
+      "soap-notes",
+      "patient-engagement",
+      "workflow-automation"
     ],
     "pricing": "enterprise",
     "features": [
-      "Real-time conversation capture and summarization",
-      "Generation of SOAP notes and visit summaries",
-      "Deep integration with Epic, Cerner, and other EHRs",
-      "Patient-facing summaries in plain language",
-      "HIPAA-compliant and secure"
+      "Real-time, ambient recording and analysis of patient-clinician conversations",
+      "Automatic generation of structured SOAP notes (Subjective, Objective, Assessment, Plan)",
+      "Deep, bidirectional integration with Epic, Cerner, and other major EHR systems",
+      "Creation of patient-facing visit summaries in plain, accessible language",
+      "HIPAA-compliant, secure platform with role-based access controls",
+      "Inline editing and review tools for clinicians to verify AI-generated notes"
     ],
     "use_cases": [
-      "Automating clinical note-taking to reduce burnout",
-      "Improving accuracy and completeness of medical records",
-      "Enhancing patient understanding with after-visit summaries",
-      "Increasing efficiency in busy clinical practices"
+      "Primary care physicians automating note-taking during patient visits to save time",
+      "Specialists (e.g., cardiologists, orthopedists) documenting complex consultations and procedures",
+      "Healthcare systems deploying at scale to reduce clinician burnout and improve EHR data quality",
+      "Patients receiving clear, actionable after-visit summaries and instructions to improve adherence"
     ],
     "launched_date": "2024-01",
     "has_affiliate": false,
@@ -57015,34 +57345,51 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom pricing - Typically sold to hospitals, health systems, and large clinics. Pricing is per clinician or per encounter and includes full platform access, EHR integration, security compliance, and dedicated support."
+      ],
+      "free_tier": "No - The platform is enterprise-focused with no publicly listed free tier for clinical use.",
+      "starting_price": null
+    },
+    "target_audience": [
+      "physicians-and-specialists",
+      "healthcare-systems-and-hospitals",
+      "large-clinical-practices"
+    ],
+    "has_api": true
   },
   {
     "name": "Marimo",
-    "description": "An open-source reactive notebook for Python that combines the interactivity of Jupyter with the reproducibility of scripts. It's designed for data science, AI prototyping, and building interactive tools.",
+    "description": "Marimo is an open-source reactive notebook for Python that merges the interactive, exploratory nature of Jupyter notebooks with the reproducibility and version-control friendliness of traditional Python scripts. Its key capability is reactive execution, where cells automatically update when their dependencies change, eliminating the need for manual re-runs. It uniquely targets data scientists, researchers, and developers building interactive data apps or AI prototypes by providing a UI component library and the ability to seamlessly convert notebooks into standalone applications or scripts.",
     "url": "https://marimo.io",
     "category": "ml-frameworks",
     "tags": [
-      "python",
-      "notebook",
+      "python-notebook",
       "reactive-programming",
       "data-science",
+      "interactive-apps",
+      "reproducible-research",
       "open-source",
-      "interactive"
+      "prototyping"
     ],
-    "pricing": "open-source",
+    "pricing": "open-source (core) with paid cloud hosting",
     "features": [
-      "Reactive Execution",
-      "Reproducible Notebooks",
-      "UI Component Library",
-      "Seamless Script Conversion",
-      "Collaboration Features"
+      "Reactive Execution: Cells automatically run and update outputs when dependent variables or code changes",
+      "Reproducible Notebooks: Notebooks are pure Python files (.py) that run deterministically from top to bottom",
+      "Built-in UI Components: Library of interactive UI elements (sliders, dropdowns, tables, plots) for building apps",
+      "Seamless Conversion: One-click conversion between notebooks, scripts, and interactive web applications",
+      "Stateful Interactivity: Maintains application state across user interactions without manual kernel management",
+      "Collaboration Features: Real-time collaborative editing and sharing (via marimo Cloud)"
     ],
     "use_cases": [
-      "Data analysis and visualization",
-      "LLM application prototyping",
-      "Building internal data tools",
-      "Teaching and documentation"
+      "Interactive data exploration and visualization dashboards",
+      "Building and sharing reproducible AI/ML model prototypes",
+      "Creating educational tools and interactive tutorials",
+      "Developing internal data science tools and reports",
+      "Scientific research with reproducible computational notebooks"
     ],
     "launched_date": "2024-01",
     "has_affiliate": false,
@@ -57055,33 +57402,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source (core) + subscription (cloud)",
+      "tiers": [
+        "Free (Open Source): Full local functionality, CLI, and library",
+        "Pro (marimo Cloud): $10/user/month - Private notebooks, real-time collaboration, sharing, deployment",
+        "Enterprise (marimo Cloud): Custom pricing - SSO, audit logs, dedicated support, on-prem deployment"
+      ],
+      "free_tier": "Yes - Full open-source toolkit for local use",
+      "starting_price": "Free (open-source), $10/user/month for cloud features"
+    },
+    "target_audience": [
+      "Data Scientists & Analysts",
+      "ML/AI Researchers & Engineers",
+      "Python Developers building interactive tools"
+    ],
+    "has_api": true
   },
   {
     "name": "Cognosys",
-    "description": "A web-based AI agent platform that can autonomously break down complex tasks, research the web, and execute multi-step workflows using reasoning and tool use.",
+    "description": "Cognosys is an AI agent platform that enables users to create, deploy, and manage autonomous AI agents capable of reasoning, executing multi-step workflows, and performing real-time web research. Its key capabilities include breaking down complex tasks, using tools/APIs, and maintaining memory across sessions, making it unique for its focus on creating persistent, reasoning-based agents that operate with high autonomy. It targets developers, researchers, and business professionals seeking to automate intricate, research-heavy processes.",
     "url": "https://cognosys.ai",
     "category": "agent-platforms",
     "tags": [
       "ai-agents",
-      "task-automation",
+      "autonomous-agents",
       "web-research",
-      "workflow-automation",
       "reasoning-engines",
-      "productivity"
+      "workflow-automation",
+      "task-decomposition",
+      "agent-memory",
+      "api-integration"
     ],
     "pricing": "freemium",
     "features": [
-      "Natural language definition of complex tasks",
-      "Autonomous web research and synthesis",
-      "Memory and context across sessions",
-      "Ability to use tools and APIs",
-      "Shareable agent creations"
+      "Natural language interface for defining complex, multi-step tasks and goals",
+      "Autonomous web research with source citation and synthesis of findings",
+      "Persistent memory system allowing agents to retain context and learn across sessions",
+      "Integrated tool use for calculations, code execution, and API calls (e.g., SERP API)",
+      "Agent sharing and cloning functionality for collaboration and reuse",
+      "Visual workflow builder to map out and monitor agent reasoning steps"
     ],
     "use_cases": [
-      "Competitive market research and summarization",
-      "Planning trips, events, or projects",
-      "Automating repetitive multi-step online tasks"
+      "Competitive market analysis and report generation from web sources",
+      "Automated academic or technical research with source compilation",
+      "Complex data gathering, synthesis, and summarization for business intelligence",
+      "Automating multi-step operational workflows (e.g., lead research, content planning)",
+      "Prototyping and testing autonomous AI agent behaviors and capabilities"
     ],
     "launched_date": "2024-03",
     "has_affiliate": false,
@@ -57094,34 +57462,56 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 50 messages/month, 1 concurrent agent, basic web search, community support",
+        "Pro: $29/month - 500 messages/month, 5 concurrent agents, advanced web search, priority support, early feature access",
+        "Enterprise: Custom Pricing - Unlimited messages, custom concurrency, dedicated support, SSO, custom data retention, on-premise deployment options"
+      ],
+      "free_tier": "Yes - 50 messages/month, 1 concurrent agent, basic web search",
+      "starting_price": "Free, then $29/month"
+    },
+    "target_audience": [
+      "AI Developers & Researchers",
+      "Business Analysts & Strategists",
+      "Entrepreneurs & Startup Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Midjourney",
-    "description": "AI image generation service known for artistic, high-quality images from text prompts. Operates primarily through Discord with advanced prompt engineering capabilities.",
+    "description": "Midjourney is a leading generative AI service that creates highly artistic and detailed images from text descriptions (prompts). It is renowned for its distinctive, painterly aesthetic, strong stylistic control, and vibrant community. Its unique operational model runs primarily through a Discord bot, making advanced AI art generation accessible within a social, collaborative environment.",
     "url": "https://www.midjourney.com",
     "category": "image-generation",
     "tags": [
       "text-to-image",
-      "art-generation",
       "discord-bot",
-      "creative-ai",
+      "prompt-engineering",
       "digital-art",
-      "prompt-engineering"
+      "creative-ai",
+      "art-generation",
+      "style-mixing",
+      "community-driven"
     ],
     "pricing": "paid",
     "features": [
-      "High-quality image generation",
-      "Style customization",
-      "Upscaling",
-      "Inpainting",
-      "Community features"
+      "High-resolution image generation (up to 4K with upscalers)",
+      "Advanced prompt parsing with parameters for aspect ratio, stylization, chaos, and version control (e.g., --ar 16:9, --v 6.0)",
+      "Inpainting/Outpainting ('Vary (Region)' tool for selective regeneration and expansion)",
+      "Style tuning with custom '--sref' and '--cref' parameters for consistent character/scene generation",
+      "Image prompting (using an image URL as part of the prompt for style reference)",
+      "Real-time generation and iteration in public or private Discord channels",
+      "Community gallery and ranking system on the official website"
     ],
     "use_cases": [
-      "Concept art",
-      "Illustration",
-      "Marketing visuals",
-      "Personal art projects"
+      "Concept art and visualization for artists, game developers, and filmmakers",
+      "Marketing and advertising asset creation (social media graphics, mood boards)",
+      "Personalized illustration and digital art projects",
+      "Rapid prototyping and ideation for design professionals",
+      "Educational tool for exploring art history, styles, and composition",
+      "Community-driven creative challenges and collaborative art projects"
     ],
     "launched_date": "2024-01",
     "has_affiliate": false,
@@ -57134,7 +57524,24 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Basic Plan: $10/month - ~3.3 Fast GPU hours per month, personal bot chat, general commercial terms",
+        "Standard Plan: $30/month - ~15 Fast GPU hours per month, unlimited Relaxed generation, personal bot chat, general commercial terms",
+        "Pro Plan: $60/month - ~30 Fast GPU hours per month, unlimited Relaxed generation, stealth image generation (private), general commercial terms",
+        "Mega Plan: $120/month - ~60 Fast GPU hours per month, all Pro features, higher rate limits"
+      ],
+      "free_tier": "No (Limited free trials are occasionally offered to new users but are not a permanent tier)",
+      "starting_price": "$10/month"
+    },
+    "target_audience": [
+      "Digital artists and illustrators",
+      "Content creators and marketers",
+      "Hobbyists and AI art enthusiasts"
+    ],
+    "has_api": false
   },
   {
     "name": "Perplexity AI",
@@ -57849,6 +58256,46 @@
     "id": "platform-1765290452419-qf5tazuok",
     "slug": "bard-gemini",
     "added_date": "2025-12-09T14:27:32.419Z",
+    "discovered_by": "mass-discovery",
+    "rating": null,
+    "featured": false,
+    "clicks": 0
+  },
+  {
+    "name": "LLMStack",
+    "description": "An open-source, no-code platform for building generative AI applications and chatbots using multiple LLMs. It allows connecting data sources, defining workflows, and deploying apps without writing code.",
+    "url": "https://llmstack.ai",
+    "category": "agent-platforms",
+    "tags": [
+      "no-code-ai",
+      "open-source",
+      "chatbot-builder",
+      "workflow-automation",
+      "rag",
+      "multi-llm"
+    ],
+    "pricing": "open-source",
+    "features": [
+      "Drag-and-drop AI app builder",
+      "Connect to data sources (PDFs, websites, DBs)",
+      "Support for multiple LLM providers",
+      "Build custom chatbots and agents",
+      "One-click deployment"
+    ],
+    "use_cases": [
+      "Internal knowledge base chatbots",
+      "Customer support automation",
+      "AI-powered content generation workflows",
+      "Rapid prototyping of AI features"
+    ],
+    "launched_date": "2024-07",
+    "has_affiliate": false,
+    "affiliate_commission": "",
+    "monthly_pricing": "Free and open-source; cloud hosting available",
+    "source": "GitHub trending repo; Product Hunt launch 2024",
+    "id": "platform-1765324962563-keeg7qcd5",
+    "slug": "llmstack",
+    "added_date": "2025-12-10T00:02:42.564Z",
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
