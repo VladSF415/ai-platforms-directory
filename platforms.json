@@ -61143,30 +61143,34 @@
   },
   {
     "name": "Gretel",
-    "description": "A developer platform for generating safe, high-quality synthetic data. It uses AI to create privacy-preserving datasets that mimic real data for training ML models, testing, and sharing, without privacy risks.",
+    "description": "Gretel is a comprehensive developer platform for synthetic data, enabling users to generate, transform, and evaluate privacy-preserving datasets. Its core capabilities include creating high-quality synthetic data from scratch or existing datasets, applying privacy transforms like anonymization, and rigorously measuring data quality and privacy. It uniquely targets developers and data scientists with an API-first approach, combining differential privacy, generative AI, and automated evaluation to safely unlock data utility.",
     "url": "https://gretel.ai",
     "category": "data-governance",
     "tags": [
       "synthetic-data",
-      "privacy",
-      "data-generation",
-      "ml-training",
-      "data-testing",
-      "developer-tools",
-      "api"
+      "privacy-engineering",
+      "data-anonymization",
+      "ml-training-data",
+      "developer-api",
+      "differential-privacy",
+      "data-testing"
     ],
     "pricing": "freemium",
     "features": [
-      "Synthetic data generation from scratch or templates",
-      "Privacy transforms (anonymization, redaction)",
-      "Data quality and realism evaluation",
-      "Synthetic data for tabular, time-series, and text",
-      "Developer-friendly SDK and API"
+      "Synthetic data generation via Gretel GPT, ACTGAN, and other models for tabular, time-series, and text data",
+      "Privacy transforms including named entity recognition (NER) for PII detection, redaction, and anonymization",
+      "Synthetic data generation conditioned on specific attributes or schemas for targeted use cases",
+      "Automated quality reports with metrics for accuracy, privacy (e.g., label, membership, similarity), and statistical fidelity",
+      "Gretel Console web interface for project management, configuration, and job monitoring",
+      "Gretel Python SDK and REST API for programmatic integration into data pipelines and applications",
+      "Hybrid generation models that combine deep learning with declarative rules for data constraints"
     ],
     "use_cases": [
-      "Creating training data for ML when real data is scarce",
-      "Generating safe, shareable data for software testing",
-      "Anonymizing sensitive datasets for analytics"
+      "Creating safe, shareable synthetic datasets for training machine learning models without exposing real PII",
+      "Generating balanced, bias-mitigated training data to improve model fairness and performance",
+      "Producing limitless, realistic test data for application and database development to avoid production data leaks",
+      "Anonymizing sensitive datasets (e.g., customer records, healthcare info) for internal analytics or third-party sharing",
+      "Bootstrapping ML projects where real data is scarce, expensive, or difficult to obtain"
     ],
     "launched_date": "2024-01",
     "has_affiliate": false,
@@ -61179,33 +61183,56 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "usage-based subscription",
+      "tiers": [
+        "Free: 50 credits per month, 5M characters of text generation, core models, community support",
+        "Pro: Starts at $50/month - 500 credits, 50M characters, advanced models & transforms, email support",
+        "Team: Custom pricing - Higher limits, SSO, private deployments, dedicated support",
+        "Enterprise: Custom pricing - Full platform deployment, custom models, SLA, professional services"
+      ],
+      "free_tier": "Yes - 50 credits monthly, includes core synthetic data models, privacy transforms, and quality reports",
+      "starting_price": "$50/month (Pro plan)"
+    },
+    "target_audience": [
+      "Data Scientists & ML Engineers",
+      "Software Developers & DevOps",
+      "Data Governance & Privacy Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "CodeSight",
-    "description": "An AI-powered code review platform that analyzes pull requests for bugs, security vulnerabilities, and code quality issues. It integrates with GitHub, GitLab, and Bitbucket to provide instant feedback.",
+    "description": "CodeSight is an AI-powered code review assistant that integrates directly into GitHub, GitLab, and Bitbucket pull requests. It automatically analyzes code changes for bugs, security vulnerabilities, and quality issues, providing instant, context-aware feedback to developers before merge. Its unique value lies in its focus on explaining the 'why' behind its suggestions with AI-generated insights, aiming to educate developers and reduce noise compared to traditional static analysis tools.",
     "url": "https://codesight.ai",
     "category": "code-ai",
     "tags": [
-      "code-review",
-      "static-analysis",
+      "ai-code-review",
+      "pull-request-analysis",
       "devsecops",
-      "pull-requests",
-      "code-quality"
+      "static-application-security-testing",
+      "code-quality",
+      "software-development-lifecycle",
+      "github-actions"
     ],
     "pricing": "freemium",
     "features": [
-      "Automated PR reviews",
-      "Security vulnerability detection",
-      "Code style enforcement",
-      "Integration with CI/CD",
-      "Team analytics dashboard"
+      "Automated, real-time analysis of every pull request for bugs, security flaws, and code smells",
+      "AI-generated explanations for each finding, detailing the risk and potential fix",
+      "Security vulnerability detection covering OWASP Top 10, CWE, and language-specific issues",
+      "Custom rule configuration to enforce team-specific coding standards and patterns",
+      "Seamless integration with GitHub, GitLab, and Bitbucket Cloud (native PR comments)",
+      "CI/CD integration via GitHub Actions, GitLab CI, and other popular tools",
+      "Team dashboard with metrics on review velocity, defect density, and fix rates"
     ],
     "use_cases": [
-      "Engineering team code quality",
-      "Open source project maintenance",
-      "Security compliance",
-      "Junior developer mentorship"
+      "Catching critical security vulnerabilities like SQL injection or hard-coded secrets before they reach production",
+      "Enforcing consistent code style and architectural patterns across distributed development teams",
+      "Reducing manual review burden for senior developers by automating initial PR scans",
+      "Onboarding junior developers by providing instant, educational feedback on their code changes",
+      "Integrating security scanning (SAST) directly into the developer workflow (shift-left security)",
+      "Tracking team-wide code quality metrics and improvement trends over time"
     ],
     "launched_date": "2024-09",
     "has_affiliate": false,
@@ -61218,33 +61245,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: For individuals & small teams, includes 100 scans/month, unlimited repositories, core vulnerability detection",
+        "Pro: $15/developer/month - Unlimited scans, priority support, custom rules, team analytics dashboard",
+        "Enterprise: Custom Pricing - SAML/SSO, on-premises Git support, dedicated SLAs, advanced security policies"
+      ],
+      "free_tier": "Yes - 100 scans per month, core vulnerability and bug detection, unlimited repositories",
+      "starting_price": "Free, then $15/user/month"
+    },
+    "target_audience": [
+      "Software Development Teams",
+      "DevOps & DevSecOps Engineers",
+      "Engineering Managers & Tech Leads"
+    ],
+    "has_api": true
   },
   {
     "name": "DocuMind",
-    "description": "An enterprise document intelligence platform that extracts, categorizes, and analyzes information from complex documents like contracts, invoices, and reports. It learns from feedback to improve accuracy.",
+    "description": "DocuMind is an enterprise-grade document intelligence platform that automates the extraction, classification, and analysis of data from complex, unstructured documents like contracts, invoices, and reports. It leverages machine learning and a human-in-the-loop feedback system to continuously improve accuracy and adapt to specific business vocabularies. Its unique value lies in combining powerful no-code configuration tools for business teams with robust APIs for developers, enabling rapid deployment of custom document processing workflows.",
     "url": "https://documind.ai",
     "category": "enterprise-ai-platforms",
     "tags": [
       "document-ai",
       "contract-analysis",
       "data-extraction",
-      "enterprise",
-      "compliance"
+      "intelligent-document-processing",
+      "compliance",
+      "workflow-automation",
+      "no-code-ai"
     ],
-    "pricing": "enterprise",
+    "pricing": "paid",
     "features": [
-      "Multi-document type processing",
-      "Custom extraction fields",
-      "Human-in-the-loop validation",
-      "Audit trail",
-      "API and no-code options"
+      "Multi-format document processing (PDF, DOCX, images, scanned files) with OCR",
+      "No-code Studio for building custom extraction models and classification rules",
+      "Pre-trained AI models for common documents (invoices, purchase orders, NDAs)",
+      "Human-in-the-loop validation interface for reviewing and correcting AI extractions",
+      "Granular audit trail logging all document processing steps and user actions",
+      "RESTful API for seamless integration into existing business systems and workflows",
+      "Role-based access control (RBAC) and enterprise-grade security (SOC 2 compliant)"
     ],
     "use_cases": [
-      "Legal contract review",
-      "Accounts payable automation",
-      "Insurance claim processing",
-      "Regulatory compliance checking"
+      "Automating accounts payable by extracting line-item data from vendor invoices for ERP entry",
+      "Accelerating contract review and due diligence by identifying key clauses, dates, and obligations",
+      "Streamlining loan processing by automatically pulling applicant data from bank statements and tax forms",
+      "Ensuring regulatory compliance by monitoring contracts and reports for required language or missing clauses",
+      "Powering research and knowledge management by categorizing and indexing large volumes of internal reports"
     ],
     "launched_date": "2024-05",
     "has_affiliate": false,
@@ -61257,33 +61305,55 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: $499/month - Includes 5,000 pages, core pre-trained models, and API access.",
+        "Professional: Custom Pricing - Higher page volumes, custom model training, and dedicated support.",
+        "Enterprise: Custom Pricing - Unlimited pages, advanced security, on-premise deployment, and SLAs."
+      ],
+      "free_tier": "Yes - 14-day free trial with full platform access, no credit card required.",
+      "starting_price": "$499/month"
+    },
+    "target_audience": [
+      "Enterprise Operations & Finance Teams",
+      "Legal & Compliance Departments",
+      "IT & Development Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Flowise",
-    "description": "An open-source visual tool for building custom LLM workflows and AI agents using a drag-and-drop interface. It supports various LLM providers, vector databases, and tools to create complex automation.",
+    "description": "Flowise is an open-source, low-code platform that enables users to visually build and deploy custom LLM (Large Language Model) applications and autonomous agents using a drag-and-drop interface. It abstracts the complexity of underlying frameworks like LangChain, allowing developers, business analysts, and AI enthusiasts to create complex workflows by connecting various components such as LLMs, vector databases, tools, and logic nodes. Its key differentiator is being a self-hostable, extensible alternative to proprietary visual LLM builders, offering full control over data and infrastructure.",
     "url": "https://flowiseai.com",
-    "category": "agent-platforms",
+    "category": "workflow-automation",
     "tags": [
-      "open-source",
-      "workflow-builder",
-      "llm-chains",
-      "visual-programming",
-      "langchain-alternative"
+      "low-code-ai",
+      "llm-workflow-builder",
+      "langchain-ui",
+      "drag-drop-ai",
+      "self-hosted-ai",
+      "custom-chatbots",
+      "rag-pipelines",
+      "ai-agents"
     ],
     "pricing": "open-source",
     "features": [
-      "Drag-and-drop workflow builder",
-      "Multiple LLM provider support",
-      "Vector database integration",
-      "API deployment",
-      "Community templates"
+      "Drag-and-drop canvas for building LangChain-based chains and agents",
+      "Support for 100+ integrations including OpenAI, Anthropic, Cohere, and local models via Ollama",
+      "Built-in integration with vector databases (Chroma, Pinecone, Weaviate, Qdrant) for RAG applications",
+      "One-click deployment of workflows as API endpoints for integration into other applications",
+      "Marketplace for community-shared custom nodes and workflow templates",
+      "Ability to create and embed custom chat widgets from built flows",
+      "Environment variables management for secure credential handling"
     ],
     "use_cases": [
-      "Building customer support chatbots",
-      "Creating document processing pipelines",
-      "Developing research assistants",
-      "Prototyping AI applications"
+      "Building and deploying custom customer support chatbots with company knowledge bases (RAG)",
+      "Creating internal AI assistants for querying documents, databases, and internal APIs",
+      "Automating content generation, summarization, and classification pipelines",
+      "Prototyping and testing different LLM chains and agent logic without writing boilerplate code",
+      "Developing AI-powered data extraction and analysis workflows from unstructured text"
     ],
     "launched_date": "2024-03",
     "has_affiliate": false,
@@ -61296,33 +61366,52 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Self-Hosted (Community Edition): Free - Full access to source code on GitHub",
+        "Flowise Cloud (Hosted): $0/mo (Beta) - Managed cloud service currently in free beta",
+        "Enterprise Support: Custom - Commercial licenses and support for self-hosted deployments"
+      ],
+      "free_tier": "Yes - The core software is entirely free and open-source under the Apache 2.0 License.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Developers and ML Engineers seeking a UI for rapid LLM application prototyping",
+      "Business Analysts and Product Teams building internal AI tools without deep coding",
+      "Enterprises needing a self-hosted, customizable visual platform for AI workflow automation"
+    ],
+    "has_api": true
   },
   {
     "name": "QueryIQ",
-    "description": "A natural language interface for databases that allows anyone to ask questions in plain English and get answers with charts and insights. It connects to SQL databases, Snowflake, BigQuery, and more.",
+    "description": "QueryIQ is an AI-powered analytics platform that enables users to query their data warehouses and SQL databases using plain English. Its core capability is translating natural language questions into optimized SQL, automatically generating charts, and sharing insights. It uniquely targets business users and data teams by combining a simple, no-code interface with robust data governance and collaboration features, bridging the gap between self-service analytics and IT control.",
     "url": "https://queryiq.com",
     "category": "analytics-bi",
     "tags": [
-      "nl-to-sql",
-      "business-intelligence",
-      "data-analytics",
-      "self-service",
-      "dashboarding"
+      "natural-language-to-sql",
+      "self-service-bi",
+      "data-warehouse-analytics",
+      "automated-reporting",
+      "team-collaboration",
+      "data-governance"
     ],
     "pricing": "freemium",
     "features": [
-      "Natural language to SQL",
-      "Auto-generated charts",
-      "Scheduled reports",
-      "Team collaboration",
-      "Data governance controls"
+      "Natural language to SQL translation for Snowflake, BigQuery, PostgreSQL, etc.",
+      "Auto-generation of charts, graphs, and pivot tables from query results",
+      "Scheduled report delivery via email or Slack to stakeholders",
+      "Shared workspaces with role-based access control (RBAC) for teams",
+      "Query review & approval workflows for data governance",
+      "Centralized data catalog with business definitions and lineage"
     ],
     "use_cases": [
-      "Business teams exploring data",
-      "Data analysts speeding up queries",
-      "Executives getting instant reports",
-      "Customer support accessing records"
+      "Business analysts exploring data without writing SQL",
+      "Product managers generating weekly performance dashboards",
+      "Data teams democratizing data access with governed self-service",
+      "Executives receiving automated, scheduled insights reports",
+      "Customer-facing teams creating ad-hoc reports for clients"
     ],
     "launched_date": "2024-07",
     "has_affiliate": false,
@@ -61335,33 +61424,52 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 1 user, 1 data source, 100 queries/month, basic charts",
+        "Starter: $99/user/month - Unlimited queries, advanced charts, scheduled reports, 3 data sources",
+        "Pro: Custom pricing - Team workspaces, SSO, advanced governance, custom integrations"
+      ],
+      "free_tier": "Yes - 1 user, 1 data source, 100 queries/month, basic charts and sharing",
+      "starting_price": "$99/user/month"
+    },
+    "target_audience": [
+      "business analysts and non-technical business users",
+      "data analysts and data scientists",
+      "product managers and operations managers"
+    ],
+    "has_api": true
   },
   {
     "name": "VidBrief",
-    "description": "An AI video summarization tool that creates concise summaries of long videos, extracting key points, highlights, and actionable insights. It works with meetings, lectures, webinars, and presentations.",
+    "description": "VidBrief is an AI-powered video intelligence platform that automatically analyzes long-form videos like meetings, lectures, and webinars to generate concise summaries, searchable transcripts, and highlight reels. Its key capabilities include extracting key points, identifying speakers, and creating actionable insights, saving users significant time on content review. It uniquely focuses on transforming passive video content into searchable, scannable, and shareable knowledge assets for professionals and teams.",
     "url": "https://vidbrief.com",
     "category": "video-ai",
     "tags": [
       "video-summarization",
-      "meeting-notes",
-      "content-digestion",
+      "meeting-intelligence",
+      "lecture-notes",
       "transcription",
-      "highlight-reels"
+      "speaker-diarization",
+      "knowledge-management",
+      "productivity-tool"
     ],
     "pricing": "freemium",
     "features": [
-      "Automatic chapter creation",
-      "Key moment extraction",
-      "Speaker identification",
-      "Searchable transcripts",
-      "Shareable summaries"
+      "AI-generated video summaries with key takeaways and action items",
+      "Searchable, editable transcripts with speaker identification (diarization)",
+      "Automatic chapter creation to segment videos by topic",
+      "Key moment extraction to generate short highlight clips",
+      "Integration with Zoom, Google Meet, and direct video file upload",
+      "Team workspaces for collaborative note-taking and sharing"
     ],
     "use_cases": [
-      "Meeting recaps for teams",
-      "Educational content digestion",
-      "Conference highlight reels",
-      "Content repurposing for social media"
+      "Professionals creating shareable summaries and action items from recorded team meetings",
+      "Students and researchers digesting long lecture recordings and extracting key concepts",
+      "Content teams repurposing webinar recordings into blog posts, social clips, and newsletters",
+      "Consultants and agencies quickly reviewing client calls to identify needs and next steps"
     ],
     "launched_date": "2024-10",
     "has_affiliate": false,
@@ -61374,6 +61482,142 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 3 hours of video processing per month, 5 video storage limit, basic summaries & transcripts",
+        "Pro: $29/month - 10 hours of processing, unlimited video storage, advanced AI summaries, highlight reels, custom vocabulary, priority support",
+        "Enterprise: Custom Pricing - Unlimited processing, SAML/SSO, dedicated support, custom AI training, API access"
+      ],
+      "free_tier": "Yes - 3 hours of video processing/month, 5 stored videos, core summarization & transcription",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Knowledge workers & remote teams",
+      "Educators & students",
+      "Content creators & marketers"
+    ],
+    "has_api": true
+  },
+  {
+    "name": "Google Gemma 2",
+    "description": "Google Gemma 2 is a family of state-of-the-art, open-weight language models designed for efficiency and high performance. It offers multiple size variants (2B, 9B, 27B) optimized for diverse hardware, from laptops to data centers, enabling tasks like text generation, reasoning, and code completion. Its unique value lies in combining Google's cutting-edge research with a permissive commercial license, making powerful, efficient AI accessible for both experimentation and production deployment.",
+    "url": "https://blog.google/technology/developers/gemma-2",
+    "category": "llms",
+    "tags": [
+      "open-weights",
+      "lightweight-llm",
+      "commercial-license",
+      "efficient-inference",
+      "transformer-based",
+      "google-research",
+      "text-generation",
+      "reasoning"
+    ],
+    "pricing": "open-source",
+    "features": [
+      "Open-weight models with Apache 2.0 license for commercial and research use",
+      "Multiple parameter sizes: 2B, 9B, and 27B variants for different compute constraints",
+      "Optimized for efficient inference on GPU, CPU, and edge devices (e.g., via NVIDIA TensorRT-LLM)",
+      "Trained on multilingual data (primarily English) with strong reasoning and coding capabilities",
+      "Integrated with popular frameworks like Hugging Face Transformers, JAX, and PyTorch",
+      "Includes instruction-tuned and base model variants for controlled generation",
+      "Supports extended context lengths (up to 8K tokens) for longer conversations and documents"
+    ],
+    "use_cases": [
+      "Deploying cost-efficient chatbots and virtual assistants on limited infrastructure",
+      "Academic and industrial research into model efficiency, alignment, and capabilities",
+      "On-device AI applications for content generation and summarization without cloud dependency",
+      "Serving as a fine-tuning base for domain-specific tasks (e.g., legal, medical, customer support)",
+      "Educational tool for learning about and experimenting with large language model behavior",
+      "Accelerating code generation and completion in developer tools and IDEs"
+    ],
+    "launched_date": "2024-08",
+    "has_affiliate": false,
+    "affiliate_commission": "",
+    "monthly_pricing": "Free",
+    "source": "Google official announcement Aug 2024, GitHub repository trending",
+    "id": "platform-1765400571132-g41obhmge",
+    "slug": "google-gemma-2",
+    "added_date": "2025-12-10T21:02:51.132Z",
+    "discovered_by": "mass-discovery",
+    "rating": null,
+    "featured": false,
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to model weights, code, and documentation under Apache 2.0 license"
+      ],
+      "free_tier": "Yes - all model weights, inference code, and fine-tuning recipes are freely available",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers and academics",
+      "Developers and startups building AI applications",
+      "Enterprises seeking efficient, deployable LLMs"
+    ],
+    "has_api": false
+  },
+  {
+    "name": "Meta Llama 3.2",
+    "description": "Meta Llama 3.2 is a family of open-source large language models (LLMs) designed for text generation, reasoning, and coding tasks. It offers multiple size variants (1B, 3B, 11B, 90B) with improved reasoning capabilities, significantly extended context windows (up to 128K tokens), and enhanced multilingual performance. It uniquely targets developers and researchers seeking powerful, commercially usable models that balance state-of-the-art performance with computational efficiency and full open-source accessibility.",
+    "url": "https://ai.meta.com/blog/llama-3-2",
+    "category": "llms",
+    "tags": [
+      "open-source-llm",
+      "text-generation",
+      "reasoning-ai",
+      "multilingual-model",
+      "commercial-license",
+      "long-context",
+      "coding-assistant",
+      "transformer"
+    ],
+    "pricing": "open-source",
+    "features": [
+      "Open-source under Meta Llama 3 Community License for commercial and research use",
+      "Four model sizes: 1B, 3B, 11B, and 90B parameter variants",
+      "Extended context length of up to 128,000 tokens",
+      "Enhanced reasoning and instruction-following capabilities",
+      "Improved multilingual performance across 30+ languages",
+      "Optimized for coding tasks (code generation, explanation, debugging)",
+      "Available via Hugging Face, PyTorch, and major cloud platforms"
+    ],
+    "use_cases": [
+      "Building custom chatbots and virtual assistants",
+      "Enterprise application development (e.g., document analysis, customer support)",
+      "Academic and industrial AI research",
+      "Code generation and software development assistance",
+      "Content creation and multilingual text generation",
+      "Long-context document summarization and Q&A"
+    ],
+    "launched_date": "2024-11",
+    "has_affiliate": false,
+    "affiliate_commission": "",
+    "monthly_pricing": "Free",
+    "source": "Meta AI official announcement Nov 2024, GitHub trending",
+    "id": "platform-1765400571139-h4hh3q2kx",
+    "slug": "meta-llama-3-2",
+    "added_date": "2025-12-10T21:02:51.139Z",
+    "discovered_by": "mass-discovery",
+    "rating": null,
+    "featured": false,
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full model weights, code, and commercial use allowed under license terms"
+      ],
+      "free_tier": "Yes - All model variants are free to download, use, and modify for commercial and non-commercial purposes, subject to the Meta Llama 3 Community License.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers and academics",
+      "Software developers and engineers",
+      "Enterprise AI teams"
+    ],
+    "has_api": true
   }
 ]
