@@ -57493,31 +57493,36 @@
   },
   {
     "name": "FlowSynth",
-    "description": "A generative AI platform for creating synthetic data pipelines for testing and training AI models. It generates realistic, privacy-safe datasets that maintain statistical properties of original data.",
+    "description": "FlowSynth is a specialized generative AI platform designed to create privacy-compliant synthetic data for AI development and software testing. Its core capability is generating statistically representative datasets that mimic the structure and relationships of real data while ensuring differential privacy. It uniquely targets data engineers and ML teams who need scalable, safe data for model training, validation, and application testing without legal or privacy risks.",
     "url": "https://flowsynth.ai",
     "category": "data-governance",
     "tags": [
-      "synthetic-data",
-      "data-privacy",
-      "testing",
-      "training-data",
-      "data-generation",
-      "privacy"
+      "synthetic-data-generation",
+      "differential-privacy",
+      "data-pipelines",
+      "test-data-management",
+      "ml-training-data",
+      "data-anonymization",
+      "data-privacy"
     ],
     "pricing": "freemium",
     "features": [
-      "Differential privacy guarantees",
-      "Schema-aware data generation",
-      "Statistical property preservation",
-      "Multi-format export (CSV, Parquet, SQL)"
+      "Differential privacy guarantees with configurable epsilon parameters",
+      "Schema-aware generation from uploaded sample data or defined schemas",
+      "Preservation of statistical properties (distributions, correlations, constraints)",
+      "Multi-format export including CSV, Parquet, and SQL insert scripts",
+      "Programmatic pipeline creation and management via Python SDK/API",
+      "Synthetic data quality reports and validation metrics"
     ],
     "use_cases": [
-      "Creating training data for sensitive applications",
-      "Generating test datasets for software development",
-      "Data augmentation for imbalanced ML datasets"
+      "Generating safe, scalable training datasets for machine learning models",
+      "Creating realistic test data for software development and QA pipelines",
+      "Building anonymized datasets for data sharing and collaboration",
+      "Augmenting existing datasets to address class imbalance or increase size",
+      "Providing compliant data for analytics and BI dashboard development"
     ],
     "launched_date": "2024-07",
-    "has_affiliate": true,
+    "has_affiliate": false,
     "affiliate_commission": "15% recurring",
     "monthly_pricing": "$149",
     "source": "Product Hunt trending Jul 2024 (300+ upvotes)",
@@ -57527,32 +57532,57 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Limited to 1M rows/month generation, core privacy features",
+        "Pro: $499/month - 10M rows/month, advanced privacy controls, priority support",
+        "Enterprise: Custom pricing - Unlimited scale, dedicated infrastructure, SLAs, custom connectors"
+      ],
+      "free_tier": "Yes - Includes 1 million synthetic rows per month, core differential privacy, and basic format exports.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Data Engineers & ML Engineers",
+      "Software Developers & QA/Test Engineers",
+      "Data Scientists & AI Researchers"
+    ],
+    "has_api": true
   },
   {
     "name": "Kaleido",
-    "description": "A video understanding AI platform that analyzes and indexes video content for search, summarization, and content moderation. It processes visual, audio, and text elements simultaneously.",
+    "description": "Kaleido is an enterprise-grade video understanding AI platform that automatically analyzes, indexes, and extracts insights from video content at scale. It processes visual, audio, and text elements simultaneously to enable powerful search, summarization, content moderation, and compliance workflows. Its unique selling point is its multimodal, frame-accurate analysis engine designed specifically for large-volume enterprise video libraries.",
     "url": "https://kaleido.ai",
     "category": "video-ai",
     "tags": [
-      "video-analysis",
+      "video-understanding",
+      "multimodal-ai",
       "video-search",
       "content-moderation",
-      "multimodal",
       "video-indexing",
-      "summarization"
+      "speaker-diarization",
+      "enterprise-video",
+      "compliance"
     ],
     "pricing": "paid",
     "features": [
-      "Frame-accurate object detection",
-      "Audio transcription with speaker diarization",
-      "Emotion and sentiment analysis",
-      "Customizable moderation rules"
+      "Frame-accurate object, scene, and activity detection with timestamped metadata",
+      "Audio transcription with automatic speaker diarization (identifies who said what)",
+      "Sentiment and emotion analysis derived from both visual cues and audio tone",
+      "Customizable content moderation rules for nudity, violence, logos, and custom objects",
+      "Semantic video search across visual concepts, spoken words, and on-screen text (OCR)",
+      "Automated video summarization creating highlight reels and chapter markers",
+      "API-first platform with webhook support for integration into existing workflows",
+      "Dashboard for managing, reviewing, and exporting analysis results and insights"
     ],
     "use_cases": [
-      "Video content search and retrieval",
-      "Automated content moderation for platforms",
-      "Educational video analysis and summarization"
+      "Media & Entertainment: Enabling deep content search and rights management for large video archives.",
+      "Corporate Compliance: Automatically moderating user-generated content (UGC) and internal training videos for policy violations.",
+      "E-learning & Training: Indexing educational content to make specific lessons and topics instantly searchable.",
+      "Broadcast Monitoring: Tracking brand mentions, competitor logos, and specific topics across live or recorded TV streams.",
+      "Customer Experience: Analyzing video feedback and support calls for sentiment and key discussion points.",
+      "Security & Surveillance: Augmenting video review by detecting specific objects, activities, or events of interest."
     ],
     "launched_date": "2025-02",
     "has_affiliate": false,
@@ -57565,32 +57595,55 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: $99/month - 100 hours of video processing, core features",
+        "Pro: $499/month - 500 hours, advanced features & priority support",
+        "Enterprise: Custom Pricing - Unlimited processing, SLA, custom models & integrations"
+      ],
+      "free_tier": "Yes - 30-day free trial with 10 hours of processing credit",
+      "starting_price": "$99/month"
+    },
+    "target_audience": [
+      "Enterprise media companies & broadcasters",
+      "E-learning and corporate training platforms",
+      "Social media and UGC-focused platforms"
+    ],
+    "has_api": true
   },
   {
     "name": "Axiom AI",
-    "description": "A reasoning-focused AI platform that specializes in complex problem solving, logical deduction, and step-by-step reasoning tasks. Built on a modified transformer architecture optimized for reasoning.",
+    "description": "Axiom AI is a specialized reasoning engine designed to tackle complex, multi-step problems requiring logical deduction and structured thought. It excels in domains like advanced mathematics, scientific research, and strategic planning by employing a modified transformer architecture optimized for chain-of-thought reasoning. Its unique value lies in its focus on verifiable, step-by-step logical processes over general conversational ability, making it a tool for deep analytical work.",
     "url": "https://axiom.ai",
     "category": "llms",
     "tags": [
-      "reasoning",
-      "logic",
+      "reasoning-engine",
+      "logical-deduction",
+      "mathematical-reasoning",
+      "scientific-research",
+      "chain-of-thought",
       "problem-solving",
-      "mathematics",
-      "science",
-      "research"
+      "planning",
+      "hypothesis-testing"
     ],
-    "pricing": "paid",
+    "pricing": "freemium",
     "features": [
-      "Chain-of-thought reasoning",
-      "Mathematical proof verification",
-      "Scientific hypothesis testing",
-      "Multi-step planning capabilities"
+      "Deterministic chain-of-thought reasoning with step-by-step output",
+      "Formal verification for mathematical proofs and logical statements",
+      "Controllable reasoning depth and search breadth for complex problems",
+      "Multi-modal data ingestion for scientific hypothesis testing (text, data, code)",
+      "Interactive reasoning sessions where users can guide or correct the logic path",
+      "API for integrating structured reasoning into external applications and workflows"
     ],
     "use_cases": [
-      "Academic research assistance",
-      "Complex technical problem solving",
-      "Legal and logical analysis"
+      "Verifying complex mathematical proofs and conjectures",
+      "Designing and testing scientific experimental methodologies",
+      "Breaking down multi-faceted business or operational strategy problems",
+      "Generating and validating legal or compliance argumentation structures",
+      "Tutoring and explaining advanced STEM concepts with logical rigor",
+      "Automated code analysis and debugging through logical inference"
     ],
     "launched_date": "2024-12",
     "has_affiliate": false,
@@ -57603,35 +57656,58 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free Tier: Limited reasoning steps per session, basic model access",
+        "Pro: Pricing not publicly listed - assumed tier for higher limits and advanced features",
+        "Enterprise: Custom - for high-volume, on-premise, or specialized model tuning"
+      ],
+      "free_tier": "Yes - includes access to the core reasoning engine with usage limits",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Researchers and Academics (STEM fields)",
+      "Data Scientists and Quantitative Analysts",
+      "Engineers and Technical Strategists"
+    ],
+    "has_api": true
   },
   {
     "name": "LinguaLink",
-    "description": "A real-time translation platform for live conversations that preserves tone, cultural context, and idiomatic expressions. Supports 50+ languages with industry-specific terminology packs.",
+    "description": "LinguaLink is an enterprise-grade AI platform for real-time, speech-to-speech translation designed for live, natural conversations. It uniquely focuses on preserving speaker tone, emotional nuance, cultural context, and idiomatic expressions, making interactions feel more human and less robotic. Its key capabilities include support for 50+ languages with specialized terminology packs for industries like legal, medical, and technical fields, targeting global businesses, customer support teams, and remote collaboration.",
     "url": "https://lingualink.ai",
     "category": "nlp",
     "tags": [
-      "translation",
-      "real-time",
-      "live-conversation",
-      "multilingual",
+      "real-time-translation",
+      "speech-to-speech",
       "cultural-context",
-      "idioms"
+      "enterprise-ai",
+      "multilingual-communication",
+      "live-conversation",
+      "idiom-preservation"
     ],
-    "pricing": "paid",
+    "pricing": "enterprise",
     "features": [
-      "<200ms latency translation",
-      "Tone and emotion preservation",
-      "Industry-specific terminology",
-      "Offline mode for 20 languages"
+      "<200ms end-to-end latency for seamless live dialogue",
+      "Tone and emotion preservation analysis using proprietary NLP models",
+      "Industry-specific terminology packs (Legal, Medical, Engineering, Hospitality)",
+      "Offline translation mode for 20 core languages without internet",
+      "Secure, encrypted audio processing with data residency options",
+      "Custom glossary and brand term injection for enterprise clients",
+      "Multi-speaker diarization and identification in conference mode"
     ],
     "use_cases": [
-      "Live multilingual meetings",
-      "Customer support across languages",
-      "Educational language learning"
+      "Global corporate meetings and all-hands presentations with live translation",
+      "Multilingual customer support call centers reducing wait times for interpreters",
+      "Telehealth consultations between doctors and non-native speaking patients",
+      "International legal depositions and client interviews",
+      "Tourism and hospitality for real-time guest service interactions",
+      "Remote engineering teams collaborating on technical projects"
     ],
     "launched_date": "2024-10",
-    "has_affiliate": true,
+    "has_affiliate": false,
     "affiliate_commission": "25% first payment",
     "monthly_pricing": "$79",
     "source": "Product Hunt Featured Oct 2024 (450+ upvotes)",
@@ -57641,32 +57717,55 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: Custom Quote - For small teams, limited languages",
+        "Professional: Custom Quote - Full language set, API access",
+        "Enterprise: Custom Quote - On-prem deployment, SLA, custom training"
+      ],
+      "free_tier": "No",
+      "starting_price": "Custom Quote (Enterprise)"
+    },
+    "target_audience": [
+      "Multinational corporations and enterprises",
+      "Customer service and support centers (B2C)",
+      "Healthcare providers and telehealth platforms"
+    ],
+    "has_api": true
   },
   {
     "name": "Vizlytics",
-    "description": "An AI-driven business intelligence platform that automatically generates insights, forecasts, and recommendations from data. Conversational interface allows asking questions in natural language.",
+    "description": "Vizlytics is an AI-powered business intelligence platform that transforms raw data into actionable insights, forecasts, and recommendations through automated analysis. Its core capability is a conversational interface that allows users to ask complex business questions in natural language, receiving instant visualizations and reports without needing SQL or deep technical skills. It uniquely combines automated insight discovery with predictive modeling, targeting business users who need fast, data-driven decision-making without relying on data teams.",
     "url": "https://vizlytics.com",
     "category": "analytics-bi",
     "tags": [
       "business-intelligence",
-      "data-analysis",
+      "automated-insights",
+      "predictive-analytics",
+      "natural-language-query",
+      "data-visualization",
       "forecasting",
-      "insights",
-      "natural-language",
-      "dashboard"
+      "dashboard",
+      "no-code-analytics"
     ],
     "pricing": "freemium",
     "features": [
-      "Natural language query interface",
-      "Automated insight generation",
-      "Predictive forecasting models",
-      "Custom dashboard creation"
+      "Conversational natural language interface for querying databases and datasets",
+      "Automated generation of key insights, trends, and anomalies from data",
+      "Built-in predictive forecasting models for time-series and business metrics",
+      "Drag-and-drop custom dashboard builder with interactive visualizations",
+      "Scheduled report generation and automated data refresh",
+      "Integration with common data sources (SQL databases, cloud storage, SaaS tools)",
+      "Collaboration features for sharing insights and dashboards with teams"
     ],
     "use_cases": [
-      "Sales performance analysis",
-      "Financial forecasting",
-      "Marketing campaign optimization"
+      "Sales teams analyzing performance trends and forecasting quarterly revenue",
+      "Marketing departments measuring campaign ROI and identifying high-performing channels",
+      "Operations managers monitoring KPIs and predicting inventory or resource needs",
+      "Executives and business analysts creating real-time dashboards for strategic decision-making",
+      "Product teams tracking user engagement metrics and feature adoption"
     ],
     "launched_date": "2024-09",
     "has_affiliate": false,
@@ -57679,34 +57778,53 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Limited queries, basic visualizations, 1 dashboard, up to 3 data sources",
+        "Pro: $99/month (estimated) - Unlimited queries, advanced insights, predictive models, 10 dashboards, 10+ data sources, scheduled reports",
+        "Enterprise: Custom pricing - Advanced security (SSO, audit logs), custom models, unlimited users, dedicated support, on-prem deployment options"
+      ],
+      "free_tier": "Yes - Includes basic natural language queries, simple dashboards, and limited data source connections",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "business analysts",
+      "department heads and managers",
+      "data-driven executives"
+    ],
+    "has_api": true
   },
   {
     "name": "Claude Desktop",
-    "description": "Official desktop application for Anthropic's Claude AI assistant, featuring native system integration, file upload capabilities, and persistent conversation history.",
+    "description": "Claude Desktop is the official native application for Anthropic's Claude AI assistant, providing a dedicated, integrated interface for interacting with Claude 3 models. It enables users to upload and analyze various file types (PDFs, text, code) directly from their desktop and maintains persistent conversation history with system-level integration. It uniquely offers a streamlined, keyboard-driven experience outside the browser, tailored for users who prefer a native app workflow with their local files.",
     "url": "https://claude.ai/desktop",
     "category": "productivity",
     "tags": [
-      "desktop-app",
+      "desktop-application",
+      "claude-3",
+      "file-upload",
+      "native-integration",
+      "conversation-history",
       "ai-assistant",
-      "anthropic",
-      "claude",
-      "productivity",
-      "native-app"
+      "anthropic"
     ],
     "pricing": "freemium",
     "features": [
-      "Native macOS and Windows apps",
-      "File upload (PDF, TXT, code files)",
-      "System-level integration",
-      "Keyboard shortcuts",
-      "Conversation history"
+      "Native desktop applications for macOS and Windows (not just a web wrapper)",
+      "Direct file upload and analysis for PDF, TXT, CSV, and various code file formats",
+      "System-level keyboard shortcuts for quick activation (e.g., Cmd+Shift+C on macOS)",
+      "Persistent, locally stored conversation history across sessions",
+      "Direct integration with the system clipboard for easy copy/paste interactions",
+      "Access to the latest Claude 3 model family (Haiku, Sonnet, Opus) based on user's Anthropic account tier"
     ],
     "use_cases": [
-      "Document analysis and summarization",
-      "Code review and explanation",
-      "Writing assistance",
-      "Research and information synthesis"
+      "Analyzing and summarizing lengthy documents or research papers uploaded as PDFs",
+      "Getting coding assistance by uploading and discussing source code files",
+      "Drafting and editing long-form content with the benefit of persistent conversation context",
+      "Quickly querying Claude for information or task help via a dedicated keyboard shortcut",
+      "Organizing and continuing complex, multi-turn AI-assisted projects or analyses"
     ],
     "launched_date": "2024-05",
     "has_affiliate": false,
@@ -57719,34 +57837,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Claude Free: Access to Claude 3 Sonnet with daily usage limits",
+        "Claude Pro: $20 USD/month - 5x higher usage limits, priority access during high traffic, access to Claude 3 Opus"
+      ],
+      "free_tier": "Yes - Access to Claude 3 Sonnet with daily message limits and standard support.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "knowledge workers and researchers",
+      "developers and technical professionals",
+      "students and academics"
+    ],
+    "has_api": false
   },
   {
     "name": "Ideogram",
-    "description": "AI image generation platform specializing in typography and text rendering within images. Excels at creating images with legible, stylized text elements.",
+    "description": "Ideogram is a generative AI platform focused on creating images with coherent, stylized, and legible text. Its key capability is superior text rendering within images, solving a common weakness in AI art generators. It uniquely combines advanced typography tools with multiple artistic style models, making it ideal for creators needing text-integrated visuals.",
     "url": "https://ideogram.ai",
     "category": "image-generation",
     "tags": [
       "text-to-image",
-      "typography",
+      "typography-ai",
       "ai-art",
-      "text-in-images",
+      "text-in-image",
       "generative-ai",
-      "creative-tools"
+      "graphic-design",
+      "creative-tools",
+      "logo-creation"
     ],
     "pricing": "freemium",
     "features": [
-      "Superior text rendering in images",
-      "Multiple style models",
-      "High-resolution output",
-      "Prompt understanding",
-      "Creative typography tools"
+      "Superior text rendering with high legibility and stylistic control",
+      "Multiple style models (e.g., typography, anime, dark fantasy, illustration)",
+      "High-resolution output (up to 1024x1024 or higher)",
+      "Magic Prompt feature for enhanced prompt understanding and expansion",
+      "Remix tool for iterative image editing and variation",
+      "Free daily generations with watermark-free downloads"
     ],
     "use_cases": [
-      "Marketing material creation",
-      "Logo and branding design",
-      "Social media graphics",
-      "Poster and advertisement design"
+      "Creating social media graphics with integrated quotes or slogans",
+      "Designing logos, posters, and merchandise with stylized text",
+      "Generating concept art for games or books with textual elements",
+      "Producing marketing materials (banners, ads) requiring clear text",
+      "Educational content creation with annotated visuals",
+      "Personalized art and greeting cards with custom messages"
     ],
     "launched_date": "2024-08",
     "has_affiliate": false,
@@ -57759,32 +57897,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 25 slow generations per day, 5 fast generations per day, watermark-free downloads, access to all styles",
+        "Pro: $8/month (billed monthly) or $80/year - 100 fast generations per day, priority queue, commercial license",
+        "Enterprise: Custom pricing - volume discounts, dedicated support, custom models"
+      ],
+      "free_tier": "Yes - includes 25 slow and 5 fast daily generations, all styles, watermark-free downloads",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "graphic designers and digital artists",
+      "social media marketers and content creators",
+      "small business owners and entrepreneurs"
+    ],
+    "has_api": false
   },
   {
     "name": "OpenAI o1",
-    "description": "OpenAI's new flagship reasoning model, available through ChatGPT and API. It's designed to solve complex problems by thinking step-by-step, achieving state-of-the-art results in mathematics, coding, and scientific reasoning.",
+    "description": "OpenAI o1 is a flagship reasoning model designed to solve complex, multi-step problems by engaging in extended internal 'chain-of-thought' reasoning before delivering a final answer. It achieves state-of-the-art performance in mathematics, coding, and scientific domains, distinguishing itself from standard LLMs by its deliberate, process-oriented approach to problem-solving. It is targeted at researchers, developers, and professionals who require high-reliability outputs for technical and analytical tasks.",
     "url": "https://openai.com/index/learning-to-reason-with-llms/",
     "category": "llms",
     "tags": [
       "reasoning-model",
       "openai",
-      "chatgpt",
-      "complex-problem-solving",
-      "math-ai"
+      "chain-of-thought",
+      "stem-ai",
+      "math-reasoning",
+      "code-generation",
+      "scientific-ai"
     ],
     "pricing": "paid",
     "features": [
-      "Advanced chain-of-thought reasoning",
-      "High accuracy on STEM benchmarks",
-      "Integration in ChatGPT Plus",
-      "API access for developers"
+      "Extended internal chain-of-thought reasoning for complex problem decomposition",
+      "State-of-the-art performance on MATH and GPQA (Graduate-Level Google-Proof Q&A) benchmarks",
+      "Integration as a model option within the ChatGPT Plus subscription interface",
+      "Dedicated API endpoint (`o1-preview`, `o1-mini`) for programmatic access",
+      "Enhanced accuracy on coding tasks (HumanEval) and scientific reasoning",
+      "Designed for 'slow thinking' with longer latency but higher precision outputs"
     ],
     "use_cases": [
-      "Advanced research assistance",
-      "Complex code debugging",
-      "Competitive programming",
-      "Scientific hypothesis exploration"
+      "Solving advanced mathematical problems and proofs",
+      "Generating and debugging complex code with high reliability",
+      "Assisting in scientific research and hypothesis analysis",
+      "Powering advanced tutoring systems for STEM education",
+      "Performing deep technical analysis and data interpretation",
+      "Serving as a reasoning engine for research and development agents"
     ],
     "launched_date": "2024-09",
     "has_affiliate": false,
@@ -57797,32 +57957,53 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "mixed (subscription for ChatGPT, usage-based for API)",
+      "tiers": [
+        "ChatGPT Plus: $20/month - includes access to o1 among other models within the chat interface (with usage limits)",
+        "API: Usage-based - o1-preview at $15.00 per 1M input tokens, $60.00 per 1M output tokens; o1-mini at lower rates",
+        "Enterprise: Custom - volume-based contracts for API access and dedicated support"
+      ],
+      "free_tier": "No",
+      "starting_price": "$20/month (via ChatGPT Plus subscription)"
+    },
+    "target_audience": [
+      "AI Researchers & Data Scientists",
+      "Software Developers & Engineers",
+      "Educators & Students in STEM fields"
+    ],
+    "has_api": true
   },
   {
     "name": "Voyage",
-    "description": "A platform for building and deploying AI agents that can use tools, browse the web, and execute multi-step workflows. It provides a no-code builder and API for creating autonomous agents for customer support, research, and automation.",
+    "description": "Voyage is a platform for building, testing, and deploying sophisticated AI agents capable of executing complex, multi-step workflows. It uniquely combines a visual no-code builder with a powerful API, enabling agents to use tools, browse the web, and maintain long-running memory for persistent tasks. It targets businesses and developers looking to automate processes in customer support, research, and operations with reliable, autonomous agents.",
     "url": "https://voyageai.com",
     "category": "agent-platforms",
     "tags": [
       "ai-agents",
       "workflow-automation",
-      "no-code",
+      "no-code-builder",
       "web-automation",
-      "api"
+      "agent-api",
+      "long-term-memory",
+      "autonomous-agents"
     ],
     "pricing": "freemium",
     "features": [
-      "No-code agent builder",
-      "Web browsing and tool use",
-      "Long-running memory",
-      "API for integration"
+      "Visual, no-code workflow builder for designing agent logic",
+      "Integrated web browsing capability for real-time information gathering",
+      "Tool use framework for connecting to external APIs and services",
+      "Long-running memory system for context preservation across sessions",
+      "Deployment options to web, API, or scheduled/cron jobs",
+      "Collaborative environment for team-based agent development"
     ],
     "use_cases": [
-      "Automated customer support agents",
-      "Research and data collection agents",
-      "Personal AI assistants",
-      "Business process automation"
+      "Automated customer support agents that handle FAQs and ticket triage",
+      "Research assistants that gather, summarize, and cite web-based information",
+      "Internal process automation for HR, IT, or sales onboarding",
+      "Competitive intelligence agents that monitor websites and reports",
+      "Personalized outbound engagement and follow-up sequences"
     ],
     "launched_date": "2024-09",
     "has_affiliate": false,
@@ -57835,32 +58016,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription (usage-based elements likely)",
+      "tiers": [
+        "Free: Access to core builder, limited agent runs, and community support",
+        "Pro: $99/month (estimated) - Increased runs, priority support, advanced features",
+        "Enterprise: Custom - Unlimited scale, SSO, dedicated infrastructure, SLAs"
+      ],
+      "free_tier": "Yes - Includes core builder features with usage limits on agent executions",
+      "starting_price": "Free, then $99/month (estimated for Pro)"
+    },
+    "target_audience": [
+      "Product & Operations teams in SMBs",
+      "Startup founders & indie developers",
+      "Enterprise automation & innovation teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Zeta Labs",
-    "description": "Developers of the JACE AI agent, a general-purpose AI that can operate computers to complete tasks by controlling the mouse and keyboard, understanding screens, and using any software.",
+    "description": "Zeta Labs develops JACE, a general-purpose AI agent that can autonomously operate a computer by controlling the mouse and keyboard, visually understanding screen content, and executing tasks across any desktop application. It is designed for automating complex, long-horizon workflows that require reasoning, planning, and sequential interactions with software. Its unique value lies in its ability to function as a 'digital employee' that can be instructed in natural language to perform tasks on a standard computer interface, bridging the gap between AI instruction and direct software manipulation.",
     "url": "https://zeta-labs.com",
     "category": "agent-platforms",
     "tags": [
       "ai-agent",
+      "desktop-automation",
       "computer-control",
-      "automation",
+      "visual-understanding",
+      "workflow-automation",
       "general-ai",
-      "desktop-automation"
+      "rpa"
     ],
-    "pricing": "waitlist",
+    "pricing": "enterprise",
     "features": [
-      "Computer control via mouse/keyboard",
-      "Visual understanding of screens",
-      "Ability to use any desktop software",
-      "Long-horizon task planning"
+      "Pixel-perfect mouse and keyboard control for direct software interaction",
+      "Real-time visual perception (VLM) to understand and navigate any on-screen UI",
+      "Long-horizon task planning and execution across multiple applications",
+      "Natural language instruction processing for defining complex workflows",
+      "Memory and context retention for multi-step processes",
+      "Ability to learn from demonstrations for task customization"
     ],
     "use_cases": [
-      "Automating repetitive desktop workflows",
-      "Software testing and QA",
-      "Data entry and form filling",
-      "Personal AI assistant for computer tasks"
+      "Automating repetitive data entry and form filling across enterprise software",
+      "Conducting multi-step web research and data aggregation",
+      "Executing complex software-specific workflows (e.g., in Adobe Creative Suite, Excel)",
+      "Automating customer service and back-office operational tasks",
+      "Performing software testing and QA by interacting with UIs",
+      "Managing personal productivity tasks like email sorting and calendar management"
     ],
     "launched_date": "2024-10",
     "has_affiliate": false,
@@ -57873,34 +58076,53 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Enterprise: Custom - Full platform access, dedicated support, custom integrations, and SLAs."
+      ],
+      "free_tier": "No",
+      "starting_price": null
+    },
+    "target_audience": [
+      "enterprise-operations-teams",
+      "rpa-developers-automation-engineers",
+      "knowledge-workers"
+    ],
+    "has_api": true
   },
   {
     "name": "LLaMA 3",
-    "description": "Meta's latest generation of open, large language models, offering improved performance across reasoning, coding, and instruction following. Includes models from 8B to 405B parameters.",
+    "description": "LLaMA 3 is Meta's latest family of open-source large language models, designed to deliver state-of-the-art performance in reasoning, coding, and instruction following for a wide range of applications. It targets developers, researchers, and businesses seeking powerful, commercially usable AI models that can be deployed locally or in the cloud. Its uniqueness lies in its combination of top-tier open-source performance, extensive commercial licensing, and availability in multiple sizes from 8B to 405B parameters, making advanced AI accessible without vendor lock-in.",
     "url": "https://llama.meta.com/llama3/",
     "category": "llms",
     "tags": [
-      "open-source",
-      "meta",
-      "language-model",
-      "research",
-      "local-ai",
-      "coding"
+      "open-source-llm",
+      "meta-ai",
+      "text-generation",
+      "commercial-ai",
+      "local-deployment",
+      "coding-assistant",
+      "reasoning-ai"
     ],
     "pricing": "open-source",
     "features": [
-      "State-of-the-art open LLM performance",
-      "Enhanced coding and reasoning capabilities",
-      "Extended context length (128K tokens)",
-      "Available in multiple sizes for different use cases",
-      "Commercial use allowed"
+      "State-of-the-art performance on key benchmarks (e.g., MMLU, GPQA, HumanEval)",
+      "Extended context window of 128,000 tokens for processing long documents",
+      "Available in multiple parameter sizes: 8B, 70B, and a 405B parameter model for research",
+      "Optimized for complex reasoning and code generation tasks",
+      "Released under a permissive commercial license allowing integration and redistribution",
+      "Supports advanced instruction following and chat capabilities",
+      "Can be deployed via major cloud platforms (AWS, Google Cloud, Azure) and locally"
     ],
     "use_cases": [
-      "Building custom AI applications",
-      "On-premises enterprise AI solutions",
-      "Research and model fine-tuning",
-      "Cost-effective alternative to closed APIs"
+      "Building custom chatbots and virtual assistants with enterprise data",
+      "AI-powered code generation, completion, and debugging for developers",
+      "Research and development of new AI applications and model fine-tuning",
+      "Content creation, summarization, and analysis of long-form documents",
+      "Educational tools and tutoring systems for complex subjects",
+      "Prototyping and deploying scalable AI features in commercial products"
     ],
     "launched_date": "2024-04",
     "has_affiliate": false,
@@ -57913,34 +58135,52 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full model weights and code available for download and commercial use under license"
+      ],
+      "free_tier": "Yes - all model sizes (8B, 70B, 405B) are freely available for download and use",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI researchers and academics",
+      "Software developers and engineers",
+      "Enterprises building proprietary AI solutions"
+    ],
+    "has_api": true
   },
   {
     "name": "Abacus AI",
-    "description": "An end-to-end platform to build, deploy, and monitor generative AI and machine learning applications, featuring a no-code studio and agent-building capabilities.",
+    "description": "Abacus AI is an enterprise-grade platform designed to build, deploy, and manage production-ready generative AI and machine learning applications. Its core capabilities include a no-code studio for creating AI agents and applications, automated fine-tuning of large language models (LLMs), and a comprehensive RAG (Retrieval-Augmented Generation) system. It uniquely targets data scientists and enterprise engineering teams by combining advanced MLOps tooling with generative AI workflows, enabling scalable deployment across multi-cloud and on-premises environments with built-in monitoring and governance.",
     "url": "https://abacus.ai",
     "category": "enterprise-ai-platforms",
     "tags": [
       "mlops",
       "generative-ai",
-      "no-code",
+      "no-code-studio",
       "ai-agents",
-      "model-deployment",
-      "rag"
+      "llm-fine-tuning",
+      "rag",
+      "model-monitoring",
+      "multi-cloud"
     ],
-    "pricing": "freemium",
+    "pricing": "paid",
     "features": [
-      "No-code ML and GenAI app builder",
-      "Automatic fine-tuning of LLMs",
-      "RAG (Retrieval-Augmented Generation) studio",
-      "Real-time model monitoring",
-      "Multi-cloud and on-prem deployment"
+      "No-code ML & GenAI App Builder with drag-and-drop interface for creating custom AI agents and applications",
+      "Automatic Fine-Tuning Studio for customizing open-source and proprietary LLMs (e.g., Llama 2, GPT) with private data",
+      "RAG Studio for building knowledge-base-powered chatbots with built-in chunking, embedding, and vector search",
+      "Real-time Model Monitoring & Observability with performance dashboards, drift detection, and alerting",
+      "Multi-Cloud & Hybrid Deployment supporting AWS, Azure, GCP, and private data centers",
+      "Agent-Building Capabilities for creating autonomous AI agents that can execute multi-step workflows and use tools",
+      "Enterprise Security & Governance featuring SSO, audit logs, role-based access control (RBAC), and data encryption"
     ],
     "use_cases": [
-      "Building custom enterprise chatbots",
-      "Creating predictive analytics dashboards",
-      "Developing AI agents for workflows",
-      "Implementing document intelligence systems"
+      "Building internal enterprise chatbots powered by company documents and knowledge bases using RAG",
+      "Developing and deploying custom fine-tuned LLMs for domain-specific tasks like legal contract analysis or customer support",
+      "Creating automated AI agents for workflow automation, such as data analysis pipelines or report generation",
+      "Monitoring and managing the performance, cost, and drift of multiple generative AI models in production"
     ],
     "launched_date": "2024-05",
     "has_affiliate": false,
@@ -57953,36 +58193,58 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free Trial: Available with limited credits and features for evaluation",
+        "Team: Custom pricing based on usage (e.g., model training hours, inference calls, storage) - typically starts at an estimated $500+/month",
+        "Enterprise: Custom pricing with dedicated support, advanced security, and on-prem deployment options"
+      ],
+      "free_tier": "Yes - A free trial with platform access and limited credits is offered, but no permanent free tier.",
+      "starting_price": "Custom pricing; contact for quote. Publicly listed plans start at an estimated $500/month for the Team tier."
+    },
+    "target_audience": [
+      "Enterprise Data Science & ML Engineering Teams",
+      "AI Product Managers & Business Analysts",
+      "Software Developers building AI-powered applications"
+    ],
+    "has_api": true
   },
   {
     "name": "Gamma",
-    "description": "An AI-powered presentation and document tool that generates beautiful, engaging decks, webpages, and documents from a text prompt. It designs the layout, applies themes, and suggests content. Targets professionals, educators, and marketers.",
+    "description": "Gamma is an AI-native content creation platform that transforms text prompts into fully designed presentations, documents, and webpages. It automatically handles layout, visual design, and content structuring, enabling users to create professional materials without design skills. What makes it unique is its focus on interactive, web-native outputs with built-in analytics and real-time collaboration features.",
     "url": "https://gamma.app",
     "category": "productivity",
     "tags": [
-      "presentations",
-      "document-creation",
-      "design-ai",
-      "content-generation",
-      "no-code",
-      "business-tool"
+      "presentation-ai",
+      "document-generation",
+      "webpage-creation",
+      "no-code-design",
+      "content-automation",
+      "real-time-collaboration",
+      "interactive-content"
     ],
     "pricing": "freemium",
     "features": [
-      "Generate decks, docs, and webpages from text",
-      "AI-powered editing and resizing of content",
-      "Interactive elements like polls and embeds",
-      "Real-time collaboration and analytics"
+      "AI generation of decks, docs, and webpages from text prompts",
+      "Smart templates with automatic layout and theme application",
+      "Interactive elements (polls, quizzes, embeds, GIFs, videos)",
+      "Real-time collaboration with comments and editing",
+      "Built-in analytics to track viewer engagement",
+      "One-click resizing and reformatting for different formats",
+      "Export to PDF, PPTX, and shareable web links"
     ],
     "use_cases": [
-      "Creating pitch decks and business reports",
-      "Designing training materials and lesson plans",
-      "Building product marketing one-pagers",
-      "Rapid prototyping of website content"
+      "Marketing teams creating pitch decks and sales materials",
+      "Educators designing interactive lesson plans and course content",
+      "Consultants building client reports and strategy presentations",
+      "Startups developing investor decks and product documentation",
+      "Teams collaborating on internal documentation and training materials",
+      "Content creators producing web-native articles and digital publications"
     ],
     "launched_date": "2024-01",
-    "has_affiliate": false,
+    "has_affiliate": true,
     "affiliate_commission": "",
     "monthly_pricing": "Free to $20/user",
     "source": "Product Hunt featured, TechCrunch coverage",
@@ -57992,6 +58254,209 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited creations, basic templates, Gamma branding, standard exports",
+        "Pro: $10/month (billed annually) - Remove branding, custom themes, advanced analytics, priority support",
+        "Team: $8/user/month (billed annually) - Team workspace, centralized billing, admin controls",
+        "Enterprise: Custom - SSO, custom contracts, dedicated support, security review"
+      ],
+      "free_tier": "Yes - Unlimited creations with Gamma branding and basic features",
+      "starting_price": "$10/month for Pro plan"
+    },
+    "target_audience": [
+      "business-professionals",
+      "educators",
+      "marketers"
+    ],
+    "has_api": false
+  },
+  {
+    "name": "Midjourney",
+    "description": "Midjourney is a leading generative AI platform that creates high-quality, artistic images from text prompts. It is renowned for its distinctive aesthetic style, powerful upscaling, and extensive style customization options. Unique for its community-driven approach, it operates primarily as a Discord bot, fostering real-time collaboration and sharing among users.",
+    "url": "https://midjourney.com",
+    "category": "image-generation",
+    "tags": [
+      "image-generation",
+      "discord-bot",
+      "artistic-ai",
+      "creative-tools",
+      "digital-art",
+      "style-customization",
+      "community-driven",
+      "text-to-image"
+    ],
+    "pricing": "paid",
+    "features": [
+      "High-resolution image generation from text prompts (e.g., up to 4x upscaling)",
+      "Advanced style customization via parameters like --style, --stylize, and --weird",
+      "Inpainting and outpainting capabilities (Vary Region and Zoom Out features)",
+      "Real-time generation and collaboration within dedicated Discord servers",
+      "Regular model updates (e.g., Niji mode for anime, version 6, Alpha website)",
+      "Image prompting (using an image URL as part of the prompt)",
+      "Remix mode for iterative prompt editing and variation"
+    ],
+    "use_cases": [
+      "Concept art and illustration for digital artists and designers",
+      "Marketing and advertising asset creation (social media graphics, mockups)",
+      "Rapid prototyping and visualization for storyboards and game assets",
+      "Personal creative projects and artistic exploration",
+      "Architectural and interior design visualization",
+      "Fantasy and character design for writers and worldbuilders"
+    ],
+    "launched_date": "2024-01",
+    "has_affiliate": false,
+    "affiliate_commission": "",
+    "monthly_pricing": "$10-$120",
+    "source": "Product Hunt, major tech news coverage",
+    "id": "platform-1765336504228-uwh3lmo0s",
+    "slug": "midjourney",
+    "added_date": "2025-12-10T03:15:04.228Z",
+    "discovered_by": "mass-discovery",
+    "rating": null,
+    "featured": false,
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Basic Plan: $10/month - ~3.3 hours of Fast GPU time per month, personal bot chat, general commercial terms",
+        "Standard Plan: $30/month - ~15 hours of Fast GPU time per month, unlimited Relaxed generation, personal bot chat, general commercial terms",
+        "Pro Plan: $60/month - ~30 hours of Fast GPU time per month, Stealth Mode for private generations, unlimited Relaxed generation, personal bot chat, general commercial terms",
+        "Mega Plan: $120/month - ~60 hours of Fast GPU time per month, all Pro features, higher rate limits"
+      ],
+      "free_tier": "No (occasional free trials are offered for new users but not a permanent tier)",
+      "starting_price": "$10/month"
+    },
+    "target_audience": [
+      "Digital artists and illustrators",
+      "Marketing and content creators",
+      "Hobbyists and creative enthusiasts"
+    ],
+    "has_api": false
+  },
+  {
+    "name": "Perplexity AI",
+    "description": "Perplexity AI is an advanced answer engine that combines large language models with real-time web search to deliver accurate, sourced answers to complex questions. It excels at research, analysis, and learning by providing conversational interactions with citations, allowing users to verify information instantly. Its unique value lies in merging the depth of conversational AI with the credibility of up-to-date, attributed web sources, making it a powerful tool for knowledge discovery.",
+    "url": "https://perplexity.ai",
+    "category": "search-ai",
+    "tags": [
+      "answer-engine",
+      "research-assistant",
+      "cited-answers",
+      "real-time-search",
+      "conversational-search",
+      "knowledge-discovery",
+      "web-search-ai"
+    ],
+    "pricing": "freemium",
+    "features": [
+      "Real-time web search with source attribution for every claim",
+      "Conversational interface with follow-up question capability",
+      "File upload (PDF, DOC, TXT, etc.) for document analysis and Q&A",
+      "Customizable search focus (e.g., academic, writing, Reddit, YouTube, Wolfram Alpha)",
+      "Threaded conversation history for ongoing research projects",
+      "Pro version includes access to advanced AI models (GPT-4, Claude 3, etc.)",
+      "Copilot feature for guided, interactive search refinement"
+    ],
+    "use_cases": [
+      "Academic research and literature review with instant citations",
+      "Market and competitive analysis using current web data",
+      "Technical troubleshooting and code problem-solving",
+      "Content creation and fact-checking for writers and journalists",
+      "Quick learning and exploration of new topics with verified sources",
+      "Analyzing uploaded documents (reports, articles) through Q&A"
+    ],
+    "launched_date": "2024-02",
+    "has_affiliate": false,
+    "affiliate_commission": "",
+    "monthly_pricing": "Free (Pro: $20)",
+    "source": "Product Hunt featured, TechCrunch coverage",
+    "id": "platform-1765336504234-slmtbw7gj",
+    "slug": "perplexity-ai",
+    "added_date": "2025-12-10T03:15:04.234Z",
+    "discovered_by": "mass-discovery",
+    "rating": null,
+    "featured": false,
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Limited searches/day, basic models (e.g., Perplexity, Sonar), standard file uploads",
+        "Pro: $20/month or $200/year - Unlimited searches, advanced models (GPT-4, Claude 3, etc.), enhanced file uploads, increased Copilot uses"
+      ],
+      "free_tier": "Yes - includes core search, citations, basic file uploads, and limited daily queries",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "researchers and academics",
+      "students and educators",
+      "professionals and analysts"
+    ],
+    "has_api": true
+  },
+  {
+    "name": "Leonardo AI",
+    "description": "Leonardo AI is a specialized generative AI platform focused on creating high-quality visual assets for games, media, and design. It offers a suite of fine-tuned models optimized for generating game assets, concept art, product designs, and illustrations with consistent style. What sets it apart is its industry-specific tooling, including texture generation, asset libraries, and the ability to train custom models on user-provided styles, catering directly to professional creative workflows.",
+    "url": "https://leonardo.ai",
+    "category": "image-generation",
+    "tags": [
+      "ai-image-generation",
+      "game-development",
+      "concept-art",
+      "3d-texturing",
+      "product-design",
+      "style-training",
+      "asset-libraries",
+      "commercial-license"
+    ],
+    "pricing": "freemium",
+    "features": [
+      "Fine-tuned AI models (e.g., Leonardo Diffusion, RPG 4.0, 3D Animation)",
+      "Image-to-Image generation with control over strength and noise",
+      "Canvas Editor with inpainting/outpainting and layer-based editing",
+      "AI Texture Generation for 3D objects and environments",
+      "Realtime Canvas for live generation and iteration",
+      "Custom Model Training (LoRA) on user-uploaded style datasets",
+      "Platform Asset Libraries (user-generated and platform models)"
+    ],
+    "use_cases": [
+      "Generating 2D sprites, icons, and UI elements for video games",
+      "Creating concept art and mood boards for film or animation pre-production",
+      "Designing product prototypes and marketing visuals with consistent branding",
+      "Texturing 3D models for game engines like Unity or Unreal Engine",
+      "Producing illustrated assets for graphic novels or board games",
+      "Rapid ideation and iteration for advertising and social media content"
+    ],
+    "launched_date": "2024-03",
+    "has_affiliate": true,
+    "affiliate_commission": "",
+    "monthly_pricing": "Free (Apprentice: $12, Artisan: $30)",
+    "source": "Product Hunt launch, gaming industry coverage",
+    "id": "platform-1765336504247-xb5zup2tx",
+    "slug": "leonardo-ai",
+    "added_date": "2025-12-10T03:15:04.247Z",
+    "discovered_by": "mass-discovery",
+    "rating": null,
+    "featured": false,
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription (with usage-based token allowances)",
+      "tiers": [
+        "Free: 150 tokens/day (slow generation), access to basic models, limited features",
+        "Apprentice: $12/month (~8,500 tokens/month, faster generation, early feature access)",
+        "Artisan: $30/month (~25,000 tokens/month, more features, higher priority)",
+        "Maestro: $60/month (~60,000 tokens/month, maximum features and priority)"
+      ],
+      "free_tier": "Yes - 150 tokens per day, standard queue, access to public models and core features.",
+      "starting_price": "$12/month"
+    },
+    "target_audience": [
+      "game developers and indie studios",
+      "concept artists and illustrators",
+      "product and industrial designers"
+    ],
+    "has_api": true
   }
 ]
