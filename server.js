@@ -6,6 +6,7 @@ import Stripe from 'stripe';
 import satori from 'satori';
 import sharp from 'sharp';
 import chatService from './ai-chat-service.js';
+import geoip from 'geoip-lite';
 
 // Use database-based analytics if DATABASE_URL is set, otherwise fallback to file-based
 import { trackChatInteraction as trackDB, getAnalytics as getDB, initAnalyticsDB } from './db-analytics.js';
@@ -143,6 +144,34 @@ try {
 // CORS for development
 fastify.register(import('@fastify/cors'), {
   origin: true
+});
+
+// ===========================================
+// GEO-BLOCKING: Block traffic from China
+// ===========================================
+fastify.addHook('onRequest', async (request, reply) => {
+  // Get client IP address
+  const clientIp = request.headers['x-forwarded-for']?.split(',')[0].trim() ||
+                   request.headers['x-real-ip'] ||
+                   request.ip ||
+                   request.socket.remoteAddress;
+
+  // Skip blocking for localhost/development
+  if (clientIp === '127.0.0.1' || clientIp === '::1' || clientIp === '::ffff:127.0.0.1') {
+    return;
+  }
+
+  // Look up IP location
+  const geo = geoip.lookup(clientIp);
+
+  if (geo && geo.country === 'CN') {
+    console.log(`[GEO-BLOCK] Blocked request from China - IP: ${clientIp}`);
+    reply.code(403).send({
+      error: 'Access Denied',
+      message: 'Access from your region is not available at this time.'
+    });
+    return;
+  }
 });
 
 // ===========================================
