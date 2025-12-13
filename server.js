@@ -7,6 +7,7 @@ import satori from 'satori';
 import sharp from 'sharp';
 import chatService from './ai-chat-service.js';
 import geoip from 'geoip-lite';
+import rateLimit from '@fastify/rate-limit';
 
 // Use database-based analytics if DATABASE_URL is set, otherwise fallback to file-based
 import { trackChatInteraction as trackDB, getAnalytics as getDB, initAnalyticsDB } from './db-analytics.js';
@@ -144,6 +145,80 @@ try {
 // CORS for development
 fastify.register(import('@fastify/cors'), {
   origin: true
+});
+
+// ===========================================
+// RATE LIMITING: Prevent aggressive scraping
+// ===========================================
+fastify.register(rateLimit, {
+  max: 100, // Max 100 requests
+  timeWindow: '1 minute', // Per minute per IP
+  cache: 10000, // Cache 10k IP addresses
+  allowList: ['127.0.0.1', '::1'], // Whitelist localhost
+  skipOnError: false,
+  ban: 5, // Ban after 5 rate limit violations
+  continueExceeding: true,
+  addHeadersOnExceeding: {
+    'x-ratelimit-limit': true,
+    'x-ratelimit-remaining': true,
+    'x-ratelimit-reset': true
+  },
+  addHeaders: {
+    'x-ratelimit-limit': true,
+    'x-ratelimit-remaining': true,
+    'x-ratelimit-reset': true
+  },
+  onExceeding: function(request, key) {
+    console.log(`[RATE-LIMIT] IP ${key} is exceeding rate limits`);
+  },
+  onExceeded: function(request, key) {
+    console.log(`[RATE-LIMIT] Blocked IP ${key} for excessive requests`);
+  }
+});
+
+// ===========================================
+// BOT DETECTION: Block known scrapers
+// ===========================================
+const BLOCKED_USER_AGENTS = [
+  'scrapy', 'crawl', 'bot', 'spider', 'scraper',
+  'python-requests', 'curl', 'wget', 'httrack',
+  'webzip', 'teleport', 'webcopier', 'download',
+  'offline', 'webripper', 'harvester', 'extract',
+  'sitesucker', 'grab', 'fetch', 'collect'
+];
+
+fastify.addHook('onRequest', async (request, reply) => {
+  const userAgent = (request.headers['user-agent'] || '').toLowerCase();
+
+  // Check for suspicious/scraper user agents
+  const isSuspiciousBot = BLOCKED_USER_AGENTS.some(bot => userAgent.includes(bot));
+
+  // Allow legitimate bots (Google, Bing, etc.)
+  const isLegitimateBot = userAgent.includes('googlebot') ||
+                          userAgent.includes('bingbot') ||
+                          userAgent.includes('slackbot') ||
+                          userAgent.includes('facebookexternalhit') ||
+                          userAgent.includes('twitterbot') ||
+                          userAgent.includes('linkedinbot');
+
+  if (isSuspiciousBot && !isLegitimateBot) {
+    console.log(`[BOT-BLOCK] Blocked scraper bot - User-Agent: ${userAgent}`);
+    reply.code(403).send({
+      error: 'Forbidden',
+      message: 'Automated access is not permitted.'
+    });
+    return;
+  }
+
+  // Block requests with no user agent (common for scrapers)
+  if (!userAgent || userAgent.length < 5) {
+    console.log(`[BOT-BLOCK] Blocked request with missing/invalid User-Agent`);
+    reply.code(403).send({
+      error: 'Forbidden',
+      message: 'Valid browser required.'
+    });
+    return;
+  }
 });
 
 // ===========================================
@@ -285,6 +360,29 @@ if (process.env.NODE_ENV === 'production') {
     prefix: '/'
   });
 }
+
+// ===========================================
+// COPYRIGHT PROTECTION: Add watermarks
+// ===========================================
+fastify.addHook('onSend', async (request, reply, payload) => {
+  // Only add copyright to API responses
+  if (request.url.startsWith('/api/')) {
+    const contentType = reply.getHeader('content-type');
+    if (contentType && contentType.includes('application/json')) {
+      try {
+        const data = JSON.parse(payload);
+        // Add copyright notice to API responses
+        data._copyright = '© 2025 AI Platforms List. All rights reserved. Unauthorized copying or redistribution prohibited.';
+        data._source = 'https://aiplatformslist.com';
+        return JSON.stringify(data);
+      } catch (e) {
+        // If parsing fails, return original payload
+        return payload;
+      }
+    }
+  }
+  return payload;
+});
 
 // API Routes
 fastify.get('/api/platforms', async (request, reply) => {
@@ -947,8 +1045,33 @@ Allow: /
 # Sitemaps
 Sitemap: ${baseUrl}/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 1
+# Crawl-delay to prevent aggressive scraping
+Crawl-delay: 2
+
+# Block aggressive/scraper bots
+User-agent: HTTrack
+User-agent: WebReaper
+User-agent: WebCopier
+User-agent: WebZIP
+User-agent: Offline Explorer
+User-agent: Teleport
+User-agent: WebStripper
+User-agent: SiteSnagger
+User-agent: ProWebWalker
+User-agent: BackStreet
+User-agent: WebAuto
+User-agent: RMA
+User-agent: WebRipper
+User-agent: Download Demon
+User-agent: SuperBot
+User-agent: WebmasterWorldForumBot
+Disallow: /
+
+# Chinese search engines (content thieves)
+User-agent: Baiduspider
+User-agent: Sogou
+User-agent: Yandex
+Disallow: /
 
 # Disallow admin/private paths
 Disallow: /api/
@@ -965,7 +1088,10 @@ Disallow: /platform/platform-*
 Disallow: /blog/*/
 
 # Allow clean blog page
-Allow: /blog$`;
+Allow: /blog$
+
+# Copyright notice
+# © 2025 AI Platforms List. All content protected.`;
 
   reply.type('text/plain').send(robots);
 });
