@@ -1,3 +1,4 @@
+// Force Railway redeploy - 2025-12-13T16:47:00Z
 import Fastify from 'fastify';
 import { readFileSync, readdirSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
