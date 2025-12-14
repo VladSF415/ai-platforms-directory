@@ -223,8 +223,10 @@ fastify.addHook('onRequest', async (request, reply) => {
 });
 
 // ===========================================
-// GEO-BLOCKING: Block traffic from China
+// GEO-BLOCKING: Block traffic from China and Singapore
 // ===========================================
+const BLOCKED_COUNTRIES = ['CN', 'SG']; // China, Singapore
+
 fastify.addHook('onRequest', async (request, reply) => {
   // Get client IP address
   const clientIp = request.headers['x-forwarded-for']?.split(',')[0].trim() ||
@@ -240,8 +242,9 @@ fastify.addHook('onRequest', async (request, reply) => {
   // Look up IP location
   const geo = geoip.lookup(clientIp);
 
-  if (geo && geo.country === 'CN') {
-    console.log(`[GEO-BLOCK] Blocked request from China - IP: ${clientIp}`);
+  if (geo && BLOCKED_COUNTRIES.includes(geo.country)) {
+    const countryName = geo.country === 'CN' ? 'China' : geo.country === 'SG' ? 'Singapore' : geo.country;
+    console.log(`[GEO-BLOCK] Blocked request from ${countryName} - IP: ${clientIp}`);
     reply.code(403).send({
       error: 'Access Denied',
       message: 'Access from your region is not available at this time.'
