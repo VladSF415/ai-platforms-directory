@@ -60,9 +60,141 @@
     }
   }
   </script>
+
+  <!-- Content Protection Styles -->
+  <style>
+    /* Disable text selection */
+    * {
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-touch-callout: none !important;
+    }
+
+    /* Allow selection only for input fields */
+    input, textarea {
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      -ms-user-select: text !important;
+      user-select: text !important;
+    }
+
+    /* Invisible copyright watermark */
+    body::after {
+      content: "© 2025 AI Platforms List - Unauthorized copying prohibited";
+      position: fixed;
+      bottom: -9999px;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Content Protection Script -->
+  <script>
+    (function() {
+      'use strict';
+
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      }, false);
+
+      // Disable text selection via mouse
+      document.addEventListener('selectstart', function(e) {
+        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          return false;
+        }
+      }, false);
+
+      // Disable copy/cut/paste keyboard shortcuts
+      document.addEventListener('keydown', function(e) {
+        // Ctrl+C, Cmd+C, Ctrl+X, Cmd+X, Ctrl+A, Cmd+A
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' ||
+            e.key === 'x' || e.key === 'X' || e.key === 'a' || e.key === 'A')) {
+          if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+            e.preventDefault();
+            return false;
+          }
+        }
+
+        // Disable developer tools shortcuts
+        // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Cmd+Opt+I, Cmd+Opt+J, Cmd+Opt+C
+        if (e.keyCode === 123 || // F12
+            (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+            (e.metaKey && e.altKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67))) {
+          e.preventDefault();
+          return false;
+        }
+
+        // Disable Ctrl+U (view source)
+        if ((e.ctrlKey || e.metaKey) && e.keyCode === 85) {
+          e.preventDefault();
+          return false;
+        }
+      }, false);
+
+      // Disable drag and drop
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+      }, false);
+
+      // Disable copy event
+      document.addEventListener('copy', function(e) {
+        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          e.clipboardData.setData('text/plain', '© AI Platforms List - Content protected. Visit https://aiplatformslist.com');
+          return false;
+        }
+      }, false);
+
+      // Disable cut event
+      document.addEventListener('cut', function(e) {
+        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          return false;
+        }
+      }, false);
+
+      // Detect DevTools opening (basic detection)
+      let devtoolsOpen = false;
+      const threshold = 160;
+      setInterval(function() {
+        if (window.outerWidth - window.innerWidth > threshold ||
+            window.outerHeight - window.innerHeight > threshold) {
+          if (!devtoolsOpen) {
+            devtoolsOpen = true;
+            console.clear();
+            console.log('%c⚠️ STOP!', 'color: red; font-size: 60px; font-weight: bold;');
+            console.log('%cThis is a browser feature intended for developers.', 'font-size: 18px;');
+            console.log('%cIf someone told you to copy/paste something here, it is likely a scam.', 'font-size: 16px;');
+            console.log('%c© 2025 AI Platforms List - All rights reserved.', 'font-size: 14px; color: gray;');
+          }
+        } else {
+          devtoolsOpen = false;
+        }
+      }, 1000);
+
+      // Clear console periodically to remove any logged data
+      setInterval(function() {
+        if (devtoolsOpen) {
+          console.clear();
+        }
+      }, 3000);
+
+      // Log copyright notice
+      console.log('%c© 2025 AI Platforms List', 'color: #4F46E5; font-size: 16px; font-weight: bold;');
+      console.log('%cAll content is protected by copyright law.', 'color: gray; font-size: 12px;');
+      console.log('%cUnauthorized copying or redistribution is prohibited.', 'color: gray; font-size: 12px;');
+    })();
+  </script>
 </body>
 </html>
