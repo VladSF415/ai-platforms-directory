@@ -1102,7 +1102,15 @@ Allow: /blog$
 
 // Health check
 fastify.get('/health', async () => {
-  return { status: 'ok', platforms: platforms.length };
+  return {
+    status: 'ok',
+    platforms: platforms.length,
+    geoBlocking: {
+      enabled: true,
+      blockedCountries: BLOCKED_COUNTRIES,
+      version: '2025-12-13T21:30:00Z'
+    }
+  };
 });
 
 // Track click endpoint for analytics
