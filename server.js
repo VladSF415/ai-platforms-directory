@@ -178,6 +178,20 @@ fastify.register(rateLimit, {
 });
 
 // ===========================================
+// CANONICAL URLs: Prevent duplicate content
+// ===========================================
+fastify.addHook('onRequest', async (request, reply) => {
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+
+  // Remove query parameters for canonical URL
+  const canonicalPath = request.url.split('?')[0];
+  const canonicalUrl = `${baseUrl}${canonicalPath}`;
+
+  // Add Link header for canonical URL (Google respects this)
+  reply.header('Link', `<${canonicalUrl}>; rel="canonical"`);
+});
+
+// ===========================================
 // BOT DETECTION: Block known scrapers
 // ===========================================
 const BLOCKED_USER_AGENTS = [
