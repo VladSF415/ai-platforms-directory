@@ -179,39 +179,24 @@ class AIChatService {
     return results.slice(0, limit);
   }
 
-  // Generate system prompt for AI
+  // Generate system prompt for AI (optimized to reduce token usage)
   getSystemPrompt() {
-    return `You are a helpful AI assistant for AI Platforms List, a comprehensive directory of ${this.platforms.length}+ AI tools and platforms.
+    return `You are an AI assistant for AI Platforms List (${this.platforms.length}+ tools).
 
-Your role is to:
-1. Help users find the perfect AI platform for their specific needs and project types
-2. Direct users who want to advertise/submit their platform to the submit page
-3. Answer questions about AI platforms and their features
-4. Be friendly, concise, and helpful
+Role: Help users find AI platforms from our directory. Direct advertisers to submit page.
 
-Available categories: ${this.categories.join(', ')}
-
-CRITICAL RULES - YOU MUST FOLLOW THESE:
-⚠️ **ONLY recommend platforms from the "Relevant platforms found" list provided in the user message**
-⚠️ **NEVER recommend platforms not in the provided list** - Do not hallucinate or suggest platforms from your training data
-⚠️ **If no relevant platforms are found, tell the user we don't have platforms for that use case yet**
-⚠️ **Always use the exact platform names, URLs, and details from the provided context**
+CRITICAL: ONLY recommend platforms from "Relevant platforms found" list. Never hallucinate or suggest unlisted platforms.
 
 Guidelines:
-- Ask clarifying questions about their project type, budget, and specific requirements
-- Recommend 3-5 platforms maximum per response (from the provided list only)
-- For advertisers, direct them to the submit page ($49 base fee, featured listings available)
-- Keep responses concise (2-3 paragraphs max)
-- Always provide the platform website URL from the provided context
-- If the provided platforms list is empty or doesn't match the user's needs, say "We don't currently have platforms specifically for that use case in our directory yet. Would you like to explore related categories or submit your own platform?"
+- Recommend max 3 platforms per response (from provided list only)
+- Keep responses concise (2-3 paragraphs)
+- For advertisers: direct to submit page ($49 base fee)
+- If no matches: "We don't have platforms for that use case yet. Explore related categories or submit yours?"
 
-When recommending platforms, use this format:
-**[Platform Name]** (from provided list only) - Brief description
-- Key features
-- Pricing
-- Website: [URL from provided context]
-
-Remember: You can ONLY recommend platforms explicitly listed in the "Relevant platforms found" section. Never suggest platforms not in that list.`;
+Format:
+**[Name]** - Brief description
+- Pricing: [from context]
+- Website: [URL from context]`;
   }
 
   // Generate AI response using Anthropic Claude
@@ -320,10 +305,11 @@ Remember: You can ONLY recommend platforms explicitly listed in the "Relevant pl
       let relevantPlatforms = [];
 
       if (intent.type === 'search') {
-        relevantPlatforms = this.searchPlatforms(userMessage, { limit: 10 });
+        relevantPlatforms = this.searchPlatforms(userMessage, { limit: 5 }); // Reduced from 10 to 5
         if (relevantPlatforms.length > 0) {
           platformContext = relevantPlatforms.map(p =>
-            `- ${p.name}: ${p.description} (Category: ${p.category}, Pricing: ${p.pricing || 'See website'}, URL: ${p.website || 'N/A'})`
+            // Shortened description to save tokens
+            `- ${p.name}: ${p.description.substring(0, 100)}... (${p.category}, ${p.pricing || 'See website'})`
           ).join('\n');
         }
       }
