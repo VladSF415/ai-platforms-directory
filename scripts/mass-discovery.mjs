@@ -158,7 +158,11 @@ async function discoverBatch(batchNum, platformsPerBatch) {
   const existingDomains = new Set(platforms.map(p => extractDomain(p.url || p.website)).filter(Boolean));
   const categories = [...new Set(platforms.map(p => p.category).filter(Boolean))];
 
-  const prompt = `You are discovering NEW AI platforms launched in 2024-2025.
+  const prompt = `You are discovering the LATEST AI platforms as of DECEMBER 2025.
+
+TODAY'S DATE: December 16, 2025
+
+MISSION: Find the most RECENT, POPULAR, and UP-TO-DATE platforms launched or significantly updated in late 2024 - December 2025.
 
 CRITICAL - We already have ${platforms.length} platforms. DO NOT suggest duplicates!
 
@@ -182,24 +186,35 @@ TASK: Find UP TO ${platformsPerBatch} COMPLETELY NEW platforms (BATCH ${batchNum
 - Fake platforms will be automatically detected and removed
 - We prefer QUALITY over QUANTITY - 10 real platforms > 25 fake ones
 
+VERSION UPDATES - VERY IMPORTANT:
+🔄 If you find NEWER versions of existing platforms (e.g., GPT-4.5, Claude 3.7, Gemini 2.0):
+   - Include the NEW version in your response
+   - Mark it with "replaces": "old platform name"
+   - We will automatically REMOVE the old version and add the new one
+   - Example: {"name": "GPT-4.5 Turbo", "replaces": "GPT-4", ...}
+
 REQUIREMENTS:
+✅ MUST be from DECEMBER 2025 or late 2024 (prioritize most recent!)
 ✅ MUST have a working website with CORRECT URL
 ✅ MUST be a REAL company/product (not made up)
-✅ MUST be launched or updated in 2024-2025
-✅ MUST NOT be in existing list (check carefully!)
-✅ Different domain from existing platforms
-✅ Active user base or recent activity
+✅ MUST be actively maintained and popular
+✅ MUST NOT be in existing list (unless it's a newer version)
+✅ Different domain from existing platforms (unless version update)
+✅ Active user base with recent activity (check Twitter, GitHub, Product Hunt)
+❌ NO old platforms from 2023 or earlier
 ❌ NO duplicates or variations of existing platforms
 ❌ NO defunct/shutdown platforms
 ❌ NO made-up or imaginary platforms
 ❌ NO guessed URLs - must be actual verified URLs
 
 PRIORITIZATION (in order of importance):
-1. ⭐ VERIFIED platforms from Product Hunt (featured, trending, recently launched)
-2. 🔥 VERIFIED platforms from GitHub (trending repos with >1000 stars)
-3. 📰 VERIFIED platforms from tech news (TechCrunch, VentureBeat, The Verge)
-4. 🚀 VERIFIED Y Combinator startups (W24, S24, W25 batches)
-5. 💰 VERIFIED SaaS platforms with public pricing pages
+1. 🆕 DECEMBER 2025 launches (most important!)
+2. ⭐ November/October 2025 platforms from Product Hunt
+3. 🔥 Trending on GitHub in Q4 2025 (repos with >1000 stars)
+4. 📰 Tech news from November-December 2025 (TechCrunch, VentureBeat, The Verge)
+5. 🚀 Y Combinator W25 batch (most recent!)
+6. 💰 Popular SaaS platforms with active users
+7. 🔄 Major version updates of existing platforms (GPT-5, Claude 4, Gemini 2.0, etc.)
 
 FOCUS ON WELL-KNOWN PLATFORMS that have:
 - Product Hunt launches with 100+ upvotes
@@ -223,46 +238,59 @@ For each platform, provide:
 - pricing: free/freemium/paid/enterprise/open-source
 - features: 4-5 key features
 - use_cases: 3-4 real use cases
-- launched_date: "2024-XX" or "2025-XX"
+- launched_date: "2024-XX" or "2025-XX" (prioritize 2025-12 for December!)
 - has_affiliate: true/false
 - affiliate_commission: "% or $X" if known
 - monthly_pricing: "$X" or "Free" or "Custom"
-- source: Where you found it (e.g., "Product Hunt Jan 2025")
+- source: Where you found it (e.g., "Product Hunt Dec 2025", "GitHub Trending Dec 2025")
+- replaces: "old platform name" (ONLY if this is a newer version of existing platform)
 
 Return ONLY valid JSON array:
 [
   {
-    "name": "UniqueAI Platform",
-    "description": "...",
-    "url": "https://uniqueai.example",
+    "name": "NewAI Platform",
+    "description": "Latest AI tool launched December 2025...",
+    "url": "https://newai.example",
     "category": "...",
     "tags": [...],
     "pricing": "freemium",
     "features": [...],
     "use_cases": [...],
-    "launched_date": "2025-01",
+    "launched_date": "2025-12",
     "has_affiliate": true,
     "affiliate_commission": "30%",
     "monthly_pricing": "$29",
-    "source": "Product Hunt Featured Jan 2025"
+    "source": "Product Hunt #1 Dec 16, 2025"
+  },
+  {
+    "name": "GPT-5 Turbo",
+    "description": "OpenAI's newest model...",
+    "url": "https://openai.com",
+    "replaces": "GPT-4",
+    "launched_date": "2025-12",
+    "source": "OpenAI Official Release Dec 2025"
   }
 ]
 
 IMPORTANT REMINDERS:
-1. Each platform must be UNIQUE - different name AND different domain
-2. VERIFY the URL is correct - don't guess domain names
-3. ONLY include platforms you're CONFIDENT are real
-4. If unsure about a platform's existence, SKIP IT
-5. It's better to return 15 REAL platforms than 25 fake ones
-6. Focus on POPULAR, WELL-KNOWN platforms from verified sources
+1. 🆕 PRIORITIZE DECEMBER 2025 platforms - these are most valuable!
+2. Each platform must be UNIQUE - different name AND different domain
+3. VERIFY the URL is correct - don't guess domain names
+4. ONLY include platforms you're CONFIDENT are real
+5. If unsure about a platform's existence, SKIP IT
+6. It's better to return 10 REAL recent platforms than 25 old/fake ones
+7. Focus on POPULAR, TRENDING platforms from December 2025
+8. Check for VERSION UPDATES - if GPT-5, Claude 4, Gemini 2.0 exist, include them!
 
-EXAMPLES OF GOOD SOURCES:
-- "Product Hunt #1 Product of the Day Dec 2024"
-- "GitHub trending (15k stars)"
-- "TechCrunch AI news Nov 2024 - funding announcement"
-- "Y Combinator W25 batch"
+EXAMPLES OF GOOD SOURCES (December 2025):
+- "Product Hunt #1 Product of the Day Dec 16, 2025"
+- "GitHub trending Dec 2025 (20k stars)"
+- "TechCrunch AI news Dec 2025 - launch announcement"
+- "Y Combinator W25 batch (Dec 2025 cohort)"
+- "OpenAI/Anthropic/Google official release Dec 2025"
 
 BAD RESPONSES (will be rejected):
+- Old platforms from 2023 or early 2024
 - Made-up domain names like "cooltool.ai" without verification
 - Generic names like "AI Assistant Pro" without specific details
 - Platforms with no verifiable source or presence`;
@@ -347,6 +375,8 @@ async function main() {
   const startCount = platforms.length;
   const allDiscovered = [];
   let totalDuplicatesFound = 0;
+  let totalReplacements = 0;
+  const replacedPlatforms = [];
 
   // Run batches in parallel groups
   for (let batchGroup = 0; batchGroup < CONFIG.num_batches; batchGroup += CONFIG.parallel_workers) {
@@ -367,6 +397,44 @@ async function main() {
     // Process results from all parallel batches
     for (const discovered of results) {
       for (const platform of discovered) {
+        // Check if this platform REPLACES an older version
+        if (platform.replaces) {
+          const oldPlatformName = platform.replaces.toLowerCase();
+          const oldPlatformIndex = platforms.findIndex(p =>
+            p.name.toLowerCase().includes(oldPlatformName) ||
+            oldPlatformName.includes(p.name.toLowerCase())
+          );
+
+          if (oldPlatformIndex !== -1) {
+            const oldPlatform = platforms[oldPlatformIndex];
+            console.log(`  🔄 UPGRADE: "${oldPlatform.name}" → "${platform.name}" (${platform.source})`);
+
+            // Remove old version
+            platforms.splice(oldPlatformIndex, 1);
+            replacedPlatforms.push({ old: oldPlatform.name, new: platform.name });
+            totalReplacements++;
+
+            // Add new version
+            allDiscovered.push({
+              ...platform,
+              id: `platform-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+              slug: platform.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+              added_date: new Date().toISOString(),
+              discovered_by: 'mass-discovery',
+              rating: oldPlatform.rating || null, // Preserve rating from old version
+              featured: oldPlatform.featured || false, // Preserve featured status
+              clicks: oldPlatform.clicks || 0 // Preserve click count
+            });
+
+            // Remove the 'replaces' field before saving
+            delete allDiscovered[allDiscovered.length - 1].replaces;
+            continue;
+          } else {
+            console.log(`  ⚠️  Platform claims to replace "${platform.replaces}" but it wasn't found - adding as new`);
+          }
+        }
+
+        // Normal duplicate check for non-replacement platforms
         const dupeCheck = isDuplicate(platform, [...platforms, ...allDiscovered]);
 
         if (dupeCheck.isDupe) {
@@ -404,8 +472,17 @@ async function main() {
   console.log(`Starting platforms: ${startCount}`);
   console.log(`Total discovered: ${allDiscovered.length}`);
   console.log(`Duplicates filtered: ${totalDuplicatesFound}`);
+  console.log(`🔄 Version upgrades: ${totalReplacements}`);
   console.log(`New unique platforms: ${allDiscovered.length}`);
-  console.log(`Final count: ${startCount + allDiscovered.length}\n`);
+  console.log(`Final count: ${startCount + allDiscovered.length - totalReplacements}\n`);
+
+  if (replacedPlatforms.length > 0) {
+    console.log('🔄 Upgraded Platforms:');
+    replacedPlatforms.forEach(({ old, new: newName }) => {
+      console.log(`   "${old}" → "${newName}"`);
+    });
+    console.log('');
+  }
 
   // Category breakdown
   const categoryCount = {};
@@ -432,12 +509,21 @@ async function main() {
     console.log(`\n✅ Added ${allDiscovered.length} platforms to platforms.json`);
 
     // Generate report
-    let report = `# Mass Discovery Report\n\n`;
+    let report = `# Mass Discovery Report - December 2025\n\n`;
     report += `Date: ${new Date().toLocaleString()}\n\n`;
     report += `## Summary\n\n`;
     report += `- Discovered: ${allDiscovered.length} platforms\n`;
+    report += `- Version upgrades: ${totalReplacements}\n`;
     report += `- With affiliates: ${withAffiliates.length}\n`;
     report += `- New categories: ${Object.keys(categoryCount).length}\n\n`;
+
+    if (replacedPlatforms.length > 0) {
+      report += `## 🔄 Version Upgrades\n\n`;
+      replacedPlatforms.forEach(({ old, new: newName }) => {
+        report += `- "${old}" → "${newName}"\n`;
+      });
+      report += `\n`;
+    }
     report += `## New Platforms\n\n`;
     allDiscovered.forEach(p => {
       report += `### ${p.name}\n`;
