@@ -528,17 +528,10 @@ async function syncToGitHub() {
     execSync(`git remote set-url origin "${repoUrl}"`, execOptions);
     log('Remote URL configured with token', 'info');
 
-    // Pull latest changes first to avoid conflicts
-    try {
-      const branch = execSync('git rev-parse --abbrev-ref HEAD', execOptions).toString().trim();
-      log(`Current branch: ${branch}`, 'info');
-      execSync(`git pull origin ${branch} --rebase`, execOptions);
-      log('Pulled latest changes', 'info');
-    } catch (e) {
-      log(`Pull warning: ${e.message}`, 'warning');
-    }
+    // Check for changes BEFORE pulling (to preserve generated files)
+    const branch = execSync('git rev-parse --abbrev-ref HEAD', execOptions).toString().trim();
+    log(`Current branch: ${branch}`, 'info');
 
-    // Check for changes
     const status = execSync('git status --porcelain', execOptions).toString().trim();
     log(`Git status: ${status ? status.split('\n').length + ' changed files' : 'no changes'}`, 'info');
 
@@ -614,6 +607,15 @@ async function syncToGitHub() {
     const commitMsg = `Auto-generated content Cycle ${stats.cycles_completed} - Platforms:${stats.platforms_discovered} Comparisons:${stats.comparisons_generated}`;
     execSync(`git commit -m "${commitMsg}"`, execOptions);
     log(`Committed ${changedFiles} files`, 'success');
+
+    // Pull and rebase to merge any remote changes before pushing
+    try {
+      execSync(`git pull origin ${branch} --rebase`, execOptions);
+      log('Pulled and rebased with remote changes', 'info');
+    } catch (e) {
+      log(`Pull/rebase warning: ${e.message}`, 'warning');
+      // Continue anyway - might just be first push
+    }
 
     // Push - detect the branch dynamically
     const currentBranch = execSync('git rev-parse --abbrev-ref HEAD', execOptions).toString().trim();
