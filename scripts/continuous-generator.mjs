@@ -29,8 +29,8 @@ const CONFIG = {
   deepseek_api_key: process.env.DEEPSEEK_API_KEY,
   github_token: process.env.GITHUB_TOKEN,
   github_repo: 'VladSF415/ai-platforms-directory',
-  delay_between_tasks: 3000,      // 3 seconds between tasks
-  delay_between_cycles: 30000,    // 30 seconds between full cycles
+  delay_between_tasks: 30000,     // 30 seconds between tasks (reduced from 3s to save credits)
+  delay_between_cycles: 300000,   // 5 minutes between full cycles (reduced from 30s to save credits)
   max_retries: 3,                 // Retry failed tasks
   stats_file: join(__dirname, '../generation-stats.json'),
   repo_dir: join(__dirname, '..')
