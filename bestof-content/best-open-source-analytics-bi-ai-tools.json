@@ -8,21 +8,22 @@
   "platforms": [
     {
       "rank": 1,
-      "name": "Amundsen",
-      "slug": "amundsen",
-      "description": "Amundsen is an open-source data discovery and metadata engine originally developed by Lyft. It provides a centralized search and catalog interface for data assets (tables, dashboards, streams) across an organization, enabling users to find, understand, and trust data. Its key capabilities include automated metadata ingestion, data lineage visualization, and usage-driven ranking, uniquely focusing on improving data productivity and reducing time spent searching for data.",
+      "name": "CatBoost",
+      "slug": "catboost",
+      "description": "CatBoost is an open-source gradient boosting library developed by Yandex, specifically engineered for high performance on datasets with categorical features. Its key capabilities include advanced handling of categorical data without extensive preprocessing, symmetric tree structures for faster inference, and ordered boosting to reduce overfitting. It uniquely targets data scientists and machine learning engineers who need robust, out-of-the-box performance on heterogeneous data, particularly in tabular prediction tasks where categorical variables are prevalent.",
       "pricing": "open-source",
-      "rating": 4.4,
+      "rating": 4.6,
       "verified": true,
-      "featured": true,
-      "bestFor": "data-catalog",
+      "featured": false,
+      "bestFor": "gradient-boosting",
       "keyFeatures": [
-        "Automated metadata ingestion from sources like Apache Atlas, AWS Glue, and databases",
-        "Search interface with ranking based on usage patterns (e.g., frequent queries, popularity)",
-        "Column-level lineage tracking to visualize data flow and dependencies"
+        "Automatic handling of categorical features without manual encoding",
+        "Symmetric (oblivious) decision trees for faster prediction and model analysis",
+        "Ordered boosting algorithm to combat target leakage and overfitting"
       ],
       "pros": [
         "Verified platform",
+        "Highly rated",
         "Feature-rich"
       ],
       "cons": [
@@ -31,18 +32,18 @@
     },
     {
       "rank": 2,
-      "name": "Bokeh",
-      "slug": "bokeh",
-      "description": "Bokeh is an open-source Python library for creating interactive, web-based visualizations. It enables data scientists, engineers, and analysts to build complex, publication-quality plots, dashboards, and data applications that run in modern web browsers, connecting seamlessly to Python, R, Lua, and Julia. Its unique strength lies in its ability to handle large or streaming datasets efficiently and its dual interface: a high-level 'bokeh.plotting' API for quick creation and a low-level 'bokeh.models' API for full, customizable control.",
+      "name": "Datashader",
+      "slug": "datashader",
+      "description": "Datashader is an open-source graphics pipeline system designed to create accurate, meaningful visualizations of extremely large datasets (billions of points) that are otherwise impossible to render with standard plotting libraries. It works by aggregating data into a fixed-resolution grid, applying statistical reductions, and then rendering the result as an image, effectively avoiding overplotting and memory issues. Its unique value lies in its ability to faithfully represent the true structure and density of massive data for data scientists, researchers, and analysts, enabling insight discovery without misleading artifacts.",
       "pricing": "open-source",
       "rating": 4.4,
       "verified": true,
-      "featured": true,
-      "bestFor": "python-visualization",
+      "featured": false,
+      "bestFor": "large-scale-visualization",
       "keyFeatures": [
-        "Interactive plots with pan, zoom, hover, and selection tools",
-        "Server-backed applications (Bokeh Server) for streaming data and real-time updates",
-        "Export to standalone HTML files, JSON items, or embeddable widgets (e.g., Jupyter notebooks)"
+        "Pixel-perfect aggregation pipeline for billions of data points",
+        "Integration with PyData stack (Pandas, Dask, NumPy, XArray)",
+        "Output to standard image formats or interactive Bokeh/Holoviews plots"
       ],
       "pros": [
         "Verified platform",
@@ -54,23 +55,19 @@
     },
     {
       "rank": 3,
-      "name": "Datashader",
-      "slug": "datashader",
-      "description": "Datashader is an open-source graphics pipeline system designed to create accurate, meaningful visualizations of extremely large datasets (billions of points) that are otherwise impossible to render with standard plotting libraries. It works by aggregating data into a fixed-resolution grid, applying statistical reductions, and then rendering the result as an image, effectively avoiding overplotting and memory issues. Its unique value lies in its ability to faithfully represent the true structure and density of massive data for data scientists, researchers, and analysts, enabling insight discovery without misleading artifacts.",
+      "name": "Vanna.AI",
+      "slug": "vanna-ai",
+      "description": "An open-source Python-based AI agent specifically designed for analytics, capable of generating accurate SQL queries from natural language, visualizing results, and automating full reporting workflows.",
       "pricing": "open-source",
-      "rating": 4.4,
-      "verified": true,
-      "featured": true,
-      "bestFor": "large-scale-visualization",
+      "rating": null,
+      "featured": false,
+      "bestFor": "sql-generation",
       "keyFeatures": [
-        "Pixel-perfect aggregation pipeline for billions of data points",
-        "Integration with PyData stack (Pandas, Dask, NumPy, XArray)",
-        "Output to standard image formats or interactive Bokeh/Holoviews plots"
+        "Fine-tunable LLM for your database schema",
+        "Automated SQL generation and error correction",
+        "Chart and visualization generation"
       ],
-      "pros": [
-        "Verified platform",
-        "Feature-rich"
-      ],
+      "pros": [],
       "cons": [
         "May have learning curve"
       ]
@@ -95,5 +92,5 @@
     "Assess scalability for future growth",
     "Consider support and documentation quality"
   ],
-  "verdict": "All 3 open source analytics bi AI tools on this list are excellent choices, each with unique strengths. Amundsen leads with data-catalog, while Bokeh offers python-visualization. Your best choice depends on your specific requirements, budget, and technical expertise."
+  "verdict": "All 3 open source analytics bi AI tools on this list are excellent choices, each with unique strengths. CatBoost leads with gradient-boosting, while Datashader offers large-scale-visualization. Your best choice depends on your specific requirements, budget, and technical expertise."
 }
