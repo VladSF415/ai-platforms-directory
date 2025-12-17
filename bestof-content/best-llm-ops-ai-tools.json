@@ -8,30 +8,6 @@
   "platforms": [
     {
       "rank": 1,
-      "name": "LlamaIndex",
-      "slug": "llamaindex",
-      "description": "LlamaIndex is a leading data framework designed to connect private or domain-specific data sources to large language models (LLMs). It provides a comprehensive toolkit for ingesting, structuring, indexing, and querying data to build production-ready Retrieval-Augmented Generation (RAG) applications. Its unique value lies in its extensive suite of composable modules for data connectors, advanced indexing strategies, and query interfaces that abstract away complexity for developers.",
-      "pricing": "open-source",
-      "rating": 4.7,
-      "verified": true,
-      "featured": false,
-      "bestFor": "RAG",
-      "keyFeatures": [
-        "Data Connectors for 100+ sources (APIs, PDFs, SQL DBs, Slack, etc.)",
-        "Advanced indexing strategies (vector, keyword, summary, graph-based)",
-        "Multi-modal data support (text, images, audio via integrations)"
-      ],
-      "pros": [
-        "Verified platform",
-        "Highly rated",
-        "Feature-rich"
-      ],
-      "cons": [
-        "May have learning curve"
-      ]
-    },
-    {
-      "rank": 2,
       "name": "Neptune",
       "slug": "neptune-ai",
       "description": "Neptune is an MLOps metadata store designed to log, store, display, organize, compare, and query all metadata generated during the machine learning lifecycle. It is purpose-built for teams running large-scale experiments, particularly for foundation model training, offering deep layer-level monitoring, visualization, and debugging. Its unique value lies in its highly flexible metadata structure, seamless integration with any ML framework, and powerful collaboration features that centralize experiment tracking for distributed teams.",
@@ -55,7 +31,7 @@
       ]
     },
     {
-      "rank": 3,
+      "rank": 2,
       "name": "vLLM",
       "slug": "vllm",
       "description": "vLLM is an open-source library specifically designed for high-performance inference and serving of large language models (LLMs). Its key capability is the implementation of the PagedAttention algorithm, which dramatically improves memory efficiency and throughput by managing the KV cache in non-contiguous, paged memory, similar to virtual memory in operating systems. This makes it uniquely suited for developers and organizations needing to deploy LLMs at scale with minimal hardware requirements and maximum speed.",
@@ -71,6 +47,28 @@
       ],
       "pros": [
         "Verified platform",
+        "Highly rated",
+        "Feature-rich"
+      ],
+      "cons": [
+        "May have learning curve"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "LlamaIndex 0.10",
+      "slug": "llamaindex-0-10",
+      "description": "LlamaIndex is a leading open-source data framework designed to connect custom data sources to large language models (LLMs). It provides developers with a comprehensive toolkit for building retrieval-augmented generation (RAG) applications, agentic systems, and multimodal AI solutions. Its unique value lies in its high-level abstractions that simplify complex data ingestion, indexing, and querying workflows, enabling rapid development of production-ready LLM applications.",
+      "pricing": "open-source",
+      "rating": 4.7,
+      "featured": false,
+      "bestFor": "rag-framework",
+      "keyFeatures": [
+        "Data Connectors: 150+ native connectors for PDFs, APIs, SQL databases, and cloud storage (AWS S3, Google Drive).",
+        "Indexing & Querying: Core abstractions for creating vector, keyword, and graph-based indexes over heterogeneous data.",
+        "Advanced RAG Engines: Supports features like sentence-window retrieval, auto-merging retrieval, and hybrid search."
+      ],
+      "pros": [
         "Highly rated",
         "Feature-rich"
       ],
@@ -202,18 +200,19 @@
       "rank": 9,
       "name": "LangSmith 2.0",
       "slug": "langsmith-2-0",
-      "description": "LangChain's significantly upgraded platform for developing, monitoring, and managing LLM applications, released in Q4 2025. It focuses on production-grade observability, evaluation, and agent lifecycle management.",
+      "description": "LangSmith 2.0 is LangChain's comprehensive platform for building, debugging, testing, deploying, and monitoring production-grade LLM applications. It provides a unified environment for full-stack LLM observability, automated evaluation, and lifecycle management of complex agentic systems. Its unique value lies in deep integration with the LangChain ecosystem, offering granular tracing, collaborative tools for AI teams, and production-ready tooling that moves beyond prototyping.",
       "pricing": "freemium",
       "rating": 4.6,
       "featured": false,
-      "bestFor": "observability",
+      "bestFor": "llm-observability",
       "keyFeatures": [
-        "Unified dashboard for tracing and metrics",
-        "Automated evaluation and testing suites",
-        "Advanced debugging for complex agent chains"
+        "Unified dashboard for visualizing, filtering, and analyzing LLM chain and agent traces with detailed token usage and latency metrics",
+        "Automated evaluation suite supporting LLM-as-a-judge, rule-based, and custom evaluators for prompt and model testing",
+        "Advanced debugging interface for inspecting complex, multi-step agentic workflows and identifying failure points"
       ],
       "pros": [
-        "Highly rated"
+        "Highly rated",
+        "Feature-rich"
       ],
       "cons": [
         "May have learning curve"
@@ -341,20 +340,21 @@
     },
     {
       "rank": 15,
-      "name": "Langfuse 2.0",
-      "slug": "langfuse-2-0",
-      "description": "A major update to the open-source LLM observability platform, adding advanced tracing, evaluation, and prompt management features for production AI applications. Released October 2025.",
-      "pricing": "open-source",
+      "name": "Langfuse 3.0",
+      "slug": "langfuse-3-0",
+      "description": "Langfuse is an open-source LLM observability and analytics platform designed to monitor, debug, and improve production LLM applications. It provides granular tracing for complex workflows and agents, automated evaluations, cost analytics, and prompt management. It uniquely offers a fully open-source core with a managed cloud option, making detailed observability accessible for both developers building with frameworks like LangChain and LlamaIndex and enterprises running multi-agent systems.",
+      "pricing": "freemium",
       "rating": 4.5,
       "featured": false,
-      "bestFor": "observability",
+      "bestFor": "llm-observability",
       "keyFeatures": [
-        "Unified trace visualization",
-        "Automated evaluation workflows",
-        "Prompt versioning & management"
+        "End-to-end tracing for nested LLM calls, tool usage, and multi-agent workflows with a visual trace explorer",
+        "Automated evaluation using LLM-as-a-judge, custom scoring models, and dataset management",
+        "Granular cost and latency analytics per project, trace, user, or tag with export capabilities"
       ],
       "pros": [
-        "Highly rated"
+        "Highly rated",
+        "Feature-rich"
       ],
       "cons": [
         "May have learning curve"
@@ -380,5 +380,5 @@
     "Assess scalability for future growth",
     "Consider support and documentation quality"
   ],
-  "verdict": "All 15 llm ops AI tools on this list are excellent choices, each with unique strengths. LlamaIndex leads with RAG, while Neptune offers experiment-tracking. Your best choice depends on your specific requirements, budget, and technical expertise."
+  "verdict": "All 15 llm ops AI tools on this list are excellent choices, each with unique strengths. Neptune leads with experiment-tracking, while vLLM offers llm-inference. Your best choice depends on your specific requirements, budget, and technical expertise."
 }
