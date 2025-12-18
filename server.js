@@ -287,10 +287,15 @@ function findPlatformByOldSlug(oldSlug) {
   });
 }
 
-// Redirect old /platforms/[firebaseId] URLs (404 cleanup)
+// Handle old /platforms/[firebaseId] URLs - return 410 Gone
 fastify.get('/platforms/:firebaseId', async (request, reply) => {
-  // These are old Firebase-style URLs - redirect to homepage
-  reply.redirect(301, '/');
+  // These are old Firebase-style URLs that no longer exist
+  // Return 410 Gone to tell Google to remove from index
+  reply.code(410).send({
+    error: 'Gone',
+    message: 'This URL format is no longer supported. Visit our homepage to find AI platforms.',
+    redirect: '/'
+  });
 });
 
 // Redirect old /platform/platform-[category]-[name] format
@@ -302,15 +307,23 @@ fastify.get('/platform/platform-:rest', async (request, reply) => {
     const newSlug = platform.slug || platform.id || platform.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     reply.redirect(301, `/platform/${newSlug}`);
   } else {
-    // No match found - redirect to homepage
-    reply.redirect(301, '/');
+    // No match found - return 410 Gone instead of homepage redirect
+    reply.code(410).send({
+      error: 'Gone',
+      message: 'This platform is no longer in our directory.',
+      redirect: '/'
+    });
   }
 });
 
-// Redirect old blog URLs to new blog page
+// Handle old blog URLs - return 410 Gone
 fastify.get('/blog/:category/:slug', async (request, reply) => {
-  // Old blog URL format - redirect to main blog
-  reply.redirect(301, '/blog');
+  // Old blog URL format - content has been reorganized
+  reply.code(410).send({
+    error: 'Gone',
+    message: 'Old blog URL format. Visit /blog for our latest content.',
+    redirect: '/blog'
+  });
 });
 
 // Redirect old category URLs with different naming
@@ -366,8 +379,12 @@ fastify.get('/category/:oldCategory', async (request, reply) => {
       // It's valid, let it pass through to the SPA
       return;
     }
-    // Invalid category - redirect to homepage
-    reply.redirect(301, '/');
+    // Invalid category - return 410 Gone
+    reply.code(410).send({
+      error: 'Gone',
+      message: 'This category no longer exists or has been merged with another category.',
+      redirect: '/'
+    });
   }
 });
 
@@ -1091,22 +1108,8 @@ User-agent: Sogou
 User-agent: Yandex
 Disallow: /
 
-# Disallow admin/private paths
+# Disallow admin/private paths only
 Disallow: /api/
-Disallow: /*.json$
-
-# Disallow URLs with query parameters (prevent duplicate content)
-Disallow: /*?search=*
-Disallow: /*?category=*
-Disallow: /*?*=*
-
-# Disallow old URL patterns (now redirected)
-Disallow: /platforms/
-Disallow: /platform/platform-*
-Disallow: /blog/*/
-
-# Allow clean blog page
-Allow: /blog$
 
 # Copyright notice
 # © 2025 AI Platforms List. All content protected.`;
@@ -1399,12 +1402,28 @@ fastify.get('/api/chat/stats', async () => {
   return chatService.getStats();
 });
 
-// Serve React app for all other routes (SPA)
-if (process.env.NODE_ENV === 'production') {
-  fastify.setNotFoundHandler((request, reply) => {
-    reply.sendFile('index.html');
-  });
-}
+// Catch-all 404 handler with proper error handling
+fastify.setNotFoundHandler((request, reply) => {
+  // Only serve SPA for browser requests (not API calls)
+  if (request.headers.accept && request.headers.accept.includes('text/html')) {
+    if (process.env.NODE_ENV === 'production') {
+      try {
+        reply.sendFile('index.html');
+      } catch (error) {
+        console.error('[NotFound] Failed to send index.html:', error);
+        reply.code(404).send({ error: 'Not Found' });
+      }
+    } else {
+      reply.code(404).send({ error: 'Not Found - Dev Mode' });
+    }
+  } else {
+    // API requests - return JSON 404
+    reply.code(404).send({
+      error: 'Not Found',
+      message: `Route ${request.method} ${request.url} does not exist`
+    });
+  }
+});
 
 // Start server
 const start = async () => {
