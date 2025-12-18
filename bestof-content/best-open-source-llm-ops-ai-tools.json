@@ -8,6 +8,28 @@
   "platforms": [
     {
       "rank": 1,
+      "name": "LangChain 0.2",
+      "slug": "langchain-0-2",
+      "description": "LangChain is an open-source framework and SDK designed to simplify the development of applications powered by large language models (LLMs). It provides a modular, composable architecture for chaining together LLM calls, tools, memory, and data sources to build sophisticated agents, chatbots, and retrieval-augmented generation (RAG) systems. Its key differentiator is its extensive suite of pre-built, interoperable components and integrations, which significantly accelerates development for engineers and researchers working with LLMs.",
+      "pricing": "open-source",
+      "rating": 4.8,
+      "featured": false,
+      "bestFor": "llm-framework",
+      "keyFeatures": [
+        "LCEL (LangChain Expression Language) for declarative, composable chains",
+        "Extensive integrations with 100+ LLM providers (OpenAI, Anthropic, Cohere, local models)",
+        "Built-in support for Retrieval-Augmented Generation (RAG) with vector store connectors (Chroma, Pinecone, Weaviate)"
+      ],
+      "pros": [
+        "Highly rated",
+        "Feature-rich"
+      ],
+      "cons": [
+        "May have learning curve"
+      ]
+    },
+    {
+      "rank": 2,
       "name": "vLLM",
       "slug": "vllm",
       "description": "vLLM is an open-source library specifically designed for high-performance inference and serving of large language models (LLMs). Its key capability is the implementation of the PagedAttention algorithm, which dramatically improves memory efficiency and throughput by managing the KV cache in non-contiguous, paged memory, similar to virtual memory in operating systems. This makes it uniquely suited for developers and organizations needing to deploy LLMs at scale with minimal hardware requirements and maximum speed.",
@@ -31,7 +53,7 @@
       ]
     },
     {
-      "rank": 2,
+      "rank": 3,
       "name": "LlamaIndex 0.10",
       "slug": "llamaindex-0-10",
       "description": "LlamaIndex is a leading open-source data framework designed to connect custom data sources to large language models (LLMs). It provides developers with a comprehensive toolkit for building retrieval-augmented generation (RAG) applications, agentic systems, and multimodal AI solutions. Its unique value lies in its high-level abstractions that simplify complex data ingestion, indexing, and querying workflows, enabling rapid development of production-ready LLM applications.",
@@ -53,7 +75,7 @@
       ]
     },
     {
-      "rank": 3,
+      "rank": 4,
       "name": "ClearML",
       "slug": "clearml",
       "description": "ClearML is an open-source, end-to-end MLOps platform designed to streamline the entire machine learning lifecycle. It provides a unified suite for experiment tracking, orchestration of training pipelines, dataset versioning, model registry, and production deployment. Its key differentiator is its 'auto-magical' integration that automatically logs experiments, code, and artifacts with minimal code changes, making it highly popular with data scientists and ML engineers for its ease of adoption and powerful automation.",
@@ -77,7 +99,7 @@
       ]
     },
     {
-      "rank": 4,
+      "rank": 5,
       "name": "LiteLLM",
       "slug": "litellm",
       "description": "LiteLLM is an open-source library that provides a unified OpenAI-compatible API interface for calling over 100+ large language models (LLMs) from various providers like OpenAI, Anthropic, Cohere, Hugging Face, and Replicate. Its key capabilities include standardized input/output, automatic fallbacks, load balancing, and detailed cost tracking, simplifying multi-provider LLM integration and management. It uniquely enables developers and businesses to build resilient, cost-effective applications by abstracting provider-specific complexities and offering powerful operational tooling.",
@@ -101,7 +123,7 @@
       ]
     },
     {
-      "rank": 5,
+      "rank": 6,
       "name": "Unsloth",
       "slug": "unsloth",
       "description": "Unsloth is an open-source library and platform designed to accelerate and optimize the fine-tuning of large language models (LLMs). It provides significant speed improvements (up to 2x faster) and memory reductions (up to 70% less) through custom Triton kernels, automatic kernel selection, and optimized implementations of techniques like LoRA and QLoRA. It uniquely targets developers and researchers who need to efficiently adapt open-source models like Llama, Mistral, and Gemma for specific tasks without requiring extensive low-level optimization expertise.",
@@ -125,7 +147,7 @@
       ]
     },
     {
-      "rank": 6,
+      "rank": 7,
       "name": "Alignment Handbook",
       "slug": "alignment-handbook",
       "description": "The Alignment Handbook is an open-source repository providing robust, production-ready training recipes for aligning language models with human preferences and safety standards. It offers modular implementations of key alignment techniques like Supervised Fine-Tuning (SFT), Direct Preference Optimization (DPO), and Reinforcement Learning from Human Feedback (RLHF), designed to work seamlessly with the Hugging Face ecosystem. Its unique value lies in offering battle-tested, scalable code and best practices distilled from real-world research, lowering the barrier for practitioners to build safer and more controllable LLMs.",
@@ -149,7 +171,7 @@
       ]
     },
     {
-      "rank": 7,
+      "rank": 8,
       "name": "Argo Workflows",
       "slug": "argo-workflows",
       "description": "Argo Workflows is an open-source, container-native workflow engine for orchestrating parallel jobs on Kubernetes. It enables users to define complex, multi-step pipelines as directed acyclic graphs (DAGs), making it a powerful tool for machine learning, data processing, and CI/CD automation. Its tight integration with the Kubernetes ecosystem and declarative YAML-based approach make it uniquely suited for cloud-native, scalable workflow automation.",
@@ -173,7 +195,7 @@
       ]
     },
     {
-      "rank": 8,
+      "rank": 9,
       "name": "BentoML",
       "slug": "bentoml",
       "description": "BentoML is an open-source platform for building, shipping, and scaling AI applications. It standardizes the process of packaging trained models, their dependencies, and serving logic into a portable, production-ready artifact called a 'Bento'. Its key capability is providing a unified framework-agnostic workflow that bridges the gap between data science experimentation and robust, scalable deployment. This makes it unique by offering a developer-first experience with high-performance serving, native support for batch inference, and seamless integration across cloud providers and Kubernetes.",
@@ -197,7 +219,7 @@
       ]
     },
     {
-      "rank": 9,
+      "rank": 10,
       "name": "OpenAI Evals",
       "slug": "openai-evals",
       "description": "OpenAI Evals is an open-source framework designed for evaluating the performance of large language models (LLMs) and AI systems. It provides a standardized methodology for creating, running, and benchmarking evaluations, enabling researchers and developers to systematically measure model capabilities, identify weaknesses, and track progress. Its key differentiator is its community-driven approach, allowing for the contribution and sharing of custom evaluation suites, which fosters reproducibility and collective advancement in AI assessment.",
@@ -210,30 +232,6 @@
         "Standardized evaluation templates for consistent test creation",
         "Support for custom datasets and task-specific evaluation logic",
         "Integration with OpenAI API and other LLMs for automated grading"
-      ],
-      "pros": [
-        "Verified platform",
-        "Highly rated",
-        "Feature-rich"
-      ],
-      "cons": [
-        "May have learning curve"
-      ]
-    },
-    {
-      "rank": 10,
-      "name": "Together AI",
-      "slug": "together-ai",
-      "description": "Together AI is a cloud platform designed to accelerate the development and deployment of open-source generative AI models. It provides high-performance inference, fine-tuning, and training infrastructure, allowing developers and enterprises to run models like Llama, Mistral, and Qwen at scale. Its unique value lies in its optimized inference stack (including its own inference engine and distributed computing) and its commitment to the open-source ecosystem, offering a cost-effective alternative to closed APIs.",
-      "pricing": "usage-based",
-      "rating": 4.5,
-      "verified": true,
-      "featured": false,
-      "bestFor": "open-source-llms",
-      "keyFeatures": [
-        "Serverless Inference API for 100+ open-source models (Llama, Mixtral, etc.)",
-        "Fine-tuning API with LoRA and full-parameter tuning support",
-        "Distributed training platform for large-scale model pre-training"
       ],
       "pros": [
         "Verified platform",
@@ -264,5 +262,5 @@
     "Assess scalability for future growth",
     "Consider support and documentation quality"
   ],
-  "verdict": "All 10 open source llm ops AI tools on this list are excellent choices, each with unique strengths. vLLM leads with llm-inference, while LlamaIndex 0.10 offers rag-framework. Your best choice depends on your specific requirements, budget, and technical expertise."
+  "verdict": "All 10 open source llm ops AI tools on this list are excellent choices, each with unique strengths. LangChain 0.2 leads with llm-framework, while vLLM offers llm-inference. Your best choice depends on your specific requirements, budget, and technical expertise."
 }
