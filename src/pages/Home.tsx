@@ -183,8 +183,8 @@ function Home() {
       {/* Hero Section */}
       <div className="container" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '-2px', color: '#000000' }}>
-            DISCOVER {totalPlatforms}+ AI TOOLS
+          <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '20px', letterSpacing: '-1px', color: '#000000', lineHeight: '1.2' }}>
+            AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Platforms (2025)
           </h1>
           <p style={{ fontSize: '1.1rem', fontWeight: '700', maxWidth: '900px', margin: '0 auto 30px', color: '#000000', lineHeight: '1.6' }}>
             THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,

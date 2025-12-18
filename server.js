@@ -48,6 +48,50 @@ fastify.setErrorHandler((error, request, reply) => {
   }
 });
 
+// ===========================================
+// SECURITY HEADERS
+// ===========================================
+fastify.addHook('onSend', async (request, reply, payload) => {
+  // Content Security Policy - Prevent XSS attacks
+  reply.header(
+    'Content-Security-Policy',
+    "default-src 'self'; " +
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://cdn.jsdelivr.net; " +
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+    "font-src 'self' https://fonts.gstatic.com data:; " +
+    "img-src 'self' data: https: blob:; " +
+    "connect-src 'self' https://api.deepseek.com https://api.openai.com https://api.anthropic.com; " +
+    "frame-src 'self' https://js.stripe.com; " +
+    "object-src 'none'; " +
+    "base-uri 'self'; " +
+    "form-action 'self'; " +
+    "upgrade-insecure-requests;"
+  );
+
+  // HTTP Strict Transport Security - Force HTTPS
+  reply.header('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+
+  // Prevent clickjacking attacks
+  reply.header('X-Frame-Options', 'DENY');
+
+  // Prevent MIME type sniffing
+  reply.header('X-Content-Type-Options', 'nosniff');
+
+  // Enable XSS protection (legacy browsers)
+  reply.header('X-XSS-Protection', '1; mode=block');
+
+  // Referrer policy - don't leak URLs to third parties
+  reply.header('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+  // Permissions policy - disable unnecessary features
+  reply.header(
+    'Permissions-Policy',
+    'geolocation=(), microphone=(), camera=(), payment=(self)'
+  );
+
+  return payload;
+});
+
 // Initialize Stripe (only if API key is provided)
 const stripe = process.env.STRIPE_SECRET_KEY ? new Stripe(process.env.STRIPE_SECRET_KEY) : null;
 
