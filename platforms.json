@@ -66715,30 +66715,36 @@
   },
   {
     "name": "Rerun 2.0",
-    "description": "Computer vision visualization toolkit updated in December 2025 for debugging and understanding AI vision models. Features real-time 3D visualization, timeline debugging, and collaborative features.",
+    "description": "Rerun is a specialized visualization and debugging toolkit designed for computer vision, robotics, and AI perception systems. It enables developers and researchers to log, visualize, and analyze complex multimodal data—like images, point clouds, 3D transforms, and bounding boxes—in real-time through an interactive timeline and 3D viewer. Its unique value lies in treating visual data as first-class, time-series entities, making it indispensable for debugging the temporal and spatial behavior of AI models and robotic systems.",
     "url": "https://rerun.io",
     "category": "computer-vision",
     "tags": [
       "visualization",
       "debugging",
       "computer-vision",
-      "3d",
+      "robotics",
+      "3d-visualization",
       "mlops",
-      "analysis"
+      "perception-systems",
+      "time-series"
     ],
     "pricing": "open-source",
     "features": [
-      "Real-time 3D visualization",
-      "Timeline debugging",
-      "Collaborative sessions",
-      "Python and Rust SDKs",
-      "Web viewer"
+      "Interactive timeline viewer for scrubbing through time-series visual data",
+      "Real-time WebGL-based 3D visualizer for point clouds, meshes, and coordinate frames",
+      "Python and Rust SDKs for logging data (images, tensors, 3D data, text logs)",
+      "Web-based viewer application that loads `.rrd` log files for local or remote analysis",
+      "Blueprint system for creating custom, reusable visualization layouts and dashboards",
+      "Streaming data logging for live applications (e.g., from a running robot or model)",
+      "Integration with common data science tools (NumPy, PyTorch, TensorFlow, ROS)"
     ],
     "use_cases": [
-      "Autonomous vehicle development",
-      "Robotics debugging",
-      "AR/VR development",
-      "Computer vision research"
+      "Debugging and validating autonomous vehicle perception stacks (LIDAR, camera fusion)",
+      "Visualizing the internal state and predictions of computer vision models during training/inference",
+      "Analyzing robotic sensor data and pose estimation over time",
+      "Recording and reviewing simulation runs for robotics and embodied AI",
+      "Creating interactive visual reports for research papers or team reviews",
+      "Monitoring real-time data streams from drones or other robotic systems"
     ],
     "launched_date": "2025-12",
     "has_affiliate": false,
@@ -66751,33 +66757,52 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: Full access to core SDKs, viewer, and all open-source features"
+      ],
+      "free_tier": "Yes - The entire platform is free and open-source",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Computer Vision & ML Engineers",
+      "Robotics & Autonomous Systems Developers",
+      "AI Research Scientists"
+    ],
+    "has_api": true
   },
   {
     "name": "Cursor v2",
-    "description": "A massively upgraded AI-powered code editor built for the age of agentic AI. It features deep integration with multiple LLMs, autonomous code generation and refactoring agents, and a revolutionary 'AI-first' workflow. The successor to the popular original Cursor.",
+    "description": "Cursor is an AI-native code editor designed to deeply integrate large language models (LLMs) directly into the software development workflow. It goes beyond simple code completion by featuring autonomous AI agents that can generate, refactor, debug, and test code based on high-level instructions. It uniquely positions itself as the successor to traditional IDEs for developers who want to work collaboratively with AI, offering a unified interface to chat with, search, and command multiple LLMs within their codebase.",
     "url": "https://www.cursor.com",
     "category": "code-ai",
     "tags": [
-      "ide",
+      "ai-ide",
       "code-generation",
-      "ai-agent",
-      "refactoring",
+      "autonomous-agent",
+      "code-refactoring",
       "developer-tools",
-      "autonomous"
+      "llm-integration",
+      "pair-programming"
     ],
     "pricing": "freemium",
     "features": [
-      "Multi-LLM agentic workflow (Claude, GPT, etc.)",
-      "Autonomous refactoring & testing agents",
-      "Built-in AI codebase search & chat",
-      "Seamless local/cloud execution"
+      "Agent Mode: An autonomous AI agent that takes a goal (e.g., 'add user authentication') and independently executes it by editing multiple files.",
+      "Multi-LLM Chat & Completions: Integrated access to Claude 3.5 Sonnet, GPT-4o, and other models for in-editor chat, code explanations, and inline completions.",
+      "AI Codebase Search: Semantic search across the entire project using natural language queries (e.g., 'find all API endpoints').",
+      "AI-Driven Refactoring: Commands to let AI rename symbols, extract functions, or migrate code patterns across the entire codebase.",
+      "Built-in AI Test Writer: Generate unit tests and documentation for selected code blocks with a single command.",
+      "Seamless Diff & Edit Review: All AI-generated changes are presented in a familiar diff/merge interface for easy review before acceptance."
     ],
     "use_cases": [
-      "Rapid feature development",
-      "Large-scale codebase refactoring",
-      "Automated testing & debugging",
-      "Learning & pair programming"
+      "Rapid prototyping and feature implementation using high-level prompts.",
+      "Large-scale, safe code refactoring and migration (e.g., updating a library version).",
+      "Onboarding to a new codebase by using AI chat to query architecture and logic.",
+      "Automating the writing of boilerplate code, tests, and documentation.",
+      "Debugging complex issues by having the AI analyze error messages and stack traces.",
+      "Converting code between languages or frameworks with AI-assisted translation."
     ],
     "launched_date": "2025-12",
     "has_affiliate": false,
@@ -66790,33 +66815,55 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Includes GPT-3.5, limited GPT-4o usage, basic agent capabilities, and standard chat.",
+        "Pro: $20/user/month - Unlimited GPT-4o & Claude 3.5 Sonnet, unlimited Agent usage, faster responses, and priority support.",
+        "Enterprise: Custom pricing - SSO/SAML, centralized billing, policy controls, and dedicated support."
+      ],
+      "free_tier": "Yes - Includes core AI chat, limited GPT-4o queries, and basic agent features.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "software developers",
+      "engineering teams",
+      "startup founders & indie hackers"
+    ],
+    "has_api": false
   },
   {
     "name": "Tavus 2.0",
-    "description": "A next-generation personalized video platform using AI to create unique videos for each viewer. It clones a person's voice and appearance to generate dynamic, individualized messages at scale, with major updates in late 2025 for higher realism.",
+    "description": "Tavus is an AI-powered personalized video platform that enables businesses to create unique, dynamic videos for each individual viewer at scale. It uses proprietary voice and video cloning technology to generate realistic messages where specific elements like names, details, and even spoken phrases are automatically customized. It uniquely targets sales, marketing, and customer success teams seeking to dramatically increase engagement through hyper-personalized, one-to-one video communication.",
     "url": "https://www.tavus.io",
     "category": "video-generation",
     "tags": [
       "personalized-video",
       "video-synthesis",
-      "marketing",
-      "sales",
-      "deepfake-ethical",
-      "scale"
+      "voice-cloning",
+      "video-cloning",
+      "marketing-automation",
+      "sales-engagement",
+      "deepfake-technology",
+      "api-first"
     ],
-    "pricing": "enterprise",
+    "pricing": "paid",
     "features": [
-      "High-fidelity voice & video cloning",
-      "Dynamic variable insertion (name, company, etc.)",
-      "API for programmatic generation",
-      "Ethical use controls & consent management"
+      "High-fidelity voice cloning from a short audio sample",
+      "Realistic video replica creation from a short video sample",
+      "Dynamic variable insertion for text, images, and audio within videos",
+      "Programmatic video generation via REST API and SDKs (Python, Node.js)",
+      "Granular consent management and digital watermarking for ethical use",
+      "A/B testing and performance analytics dashboard",
+      "Integrations with CRM and marketing platforms (HubSpot, Salesforce, etc.)"
     ],
     "use_cases": [
-      "Personalized sales outreach",
-      "Dynamic marketing campaigns",
-      "Customer onboarding & education",
-      "Internal company communications"
+      "Personalized sales outreach and prospecting videos",
+      "Dynamic customer onboarding and success messages",
+      "Tailored marketing campaign videos (e.g., post-purchase, win-back)",
+      "Internal communications and training from company leadership",
+      "Personalized product demo videos for high-value leads"
     ],
     "launched_date": "2025-11",
     "has_affiliate": false,
@@ -66829,34 +66876,56 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Starter: $199/mo - 50 video minutes, 1 voice clone, 1 video replica, core variables",
+        "Growth: $499/mo - 150 video minutes, 3 voice clones, 3 video replicas, advanced variables & analytics",
+        "Pro: $999/mo - 500 video minutes, 10 voice clones, 10 video replicas, API access, premium support",
+        "Enterprise: Custom - Unlimited scale, custom AI model training, SSO, dedicated success manager"
+      ],
+      "free_tier": "No - but offers a free demo/trial",
+      "starting_price": "$199/month"
+    },
+    "target_audience": [
+      "B2B Sales Teams",
+      "Marketing Professionals",
+      "Customer Success & Support Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Cursor 2.0",
-    "description": "Next-generation AI-powered code editor with enhanced codebase understanding, real-time collaboration, and intelligent refactoring capabilities. Built for modern development workflows.",
+    "description": "Cursor is an AI-first code editor built as a fork of VS Code, designed to deeply understand and interact with entire codebases. It enables developers to write, edit, debug, and refactor code using natural language commands and AI-powered agents, with a strong focus on context-aware assistance and real-time collaboration. Its unique value lies in its tight integration of multiple LLMs directly into the editor's workflow, moving beyond simple chat to agent-like code generation and modification.",
     "url": "https://cursor.sh",
     "category": "code-ai",
     "tags": [
-      "code-editor",
-      "programming",
-      "refactoring",
-      "collaboration",
+      "ai-code-editor",
       "vscode-fork",
-      "developer"
+      "pair-programming",
+      "code-refactoring",
+      "llm-integration",
+      "developer-productivity",
+      "codebase-chat"
     ],
     "pricing": "freemium",
     "features": [
-      "AI-powered refactoring",
-      "Real-time collaboration",
-      "Codebase-wide understanding",
-      "Smart debugging",
-      "Integration with multiple LLMs"
+      "AI Chat & Agent Mode: Context-aware chat with your codebase using GPT-4, Claude 3, or other integrated models; 'Agent Mode' allows the AI to take actions like writing and running code.",
+      "Composer & Edit Diff: Use Cmd/Ctrl+K to issue natural language edit commands; the AI proposes a diff preview for review before applying changes across multiple files.",
+      "Codebase-wide Understanding: The editor indexes and understands project structure, enabling AI to answer questions and make changes with full repository context.",
+      "Real-time Collaboration: Built-in, low-latency multiplayer editing sessions allowing multiple developers to work in the same project simultaneously.",
+      "Smart Debugging & Test Generation: AI-assisted debugging by analyzing errors and stack traces, plus automatic generation of unit tests.",
+      "Integrated AI Search: Semantic search across the entire codebase using natural language queries (e.g., 'find all authentication functions').",
+      "Multiple LLM Support: Switch between or configure providers like OpenAI GPT-4, Anthropic Claude, and others for different tasks."
     ],
     "use_cases": [
-      "Code refactoring",
-      "Team collaboration",
-      "Legacy code modernization",
-      "Rapid prototyping"
+      "Rapidly understanding and navigating a new or legacy codebase using natural language queries.",
+      "Refactoring large sections of code safely using the AI's diff preview and context-aware edits.",
+      "Pair programming with an AI agent to generate boilerplate, implement features, or debug complex issues.",
+      "Conducting collaborative code reviews or live-editing sessions with remote team members.",
+      "Automating the generation of documentation, unit tests, or API boilerplate from existing code.",
+      "Translating code between languages or modernizing syntax with AI-assisted bulk changes."
     ],
     "launched_date": "2025-11",
     "has_affiliate": true,
@@ -66869,33 +66938,58 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited use of the editor with GPT-3.5-turbo for chat. Limited to 50 slow GPT-4 queries per month. Basic multiplayer features.",
+        "Pro: $20/user/month (billed annually) or $25/user/month (billed monthly). Unlimited fast GPT-4, Claude 3, and other model usage. Unlimited AI searches, edits, and Agent usage. Advanced multiplayer.",
+        "Business: $40/user/month (billed annually) or $50/user/month (billed monthly). Includes Pro features plus SOC2 compliance, SSO/SAML, centralized billing, and policy controls.",
+        "Enterprise: Custom pricing. Includes dedicated support, custom data retention, on-premise deployment options, and custom LLM integrations."
+      ],
+      "free_tier": "Yes - Includes core editor with GPT-3.5 and limited GPT-4 queries.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "software developers & engineers",
+      "engineering teams & tech leads",
+      "students & educators learning to code"
+    ],
+    "has_api": false
   },
   {
     "name": "ElevenLabs Voice Cloning 2.0",
-    "description": "Advanced voice cloning and synthesis platform with emotional control, multilingual support, and studio-quality audio output for professional voice applications.",
+    "description": "ElevenLabs Voice Cloning 2.0 is a state-of-the-art generative AI platform specializing in hyper-realistic voice synthesis and cloning. It enables users to create, clone, and modify synthetic voices with granular emotional control, produce multilingual speech, and generate studio-quality audio from text. It uniquely targets professional creators, developers, and businesses seeking cinematic-grade, emotionally expressive voiceovers that are nearly indistinguishable from human recordings.",
     "url": "https://elevenlabs.io",
     "category": "audio-ai",
     "tags": [
       "voice-cloning",
       "text-to-speech",
-      "audio",
-      "multilingual",
-      "emotional-control"
+      "voice-synthesis",
+      "audio-generation",
+      "multilingual-tts",
+      "emotional-tts",
+      "ai-voice",
+      "voice-api"
     ],
     "pricing": "freemium",
     "features": [
-      "Emotional voice control",
-      "Multilingual synthesis",
-      "Voice cloning from short samples",
-      "Studio quality audio",
-      "API access"
+      "Instant Voice Cloning: Create a synthetic voice clone from just 1 minute of audio sample",
+      "Professional Voice Library: Access to a curated marketplace of pre-made, licensable AI voices",
+      "VoiceLab: A tool for designing and fine-tuning custom synthetic voices from scratch",
+      "Speech Synthesis (TTS): Convert text to speech in 29+ languages with native-sounding accents",
+      "Voice Settings: Granular control over stability, similarity, and style exaggeration for emotional expression",
+      "Projects (formerly Dubbing Studio): Automatically translate and dub video/audio content while preserving the original speaker's voice",
+      "Contextual Awareness: AI model understands context for proper intonation and emphasis in longer texts",
+      "High-Fidelity Output: Generates audio up to 192kbps for professional, broadcast-ready quality"
     ],
     "use_cases": [
-      "Audiobook production",
-      "Voiceovers",
-      "Accessibility tools",
-      "Content localization"
+      "Content Creation: Generating voiceovers for YouTube videos, podcasts, audiobooks, and social media content",
+      "Game Development & Animation: Creating unique character voices and dynamic dialogue lines",
+      "E-Learning & Corporate Training: Producing consistent, multilingual narration for educational modules and training materials",
+      "Accessibility: Converting written content (articles, documents) into natural-sounding audio for visually impaired users",
+      "Marketing & Advertising: Creating targeted, localized audio ads with the same brand voice in multiple languages",
+      "Dubbing & Localization: Translating and dubbing video content (films, courses) while maintaining the original speaker's vocal identity"
     ],
     "launched_date": "2025-10",
     "has_affiliate": true,
@@ -66908,34 +67002,56 @@
     "discovered_by": "mass-discovery",
     "rating": 4.7,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription (with usage-based character limits)",
+      "tiers": [
+        "Free: $0/mo - 10,000 characters per month, 3 custom voices, access to shared voices, 128kbps audio",
+        "Starter: $5/mo (~22,000 chars) - 30,000 characters per month, 10 custom voices, commercial license, 192kbps audio",
+        "Creator: $22/mo (~100,000 chars) - 100,000 characters per month, 30 custom voices, priority support, instant voice cloning",
+        "Pro: $99/mo (~500,000 chars) - 500,000 characters per month, 160 custom voices, usage analytics, projects feature",
+        "Scale: $330/mo (~2,000,000 chars) - 2,000,000 characters per month, 660 custom voices, dedicated workspace, highest priority support",
+        "Enterprise: Custom Pricing - Unlimited characters, custom voice quotas, dedicated infrastructure, security review, SLA"
+      ],
+      "free_tier": "Yes - 10,000 characters/month, 3 custom voices, 128kbps audio, access to shared voices",
+      "starting_price": "$5/month"
+    },
+    "target_audience": [
+      "Content Creators & Media Professionals",
+      "Developers & Product Teams",
+      "Enterprises (Publishing, Gaming, E-Learning)"
+    ],
+    "has_api": true
   },
   {
     "name": "Continue 2.0",
-    "description": "AI coding assistant that works locally with any LLM, featuring enhanced codebase understanding, offline capabilities, and privacy-focused development.",
+    "description": "Continue 2.0 is an open-source, privacy-first AI coding assistant that runs locally on your machine. It integrates directly into your IDE (VS Code and JetBrains) and allows you to use any large language model—including local models, cloud-hosted APIs (OpenAI, Anthropic), or self-hosted servers—to understand your entire codebase, generate code, and answer questions. Its unique value lies in its offline capabilities, complete data privacy, and deep codebase indexing that works without sending your proprietary code to external servers.",
     "url": "https://continue.dev",
     "category": "code-ai",
     "tags": [
+      "open-source",
       "coding-assistant",
-      "local",
-      "privacy",
-      "offline",
-      "vscode",
-      "jetbrains"
+      "local-llm",
+      "ide-extension",
+      "codebase-indexing",
+      "privacy-first",
+      "offline-ai"
     ],
     "pricing": "open-source",
     "features": [
-      "Local LLM support",
-      "Offline functionality",
-      "Codebase indexing",
-      "Privacy focused",
-      "Multi-IDE support"
+      "Local & Cloud LLM Orchestration (Ollama, LM Studio, OpenAI API, Anthropic Claude, etc.)",
+      "Full Codebase Indexing & Semantic Search (via local embeddings with Transformers.js)",
+      "Fully Offline Mode for air-gapped or private development",
+      "Native IDE Integration for VS Code and JetBrains (IntelliJ, PyCharm, etc.)",
+      "Context-Aware Code Generation & Chat using retrieved code snippets",
+      "Customizable Model Configuration and Prompt Templates"
     ],
     "use_cases": [
-      "Enterprise coding",
-      "Privacy-sensitive development",
-      "Offline programming",
-      "Custom AI workflows"
+      "Generating and explaining code with full context from a private repository",
+      "Refactoring legacy codebases without exposing source code to third-party APIs",
+      "Development in restricted/air-gapped environments with no internet access",
+      "Pair programming with a preferred LLM (local or cloud) directly in the IDE",
+      "Onboarding new developers by allowing them to query the codebase naturally"
     ],
     "launched_date": "2025-11",
     "has_affiliate": false,
@@ -66948,34 +67064,52 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Free: The entire core application is open-source (MIT license) and free to use."
+      ],
+      "free_tier": "Yes - The entire platform is free and open-source.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "software developers & engineers",
+      "enterprise dev teams with privacy/security requirements",
+      "open-source contributors and hobbyists"
+    ],
+    "has_api": false
   },
   {
     "name": "Haystack 2.0",
-    "description": "Open-source framework for building production-ready search and retrieval systems with LLMs, featuring improved performance, new retrievers, and enhanced monitoring.",
+    "description": "Haystack 2.0 is an open-source, end-to-end framework designed for building production-ready semantic search, question answering, and retrieval-augmented generation (RAG) systems with large language models (LLMs). It provides developers and ML engineers with modular components for document processing, retrieval, ranking, and generation, all orchestrated within customizable pipelines. Its unique value lies in its developer-first design, extensive pre-built integrations with enterprise tools and vector databases, and built-in observability features for monitoring complex LLM applications.",
     "url": "https://haystack.deepset.ai",
     "category": "search-ai",
     "tags": [
-      "retrieval",
-      "rag",
-      "search",
+      "rag-framework",
+      "semantic-search",
+      "llm-pipelines",
       "open-source",
-      "production",
-      "monitoring"
+      "production-ai",
+      "document-retrieval",
+      "question-answering"
     ],
     "pricing": "open-source",
     "features": [
-      "Advanced retrievers",
-      "Production monitoring",
-      "Multi-modal search",
-      "Pipeline orchestration",
-      "Enterprise connectors"
+      "Modular pipeline orchestration for building custom RAG workflows",
+      "Extensive suite of retrievers (dense, sparse, multi-modal, web search)",
+      "Integration with 30+ vector databases (e.g., Weaviate, Pinecone, Qdrant)",
+      "Built-in evaluation and monitoring tools (Haystack 2.0 Observability)",
+      "Support for multi-modal data (text, tables, images) via dedicated nodes",
+      "Pre-built components for document processing (converters, preprocessors, embedders)",
+      "Native integration with major LLM providers (OpenAI, Anthropic, Cohere, local models)"
     ],
     "use_cases": [
-      "Enterprise search",
-      "Document Q&A",
-      "Knowledge management",
-      "Customer support automation"
+      "Building enterprise knowledge bases with conversational search",
+      "Implementing AI-powered customer support chatbots with cited answers",
+      "Creating semantic search engines over internal documents or websites",
+      "Developing research assistants that query scientific papers or reports",
+      "Powering due diligence tools for legal or financial document analysis"
     ],
     "launched_date": "2025-11",
     "has_affiliate": false,
@@ -66988,37 +67122,57 @@
     "discovered_by": "mass-discovery",
     "rating": 4.6,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "open-source",
+      "tiers": [
+        "Core Framework (Apache 2.0 License): Free and open-source with full functionality"
+      ],
+      "free_tier": "Yes - The entire Haystack 2.0 framework is free and open-source under the Apache 2.0 license.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML Engineers building production RAG systems",
+      "Software Developers integrating semantic search into applications",
+      "Enterprise teams implementing internal knowledge management solutions"
+    ],
+    "has_api": true
   },
   {
     "name": "Cursor v2",
-    "description": "A massively updated AI-powered code editor built for the age of agentic AI, featuring deep integration with multiple LLMs, autonomous code generation, and a revolutionary project-wide understanding system.",
+    "description": "Cursor is an AI-native code editor built as a fork of VSCode, designed to deeply integrate AI agents directly into the development workflow. Its core capability is providing an AI agent with full project-wide awareness, enabling it to autonomously generate, edit, debug, and refactor code across entire codebases. It uniquely orchestrates multiple LLMs (like Claude 3.5 Sonnet and GPT-4) and local models, moving beyond simple chat and autocomplete to offer agentic, context-aware coding assistance.",
     "url": "https://cursor.sh",
     "category": "code-ai",
     "tags": [
-      "code-editor",
-      "ai-agent",
-      "autonomous-coding",
-      "developer-tools",
+      "ai-code-editor",
+      "agentic-ai",
+      "autonomous-programming",
+      "multi-llm-orchestration",
       "vscode-fork",
-      "code-completion"
+      "developer-productivity",
+      "code-generation",
+      "ai-agent"
     ],
     "pricing": "freemium",
     "features": [
-      "Project-wide AI agent with full codebase awareness",
-      "Multi-LLM orchestration (Claude, GPT, local models)",
-      "Autonomous bug fixing and feature implementation",
-      "Built-in AI chat and terminal",
-      "Seamless VSCode extension compatibility"
+      "Project-wide AI Agent with full codebase indexing and understanding (Cursor Agent)",
+      "Multi-LLM orchestration: Switch between GPT-4, Claude 3.5 Sonnet, and local models (Ollama) per task",
+      "Autonomous code edits via '@agent' and '/fix' commands for bug fixes and feature implementation",
+      "Built-in AI Chat and Terminal that understands project context for commands and explanations",
+      "Seamless compatibility with the entire VSCode extension ecosystem",
+      "Intelligent codebase search and semantic understanding (Cmd/Ctrl+K)",
+      "AI-driven code review and diff generation for proposed changes"
     ],
     "use_cases": [
-      "Rapid feature development and prototyping",
-      "Legacy code migration and refactoring",
-      "Automated debugging and test writing",
-      "Learning and understanding new codebases"
+      "Rapidly implementing new features by describing them to the AI agent in natural language",
+      "Automated debugging and fixing of errors across large, complex codebases",
+      "Refactoring and modernizing legacy code with AI-guided changes",
+      "Onboarding new developers by using the AI agent to explain project structure and logic",
+      "Generating boilerplate code, tests, and documentation from scratch",
+      "Conducting AI-assisted code reviews and security audits"
     ],
     "launched_date": "2025-12",
-    "has_affiliate": false,
+    "has_affiliate": true,
     "affiliate_commission": "",
     "monthly_pricing": "$20/user/month (Pro)",
     "source": "Product Hunt #1 Product of the Day Dec 10, 2025",
@@ -67028,33 +67182,53 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 50 slow GPT-4 queries/month, 500 fast Claude 3.5 Sonnet queries/month, limited Cursor Agent usage",
+        "Pro: $20/user/month - Unlimited fast Claude 3.5 Sonnet queries, 500 GPT-4 queries/month, unlimited Cursor Agent usage, priority support",
+        "Enterprise: Custom Pricing - Dedicated infrastructure, SSO, SOC2 compliance, custom LLM deployments, volume discounts"
+      ],
+      "free_tier": "Yes - Includes core editor, limited AI queries, and basic Cursor Agent access.",
+      "starting_price": "$20/month"
+    },
+    "target_audience": [
+      "software developers",
+      "engineering teams",
+      "solo developers & indie hackers"
+    ],
+    "has_api": false
   },
   {
     "name": "Luma Dream Machine v2",
-    "description": "The next-generation video generation model from Luma AI, producing highly coherent, realistic, and longer-duration videos from text prompts, with significant improvements in motion and physics understanding.",
+    "description": "Luma Dream Machine v2 is a state-of-the-art AI model that generates high-definition, 10-second videos directly from text descriptions. It excels at producing videos with realistic motion, strong temporal coherence, and an advanced understanding of 3D space and camera dynamics, making it a leading alternative to models like Sora. It is targeted at creators, marketers, and developers looking for a powerful, accessible tool for rapid video prototyping and content creation.",
     "url": "https://lumalabs.ai/dream-machine",
     "category": "video-generation",
     "tags": [
       "text-to-video",
       "video-generation",
-      "sora-alternative",
+      "3d-video",
       "creative-ai",
-      "3d-video"
+      "sora-alternative",
+      "ai-video-editing",
+      "camera-control"
     ],
     "pricing": "freemium",
     "features": [
-      "10-second high-definition video generation",
-      "Improved temporal coherence and motion",
-      "Advanced camera control and 3D understanding",
-      "Prompt-based video editing and extension",
-      "Public API for developers"
+      "Generate 10-second, 720p HD videos from text prompts",
+      "Prompt-based video editing and extension of existing clips",
+      "Advanced 3D-aware camera control (pan, tilt, zoom, orbit)",
+      "Public REST API for integration into custom applications",
+      "Significantly improved physics and motion understanding over v1",
+      "High temporal coherence for smooth, realistic scene transitions"
     ],
     "use_cases": [
-      "Creating short-form content for social media",
-      "Generating product marketing videos",
-      "Prototyping scenes for film and animation",
-      "Educational and explainer video production"
+      "Rapid concept visualization and storyboarding for filmmakers",
+      "Creating short-form marketing and social media content",
+      "Prototyping scenes and visual effects for game development",
+      "Generating educational and explanatory video content",
+      "Producing unique visual assets for digital art and design projects"
     ],
     "launched_date": "2025-12",
     "has_affiliate": false,
@@ -67067,36 +67241,57 @@
     "discovered_by": "mass-discovery",
     "rating": 4.4,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 30 video generations per month, standard speed queue",
+        "Standard: $29.99/month - 600 video generations per month, priority queue, commercial license",
+        "Pro: $99.99/month - 2400 video generations per month, highest priority queue, commercial license"
+      ],
+      "free_tier": "Yes - 30 generations/month, standard queue, non-commercial use",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Content Creators & Marketers",
+      "Film & Game Developers",
+      "AI Developers & Researchers"
+    ],
+    "has_api": true
   },
   {
     "name": "ElevenLabs Voice Cloning v2",
-    "description": "A significantly improved voice cloning and synthesis platform offering near-perfect voice replication with emotional control, multi-lingual support, and a new 'Voice Lab' for creating and managing custom voices.",
+    "description": "ElevenLabs Voice Cloning v2 is a state-of-the-art AI voice synthesis platform that generates highly realistic, emotive speech from text. It enables users to clone voices from short audio samples, control emotional tone and delivery style, and produce speech in multiple languages. Its unique value lies in achieving near-perfect voice replication with minimal data and offering granular emotional control through its proprietary models, making it a leader in ethical voice AI for content creation.",
     "url": "https://elevenlabs.io",
     "category": "audio-ai",
     "tags": [
       "text-to-speech",
       "voice-cloning",
-      "audio-generation",
-      "dubbing",
-      "podcasting"
+      "voice-synthesis",
+      "audio-dubbing",
+      "voice-generation",
+      "multilingual-tts",
+      "emotional-tts"
     ],
     "pricing": "freemium",
     "features": [
-      "Instant voice cloning from 1-minute samples",
-      "Emotional and stylistic control (happy, sad, whispering)",
-      "Real-time voice streaming and editing",
-      "Advanced dubbing studio for video localization",
-      "Voice library with commercial licenses"
+      "Instant Voice Cloning: Create a synthetic voice from just 1 minute of clear audio sample.",
+      "Emotional & Stylistic Control: Adjust speech output with parameters for emotions (e.g., happy, sad, angry) and styles (e.g., whispering, shouting, conversational).",
+      "Multilingual Speech Synthesis: Generate speech in 29+ languages, including accurate accent and intonation handling.",
+      "Voice Library & Marketplace: Access a library of pre-made, commercially licensed voices or share/remix custom voices in the Voice Lab.",
+      "Projects & Dubbing Studio: Long-form audio editor for creating audiobooks/podcasts; video dubbing tool for automatic translation and voice replacement.",
+      "Real-time Speech Streaming & Editing: Low-latency generation with an integrated audio editor for quick adjustments.",
+      "API Access: Programmatic access to all voice generation features for integration into apps and services."
     ],
     "use_cases": [
-      "Creating voiceovers for videos and presentations",
-      "Localizing e-learning and training content",
-      "Generating audiobook narration in multiple voices",
-      "Developing interactive voice characters for games"
+      "Content Creation: Generating voiceovers for videos, podcasts, and audiobooks with consistent, custom voices.",
+      "Game & Animation Development: Creating dynamic character dialogue with emotional range and multiple languages.",
+      "Accessibility Tools: Converting written content into natural-sounding speech for visually impaired users.",
+      "Localization & Dubbing: Automatically translating and re-voicing video content for global audiences.",
+      "Creative Projects & Storytelling: Producing audio dramas or interactive experiences with unique, cloned voices."
     ],
     "launched_date": "2025-11",
-    "has_affiliate": false,
+    "has_affiliate": true,
     "affiliate_commission": "",
     "monthly_pricing": "$22/month (Creator plan)",
     "source": "ElevenLabs Official Blog & VentureBeat Nov 2025",
@@ -67106,33 +67301,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription (usage-based character quotas)",
+      "tiers": [
+        "Free: 10,000 characters/month, 3 custom voices, access to shared voices, watermark on audio.",
+        "Starter: $5/month - 30,000 characters/month, 10 custom voices, commercial license, no watermark.",
+        "Creator: $22/month - 100,000 characters/month, 30 custom voices, advanced voice design tools.",
+        "Pro: $99/month - 500,000 characters/month, 160 custom voices, priority support, usage analytics.",
+        "Enterprise: Custom pricing - Unlimited characters, dedicated infrastructure, custom AI model training, SSO, SLA."
+      ],
+      "free_tier": "Yes - 10,000 characters/month, 3 custom voices, watermark on audio.",
+      "starting_price": "$5/month"
+    },
+    "target_audience": [
+      "content creators & media professionals",
+      "game developers & animators",
+      "enterprises for localization & training"
+    ],
+    "has_api": true
   },
   {
     "name": "Langfuse v2",
-    "description": "An open-source LLM engineering platform for observability, evaluation, and analytics, now with powerful new features for tracing complex agent workflows, automated testing, and data management for fine-tuning.",
+    "description": "Langfuse is an open-source LLM engineering platform that provides comprehensive observability, evaluation, and analytics for applications built on large language models and AI agents. It enables developers and teams to trace complex multi-step workflows, run automated evaluations using LLM-as-a-judge, and manage datasets for fine-tuning. Its unique value lies in combining detailed tracing for debugging complex agentic systems with robust data management pipelines for continuous improvement, all available as both a cloud service and a self-hosted solution.",
     "url": "https://langfuse.com",
     "category": "llm-ops",
     "tags": [
-      "observability",
+      "llm-observability",
+      "agent-tracing",
+      "llm-evaluation",
+      "fine-tuning-data",
       "open-source",
-      "evaluation",
-      "analytics",
-      "fine-tuning"
+      "production-monitoring",
+      "workflow-analytics"
     ],
-    "pricing": "open-source",
+    "pricing": "freemium",
     "features": [
-      "Detailed tracing for multi-step LLM and agent calls",
-      "Automated evaluation with LLM-as-a-judge",
-      "Dataset management for curating fine-tuning data",
-      "Production monitoring and alerting",
-      "Cloud-hosted and self-hosted options"
+      "Granular tracing for LLM calls, agent tool execution, and end-to-end workflows with full context (prompts, completions, latency, costs)",
+      "Automated evaluation framework using custom LLM judges, model-based scores (e.g., G-Eval), and programmatic checks",
+      "Dataset management system for versioning, filtering, and exporting traces as fine-tuning datasets (compatible with OpenAI, Anthropic formats)",
+      "Production monitoring dashboards with metrics for latency, cost, and quality, configurable alerts for anomalies",
+      "Prompt management with versioning, A/B testing, and deployment to production",
+      "Seamless integration via SDKs (Python, JS/TS) and native integrations with LangChain, LlamaIndex, OpenAI, Anthropic, and others"
     ],
     "use_cases": [
-      "Debugging and improving complex AI agentic workflows",
-      "Monitoring production LLM applications for cost and quality",
-      "Curating high-quality datasets for model fine-tuning",
-      "Conducting rigorous A/B tests between different models/prompts"
+      "Debugging and optimizing complex, multi-agent AI applications by visualizing execution traces and identifying bottlenecks",
+      "Continuously evaluating LLM application performance in production using automated scoring and human feedback",
+      "Curating high-quality datasets from production traces to fine-tune models for specific tasks or cost reduction",
+      "Monitoring live LLM applications for cost spikes, latency degradation, or quality drops with real-time alerts"
     ],
     "launched_date": "2025-10",
     "has_affiliate": false,
@@ -67145,34 +67361,55 @@
     "discovered_by": "mass-discovery",
     "rating": 4.5,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription (usage-based seats + usage) for Cloud; open-source for self-hosted",
+      "tiers": [
+        "Hobby: Free - 1,000 traces/month, 1 seat, 7-day data retention, basic support",
+        "Pro: $29 per active seat/month + usage - Unlimited traces, 1-year data retention, SSO, priority support",
+        "Enterprise: Custom - Unlimited scale, custom data retention, dedicated support, security review"
+      ],
+      "free_tier": "Yes - Hobby plan with 1,000 traces/month, 1 seat, and core features",
+      "starting_price": "Free (Hobby), paid plans start at $29/seat/month + usage"
+    },
+    "target_audience": [
+      "AI/ML Engineers building LLM applications",
+      "Product Teams deploying AI features to production",
+      "Research & Development teams iterating on complex AI agents"
+    ],
+    "has_api": true
   },
   {
     "name": "Marqo 2.0",
-    "description": "Next-generation vector search database launched December 2025, featuring improved performance, multimodal indexing, and enhanced scalability for AI applications requiring semantic search.",
+    "description": "Marqo 2.0 is a next-generation, end-to-end vector search engine and AI database designed to power semantic and multimodal search applications. It enables developers to index and search across text, images, and other data types using unified embeddings, with a focus on high performance, real-time updates, and simplified deployment. Its unique value lies in its integrated, batteries-included approach that bundles the embedding models, inference, and vector database into a single, scalable service, reducing the complexity of building AI search systems.",
     "url": "https://marqo.ai",
     "category": "search-ai",
     "tags": [
       "vector-database",
       "semantic-search",
-      "multimodal",
-      "embeddings",
-      "ai-search",
-      "database"
+      "multimodal-ai",
+      "neural-search",
+      "embedding-engine",
+      "real-time-indexing",
+      "hybrid-search",
+      "ai-infrastructure"
     ],
-    "pricing": "open-source",
+    "pricing": "freemium",
     "features": [
-      "Multimodal indexing",
-      "Improved performance",
-      "Enhanced scalability",
-      "Real-time updates",
-      "Hybrid search"
+      "Unified Multimodal Indexing: Index and search text, images, and structured data in a single index using integrated models (e.g., CLIP, Hugging Face models).",
+      "Real-time Hybrid Search: Combine dense vector (semantic) search with keyword-based (lexical) search in a single query for improved relevance.",
+      "Integrated Embedding Inference: Built-in support for generating embeddings using popular models, eliminating the need for separate embedding services.",
+      "Dynamic Indexing & Live Updates: Add, update, or delete documents in the index with changes reflected in search results in near real-time.",
+      "Horizontal Scalability: Distributed architecture designed to scale out for handling large datasets and high query volumes.",
+      "Simplified Deployment: Available as a managed cloud service and as a Docker container for self-hosting, reducing operational overhead."
     ],
     "use_cases": [
-      "Semantic search",
-      "Recommendation systems",
-      "Content discovery",
-      "Enterprise search"
+      "E-commerce Product Discovery: Enabling customers to search for products using descriptive text or by uploading an image of a desired item.",
+      "Enterprise Knowledge Retrieval: Powering semantic search across internal documents, wikis, and reports to find relevant information quickly.",
+      "Content Moderation: Automatically identifying inappropriate or branded visual and textual content across user-generated platforms.",
+      "Media & Asset Management: Tagging, organizing, and retrieving digital assets (images, videos) based on their semantic content.",
+      "Customer Support Automation: Building AI-powered help centers that understand customer intent and retrieve accurate solutions from knowledge bases.",
+      "Recommendation Systems: Generating personalized content or product recommendations based on semantic understanding of user preferences and item attributes."
     ],
     "launched_date": "2025-12",
     "has_affiliate": false,
@@ -67185,34 +67422,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free Tier: For development and testing. Includes limited search units and storage.",
+        "Pro: Pricing not publicly listed (Contact for quote). Designed for production workloads with higher scale, dedicated resources, and SLAs.",
+        "Enterprise: Custom - For large-scale deployments with advanced security, compliance, and custom support needs."
+      ],
+      "free_tier": "Yes - Includes a limited amount of search units and storage for prototyping and development.",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "AI/ML Engineers",
+      "Software Developers & DevOps",
+      "Enterprise IT & Product Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Cursor 2.0",
-    "description": "A massively popular AI-powered code editor that evolved from VSCode, with deep agentic capabilities for understanding, editing, and generating entire codebases. The late 2025 update introduced autonomous project-level refactoring and a powerful new agent framework.",
+    "description": "Cursor is an AI-first code editor built on VS Code's open-source foundation, designed to deeply understand, edit, and generate entire codebases. Its core capability is an agentic AI system that can autonomously perform project-level refactoring, migrations, and complex edits based on natural language instructions. It uniquely targets developers and teams seeking to accelerate development by offloading complex, tedious coding tasks to an AI agent with full project context.",
     "url": "https://www.cursor.com",
     "category": "code-ai",
     "tags": [
       "ai-code-editor",
-      "developer-tools",
-      "autonomous-coding",
-      "refactoring",
+      "autonomous-refactoring",
+      "developer-agent",
       "vscode-fork",
-      "agent"
+      "codebase-ai",
+      "ai-for-developers",
+      "agentic-ide"
     ],
     "pricing": "freemium",
     "features": [
-      "Project-wide AI agent for refactoring",
-      "Deep codebase understanding & search",
-      "One-click migration between frameworks",
-      "Integrated AI chat with local/cloud models",
-      "Seamless VSCode extension compatibility"
+      "Project-wide AI Agent for autonomous refactoring and large-scale code changes",
+      "Deep codebase understanding via semantic search and cross-file dependency mapping",
+      "One-click migration between frameworks (e.g., React to Vue, JS to TS)",
+      "Integrated AI Chat supporting local models (via Ollama) and cloud models (GPT-4o, Claude 3.5)",
+      "Seamless compatibility with the vast majority of VS Code extensions",
+      "Agent Framework allowing users to build, customize, and share specialized coding agents"
     ],
     "use_cases": [
-      "Large-scale codebase migration and modernization",
-      "Automated bug fixing and security patching",
-      "Rapid feature prototyping",
-      "Learning and understanding new codebases"
+      "Automated large-scale refactoring (e.g., updating an entire codebase to a new library version)",
+      "Migrating a project from one framework or language to another",
+      "Generating comprehensive tests, documentation, or boilerplate code from scratch",
+      "Debugging complex, multi-file issues by asking the AI to analyze the codebase",
+      "Onboarding new developers by allowing them to query the AI about the project's architecture",
+      "Rapid prototyping by having the AI generate entire feature modules based on descriptions"
     ],
     "launched_date": "2025-11",
     "has_affiliate": false,
@@ -67225,34 +67482,55 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited use of the editor with GPT-3.5-powered chat. Limited to 50 slow GPT-4 queries per month.",
+        "Pro: $20/user/month (billed annually) or $25/user/month (billed monthly). Includes unlimited fast GPT-4, Claude 3.5 Sonnet, and local model usage, plus early access to new AI models and features.",
+        "Enterprise: Custom pricing. Includes SSO, team management, dedicated support, and compliance features."
+      ],
+      "free_tier": "Yes - Includes core editor with GPT-3.5 chat and 50 slow GPT-4 queries/month.",
+      "starting_price": "$20/user/month (annual)"
+    },
+    "target_audience": [
+      "software developers",
+      "engineering teams & tech leads",
+      "startups & indie hackers"
+    ],
+    "has_api": false
   },
   {
     "name": "Cursor v2",
-    "description": "A massively updated AI-powered code editor, rebuilt from the ground up in late 2025. It integrates multiple state-of-the-art models (Claude 3.7, GPT-5, local) for code generation, refactoring, and understanding within a lightning-fast native interface.",
+    "description": "Cursor v2 is a next-generation AI-native code editor rebuilt from the ground up to deeply integrate multiple state-of-the-art AI models directly into the developer workflow. It enables rapid code generation, intelligent refactoring, and comprehensive codebase understanding through a unified, lightning-fast interface. Its unique value lies in its multi-model AI agent that can switch between providers like Claude 3.7 and GPT-5, combined with powerful native features like zero-latency search and built-in deployment tools, making it a holistic AI-powered development environment.",
     "url": "https://cursor.sh",
     "category": "code-ai",
     "tags": [
-      "code-editor",
-      "ide",
-      "programming",
-      "developer-tools",
-      "autocomplete",
-      "refactor"
+      "ai-code-editor",
+      "multi-model-ai",
+      "code-generation",
+      "refactoring-tool",
+      "developer-ide",
+      "local-ai",
+      "pair-programming"
     ],
     "pricing": "freemium",
     "features": [
-      "Multi-model AI agent (switch between Claude, GPT, local)",
-      "Zero-latency codebase-wide search & edit",
-      "Built-in CI/CD & deployment previews",
-      "Real-time collaborative editing",
-      "Local model support for privacy"
+      "Multi-model AI Agent: Seamlessly switch between and query Claude 3.7, GPT-5, and local models (like Llama Code) within the editor.",
+      "Zero-Latency Composer: AI-powered editor with near-instantaneous code generation and edit suggestions as you type.",
+      "Codebase-Wide AI Search & Edit: Use natural language to search across your entire project and execute complex refactors or find-and-replace operations.",
+      "Built-in CI/CD & Vercel-like Previews: Automatically generate deployment previews for every branch and pull request directly within the editor.",
+      "Real-time Collaborative Editing: Live, multiplayer editing sessions with shared cursors and AI agent participation.",
+      "Local Model Support: Run and integrate open-source models locally for full code privacy and offline capability.",
+      "Agentic Workflows: Create and run automated, multi-step AI agents for tasks like debugging, testing, or feature implementation."
     ],
     "use_cases": [
-      "Rapid feature development",
-      "Large-scale codebase refactoring",
-      "Onboarding to new projects",
-      "Pair programming with AI"
+      "Rapid prototyping and feature development using AI-generated code snippets and entire functions.",
+      "Large-scale codebase refactoring, modernization, and migration using AI-powered search-and-replace across thousands of files.",
+      "Interactive AI pair programming for learning, debugging complex issues, or exploring new libraries and frameworks.",
+      "Conducting security audits and code reviews by having an AI agent analyze the codebase for vulnerabilities and best practices.",
+      "Real-time technical collaboration where multiple developers and an AI agent work simultaneously on the same code.",
+      "Private development on sensitive codebases by leveraging fully local AI models without data leaving the machine."
     ],
     "launched_date": "2025-11",
     "has_affiliate": false,
@@ -67265,34 +67543,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Includes core editor, basic AI features (limited queries/month), and local model support.",
+        "Pro: $20/user/month - Unlimited AI queries (Claude/GPT), advanced agent features, increased context windows, and private deployment previews.",
+        "Enterprise: Custom Pricing - SSO/SAML, dedicated support, custom AI model integrations, team management, and security reviews."
+      ],
+      "free_tier": "Yes - Core editor, limited AI queries, local model support.",
+      "starting_price": "Free, then $20/month"
+    },
+    "target_audience": [
+      "software developers & engineers",
+      "engineering teams & tech leads",
+      "students & coding bootcamp participants"
+    ],
+    "has_api": false
   },
   {
     "name": "Rooftop 2.0",
-    "description": "A comprehensive LLM evaluation and observability platform launched in late 2025. It helps teams track, compare, and improve the performance of their LLM applications across metrics like cost, latency, accuracy, and safety with deep analytics and A/B testing.",
+    "description": "Rooftop 2.0 is an enterprise-grade LLM observability and evaluation platform designed to help engineering and product teams systematically improve their AI applications. It provides deep analytics across cost, latency, accuracy, and safety metrics, enabling data-driven decisions through features like production traffic replay and automated A/B testing. Its unique value lies in unifying evaluation, monitoring, and testing workflows into a single pane of glass, moving beyond simple logging to proactive performance management.",
     "url": "https://www.rooftop.ai",
     "category": "llm-ops",
     "tags": [
       "llm-evaluation",
-      "observability",
-      "monitoring",
-      "analytics",
-      "a-b-testing",
-      "enterprise"
+      "llm-observability",
+      "performance-monitoring",
+      "ai-testing",
+      "cost-optimization",
+      "enterprise-ai",
+      "prompt-engineering"
     ],
     "pricing": "freemium",
     "features": [
-      "Automated evaluation with judge LLMs",
-      "Cost & latency tracking across providers",
-      "Dataset management & versioning",
-      "Production traffic replay & testing",
-      "Slack & PagerDuty alerts"
+      "Automated evaluation using custom judge LLMs (GPT-4, Claude, etc.) for accuracy, safety, and quality",
+      "Granular cost and latency tracking across providers (OpenAI, Anthropic, Azure, etc.) down to the prompt level",
+      "Dataset management with versioning for evaluation benchmarks and golden datasets",
+      "Production traffic replay to test new models/prompts against real historical queries",
+      "Integrated A/B/n testing framework for experiments on models, prompts, and parameters",
+      "Custom alerting and integrations (Slack, PagerDuty, email) for performance regressions",
+      "Centralized dashboard for comparing model performance across all key metrics"
     ],
     "use_cases": [
-      "Monitoring chatbot performance in production",
-      "A/B testing different models & prompts",
-      "Reducing LLM API costs",
-      "Ensuring safety & compliance outputs"
+      "Monitoring a production LLM chatbot for latency spikes, cost overruns, and quality drift",
+      "Running A/B tests to choose between GPT-4 Turbo and Claude 3 for a new feature while controlling for cost",
+      "Replaying a week of user traffic to validate a new prompt template before deployment",
+      "Building a regression test suite with a golden dataset to ensure updates don't break core functionality",
+      "Providing stakeholders with dashboards showing ROI, token usage, and accuracy trends across teams"
     ],
     "launched_date": "2025-11",
     "has_affiliate": false,
@@ -67305,36 +67603,58 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription (usage-based elements likely at scale)",
+      "tiers": [
+        "Free: For individuals & small projects. Includes basic monitoring, 1K evaluations/month, 7-day data retention, and core integrations.",
+        "Team: $299/month (estimated). Based on website mentions. Includes higher evaluation limits, longer retention, advanced A/B testing, and team collaboration features.",
+        "Enterprise: Custom Pricing. Includes SSO/SAML, unlimited data retention, dedicated support, custom SLAs, and on-premise deployment options."
+      ],
+      "free_tier": "Yes - Includes basic monitoring, 1K monthly evaluations, and core integrations.",
+      "starting_price": "Free, with paid plans starting at an estimated $299/month"
+    },
+    "target_audience": [
+      "AI/ML Engineers & LLM Ops Teams",
+      "Product Managers overseeing AI features",
+      "Enterprise DevOps & Platform Engineering Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Cursor 2.0",
-    "description": "A completely rebuilt AI-native code editor that deeply integrates multiple LLMs (including Claude 3.7 and GPT-5) for context-aware coding assistance. Features a new agentic workflow system that can autonomously plan and execute complex code changes.",
+    "description": "Cursor is an AI-native code editor, rebuilt from the ground up, that deeply integrates state-of-the-art large language models like Claude 3.7 Sonnet and GPT-4o directly into the coding workflow. It goes beyond simple autocomplete to provide an agentic system capable of autonomously planning and executing complex, multi-file code changes based on high-level instructions. Its unique value lies in its project-wide understanding, which allows AI to reason about an entire codebase, making it a powerful tool for rapid development, refactoring, and debugging.",
     "url": "https://cursor.sh",
     "category": "code-ai",
     "tags": [
       "ai-code-editor",
-      "developer-tools",
-      "autonomous-coding",
+      "agentic-ide",
+      "multi-llm-orchestration",
+      "autonomous-refactoring",
       "vscode-fork",
-      "code-generation"
+      "developer-productivity",
+      "code-generation",
+      "pair-programmer"
     ],
     "pricing": "freemium",
     "features": [
-      "Multi-LLM orchestration",
-      "Autonomous code agent mode",
-      "Project-wide understanding",
-      "Real-time code review",
-      "Integrated terminal with AI"
+      "Multi-LLM Orchestration: Seamlessly switch between or let the editor choose from integrated models (Claude 3.7 Sonnet, GPT-4o, o1) for different tasks.",
+      "Agent Mode: Issue high-level commands (e.g., 'add user authentication') and the AI agent autonomously plans and executes the necessary code changes across multiple files.",
+      "Project-Wide AI Context: The editor indexes and understands your entire project, allowing AI to answer questions and make changes with full repository awareness.",
+      "Chat-to-Edit: Highlight code, chat with the AI about changes, and accept edits directly in the buffer without manual copying/pasting.",
+      "Integrated AI Terminal: Natural language commands in the terminal are interpreted and executed by AI (e.g., 'find all files containing this function').",
+      "Real-time Code Review & Diff Generation: AI reviews your uncommitted changes, suggests improvements, and can generate commit messages."
     ],
     "use_cases": [
-      "Rapid prototyping and development",
-      "Legacy code modernization",
-      "Automated testing and debugging",
-      "Team onboarding and knowledge transfer"
+      "Rapidly implementing new features by describing them in plain English to the AI agent.",
+      "Comprehensively refactoring large codebases, such as updating an API or migrating to a new library version.",
+      "Onboarding into a new or legacy codebase by using the AI to explain files, dependencies, and logic.",
+      "Debugging complex issues by having the AI analyze error traces and project code to suggest fixes.",
+      "Writing comprehensive tests by generating unit and integration tests for existing functions and components.",
+      "Converting code between programming languages or frameworks with high-level instructions."
     ],
     "launched_date": "2025-12-05",
-    "has_affiliate": true,
+    "has_affiliate": false,
     "affiliate_commission": "20% recurring",
     "monthly_pricing": "$20-$100",
     "source": "Product Hunt #1 Product of the Day Dec 5, 2025",
@@ -67344,36 +67664,57 @@
     "discovered_by": "mass-discovery",
     "rating": 4.8,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: Unlimited use of GPT-3.5-powered features; limited queries to advanced models (Claude 3.7, GPT-4o, o1).",
+        "Pro: $20/user/month (billed annually) or $25/user/month (billed monthly). Unlimited access to all advanced models (Claude 3.7, GPT-4o, o1), priority support, and early access to new features.",
+        "Enterprise: Custom Pricing. Includes SSO/SAML, centralized billing, usage analytics, dedicated support, and security reviews."
+      ],
+      "free_tier": "Yes - Includes core editor with GPT-3.5 and limited advanced model queries.",
+      "starting_price": "$20/month (annual plan)"
+    },
+    "target_audience": [
+      "software developers",
+      "engineering teams",
+      "tech leads & architects"
+    ],
+    "has_api": false
   },
   {
     "name": "Mendable Search 2.0",
-    "description": "A next-generation AI search platform for documentation and knowledge bases that understands natural language queries and provides accurate, context-aware answers. Features improved citation accuracy and multi-source synthesis.",
+    "description": "Mendable Search 2.0 is an AI-powered conversational search platform designed to integrate directly into documentation sites and knowledge bases, allowing users to ask questions in natural language. It provides accurate, cited answers by synthesizing information from multiple sources, including connected documentation, websites, and files. It uniquely targets developers and enterprises by offering deep customization, robust analytics, and seamless integration with popular tools like Slack and GitHub Discussions.",
     "url": "https://www.mendable.ai",
     "category": "search-ai",
     "tags": [
       "ai-search",
-      "documentation",
-      "knowledge-base",
+      "documentation-search",
       "enterprise-search",
-      "chatbot"
+      "chatbot",
+      "knowledge-base",
+      "developer-tools",
+      "slack-integration"
     ],
     "pricing": "freemium",
     "features": [
-      "Natural language query understanding",
-      "Accurate source citation",
-      "Multi-document synthesis",
-      "Customizable answer styles",
-      "Analytics dashboard"
+      "Conversational AI search bar for embedding in documentation sites",
+      "Accurate citations with direct links to source documents",
+      "Multi-source synthesis from connected URLs, files (PDF, TXT, MD), and public/private GitHub repos",
+      "Fully customizable UI, answer styles, and AI model (GPT-3.5, GPT-4, Claude)",
+      "Analytics dashboard tracking search queries, user satisfaction, and knowledge gaps",
+      "Slack integration for internal team Q&A from connected knowledge sources",
+      "GitHub Discussions integration to auto-answer community questions"
     ],
     "use_cases": [
-      "Developer documentation search",
-      "Internal knowledge base Q&A",
-      "Customer support automation",
-      "Training material access"
+      "Providing instant, accurate answers to developer questions within technical documentation",
+      "Powering internal company knowledge bases for employee self-service",
+      "Automating first-line community support in GitHub Discussions or Discord servers",
+      "Creating a conversational search interface for customer-facing help centers",
+      "Enabling teams to query internal documents and policies via a Slack chatbot"
     ],
     "launched_date": "2025-12-12",
-    "has_affiliate": true,
+    "has_affiliate": false,
     "affiliate_commission": "20% recurring",
     "monthly_pricing": "$99-$499",
     "source": "Product Hunt Launch Dec 12, 2025",
@@ -67383,33 +67724,54 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription (monthly/annual)",
+      "tiers": [
+        "Free: 100 searches/month, 1 knowledge source, basic analytics, public projects only",
+        "Pro: $499/month - 5,000 searches/month, 10 knowledge sources, advanced analytics, custom models, Slack/GitHub integrations",
+        "Enterprise: Custom Pricing - Unlimited searches, unlimited sources, SSO, dedicated support, custom AI model fine-tuning"
+      ],
+      "free_tier": "Yes - 100 searches/month, 1 source, basic features for public projects",
+      "starting_price": "$499/month (Pro tier)"
+    },
+    "target_audience": [
+      "Developers & Developer Relations teams",
+      "Enterprise IT & Knowledge Management teams",
+      "SaaS Companies with extensive documentation"
+    ],
+    "has_api": true
   },
   {
     "name": "Kling 2.0",
-    "description": "Kuaishou's advanced video generation model that produces high-quality, coherent video clips from text prompts. The 2.0 version features significantly improved temporal consistency and physical realism in generated videos.",
+    "description": "Kling 2.0 is Kuaishou's state-of-the-art text-to-video generation model, designed to create high-fidelity, physically plausible video clips from textual descriptions. It excels at producing coherent, up to 10-second videos at 1080p resolution with exceptional temporal consistency and realistic motion dynamics, distinguishing itself from competitors. The platform primarily targets content creators, marketers, and creative professionals seeking to rapidly prototype visual concepts or generate unique video assets without traditional production costs.",
     "url": "https://www.klingai.com",
     "category": "video-generation",
     "tags": [
       "text-to-video",
-      "video-generation",
+      "video-synthesis",
       "diffusion-model",
-      "creative-ai",
-      "china-ai"
+      "generative-ai",
+      "china-ai",
+      "creative-tools",
+      "content-creation",
+      "kuaishou"
     ],
     "pricing": "freemium",
     "features": [
-      "1080p video generation",
-      "10+ second coherent clips",
-      "Improved motion dynamics",
-      "Style transfer capabilities",
-      "Batch generation"
+      "Generates 1080p resolution videos from text prompts",
+      "Produces coherent video clips up to 10 seconds in length",
+      "Advanced temporal consistency for smooth frame transitions",
+      "Physics-aware motion modeling for realistic object dynamics",
+      "Style transfer capabilities to apply specific visual aesthetics",
+      "Batch generation for creating multiple video variations"
     ],
     "use_cases": [
-      "Short-form video content",
-      "Advertising and marketing",
-      "Storyboarding and pre-visualization",
-      "Educational content creation"
+      "Social media content creation for platforms like Kuaishou, TikTok, and Instagram",
+      "Rapid storyboarding and concept visualization for filmmakers and advertisers",
+      "Generating marketing and promotional video clips for products or services",
+      "Creating educational or explanatory animated content from textual descriptions",
+      "Producing unique visual assets for digital art and creative projects"
     ],
     "launched_date": "2025-11-25",
     "has_affiliate": false,
@@ -67422,33 +67784,56 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "usage-based",
+      "tiers": [
+        "Free: Limited access with credits or generation limits (specifics not publicly detailed)",
+        "Pro: Details and pricing not yet officially announced",
+        "Enterprise: Custom - Likely available for high-volume commercial use"
+      ],
+      "free_tier": "Yes - Access to the model with limitations, as demonstrated via a public waitlist and trial system",
+      "starting_price": "Free"
+    },
+    "target_audience": [
+      "Digital content creators and social media influencers",
+      "Marketing and advertising professionals",
+      "Creative professionals (filmmakers, animators, designers)"
+    ],
+    "has_api": true
   },
   {
     "name": "Hex Magic 2.0",
-    "description": "The latest version of Hex's AI-powered data workspace, featuring enhanced AI-assisted analysis, visualization, and storytelling capabilities. New collaborative AI agents help teams work together on complex data projects.",
+    "description": "Hex Magic 2.0 is an AI-native collaborative data workspace that transforms how teams analyze and share data. It enables users to query data warehouses using natural language, generate and explain SQL/Python code, create interactive visualizations and dashboards, and build compelling data stories—all within a single, shareable notebook interface. It uniquely combines the power of a modern data notebook with collaborative AI agents and a focus on production-ready, team-based workflows.",
     "url": "https://hex.tech/magic",
     "category": "analytics-bi",
     "tags": [
-      "data-analysis",
-      "bi-tools",
-      "collaboration",
-      "visualization",
-      "sql-assistant"
+      "data-notebook",
+      "collaborative-ai",
+      "sql-generation",
+      "data-storytelling",
+      "python-notebook",
+      "bi-dashboards",
+      "data-visualization",
+      "nl-to-sql"
     ],
-    "pricing": "paid",
+    "pricing": "freemium",
     "features": [
-      "AI-assisted SQL generation",
-      "Automated visualization suggestions",
-      "Natural language query interface",
-      "Collaborative data storytelling",
-      "Integration with data warehouses"
+      "AI SQL & Python Assistant (explain, generate, fix code)",
+      "Natural Language to Chart & Visualization builder",
+      "Multi-user Collaborative AI Agents for team analysis",
+      "Interactive Data Apps & Dashboards from notebooks",
+      "Direct Querying of Snowflake, BigQuery, Databricks, etc.",
+      "Version History, Branching, and Commenting for collaboration",
+      "Publish & Share interactive stories and apps with stakeholders"
     ],
     "use_cases": [
-      "Business intelligence reporting",
-      "Data exploration and discovery",
-      "Automated dashboard creation",
-      "Team data collaboration"
+      "Business analysts exploring data and creating self-serve dashboards for teams",
+      "Data scientists prototyping analyses and building interactive data apps",
+      "Data teams collaborating on complex analysis and documenting shared workflows",
+      "Consultants and agencies building client-facing data reports and stories",
+      "Product managers analyzing user behavior and feature adoption metrics",
+      "Educators and researchers creating reproducible, interactive data narratives"
     ],
     "launched_date": "2025-12-01",
     "has_affiliate": false,
@@ -67461,36 +67846,58 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 1 Project, 1 Editor, Core AI features, Limited compute",
+        "Pro: $50/user/month - Unlimited Projects, Advanced AI, More compute & scheduling",
+        "Enterprise: Custom - SSO, Advanced security, Dedicated support, Admin controls"
+      ],
+      "free_tier": "Yes - Includes core platform, 1 project, basic AI features (Magic), and limited query compute.",
+      "starting_price": "$50/user/month (billed annually) for Pro tier."
+    },
+    "target_audience": [
+      "Data Analysts",
+      "Data Scientists",
+      "Business Intelligence Teams"
+    ],
+    "has_api": true
   },
   {
     "name": "Sweep 2.0",
-    "description": "An AI-powered junior developer that autonomously handles GitHub issues and feature requests. The 2.0 version features improved code understanding, better testing, and the ability to handle more complex, multi-file changes.",
+    "description": "Sweep is an AI-powered software engineer that autonomously handles GitHub issues and feature requests by reading, planning, and writing code. It acts as a junior developer that can implement complex, multi-file changes, run tests, and create pull requests. It uniquely targets developers and engineering teams by deeply understanding codebases through embeddings and search, reducing time spent on small tasks and technical debt.",
     "url": "https://sweep.dev",
     "category": "code-ai",
     "tags": [
-      "github-bot",
       "autonomous-coding",
-      "code-review",
-      "bug-fixes",
-      "developer-tools"
+      "github-bot",
+      "developer-tools",
+      "code-generation",
+      "pull-request-automation",
+      "bug-fixer",
+      "technical-debt"
     ],
     "pricing": "freemium",
     "features": [
-      "Automatic issue triaging",
-      "Multi-file code changes",
-      "Automated testing",
-      "PR description generation",
-      "Integration with CI/CD"
+      "Autonomous issue resolution: Reads GitHub issues, plans solution, writes and commits code.",
+      "Multi-file code changes: Handles complex changes spanning multiple files and directories.",
+      "Automated testing & validation: Runs created/modified code to ensure it works before PR.",
+      "PR description & code review generation: Automatically drafts detailed PR descriptions and self-review comments.",
+      "Codebase understanding via embeddings: Creates and searches code embeddings for accurate context.",
+      "Integration with existing CI/CD: Works seamlessly with GitHub Actions and other CI tools.",
+      "Sandboxed code execution: Safely runs and tests code in an isolated environment."
     ],
     "use_cases": [
-      "Automated bug fixes",
-      "Feature implementation",
-      "Code refactoring",
-      "Documentation updates"
+      "Automatically fixing bugs reported in GitHub issues.",
+      "Implementing small features and refactoring tasks from user requests.",
+      "Reducing technical debt by updating deprecated libraries or linting code.",
+      "Writing unit tests for new or existing functions.",
+      "Generating boilerplate code for new features or endpoints.",
+      "Automating code review for simple, repetitive changes."
     ],
     "launched_date": "2025-11-18",
-    "has_affiliate": true,
+    "has_affiliate": false,
     "affiliate_commission": "15% recurring",
     "monthly_pricing": "$480-$2000",
     "source": "GitHub Trending Repo Nov 2025, Product Hunt",
@@ -67500,6 +67907,22 @@
     "discovered_by": "mass-discovery",
     "rating": null,
     "featured": false,
-    "clicks": 0
+    "clicks": 0,
+    "pricing_details": {
+      "model": "subscription",
+      "tiers": [
+        "Free: 5 GPT-4 Sweeps per month, 1 user, public repos only.",
+        "Pro: $480/month ($40/user/month, 12 user min) - Unlimited GPT-3.5 Sweeps, 120 GPT-4 Sweeps/month, private repos, faster responses.",
+        "Enterprise: Custom Pricing - Unlimited GPT-4 Sweeps, SSO, dedicated support, custom models, on-prem deployment."
+      ],
+      "free_tier": "Yes - 5 GPT-4 Sweeps/month on public repositories.",
+      "starting_price": "$480/month (Pro plan, annual commitment)"
+    },
+    "target_audience": [
+      "software developers",
+      "engineering managers",
+      "open-source maintainers"
+    ],
+    "has_api": true
   }
 ]
