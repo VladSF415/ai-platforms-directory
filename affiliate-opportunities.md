@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2025-12-09
+Generated: 2025-12-19
 Total Opportunities: 1
 
 ---
 
-## 1. Midjourney Alpha
+## 1. VideoSynth
 
-**Category:** image-generation
-**Website:** https://www.midjourney.com
-**Pricing Model:** paid
+**Category:** video-generation
+**Website:** https://videosynth.ai
+**Pricing Model:** freemium
 
 **Description:**
-Advanced image generation platform with enhanced control features, style consistency, and professional-grade output for artists, designers, and commercial projects. Features improved prompt understanding, upscaling, and editing capabilities.
+AI video generation platform that creates professional-quality videos from text, images, or existing footage with advanced editing capabilities and style transfer. Specializes in marketing videos, training content, and social media clips with human-like avatars and voiceovers.
 
 **💵 Affiliate Program Details:**
-Creator program with revenue sharing, managed via direct application, requires established artistic portfolio or commercial design business
+25% recurring commission via ShareASale, 45-day cookie, $75 minimum payout, volume bonuses available
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Creator program with revenue sharing, managed via direct application, requires e
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Midjourney Alpha** - https://www.midjourney.com
+1. [ ] **VideoSynth** - https://videosynth.ai
