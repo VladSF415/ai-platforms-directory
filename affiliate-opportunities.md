@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2025-12-20
+Generated: 2025-12-21
 Total Opportunities: 1
 
 ---
 
-## 1. Anthropic Claude Team
+## 1. Adept Fuyu-Heavy
 
-**Category:** enterprise-ai-platforms
-**Website:** https://claude.ai/team
+**Category:** agent-platforms
+**Website:** https://www.adept.ai
 **Pricing Model:** enterprise
 
 **Description:**
-Enterprise-focused AI assistant platform with advanced reasoning, coding, and document analysis capabilities. Built with constitutional AI for safety and reliability, offering team collaboration features and enterprise-grade security. Targets businesses and organizations.
+Enterprise AI agent platform that performs complex digital tasks across any software interface by understanding and interacting with UI elements. Capable of automating workflows in CRM, ERP, and custom enterprise applications without API integration.
 
 **💵 Affiliate Program Details:**
-Enterprise referral program with 20% first-year contract value, direct partnerships, minimum $25K deal size, requires business audience
+Enterprise referral program with 10% of first-year contract, direct sales partnerships, minimum $250k deal size, requires enterprise software sales experience
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Enterprise referral program with 20% first-year contract value, direct partnersh
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Anthropic Claude Team** - https://claude.ai/team
+1. [ ] **Adept Fuyu-Heavy** - https://www.adept.ai
