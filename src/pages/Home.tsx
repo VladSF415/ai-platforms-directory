@@ -214,16 +214,18 @@ function Home() {
           marginBottom: '20px'
         }}>
           {categories.slice(0, 12).map((category) => (
-            <div
+            <button
               key={category.slug}
               onClick={() => navigate(`/category/${category.slug}`)}
+              aria-label={`Browse ${category.name} category with ${category.count} tools`}
               style={{
                 border: '4px solid #000',
                 padding: '24px',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
                 background: '#fff',
-                textAlign: 'center'
+                textAlign: 'center',
+                width: '100%'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
@@ -233,8 +235,14 @@ function Home() {
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
               }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate(`/category/${category.slug}`);
+                }
+              }}
             >
-              <div style={{ fontSize: '48px', marginBottom: '12px' }}>
+              <div style={{ fontSize: '48px', marginBottom: '12px' }} aria-hidden="true">
                 {categoryIcons[category.slug] || '⚡'}
               </div>
               <h3 style={{
@@ -254,7 +262,7 @@ function Home() {
               }}>
                 {category.count} tools
               </div>
-            </div>
+            </button>
           ))}
         </div>
         {categories.length > 12 && (
@@ -501,15 +509,18 @@ function Home() {
               gap: '20px'
             }}>
               {pillarPages.slice(0, 6).map((guide) => (
-                <div
+                <button
                   key={guide.slug}
                   onClick={() => navigate(`/guide/${guide.slug}`)}
+                  aria-label={`Read guide: ${guide.title}`}
                   style={{
                     border: '3px solid #000',
                     padding: '25px',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease',
-                    background: '#fff'
+                    background: '#fff',
+                    textAlign: 'left',
+                    width: '100%'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-3px)';
@@ -518,6 +529,12 @@ function Home() {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
                     e.currentTarget.style.boxShadow = 'none';
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      navigate(`/guide/${guide.slug}`);
+                    }
                   }}
                 >
                   <h3 style={{
@@ -545,7 +562,7 @@ function Home() {
                   }}>
                     Read Guide →
                   </div>
-                </div>
+                </button>
               ))}
             </div>
             {pillarPages.length > 6 && (

@@ -120,6 +120,7 @@ export default function Navigation() {
             placeholder="Search AI tools..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search AI tools"
           />
           <button type="submit" aria-label="Search">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -138,6 +139,9 @@ export default function Navigation() {
             <button
               onClick={toggleCategories}
               className="nav-dropdown-trigger"
+              aria-expanded={isCategoriesOpen}
+              aria-haspopup="true"
+              aria-label="Browse categories menu"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -155,7 +159,7 @@ export default function Navigation() {
               }}
             >
               Categories
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
@@ -278,6 +282,7 @@ export default function Navigation() {
               placeholder="Search AI tools..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Search AI tools"
             />
             <button type="submit" aria-label="Search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -292,9 +297,15 @@ export default function Navigation() {
               <Link to="/" onClick={closeMenu}>Home</Link>
             </li>
             <li className="mobile-dropdown">
-              <button onClick={toggleCategories} className="mobile-dropdown-trigger">
+              <button
+                onClick={toggleCategories}
+                className="mobile-dropdown-trigger"
+                aria-expanded={isCategoriesOpen}
+                aria-haspopup="true"
+                aria-label="Browse categories menu"
+              >
                 Categories
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </button>

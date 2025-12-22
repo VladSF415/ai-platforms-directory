@@ -210,8 +210,8 @@ const ChatWidget: React.FC = () => {
                 <p>Online - Typically replies instantly</p>
               </div>
             </div>
-            <button onClick={clearChat} className="chat-clear-button" title="Clear chat">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <button onClick={clearChat} className="chat-clear-button" title="Clear chat" aria-label="Clear chat history">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <polyline points="3 6 5 6 21 6"></polyline>
                 <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
               </svg>
@@ -219,9 +219,9 @@ const ChatWidget: React.FC = () => {
           </div>
 
           {/* Messages */}
-          <div className="chat-messages">
+          <div className="chat-messages" role="log" aria-live="polite" aria-label="Chat conversation">
             {messages.map((message, index) => (
-              <div key={index} className={`chat-message chat-message-${message.role}`}>
+              <div key={index} className={`chat-message chat-message-${message.role}`} role="article" aria-label={`${message.role === 'user' ? 'You' : 'Assistant'}`}>
                 <div className="chat-message-content">
                   <p>{message.content}</p>
 
@@ -269,12 +269,13 @@ const ChatWidget: React.FC = () => {
 
           {/* Quick Actions (show only if no user messages yet) */}
           {messages.filter(m => m.role === 'user').length === 0 && (
-            <div className="chat-quick-actions">
+            <div className="chat-quick-actions" role="group" aria-label="Quick action suggestions">
               {quickActions.map((action, index) => (
                 <button
                   key={index}
                   onClick={() => handleQuickAction(action.action)}
                   className="chat-quick-action"
+                  aria-label={`Quick action: ${action.label}`}
                 >
                   {action.label}
                 </button>
@@ -293,6 +294,7 @@ const ChatWidget: React.FC = () => {
               placeholder="Type your message..."
               className="chat-input"
               disabled={isLoading}
+              aria-label="Chat message input"
             />
             <button
               onClick={sendMessage}
@@ -300,7 +302,7 @@ const ChatWidget: React.FC = () => {
               className="chat-send-button"
               aria-label="Send message"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
               </svg>
