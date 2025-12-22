@@ -141,4 +141,31 @@ export function createBreadcrumbSchema(items: Array<{ name: string; url: string 
   };
 }
 
+export function createDatasetSchema(totalPlatforms: number) {
+  const today = new Date().toISOString().split('T')[0];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'AI Platforms Directory Dataset',
+    description: `Comprehensive dataset of ${totalPlatforms}+ AI platforms, tools, and software with features, pricing, and reviews. Updated daily.`,
+    url: 'https://aiplatformslist.com',
+    keywords: ['AI platforms', 'artificial intelligence', 'machine learning', 'AI tools', 'software directory'],
+    license: 'https://aiplatformslist.com/terms',
+    isAccessibleForFree: true,
+    creator: {
+      '@type': 'Organization',
+      name: 'AI Platforms List',
+      url: 'https://aiplatformslist.com',
+    },
+    datePublished: '2024-01-01',
+    dateModified: today,
+    temporalCoverage: '2024/..',
+    distribution: {
+      '@type': 'DataDownload',
+      encodingFormat: 'application/json',
+      contentUrl: 'https://aiplatformslist.com/api/platforms',
+    },
+  };
+}
+
 export default StructuredData;

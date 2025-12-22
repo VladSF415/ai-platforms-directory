@@ -4,7 +4,7 @@ import type { Platform, Category } from '../types';
 import { analytics } from '../utils/analytics';
 import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
 import { SocialMetaTags } from '../components/SocialMetaTags';
-import { StructuredData, createItemListSchema, createWebsiteSchema, createOrganizationSchema } from '../components/StructuredData';
+import { StructuredData, createItemListSchema, createWebsiteSchema, createOrganizationSchema, createDatasetSchema } from '../components/StructuredData';
 
 // Category icon mapping
 const categoryIcons: Record<string, string> = {
@@ -185,6 +185,7 @@ function Home() {
       <StructuredData data={createWebsiteSchema()} />
       <StructuredData data={createOrganizationSchema()} />
       <StructuredData data={createItemListSchema(platforms.slice(0, 50))} />
+      <StructuredData data={createDatasetSchema(totalPlatforms)} />
 
       {/* Hero Section */}
       <div className="container" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
@@ -192,10 +193,13 @@ function Home() {
           <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '20px', letterSpacing: '-1px', color: '#000000', lineHeight: '1.2' }}>
             AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Platforms (2025)
           </h1>
-          <p style={{ fontSize: '1.1rem', fontWeight: '700', maxWidth: '900px', margin: '0 auto 30px', color: '#000000', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '1.1rem', fontWeight: '700', maxWidth: '900px', margin: '0 auto 15px', color: '#000000', lineHeight: '1.6' }}>
             THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,
             PRICING, AND REVIEWS ACROSS {categories.length}+ CATEGORIES.
           </p>
+          <div style={{ fontSize: '0.9rem', color: '#666', marginBottom: '30px', fontWeight: '600' }}>
+            🔄 Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          </div>
           <a href="/submit" className="submit-btn">
             SUBMIT YOUR AI TOOL
           </a>
