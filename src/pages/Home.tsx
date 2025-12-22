@@ -4,6 +4,7 @@ import type { Platform, Category } from '../types';
 import { analytics } from '../utils/analytics';
 import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
 import { SocialMetaTags } from '../components/SocialMetaTags';
+import { StructuredData, createItemListSchema, createWebsiteSchema, createOrganizationSchema } from '../components/StructuredData';
 
 // Category icon mapping
 const categoryIcons: Record<string, string> = {
@@ -179,6 +180,11 @@ function Home() {
 
       {/* FAQ Schema for SEO */}
       <FAQSchema faqs={faqs} />
+
+      {/* Structured Data for Rich Snippets */}
+      <StructuredData data={createWebsiteSchema()} />
+      <StructuredData data={createOrganizationSchema()} />
+      <StructuredData data={createItemListSchema(platforms.slice(0, 50))} />
 
       {/* Hero Section */}
       <div className="container" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
