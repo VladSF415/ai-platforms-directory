@@ -331,15 +331,11 @@ function findPlatformByOldSlug(oldSlug) {
   });
 }
 
-// Handle old /platforms/[firebaseId] URLs - return 410 Gone
+// Handle old /platforms/[firebaseId] URLs - 301 redirect to homepage
 fastify.get('/platforms/:firebaseId', async (request, reply) => {
-  // These are old Firebase-style URLs that no longer exist
-  // Return 410 Gone to tell Google to remove from index
-  reply.code(410).send({
-    error: 'Gone',
-    message: 'This URL format is no longer supported. Visit our homepage to find AI platforms.',
-    redirect: '/'
-  });
+  // These are old Firebase-style URLs - redirect to homepage
+  // Using 301 permanent redirect to preserve SEO value
+  reply.redirect(301, '/');
 });
 
 // Redirect old /platform/platform-[category]-[name] format
@@ -351,23 +347,15 @@ fastify.get('/platform/platform-:rest', async (request, reply) => {
     const newSlug = platform.slug || platform.id || platform.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     reply.redirect(301, `/platform/${newSlug}`);
   } else {
-    // No match found - return 410 Gone instead of homepage redirect
-    reply.code(410).send({
-      error: 'Gone',
-      message: 'This platform is no longer in our directory.',
-      redirect: '/'
-    });
+    // No match found - redirect to homepage to preserve SEO
+    reply.redirect(301, '/');
   }
 });
 
-// Handle old blog URLs - return 410 Gone
+// Handle old blog URLs - 301 redirect to blog index
 fastify.get('/blog/:category/:slug', async (request, reply) => {
-  // Old blog URL format - content has been reorganized
-  reply.code(410).send({
-    error: 'Gone',
-    message: 'Old blog URL format. Visit /blog for our latest content.',
-    redirect: '/blog'
-  });
+  // Old blog URL format - redirect to /blog to preserve SEO
+  reply.redirect(301, '/blog');
 });
 
 // Redirect old category URLs with different naming
@@ -423,12 +411,8 @@ fastify.get('/category/:oldCategory', async (request, reply) => {
       // It's valid, let it pass through to the SPA
       return;
     }
-    // Invalid category - return 410 Gone
-    reply.code(410).send({
-      error: 'Gone',
-      message: 'This category no longer exists or has been merged with another category.',
-      redirect: '/'
-    });
+    // Invalid category - redirect to homepage to preserve SEO
+    reply.redirect(301, '/');
   }
 });
 
@@ -1446,8 +1430,11 @@ fastify.get('/api/chat/stats', async () => {
   return chatService.getStats();
 });
 
-// Catch-all 404 handler with proper error handling
+// Catch-all 404 handler with proper error handling and logging
 fastify.setNotFoundHandler((request, reply) => {
+  // Log 404s for debugging (helps identify broken URLs)
+  console.log(`[404] ${request.method} ${request.url} - Referrer: ${request.headers.referer || 'none'}`);
+
   // Only serve SPA for browser requests (not API calls)
   if (request.headers.accept && request.headers.accept.includes('text/html')) {
     if (process.env.NODE_ENV === 'production') {
