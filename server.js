@@ -56,11 +56,11 @@ fastify.addHook('onSend', async (request, reply, payload) => {
   reply.header(
     'Content-Security-Policy',
     "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://cdn.jsdelivr.net; " +
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://cdn.jsdelivr.net https://www.googletagmanager.com; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
     "font-src 'self' https://fonts.gstatic.com data:; " +
     "img-src 'self' data: https: blob:; " +
-    "connect-src 'self' https://api.deepseek.com https://api.openai.com https://api.anthropic.com; " +
+    "connect-src 'self' https://api.deepseek.com https://api.openai.com https://api.anthropic.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; " +
     "frame-src 'self' https://js.stripe.com; " +
     "object-src 'none'; " +
     "base-uri 'self'; " +
