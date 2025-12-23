@@ -358,6 +358,29 @@ fastify.get('/blog/:category/:slug', async (request, reply) => {
   reply.redirect(301, '/blog');
 });
 
+// Additional redirect patterns for common old URLs
+fastify.get('/guide/:slug', async (request, reply) => {
+  // Old /guide/* format - redirect to /guides (pillar content)
+  reply.redirect(301, `/guides`);
+});
+
+fastify.get('/compare/:slug', async (request, reply) => {
+  // Old /compare/* format - redirect to homepage or comparisons page
+  const { slug } = request.params;
+  // Try to find matching comparison
+  const comparison = comparisonContent.find(c => c.slug.includes(slug));
+  if (comparison) {
+    reply.redirect(301, `/compare/${comparison.slug}`);
+  } else {
+    reply.redirect(301, '/');
+  }
+});
+
+fastify.get('/alternatives/:platform/:slug', async (request, reply) => {
+  // Old alternatives URL format - redirect to new format
+  reply.redirect(301, `/alternatives/${request.params.slug}`);
+});
+
 // Redirect old category URLs with different naming
 const oldCategoryMappings = {
   'speech-recognition-ai': 'audio-ai',
@@ -520,176 +543,241 @@ fastify.get('/api/platforms', async (request, reply) => {
 
 // Get single platform
 fastify.get('/api/platforms/:slug', async (request, reply) => {
-  const { slug } = request.params;
-  const platform = platforms.find(p => p.slug === slug || p.id === slug);
+  try {
+    const { slug } = request.params;
+    const platform = platforms.find(p => p.slug === slug || p.id === slug);
 
-  if (!platform) {
-    reply.code(404).send({ error: 'Platform not found' });
-    return;
+    if (!platform) {
+      reply.code(404).send({ error: 'Platform not found' });
+      return;
+    }
+
+    return platform;
+  } catch (error) {
+    console.error('[API Error] /api/platforms/:slug:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
-
-  return platform;
 });
 
 // Get categories
-fastify.get('/api/categories', async () => {
-  const categoryMap = new Map();
+fastify.get('/api/categories', async (request, reply) => {
+  try {
+    const categoryMap = new Map();
 
-  platforms.forEach(platform => {
-    const cat = platform.category || 'uncategorized';
-    if (!categoryMap.has(cat)) {
-      // Convert slug to name
-      const name = cat
-        .split('-')
-        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(' ');
-      categoryMap.set(cat, { slug: cat, name, count: 0 });
-    }
-    categoryMap.get(cat).count++;
-  });
+    platforms.forEach(platform => {
+      const cat = platform.category || 'uncategorized';
+      if (!categoryMap.has(cat)) {
+        // Convert slug to name
+        const name = cat
+          .split('-')
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ');
+        categoryMap.set(cat, { slug: cat, name, count: 0 });
+      }
+      categoryMap.get(cat).count++;
+    });
 
-  return Array.from(categoryMap.values())
-    .sort((a, b) => b.count - a.count);
+    return Array.from(categoryMap.values())
+      .sort((a, b) => b.count - a.count);
+  } catch (error) {
+    console.error('[API Error] /api/categories:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
 });
 
 // Get pillar content list
-fastify.get('/api/pillar', async () => {
-  return pillarContent.map(p => ({
-    slug: p.slug,
-    category: p.category,
-    title: p.title,
-    metaDescription: p.metaDescription
-  }));
+fastify.get('/api/pillar', async (request, reply) => {
+  try {
+    return pillarContent.map(p => ({
+      slug: p.slug,
+      category: p.category,
+      title: p.title,
+      metaDescription: p.metaDescription
+    }));
+  } catch (error) {
+    console.error('[API Error] /api/pillar:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
 });
 
 // Get single pillar page
 fastify.get('/api/pillar/:slug', async (request, reply) => {
-  const { slug } = request.params;
-  const pillar = pillarContent.find(p => p.slug === slug);
+  try {
+    const { slug } = request.params;
+    const pillar = pillarContent.find(p => p.slug === slug);
 
-  if (!pillar) {
-    reply.code(404).send({ error: 'Pillar page not found' });
-    return;
+    if (!pillar) {
+      reply.code(404).send({ error: 'Pillar page not found' });
+      return;
+    }
+
+    return pillar;
+  } catch (error) {
+    console.error('[API Error] /api/pillar/:slug:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
-
-  return pillar;
 });
 
 // Get comparison content list
-fastify.get('/api/comparisons', async () => {
-  return comparisonContent.map(c => ({
-    slug: c.slug,
-    title: c.title,
-    metaDescription: c.metaDescription,
-    platform1Slug: c.platform1Slug,
-    platform2Slug: c.platform2Slug
-  }));
+fastify.get('/api/comparisons', async (request, reply) => {
+  try {
+    return comparisonContent.map(c => ({
+      slug: c.slug,
+      title: c.title,
+      metaDescription: c.metaDescription,
+      platform1Slug: c.platform1Slug,
+      platform2Slug: c.platform2Slug
+    }));
+  } catch (error) {
+    console.error('[API Error] /api/comparisons:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
 });
 
 // Get single comparison page
 fastify.get('/api/comparisons/:slug', async (request, reply) => {
-  const { slug } = request.params;
-  const comparison = comparisonContent.find(c => c.slug === slug);
+  try {
+    const { slug } = request.params;
+    const comparison = comparisonContent.find(c => c.slug === slug);
 
-  if (!comparison) {
-    reply.code(404).send({ error: 'Comparison not found' });
-    return;
+    if (!comparison) {
+      reply.code(404).send({ error: 'Comparison not found' });
+      return;
+    }
+
+    return comparison;
+  } catch (error) {
+    console.error('[API Error] /api/comparisons/:slug:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
-
-  return comparison;
 });
 
 // Get alternatives content list
-fastify.get('/api/alternatives', async () => {
-  return alternativesContent.map(a => ({
-    slug: a.slug,
-    title: a.title,
-    metaDescription: a.metaDescription,
-    platformSlug: a.platformSlug
-  }));
+fastify.get('/api/alternatives', async (request, reply) => {
+  try {
+    return alternativesContent.map(a => ({
+      slug: a.slug,
+      title: a.title,
+      metaDescription: a.metaDescription,
+      platformSlug: a.platformSlug
+    }));
+  } catch (error) {
+    console.error('[API Error] /api/alternatives:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
 });
 
 // Get single alternatives page
 fastify.get('/api/alternatives/:slug', async (request, reply) => {
-  const { slug } = request.params;
-  const alternatives = alternativesContent.find(a => a.slug === slug);
+  try {
+    const { slug } = request.params;
+    const alternatives = alternativesContent.find(a => a.slug === slug);
 
-  if (!alternatives) {
-    reply.code(404).send({ error: 'Alternatives page not found' });
-    return;
+    if (!alternatives) {
+      reply.code(404).send({ error: 'Alternatives page not found' });
+      return;
+    }
+
+    return alternatives;
+  } catch (error) {
+    console.error('[API Error] /api/alternatives/:slug:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
-
-  return alternatives;
 });
 
 // Get best-of content list
-fastify.get('/api/best-of', async () => {
-  return bestOfContent.map(b => ({
-    slug: b.slug,
-    title: b.title,
-    metaDescription: b.metaDescription,
-    category: b.category,
-    totalPlatforms: b.totalPlatforms
-  }));
+fastify.get('/api/best-of', async (request, reply) => {
+  try {
+    return bestOfContent.map(b => ({
+      slug: b.slug,
+      title: b.title,
+      metaDescription: b.metaDescription,
+      category: b.category,
+      totalPlatforms: b.totalPlatforms
+    }));
+  } catch (error) {
+    console.error('[API Error] /api/best-of:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
 });
 
 // Get single best-of page
 fastify.get('/api/best-of/:slug', async (request, reply) => {
-  const { slug } = request.params;
-  const bestOf = bestOfContent.find(b => b.slug === slug);
+  try {
+    const { slug } = request.params;
+    const bestOf = bestOfContent.find(b => b.slug === slug);
 
-  if (!bestOf) {
-    reply.code(404).send({ error: 'Best-of page not found' });
-    return;
+    if (!bestOf) {
+      reply.code(404).send({ error: 'Best-of page not found' });
+      return;
+    }
+
+    return bestOf;
+  } catch (error) {
+    console.error('[API Error] /api/best-of/:slug:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
-
-  return bestOf;
 });
 
 // Get blog posts list
-fastify.get('/api/blog', async () => {
-  return blogPosts
-    .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
-    .map(p => ({
-      slug: p.slug,
-      title: p.title,
-      excerpt: p.excerpt,
-      category: p.category,
-      readTime: p.readTime,
-      publishedDate: p.publishedDate,
-      featured: p.featured,
-      keywords: p.keywords
-    }));
+fastify.get('/api/blog', async (request, reply) => {
+  try {
+    return blogPosts
+      .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
+      .map(p => ({
+        slug: p.slug,
+        title: p.title,
+        excerpt: p.excerpt,
+        category: p.category,
+        readTime: p.readTime,
+        publishedDate: p.publishedDate,
+        featured: p.featured,
+        keywords: p.keywords
+      }));
+  } catch (error) {
+    console.error('[API Error] /api/blog:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
 });
 
 // Get single blog post
 fastify.get('/api/blog/:slug', async (request, reply) => {
-  const { slug } = request.params;
-  const post = blogPosts.find(p => p.slug === slug);
+  try {
+    const { slug } = request.params;
+    const post = blogPosts.find(p => p.slug === slug);
 
-  if (!post) {
-    reply.code(404).send({ error: 'Blog post not found' });
-    return;
+    if (!post) {
+      reply.code(404).send({ error: 'Blog post not found' });
+      return;
+    }
+
+    return post;
+  } catch (error) {
+    console.error('[API Error] /api/blog/:slug:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
-
-  return post;
 });
 
 // Stats endpoint
-fastify.get('/api/stats', async () => {
-  return {
-    total: platforms.length,
-    featured: platforms.filter(p => p.featured).length,
-    verified: platforms.filter(p => p.verified).length,
-    categories: new Set(platforms.map(p => p.category)).size,
-    content: {
-      pillarPages: pillarContent.length,
-      comparisons: comparisonContent.length,
-      alternatives: alternativesContent.length,
-      bestOf: bestOfContent.length,
-      totalPages: pillarContent.length + comparisonContent.length + alternativesContent.length + bestOfContent.length
-    }
-  };
+fastify.get('/api/stats', async (request, reply) => {
+  try {
+    return {
+      total: platforms.length,
+      featured: platforms.filter(p => p.featured).length,
+      verified: platforms.filter(p => p.verified).length,
+      categories: new Set(platforms.map(p => p.category)).size,
+      content: {
+        pillarPages: pillarContent.length,
+        comparisons: comparisonContent.length,
+        alternatives: alternativesContent.length,
+        bestOf: bestOfContent.length,
+        totalPages: pillarContent.length + comparisonContent.length + alternativesContent.length + bestOfContent.length
+      }
+    };
+  } catch (error) {
+    console.error('[API Error] /api/stats:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
 });
 
 // Load font for OG image generation
