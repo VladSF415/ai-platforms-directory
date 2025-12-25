@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2025-12-21
+Generated: 2025-12-25
 Total Opportunities: 1
 
 ---
 
-## 1. Adept Fuyu-Heavy
+## 1. Imbue (formerly Generally Intelligent)
 
 **Category:** agent-platforms
-**Website:** https://www.adept.ai
-**Pricing Model:** enterprise
+**Website:** https://imbue.com
+**Pricing Model:** paid
 
 **Description:**
-Enterprise AI agent platform that performs complex digital tasks across any software interface by understanding and interacting with UI elements. Capable of automating workflows in CRM, ERP, and custom enterprise applications without API integration.
+AI research company building foundation models optimized for reasoning and agentic capabilities, enabling AI systems that can accomplish complex multi-step tasks autonomously. Focuses on developers building sophisticated AI agents and automation systems.
 
 **💵 Affiliate Program Details:**
-Enterprise referral program with 10% of first-year contract, direct sales partnerships, minimum $250k deal size, requires enterprise software sales experience
+Technology partner program with 20% recurring revenue share, enterprise referral bonuses up to $15k, direct application with technical assessment required
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Enterprise referral program with 10% of first-year contract, direct sales partne
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Adept Fuyu-Heavy** - https://www.adept.ai
+1. [ ] **Imbue (formerly Generally Intelligent)** - https://imbue.com
