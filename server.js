@@ -593,17 +593,8 @@ fastify.get('/guide/:slug', async (request, reply) => {
   reply.redirect(301, `/guides`);
 });
 
-fastify.get('/compare/:slug', async (request, reply) => {
-  // Old /compare/* format - redirect to homepage or comparisons page
-  const { slug } = request.params;
-  // Try to find matching comparison
-  const comparison = comparisonContent.find(c => c.slug.includes(slug));
-  if (comparison) {
-    reply.redirect(301, `/compare/${comparison.slug}`);
-  } else {
-    reply.redirect(301, '/');
-  }
-});
+// Removed broken /compare/:slug redirect that caused infinite loop
+// The SPA handles these routes naturally through the 404 fallback
 
 fastify.get('/alternatives/:platform/:slug', async (request, reply) => {
   // Old alternatives URL format - redirect to new format
