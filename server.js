@@ -1348,7 +1348,7 @@ fastify.get('/sitemap.xml', async (request, reply) => {
 
   // All platforms
   platforms.forEach(platform => {
-    const slug = platform.id || platform.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const slug = platform.slug || platform.id || platform.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const lastmod = platform.added_date || today;
 
     sitemap += '  <url>\n';
