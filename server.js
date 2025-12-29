@@ -23,6 +23,239 @@ export const getAnalytics = useDatabase ? getDB : getFile;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// ===========================================
+// BOT DETECTION & SSR FOR SEO
+// ===========================================
+
+/**
+ * Detect if request is from a search engine bot
+ * Returns true for Googlebot, Bingbot, and other legitimate search crawlers
+ */
+function isBot(userAgent) {
+  if (!userAgent) return false;
+
+  const botPatterns = [
+    'googlebot',
+    'bingbot',
+    'slurp',              // Yahoo
+    'duckduckbot',        // DuckDuckGo
+    'baiduspider',        // Baidu
+    'yandexbot',          // Yandex
+    'facebookexternalhit', // Facebook crawler
+    'twitterbot',         // Twitter crawler
+    'linkedinbot',        // LinkedIn
+    'whatsapp',           // WhatsApp preview
+    'telegrambot',        // Telegram preview
+    'applebot',           // Apple
+    'ia_archiver',        // Alexa
+    'archive.org_bot',    // Internet Archive
+    'msnbot',             // Microsoft
+    'duckduckgo',
+    'bot',
+    'crawler',
+    'spider'
+  ];
+
+  const ua = userAgent.toLowerCase();
+  return botPatterns.some(pattern => ua.includes(pattern));
+}
+
+/**
+ * Generate SEO-optimized HTML for platform detail page
+ */
+function generatePlatformHTML(platform, baseUrl) {
+  const title = `${platform.name} - AI Platform Review | AI Platforms List`;
+  const description = platform.description?.substring(0, 160) || `Discover ${platform.name}, an AI platform in the ${platform.category} category.`;
+  const url = `${baseUrl}/platform/${platform.slug}`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title}</title>
+  <meta name="description" content="${description}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <link rel="canonical" href="${url}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:image" content="${baseUrl}/og-image.png">
+  <meta property="og:site_name" content="AI Platforms Directory">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title}">
+  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:image" content="${baseUrl}/og-image.png">
+
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h1 { color: #1a1a1a; font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .meta { color: #666; margin-bottom: 2rem; }
+    .badge { display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 4px; margin-right: 0.5rem; font-size: 0.875rem; }
+    .description { font-size: 1.125rem; margin-bottom: 2rem; }
+    .section { margin-bottom: 2rem; }
+    .section h2 { color: #333; border-bottom: 2px solid #4F46E5; padding-bottom: 0.5rem; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+    .cta { display: inline-block; background: #4F46E5; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 2rem 0; }
+  </style>
+</head>
+<body>
+  <h1>${platform.name}</h1>
+
+  <div class="meta">
+    <span class="badge">${platform.category || 'AI Platform'}</span>
+    ${platform.pricing ? `<span class="badge">💰 ${platform.pricing}</span>` : ''}
+    ${platform.rating ? `<span class="badge">⭐ ${platform.rating}/5</span>` : ''}
+    ${platform.verified ? '<span class="badge">✓ Verified</span>' : ''}
+  </div>
+
+  <div class="description">
+    <p>${platform.description || 'An innovative AI platform.'}</p>
+  </div>
+
+  ${platform.features && platform.features.length > 0 ? `
+  <div class="section">
+    <h2>Key Features</h2>
+    <ul>
+      ${platform.features.map(f => `<li>✓ ${f}</li>`).join('')}
+    </ul>
+  </div>
+  ` : ''}
+
+  ${platform.use_cases && platform.use_cases.length > 0 ? `
+  <div class="section">
+    <h2>Use Cases</h2>
+    <ul>
+      ${platform.use_cases.map(u => `<li>• ${u}</li>`).join('')}
+    </ul>
+  </div>
+  ` : ''}
+
+  ${platform.pricing_details ? `
+  <div class="section">
+    <h2>Pricing Information</h2>
+    <p><strong>Model:</strong> ${platform.pricing_details.model || 'Contact for pricing'}</p>
+    ${platform.pricing_details.free_tier ? '<p>✓ Free tier available</p>' : ''}
+    ${platform.pricing_details.starting_price ? `<p><strong>Starting at:</strong> ${platform.pricing_details.starting_price}</p>` : ''}
+  </div>
+  ` : ''}
+
+  ${platform.website || platform.url ? `
+  <a href="${platform.website || platform.url}" class="cta" target="_blank" rel="noopener">Visit ${platform.name} →</a>
+  ` : ''}
+
+  <div class="section">
+    <p><small>Last updated: ${platform.updatedAt || new Date().toISOString().split('T')[0]}</small></p>
+    <p><small>© 2025 AI Platforms List. All rights reserved.</small></p>
+  </div>
+</body>
+</html>`;
+}
+
+/**
+ * Generate SEO-optimized HTML for comparison page
+ */
+function generateComparisonHTML(comparison, baseUrl) {
+  const title = comparison.title || 'AI Platform Comparison';
+  const description = comparison.metaDescription || comparison.description?.substring(0, 160) || 'Compare AI platforms side by side.';
+  const url = `${baseUrl}/compare/${comparison.slug}`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title} | AI Platforms List</title>
+  <meta name="description" content="${description}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <link rel="canonical" href="${url}">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:image" content="${baseUrl}/og-image.png">
+
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h1 { color: #1a1a1a; font-size: 2.5rem; margin-bottom: 1rem; }
+    .content { font-size: 1.125rem; }
+    .section { margin: 2rem 0; padding: 1.5rem; background: #f9f9f9; border-radius: 8px; }
+    .section h2 { color: #4F46E5; margin-top: 0; }
+  </style>
+</head>
+<body>
+  <h1>${title}</h1>
+  <div class="content">
+    ${comparison.introduction ? `<p>${comparison.introduction}</p>` : ''}
+    ${comparison.content ? `<div>${comparison.content}</div>` : ''}
+    ${comparison.conclusion ? `<div class="section"><h2>Conclusion</h2><p>${comparison.conclusion}</p></div>` : ''}
+  </div>
+  <p><small>© 2025 AI Platforms List. All rights reserved.</small></p>
+</body>
+</html>`;
+}
+
+/**
+ * Generate SEO-optimized HTML for alternatives page
+ */
+function generateAlternativesHTML(alternatives, baseUrl) {
+  const title = alternatives.title || 'AI Platform Alternatives';
+  const description = alternatives.metaDescription || alternatives.description?.substring(0, 160) || 'Discover alternatives to this AI platform.';
+  const url = `${baseUrl}/alternatives/${alternatives.slug}`;
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title} | AI Platforms List</title>
+  <meta name="description" content="${description}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <link rel="canonical" href="${url}">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:image" content="${baseUrl}/og-image.png">
+
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h1 { color: #1a1a1a; font-size: 2.5rem; margin-bottom: 1rem; }
+    .content { font-size: 1.125rem; }
+    .alternative { margin: 1.5rem 0; padding: 1.5rem; background: #f9f9f9; border-radius: 8px; }
+    .alternative h3 { color: #4F46E5; margin-top: 0; }
+  </style>
+</head>
+<body>
+  <h1>${title}</h1>
+  <div class="content">
+    ${alternatives.introduction ? `<p>${alternatives.introduction}</p>` : ''}
+    ${alternatives.alternatives && alternatives.alternatives.length > 0 ? `
+      <div>
+        ${alternatives.alternatives.map(alt => `
+          <div class="alternative">
+            <h3>${alt.name || 'Alternative Platform'}</h3>
+            <p>${alt.description || ''}</p>
+          </div>
+        `).join('')}
+      </div>
+    ` : ''}
+    ${alternatives.content ? `<div>${alternatives.content}</div>` : ''}
+  </div>
+  <p><small>© 2025 AI Platforms List. All rights reserved.</small></p>
+</body>
+</html>`;
+}
+
 const fastify = Fastify({
   logger: true,
   // Add error handling to prevent 5xx crashes
@@ -1693,6 +1926,153 @@ fastify.get('/api/chat/analytics', async (request, reply) => {
 // Chat statistics endpoint
 fastify.get('/api/chat/stats', async () => {
   return chatService.getStats();
+});
+
+// ===========================================
+// SSR ROUTES: Serve pre-rendered HTML for bots
+// ===========================================
+
+// Platform detail pages - SSR for bots
+fastify.get('/platform/:slug', async (request, reply) => {
+  const userAgent = request.headers['user-agent'] || '';
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+
+  // If it's a bot, serve pre-rendered HTML
+  if (isBot(userAgent)) {
+    const { slug } = request.params;
+    const platform = platforms.find(p => p.slug === slug || p.id === slug);
+
+    if (!platform) {
+      reply.code(404).send('Platform not found');
+      return;
+    }
+
+    console.log(`[SSR] Serving pre-rendered HTML for bot: ${userAgent.substring(0, 50)}`);
+    const html = generatePlatformHTML(platform, baseUrl);
+    reply.type('text/html').send(html);
+    return;
+  }
+
+  // For regular users, fall through to SPA (404 handler will serve index.html)
+});
+
+// Comparison pages - SSR for bots
+fastify.get('/compare/:slug', async (request, reply) => {
+  const userAgent = request.headers['user-agent'] || '';
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+
+  // If it's a bot, serve pre-rendered HTML
+  if (isBot(userAgent)) {
+    const { slug } = request.params;
+    const comparison = comparisonContent.find(c => c.slug === slug);
+
+    if (!comparison) {
+      reply.code(404).send('Comparison not found');
+      return;
+    }
+
+    console.log(`[SSR] Serving comparison HTML for bot: ${userAgent.substring(0, 50)}`);
+    const html = generateComparisonHTML(comparison, baseUrl);
+    reply.type('text/html').send(html);
+    return;
+  }
+
+  // For regular users, fall through to SPA
+});
+
+// Alternatives pages - SSR for bots
+fastify.get('/alternatives/:slug', async (request, reply) => {
+  const userAgent = request.headers['user-agent'] || '';
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+
+  // If it's a bot, serve pre-rendered HTML
+  if (isBot(userAgent)) {
+    const { slug } = request.params;
+    const alternatives = alternativesContent.find(a => a.slug === slug);
+
+    if (!alternatives) {
+      reply.code(404).send('Alternatives page not found');
+      return;
+    }
+
+    console.log(`[SSR] Serving alternatives HTML for bot: ${userAgent.substring(0, 50)}`);
+    const html = generateAlternativesHTML(alternatives, baseUrl);
+    reply.type('text/html').send(html);
+    return;
+  }
+
+  // For regular users, fall through to SPA
+});
+
+// Best-of pages - SSR for bots (simplified version)
+fastify.get('/best/:slug', async (request, reply) => {
+  const userAgent = request.headers['user-agent'] || '';
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+
+  if (isBot(userAgent)) {
+    const { slug } = request.params;
+    const bestOf = bestOfContent.find(b => b.slug === slug);
+
+    if (!bestOf) {
+      reply.code(404).send('Best-of page not found');
+      return;
+    }
+
+    console.log(`[SSR] Serving best-of HTML for bot: ${userAgent.substring(0, 50)}`);
+    // Reuse alternatives template format
+    const html = generateAlternativesHTML(bestOf, baseUrl);
+    reply.type('text/html').send(html);
+    return;
+  }
+});
+
+// Category pages - SSR for bots
+fastify.get('/category/:category', async (request, reply) => {
+  const userAgent = request.headers['user-agent'] || '';
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+
+  if (isBot(userAgent)) {
+    const { category } = request.params;
+    const categoryPlatforms = platforms.filter(p => p.category === category);
+
+    if (categoryPlatforms.length === 0) {
+      reply.code(404).send('Category not found');
+      return;
+    }
+
+    console.log(`[SSR] Serving category HTML for bot: ${userAgent.substring(0, 50)}`);
+
+    const title = `${category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} AI Platforms`;
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title} | AI Platforms List</title>
+  <meta name="description" content="Discover ${categoryPlatforms.length} AI platforms in the ${category} category.">
+  <link rel="canonical" href="${baseUrl}/category/${category}">
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+    h1 { color: #1a1a1a; }
+    .platform { margin: 1.5rem 0; padding: 1.5rem; background: #f9f9f9; border-radius: 8px; }
+    .platform h2 { margin-top: 0; color: #4F46E5; }
+  </style>
+</head>
+<body>
+  <h1>${title}</h1>
+  <p>Browse ${categoryPlatforms.length} AI platforms in this category:</p>
+  ${categoryPlatforms.slice(0, 50).map(p => `
+    <div class="platform">
+      <h2><a href="${baseUrl}/platform/${p.slug}">${p.name}</a></h2>
+      <p>${p.description?.substring(0, 200) || ''}</p>
+    </div>
+  `).join('')}
+  ${categoryPlatforms.length > 50 ? `<p><em>Showing 50 of ${categoryPlatforms.length} platforms</em></p>` : ''}
+</body>
+</html>`;
+    reply.type('text/html').send(html);
+    return;
+  }
 });
 
 // Catch-all 404 handler with proper error handling and logging
