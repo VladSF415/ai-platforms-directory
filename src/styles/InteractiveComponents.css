@@ -1,11 +1,10 @@
-/* Interactive Components Shared Styles */
+/* Interactive Components Shared Styles - Brutalist Design */
 
 /* Platform Selector Quiz */
 .platform-selector-quiz {
   background: white;
-  border-radius: 16px;
+  border: 6px solid #000000;
   padding: 40px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -17,50 +16,61 @@
 
 .quiz-header h2 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 12px;
-  color: #111827;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .quiz-header p {
-  color: #6b7280;
+  color: #000000;
   font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .progress-bar {
   width: 100%;
-  height: 8px;
-  background: #e5e7eb;
-  border-radius: 4px;
+  height: 12px;
+  background: #ffffff;
+  border: 3px solid #000000;
   margin: 24px 0 8px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  transition: width 0.3s ease;
-  border-radius: 4px;
+  background: #000000;
+  transition: none;
 }
 
 .progress-text {
   text-align: center;
-  color: #6b7280;
+  color: #000000;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .quiz-question h3 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 900;
   margin-bottom: 12px;
-  color: #111827;
+  color: #000000;
+  text-transform: uppercase;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .question-description {
-  color: #6b7280;
+  color: #000000;
   margin-bottom: 24px;
   font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .quiz-options {
@@ -76,27 +86,24 @@
 }
 
 .quiz-option {
-  background: #f9fafb;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
+  background: #ffffff;
+  border: 4px solid #000000;
   padding: 20px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: none;
   display: flex;
   align-items: flex-start;
   gap: 16px;
 }
 
 .quiz-option:hover {
-  border-color: #667eea;
-  background: #f5f7ff;
-  transform: translateY(-2px);
+  box-shadow: 8px 8px 0 #000000;
+  transform: translate(-2px, -2px);
 }
 
 .quiz-option.selected {
-  border-color: #667eea;
-  background: linear-gradient(135deg, #f5f7ff 0%, #fef3ff 100%);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  background: #000000;
+  color: #ffffff;
 }
 
 .option-icon {
@@ -109,28 +116,31 @@
 }
 
 .option-label {
-  font-weight: 600;
-  color: #111827;
+  font-weight: 900;
+  color: inherit;
   font-size: 1.1rem;
   margin-bottom: 4px;
+  text-transform: uppercase;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .option-description {
-  color: #6b7280;
+  color: inherit;
   font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .checkbox {
   width: 24px;
   height: 24px;
-  border: 2px solid #667eea;
-  border-radius: 6px;
+  border: 3px solid #000000;
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
-  color: #667eea;
-  font-weight: bold;
+  color: #000000;
+  font-weight: 900;
 }
 
 .quiz-navigation {
@@ -143,21 +153,24 @@
 .quiz-back-btn,
 .quiz-next-btn {
   padding: 14px 32px;
-  border-radius: 8px;
-  font-weight: 600;
+  font-weight: 900;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  border: none;
+  transition: none;
+  border: 4px solid #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .quiz-back-btn {
-  background: #f3f4f6;
-  color: #374151;
+  background: #ffffff;
+  color: #000000;
 }
 
 .quiz-back-btn:hover:not(:disabled) {
-  background: #e5e7eb;
+  background: #000000;
+  color: #ffffff;
 }
 
 .quiz-back-btn:disabled {
@@ -166,14 +179,14 @@
 }
 
 .quiz-next-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
   flex: 1;
 }
 
 .quiz-next-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 8px 8px 0 #000000;
+  transform: translate(-2px, -2px);
 }
 
 .quiz-next-btn:disabled {
@@ -184,7 +197,7 @@
 /* Quiz Results */
 .quiz-results {
   background: white;
-  border-radius: 16px;
+  border: 6px solid #000000;
   padding: 40px;
   max-width: 1000px;
   margin: 0 auto;
@@ -197,20 +210,27 @@
 
 .results-header h2 {
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 16px;
-  color: #111827;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .results-reasoning {
   font-size: 1.1rem;
-  color: #374151;
+  color: #000000;
   margin-bottom: 12px;
+  font-weight: 700;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .results-matches {
-  color: #6b7280;
+  color: #000000;
   font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .recommended-platforms {
@@ -220,59 +240,63 @@
 }
 
 .recommended-platform-card {
-  background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
+  background: #ffffff;
+  border: 4px solid #000000;
   padding: 24px;
   position: relative;
-  transition: all 0.3s ease;
+  transition: none;
 }
 
 .recommended-platform-card:hover {
-  border-color: #667eea;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 12px 12px 0 #000000;
+  transform: translate(-4px, -4px);
 }
 
 .rank-badge {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 900;
+  font-size: 1.3rem;
+  border: 4px solid #000000;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .recommended-platform-card h3 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 900;
   margin-bottom: 12px;
-  color: #111827;
+  color: #000000;
   padding-right: 60px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .view-details-btn {
   margin-top: 16px;
-  background: #667eea;
+  background: #000000;
   color: white;
   padding: 10px 20px;
-  border-radius: 6px;
-  border: none;
-  font-weight: 600;
+  border: 4px solid #000000;
+  font-weight: 900;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .view-details-btn:hover {
-  background: #5568d3;
-  transform: translateX(4px);
+  background: #ffffff;
+  color: #000000;
 }
 
 .quiz-actions {
@@ -285,31 +309,34 @@
 .retake-quiz-btn,
 .browse-all-btn {
   padding: 14px 32px;
-  border-radius: 8px;
-  font-weight: 600;
+  font-weight: 900;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  border: none;
+  transition: none;
+  border: 4px solid #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .retake-quiz-btn {
-  background: #f3f4f6;
-  color: #374151;
+  background: #ffffff;
+  color: #000000;
 }
 
 .retake-quiz-btn:hover {
-  background: #e5e7eb;
+  background: #000000;
+  color: #ffffff;
 }
 
 .browse-all-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
 }
 
 .browse-all-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 8px 8px 0 #000000;
+  transform: translate(-2px, -2px);
 }
 
 .quiz-loading {
@@ -320,9 +347,9 @@
 .loading-spinner {
   width: 50px;
   height: 50px;
-  border: 4px solid #e5e7eb;
-  border-top-color: #667eea;
-  border-radius: 50%;
+  border: 4px solid #ffffff;
+  border-top: 4px solid #000000;
+  border-right: 4px solid #000000;
   animation: spin 1s linear infinite;
   margin: 0 auto 20px;
 }
@@ -334,16 +361,18 @@
 /* Comparison Widget */
 .comparison-widget {
   background: white;
-  border-radius: 16px;
+  border: 6px solid #000000;
   padding: 40px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 .comparison-widget h3 {
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 24px;
-  color: #111827;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .filter-section {
@@ -355,10 +384,13 @@
 }
 
 .filter-label {
-  font-weight: 600;
-  color: #374151;
+  font-weight: 900;
+  color: #000000;
   margin-bottom: 8px;
   display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .filter-tags {
@@ -369,23 +401,25 @@
 
 .filter-tag {
   padding: 8px 16px;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
+  border: 3px solid #000000;
   background: white;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: none;
   font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .filter-tag:hover {
-  border-color: #667eea;
+  background: #000000;
+  color: #ffffff;
 }
 
 .filter-tag.active {
-  border-color: #667eea;
-  background: #f5f7ff;
-  color: #667eea;
-  font-weight: 600;
+  background: #000000;
+  color: #ffffff;
 }
 
 .comparison-table {
@@ -402,39 +436,46 @@
 .comparison-table td {
   padding: 16px;
   text-align: left;
-  border-bottom: 1px solid #e5e7eb;
+  border: 3px solid #000000;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .comparison-table th {
-  background: #f9fafb;
-  font-weight: 600;
-  color: #111827;
+  background: #000000;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .comparison-table tr:hover {
-  background: #f9fafb;
+  background: #f5f5f5;
 }
 
 /* ROI Calculator */
 .roi-calculator {
   background: white;
-  border-radius: 16px;
+  border: 6px solid #000000;
   padding: 40px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   max-width: 700px;
   margin: 0 auto;
 }
 
 .roi-calculator h3 {
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 8px;
-  color: #111827;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .calculator-description {
-  color: #6b7280;
+  color: #000000;
   margin-bottom: 32px;
+  font-weight: 700;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .calculator-form {
@@ -448,63 +489,73 @@
 }
 
 .form-label {
-  font-weight: 600;
-  color: #374151;
+  font-weight: 900;
+  color: #000000;
   margin-bottom: 8px;
   font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .form-input {
   padding: 12px 16px;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
+  border: 3px solid #000000;
   font-size: 1rem;
-  transition: border-color 0.2s ease;
+  transition: none;
+  font-weight: 700;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .form-input:focus {
   outline: none;
-  border-color: #667eea;
+  background: #f5f5f5;
 }
 
 .input-hint {
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #000000;
   margin-top: 4px;
+  font-weight: 600;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .calculate-btn {
   padding: 14px 32px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
+  border: 4px solid #000000;
+  font-weight: 900;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: none;
   margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .calculate-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 8px 8px 0 #000000;
+  transform: translate(-2px, -2px);
 }
 
 .roi-results {
   margin-top: 40px;
   padding: 32px;
-  background: linear-gradient(135deg, #f5f7ff 0%, #fef3ff 100%);
-  border-radius: 12px;
-  border: 2px solid #667eea;
+  background: #ffffff;
+  border: 4px solid #000000;
 }
 
 .roi-results h4 {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 24px;
-  color: #111827;
+  color: #000000;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .results-grid {
@@ -516,29 +567,32 @@
 .result-card {
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border: 3px solid #000000;
   text-align: center;
 }
 
 .result-value {
   font-size: 2rem;
-  font-weight: 700;
-  color: #667eea;
+  font-weight: 900;
+  color: #000000;
   margin-bottom: 8px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .result-label {
-  color: #6b7280;
+  color: #000000;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 /* Use Case Matcher */
 .use-case-matcher {
   background: white;
-  border-radius: 16px;
+  border: 6px solid #000000;
   padding: 40px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 .use-case-grid {
@@ -550,22 +604,20 @@
 
 .use-case-card {
   padding: 24px;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
+  border: 4px solid #000000;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: none;
   background: white;
 }
 
 .use-case-card:hover {
-  border-color: #667eea;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 8px 0 #000000;
+  transform: translate(-2px, -2px);
 }
 
 .use-case-card.selected {
-  border-color: #667eea;
-  background: linear-gradient(135deg, #f5f7ff 0%, #fef3ff 100%);
+  background: #000000;
+  color: #ffffff;
 }
 
 .use-case-icon {
@@ -574,24 +626,28 @@
 }
 
 .use-case-title {
-  font-weight: 600;
-  color: #111827;
+  font-weight: 900;
+  color: inherit;
   margin-bottom: 8px;
   font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .use-case-description {
-  color: #6b7280;
+  color: inherit;
   font-size: 0.9rem;
   line-height: 1.5;
+  font-weight: 600;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 /* Readiness Assessment */
 .readiness-assessment {
   background: white;
-  border-radius: 16px;
+  border: 6px solid #000000;
   padding: 40px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -604,9 +660,8 @@
 
 .criteria-item {
   padding: 24px;
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  background: #f9fafb;
+  border: 4px solid #000000;
+  background: #ffffff;
 }
 
 .criteria-header {
@@ -617,9 +672,12 @@
 }
 
 .criteria-title {
-  font-weight: 600;
-  color: #111827;
+  font-weight: 900;
+  color: #000000;
   font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .score-selector {
@@ -630,29 +688,28 @@
 .score-btn {
   width: 40px;
   height: 40px;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
+  border: 3px solid #000000;
   background: white;
   cursor: pointer;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  font-weight: 900;
+  transition: none;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .score-btn:hover {
-  border-color: #667eea;
+  background: #f5f5f5;
 }
 
 .score-btn.selected {
-  border-color: #667eea;
-  background: #667eea;
+  background: #000000;
   color: white;
 }
 
 .assessment-results {
   margin-top: 40px;
   padding: 32px;
-  background: linear-gradient(135deg, #f5f7ff 0%, #fef3ff 100%);
-  border-radius: 12px;
+  background: #ffffff;
+  border: 4px solid #000000;
 }
 
 .maturity-level {
@@ -662,15 +719,19 @@
 
 .maturity-score {
   font-size: 3rem;
-  font-weight: 700;
-  color: #667eea;
+  font-weight: 900;
+  color: #000000;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .maturity-label {
   font-size: 1.25rem;
-  font-weight: 600;
-  color: #374151;
+  font-weight: 900;
+  color: #000000;
   margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .recommendations-list {
@@ -681,18 +742,21 @@
 .recommendations-list li {
   padding: 12px 16px;
   background: white;
-  border-radius: 8px;
+  border: 3px solid #000000;
   margin-bottom: 12px;
   display: flex;
   align-items: start;
   gap: 12px;
+  font-weight: 700;
+  font-family: 'Courier New', 'Courier', monospace;
 }
 
 .recommendations-list li::before {
   content: '✓';
-  color: #10b981;
-  font-weight: bold;
+  color: #000000;
+  font-weight: 900;
   flex-shrink: 0;
+  font-size: 1.2rem;
 }
 
 /* Responsive Design */
