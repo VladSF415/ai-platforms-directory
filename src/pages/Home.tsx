@@ -439,14 +439,17 @@ function Home() {
       )}
 
       {/* Featured Resources Section */}
-      <div style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '60px 0', marginBottom: '60px' }}>
+      <div style={{ background: '#000000', padding: '60px 0', marginBottom: '60px', borderTop: '8px solid #000000', borderBottom: '8px solid #000000' }}>
         <div className="container">
           <h2 style={{
             fontSize: '32px',
             marginBottom: '15px',
             fontWeight: '900',
             textAlign: 'center',
-            color: '#fff'
+            color: '#ffffff',
+            textTransform: 'uppercase',
+            fontFamily: "'Courier New', monospace",
+            letterSpacing: '-1px'
           }}>
             📚 Featured Resources & Guides
           </h2>
@@ -454,8 +457,11 @@ function Home() {
             textAlign: 'center',
             marginBottom: '40px',
             fontSize: '18px',
-            color: '#fff',
-            opacity: 0.95
+            color: '#ffffff',
+            fontWeight: '700',
+            textTransform: 'uppercase',
+            fontFamily: "'Courier New', monospace",
+            letterSpacing: '1px'
           }}>
             Expert guides to help you choose the perfect AI platform for your needs
           </p>
@@ -510,9 +516,11 @@ function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 fontSize: '14px',
-                fontWeight: '700',
+                fontWeight: '900',
                 gap: '5px',
-                color: '#667eea'
+                color: '#000000',
+                textTransform: 'uppercase',
+                fontFamily: "'Courier New', monospace"
               }}>
                 Take the Quiz →
               </div>
@@ -563,9 +571,11 @@ function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 fontSize: '14px',
-                fontWeight: '700',
+                fontWeight: '900',
                 gap: '5px',
-                color: '#667eea'
+                color: '#000000',
+                textTransform: 'uppercase',
+                fontFamily: "'Courier New', monospace"
               }}>
                 Compare ML Tools →
               </div>
@@ -616,9 +626,11 @@ function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 fontSize: '14px',
-                fontWeight: '700',
+                fontWeight: '900',
                 gap: '5px',
-                color: '#667eea'
+                color: '#000000',
+                textTransform: 'uppercase',
+                fontFamily: "'Courier New', monospace"
               }}>
                 Find Your NLP Tool →
               </div>
@@ -669,9 +681,11 @@ function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 fontSize: '14px',
-                fontWeight: '700',
+                fontWeight: '900',
                 gap: '5px',
-                color: '#667eea'
+                color: '#000000',
+                textTransform: 'uppercase',
+                fontFamily: "'Courier New', monospace"
               }}>
                 Calculate ROI →
               </div>
@@ -722,9 +736,11 @@ function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 fontSize: '14px',
-                fontWeight: '700',
+                fontWeight: '900',
                 gap: '5px',
-                color: '#667eea'
+                color: '#000000',
+                textTransform: 'uppercase',
+                fontFamily: "'Courier New', monospace"
               }}>
                 Take Assessment →
               </div>
