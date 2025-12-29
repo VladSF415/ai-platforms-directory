@@ -23,6 +23,139 @@ export const getAnalytics = useDatabase ? getDB : getFile;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+// ===========================================
+// SSR HELPER FUNCTIONS
+// ===========================================
+
+/**
+ * Escape HTML special characters to prevent XSS and broken attributes
+ */
+function escapeHtml(text) {
+  if (!text) return '';
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
+ * Detect if request is from a search engine bot
+ */
+function isSearchBot(userAgent) {
+  if (!userAgent) return false;
+
+  const ua = userAgent.toLowerCase();
+  const searchBots = [
+    'googlebot',
+    'bingbot',
+    'slurp',              // Yahoo
+    'duckduckbot',
+    'baiduspider',
+    'yandexbot',
+    'facebookexternalhit',
+    'twitterbot',
+    'linkedinbot',
+    'whatsapp',
+    'telegrambot',
+    'applebot'
+  ];
+
+  return searchBots.some(bot => ua.includes(bot));
+}
+
+/**
+ * Generate SEO-optimized HTML for platform pages
+ */
+function generatePlatformHTML(platform, baseUrl) {
+  const title = escapeHtml(`${platform.name} - AI Platform Review | AI Platforms List`);
+  const description = escapeHtml(platform.description?.substring(0, 160) || `Discover ${platform.name}, an AI platform in the ${platform.category} category.`);
+  const url = escapeHtml(`${baseUrl}/platform/${platform.slug}`);
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title}</title>
+  <meta name="description" content="${description}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="${url}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:image" content="${baseUrl}/og-image.png">
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h1 { color: #1a1a1a; font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .meta { color: #666; margin-bottom: 2rem; }
+    .badge { display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 4px; margin-right: 0.5rem; }
+    .section { margin-bottom: 2rem; }
+    .section h2 { color: #333; border-bottom: 2px solid #4F46E5; padding-bottom: 0.5rem; }
+    ul { padding-left: 1.5rem; }
+    li { margin: 0.5rem 0; }
+    .cta { display: inline-block; background: #4F46E5; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; margin: 2rem 0; }
+  </style>
+</head>
+<body>
+  <h1>${escapeHtml(platform.name)}</h1>
+  <div class="meta">
+    <span class="badge">${escapeHtml(platform.category || 'AI Platform')}</span>
+    ${platform.pricing ? `<span class="badge">💰 ${escapeHtml(platform.pricing)}</span>` : ''}
+    ${platform.rating ? `<span class="badge">⭐ ${platform.rating}/5</span>` : ''}
+  </div>
+  <div class="section">
+    <p>${escapeHtml(platform.description || 'An innovative AI platform.')}</p>
+  </div>
+  ${platform.features && platform.features.length > 0 ? `
+  <div class="section">
+    <h2>Key Features</h2>
+    <ul>${platform.features.slice(0, 10).map(f => `<li>${escapeHtml(f)}</li>`).join('')}</ul>
+  </div>` : ''}
+  ${platform.use_cases && platform.use_cases.length > 0 ? `
+  <div class="section">
+    <h2>Use Cases</h2>
+    <ul>${platform.use_cases.slice(0, 10).map(u => `<li>${escapeHtml(u)}</li>`).join('')}</ul>
+  </div>` : ''}
+  ${platform.website || platform.url ? `
+  <a href="${escapeHtml(platform.website || platform.url)}" class="cta" target="_blank" rel="noopener">Visit ${escapeHtml(platform.name)} →</a>` : ''}
+  <p style="margin-top: 3rem; color: #666; font-size: 0.875rem;">© 2025 AI Platforms List. All rights reserved.</p>
+</body>
+</html>`;
+}
+
+/**
+ * Generate simple HTML for comparison/alternatives pages
+ */
+function generateContentHTML(content, baseUrl, type = 'comparison') {
+  const title = escapeHtml(content.title || `AI Platform ${type}`);
+  const description = escapeHtml(content.metaDescription || content.description?.substring(0, 160) || `Discover AI platform ${type}.`);
+  const url = escapeHtml(`${baseUrl}/${type === 'comparison' ? 'compare' : type === 'alternatives' ? 'alternatives' : 'best'}/${content.slug}`);
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title} | AI Platforms List</title>
+  <meta name="description" content="${description}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="${url}">
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+    h1 { color: #1a1a1a; }
+  </style>
+</head>
+<body>
+  <h1>${title}</h1>
+  <p>${description}</p>
+  <p style="margin-top: 2rem; color: #666;">© 2025 AI Platforms List</p>
+</body>
+</html>`;
+}
+
 const fastify = Fastify({
   logger: true,
   // Add error handling to prevent 5xx crashes
@@ -326,6 +459,84 @@ fastify.addHook('onRequest', async (request, reply) => {
       message: 'Access from your region is not available at this time.'
     });
     return;
+  }
+});
+
+// ===========================================
+// SSR MIDDLEWARE: Serve pre-rendered HTML to search bots
+// ===========================================
+fastify.addHook('onRequest', async (request, reply) => {
+  const userAgent = request.headers['user-agent'] || '';
+
+  // Only process for search engine bots
+  if (!isSearchBot(userAgent)) {
+    return; // Regular users continue to normal routing
+  }
+
+  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+  const url = request.url.split('?')[0]; // Remove query params
+
+  try {
+    // Match /platform/:slug
+    const platformMatch = url.match(/^\/platform\/([a-z0-9-]+)$/);
+    if (platformMatch) {
+      const slug = platformMatch[1];
+      const platform = platforms.find(p => p.slug === slug || p.id === slug);
+
+      if (platform) {
+        console.log(`[SSR] Serving platform HTML for bot: ${userAgent.substring(0, 50)} - ${slug}`);
+        const html = generatePlatformHTML(platform, baseUrl);
+        reply.type('text/html').send(html);
+        return; // Stop processing
+      }
+    }
+
+    // Match /compare/:slug
+    const compareMatch = url.match(/^\/compare\/([a-z0-9-]+)$/);
+    if (compareMatch) {
+      const slug = compareMatch[1];
+      const comparison = comparisonContent.find(c => c.slug === slug);
+
+      if (comparison) {
+        console.log(`[SSR] Serving comparison HTML for bot: ${userAgent.substring(0, 50)} - ${slug}`);
+        const html = generateContentHTML(comparison, baseUrl, 'comparison');
+        reply.type('text/html').send(html);
+        return;
+      }
+    }
+
+    // Match /alternatives/:slug
+    const altMatch = url.match(/^\/alternatives\/([a-z0-9-]+)$/);
+    if (altMatch) {
+      const slug = altMatch[1];
+      const alternatives = alternativesContent.find(a => a.slug === slug);
+
+      if (alternatives) {
+        console.log(`[SSR] Serving alternatives HTML for bot: ${userAgent.substring(0, 50)} - ${slug}`);
+        const html = generateContentHTML(alternatives, baseUrl, 'alternatives');
+        reply.type('text/html').send(html);
+        return;
+      }
+    }
+
+    // Match /best/:slug
+    const bestMatch = url.match(/^\/best\/([a-z0-9-]+)$/);
+    if (bestMatch) {
+      const slug = bestMatch[1];
+      const bestOf = bestOfContent.find(b => b.slug === slug);
+
+      if (bestOf) {
+        console.log(`[SSR] Serving best-of HTML for bot: ${userAgent.substring(0, 50)} - ${slug}`);
+        const html = generateContentHTML(bestOf, baseUrl, 'best-of');
+        reply.type('text/html').send(html);
+        return;
+      }
+    }
+
+    // If no match found, continue to normal routing (will hit 404 handler which serves SPA)
+  } catch (error) {
+    console.error('[SSR] Error generating HTML:', error);
+    // On error, continue to normal routing
   }
 });
 
