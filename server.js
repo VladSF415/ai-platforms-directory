@@ -28,6 +28,19 @@ const __dirname = dirname(__filename);
 // ===========================================
 
 /**
+ * Escape HTML special characters to prevent XSS and broken attributes
+ */
+function escapeHtml(text) {
+  if (!text) return '';
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/**
  * Detect if request is from a search engine bot
  * Returns true for Googlebot, Bingbot, and other legitimate search crawlers
  */
@@ -64,9 +77,9 @@ function isBot(userAgent) {
  * Generate SEO-optimized HTML for platform detail page
  */
 function generatePlatformHTML(platform, baseUrl) {
-  const title = `${platform.name} - AI Platform Review | AI Platforms List`;
-  const description = platform.description?.substring(0, 160) || `Discover ${platform.name}, an AI platform in the ${platform.category} category.`;
-  const url = `${baseUrl}/platform/${platform.slug}`;
+  const title = escapeHtml(`${platform.name} - AI Platform Review | AI Platforms List`);
+  const description = escapeHtml(platform.description?.substring(0, 160) || `Discover ${platform.name}, an AI platform in the ${platform.category} category.`);
+  const url = escapeHtml(`${baseUrl}/platform/${platform.slug}`);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -105,24 +118,24 @@ function generatePlatformHTML(platform, baseUrl) {
   </style>
 </head>
 <body>
-  <h1>${platform.name}</h1>
+  <h1>${escapeHtml(platform.name)}</h1>
 
   <div class="meta">
-    <span class="badge">${platform.category || 'AI Platform'}</span>
-    ${platform.pricing ? `<span class="badge">💰 ${platform.pricing}</span>` : ''}
+    <span class="badge">${escapeHtml(platform.category || 'AI Platform')}</span>
+    ${platform.pricing ? `<span class="badge">💰 ${escapeHtml(platform.pricing)}</span>` : ''}
     ${platform.rating ? `<span class="badge">⭐ ${platform.rating}/5</span>` : ''}
     ${platform.verified ? '<span class="badge">✓ Verified</span>' : ''}
   </div>
 
   <div class="description">
-    <p>${platform.description || 'An innovative AI platform.'}</p>
+    <p>${escapeHtml(platform.description || 'An innovative AI platform.')}</p>
   </div>
 
   ${platform.features && platform.features.length > 0 ? `
   <div class="section">
     <h2>Key Features</h2>
     <ul>
-      ${platform.features.map(f => `<li>✓ ${f}</li>`).join('')}
+      ${platform.features.map(f => `<li>✓ ${escapeHtml(f)}</li>`).join('')}
     </ul>
   </div>
   ` : ''}
@@ -131,7 +144,7 @@ function generatePlatformHTML(platform, baseUrl) {
   <div class="section">
     <h2>Use Cases</h2>
     <ul>
-      ${platform.use_cases.map(u => `<li>• ${u}</li>`).join('')}
+      ${platform.use_cases.map(u => `<li>• ${escapeHtml(u)}</li>`).join('')}
     </ul>
   </div>
   ` : ''}
@@ -139,14 +152,14 @@ function generatePlatformHTML(platform, baseUrl) {
   ${platform.pricing_details ? `
   <div class="section">
     <h2>Pricing Information</h2>
-    <p><strong>Model:</strong> ${platform.pricing_details.model || 'Contact for pricing'}</p>
+    <p><strong>Model:</strong> ${escapeHtml(platform.pricing_details.model || 'Contact for pricing')}</p>
     ${platform.pricing_details.free_tier ? '<p>✓ Free tier available</p>' : ''}
-    ${platform.pricing_details.starting_price ? `<p><strong>Starting at:</strong> ${platform.pricing_details.starting_price}</p>` : ''}
+    ${platform.pricing_details.starting_price ? `<p><strong>Starting at:</strong> ${escapeHtml(platform.pricing_details.starting_price)}</p>` : ''}
   </div>
   ` : ''}
 
   ${platform.website || platform.url ? `
-  <a href="${platform.website || platform.url}" class="cta" target="_blank" rel="noopener">Visit ${platform.name} →</a>
+  <a href="${escapeHtml(platform.website || platform.url)}" class="cta" target="_blank" rel="noopener">Visit ${escapeHtml(platform.name)} →</a>
   ` : ''}
 
   <div class="section">
@@ -161,9 +174,9 @@ function generatePlatformHTML(platform, baseUrl) {
  * Generate SEO-optimized HTML for comparison page
  */
 function generateComparisonHTML(comparison, baseUrl) {
-  const title = comparison.title || 'AI Platform Comparison';
-  const description = comparison.metaDescription || comparison.description?.substring(0, 160) || 'Compare AI platforms side by side.';
-  const url = `${baseUrl}/compare/${comparison.slug}`;
+  const title = escapeHtml(comparison.title || 'AI Platform Comparison');
+  const description = escapeHtml(comparison.metaDescription || comparison.description?.substring(0, 160) || 'Compare AI platforms side by side.');
+  const url = escapeHtml(`${baseUrl}/compare/${comparison.slug}`);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -206,9 +219,9 @@ function generateComparisonHTML(comparison, baseUrl) {
  * Generate SEO-optimized HTML for alternatives page
  */
 function generateAlternativesHTML(alternatives, baseUrl) {
-  const title = alternatives.title || 'AI Platform Alternatives';
-  const description = alternatives.metaDescription || alternatives.description?.substring(0, 160) || 'Discover alternatives to this AI platform.';
-  const url = `${baseUrl}/alternatives/${alternatives.slug}`;
+  const title = escapeHtml(alternatives.title || 'AI Platform Alternatives');
+  const description = escapeHtml(alternatives.metaDescription || alternatives.description?.substring(0, 160) || 'Discover alternatives to this AI platform.');
+  const url = escapeHtml(`${baseUrl}/alternatives/${alternatives.slug}`);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -2042,15 +2055,15 @@ fastify.get('/category/:category', async (request, reply) => {
 
     console.log(`[SSR] Serving category HTML for bot: ${userAgent.substring(0, 50)}`);
 
-    const title = `${category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} AI Platforms`;
+    const title = escapeHtml(`${category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} AI Platforms`);
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title} | AI Platforms List</title>
-  <meta name="description" content="Discover ${categoryPlatforms.length} AI platforms in the ${category} category.">
-  <link rel="canonical" href="${baseUrl}/category/${category}">
+  <meta name="description" content="Discover ${categoryPlatforms.length} AI platforms in the ${escapeHtml(category)} category.">
+  <link rel="canonical" href="${baseUrl}/category/${escapeHtml(category)}">
   <style>
     body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
     h1 { color: #1a1a1a; }
@@ -2063,8 +2076,8 @@ fastify.get('/category/:category', async (request, reply) => {
   <p>Browse ${categoryPlatforms.length} AI platforms in this category:</p>
   ${categoryPlatforms.slice(0, 50).map(p => `
     <div class="platform">
-      <h2><a href="${baseUrl}/platform/${p.slug}">${p.name}</a></h2>
-      <p>${p.description?.substring(0, 200) || ''}</p>
+      <h2><a href="${baseUrl}/platform/${escapeHtml(p.slug)}">${escapeHtml(p.name)}</a></h2>
+      <p>${escapeHtml(p.description?.substring(0, 200) || '')}</p>
     </div>
   `).join('')}
   ${categoryPlatforms.length > 50 ? `<p><em>Showing 50 of ${categoryPlatforms.length} platforms</em></p>` : ''}
