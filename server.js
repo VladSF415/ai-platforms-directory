@@ -1368,8 +1368,13 @@ fastify.get('/sitemap.xml', async (request, reply) => {
 fastify.get('/robots.txt', async (request, reply) => {
   const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
 
-  const robots = `User-agent: *
+  const robots = `# AI Platforms List - Robots.txt
+# © 2025 AI Platforms List. All content protected.
+
+# Google and legitimate search engines
+User-agent: *
 Allow: /
+Disallow: /api/
 
 # Sitemaps
 Sitemap: ${baseUrl}/sitemap.xml
@@ -1377,7 +1382,7 @@ Sitemap: ${baseUrl}/sitemap.xml
 # Crawl-delay to prevent aggressive scraping
 Crawl-delay: 2
 
-# Block aggressive/scraper bots
+# Block aggressive scraper bots
 User-agent: HTTrack
 User-agent: WebReaper
 User-agent: WebCopier
@@ -1396,17 +1401,11 @@ User-agent: SuperBot
 User-agent: WebmasterWorldForumBot
 Disallow: /
 
-# Chinese search engines (content thieves)
+# Block Chinese search engines (content protection)
 User-agent: Baiduspider
 User-agent: Sogou
 User-agent: Yandex
-Disallow: /
-
-# Disallow admin/private paths only
-Disallow: /api/
-
-# Copyright notice
-# © 2025 AI Platforms List. All content protected.`;
+Disallow: /`;
 
   reply.type('text/plain').send(robots);
 });
