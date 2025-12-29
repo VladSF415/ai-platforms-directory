@@ -113,8 +113,12 @@ function CategoryPage() {
 
   if (loading) {
     return (
-      <div className="container" style={{ padding: '60px 20px', textAlign: 'center' }}>
-        <div className="loading">Loading {categoryName} tools...</div>
+      <div className="category-page">
+        <div className="container" style={{ padding: '60px 20px', textAlign: 'center', minHeight: '100vh' }}>
+          <div className="loading" style={{ color: '#000', fontSize: '1.5rem', fontWeight: '900' }}>
+            Loading {categoryName} tools...
+          </div>
+        </div>
       </div>
     );
   }
