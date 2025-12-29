@@ -9,6 +9,7 @@ import { categoryFAQs } from '../data/categoryFAQs';
 import { NewsletterSignup } from '../components/NewsletterSignup';
 import { ComparisonTable } from '../components/ComparisonTable';
 import { categoryComparisons } from '../data/categoryComparisons';
+import './CategoryPage.css';
 
 function CategoryPage() {
   const { category } = useParams<{ category: string }>();
