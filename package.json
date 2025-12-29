@@ -24,7 +24,13 @@
     "ai:compare:template": "node scripts/generate-comparison-pages.mjs",
     "ai:alternatives": "node scripts/ai-alternatives-generator.mjs",
     "ai:alternatives:template": "node scripts/generate-alternatives-pages.mjs",
-    "ai:bestof": "node scripts/generate-bestof-pages.mjs"
+    "ai:bestof": "node scripts/generate-bestof-pages.mjs",
+    "ai:landing": "node scripts/generate-landing-pages.mjs --all",
+    "deploy:railway": "npm run build && railway up",
+    "deploy:vercel": "npm run build && vercel --prod",
+    "deploy:firebase": "npm run build && firebase deploy",
+    "docker:build": "docker build -t ai-platforms-directory .",
+    "docker:run": "docker run -p 3000:3000 ai-platforms-directory"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",

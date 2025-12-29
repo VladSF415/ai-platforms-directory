@@ -11,6 +11,7 @@ interface Category {
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -41,14 +42,15 @@ export default function Navigation() {
       if (!target.closest('.nav-container')) {
         setIsMenuOpen(false);
         setIsCategoriesOpen(false);
+        setIsResourcesOpen(false);
       }
     };
 
-    if (isMenuOpen || isCategoriesOpen) {
+    if (isMenuOpen || isCategoriesOpen || isResourcesOpen) {
       document.addEventListener('click', handleClickOutside);
       return () => document.removeEventListener('click', handleClickOutside);
     }
-  }, [isMenuOpen, isCategoriesOpen]);
+  }, [isMenuOpen, isCategoriesOpen, isResourcesOpen]);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -75,11 +77,18 @@ export default function Navigation() {
 
   const toggleCategories = () => {
     setIsCategoriesOpen(!isCategoriesOpen);
+    setIsResourcesOpen(false);
+  };
+
+  const toggleResources = () => {
+    setIsResourcesOpen(!isResourcesOpen);
+    setIsCategoriesOpen(false);
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
     setIsCategoriesOpen(false);
+    setIsResourcesOpen(false);
   };
 
   const scrollToCategories = () => {
@@ -245,6 +254,187 @@ export default function Navigation() {
                 >
                   View All Categories →
                 </button>
+              </div>
+            )}
+          </li>
+          <li style={{ position: 'relative' }}>
+            <button
+              onClick={toggleResources}
+              className="nav-dropdown-trigger"
+              aria-expanded={isResourcesOpen}
+              aria-haspopup="true"
+              aria-label="Resources menu"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '10px 18px',
+                color: 'white',
+                background: 'none',
+                border: '3px solid transparent',
+                cursor: 'pointer',
+                fontWeight: 900,
+                fontSize: '13px',
+                fontFamily: "'Courier New', 'Courier', monospace",
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}
+            >
+              Resources
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            {isResourcesOpen && (
+              <div style={{
+                position: 'absolute',
+                top: 'calc(100% + 12px)',
+                right: 0,
+                background: '#ffffff',
+                border: '6px solid #000000',
+                padding: '20px',
+                minWidth: '400px',
+                zIndex: 1000
+              }}>
+                <Link
+                  to="/how-to-choose-ai-platforms"
+                  onClick={closeMenu}
+                  style={{
+                    display: 'block',
+                    padding: '14px 18px',
+                    background: '#000000',
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    border: '4px solid #000000',
+                    fontFamily: "'Courier New', 'Courier', monospace",
+                    fontWeight: 900,
+                    textTransform: 'uppercase',
+                    fontSize: '13px',
+                    letterSpacing: '1px',
+                    marginBottom: '8px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#ffffff';
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#000000';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                >
+                  🎯 How to Choose AI Platforms
+                </Link>
+                <Link
+                  to="/machine-learning-tools-directory"
+                  onClick={closeMenu}
+                  style={{
+                    display: 'block',
+                    padding: '14px 18px',
+                    background: '#000000',
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    border: '4px solid #000000',
+                    fontFamily: "'Courier New', 'Courier', monospace",
+                    fontWeight: 900,
+                    textTransform: 'uppercase',
+                    fontSize: '13px',
+                    letterSpacing: '1px',
+                    marginBottom: '8px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#ffffff';
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#000000';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                >
+                  🤖 ML Tools Directory
+                </Link>
+                <Link
+                  to="/natural-language-processing-tools"
+                  onClick={closeMenu}
+                  style={{
+                    display: 'block',
+                    padding: '14px 18px',
+                    background: '#000000',
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    border: '4px solid #000000',
+                    fontFamily: "'Courier New', 'Courier', monospace",
+                    fontWeight: 900,
+                    textTransform: 'uppercase',
+                    fontSize: '13px',
+                    letterSpacing: '1px',
+                    marginBottom: '8px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#ffffff';
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#000000';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                >
+                  📝 NLP Tools
+                </Link>
+                <Link
+                  to="/computer-vision-platforms"
+                  onClick={closeMenu}
+                  style={{
+                    display: 'block',
+                    padding: '14px 18px',
+                    background: '#000000',
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    border: '4px solid #000000',
+                    fontFamily: "'Courier New', 'Courier', monospace",
+                    fontWeight: 900,
+                    textTransform: 'uppercase',
+                    fontSize: '13px',
+                    letterSpacing: '1px',
+                    marginBottom: '8px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#ffffff';
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#000000';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                >
+                  👁️ Computer Vision Platforms
+                </Link>
+                <Link
+                  to="/enterprise-ai-solutions"
+                  onClick={closeMenu}
+                  style={{
+                    display: 'block',
+                    padding: '14px 18px',
+                    background: '#000000',
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    border: '4px solid #000000',
+                    fontFamily: "'Courier New', 'Courier', monospace",
+                    fontWeight: 900,
+                    textTransform: 'uppercase',
+                    fontSize: '13px',
+                    letterSpacing: '1px'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#ffffff';
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#000000';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                >
+                  🏢 Enterprise AI Solutions
+                </Link>
               </div>
             )}
           </li>

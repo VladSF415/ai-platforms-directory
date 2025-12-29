@@ -69,6 +69,18 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Resources */}
+          <div className="footer-section">
+            <h4>Resources & Guides</h4>
+            <ul>
+              <li><Link to="/how-to-choose-ai-platforms">How to Choose AI Platforms</Link></li>
+              <li><Link to="/machine-learning-tools-directory">ML Tools Directory</Link></li>
+              <li><Link to="/natural-language-processing-tools">NLP Tools</Link></li>
+              <li><Link to="/computer-vision-platforms">Computer Vision</Link></li>
+              <li><Link to="/enterprise-ai-solutions">Enterprise AI</Link></li>
+            </ul>
+          </div>
+
           {/* Categories */}
           <div className="footer-section">
             <h4>Popular Categories</h4>

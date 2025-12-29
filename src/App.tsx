@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import ScrollButtons from './components/ScrollButtons';
@@ -23,32 +24,50 @@ import DMCA from './pages/legal/DMCA';
 import Disclaimer from './pages/legal/Disclaimer';
 import Footer from './components/Footer';
 
+// Lazy load landing pages for better performance
+const HowToChooseAIPlatforms = lazy(() => import('./pages/HowToChooseAIPlatforms'));
+const MachineLearningToolsDirectory = lazy(() => import('./pages/MachineLearningToolsDirectory'));
+const NaturalLanguageProcessingTools = lazy(() => import('./pages/NaturalLanguageProcessingTools'));
+const ComputerVisionPlatforms = lazy(() => import('./pages/ComputerVisionPlatforms'));
+const EnterpriseAISolutions = lazy(() => import('./pages/EnterpriseAISolutions'));
+
 function App() {
   return (
     <Router>
       <div className="app-container">
         <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/submit" element={<SubmitTool />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/methodology" element={<Methodology />} />
-          <Route path="/guides" element={<Guides />} />
-          <Route path="/category/:category" element={<CategoryPage />} />
-          <Route path="/guide/:slug" element={<PillarPage />} />
-          <Route path="/compare/:slug" element={<ComparisonPage />} />
-          <Route path="/alternatives/:slug" element={<AlternativesPage />} />
-          <Route path="/best/:slug" element={<BestOfPage />} />
-          <Route path="/platform/:slug" element={<PlatformDetail />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/cookie-policy" element={<CookiePolicy />} />
-          <Route path="/dmca" element={<DMCA />} />
-          <Route path="/disclaimer" element={<Disclaimer />} />
-        </Routes>
+        <Suspense fallback={<div className="loading" style={{ padding: '60px 20px', textAlign: 'center' }}>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/submit" element={<SubmitTool />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/methodology" element={<Methodology />} />
+            <Route path="/guides" element={<Guides />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
+            <Route path="/guide/:slug" element={<PillarPage />} />
+            <Route path="/compare/:slug" element={<ComparisonPage />} />
+            <Route path="/alternatives/:slug" element={<AlternativesPage />} />
+            <Route path="/best/:slug" element={<BestOfPage />} />
+            <Route path="/platform/:slug" element={<PlatformDetail />} />
+
+            {/* SEO Landing Pages */}
+            <Route path="/how-to-choose-ai-platforms" element={<HowToChooseAIPlatforms />} />
+            <Route path="/machine-learning-tools-directory" element={<MachineLearningToolsDirectory />} />
+            <Route path="/natural-language-processing-tools" element={<NaturalLanguageProcessingTools />} />
+            <Route path="/computer-vision-platforms" element={<ComputerVisionPlatforms />} />
+            <Route path="/enterprise-ai-solutions" element={<EnterpriseAISolutions />} />
+
+            {/* Legal Pages */}
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
+            <Route path="/dmca" element={<DMCA />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
+          </Routes>
+        </Suspense>
         <ScrollButtons />
         <ChatWidget />
         <Footer />

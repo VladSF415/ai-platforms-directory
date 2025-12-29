@@ -123,6 +123,24 @@ try {
   console.error('Failed to load pillar content:', error);
 }
 
+// Load landing page content
+let landingContent = [];
+try {
+  const landingDir = join(__dirname, 'landing-content');
+  if (existsSync(landingDir)) {
+    const files = readdirSync(landingDir).filter(f => f.endsWith('.json'));
+    landingContent = files.map(file => {
+      const data = readFileSync(join(landingDir, file), 'utf-8');
+      return JSON.parse(data);
+    });
+    console.log(`✅ Loaded ${landingContent.length} landing pages`);
+  } else {
+    console.log('⚠️  No landing-content directory found');
+  }
+} catch (error) {
+  console.error('Failed to load landing content:', error);
+}
+
 // Load comparison content
 let comparisonContent = [];
 try {
@@ -614,6 +632,166 @@ fastify.get('/api/pillar/:slug', async (request, reply) => {
     return pillar;
   } catch (error) {
     console.error('[API Error] /api/pillar/:slug:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
+});
+
+// Get landing page content
+fastify.get('/api/landing/:slug', async (request, reply) => {
+  try {
+    const { slug } = request.params;
+    const landing = landingContent.find(l => l.slug === slug);
+
+    if (!landing) {
+      reply.code(404).send({ error: 'Landing page not found' });
+      return;
+    }
+
+    return landing;
+  } catch (error) {
+    console.error('[API Error] /api/landing/:slug:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
+});
+
+// Platform recommendation based on quiz answers
+fastify.post('/api/quiz/recommendations', async (request, reply) => {
+  try {
+    const { answers } = request.body;
+
+    if (!answers || !Array.isArray(answers)) {
+      reply.code(400).send({ error: 'Invalid request: answers array required' });
+      return;
+    }
+
+    // Scoring algorithm: match answers to platform attributes
+    const scored = platforms.map(platform => {
+      let score = 0;
+
+      answers.forEach(answer => {
+        const { questionId, selectedOptions } = answer;
+
+        selectedOptions.forEach(optionValue => {
+          // Match by category
+          if (platform.category === optionValue) score += 10;
+
+          // Match by tags
+          if (platform.tags && platform.tags.includes(optionValue)) score += 5;
+
+          // Match by pricing
+          if (platform.pricing === optionValue) score += 8;
+
+          // Match by use cases
+          if (platform.use_cases && platform.use_cases.some(uc =>
+            typeof uc === 'string' ? uc.toLowerCase().includes(optionValue.toLowerCase()) : false
+          )) {
+            score += 7;
+          }
+
+          // Match by target audience
+          if (platform.target_audience && platform.target_audience.includes(optionValue)) {
+            score += 6;
+          }
+        });
+      });
+
+      return { platform, score };
+    });
+
+    // Sort by score and return top 5
+    const recommendations = scored
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5)
+      .map(s => s.platform);
+
+    const reasoning = `Based on your answers, we matched platforms that align with your needs, focusing on ${
+      answers[0]?.selectedOptions[0] || 'your requirements'
+    }.`;
+
+    return {
+      platforms: recommendations,
+      reasoning,
+      totalMatches: scored.filter(s => s.score > 0).length
+    };
+  } catch (error) {
+    console.error('[API Error] /api/quiz/recommendations:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
+});
+
+// ROI Calculator
+fastify.post('/api/calculator/roi', async (request, reply) => {
+  try {
+    const { currentMonthlyCost, automationPercentage, platformMonthlyFee, implementationCost, teamSize } = request.body;
+
+    if (typeof currentMonthlyCost !== 'number' || typeof automationPercentage !== 'number' ||
+        typeof platformMonthlyFee !== 'number') {
+      reply.code(400).send({ error: 'Invalid request: numeric values required' });
+      return;
+    }
+
+    // Calculate savings
+    const monthlySavings = (currentMonthlyCost * (automationPercentage / 100)) - platformMonthlyFee;
+    const paybackMonths = implementationCost && monthlySavings > 0
+      ? Math.ceil(implementationCost / monthlySavings)
+      : 0;
+    const roi12Month = monthlySavings > 0
+      ? ((monthlySavings * 12 - (implementationCost || 0)) / (implementationCost || 1)) * 100
+      : 0;
+    const tco36Month = (platformMonthlyFee * 36) + (implementationCost || 0);
+
+    return {
+      monthlySavings: Math.round(monthlySavings),
+      paybackMonths,
+      roi12Month: Math.round(roi12Month),
+      tco36Month: Math.round(tco36Month),
+      totalSavings36Month: Math.round((monthlySavings * 36) - tco36Month)
+    };
+  } catch (error) {
+    console.error('[API Error] /api/calculator/roi:', error);
+    reply.code(500).send({ error: 'Internal server error', message: error.message });
+  }
+});
+
+// Platform recommendations by filters
+fastify.post('/api/platforms/recommend', async (request, reply) => {
+  try {
+    const { useCase, budget, technicalLevel, features } = request.body;
+
+    let matches = [...platforms];
+
+    // Filter by use case
+    if (useCase) {
+      matches = matches.filter(p =>
+        p.use_cases && p.use_cases.some(uc =>
+          typeof uc === 'string' ? uc.toLowerCase().includes(useCase.toLowerCase()) : false
+        )
+      );
+    }
+
+    // Filter by budget
+    if (budget) {
+      matches = matches.filter(p => p.pricing === budget);
+    }
+
+    // Filter by features
+    if (features && Array.isArray(features)) {
+      matches = matches.filter(p =>
+        p.features && features.some(f =>
+          p.features.some(pf => pf.toLowerCase().includes(f.toLowerCase()))
+        )
+      );
+    }
+
+    // Sort by rating
+    matches.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+
+    return {
+      platforms: matches.slice(0, 20),
+      totalMatches: matches.length
+    };
+  } catch (error) {
+    console.error('[API Error] /api/platforms/recommend:', error);
     reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });

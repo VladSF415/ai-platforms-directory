@@ -438,6 +438,301 @@ function Home() {
         </div>
       )}
 
+      {/* Featured Resources Section */}
+      <div style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', padding: '60px 0', marginBottom: '60px' }}>
+        <div className="container">
+          <h2 style={{
+            fontSize: '32px',
+            marginBottom: '15px',
+            fontWeight: '900',
+            textAlign: 'center',
+            color: '#fff'
+          }}>
+            📚 Featured Resources & Guides
+          </h2>
+          <p style={{
+            textAlign: 'center',
+            marginBottom: '40px',
+            fontSize: '18px',
+            color: '#fff',
+            opacity: 0.95
+          }}>
+            Expert guides to help you choose the perfect AI platform for your needs
+          </p>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '24px'
+          }}>
+            {/* How to Choose AI Platforms */}
+            <button
+              onClick={() => navigate('/how-to-choose-ai-platforms')}
+              aria-label="Read: How to Choose AI Platforms"
+              style={{
+                border: '4px solid #000',
+                padding: '28px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                background: '#fff',
+                textAlign: 'left',
+                width: '100%'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">🎯</div>
+              <h3 style={{
+                fontWeight: '900',
+                marginBottom: '12px',
+                fontSize: '20px',
+                lineHeight: '1.3',
+                fontFamily: "'Courier New', monospace",
+                textTransform: 'uppercase'
+              }}>
+                How to Choose AI Platforms
+              </h3>
+              <p style={{
+                fontSize: '15px',
+                lineHeight: '1.6',
+                opacity: 0.8,
+                marginBottom: '18px'
+              }}>
+                Complete decision framework with interactive quiz to find the perfect AI platform for your needs. Compare {totalPlatforms}+ tools across 12 criteria.
+              </p>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '14px',
+                fontWeight: '700',
+                gap: '5px',
+                color: '#667eea'
+              }}>
+                Take the Quiz →
+              </div>
+            </button>
+
+            {/* Machine Learning Tools Directory */}
+            <button
+              onClick={() => navigate('/machine-learning-tools-directory')}
+              aria-label="Browse: Machine Learning Tools Directory"
+              style={{
+                border: '4px solid #000',
+                padding: '28px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                background: '#fff',
+                textAlign: 'left',
+                width: '100%'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">🤖</div>
+              <h3 style={{
+                fontWeight: '900',
+                marginBottom: '12px',
+                fontSize: '20px',
+                lineHeight: '1.3',
+                fontFamily: "'Courier New', monospace",
+                textTransform: 'uppercase'
+              }}>
+                ML Tools Directory
+              </h3>
+              <p style={{
+                fontSize: '15px',
+                lineHeight: '1.6',
+                opacity: 0.8,
+                marginBottom: '18px'
+              }}>
+                Comprehensive directory of machine learning frameworks and platforms. Compare features, pricing, and capabilities side-by-side.
+              </p>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '14px',
+                fontWeight: '700',
+                gap: '5px',
+                color: '#667eea'
+              }}>
+                Compare ML Tools →
+              </div>
+            </button>
+
+            {/* Natural Language Processing Tools */}
+            <button
+              onClick={() => navigate('/natural-language-processing-tools')}
+              aria-label="Explore: Natural Language Processing Tools"
+              style={{
+                border: '4px solid #000',
+                padding: '28px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                background: '#fff',
+                textAlign: 'left',
+                width: '100%'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">📝</div>
+              <h3 style={{
+                fontWeight: '900',
+                marginBottom: '12px',
+                fontSize: '20px',
+                lineHeight: '1.3',
+                fontFamily: "'Courier New', monospace",
+                textTransform: 'uppercase'
+              }}>
+                NLP Tools & Platforms
+              </h3>
+              <p style={{
+                fontSize: '15px',
+                lineHeight: '1.6',
+                opacity: 0.8,
+                marginBottom: '18px'
+              }}>
+                Discover the best natural language processing tools for text analytics, sentiment analysis, NER, and more. Match by use case.
+              </p>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '14px',
+                fontWeight: '700',
+                gap: '5px',
+                color: '#667eea'
+              }}>
+                Find Your NLP Tool →
+              </div>
+            </button>
+
+            {/* Computer Vision Platforms */}
+            <button
+              onClick={() => navigate('/computer-vision-platforms')}
+              aria-label="Discover: Computer Vision Platforms"
+              style={{
+                border: '4px solid #000',
+                padding: '28px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                background: '#fff',
+                textAlign: 'left',
+                width: '100%'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">👁️</div>
+              <h3 style={{
+                fontWeight: '900',
+                marginBottom: '12px',
+                fontSize: '20px',
+                lineHeight: '1.3',
+                fontFamily: "'Courier New', monospace",
+                textTransform: 'uppercase'
+              }}>
+                Computer Vision Platforms
+              </h3>
+              <p style={{
+                fontSize: '15px',
+                lineHeight: '1.6',
+                opacity: 0.8,
+                marginBottom: '18px'
+              }}>
+                Explore computer vision tools for image recognition, object detection, and facial analysis. Calculate ROI for your business.
+              </p>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '14px',
+                fontWeight: '700',
+                gap: '5px',
+                color: '#667eea'
+              }}>
+                Calculate ROI →
+              </div>
+            </button>
+
+            {/* Enterprise AI Solutions */}
+            <button
+              onClick={() => navigate('/enterprise-ai-solutions')}
+              aria-label="Explore: Enterprise AI Solutions"
+              style={{
+                border: '4px solid #000',
+                padding: '28px',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                background: '#fff',
+                textAlign: 'left',
+                width: '100%'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">🏢</div>
+              <h3 style={{
+                fontWeight: '900',
+                marginBottom: '12px',
+                fontSize: '20px',
+                lineHeight: '1.3',
+                fontFamily: "'Courier New', monospace",
+                textTransform: 'uppercase'
+              }}>
+                Enterprise AI Solutions
+              </h3>
+              <p style={{
+                fontSize: '15px',
+                lineHeight: '1.6',
+                opacity: 0.8,
+                marginBottom: '18px'
+              }}>
+                Enterprise-grade AI platforms with focus on security, scalability, and compliance. Assess your organization's readiness.
+              </p>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '14px',
+                fontWeight: '700',
+                gap: '5px',
+                color: '#667eea'
+              }}>
+                Take Assessment →
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Condensed SEO Content Section */}
       <div className="container seo-content-section" style={{ maxWidth: '1200px', margin: '60px auto', padding: '0 20px' }}>
         <section style={{ marginBottom: '60px' }}>

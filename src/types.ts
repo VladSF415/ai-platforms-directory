@@ -12,6 +12,7 @@ export interface Platform {
   tags?: string[];
   pricing?: string;
   features?: string[];
+  use_cases?: string[];
   affiliate_url?: string;
   featured_tier?: 'basic' | 'premium' | 'enterprise';
   clicks?: number;
