@@ -157,6 +157,28 @@ NODE_ENV=production
 
 ---
 
+---
+
+## 📁 Claude Code Directory (.claude/)
+
+### Public Files (Intentionally Committed)
+✅ **Safe to expose** - The following files are intentionally public:
+- `.claude/agents/*.md` - Custom agent documentation and prompts
+- Contains workflow templates, no sensitive data
+- Purpose: Reusable AI agent definitions for content creation, research, analytics
+
+### Protected Files (Excluded from Git)
+✅ **Now protected** via `.gitignore`:
+- `.claude/chats/` - Conversation history (may contain sensitive context)
+- `.claude/sessions/` - Session data
+- `.claude/cache/` - Cached data
+- `.claude/*.json`, `.claude/*.jsonl`, `.claude/*.db` - Local configuration
+- `.claude/settings.json` - User settings
+
+**Status:** Agent documentation is public (safe), sensitive files now excluded from git.
+
+---
+
 ## 🎯 Conclusion
 
 **Overall Security Status: ✅ SECURE**
@@ -165,6 +187,7 @@ NODE_ENV=production
 - ✅ No API keys in git history
 - ✅ All secrets properly use environment variables
 - ✅ `.env` file properly excluded from version control
+- ✅ `.claude/` sensitive files now protected in gitignore
 - ✅ No hardcoded credentials found in codebase
 - ✅ Google Analytics ID is public (safe to expose)
 - ⚠️ Optional: Rotate Telegram token as precaution
@@ -173,6 +196,6 @@ Your API keys are properly protected. The only exposure is in your local `.env` 
 
 ---
 
-**Last Updated:** December 31, 2025  
-**Audited By:** Claude Sonnet 4.5  
+**Last Updated:** December 31, 2025
+**Audited By:** Claude Sonnet 4.5
 **Next Audit:** Quarterly or after any security incident
