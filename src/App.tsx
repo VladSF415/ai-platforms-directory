@@ -1,5 +1,6 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { trackPageView } from './utils/analytics';
 import Navigation from './components/Navigation';
 import ScrollButtons from './components/ScrollButtons';
 import ChatWidget from './components/ChatWidget';
@@ -31,9 +32,22 @@ const NaturalLanguageProcessingTools = lazy(() => import('./pages/NaturalLanguag
 const ComputerVisionPlatforms = lazy(() => import('./pages/ComputerVisionPlatforms'));
 const EnterpriseAISolutions = lazy(() => import('./pages/EnterpriseAISolutions'));
 
+// Track page views on route change
+function PageViewTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Track page view on route change
+    trackPageView(location.pathname + location.search, document.title);
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <PageViewTracker />
       <div className="app-container">
         <Navigation />
         <Suspense fallback={<div className="loading" style={{ padding: '60px 20px', textAlign: 'center' }}>Loading...</div>}>
