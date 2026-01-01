@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import type { Platform, Category } from '../types';
 import { analytics } from '../utils/analytics';
 import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
@@ -143,10 +143,7 @@ function Home() {
     }
   };
 
-  const handlePlatformClick = (platform: Platform) => {
-    // Navigate to platform detail page
-    navigate(`/platform/${platform.slug || platform.id}`);
-  };
+  // Platform click now handled by Link components
 
   // Condensed FAQ data
   const faqs = [
@@ -307,10 +304,15 @@ function Home() {
 
             <div className="platforms-grid">
               {featuredPlatforms.map((platform) => (
-                <div
+                <Link
                   key={platform.id}
+                  to={`/platform/${platform.slug || platform.id}`}
                   className="platform-card"
-                  onClick={() => handlePlatformClick(platform)}
+                  style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    analytics.viewPlatform(platform.name, platform.id);
+                  }}
                 >
                   <div className="platform-header">
                     <div>
@@ -349,17 +351,11 @@ function Home() {
                         </div>
                       )}
                     </div>
-                    <button
-                      className="visit-btn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handlePlatformClick(platform);
-                      }}
-                    >
+                    <span className="visit-btn">
                       Visit →
-                    </button>
+                    </span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -378,10 +374,15 @@ function Home() {
 
           <div className="platforms-grid">
             {recentPlatforms.map((platform) => (
-              <div
+              <Link
                 key={platform.id}
+                to={`/platform/${platform.slug || platform.id}`}
                 className="platform-card"
-                onClick={() => handlePlatformClick(platform)}
+                style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  analytics.viewPlatform(platform.name, platform.id);
+                }}
               >
                 <div className="platform-header">
                   <div>
@@ -422,17 +423,11 @@ function Home() {
                       </div>
                     )}
                   </div>
-                  <button
-                    className="visit-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePlatformClick(platform);
-                    }}
-                  >
+                  <span className="visit-btn">
                     Visit →
-                  </button>
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -1051,10 +1046,15 @@ function Home() {
 
             <div className="platforms-grid">
               {platforms.map((platform) => (
-                <div
+                <Link
                   key={platform.id}
+                  to={`/platform/${platform.slug || platform.id}`}
                   className="platform-card"
-                  onClick={() => handlePlatformClick(platform)}
+                  style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    analytics.viewPlatform(platform.name, platform.id);
+                  }}
                 >
                   <div className="platform-header">
                     <div>
@@ -1095,17 +1095,11 @@ function Home() {
                         </div>
                       )}
                     </div>
-                    <button
-                      className="visit-btn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handlePlatformClick(platform);
-                      }}
-                    >
+                    <span className="visit-btn">
                       Visit →
-                    </button>
+                    </span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </>
