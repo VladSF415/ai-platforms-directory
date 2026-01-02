@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2025-12-31
+Generated: 2026-01-02
 Total Opportunities: 1
 
 ---
 
-## 1. Cognosys
+## 1. Echo AI
 
-**Category:** agent-platforms
-**Website:** https://www.cognosys.ai
+**Category:** customer-intelligence
+**Website:** https://echoai.co
 **Pricing Model:** freemium
 
 **Description:**
-AI agent platform that creates autonomous web agents capable of executing complex tasks like research, data analysis, and multi-step workflows. Agents can browse the web, interact with applications, and complete sophisticated assignments without human intervention.
+AI-powered customer intelligence platform that analyzes customer interactions across channels to provide insights, predict behavior, and automate personalized engagement. Combines conversation analysis, sentiment tracking, and predictive analytics. Used by customer success, marketing, and product teams.
 
 **💵 Affiliate Program Details:**
-30% first-month commission via PartnerStack, 45-day cookie, $75 minimum payout, requires content creation or technical audience
+25% recurring commission via ShareASale, 60-day cookie, additional bonuses for annual contracts, requires B2B/SaaS marketing audience
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ AI agent platform that creates autonomous web agents capable of executing comple
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Cognosys** - https://www.cognosys.ai
+1. [ ] **Echo AI** - https://echoai.co
