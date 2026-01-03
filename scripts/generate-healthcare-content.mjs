@@ -57,7 +57,19 @@ async function callDeepSeek(prompt, temperature = 0.7) {
       messages: [
         {
           role: 'system',
-          content: 'You are a Healthcare AI content specialist. Create E-E-A-T compliant content (Experience, Expertise, Authoritativeness, Trustworthiness) for medical professionals. Always return valid JSON.'
+          content: `You are a Healthcare AI content specialist. Create E-E-A-T compliant content for medical professionals.
+
+CRITICAL ANTI-FABRICATION RULES:
+1. NEVER invent or fabricate platform names, URLs, or features
+2. ONLY use the exact platforms and information provided in the prompt
+3. DO NOT make up FDA approvals, clinical trials, or medical statistics
+4. DO NOT invent peer-reviewed studies or medical journals
+5. If you don't know specific information, use general terms like "clinical validation status varies" instead of making up data
+6. Use conservative, verifiable language - avoid specific numbers unless provided
+7. Always return valid JSON
+8. Mark any uncertain information with qualifiers like "may include", "typically", "often"
+
+Your content will be reviewed before publishing. Focus on accuracy over specificity.`
         },
         { role: 'user', content: prompt }
       ],
@@ -86,6 +98,52 @@ function extractJSON(response) {
     console.error('Failed to parse JSON:', error.message);
     return null;
   }
+}
+
+/**
+ * CRITICAL: Validates generated content to prevent fake information
+ * Returns warnings array if issues found, empty array if clean
+ */
+function validateContent(content, knownPlatforms) {
+  const warnings = [];
+  const platformNames = new Set(knownPlatforms.map(p => p.name.toLowerCase()));
+  const platformUrls = new Set(knownPlatforms.map(p => p.url.toLowerCase()));
+
+  // Check alternatives array if it exists
+  if (content.alternatives && Array.isArray(content.alternatives)) {
+    content.alternatives.forEach((alt, idx) => {
+      // Check if platform name exists in database
+      if (!platformNames.has(alt.name.toLowerCase())) {
+        warnings.push(`⚠️  Alternative #${idx + 1} "${alt.name}" not found in database - may be fabricated`);
+      }
+
+      // Check if URL matches known platforms
+      if (alt.url && !platformUrls.has(alt.url.toLowerCase())) {
+        warnings.push(`⚠️  Alternative #${idx + 1} "${alt.name}" has unknown URL - verify it's real`);
+      }
+    });
+  }
+
+  // Check for suspicious medical claims
+  const suspiciousTerms = [
+    'FDA approved',
+    'FDA cleared',
+    'clinical trial',
+    'peer-reviewed study',
+    'published in',
+    '%',
+    'study showed',
+    'proven to'
+  ];
+
+  const contentStr = JSON.stringify(content).toLowerCase();
+  suspiciousTerms.forEach(term => {
+    if (contentStr.includes(term.toLowerCase())) {
+      warnings.push(`⚠️  Contains specific claim "${term}" - verify accuracy before publishing`);
+    }
+  });
+
+  return warnings;
 }
 
 function loadPlatforms() {
@@ -147,10 +205,30 @@ Create a comprehensive alternatives page in JSON format:
   ]
 }
 
-IMPORTANT: Use ONLY the platforms listed above. Return ONLY JSON.`;
+CRITICAL ANTI-FABRICATION RULES:
+1. Use ONLY the exact platform names and URLs listed above
+2. DO NOT invent FDA approvals, clinical studies, or statistics
+3. DO NOT make up specific percentages or numbers
+4. Use general, conservative language like "may help", "designed for", "used in"
+5. If unsure about specific features, use generic healthcare AI capabilities
+6. DO NOT add platforms not in the list above
+7. Return ONLY JSON with no additional text
 
-  const response = await callDeepSeek(prompt, 0.5);
-  return extractJSON(response);
+Return ONLY JSON.`;
+
+  const response = await callDeepSeek(prompt, 0.3);
+  const content = extractJSON(response);
+
+  // Validate content to prevent fabrication
+  if (content) {
+    const warnings = validateContent(content, allHealthcarePlatforms);
+    if (warnings.length > 0) {
+      console.log(`  ⚠️  Validation warnings for ${platform.name}:`);
+      warnings.forEach(w => console.log(`     ${w}`));
+    }
+  }
+
+  return content;
 }
 
 async function generateComparisonPage(platform1, platform2) {
@@ -211,10 +289,30 @@ Generate a comprehensive comparison in JSON format:
   ]
 }
 
+CRITICAL ANTI-FABRICATION RULES:
+1. Use ONLY "${platform1.name}" and "${platform2.name}" - DO NOT add other platforms
+2. DO NOT invent FDA approvals, clinical studies, or statistics
+3. DO NOT make up specific percentages, metrics, or numbers
+4. Use conservative language like "commonly used for", "designed for", "may include"
+5. If unsure about features, use general healthcare AI capabilities
+6. Keep comparisons balanced and neutral
+7. Return ONLY JSON with no additional text
+
 Return ONLY JSON.`;
 
-  const response = await callDeepSeek(prompt, 0.5);
-  return extractJSON(response);
+  const response = await callDeepSeek(prompt, 0.3);
+  const content = extractJSON(response);
+
+  // Validate content
+  if (content) {
+    const warnings = validateContent(content, [platform1, platform2]);
+    if (warnings.length > 0) {
+      console.log(`  ⚠️  Validation warnings for comparison:`);
+      warnings.forEach(w => console.log(`     ${w}`));
+    }
+  }
+
+  return content;
 }
 
 async function generateBlogPost(platforms, topic) {
@@ -270,17 +368,39 @@ Generate a comprehensive blog post in JSON format:
   ]
 }
 
-IMPORTANT:
-- Focus on E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
-- Include clinical validation, FDA approvals, peer-reviewed evidence
-- Write for healthcare professionals (doctors, radiologists, pathologists)
-- Be factual, evidence-based, and professional
-- Cite real medical specialties, workflows, and clinical applications
+CRITICAL ANTI-FABRICATION RULES:
+1. Use ONLY platforms from the list above - DO NOT invent new platforms
+2. DO NOT make up FDA approvals, specific clinical trials, or study results
+3. DO NOT invent specific statistics, percentages, or metrics
+4. DO NOT cite specific peer-reviewed journals or publications
+5. Use general, conservative language: "may help", "designed for", "commonly used in"
+6. For references, use general terms like "clinical guidelines" not specific journals
+7. Focus on general healthcare AI capabilities, not specific unverified claims
+8. If unsure, use qualifiers like "typically", "often", "may include"
+9. Keep content factual and conservative
+10. Return ONLY JSON with no additional text
+
+IMPORTANT FOR E-E-A-T:
+- Write professionally for healthcare audience
+- Use conservative, evidence-based language
+- Avoid specific claims that cannot be verified
+- Focus on general capabilities and use cases
 
 Return ONLY JSON.`;
 
-  const response = await callDeepSeek(prompt, 0.7);
-  return extractJSON(response);
+  const response = await callDeepSeek(prompt, 0.3);
+  const content = extractJSON(response);
+
+  // Validate content
+  if (content) {
+    const warnings = validateContent(content, platforms);
+    if (warnings.length > 0) {
+      console.log(`  ⚠️  Validation warnings for blog post:`);
+      warnings.forEach(w => console.log(`     ${w}`));
+    }
+  }
+
+  return content;
 }
 
 async function main() {
@@ -412,6 +532,112 @@ async function main() {
   console.log(`   Failed: ${stats.failed}`);
   console.log(`   Total Files: ${stats.alternatives + stats.comparisons + stats.blogPosts}`);
   console.log('='.repeat(60));
+
+  // Critical review warnings
+  console.log('\n⚠️  CRITICAL: CONTENT REVIEW REQUIRED ⚠️\n');
+  console.log('Before publishing this content, you MUST:');
+  console.log('1. ✅ Verify all platform names exist in your database');
+  console.log('2. ✅ Check all URLs are correct and working');
+  console.log('3. ✅ Remove any fabricated FDA approvals or clinical claims');
+  console.log('4. ✅ Verify any statistics or percentages mentioned');
+  console.log('5. ✅ Replace generic placeholders with real information');
+  console.log('6. ✅ Review all medical/clinical claims for accuracy');
+  console.log('7. ✅ Check for invented peer-reviewed studies or journals\n');
+  console.log('⚠️  AI-generated content may contain inaccuracies!');
+  console.log('⚠️  Always fact-check before publishing healthcare content!\n');
+  console.log('='.repeat(60));
+
+  // Write review checklist file
+  const checklistPath = path.join(__dirname, '..', 'CONTENT_REVIEW_CHECKLIST.md');
+  const checklist = `# Healthcare AI Content Review Checklist
+
+⚠️ **CRITICAL**: All AI-generated content MUST be reviewed before publishing!
+
+## Generated Content
+- Alternatives Pages: ${stats.alternatives}
+- Comparison Pages: ${stats.comparisons}
+- Blog Posts: ${stats.blogPosts}
+- Total Files: ${stats.alternatives + stats.comparisons + stats.blogPosts}
+
+## Review Checklist
+
+### 1. Platform Verification
+- [ ] All platform names exist in platforms.json database
+- [ ] All URLs are correct and working (test each link)
+- [ ] No fabricated or invented platforms included
+
+### 2. Medical Claims Review
+- [ ] Remove any fabricated FDA approvals
+- [ ] Remove invented clinical trial results
+- [ ] Remove made-up statistics or percentages
+- [ ] Verify any medical efficacy claims
+
+### 3. References & Citations
+- [ ] Remove citations to non-existent peer-reviewed studies
+- [ ] Remove references to invented medical journals
+- [ ] Replace specific false claims with general statements
+- [ ] Add disclaimer if clinical validation status unknown
+
+### 4. Content Quality
+- [ ] Replace generic placeholders with real information
+- [ ] Ensure all features mentioned are accurate
+- [ ] Verify pricing information if mentioned
+- [ ] Check that specialty focus is correct
+
+### 5. Legal & Compliance
+- [ ] No false medical claims (FDA violations)
+- [ ] HIPAA compliance mentioned accurately
+- [ ] No unsubstantiated health claims
+- [ ] Professional medical disclaimers where needed
+
+### 6. Brand Safety
+- [ ] No negative false information about competitors
+- [ ] Comparisons are fair and balanced
+- [ ] No trademark issues
+- [ ] Attribution and sources are legitimate
+
+## High-Risk Terms to Verify
+
+If content includes these terms, verify they are accurate:
+- "FDA approved" / "FDA cleared"
+- "Clinical trial" / "Clinical study"
+- "Peer-reviewed" / "Published in [journal]"
+- Specific percentages (e.g., "30% improvement")
+- "Proven to" / "Guaranteed"
+- Specific dollar amounts for pricing
+
+## Recommended Actions
+
+1. **Review all generated JSON files** in:
+   - alternatives-content/
+   - comparison-content/
+   - blog-posts/
+
+2. **Remove or edit** any:
+   - Fabricated platforms
+   - Invented clinical data
+   - False FDA claims
+   - Made-up statistics
+
+3. **Add disclaimers** where appropriate:
+   - "Clinical validation status may vary"
+   - "Consult official FDA database for approval status"
+   - "Features and capabilities subject to change"
+
+4. **Fact-check** using:
+   - Official platform websites
+   - FDA device database
+   - PubMed for actual studies
+   - Platform documentation
+
+---
+
+**Generated:** ${new Date().toISOString()}
+**Content Generator:** generate-healthcare-content.mjs
+`;
+
+  fs.writeFileSync(checklistPath, checklist);
+  console.log(`\n📋 Review checklist saved to: CONTENT_REVIEW_CHECKLIST.md\n`);
 }
 
 main().catch(error => {
