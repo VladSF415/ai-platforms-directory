@@ -127,7 +127,7 @@ function CategoryPage() {
     <div className="category-page">
       {/* Social Meta Tags for sharing */}
       <SocialMetaTags
-        title={`Best ${categoryName} AI Tools 2025 - Compare Top Platforms`}
+        title={`Best ${categoryName} AI Tools 2026 - Compare Top Platforms`}
         description={getCategoryDescription(category || '')}
         url={`https://aiplatformslist.com/category/${category}`}
         type="website"
@@ -147,7 +147,7 @@ function CategoryPage() {
           <VisualBreadcrumb items={breadcrumbItems} />
 
           <h1 className="category-title">
-            Best {categoryName} AI Tools 2025
+            Best {categoryName} AI Tools 2026
           </h1>
 
           <p className="category-description">

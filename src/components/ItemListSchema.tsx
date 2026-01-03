@@ -24,7 +24,7 @@ export function ItemListSchema({ platforms, category, categoryName }: ItemListSc
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: `Best ${categoryName} AI Tools 2025`,
+      name: `Best ${categoryName} AI Tools 2026`,
       description: `Comprehensive list of ${platforms.length} ${categoryName.toLowerCase()} AI tools and platforms`,
       numberOfItems: platforms.length,
       url: `https://aiplatformslist.com/category/${category}`,

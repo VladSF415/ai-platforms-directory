@@ -90,7 +90,7 @@ Generate JSON with this EXACT structure:
   "slug": "${p1.slug || p1.id}-vs-${p2.slug || p2.id}",
   "platform1Slug": "${p1.slug || p1.id}",
   "platform2Slug": "${p2.slug || p2.id}",
-  "title": "SEO-optimized comparison title (include 2025)",
+  "title": "SEO-optimized comparison title (include 2026)",
   "metaDescription": "150-160 char SEO meta description",
   "introduction": "2-3 paragraph compelling intro (200-300 words)",
   "sections": [

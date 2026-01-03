@@ -28,8 +28,8 @@ function generateComparisonContent(platform1, platform2) {
     slug: `${platform1.slug || platform1.id}-vs-${platform2.slug || platform2.id}`,
     platform1Slug: platform1.slug || platform1.id,
     platform2Slug: platform2.slug || platform2.id,
-    title: `${p1Name} vs ${p2Name}: Which ${sameCategory ? category.replace(/-/g, ' ') + ' Tool' : 'AI Tool'} is Better in 2025?`,
-    metaDescription: `Compare ${p1Name} vs ${p2Name}. See pricing, features, pros & cons to choose the best AI tool for your needs in 2025.`,
+    title: `${p1Name} vs ${p2Name}: Which ${sameCategory ? category.replace(/-/g, ' ') + ' Tool' : 'AI Tool'} is Better in 2026?`,
+    metaDescription: `Compare ${p1Name} vs ${p2Name}. See pricing, features, pros & cons to choose the best AI tool for your needs in 2026.`,
     introduction: `Choosing between ${p1Name} and ${p2Name}? ${sameCategory ? `Both are popular ${category.replace(/-/g, ' ')} tools` : 'These AI tools serve different but sometimes overlapping purposes'}, each with unique strengths. This comparison breaks down the key differences to help you decide.`,
     crossCategory: !sameCategory,
     sections: [

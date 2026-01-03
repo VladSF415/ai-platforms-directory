@@ -91,7 +91,7 @@ Generate JSON with this EXACT structure:
 {
   "slug": "${mainPlatform.slug || mainPlatform.id}-alternatives",
   "platformSlug": "${mainPlatform.slug || mainPlatform.id}",
-  "title": "Best ${mainPlatform.name} Alternatives in 2025: Top [N] Tools Compared",
+  "title": "Best ${mainPlatform.name} Alternatives in 2026: Top [N] Tools Compared",
   "metaDescription": "150-160 char SEO description mentioning ${mainPlatform.name} alternatives",
   "introduction": "3-4 paragraph intro (300-400 words) explaining why users seek alternatives",
   "mainPlatformAnalysis": {

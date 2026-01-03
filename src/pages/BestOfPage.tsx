@@ -72,7 +72,7 @@ function BestOfPage() {
       {/* Social Meta Tags for sharing */}
       <SocialMetaTags
         title={bestOfData.title}
-        description={bestOfData.description || `Discover the best AI tools in ${bestOfData.category || 'this category'} for 2025. Compare features, pricing, and reviews of top platforms.`}
+        description={bestOfData.description || `Discover the best AI tools in ${bestOfData.category || 'this category'} for 2026. Compare features, pricing, and reviews of top platforms.`}
         url={`https://aiplatformslist.com/best/${slug}`}
         type="article"
       />
@@ -130,7 +130,7 @@ function BestOfPage() {
               <div style={{ fontSize: '14px', opacity: 0.8, marginTop: '5px' }}>CATEGORY</div>
             </div>
             <div style={{ border: '3px solid #fff', padding: '20px', textAlign: 'center' }}>
-              <div style={{ fontSize: '36px', fontWeight: '700' }}>2025</div>
+              <div style={{ fontSize: '36px', fontWeight: '700' }}>2026</div>
               <div style={{ fontSize: '14px', opacity: 0.8, marginTop: '5px' }}>UPDATED</div>
             </div>
           </div>

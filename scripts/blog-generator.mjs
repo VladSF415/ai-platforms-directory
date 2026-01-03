@@ -3,7 +3,7 @@
  * Blog Post Generator
  *
  * Automatically generates SEO-optimized blog content:
- * - Category guides ("Best X Tools in 2025")
+ * - Category guides ("Best X Tools in 2026")
  * - Platform comparisons ("Platform A vs B")
  * - How-to guides
  */
@@ -92,7 +92,7 @@ async function generateCategoryGuide(category) {
 
   const prompt = `Write a comprehensive, SEO-optimized blog post:
 
-TITLE: "Best ${category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} Tools in 2025"
+TITLE: "Best ${category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')} Tools in 2026"
 
 PLATFORMS TO COVER:
 ${platformList}
@@ -100,7 +100,7 @@ ${platformList}
 REQUIREMENTS:
 1. Introduction (150-200 words)
    - What is ${category}?
-   - Why it matters in 2025
+   - Why it matters in 2026
    - Who needs these tools
 
 2. Top ${Math.min(categoryPlatforms.length, 10)} Platforms (detailed section for each):
@@ -153,7 +153,7 @@ async function generateComparison() {
 
   const prompt = `Write a detailed comparison blog post:
 
-TITLE: "${platform1.name} vs ${platform2.name}: Which is Better in 2025?"
+TITLE: "${platform1.name} vs ${platform2.name}: Which is Better in 2026?"
 
 PLATFORM 1: ${platform1.name}
 ${platform1.description || ''}
@@ -209,7 +209,7 @@ async function main() {
       const content = await generateCategoryGuide(category);
 
       if (content) {
-        const filename = `best-${category}-tools-2025.md`;
+        const filename = `best-${category}-tools-2026.md`;
         posts.push({ filename, content, category });
         console.log(`  ✅ Generated: ${filename}`);
       }

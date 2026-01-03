@@ -51,8 +51,8 @@ try {
 const TOPIC_IDEAS = [
   {
     type: 'industry-analysis',
-    title: 'Top AI Trends Shaping 2025',
-    keywords: 'AI trends 2025, artificial intelligence future, AI technology trends',
+    title: 'Top AI Trends Shaping 2026',
+    keywords: 'AI trends 2026, artificial intelligence future, AI technology trends',
     focus: 'Industry trends and predictions'
   },
   {
@@ -75,7 +75,7 @@ const TOPIC_IDEAS = [
   },
   {
     type: 'category-deep-dive',
-    title: 'Best AI Image Generators in 2025',
+    title: 'Best AI Image Generators in 2026',
     keywords: 'AI image generator, best AI art tools, AI image creation',
     focus: 'Category-specific roundups'
   },
@@ -208,8 +208,8 @@ FORMAT YOUR RESPONSE AS JSON:
   "author": "AI Platforms Research Team",
   "reviewedBy": "Editorial Team",
   "methodology": "Brief 2-3 sentence explanation of how this research was conducted",
-  "lastUpdated": "2025-01-08",
-  "nextReview": "2025-04-08",
+  "lastUpdated": "2026-01-08",
+  "nextReview": "2026-04-08",
   "sources": [
     "Source 1 description",
     "Source 2 description"
@@ -217,7 +217,7 @@ FORMAT YOUR RESPONSE AS JSON:
   "content": "Full blog post in markdown format with all required sections",
   "readTime": "estimated read time in minutes",
   "toolsAnalyzed": 8,
-  "dataCurrent": "January 2025"
+  "dataCurrent": "January 2026"
 }
 
 IMPORTANT: Include a "## How We Research" section at the beginning of the content explaining the evaluation methodology.

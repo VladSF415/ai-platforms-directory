@@ -79,7 +79,7 @@ function AlternativesPage() {
       {/* Social Meta Tags for sharing */}
       <SocialMetaTags
         title={alternativesData.title}
-        description={`Discover the best ${mainPlatform?.name || 'AI tool'} alternatives in 2025. Compare features, pricing, and reviews of top competing platforms.`}
+        description={`Discover the best ${mainPlatform?.name || 'AI tool'} alternatives in 2026. Compare features, pricing, and reviews of top competing platforms.`}
         url={`https://aiplatformslist.com/alternatives/${slug}`}
         type="article"
       />

@@ -113,7 +113,7 @@ COMPETITORS IN SAME CATEGORY: ${categoryPlatforms.join(', ') || 'Various alterna
 
 Create a detailed review article with the following structure:
 
-1. **Title** - SEO-optimized title (include the platform name and "Review 2025")
+1. **Title** - SEO-optimized title (include the platform name and "Review 2026")
 
 2. **Meta Description** - 150-160 character SEO description
 
@@ -178,7 +178,7 @@ Return the content as a valid JSON object with this structure:
   "slug": "platform-name-slug",
   "metaDescription": "SEO meta description",
   "metaKeywords": ["keyword1", "keyword2", ...],
-  "lastUpdated": "2025-01-01",
+  "lastUpdated": "2026-01-01",
   "platform": {
     "name": "${platform.name}",
     "category": "${platform.category || 'ai-tools'}",

@@ -24,7 +24,7 @@ function generateAlternativesContent(platform, alternatives) {
   return {
     slug: `${platform.slug || platform.id}-alternatives`,
     platformSlug: platform.slug || platform.id,
-    title: `Best ${toolName} Alternatives in 2025: Top AI Tools Compared`,
+    title: `Best ${toolName} Alternatives in 2026: Top AI Tools Compared`,
     metaDescription: `Looking for ${toolName} alternatives? Compare the top ${alternatives.length} AI tools with features, pricing & use cases.`,
     introduction: `${toolName} is ${platform.description || 'a popular AI platform'}, but there are excellent alternatives. This guide compares ${alternatives.length} top options.`,
     mainPlatform: {

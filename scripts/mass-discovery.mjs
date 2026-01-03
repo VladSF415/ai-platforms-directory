@@ -158,11 +158,11 @@ async function discoverBatch(batchNum, platformsPerBatch) {
   const existingDomains = new Set(platforms.map(p => extractDomain(p.url || p.website)).filter(Boolean));
   const categories = [...new Set(platforms.map(p => p.category).filter(Boolean))];
 
-  const prompt = `You are discovering the LATEST AI platforms as of DECEMBER 2025.
+  const prompt = `You are discovering the LATEST AI platforms as of DECEMBER 2026.
 
-TODAY'S DATE: December 16, 2025
+TODAY'S DATE: December 16, 2026
 
-MISSION: Find the most RECENT, POPULAR, and UP-TO-DATE platforms launched or significantly updated in late 2024 - December 2025.
+MISSION: Find the most RECENT, POPULAR, and UP-TO-DATE platforms launched or significantly updated in late 2024 - December 2026.
 
 CRITICAL - We already have ${platforms.length} platforms. DO NOT suggest duplicates!
 
@@ -194,7 +194,7 @@ VERSION UPDATES - VERY IMPORTANT:
    - Example: {"name": "GPT-4.5 Turbo", "replaces": "GPT-4", ...}
 
 REQUIREMENTS:
-✅ MUST be from DECEMBER 2025 or late 2024 (prioritize most recent!)
+✅ MUST be from DECEMBER 2026 or late 2024 (prioritize most recent!)
 ✅ MUST have a working website with CORRECT URL
 ✅ MUST be a REAL company/product (not made up)
 ✅ MUST be actively maintained and popular
@@ -208,10 +208,10 @@ REQUIREMENTS:
 ❌ NO guessed URLs - must be actual verified URLs
 
 PRIORITIZATION (in order of importance):
-1. 🆕 DECEMBER 2025 launches (most important!)
-2. ⭐ November/October 2025 platforms from Product Hunt
-3. 🔥 Trending on GitHub in Q4 2025 (repos with >1000 stars)
-4. 📰 Tech news from November-December 2025 (TechCrunch, VentureBeat, The Verge)
+1. 🆕 DECEMBER 2026 launches (most important!)
+2. ⭐ November/October 2026 platforms from Product Hunt
+3. 🔥 Trending on GitHub in Q4 2026 (repos with >1000 stars)
+4. 📰 Tech news from November-December 2026 (TechCrunch, VentureBeat, The Verge)
 5. 🚀 Y Combinator W25 batch (most recent!)
 6. 💰 Popular SaaS platforms with active users
 7. 🔄 Major version updates of existing platforms (GPT-5, Claude 4, Gemini 2.0, etc.)
@@ -238,56 +238,56 @@ For each platform, provide:
 - pricing: free/freemium/paid/enterprise/open-source
 - features: 4-5 key features
 - use_cases: 3-4 real use cases
-- launched_date: "2024-XX" or "2025-XX" (prioritize 2025-12 for December!)
+- launched_date: "2024-XX" or "2026-XX" (prioritize 2026-12 for December!)
 - has_affiliate: true/false
 - affiliate_commission: "% or $X" if known
 - monthly_pricing: "$X" or "Free" or "Custom"
-- source: Where you found it (e.g., "Product Hunt Dec 2025", "GitHub Trending Dec 2025")
+- source: Where you found it (e.g., "Product Hunt Dec 2026", "GitHub Trending Dec 2026")
 - replaces: "old platform name" (ONLY if this is a newer version of existing platform)
 
 Return ONLY valid JSON array:
 [
   {
     "name": "NewAI Platform",
-    "description": "Latest AI tool launched December 2025...",
+    "description": "Latest AI tool launched December 2026...",
     "url": "https://newai.example",
     "category": "...",
     "tags": [...],
     "pricing": "freemium",
     "features": [...],
     "use_cases": [...],
-    "launched_date": "2025-12",
+    "launched_date": "2026-12",
     "has_affiliate": true,
     "affiliate_commission": "30%",
     "monthly_pricing": "$29",
-    "source": "Product Hunt #1 Dec 16, 2025"
+    "source": "Product Hunt #1 Dec 16, 2026"
   },
   {
     "name": "GPT-5 Turbo",
     "description": "OpenAI's newest model...",
     "url": "https://openai.com",
     "replaces": "GPT-4",
-    "launched_date": "2025-12",
-    "source": "OpenAI Official Release Dec 2025"
+    "launched_date": "2026-12",
+    "source": "OpenAI Official Release Dec 2026"
   }
 ]
 
 IMPORTANT REMINDERS:
-1. 🆕 PRIORITIZE DECEMBER 2025 platforms - these are most valuable!
+1. 🆕 PRIORITIZE DECEMBER 2026 platforms - these are most valuable!
 2. Each platform must be UNIQUE - different name AND different domain
 3. VERIFY the URL is correct - don't guess domain names
 4. ONLY include platforms you're CONFIDENT are real
 5. If unsure about a platform's existence, SKIP IT
 6. It's better to return 10 REAL recent platforms than 25 old/fake ones
-7. Focus on POPULAR, TRENDING platforms from December 2025
+7. Focus on POPULAR, TRENDING platforms from December 2026
 8. Check for VERSION UPDATES - if GPT-5, Claude 4, Gemini 2.0 exist, include them!
 
-EXAMPLES OF GOOD SOURCES (December 2025):
-- "Product Hunt #1 Product of the Day Dec 16, 2025"
-- "GitHub trending Dec 2025 (20k stars)"
-- "TechCrunch AI news Dec 2025 - launch announcement"
-- "Y Combinator W25 batch (Dec 2025 cohort)"
-- "OpenAI/Anthropic/Google official release Dec 2025"
+EXAMPLES OF GOOD SOURCES (December 2026):
+- "Product Hunt #1 Product of the Day Dec 16, 2026"
+- "GitHub trending Dec 2026 (20k stars)"
+- "TechCrunch AI news Dec 2026 - launch announcement"
+- "Y Combinator W25 batch (Dec 2026 cohort)"
+- "OpenAI/Anthropic/Google official release Dec 2026"
 
 BAD RESPONSES (will be rejected):
 - Old platforms from 2023 or early 2024
@@ -509,7 +509,7 @@ async function main() {
     console.log(`\n✅ Added ${allDiscovered.length} platforms to platforms.json`);
 
     // Generate report
-    let report = `# Mass Discovery Report - December 2025\n\n`;
+    let report = `# Mass Discovery Report - December 2026\n\n`;
     report += `Date: ${new Date().toLocaleString()}\n\n`;
     report += `## Summary\n\n`;
     report += `- Discovered: ${allDiscovered.length} platforms\n`;

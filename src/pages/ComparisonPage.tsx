@@ -69,7 +69,7 @@ function ComparisonPage() {
       {/* Social Meta Tags for sharing */}
       <SocialMetaTags
         title={comparisonData.title}
-        description={`Compare ${platform1?.name || 'Platform 1'} vs ${platform2?.name || 'Platform 2'}: features, pricing, pros and cons. Find the best AI tool for your needs in 2025.`}
+        description={`Compare ${platform1?.name || 'Platform 1'} vs ${platform2?.name || 'Platform 2'}: features, pricing, pros and cons. Find the best AI tool for your needs in 2026.`}
         url={`https://aiplatformslist.com/compare/${slug}`}
         type="article"
       />

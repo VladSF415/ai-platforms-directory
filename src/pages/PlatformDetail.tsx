@@ -152,7 +152,7 @@ function PlatformDetail() {
     <div className="platform-detail">
       {/* Social Meta Tags for sharing */}
       <SocialMetaTags
-        title={`${platform.name} - AI Platform Review & Details (2025)`}
+        title={`${platform.name} - AI Platform Review & Details (2026)`}
         description={platform.description || `Explore ${platform.name}, an AI platform in the ${getCategoryName(platform.category)} category. Compare features, pricing, and reviews.`}
         url={`https://aiplatformslist.com/platform/${platform.slug || platform.id}`}
         type="article"

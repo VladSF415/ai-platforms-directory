@@ -216,7 +216,7 @@ async function discoverNewPlatforms() {
   // Get existing categories
   const existingCategories = [...new Set(platforms.map(p => p.category).filter(Boolean))].sort();
 
-  const prompt = `You are researching the latest AI platforms and tools launched in 2024-2025.
+  const prompt = `You are researching the latest AI platforms and tools launched in 2024-2026.
 
 EXISTING PLATFORMS (${platforms.length} total):
 ${existingNames.slice(0, 100).join(', ')}${existingNames.length > 100 ? `... (and ${existingNames.length - 100} more)` : ''}
@@ -228,7 +228,7 @@ CRITICAL: DO NOT add any platform already in the existing list above! Check care
 
 TASK: Discover ${CONFIG.max_new_platforms} COMPLETELY NEW AI platforms that are:
 1. ❌ NOT in the existing list above (no duplicates, no variations!)
-2. ✅ Launched or gained significant popularity in 2024-2025
+2. ✅ Launched or gained significant popularity in 2024-2026
 3. ✅ Actively maintained with real users
 4. ✅ Have a working website/product (no vaporware)
 5. 💰 **PRIORITIZE platforms with active affiliate/referral programs** (highest priority!)

@@ -1,6 +1,6 @@
 const platforms = require('./platforms.json');
 
-// Find platforms added in December 2025 or recently
+// Find platforms added in December 2026 or recently
 const recentPlatforms = platforms.filter(p => {
   const addedDate = p.added_date || p.createdAt;
   if (!addedDate) return false;
@@ -14,12 +14,12 @@ const recentPlatforms = platforms.filter(p => {
     return false;
   }
 
-  // December 2025 or later
-  return date >= new Date('2025-12-01');
+  // December 2026 or later
+  return date >= new Date('2026-12-01');
 });
 
 console.log(`Total platforms: ${platforms.length}`);
-console.log(`Recent platforms (Dec 2025+): ${recentPlatforms.length}\n`);
+console.log(`Recent platforms (Dec 2026+): ${recentPlatforms.length}\n`);
 
 // Group by category
 const categoryCounts = {};
@@ -50,7 +50,7 @@ Object.keys(categoryCounts).forEach(cat => {
 // Sort by count
 const sorted = Object.entries(categoryCounts).sort((a, b) => b[1].count - a[1].count);
 
-console.log('=== CATEGORIES WITH RECENT ADDITIONS (Dec 2025+) ===\n');
+console.log('=== CATEGORIES WITH RECENT ADDITIONS (Dec 2026+) ===\n');
 sorted.forEach(([cat, data]) => {
   console.log(`${cat} (${data.count} recent platforms, avg rating: ${data.avgRating})`);
   data.platforms.forEach(p => {
@@ -63,7 +63,7 @@ sorted.forEach(([cat, data]) => {
 const fs = require('fs');
 const pillarFiles = fs.readdirSync('./pillar-content');
 const existingCategories = pillarFiles.map(f => {
-  const match = f.match(/ultimate-guide-(.*)-ai-tools-2025\.json/);
+  const match = f.match(/ultimate-guide-(.*)-ai-tools-2026\.json/);
   return match ? match[1] : null;
 }).filter(Boolean);
 

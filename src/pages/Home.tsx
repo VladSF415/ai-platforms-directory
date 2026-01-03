@@ -148,7 +148,7 @@ function Home() {
   // Condensed FAQ data
   const faqs = [
     {
-      question: 'What is the best AI tool in 2025?',
+      question: 'What is the best AI tool in 2026?',
       answer: `The "best" AI tool depends on your specific needs. For general conversational AI, ChatGPT and Claude lead the market. For image generation, Midjourney and DALL-E 3 are top choices. For coding, GitHub Copilot and Cursor dominate. Our directory features ${totalPlatforms}+ platforms across all categories to help you find the perfect match for your use case.`
     },
     {
@@ -169,7 +169,7 @@ function Home() {
     <div>
       {/* Social Meta Tags for sharing */}
       <SocialMetaTags
-        title="AI Platforms Directory - Discover 150+ AI Tools & Software (2025)"
+        title="AI Platforms Directory - Discover 1000+ AI Tools & Software (2026)"
         description="The most comprehensive directory of AI platforms, tools, and software. Compare features, pricing, and reviews across LLMs, generative AI, code assistants, computer vision, NLP, and more. Updated daily."
         url="https://aiplatformslist.com/"
         type="website"
@@ -188,7 +188,7 @@ function Home() {
       <div className="container" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '20px', letterSpacing: '-1px', color: '#000000', lineHeight: '1.2' }}>
-            AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Platforms (2025)
+            AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Platforms (2026)
           </h1>
           <p style={{ fontSize: '1.1rem', fontWeight: '700', maxWidth: '900px', margin: '0 auto 15px', color: '#000000', lineHeight: '1.6' }}>
             THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,

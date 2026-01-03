@@ -26,8 +26,8 @@ function generateAlternativesContent(platform, alternatives) {
   return {
     slug: `${platform.slug || platform.id}-alternatives`,
     platformSlug: platform.slug || platform.id,
-    title: `Best ${toolName} Alternatives in 2025: Top ${category.replace(/-/g, ' ')} Tools Compared`,
-    metaDescription: `Looking for ${toolName} alternatives? Compare the top ${alternatives.length} ${category.replace(/-/g, ' ')} tools with features, pricing & use cases in 2025.`,
+    title: `Best ${toolName} Alternatives in 2026: Top ${category.replace(/-/g, ' ')} Tools Compared`,
+    metaDescription: `Looking for ${toolName} alternatives? Compare the top ${alternatives.length} ${category.replace(/-/g, ' ')} tools with features, pricing & use cases in 2026.`,
     introduction: `${toolName} is ${platform.description || `a popular ${category} platform`}, but it might not be the perfect fit for everyone. Whether you're looking for different features, better pricing, or specialized capabilities, there are excellent alternatives available. This guide compares the top ${alternatives.length} ${toolName} alternatives to help you find the best ${category.replace(/-/g, ' ')} tool for your needs.`,
     mainPlatform: {
       name: toolName,

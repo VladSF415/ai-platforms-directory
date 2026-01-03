@@ -28,8 +28,8 @@ function generateComparisonContent(platform1, platform2) {
     slug: `${platform1.slug || platform1.id}-vs-${platform2.slug || platform2.id}`,
     platform1Slug: platform1.slug || platform1.id,
     platform2Slug: platform2.slug || platform2.id,
-    title: `${p1Name} vs ${p2Name}: Which ${category.replace(/-/g, ' ')} Tool is Better in 2025?`,
-    metaDescription: `Compare ${p1Name} vs ${p2Name}. See pricing, features, pros & cons to choose the best ${category.replace(/-/g, ' ')} tool for your needs in 2025.`,
+    title: `${p1Name} vs ${p2Name}: Which ${category.replace(/-/g, ' ')} Tool is Better in 2026?`,
+    metaDescription: `Compare ${p1Name} vs ${p2Name}. See pricing, features, pros & cons to choose the best ${category.replace(/-/g, ' ')} tool for your needs in 2026.`,
     introduction: `Choosing between ${p1Name} and ${p2Name} for your ${category.replace(/-/g, ' ')} needs? Both are popular tools in the AI space, but they have different strengths, pricing models, and use cases. This comprehensive comparison breaks down the key differences to help you make an informed decision.`,
     sections: [
       {

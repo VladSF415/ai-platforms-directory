@@ -23,9 +23,9 @@ function generateBestOfContent(title, platforms, description, category) {
 
   return {
     slug,
-    title: `${title} - Top Picks for 2025`,
-    metaDescription: `Discover the ${platforms.length} best ${description} in 2025. Compare features, pricing & reviews.`,
-    introduction: `Looking for the best ${description} in 2025? This curated list features ${platforms.length} top options to help you choose the right tool.`,
+    title: `${title} - Top Picks for 2026`,
+    metaDescription: `Discover the ${platforms.length} best ${description} in 2026. Compare features, pricing & reviews.`,
+    introduction: `Looking for the best ${description} in 2026? This curated list features ${platforms.length} top options to help you choose the right tool.`,
     category: category || 'AI tools',
     totalPlatforms: platforms.length,
     platforms: platforms.map((platform, index) => ({

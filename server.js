@@ -121,7 +121,7 @@ function generatePlatformHTML(platform, baseUrl) {
   </div>` : ''}
   ${platform.website || platform.url ? `
   <a href="${escapeHtml(platform.website || platform.url)}" class="cta" target="_blank" rel="noopener">Visit ${escapeHtml(platform.name)} →</a>` : ''}
-  <p style="margin-top: 3rem; color: #666; font-size: 0.875rem;">© 2025 AI Platforms List. All rights reserved.</p>
+  <p style="margin-top: 3rem; color: #666; font-size: 0.875rem;">© 2026 AI Platforms List. All rights reserved.</p>
 </body>
 </html>`;
 }
@@ -151,7 +151,7 @@ function generateContentHTML(content, baseUrl, type = 'comparison') {
 <body>
   <h1>${title}</h1>
   <p>${description}</p>
-  <p style="margin-top: 2rem; color: #666;">© 2025 AI Platforms List</p>
+  <p style="margin-top: 2rem; color: #666;">© 2026 AI Platforms List</p>
 </body>
 </html>`;
 }
@@ -678,7 +678,7 @@ fastify.addHook('onSend', async (request, reply, payload) => {
       try {
         const data = JSON.parse(payload);
         // Add copyright notice to API responses
-        data._copyright = '© 2025 AI Platforms List. All rights reserved. Unauthorized copying or redistribution prohibited.';
+        data._copyright = '© 2026 AI Platforms List. All rights reserved. Unauthorized copying or redistribution prohibited.';
         data._source = 'https://aiplatformslist.com';
         return JSON.stringify(data);
       } catch (e) {
@@ -1571,7 +1571,7 @@ fastify.get('/robots.txt', async (request, reply) => {
   const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
 
   const robots = `# AI Platforms List - Robots.txt
-# © 2025 AI Platforms List. All content protected.
+# © 2026 AI Platforms List. All content protected.
 
 # Google and legitimate search engines
 User-agent: *

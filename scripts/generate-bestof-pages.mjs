@@ -2,7 +2,7 @@
 
 /**
  * "Best Of" Pages Generation Script
- * Generates "Best [Category] Tools 2025" pages
+ * Generates "Best [Category] Tools 2026" pages
  * Uses template-based approach with platform data
  */
 
@@ -24,9 +24,9 @@ function generateBestOfContent(title, platforms, description, category) {
 
   return {
     slug,
-    title: `${title} - Top Picks for 2025`,
-    metaDescription: `Discover the ${platforms.length} best ${description} in 2025. Compare features, pricing & reviews to find the perfect tool for your needs.`,
-    introduction: `Looking for the best ${description} in 2025? We've analyzed hundreds of tools to bring you this curated list of the top ${platforms.length} options. Whether you're a developer, business, or individual user, this guide helps you choose the right ${description.replace(/tools?/i, 'tool')}.`,
+    title: `${title} - Top Picks for 2026`,
+    metaDescription: `Discover the ${platforms.length} best ${description} in 2026. Compare features, pricing & reviews to find the perfect tool for your needs.`,
+    introduction: `Looking for the best ${description} in 2026? We've analyzed hundreds of tools to bring you this curated list of the top ${platforms.length} options. Whether you're a developer, business, or individual user, this guide helps you choose the right ${description.replace(/tools?/i, 'tool')}.`,
     category: category || 'AI tools',
     totalPlatforms: platforms.length,
     platforms: platforms.map((platform, index) => ({
@@ -85,7 +85,7 @@ async function generateBestOfPages(limit = 300) {
 
   const pages = [];
 
-  // 1. Best [Category] Tools 2025
+  // 1. Best [Category] Tools 2026
   const byCategory = new Map();
   platforms.forEach(p => {
     const cat = p.category || 'uncategorized';

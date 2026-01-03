@@ -94,7 +94,7 @@ Generate optimized SEO data. Return ONLY valid JSON:
 
 RULES:
 - Be specific and compelling
-- Include year (2025) where relevant
+- Include year (2026) where relevant
 - Use action words
 - Include pricing if available (e.g., "Free", "From $X")
 - Make descriptions click-worthy`;

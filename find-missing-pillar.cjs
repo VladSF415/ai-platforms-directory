@@ -28,7 +28,7 @@ Object.keys(categories).forEach(cat => {
 // Get existing pillar content
 const pillarFiles = fs.readdirSync('./pillar-content');
 const existingCategories = pillarFiles.map(f => {
-  const match = f.match(/ultimate-guide-(.*)-ai-tools-2025\.json/);
+  const match = f.match(/ultimate-guide-(.*)-ai-tools-2026\.json/);
   return match ? match[1] : null;
 }).filter(Boolean);
 

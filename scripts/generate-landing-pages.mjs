@@ -28,10 +28,10 @@ if (!DEEPSEEK_API_KEY) {
 // Landing page configurations for all 5 pages
 const LANDING_PAGES = {
   'how-to-choose-ai-platforms': {
-    title: 'How to Choose the Right AI Platform in 2025: Complete Buyer\'s Guide',
-    h1: 'How to Choose the Right AI Platform in 2025',
+    title: 'How to Choose the Right AI Platform in 2026: Complete Buyer\'s Guide',
+    h1: 'How to Choose the Right AI Platform in 2026',
     subtitle: 'Expert framework for evaluating and selecting AI platforms that match your business needs, technical requirements, and budget',
-    metaDescription: 'Complete guide to choosing AI platforms in 2025. Compare features, pricing, and use cases across 1,000+ tools. Free platform selector quiz included.',
+    metaDescription: 'Complete guide to choosing AI platforms in 2026. Compare features, pricing, and use cases across 1,000+ tools. Free platform selector quiz included.',
     targetKeywords: ['how to choose ai platforms', 'ai platform selection guide', 'choosing ai tools', 'ai platform comparison'],
     primaryKeyword: 'how to choose ai platforms',
     category: 'cross-category',
@@ -45,10 +45,10 @@ const LANDING_PAGES = {
     relatedPlatforms: [] // Will be populated with top-rated platforms
   },
   'machine-learning-tools-directory': {
-    title: 'Machine Learning Tools Directory 2025: Complete ML Platform Catalog',
-    h1: 'Complete Machine Learning Tools Directory 2025',
+    title: 'Machine Learning Tools Directory 2026: Complete ML Platform Catalog',
+    h1: 'Complete Machine Learning Tools Directory 2026',
     subtitle: 'Comprehensive directory of ML frameworks, AutoML platforms, MLOps tools, and model deployment solutions for data scientists and ML engineers',
-    metaDescription: 'Explore 50+ machine learning tools and platforms. Compare TensorFlow, PyTorch, AutoML solutions, and MLOps platforms. Updated 2025.',
+    metaDescription: 'Explore 50+ machine learning tools and platforms. Compare TensorFlow, PyTorch, AutoML solutions, and MLOps platforms. Updated 2026.',
     targetKeywords: ['machine learning tools directory', 'ml tools list', 'ml platform directory', 'machine learning software'],
     primaryKeyword: 'machine learning tools directory',
     category: 'ml-frameworks',
@@ -62,9 +62,9 @@ const LANDING_PAGES = {
     platformCount: 50
   },
   'natural-language-processing-tools': {
-    title: 'Best Natural Language Processing Tools & Platforms 2025',
+    title: 'Best Natural Language Processing Tools & Platforms 2026',
     h1: 'Best Natural Language Processing Tools & Platforms',
-    subtitle: 'Discover leading NLP tools for text analysis, sentiment detection, named entity recognition, and language understanding in 2025',
+    subtitle: 'Discover leading NLP tools for text analysis, sentiment detection, named entity recognition, and language understanding in 2026',
     metaDescription: 'Top NLP tools and platforms for text analytics, sentiment analysis, and language understanding. Compare 65+ NLP solutions. Expert reviews.',
     targetKeywords: ['natural language processing tools', 'nlp tools', 'nlp platforms', 'text analytics tools'],
     primaryKeyword: 'natural language processing tools',
@@ -78,8 +78,8 @@ const LANDING_PAGES = {
     platformCount: 65
   },
   'computer-vision-platforms': {
-    title: 'Leading Computer Vision Platforms & Solutions 2025',
-    h1: 'Leading Computer Vision Platforms & Solutions 2025',
+    title: 'Leading Computer Vision Platforms & Solutions 2026',
+    h1: 'Leading Computer Vision Platforms & Solutions 2026',
     subtitle: 'Comprehensive guide to computer vision platforms for object detection, image recognition, OCR, and visual AI applications',
     metaDescription: 'Compare top computer vision platforms. Object detection, facial recognition, OCR solutions. ROI calculator included. 100+ platforms reviewed.',
     targetKeywords: ['computer vision platforms', 'computer vision tools', 'image recognition platforms', 'cv solutions'],
@@ -94,8 +94,8 @@ const LANDING_PAGES = {
     platformCount: 105
   },
   'enterprise-ai-solutions': {
-    title: 'Enterprise AI Solutions: Complete Buyer\'s Guide 2025',
-    h1: 'Enterprise AI Solutions: Complete Buyer\'s Guide 2025',
+    title: 'Enterprise AI Solutions: Complete Buyer\'s Guide 2026',
+    h1: 'Enterprise AI Solutions: Complete Buyer\'s Guide 2026',
     subtitle: 'Navigate enterprise AI adoption with our comprehensive guide to platforms offering scalability, security, compliance, and ROI for large organizations',
     metaDescription: 'Enterprise AI solutions guide: security, scalability, compliance. Compare 60+ platforms for Fortune 500. Readiness assessment included.',
     targetKeywords: ['enterprise ai solutions', 'enterprise ai platforms', 'business ai software', 'ai for enterprises'],
@@ -171,7 +171,7 @@ async function generateLandingPage(pageSlug, config) {
 2. E-E-A-T Compliance:
    - Include specific data points and statistics
    - Reference testing methodology
-   - Cite platform capabilities from 2025
+   - Cite platform capabilities from 2026
    - Show expertise through detailed analysis
 
 3. Content Structure:
@@ -190,14 +190,14 @@ async function generateLandingPage(pageSlug, config) {
 **REQUIRED SECTIONS**:
 
 1. **Introduction** (300-400 words)
-   - Hook: Why this topic matters in 2025
+   - Hook: Why this topic matters in 2026
    - Problem statement
    - What readers will learn
    - Include primary keyword in first paragraph
 
 2. **Understanding [Topic]** (500-600 words)
    - Define key concepts
-   - Current landscape in 2025
+   - Current landscape in 2026
    - Market trends and adoption rates
    - Business value and ROI potential
 
@@ -264,7 +264,7 @@ async function generateLandingPage(pageSlug, config) {
 
 **IMPORTANT**:
 - Be specific, not generic
-- Use data and statistics (with realistic 2025 numbers)
+- Use data and statistics (with realistic 2026 numbers)
 - Maintain expert tone throughout
 - Optimize for ${config.primaryKeyword}
 - Make content actionable and valuable

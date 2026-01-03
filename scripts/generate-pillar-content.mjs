@@ -295,9 +295,9 @@ ${topPlatforms}
 
 OUTPUT FORMAT: JSON structure matching this schema:
 {
-  "slug": "ultimate-guide-${category}-ai-tools-2025",
+  "slug": "ultimate-guide-${category}-ai-tools-2026",
   "category": "${category}",
-  "title": "Ultimate Guide to ${categoryMeta.fullName} in 2025",
+  "title": "Ultimate Guide to ${categoryMeta.fullName} in 2026",
   "metaDescription": "150-160 character SEO-optimized description",
   "introduction": "1-2 paragraph compelling introduction (300-400 words)",
   "whatIsSection": {
@@ -355,7 +355,7 @@ SEO OPTIMIZATION:
 - Include long-tail variations
 - Mention specific platform names where relevant
 - Focus on user intent and value
-- Include "2025" for freshness
+- Include "2026" for freshness
 
 RETURN ONLY THE JSON OUTPUT, NO ADDITIONAL TEXT.`;
 
