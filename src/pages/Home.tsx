@@ -7,31 +7,6 @@ import { SocialMetaTags } from '../components/SocialMetaTags';
 import { StructuredData, createItemListSchema, createWebsiteSchema, createOrganizationSchema, createDatasetSchema } from '../components/StructuredData';
 import { CategoryMegaMenu } from '../components/CategoryMegaMenu';
 
-// Category icon mapping
-const categoryIcons: Record<string, string> = {
-  'llms': '🤖',
-  'generative-ai': '✨',
-  'code-ai': '💻',
-  'computer-vision': '👁️',
-  'nlp': '📝',
-  'image-generation': '🎨',
-  'video-ai': '🎬',
-  'video-generation': '📹',
-  'analytics-bi': '📊',
-  'ml-frameworks': '🔧',
-  'agent-platforms': '🤝',
-  'search-ai': '🔍',
-  'audio-ai': '🎵',
-  'workflow-automation': '⚙️',
-  'enterprise-ai-platforms': '🏢',
-  'healthcare-ai': '⚕️',
-  'legal-ai': '⚖️',
-  'data-governance': '🔐',
-  'llm-ops': '🛠️',
-  'marketplace-ai': '🏪',
-  'website-ai': '🌐',
-};
-
 function Home() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
