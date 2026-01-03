@@ -1,0 +1,97 @@
+name: Generate Healthcare AI Content
+
+on:
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      content_type:
+        description: 'Content type to generate'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - alternatives
+          - comparisons
+          - blog-posts
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120  # 2 hours max
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Configure Git
+        run: |
+          git config user.name "Healthcare Content Bot"
+          git config user.email "healthcare-bot@ai-platforms-directory.com"
+
+      - name: Generate Healthcare AI Content
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          echo "🏥 Generating Healthcare AI content..."
+          node scripts/generate-healthcare-content.mjs
+
+      - name: Commit and Push Content
+        run: |
+          if [[ -n $(git status -s) ]]; then
+            git add alternatives-content/ comparison-content/ blog-posts/
+
+            ALTERNATIVES_COUNT=$(find alternatives-content -name "*-alternatives.json" 2>/dev/null | wc -l)
+            COMPARISONS_COUNT=$(find comparison-content -name "*-vs-*.json" 2>/dev/null | wc -l)
+            BLOG_COUNT=$(find blog-posts -name "*.json" 2>/dev/null | wc -l)
+
+            git commit -m "$(cat <<'EOF'
+Generate Healthcare AI content with E-E-A-T compliance
+
+📄 Content Generated:
+- Alternatives pages: $ALTERNATIVES_COUNT
+- Comparison pages: $COMPARISONS_COUNT
+- Blog posts: $BLOG_COUNT
+
+🏥 Platforms Covered:
+- Aidoc, Viz.ai, Paige AI, PathAI, Tempus
+- Nuance Dragon Medical, Butterfly IQ, Enlitic
+- Qure.ai, Arterys, Cleerly, Caption Health
+- Regard, Corti, Rad AI, Eko Health
+- HeartFlow, Gauss Surgical
+
+✨ Features:
+- E-E-A-T compliant content for medical professionals
+- FDA approval and clinical validation focus
+- Evidence-based comparisons and alternatives
+- HIPAA compliance and security emphasis
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+EOF
+            )"
+
+            git push
+
+            echo "✅ Content pushed to GitHub!"
+            echo "📊 Generated $ALTERNATIVES_COUNT alternatives, $COMPARISONS_COUNT comparisons, $BLOG_COUNT blog posts"
+          else
+            echo "No new content generated"
+          fi
+
+      - name: Trigger Railway Deployment
+        if: success()
+        run: |
+          echo "✅ Changes pushed to GitHub - Railway will auto-deploy"
