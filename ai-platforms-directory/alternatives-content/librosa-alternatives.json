@@ -1,0 +1,418 @@
+{
+  "slug": "librosa-alternatives",
+  "platformSlug": "librosa",
+  "title": "Best librosa Alternatives in 2026: Top 10 Tools Compared",
+  "metaDescription": "Looking for librosa alternatives? Compare top 10 audio AI tools for speech recognition, music generation, voice cloning, and advanced audio analysis in 2026.",
+  "introduction": "Librosa has long been the cornerstone Python library for music and audio signal analysis, providing essential building blocks for music information retrieval (MIR) tasks like tempo extraction, pitch detection, and spectral analysis. Its research-grade algorithms and music-specific focus have made it indispensable for academics and developers working on audio-based machine learning projects. However, the audio AI landscape has evolved dramatically, with specialized tools emerging that address specific limitations of this foundational library.\n\nWhile librosa excels at providing low-level signal processing primitives, modern audio applications often require higher-level capabilities that librosa wasn't designed to handle. Users frequently seek alternatives when they need production-ready APIs, advanced neural network models, real-time processing capabilities, or specialized functions like speech recognition, voice cloning, or complete music generation. The library's focus on research and offline analysis can be limiting for developers building commercial applications or those needing turnkey solutions.\n\nThe demand for librosa alternatives stems from several key factors: the need for cloud-based scalability, requirements for pre-trained models that work out-of-the-box, integration with modern deep learning frameworks, and specialized capabilities beyond traditional MIR. As audio AI has matured, tools have emerged that offer more comprehensive solutions for specific domains like speech-to-text, voice synthesis, and generative music, often with simpler interfaces and better performance for particular use cases.\n\nThis guide explores the top alternatives to librosa, comparing their strengths, weaknesses, and ideal applications. Whether you're a researcher needing more advanced neural architectures, a developer building production audio applications, or a creator exploring generative audio tools, understanding these alternatives will help you select the right tool for your specific needs in 2026's rapidly evolving audio AI ecosystem.",
+  "mainPlatformAnalysis": {
+    "overview": "Librosa is a Python library specifically designed for music and audio analysis, providing fundamental building blocks for music information retrieval (MIR). It offers robust implementations of spectral analysis, beat tracking, chroma feature extraction, and various audio transformations. As a research-grade tool, it serves as the de facto standard for academic work in audio signal processing and music analysis, with comprehensive documentation and an active community.",
+    "limitations": [
+      "Primarily focused on music analysis, lacking strong speech processing capabilities",
+      "Requires significant coding expertise and signal processing knowledge to implement complete solutions",
+      "No built-in pre-trained models for high-level tasks like transcription or generation",
+      "Limited scalability for production deployments and real-time processing scenarios"
+    ],
+    "pricing": "Completely open-source and free under the ISC license. No usage fees, subscription costs, or commercial licensing requirements.",
+    "bestFor": "Academic researchers, data scientists, and developers who need fine-grained control over music analysis algorithms and are comfortable implementing custom signal processing pipelines from low-level components."
+  },
+  "alternatives": [
+    {
+      "name": "OpenAI Whisper",
+      "slug": "openai-whisper",
+      "rank": 1,
+      "tagline": "State-of-the-art speech recognition and translation",
+      "description": "OpenAI Whisper is a revolutionary open-source automatic speech recognition system that transcribes and translates speech across dozens of languages with remarkable accuracy. Trained on 680,000 hours of diverse audio data, it demonstrates exceptional robustness to accents, background noise, and technical terminology. Unlike librosa's focus on music analysis, Whisper specializes in converting spoken language to text, offering both transcription and translation capabilities in a single model. Its architecture combines a Transformer-based encoder-decoder with large-scale training, resulting in performance that often surpasses proprietary alternatives while remaining completely free for both research and commercial applications.",
+      "pricing": "Completely open-source under MIT license. No API costs, usage limits, or commercial restrictions.",
+      "bestFor": "Developers and researchers needing accurate, multilingual speech-to-text capabilities without recurring costs.",
+      "keyFeatures": [
+        "Multilingual transcription and translation",
+        "Robust to accents and background noise",
+        "Open-source with commercial use allowed",
+        "Multiple model sizes for different accuracy/speed trade-offs"
+      ],
+      "pros": [
+        "Exceptional accuracy across diverse conditions",
+        "Completely free with no usage restrictions",
+        "Supports translation between languages",
+        "Active community and continuous improvements"
+      ],
+      "cons": [
+        "Computationally intensive for large models",
+        "Primarily focused on speech, not music",
+        "Requires significant resources for local deployment"
+      ],
+      "whySwitch": "Choose Whisper over librosa when your primary need is accurate speech transcription or translation rather than music analysis. While librosa provides building blocks, Whisper offers a complete, production-ready solution for speech understanding tasks."
+    },
+    {
+      "name": "torchaudio",
+      "slug": "elevenlabs-voice-cloning-v3",
+      "rank": 2,
+      "tagline": "PyTorch-native audio processing for deep learning",
+      "description": "torchaudio is PyTorch's domain-specific library for audio and speech processing, designed specifically for deep learning applications. It provides essential data loading, transformation, and augmentation utilities tightly integrated with the PyTorch ecosystem. Unlike librosa's general-purpose approach, torchaudio offers GPU acceleration, automatic differentiation, and seamless integration with neural network training pipelines. The library includes popular datasets, pre-trained models, and standardized audio processing operations optimized for modern deep learning workflows, making it ideal for researchers and developers building end-to-end differentiable audio systems.",
+      "pricing": "Completely open-source under BSD license. Part of the PyTorch ecosystem with no additional costs.",
+      "bestFor": "Deep learning researchers and developers building neural audio models who need tight PyTorch integration.",
+      "keyFeatures": [
+        "Native PyTorch tensor operations with GPU support",
+        "Automatic differentiation for audio pipelines",
+        "Pre-trained models and standard datasets",
+        "Production-ready data loading and augmentation"
+      ],
+      "pros": [
+        "Seamless integration with PyTorch workflows",
+        "Excellent performance with GPU acceleration",
+        "Growing ecosystem of models and tools",
+        "Strong industry adoption and support"
+      ],
+      "cons": [
+        "Steeper learning curve than librosa",
+        "Less comprehensive music-specific features",
+        "Primarily focused on deep learning use cases"
+      ],
+      "whySwitch": "Switch to torchaudio when building neural network models for audio tasks, as it provides native PyTorch integration, GPU acceleration, and differentiable operations that librosa lacks for deep learning workflows."
+    },
+    {
+      "name": "pyannote.audio",
+      "slug": "assemblyai",
+      "rank": 3,
+      "tagline": "Neural toolkit for speaker diarization research",
+      "description": "pyannote.audio is an open-source Python toolkit built on PyTorch that provides neural building blocks specifically for speaker diarization—the task of segmenting audio by speaker identity. It offers robust implementations of voice activity detection, speaker change detection, overlapped speech detection, and speaker embedding extraction. Unlike librosa's general audio processing focus, pyannote.audio specializes in speaker-centric analysis with pre-trained models and standardized evaluation protocols. Its modular, research-oriented design has made it a benchmark in both academic and industrial audio processing communities for multi-speaker scenarios.",
+      "pricing": "Open-source under MIT license. Free for research and commercial use with proper attribution.",
+      "bestFor": "Researchers and developers working on multi-speaker audio analysis, meeting transcription, or podcast processing.",
+      "keyFeatures": [
+        "State-of-the-art speaker diarization pipelines",
+        "Pre-trained neural models for various tasks",
+        "Standardized evaluation protocols",
+        "Modular architecture for research customization"
+      ],
+      "pros": [
+        "Excellent performance on speaker separation tasks",
+        "Research-focused with strong academic backing",
+        "Comprehensive documentation and examples",
+        "Active development and community support"
+      ],
+      "cons": [
+        "Specialized primarily for speaker diarization",
+        "Requires understanding of neural networks",
+        "Less general-purpose than librosa"
+      ],
+      "whySwitch": "Choose pyannote.audio over librosa when your primary task involves speaker identification, separation, or diarization in multi-speaker recordings, as it provides specialized neural models that librosa lacks."
+    },
+    {
+      "name": "AssemblyAI",
+      "slug": "google-speech-to-text",
+      "rank": 4,
+      "tagline": "Production-ready API for audio intelligence",
+      "description": "AssemblyAI is a comprehensive API platform that converts speech to text and extracts advanced insights from audio and video data. It provides production-ready, high-accuracy models for core transcription, speaker diarization, and NLP tasks like sentiment analysis, entity detection, and content moderation. Unlike librosa's library approach, AssemblyAI offers a simple REST API with fast processing, automatic scaling, and enterprise-grade reliability. It uniquely targets developers and businesses building scalable, real-world AI applications that require minimal infrastructure management and maximum accuracy out-of-the-box.",
+      "pricing": "Freemium model with free tier for testing. Paid plans start at $0.0001/second for Core Transcription, with volume discounts available.",
+      "bestFor": "Developers and enterprises needing production-grade speech-to-text with advanced audio intelligence features.",
+      "keyFeatures": [
+        "High-accuracy transcription with speaker labels",
+        "Real-time streaming API support",
+        "Advanced NLP features (sentiment, entities, PII)",
+        "Content moderation and topic detection"
+      ],
+      "pros": [
+        "Production-ready with high reliability",
+        "Simple API with excellent documentation",
+        "Fast processing with automatic scaling",
+        "Continuous model improvements"
+      ],
+      "cons": [
+        "Recurring costs based on usage",
+        "Less control over underlying models",
+        "Primarily cloud-based service"
+      ],
+      "whySwitch": "Switch to AssemblyAI when you need production-ready transcription and audio intelligence without managing infrastructure, especially for commercial applications where accuracy, scalability, and advanced features are critical."
+    },
+    {
+      "name": "Google Speech-to-Text",
+      "slug": "murf-ai",
+      "rank": 5,
+      "tagline": "Enterprise-grade speech recognition on Google Cloud",
+      "description": "Google Speech-to-Text is a cloud-based AI service that converts audio to text using Google's state-of-the-art Chirp foundation model. It supports real-time streaming, batch processing, and custom model adaptation across 125+ languages and variants. Unlike librosa's local processing approach, Google's service offers industry-leading accuracy powered by massive-scale training data and deep research integration. Its seamless integration with the Google Cloud ecosystem makes it ideal for enterprises already using Google's infrastructure, offering features like speaker diarization, profanity filtering, and automatic punctuation.",
+      "pricing": "Pay-as-you-go pricing starting at $0.006 per 15 seconds for standard models. Volume discounts and custom pricing available for enterprise customers.",
+      "bestFor": "Enterprises and developers already in the Google Cloud ecosystem needing highly accurate, scalable speech recognition.",
+      "keyFeatures": [
+        "Industry-leading accuracy across 125+ languages",
+        "Real-time streaming and batch processing",
+        "Custom model training for domain adaptation",
+        "Tight Google Cloud integration"
+      ],
+      "pros": [
+        "Exceptional accuracy, especially for common languages",
+        "Highly scalable with global infrastructure",
+        "Strong enterprise support and SLAs",
+        "Continuous improvements from Google Research"
+      ],
+      "cons": [
+        "Can be expensive at scale",
+        "Vendor lock-in to Google Cloud",
+        "Less transparent about model details"
+      ],
+      "whySwitch": "Choose Google Speech-to-Text over librosa for enterprise applications requiring maximum accuracy, global scalability, and integration with Google's ecosystem, particularly when speech recognition is the primary requirement."
+    },
+    {
+      "name": "Suno AI v4",
+      "slug": "otter-ai",
+      "rank": 6,
+      "tagline": "AI-powered full song generation from text prompts",
+      "description": "Suno AI v4 represents a groundbreaking advancement in AI music generation, capable of producing complete, high-fidelity songs with coherent structure, lyrics, and multiple instrumental layers from simple text prompts. Unlike librosa's analytical approach, Suno focuses on creative generation, allowing users to create original music without technical expertise. The platform handles composition, arrangement, production, and even vocal synthesis in a unified workflow, producing results that rival professional productions in quality and complexity. Its latest version introduces significant improvements in musical coherence, emotional range, and production quality.",
+      "pricing": "Freemium model with limited free credits. Paid plans start at $8/month for more generations and commercial usage rights.",
+      "bestFor": "Musicians, content creators, and hobbyists wanting to generate original music quickly without production expertise.",
+      "keyFeatures": [
+        "Complete song generation with vocals and instruments",
+        "Lyric generation and vocal synthesis",
+        "Multiple genres and styles",
+        "Community features for sharing and remixing"
+      ],
+      "pros": [
+        "Produces surprisingly coherent musical compositions",
+        "User-friendly interface requiring no music theory knowledge",
+        "Rapid iteration and experimentation",
+        "Growing community and sharing ecosystem"
+      ],
+      "cons": [
+        "Limited control over specific musical elements",
+        "Quality can vary between generations",
+        "Commercial usage restrictions on lower tiers"
+      ],
+      "whySwitch": "Switch to Suno AI when you want to generate original music rather than analyze existing audio. While librosa helps understand music, Suno creates it—perfect for content creation, inspiration, or rapid prototyping of musical ideas."
+    },
+    {
+      "name": "Udio AI",
+      "slug": "pytorch-audio",
+      "rank": 7,
+      "tagline": "Community-driven AI song creation platform",
+      "description": "Udio AI is a next-generation platform that generates high-quality, full-length songs and instrumentals from text prompts, with a strong focus on community engagement and collaborative creation. It enables users to create complete musical compositions with professional-grade production in seconds, then share, remix, and collaborate on creations within a vibrant community. Unlike librosa's analytical tools, Udio emphasizes creative expression and social interaction around AI-generated music, offering features for iterative refinement, style blending, and collaborative songwriting that appeal to both hobbyists and professional musicians.",
+      "pricing": "Freemium model with daily free credits. Subscription plans start at $10/month for increased limits and commercial rights.",
+      "bestFor": "Creative professionals, musicians, and communities interested in collaborative AI music generation.",
+      "keyFeatures": [
+        "High-fidelity song generation with vocals",
+        "Community sharing and remixing features",
+        "Iterative refinement tools",
+        "Style transfer and blending capabilities"
+      ],
+      "pros": [
+        "Excellent sound quality and production value",
+        "Strong community features for collaboration",
+        "Intuitive interface for non-technical users",
+        "Regular updates with new capabilities"
+      ],
+      "cons": [
+        "Less control over technical musical parameters",
+        "Dependent on platform availability",
+        "Learning curve for optimal prompt engineering"
+      ],
+      "whySwitch": "Choose Udio AI over librosa when your goal is creative music generation rather than analysis, especially if you value community interaction, rapid prototyping, and professional-sounding results without technical audio expertise."
+    },
+    {
+      "name": "ElevenLabs Voice Cloning v3",
+      "slug": "suno-ai-v4",
+      "rank": 8,
+      "tagline": "Professional voice cloning with emotional range",
+      "description": "ElevenLabs Voice Cloning v3 represents the latest advancement in voice synthesis technology, offering improved emotional range, accent preservation, and multilingual support for professional voiceover applications. The system can clone voices from short samples and generate speech with remarkable naturalness and consistency, significantly reducing artifacts that plagued earlier generations. Unlike librosa's focus on analysis, ElevenLabs specializes in synthesis—creating human-like speech from text with precise control over tone, emotion, and delivery style. Its technology serves voice actors, content creators, and businesses needing scalable, high-quality voice generation.",
+      "pricing": "Freemium model with limited free characters. Paid plans start at $5/month for increased limits and access to premium voices.",
+      "bestFor": "Content creators, voice professionals, and businesses needing high-quality synthetic voices for narration, dubbing, or accessibility.",
+      "keyFeatures": [
+        "High-quality voice cloning from short samples",
+        "Emotional and stylistic control",
+        "Multilingual support with accent preservation",
+        "Professional-grade voice consistency"
+      ],
+      "pros": [
+        "Industry-leading voice naturalness",
+        "Excellent emotional range and expressiveness",
+        "User-friendly interface and API",
+        "Rapid generation with low latency"
+      ],
+      "cons": [
+        "Ethical concerns around voice misuse",
+        "Cost can accumulate with high usage",
+        "Limited control over very specific vocal qualities"
+      ],
+      "whySwitch": "Switch to ElevenLabs when you need to generate synthetic speech rather than analyze audio. While librosa helps understand audio signals, ElevenLabs creates them—perfect for voiceovers, audiobooks, or any application requiring human-like speech generation."
+    },
+    {
+      "name": "Murf AI",
+      "slug": "pyannote-audio",
+      "rank": 9,
+      "tagline": "All-in-one studio for AI voiceovers and narration",
+      "description": "Murf AI is a comprehensive voice generation platform that enables users to create professional, studio-quality voiceovers and narrations from text. It features a vast library of 120+ lifelike AI voices across 20+ languages, combined with advanced voice customization tools and an integrated video/audio editor. Unlike librosa's analytical approach, Murf focuses on end-to-end content creation, allowing users to add voice to videos, podcasts, and presentations with commercial-ready quality. The platform targets content creators, marketers, educators, and businesses seeking to replace traditional voice actors with scalable, cost-effective synthetic speech solutions.",
+      "pricing": "Freemium model with limited exports. Paid plans start at $19/month per user for commercial usage and advanced features.",
+      "bestFor": "Content creators, educators, and businesses needing professional voiceovers for videos, presentations, and e-learning.",
+      "keyFeatures": [
+        "120+ realistic voices across 20+ languages",
+        "Integrated audio/video editor",
+        "Voice customization (pitch, speed, emphasis)",
+        "Team collaboration features"
+      ],
+      "pros": [
+        "Professional studio-quality output",
+        "Comprehensive all-in-one platform",
+        "Excellent for video content creation",
+        "Strong commercial use case focus"
+      ],
+      "cons": [
+        "Higher cost than some alternatives",
+        "Primarily web-based with limited API",
+        "Less suitable for technical audio processing"
+      ],
+      "whySwitch": "Choose Murf AI over librosa when you need to create professional voice content rather than analyze existing audio. Murf's integrated studio approach is ideal for content production workflows where voiceovers need to sync with visual media."
+    },
+    {
+      "name": "Otter.ai",
+      "slug": "udio-ai",
+      "rank": 10,
+      "tagline": "AI meeting assistant for transcription and summaries",
+      "description": "Otter.ai is an AI-powered meeting assistant that provides real-time transcription, automated summaries, and action item extraction for conversations. It combines high-accuracy speech recognition with collaborative features like speaker identification, live note-taking, and integration with popular calendar and conferencing platforms. Unlike librosa's technical audio processing, Otter focuses on productivity and collaboration, creating searchable, shareable transcripts with highlighted key points. It serves as a central hub for meeting intelligence, targeting professionals, students, and teams who need to capture, share, and act on insights from discussions.",
+      "pricing": "Freemium model with 300 monthly transcription minutes free. Pro plans start at $10/month per user for increased limits and features.",
+      "bestFor": "Teams, professionals, and students needing meeting transcription with collaboration features.",
+      "keyFeatures": [
+        "Real-time meeting transcription",
+        "Speaker identification and diarization",
+        "Automated summaries and action items",
+        "Calendar and conferencing integrations"
+      ],
+      "pros": [
+        "Excellent for meeting productivity",
+        "Strong collaboration features",
+        "Good accuracy for conversational speech",
+        "Useful search and organization tools"
+      ],
+      "cons": [
+        "Primarily focused on meetings",
+        "Less accurate for technical or specialized content",
+        "Subscription model for full features"
+      ],
+      "whySwitch": "Switch to Otter.ai when your primary need is transcribing and extracting insights from meetings or conversations. While librosa provides technical audio analysis, Otter offers a complete productivity solution for collaborative work environments."
+    }
+  ],
+  "comparisonTable": {
+    "criteria": [
+      "Pricing",
+      "Features",
+      "Ease of Use",
+      "Support",
+      "Integration"
+    ],
+    "scores": {
+      "librosa": [
+        10,
+        7,
+        6,
+        7,
+        7
+      ],
+      "OpenAI Whisper": [
+        10,
+        8,
+        7,
+        8,
+        7
+      ],
+      "torchaudio": [
+        10,
+        8,
+        6,
+        8,
+        9
+      ],
+      "pyannote.audio": [
+        10,
+        8,
+        6,
+        7,
+        8
+      ],
+      "AssemblyAI": [
+        7,
+        9,
+        9,
+        9,
+        8
+      ],
+      "Google Speech-to-Text": [
+        6,
+        9,
+        8,
+        9,
+        9
+      ],
+      "Suno AI v4": [
+        8,
+        9,
+        9,
+        7,
+        6
+      ],
+      "Udio AI": [
+        8,
+        8,
+        9,
+        7,
+        6
+      ],
+      "ElevenLabs Voice Cloning v3": [
+        7,
+        9,
+        9,
+        8,
+        7
+      ],
+      "Murf AI": [
+        6,
+        9,
+        9,
+        8,
+        7
+      ],
+      "Otter.ai": [
+        7,
+        8,
+        9,
+        8,
+        8
+      ]
+    }
+  },
+  "howToChoose": {
+    "title": "How to Choose the Right librosa Alternative",
+    "factors": [
+      {
+        "name": "Primary Use Case",
+        "description": "Determine whether you need analysis (like librosa), generation (music/speech), transcription, or specialized processing. Speech recognition tools won't help with music generation, and vice versa. Match the tool's core competency to your primary task."
+      },
+      {
+        "name": "Technical Expertise",
+        "description": "Consider your team's skills. Libraries like torchaudio require deep learning knowledge, while API services like AssemblyAI or Murf AI offer simpler interfaces. librosa alternatives range from code-heavy libraries to no-code platforms."
+      },
+      {
+        "name": "Scale and Deployment",
+        "description": "Evaluate whether you need local processing (like librosa), cloud scalability, or real-time capabilities. Research tools work locally, while production services offer automatic scaling but incur ongoing costs."
+      },
+      {
+        "name": "Budget and Licensing",
+        "description": "Assess both initial and ongoing costs. Open-source tools have no fees but require development time. Commercial APIs offer convenience but create recurring expenses. Consider commercial usage rights if applicable."
+      },
+      {
+        "name": "Integration Requirements",
+        "description": "Check how the tool integrates with your existing stack. PyTorch users benefit from torchaudio, Google Cloud users from Speech-to-Text, while standalone creators might prefer all-in-one platforms like Murf AI."
+      }
+    ]
+  },
+  "verdict": "Choosing the right librosa alternative depends entirely on your specific needs and context. For researchers and developers who need to stay within the Python ecosystem but require more modern deep learning capabilities, torchaudio is the natural upgrade—it maintains the programming flexibility of librosa while adding GPU acceleration and PyTorch integration. Its seamless compatibility with neural network workflows makes it ideal for those building custom audio AI models.\n\nIf your work focuses specifically on speech rather than music, OpenAI Whisper represents the best balance of capability, cost, and openness. Its exceptional accuracy across languages and conditions, combined with complete freedom from licensing restrictions, makes it suitable for both research and commercial applications. For enterprises needing production-ready speech recognition with minimal infrastructure management, AssemblyAI and Google Speech-to-Text offer reliable, scalable solutions with advanced features like speaker diarization and sentiment analysis.\n\nCreative professionals exploring generative audio have two excellent options: Suno AI v4 for complete song generation with impressive coherence, and Udio AI for community-driven creation and collaboration. Both platforms democratize music production but cater to slightly different audiences—Suno for individual creators wanting professional results, Udio for those valuing community interaction.\n\nFor voice synthesis applications, ElevenLabs Voice Cloning v3 leads in naturalness and emotional range, while Murf AI offers a more comprehensive studio environment for content creators needing voiceovers synchronized with visual media. Otter.ai fills a unique niche for teams needing meeting transcription with collaborative features, and pyannote.audio remains the specialist choice for speaker diarization research.\n\nUltimately, librosa remains valuable for music analysis research and educational purposes, but the expanding ecosystem of specialized tools offers more efficient solutions for most production applications. The best approach is often combining tools—using librosa or torchaudio for custom analysis components while leveraging specialized APIs for tasks like transcription or generation where building from scratch isn't practical.",
+  "faqs": [
+    {
+      "question": "Is torchaudio better than librosa for deep learning?",
+      "answer": "Yes, torchaudio is generally better than librosa for deep learning applications because it provides native PyTorch integration, GPU acceleration, automatic differentiation, and seamless compatibility with neural network training pipelines. While librosa offers excellent signal processing functions, torchaudio is designed specifically for building differentiable audio systems within the PyTorch ecosystem."
+    },
+    {
+      "question": "What is the cheapest alternative to librosa for speech recognition?",
+      "answer": "OpenAI Whisper is the cheapest alternative for speech recognition as it's completely free and open-source with no usage restrictions. Unlike cloud APIs that charge per minute, Whisper can be run locally without ongoing costs. The trade-off is computational resources for running the models, but for many applications, this represents significant long-term savings compared to subscription-based services."
+    },
+    {
+      "question": "What is the best free alternative to librosa for music analysis?",
+      "answer": "For music analysis specifically, torchaudio is the best free alternative as it provides similar low-level processing capabilities while adding deep learning integration. However, if you need to stay closer to librosa's functionality, Essentia is another open-source library specifically for music analysis that offers additional MIR features. For generative tasks rather than analysis, Suno AI and Udio AI offer free tiers for music creation."
+    }
+  ]
+}

@@ -1,0 +1,413 @@
+{
+  "slug": "openchat-alternatives",
+  "platformSlug": "openchat",
+  "title": "Best OpenChat Alternatives in 2026: Top 10 Tools Compared",
+  "metaDescription": "Explore the top 10 OpenChat alternatives for 2026. Compare open-source LLMs, local inference tools, and conversational AI frameworks for research, development, and deployment.",
+  "introduction": "OpenChat has established itself as a compelling open-source framework for fine-tuning large language models using its innovative C-RLHF methodology. By leveraging mixed-quality data, it enables researchers and developers to create efficient instruction-following models that perform well on standard benchmarks. However, the rapidly evolving AI landscape means that OpenChat is just one option among many, each catering to different needs, technical requirements, and project goals.\n\nUsers seek alternatives to OpenChat for several key reasons. Some require tools that focus on local, private inference rather than model training frameworks. Others need production-ready chat interfaces or seek access to different base models with unique architectures, like Mixture of Experts. The choice often hinges on whether the primary goal is model development (like OpenChat), model deployment and serving, or creating end-user applications. Furthermore, factors like computational resources, licensing for commercial use, and the need for multilingual or coding-specific capabilities drive the exploration of other platforms.\n\nThis guide provides a comprehensive comparison of the leading alternatives, from local LLM runners like Ollama and llama.cpp to complete model ecosystems like Mistral AI and Google PaLM 2. Whether you're an AI researcher looking for a different training approach, a developer building a local chatbot, or an organization needing a commercially licensed model, understanding these options is crucial. The right tool can significantly impact your project's efficiency, cost, and ultimate success.",
+  "mainPlatformAnalysis": {
+    "overview": "OpenChat is an open-source conversational AI framework focused on the efficient fine-tuning of large language models. Its core innovation is the C-RLHF (Conditioned Reinforcement Learning from Human Feedback) methodology, which allows it to train high-performing models using a mix of both high-quality and suboptimal data. This approach reduces the dependency on expensive, perfectly curated datasets. It is designed for AI researchers and developers who want to experiment with and create advanced instruction-following models, with results that rank competitively on the HuggingFace Open LLM Leaderboard.",
+    "limitations": [
+      "Primarily a model training/fine-tuning framework, not a deployment or serving solution",
+      "Requires significant machine learning expertise to implement and tune effectively",
+      "Community and documentation may be smaller compared to more established, broader-scope projects"
+    ],
+    "pricing": "OpenChat is completely open-source and free to use. There are no licensing fees or subscription costs. The primary costs associated with using OpenChat are computational, related to the hardware (GPUs/TPUs) required for training and fine-tuning the models.",
+    "bestFor": "AI researchers, ML engineers, and organizations focused on experimenting with and advancing instruction-tuning methodologies for LLMs, particularly those interested in efficient training with mixed-quality data."
+  },
+  "alternatives": [
+    {
+      "name": "Ollama",
+      "slug": "ollama",
+      "rank": 1,
+      "tagline": "Streamline local LLM management and serving.",
+      "description": "Ollama is an open-source tool designed to simplify running large language models locally. It functions as a comprehensive manager for local LLMs, allowing users to pull models from a curated library, run them with optimized performance settings, and interact with them via a simple command-line interface or REST API. It abstracts away much of the complexity associated with model setup, dependencies, and inference configuration. Its primary value is for developers and researchers who need a private, offline-capable LLM environment that is easy to set up and integrate into applications, providing a streamlined alternative to cloud-based APIs.",
+      "pricing": "Open-source and free.",
+      "bestFor": "Developers and researchers seeking a hassle-free way to run and serve LLMs locally with a focus on privacy, offline use, and simple integration.",
+      "keyFeatures": [
+        "Curated library of popular open-source models",
+        "Optimized local execution for CPU/GPU",
+        "Simple REST API for application integration",
+        "Model version management"
+      ],
+      "pros": [
+        "Extremely easy setup and use",
+        "Excellent for prototyping and local development",
+        "Strong privacy and data sovereignty",
+        "Active development and community"
+      ],
+      "cons": [
+        "Limited to models available in its library",
+        "Less control over low-level inference parameters compared to llama.cpp",
+        "Primarily a runner, not a training framework"
+      ],
+      "whySwitch": "Choose Ollama over OpenChat if your goal is to quickly run and interact with pre-trained models locally for application development, rather than fine-tuning new models from scratch. It's for deployment, not research-oriented training."
+    },
+    {
+      "name": "llama.cpp",
+      "slug": "llamacpp",
+      "rank": 2,
+      "tagline": "Maximize LLM performance on CPU hardware.",
+      "description": "llama.cpp is a high-performance, open-source inference engine written in C/C++ for Meta's LLaMA and Llama 2 models (and now many others). Its flagship capability is enabling efficient inference of large models on CPU-based hardware through advanced quantization techniques and memory optimization. It allows models to run on consumer-grade laptops, servers, and edge devices without requiring powerful, dedicated GPUs. This makes advanced LLMs accessible in resource-constrained, cost-sensitive, or privacy-mandated environments where GPU access is limited or undesirable.",
+      "pricing": "Open-source and free.",
+      "bestFor": "Developers and researchers needing to deploy LLMs in environments with limited GPU resources, or those requiring maximum inference efficiency on CPUs.",
+      "keyFeatures": [
+        "State-of-the-art 4-bit and 5-bit quantization",
+        "Efficient CPU inference with ARM NEON, AVX2, AVX512 support",
+        "Minimal dependencies, cross-platform (Windows, macOS, Linux, Docker)",
+        "Bindings for multiple languages (Python, Node.js, etc.)"
+      ],
+      "pros": [
+        "Unmatched efficiency for CPU inference",
+        "Extremely versatile and portable",
+        "Fine-grained control over inference parameters",
+        "Vast ecosystem of compatible quantized models"
+      ],
+      "cons": [
+        "Requires technical knowledge for setup and optimization",
+        "Primarily an inference engine, not a training or high-level framework",
+        "User interface is command-line focused"
+      ],
+      "whySwitch": "Switch to llama.cpp from OpenChat if you need to deploy a trained model for inference on standard CPU hardware with maximum performance and minimal footprint. OpenChat is for creating models; llama.cpp is for running them efficiently anywhere."
+    },
+    {
+      "name": "Chainlit",
+      "slug": "chainlit",
+      "rank": 3,
+      "tagline": "Build interactive LLM apps with beautiful UIs.",
+      "description": "Chainlit is an open-source Python framework dedicated to building conversational AI applications with rich, interactive front-ends. It allows developers to quickly create chat-based interfaces for their LLM applications, complete with features like real-time message streaming, file upload handling (images, PDFs, text), and customizable UI elements. It acts as the crucial bridge between an LLM backend (like an API or a local model) and a polished user experience, dramatically speeding up the process of going from a prototype to a deployable application.",
+      "pricing": "Open-source and free.",
+      "bestFor": "Developers and startups building production-ready chatbot interfaces, AI agents, or any application where a polished conversational UI is critical.",
+      "keyFeatures": [
+        "Real-time streaming of LLM responses",
+        "Easy file upload and processing integration",
+        "Customizable UI elements and chat history",
+        "Seamless integration with popular LLM libraries (LangChain, LlamaIndex)"
+      ],
+      "pros": [
+        "Significantly faster UI development for LLM apps",
+        "Production-ready and developer-friendly",
+        "Excellent documentation and active community",
+        "Open-source with a permissive license"
+      ],
+      "cons": [
+        "It's a frontend/interface framework, not an LLM model or trainer",
+        "Requires a separate LLM backend to function",
+        "Less relevant for pure model research without an application focus"
+      ],
+      "whySwitch": "Choose Chainlit over OpenChat if your primary need is to build a compelling chat application frontend for an existing LLM backend. OpenChat creates the model intelligence; Chainlit creates the user interface for that intelligence."
+    },
+    {
+      "name": "Jan",
+      "slug": "jan-ai",
+      "rank": 4,
+      "tagline": "Your private, offline AI assistant desktop app.",
+      "description": "Jan is an open-source desktop application that provides a fully local, privacy-focused environment for running AI models. It offers a user-friendly interface similar to ChatGPT but operates entirely on your computer, allowing you to download, manage, and chat with a variety of open-source LLMs without an internet connection. Jan prioritizes data sovereignty, ensuring all conversations and model inferences happen locally, making it ideal for sensitive use cases or users wary of cloud-based services.",
+      "pricing": "Open-source and free.",
+      "bestFor": "End-users, professionals, and privacy-conscious individuals who want a ChatGPT-like experience with complete offline functionality and data control.",
+      "keyFeatures": [
+        "Intuitive desktop application for macOS, Windows, and Linux",
+        "Local model hub for downloading open-source LLMs",
+        "100% offline inference and chat",
+        "Conversation history and basic model management"
+      ],
+      "pros": [
+        "Superb user experience for non-developers",
+        "Unmatched privacy and data security",
+        "No subscription or API costs",
+        "Cross-platform support"
+      ],
+      "cons": [
+        "Performance limited by local hardware (especially without a GPU)",
+        "Less flexible for developers needing API access or deep customization",
+        "Focused on chat, not model training or fine-tuning"
+      ],
+      "whySwitch": "Switch to Jan from OpenChat if you are an end-user seeking a ready-to-use, private AI chat application, rather than a researcher or developer looking for a model training framework. Jan is for consumption, OpenChat is for creation."
+    },
+    {
+      "name": "Mixtral 8x7B",
+      "slug": "mixtral-8x7b",
+      "rank": 5,
+      "tagline": "State-of-the-art open-source MoE model.",
+      "description": "Mixtral 8x7B is a groundbreaking open-source large language model from Mistral AI that utilizes a Mixture of Experts (MoE) architecture. With 47B total parameters, it strategically activates only about 13B parameters per token, allowing it to achieve performance comparable to much larger models (like GPT-3.5) while being significantly faster and cheaper to run. It excels in text generation, reasoning, and multilingual tasks, offering a powerful and efficient base model for both research and commercial applications.",
+      "pricing": "Open-source and free for research and commercial use under the Apache 2.0 license.",
+      "bestFor": "Developers and companies needing a top-tier, efficient open-source base model for fine-tuning, research, or deployment in demanding applications.",
+      "keyFeatures": [
+        "Mixture of Experts architecture for efficient inference",
+        "Strong performance in reasoning and multilingual tasks",
+        "Permissive Apache 2.0 license",
+        "Available in various quantized versions for local use"
+      ],
+      "pros": [
+        "Best-in-class performance for its inference cost",
+        "Faster and more efficient than dense models of similar capability",
+        "Excellent for commercial products due to its license",
+        "Strong community and tooling support"
+      ],
+      "cons": [
+        "Higher memory bandwidth requirements than dense models",
+        "As a base model, it requires fine-tuning for specific tasks (unlike a ready-made framework)",
+        "Inference implementation can be more complex"
+      ],
+      "whySwitch": "Choose Mixtral 8x7B as a base model if you need cutting-edge performance and efficiency for your project. OpenChat is a framework for fine-tuning any model; you could actually use OpenChat to fine-tune Mixtral 8x7B for a specific task."
+    },
+    {
+      "name": "Google PaLM 2",
+      "slug": "palm-2",
+      "rank": 6,
+      "tagline": "Google's powerhouse for reasoning and code.",
+      "description": "Google PaLM 2 is a state-of-the-art LLM family that powers Google's AI services, including Bard. It is renowned for its advanced reasoning capabilities, deep multilingual understanding across over 100 languages, and proficiency in code generation and explanation. Trained on a diverse mixture of data including scientific literature and source code, it comes in optimized sizes (Gecko, Otter, Bison, Unicorn) to balance capability with speed and cost. It is accessible via Google's Vertex AI and MakerSuite platforms.",
+      "pricing": "Freemium model. Free tier available via Bard chat. API access through Vertex AI is pay-as-you-go based on tokens processed.",
+      "bestFor": "Enterprises and developers building applications that require robust multilingual support, complex reasoning, or code generation, and who prefer a managed, cloud-based API from a major provider.",
+      "keyFeatures": [
+        "Superior reasoning and logical inference capabilities",
+        "Extensive multilingual training",
+        "Excellent at code generation and analysis",
+        "Integrated with Google Cloud's AI ecosystem (Vertex AI)"
+      ],
+      "pros": [
+        "Backed by Google's infrastructure and research",
+        "Out-of-the-box strength in reasoning and coding",
+        "Available as a scalable, managed API",
+        "Strong safety and alignment features"
+      ],
+      "cons": [
+        "Proprietary model (not open-source)",
+        "Usage costs can scale with high volume",
+        "Data is processed on Google's servers, less privacy-focused than local options"
+      ],
+      "whySwitch": "Choose PaLM 2 over OpenChat if you need immediate access to a world-class, general-purpose model via API for tasks like reasoning and coding, without wanting to train or host models yourself. It's a service, not a framework."
+    },
+    {
+      "name": "Text Generation WebUI",
+      "slug": "text-generation-webui",
+      "rank": 7,
+      "tagline": "The ultimate playground for local LLMs.",
+      "description": "Text Generation WebUI is a feature-rich, open-source web interface for running local LLMs. Built on Gradio, it supports a wide array of backends (transformers, llama.cpp, ExLlama) and offers an extensive set of features for model management, chat, and parameter tuning. It is designed for enthusiasts and researchers who want a highly customizable, privacy-focused environment to experiment with different models, sampling parameters, and extensions (like character personas or image generation), all through a browser-based interface.",
+      "pricing": "Open-source and free.",
+      "bestFor": "AI hobbyists, researchers, and power users who want maximum control and customization when interacting with local LLMs through a comprehensive GUI.",
+      "keyFeatures": [
+        "Unified support for multiple inference backends",
+        "Advanced chat features with character presets",
+        "Extensive sampling parameter controls",
+        "Modular extension system for added functionality"
+      ],
+      "pros": [
+        "Incredibly feature-complete and customizable",
+        "Excellent for experimenting with model behavior",
+        "Active community with many user-created extensions",
+        "All-in-one solution for local model interaction"
+      ],
+      "cons": [
+        "Can be complex for beginners to set up",
+        "Interface can feel cluttered due to the abundance of options",
+        "Focus is on interaction/tinkering, not on model training"
+      ],
+      "whySwitch": "Switch to Text Generation WebUI from OpenChat if you want a powerful, GUI-driven tool to test and play with a vast array of pre-trained models locally. OpenChat is for building models; this is for extensively testing and using them."
+    },
+    {
+      "name": "Falcon LLM",
+      "slug": "falcon",
+      "rank": 8,
+      "tagline": "Commercially friendly, top-tier open-source LLM.",
+      "description": "Falcon LLM is a series of high-performance, open-source models developed by the Technology Innovation Institute (TII). Trained on a massive, refined web dataset, Falcon models are known for their strong performance in text generation, summarization, and question answering. A key differentiator is its permissive Apache 2.0 license, which allows for unrestricted commercial use, making it a highly attractive option for businesses. It is available in various sizes, including the massive 180B parameter version, which competes with the best proprietary models.",
+      "pricing": "Open-source and free for commercial and research use under Apache 2.0.",
+      "bestFor": "Businesses and developers seeking a powerful, open-source base model with no legal restrictions for integration into commercial products.",
+      "keyFeatures": [
+        "Permissive Apache 2.0 license for commercial use",
+        "Available in scalable sizes (7B, 40B, 180B)",
+        "Trained on a high-quality, refined web corpus",
+        "Strong performance on standard benchmarks"
+      ],
+      "pros": [
+        "One of the best open-source models for commercial applications",
+        "Transparent and community-driven",
+        "Strong performance, especially the Falcon-180B variant",
+        "Well-integrated with the Hugging Face ecosystem"
+      ],
+      "cons": [
+        "Large variants require significant computational resources",
+        "As a base model, it requires fine-tuning for specific applications",
+        "Less focus on an integrated training framework compared to OpenChat"
+      ],
+      "whySwitch": "Choose Falcon LLM as your base model if commercial licensing is a primary concern and you need a proven, high-performance option. OpenChat is a training methodology you could apply to Falcon, not a direct competitor as a model."
+    },
+    {
+      "name": "GPT4All",
+      "slug": "gpt4all",
+      "rank": 9,
+      "tagline": "Democratizing local, private AI assistants.",
+      "description": "GPT4All is an open-source ecosystem centered around running specialized LLMs locally on personal computers. It consists of a desktop application for private chat and a curated collection of models fine-tuned for specific tasks like coding, roleplay, and detailed instruction following. The project emphasizes privacy, local execution, and community-driven model curation, providing an accessible entry point for users to experience capable AI assistants without relying on the cloud or sharing their data.",
+      "pricing": "Open-source and free. The desktop application and model files are freely available.",
+      "bestFor": "Students, writers, and general users who want an easy-to-use, private desktop AI assistant for tasks like brainstorming, writing help, and coding assistance without subscriptions.",
+      "keyFeatures": [
+        "User-friendly desktop chat application",
+        "Curated ecosystem of task-specific fine-tuned models",
+        "Complete offline operation",
+        "Community-driven model development and evaluation"
+      ],
+      "pros": [
+        "Exceptional focus on user privacy and data control",
+        "Easy for non-technical users to install and run",
+        "Models are optimized for conversational ability",
+        "No internet or API keys required"
+      ],
+      "cons": [
+        "Model capabilities are limited by local hardware",
+        "Less flexible for developers compared to Ollama or llama.cpp",
+        "Not a framework for training new models from scratch"
+      ],
+      "whySwitch": "Choose GPT4All over OpenChat if you are an end-user wanting a simple, install-and-go private AI chat application. OpenChat is a developer/researcher tool for model creation, while GPT4All is a polished product for model consumption."
+    },
+    {
+      "name": "Mistral AI",
+      "slug": "mistral-ai",
+      "rank": 10,
+      "tagline": "European leader in efficient, open LLMs.",
+      "description": "Mistral AI is a prominent European company that develops and releases high-efficiency large language models. Beyond its flagship Mixtral model, it offers a suite of models (like Mistral 7B) and provides a developer platform with APIs for easy access. Mistral's philosophy balances top-tier performance with practical efficiency and a strong commitment to open-source releases. Their models are known for robust multilingual capabilities and strong reasoning, backed by a commercial platform that simplifies deployment for businesses.",
+      "pricing": "Freemium. Open-source models (Mistral 7B, Mixtral 8x7B) are free. The Mistral AI platform API for larger models (like Mistral Large) operates on a pay-per-use token basis.",
+      "bestFor": "European businesses and developers seeking a blend of open-source models for customization and a reliable commercial API platform for scalable deployment.",
+      "keyFeatures": [
+        "Suite of efficient, high-performance open-source models",
+        "Commercial API platform (Mistral Platform) for larger models",
+        "Strong multilingual and reasoning capabilities",
+        "Developer-friendly tools and documentation"
+      ],
+      "pros": [
+        "Commitment to open-source with commercially viable models",
+        "Models are highly efficient (good performance-to-cost ratio)",
+        "Growing ecosystem and strong industry backing",
+        "Clear path from open-source experimentation to commercial scale"
+      ],
+      "cons": [
+        "The most powerful models (via API) are not open-source",
+        "As a company/platform, it's newer than giants like Google or OpenAI",
+        "OpenChat is a framework; Mistral provides models and an API service"
+      ],
+      "whySwitch": "Choose Mistral AI if you want access to a family of excellent, efficient base models (which you could fine-tune with OpenChat) or if you need a managed API service from a provider specializing in performant, open-weight models."
+    }
+  ],
+  "comparisonTable": {
+    "criteria": [
+      "Pricing",
+      "Features",
+      "Ease of Use",
+      "Support",
+      "Integration"
+    ],
+    "scores": {
+      "OpenChat": [
+        10,
+        8,
+        6,
+        7,
+        7
+      ],
+      "Ollama": [
+        10,
+        7,
+        9,
+        8,
+        9
+      ],
+      "llama.cpp": [
+        10,
+        8,
+        5,
+        8,
+        8
+      ],
+      "Chainlit": [
+        10,
+        9,
+        9,
+        8,
+        9
+      ],
+      "Jan": [
+        10,
+        7,
+        10,
+        7,
+        5
+      ],
+      "Mixtral 8x7B": [
+        10,
+        9,
+        7,
+        8,
+        8
+      ],
+      "Google PaLM 2": [
+        6,
+        10,
+        9,
+        10,
+        9
+      ],
+      "Text Generation WebUI": [
+        10,
+        10,
+        7,
+        8,
+        7
+      ],
+      "Falcon LLM": [
+        10,
+        9,
+        7,
+        7,
+        8
+      ],
+      "GPT4All": [
+        10,
+        7,
+        10,
+        7,
+        5
+      ],
+      "Mistral AI": [
+        7,
+        9,
+        8,
+        8,
+        9
+      ]
+    }
+  },
+  "howToChoose": {
+    "title": "How to Choose the Right OpenChat Alternative",
+    "factors": [
+      {
+        "name": "Core Objective: Training vs. Deployment vs. Interface",
+        "description": "This is the most critical factor. OpenChat is a training/fine-tuning framework. If you need to train custom models, seek alternatives like specialized research codebases. If you need to run models locally, choose Ollama or llama.cpp. If you need a chat UI, choose Chainlit or Jan. Confusing these categories will lead to the wrong tool."
+      },
+      {
+        "name": "Deployment Environment & Privacy",
+        "description": "Determine where your model must run. For 100% offline, private inference on a laptop, tools like Jan, GPT4All, or Ollama are ideal. For cloud deployment with scalability, a managed API like Google PaLM 2 or Mistral AI's platform is better. For embedding in a custom server application, llama.cpp or the transformers library are key."
+      },
+      {
+        "name": "Technical Expertise & Resources",
+        "description": "Consider your team's skills and hardware. End-user tools like Jan are click-and-go. Ollama offers a great balance of simplicity and power for developers. llama.cpp offers maximum performance but requires more technical tuning. OpenChat itself requires ML engineering knowledge. Also, assess if you have GPUs for training/large inference or are limited to CPUs."
+      },
+      {
+        "name": "Licensing and Cost Structure",
+        "description": "For commercial products, the model's license is paramount. Open-source models with permissive licenses like Apache 2.0 (Falcon, many Mistral models) are safest. Also, project total cost: open-source tools have zero licensing fees but compute costs; cloud APIs have predictable per-use costs but no infrastructure management."
+      }
+    ]
+  },
+  "verdict": "The 'best' OpenChat alternative is entirely dependent on your specific use case, as these tools serve fundamentally different purposes within the AI stack.\n\nFor AI Researchers and ML Engineers focused on advancing fine-tuning methodologies, OpenChat remains an excellent choice. However, if you need a different base model to work with, consider using OpenChat's framework to fine-tune a state-of-the-art base model like Mixtral 8x7B or Falcon LLM. They are not alternatives but complementary components.\n\nFor Developers Building Applications who need to quickly integrate LLMs, Ollama is the top recommendation for local development, offering an unbeatable blend of simplicity and power. For creating a production chat interface, Chainlit is the superior tool to build upon your LLM backend.\n\nFor End-Users and Professionals seeking a private, offline AI assistant, Jan and GPT4All are the leading choices. Jan offers a more polished general-purpose experience, while GPT4All has a strong community around specialized models.\n\nFor Enterprises needing scalable, managed APIs with top-tier reasoning and coding capabilities, Google PaLM 2 via Vertex AI is a robust, supported choice. For those preferring open-weight models with a commercial service, the Mistral AI platform is a compelling option.\n\nIn essence, view OpenChat as a specialized tool in the model creation layer. Your alternative should be selected from the deployment layer (Ollama, llama.cpp), the application layer (Chainlit, Jan), or the model provider layer (Mistral AI, Google). By clearly defining whether you are creating, serving, or using AI models, you can navigate this landscape effectively.",
+  "faqs": [
+    {
+      "question": "Is Ollama better than OpenChat?",
+      "answer": "Not 'better,' but different. Ollama is better for running and serving pre-trained models locally with minimal hassle. OpenChat is better for the specific task of fine-tuning and training new models using its C-RLHF methodology. They solve different problems: Ollama is for deployment, OpenChat is for research and development."
+    },
+    {
+      "question": "What is the cheapest alternative to OpenChat?",
+      "answer": "All the open-source alternatives listed (Ollama, llama.cpp, Chainlit, Jan, Mixtral 8x7B, Text Generation WebUI, Falcon, GPT4All) have $0 licensing costs, making them extremely cheap. The 'cost' shifts to your own compute resources (electricity, hardware). For cloud-based alternatives like Google PaLM 2, cost is based on usage (tokens), which can be very low for small-scale projects but scales with use."
+    },
+    {
+      "question": "What is the best free alternative for a complete beginner?",
+      "answer": "For a complete beginner who just wants to try a local AI chat assistant, Jan or GPT4All are the best free alternatives. They provide a simple, downloadable desktop application similar to ChatGPT, require no coding or command-line knowledge, and run completely offline. They abstract away all the complexity of models and frameworks."
+    }
+  ]
+}
