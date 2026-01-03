@@ -5,6 +5,7 @@ import { analytics } from '../utils/analytics';
 import { FAQSchema, VisualFAQ } from '../components/FAQSchema';
 import { SocialMetaTags } from '../components/SocialMetaTags';
 import { StructuredData, createItemListSchema, createWebsiteSchema, createOrganizationSchema, createDatasetSchema } from '../components/StructuredData';
+import { CategoryMegaMenu } from '../components/CategoryMegaMenu';
 
 // Category icon mapping
 const categoryIcons: Record<string, string> = {
@@ -203,92 +204,12 @@ function Home() {
         </div>
       </div>
 
-      {/* Visual Category Grid - Immediately accessible */}
-      <div className="container" style={{ marginBottom: '60px' }}>
+      {/* Category Mega Menu - Organized Dropdown */}
+      <div className="container" style={{ marginBottom: '60px', textAlign: 'center' }}>
         <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900', textAlign: 'center' }}>
           Browse by Category
         </h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: '20px',
-          marginBottom: '20px'
-        }}>
-          {categories.slice(0, 12).map((category) => (
-            <button
-              key={category.slug}
-              onClick={() => navigate(`/category/${category.slug}`)}
-              aria-label={`Browse ${category.name} category with ${category.count} tools`}
-              style={{
-                border: '4px solid #000',
-                padding: '24px',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                background: '#fff',
-                textAlign: 'center',
-                width: '100%'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  navigate(`/category/${category.slug}`);
-                }
-              }}
-            >
-              <div style={{ fontSize: '48px', marginBottom: '12px' }} aria-hidden="true">
-                {categoryIcons[category.slug] || '⚡'}
-              </div>
-              <h3 style={{
-                fontSize: '18px',
-                fontWeight: '900',
-                marginBottom: '8px',
-                textTransform: 'uppercase',
-                fontFamily: "'Courier New', monospace"
-              }}>
-                {category.name}
-              </h3>
-              <div style={{
-                fontSize: '14px',
-                fontWeight: '700',
-                color: '#666',
-                fontFamily: "'Courier New', monospace"
-              }}>
-                {category.count} tools
-              </div>
-            </button>
-          ))}
-        </div>
-        {categories.length > 12 && (
-          <div style={{ textAlign: 'center', marginTop: '20px' }}>
-            <button
-              onClick={() => {
-                const el = document.getElementById('all-categories');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-              style={{
-                padding: '14px 28px',
-                background: '#000',
-                color: '#fff',
-                border: '4px solid #000',
-                fontFamily: "'Courier New', monospace",
-                fontWeight: '900',
-                fontSize: '14px',
-                textTransform: 'uppercase',
-                cursor: 'pointer'
-              }}
-            >
-              View All {categories.length} Categories →
-            </button>
-          </div>
-        )}
+        <CategoryMegaMenu categories={categories} />
       </div>
 
       {/* Featured Platforms Section */}
