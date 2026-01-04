@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. Cogniflow
+## 1. Viable
 
-**Category:** no-code
-**Website:** https://cogniflow.ai
-**Pricing Model:** freemium
+**Category:** customer-intelligence
+**Website:** https://www.askviable.com
+**Pricing Model:** paid
 
 **Description:**
-No-code AI platform for creating custom computer vision and NLP models without coding. Enables users to train AI models using their own data through drag-and-drop interface, with deployment to edge devices or cloud. Targets business users needing custom AI solutions.
+AI-powered qualitative data analysis platform that automatically analyzes customer feedback, reviews, and support tickets to provide actionable insights. Uses advanced NLP to identify themes, sentiment, and trends from unstructured data.
 
 **💵 Affiliate Program Details:**
-20% recurring commission via PartnerStack, 90-day cookie, enterprise plan referrals earn higher commissions, affiliate training materials provided
+Partner program with revenue sharing, enterprise referral bonuses, co-marketing opportunities, dedicated partner portal, sales enablement resources
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ No-code AI platform for creating custom computer vision and NLP models without c
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Cogniflow** - https://cogniflow.ai
+1. [ ] **Viable** - https://www.askviable.com
