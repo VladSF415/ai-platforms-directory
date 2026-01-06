@@ -1,42 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2026-01-03
-Total Opportunities: 2
+Generated: 2026-01-05
+Total Opportunities: 1
 
 ---
 
-## 1. RenderAI
+## 1. Humanloop
 
-**Category:** 3d-ai
-**Website:** https://renderai.com
+**Category:** llm-ops
+**Website:** https://humanloop.com
 **Pricing Model:** paid
 
 **Description:**
-3D asset generation and scene creation platform using generative AI to produce high-quality 3D models, textures, and environments for game developers, architects, and product designers. Supports export to major 3D formats and real-time rendering.
+Platform for building and deploying reliable AI applications with tools for prompt engineering, model evaluation, and production monitoring. Focuses on making AI applications more predictable and maintainable in production environments.
 
 **💵 Affiliate Program Details:**
-40% commission on first payment via Commission Junction, 30-day cookie, $25 minimum payout, bonus tiers up to 50% for top performers, open enrollment
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 2. Cortex Search
-
-**Category:** ai-search
-**Website:** https://cortexsearch.ai
-**Pricing Model:** enterprise
-
-**Description:**
-AI-powered enterprise search platform that connects to all company data sources (Google Drive, Slack, Notion, etc.) to provide intelligent answers and insights. Uses RAG architecture with permission-aware results and citation generation.
-
-**💵 Affiliate Program Details:**
-$500-5000 referral bonuses via direct partner program, enterprise deals 10-15% of first year contract, dedicated partner portal, requires business partnership application
+Partner program with tiered commissions (20-30%), 90-day cookie, revenue sharing model, managed through direct partnerships, targets system integrators and agencies
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -50,5 +29,4 @@ $500-5000 referral bonuses via direct partner program, enterprise deals 10-15% o
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **RenderAI** - https://renderai.com
-2. [ ] **Cortex Search** - https://cortexsearch.ai
+1. [ ] **Humanloop** - https://humanloop.com
