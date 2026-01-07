@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './MegaMenu.css';
 import {
   Category,
-  CategorySection,
   CATEGORY_SECTIONS,
   organizeCategories,
   getFeaturedCategories

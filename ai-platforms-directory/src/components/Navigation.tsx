@@ -87,26 +87,6 @@ export default function Navigation() {
     setIsResourcesOpen(false);
   };
 
-  const scrollToCategories = () => {
-    closeMenu();
-    // If already on home page, just scroll
-    if (window.location.pathname === '/') {
-      const el = document.getElementById('all-categories');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    } else {
-      // Navigate to home then scroll
-      navigate('/');
-      setTimeout(() => {
-        const el = document.getElementById('all-categories');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-    }
-  };
-
   return (
     <nav className={`main-nav ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
