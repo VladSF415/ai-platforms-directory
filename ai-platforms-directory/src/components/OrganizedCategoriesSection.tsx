@@ -23,6 +23,9 @@ export default function OrganizedCategoriesSection({ categories }: OrganizedCate
         {CATEGORY_SECTIONS.map((section) => {
           const sectionCategories = organized.get(section.id) || [];
 
+          // Skip "other" section - too many uncategorized categories (creates visual clutter)
+          if (section.id === 'other') return null;
+
           // Skip sections with no categories
           if (sectionCategories.length === 0) return null;
 
