@@ -1,4 +1,4 @@
-// Force Railway redeploy - 2025-12-13T16:47:00Z
+// Force Railway redeploy - 2026-01-07T18:59:00Z - Fix guide pages pillar content loading
 import Fastify from 'fastify';
 import { readFileSync, readdirSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
