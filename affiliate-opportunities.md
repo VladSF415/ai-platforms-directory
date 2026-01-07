@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2026-01-05
+Generated: 2026-01-07
 Total Opportunities: 1
 
 ---
 
-## 1. Humanloop
+## 1. Neuron
 
-**Category:** llm-ops
-**Website:** https://humanloop.com
-**Pricing Model:** paid
+**Category:** agent-platforms
+**Website:** https://neuron.ai
+**Pricing Model:** enterprise
 
 **Description:**
-Platform for building and deploying reliable AI applications with tools for prompt engineering, model evaluation, and production monitoring. Focuses on making AI applications more predictable and maintainable in production environments.
+AI agent platform that enables businesses to deploy autonomous AI agents for complex workflow automation. It combines multiple AI models with custom logic to handle end-to-end business processes without human intervention. Designed for operations teams, IT departments, and digital transformation leaders.
 
 **💵 Affiliate Program Details:**
-Partner program with tiered commissions (20-30%), 90-day cookie, revenue sharing model, managed through direct partnerships, targets system integrators and agencies
+10-20% commission based on deal size via direct partner program, $5000 minimum deal for commission, dedicated partner portal with sales enablement, requires enterprise sales experience
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Partner program with tiered commissions (20-30%), 90-day cookie, revenue sharing
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Humanloop** - https://humanloop.com
+1. [ ] **Neuron** - https://neuron.ai
