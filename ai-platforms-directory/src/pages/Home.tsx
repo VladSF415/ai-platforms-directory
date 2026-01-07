@@ -164,7 +164,7 @@ function Home() {
 
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="homepage-container">
+        <div className="container">
           <div className="hero-content">
             <h1 className="hero-title">
               AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Platforms (2026)
@@ -189,7 +189,7 @@ function Home() {
       {/* Featured Platforms Section */}
       {featuredPlatforms.length > 0 && (
         <section className="featured-section">
-          <div className="homepage-container">
+          <div className="container">
             <div className="section-header">
               <h2 className="section-title">
                 ⭐ Featured AI Tools
@@ -262,7 +262,7 @@ function Home() {
       {/* Recently Added Section */}
       {recentPlatforms.length > 0 && (
         <section className="recent-section">
-          <div className="homepage-container">
+          <div className="container">
             <div className="section-header">
               <h2 className="section-title">
                 🆕 Recently Added
@@ -336,7 +336,7 @@ function Home() {
 
       {/* Featured Resources Section */}
       <section className="resources-section">
-        <div className="homepage-container">
+        <div className="container">
           <div className="section-header">
             <h2 className="section-title">
               📚 Featured Resources & Guides
@@ -426,7 +426,7 @@ function Home() {
 
       {/* Condensed SEO Content Section */}
       <section className="content-section">
-        <div className="homepage-container">
+        <div className="container">
           <div className="content-block">
             <h2 className="content-title">What is an AI Platform Directory?</h2>
             <p className="content-text">
@@ -522,7 +522,7 @@ function Home() {
 
       {/* All Platforms Section */}
       <section className="search-results-section">
-        <div className="homepage-container" ref={resultsRef} id="all-categories">
+        <div className="container" ref={resultsRef} id="all-categories">
         {search ? (
           <div className="search-header">
             <h2 className="search-title">

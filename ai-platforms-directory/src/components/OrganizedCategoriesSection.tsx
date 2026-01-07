@@ -12,7 +12,7 @@ export default function OrganizedCategoriesSection({ categories }: OrganizedCate
 
   return (
     <div className="organized-categories-section">
-      <div className="organized-categories-container">
+      <div className="container">
         <h2 className="organized-categories-title">
           Browse AI Tools by Category
         </h2>
