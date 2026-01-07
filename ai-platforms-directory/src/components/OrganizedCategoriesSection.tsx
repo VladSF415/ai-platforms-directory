@@ -12,14 +12,15 @@ export default function OrganizedCategoriesSection({ categories }: OrganizedCate
 
   return (
     <div className="organized-categories-section">
-      <h2 className="organized-categories-title">
-        Browse AI Tools by Category
-      </h2>
-      <p className="organized-categories-subtitle">
-        {categories.length}+ categories organized by type - find exactly what you need
-      </p>
+      <div className="organized-categories-container">
+        <h2 className="organized-categories-title">
+          Browse AI Tools by Category
+        </h2>
+        <p className="organized-categories-subtitle">
+          {categories.length}+ categories organized by type - find exactly what you need
+        </p>
 
-      <div className="organized-categories-grid">
+        <div className="organized-categories-grid">
         {CATEGORY_SECTIONS.map((section) => {
           const sectionCategories = organized.get(section.id) || [];
 
@@ -74,6 +75,7 @@ export default function OrganizedCategoriesSection({ categories }: OrganizedCate
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );

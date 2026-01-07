@@ -7,6 +7,7 @@ import { SocialMetaTags } from '../components/SocialMetaTags';
 import { StructuredData, createItemListSchema, createWebsiteSchema, createOrganizationSchema, createDatasetSchema } from '../components/StructuredData';
 import OrganizedCategoriesSection from '../components/OrganizedCategoriesSection';
 import type { Category as OrgCategory } from '../utils/category-organization';
+import '../styles/HomePage.css';
 
 function Home() {
   const navigate = useNavigate();
@@ -162,37 +163,41 @@ function Home() {
       <StructuredData data={createDatasetSchema(totalPlatforms)} />
 
       {/* Hero Section */}
-      <div className="container" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '20px', letterSpacing: '-1px', color: '#000000', lineHeight: '1.2' }}>
-            AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Platforms (2026)
-          </h1>
-          <p style={{ fontSize: '1.1rem', fontWeight: '700', maxWidth: '900px', margin: '0 auto 15px', color: '#000000', lineHeight: '1.6' }}>
-            THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,
-            PRICING, AND REVIEWS ACROSS {categories.length}+ CATEGORIES.
-          </p>
-          <div style={{ fontSize: '0.9rem', color: '#666', marginBottom: '30px', fontWeight: '600' }}>
-            🔄 Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+      <section className="hero-section">
+        <div className="homepage-container">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Platforms (2026)
+            </h1>
+            <p className="hero-description">
+              THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,
+              PRICING, AND REVIEWS ACROSS {categories.length}+ CATEGORIES.
+            </p>
+            <div className="hero-update">
+              🔄 Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </div>
+            <a href="/submit" className="hero-cta">
+              SUBMIT YOUR AI TOOL
+            </a>
           </div>
-          <a href="/submit" className="submit-btn">
-            SUBMIT YOUR AI TOOL
-          </a>
         </div>
-      </div>
+      </section>
 
       {/* Organized Categories Section - Visible Organization */}
       <OrganizedCategoriesSection categories={categories as OrgCategory[]} />
 
       {/* Featured Platforms Section */}
       {featuredPlatforms.length > 0 && (
-        <div style={{ background: '#f5f5f5', padding: '60px 0', marginBottom: '60px' }}>
-          <div className="container">
-            <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
-              ⭐ Featured AI Tools
-            </h2>
-            <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
-              Top-rated platforms trusted by thousands of users
-            </p>
+        <section className="featured-section">
+          <div className="homepage-container">
+            <div className="section-header">
+              <h2 className="section-title">
+                ⭐ Featured AI Tools
+              </h2>
+              <p className="section-subtitle">
+                Top-rated platforms trusted by thousands of users
+              </p>
+            </div>
 
             <div className="platforms-grid">
               {featuredPlatforms.map((platform) => (
@@ -251,20 +256,23 @@ function Home() {
               ))}
             </div>
           </div>
-        </div>
+        </section>
       )}
 
       {/* Recently Added Section */}
       {recentPlatforms.length > 0 && (
-        <div className="container" style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
-            🆕 Recently Added
-          </h2>
-          <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
-            Discover the latest AI tools added to our directory
-          </p>
+        <section className="recent-section">
+          <div className="homepage-container">
+            <div className="section-header">
+              <h2 className="section-title">
+                🆕 Recently Added
+              </h2>
+              <p className="section-subtitle">
+                Discover the latest AI tools added to our directory
+              </p>
+            </div>
 
-          <div className="platforms-grid">
+            <div className="platforms-grid">
             {recentPlatforms.map((platform) => (
               <Link
                 key={platform.id}
@@ -323,6 +331,7 @@ function Home() {
             ))}
           </div>
         </div>
+        </section>
       )}
 
       {/* Featured Resources Section */}
