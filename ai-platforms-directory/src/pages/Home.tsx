@@ -846,29 +846,34 @@ function Home() {
           </h2>
         )}
 
-        <div className="filters">
-          <button
-            className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('all')}
-          >
-            All Categories
-          </button>
-          {categories.map((cat) => (
+        {/* Filters - Only show when searching or filtering */}
+        {(search || selectedCategory !== 'all' || showFeatured) && (
+          <div className="filters" style={{ marginBottom: '30px' }}>
             <button
-              key={cat.slug}
-              className={`filter-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
-              onClick={() => setSelectedCategory(cat.slug)}
+              className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
+              onClick={() => {
+                setSelectedCategory('all');
+                setShowFeatured(false);
+              }}
             >
-              {cat.name} ({cat.count})
+              All Categories
             </button>
-          ))}
-          <button
-            className={`filter-btn ${showFeatured ? 'active' : ''}`}
-            onClick={() => setShowFeatured(!showFeatured)}
-          >
-            ⭐ Featured
-          </button>
-        </div>
+            <button
+              className={`filter-btn ${showFeatured ? 'active' : ''}`}
+              onClick={() => setShowFeatured(!showFeatured)}
+            >
+              ⭐ Featured Only
+            </button>
+            {selectedCategory !== 'all' && (
+              <button
+                className="filter-btn active"
+                style={{ background: '#ffff00', borderColor: '#000' }}
+              >
+                {categories.find(c => c.slug === selectedCategory)?.name || selectedCategory}
+              </button>
+            )}
+          </div>
+        )}
 
         {loading ? (
           <div className="loading">Loading amazing AI tools...</div>
