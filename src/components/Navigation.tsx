@@ -144,28 +144,13 @@ export default function Navigation() {
           <li>
             <Link to="/" onClick={closeMenu}>Home</Link>
           </li>
-          <li style={{ position: 'relative' }}>
+          <li className="nav-dropdown">
             <button
               onClick={toggleCategories}
               className="nav-dropdown-trigger"
               aria-expanded={isCategoriesOpen}
               aria-haspopup="true"
               aria-label="Browse categories menu"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '10px 18px',
-                color: 'white',
-                background: 'none',
-                border: '3px solid transparent',
-                cursor: 'pointer',
-                fontWeight: 900,
-                fontSize: '13px',
-                fontFamily: "'Courier New', 'Courier', monospace",
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-              }}
             >
               Categories
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -173,112 +158,37 @@ export default function Navigation() {
               </svg>
             </button>
             {isCategoriesOpen && (
-              <div style={{
-                position: 'absolute',
-                top: 'calc(100% + 12px)',
-                right: 0,
-                background: '#ffffff',
-                border: '6px solid #000000',
-                padding: '20px',
-                minWidth: '700px',
-                zIndex: 1000
-              }}>
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '8px',
-                  marginBottom: '12px'
-                }}>
+              <div className="nav-dropdown-menu">
+                <div className="nav-dropdown-grid">
                   {categories.map((category) => (
                     <Link
                       key={category.slug}
                       to={`/category/${category.slug}`}
                       onClick={closeMenu}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        padding: '14px 18px',
-                        background: '#000000',
-                        color: '#ffffff',
-                        textDecoration: 'none',
-                        border: '4px solid #000000',
-                        fontFamily: "'Courier New', 'Courier', monospace",
-                        fontWeight: 900,
-                        textTransform: 'uppercase',
-                        fontSize: '14px',
-                        letterSpacing: '1px'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = '#ffffff';
-                        e.currentTarget.style.color = '#000000';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = '#000000';
-                        e.currentTarget.style.color = '#ffffff';
-                      }}
+                      className="nav-dropdown-item"
                     >
-                      <span>{category.name}</span>
-                      <span style={{ fontWeight: 900 }}>{category.count}</span>
+                      <span className="category-name">{category.name}</span>
+                      <span className="category-count">{category.count}</span>
                     </Link>
                   ))}
                 </div>
                 <button
                   onClick={scrollToCategories}
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    textAlign: 'center',
-                    padding: '16px',
-                    borderTop: '4px solid #000000',
-                    borderLeft: 'none',
-                    borderRight: 'none',
-                    borderBottom: 'none',
-                    background: 'transparent',
-                    color: '#000000',
-                    fontWeight: 900,
-                    fontSize: '14px',
-                    fontFamily: "'Courier New', 'Courier', monospace",
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    cursor: 'pointer'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#000000';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'transparent';
-                    e.currentTarget.style.color = '#000000';
-                  }}
+                  className="nav-dropdown-all"
+                  type="button"
                 >
                   View All Categories →
                 </button>
               </div>
             )}
           </li>
-          <li style={{ position: 'relative' }}>
+          <li className="nav-dropdown">
             <button
               onClick={toggleResources}
               className="nav-dropdown-trigger"
               aria-expanded={isResourcesOpen}
               aria-haspopup="true"
               aria-label="Resources menu"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '10px 18px',
-                color: 'white',
-                background: 'none',
-                border: '3px solid transparent',
-                cursor: 'pointer',
-                fontWeight: 900,
-                fontSize: '13px',
-                fontFamily: "'Courier New', 'Courier', monospace",
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-              }}
             >
               Resources
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -286,152 +196,43 @@ export default function Navigation() {
               </svg>
             </button>
             {isResourcesOpen && (
-              <div style={{
-                position: 'absolute',
-                top: 'calc(100% + 12px)',
-                right: 0,
-                background: '#ffffff',
-                border: '6px solid #000000',
-                padding: '20px',
-                minWidth: '400px',
-                zIndex: 1000
-              }}>
+              <div className="nav-dropdown-menu" style={{ minWidth: '400px' }}>
                 <Link
                   to="/how-to-choose-ai-platforms"
                   onClick={closeMenu}
-                  style={{
-                    display: 'block',
-                    padding: '14px 18px',
-                    background: '#000000',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    border: '4px solid #000000',
-                    fontFamily: "'Courier New', 'Courier', monospace",
-                    fontWeight: 900,
-                    textTransform: 'uppercase',
-                    fontSize: '13px',
-                    letterSpacing: '1px',
-                    marginBottom: '8px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#ffffff';
-                    e.currentTarget.style.color = '#000000';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#000000';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
+                  className="nav-dropdown-item"
+                  style={{ marginBottom: '8px' }}
                 >
                   🎯 How to Choose AI Platforms
                 </Link>
                 <Link
                   to="/machine-learning-tools-directory"
                   onClick={closeMenu}
-                  style={{
-                    display: 'block',
-                    padding: '14px 18px',
-                    background: '#000000',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    border: '4px solid #000000',
-                    fontFamily: "'Courier New', 'Courier', monospace",
-                    fontWeight: 900,
-                    textTransform: 'uppercase',
-                    fontSize: '13px',
-                    letterSpacing: '1px',
-                    marginBottom: '8px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#ffffff';
-                    e.currentTarget.style.color = '#000000';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#000000';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
+                  className="nav-dropdown-item"
+                  style={{ marginBottom: '8px' }}
                 >
                   🤖 ML Tools Directory
                 </Link>
                 <Link
                   to="/natural-language-processing-tools"
                   onClick={closeMenu}
-                  style={{
-                    display: 'block',
-                    padding: '14px 18px',
-                    background: '#000000',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    border: '4px solid #000000',
-                    fontFamily: "'Courier New', 'Courier', monospace",
-                    fontWeight: 900,
-                    textTransform: 'uppercase',
-                    fontSize: '13px',
-                    letterSpacing: '1px',
-                    marginBottom: '8px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#ffffff';
-                    e.currentTarget.style.color = '#000000';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#000000';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
+                  className="nav-dropdown-item"
+                  style={{ marginBottom: '8px' }}
                 >
                   📝 NLP Tools
                 </Link>
                 <Link
                   to="/computer-vision-platforms"
                   onClick={closeMenu}
-                  style={{
-                    display: 'block',
-                    padding: '14px 18px',
-                    background: '#000000',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    border: '4px solid #000000',
-                    fontFamily: "'Courier New', 'Courier', monospace",
-                    fontWeight: 900,
-                    textTransform: 'uppercase',
-                    fontSize: '13px',
-                    letterSpacing: '1px',
-                    marginBottom: '8px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#ffffff';
-                    e.currentTarget.style.color = '#000000';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#000000';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
+                  className="nav-dropdown-item"
+                  style={{ marginBottom: '8px' }}
                 >
                   👁️ Computer Vision Platforms
                 </Link>
                 <Link
                   to="/enterprise-ai-solutions"
                   onClick={closeMenu}
-                  style={{
-                    display: 'block',
-                    padding: '14px 18px',
-                    background: '#000000',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    border: '4px solid #000000',
-                    fontFamily: "'Courier New', 'Courier', monospace",
-                    fontWeight: 900,
-                    textTransform: 'uppercase',
-                    fontSize: '13px',
-                    letterSpacing: '1px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#ffffff';
-                    e.currentTarget.style.color = '#000000';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#000000';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
+                  className="nav-dropdown-item"
                 >
                   🏢 Enterprise AI Solutions
                 </Link>
@@ -486,7 +287,7 @@ export default function Navigation() {
             <li>
               <Link to="/" onClick={closeMenu}>Home</Link>
             </li>
-            <li className="mobile-dropdown">
+            <li className={`mobile-dropdown ${isCategoriesOpen ? 'active' : ''}`}>
               <button
                 onClick={toggleCategories}
                 className="mobile-dropdown-trigger"
@@ -500,56 +301,25 @@ export default function Navigation() {
                 </svg>
               </button>
               {isCategoriesOpen && (
-                <div style={{ padding: '12px 0' }}>
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(2, 1fr)',
-                    gap: '8px',
-                    marginBottom: '12px'
-                  }}>
+                <div className="mobile-dropdown-content">
+                  <div className="nav-dropdown-grid" style={{ gridTemplateColumns: '1fr' }}>
                     {categories.map((category) => (
                       <Link
                         key={category.slug}
                         to={`/category/${category.slug}`}
                         onClick={closeMenu}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          padding: '10px 12px',
-                          background: '#000000',
-                          color: '#ffffff',
-                          textDecoration: 'none',
-                          border: '3px solid #000000',
-                          fontFamily: "'Courier New', 'Courier', monospace",
-                          fontWeight: 900,
-                          textTransform: 'uppercase',
-                          fontSize: '11px',
-                          letterSpacing: '0.5px'
-                        }}
+                        className="nav-dropdown-item"
+                        style={{ fontSize: '11px', padding: '10px' }}
                       >
                         <span>{category.name}</span>
-                        <span style={{ fontWeight: 900, fontSize: '10px' }}>{category.count}</span>
+                        <span style={{ fontSize: '10px' }}>{category.count}</span>
                       </Link>
                     ))}
                   </div>
                   <button
                     onClick={scrollToCategories}
-                    style={{
-                      display: 'block',
-                      width: '100%',
-                      textAlign: 'center',
-                      padding: '12px 18px',
-                      background: '#000000',
-                      color: '#ffffff',
-                      border: '4px solid #000000',
-                      fontFamily: "'Courier New', 'Courier', monospace",
-                      fontWeight: 900,
-                      textTransform: 'uppercase',
-                      fontSize: '13px',
-                      letterSpacing: '1px',
-                      cursor: 'pointer'
-                    }}
+                    className="nav-dropdown-all"
+                    style={{ background: 'transparent', border: '4px solid #000' }}
                   >
                     View All Categories →
                   </button>

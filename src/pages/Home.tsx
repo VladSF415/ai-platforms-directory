@@ -119,8 +119,6 @@ function Home() {
     }
   };
 
-  // Platform click now handled by Link components
-
   // Condensed FAQ data
   const faqs = [
     {
@@ -142,7 +140,7 @@ function Home() {
   ];
 
   return (
-    <div>
+    <div className="app-container">
       {/* Social Meta Tags for sharing */}
       <SocialMetaTags
         title="AI Platforms Directory - Discover 1000+ AI Tools & Software (2026)"
@@ -161,16 +159,16 @@ function Home() {
       <StructuredData data={createDatasetSchema(totalPlatforms)} />
 
       {/* Hero Section */}
-      <div className="container" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h1 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '20px', letterSpacing: '-1px', color: '#000000', lineHeight: '1.2' }}>
+      <div className="hero-section">
+        <div className="container">
+          <h1 className="hero-title">
             AI Platforms Directory - Discover {totalPlatforms}+ AI Tools & Platforms (2026)
           </h1>
-          <p style={{ fontSize: '1.1rem', fontWeight: '700', maxWidth: '900px', margin: '0 auto 15px', color: '#000000', lineHeight: '1.6' }}>
+          <p className="hero-subtitle">
             THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,
             PRICING, AND REVIEWS ACROSS {categories.length}+ CATEGORIES.
           </p>
-          <div style={{ fontSize: '0.9rem', color: '#666', marginBottom: '30px', fontWeight: '600' }}>
+          <div className="last-updated">
             🔄 Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
           </div>
           <a href="/submit" className="submit-btn">
@@ -179,24 +177,28 @@ function Home() {
         </div>
       </div>
 
-      {/* Category Mega Menu - Organized Dropdown */}
-      <div className="container" style={{ marginBottom: '60px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900', textAlign: 'center' }}>
-          Browse by Category
-        </h2>
+      {/* Category Mega Menu */}
+      <div className="section container">
+        <div className="section-header">
+          <h2 className="section-title">
+            Browse by Category
+          </h2>
+        </div>
         <CategoryMegaMenu categories={categories} />
       </div>
 
       {/* Featured Platforms Section */}
       {featuredPlatforms.length > 0 && (
-        <div style={{ background: '#f5f5f5', padding: '60px 0', marginBottom: '60px' }}>
+        <div className="section-gray">
           <div className="container">
-            <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
-              ⭐ Featured AI Tools
-            </h2>
-            <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
-              Top-rated platforms trusted by thousands of users
-            </p>
+            <div className="section-header">
+              <h2 className="section-title">
+                ⭐ Featured AI Tools
+              </h2>
+              <p className="section-subtitle">
+                Top-rated platforms trusted by thousands of users
+              </p>
+            </div>
 
             <div className="platforms-grid">
               {featuredPlatforms.map((platform) => (
@@ -204,7 +206,6 @@ function Home() {
                   key={platform.id}
                   to={`/platform/${platform.slug || platform.id}`}
                   className="platform-card"
-                  style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
                   onClick={() => {
                     window.scrollTo(0, 0);
                     analytics.viewPlatform(platform.name, platform.id);
@@ -260,13 +261,15 @@ function Home() {
 
       {/* Recently Added Section */}
       {recentPlatforms.length > 0 && (
-        <div className="container" style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
-            🆕 Recently Added
-          </h2>
-          <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
-            Discover the latest AI tools added to our directory
-          </p>
+        <div className="container section">
+          <div className="section-header">
+            <h2 className="section-title">
+              🆕 Recently Added
+            </h2>
+            <p className="section-subtitle">
+              Discover the latest AI tools added to our directory
+            </p>
+          </div>
 
           <div className="platforms-grid">
             {recentPlatforms.map((platform) => (
@@ -274,7 +277,6 @@ function Home() {
                 key={platform.id}
                 to={`/platform/${platform.slug || platform.id}`}
                 className="platform-card"
-                style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
                 onClick={() => {
                   window.scrollTo(0, 0);
                   analytics.viewPlatform(platform.name, platform.id);
@@ -330,89 +332,32 @@ function Home() {
       )}
 
       {/* Featured Resources Section */}
-      <div style={{ background: '#000000', padding: '60px 0', marginBottom: '60px', borderTop: '8px solid #000000', borderBottom: '8px solid #000000' }}>
+      <div className="section-dark">
         <div className="container">
-          <h2 style={{
-            fontSize: '32px',
-            marginBottom: '15px',
-            fontWeight: '900',
-            textAlign: 'center',
-            color: '#ffffff',
-            textTransform: 'uppercase',
-            fontFamily: "'Courier New', monospace",
-            letterSpacing: '-1px'
-          }}>
-            📚 Featured Resources & Guides
-          </h2>
-          <p style={{
-            textAlign: 'center',
-            marginBottom: '40px',
-            fontSize: '18px',
-            color: '#ffffff',
-            fontWeight: '700',
-            textTransform: 'uppercase',
-            fontFamily: "'Courier New', monospace",
-            letterSpacing: '1px'
-          }}>
-            Expert guides to help you choose the perfect AI platform for your needs
-          </p>
+          <div className="section-header">
+            <h2 className="section-title">
+              📚 Featured Resources & Guides
+            </h2>
+            <p className="section-subtitle">
+              Expert guides to help you choose the perfect AI platform for your needs
+            </p>
+          </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '24px'
-          }}>
+          <div className="resources-grid">
             {/* How to Choose AI Platforms */}
             <button
               onClick={() => navigate('/how-to-choose-ai-platforms')}
+              className="resource-card"
               aria-label="Read: How to Choose AI Platforms"
-              style={{
-                border: '4px solid #000',
-                padding: '28px',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                background: '#fff',
-                textAlign: 'left',
-                width: '100%'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
             >
-              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">🎯</div>
-              <h3 style={{
-                fontWeight: '900',
-                marginBottom: '12px',
-                fontSize: '20px',
-                lineHeight: '1.3',
-                fontFamily: "'Courier New', monospace",
-                textTransform: 'uppercase'
-              }}>
+              <div className="resource-icon" aria-hidden="true">🎯</div>
+              <h3 className="resource-title">
                 How to Choose AI Platforms
               </h3>
-              <p style={{
-                fontSize: '15px',
-                lineHeight: '1.6',
-                opacity: 0.8,
-                marginBottom: '18px'
-              }}>
+              <p className="resource-desc">
                 Complete decision framework with interactive quiz to find the perfect AI platform for your needs. Compare {totalPlatforms}+ tools across 12 criteria.
               </p>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                fontSize: '14px',
-                fontWeight: '900',
-                gap: '5px',
-                color: '#000000',
-                textTransform: 'uppercase',
-                fontFamily: "'Courier New', monospace"
-              }}>
+              <div className="resource-link">
                 Take the Quiz →
               </div>
             </button>
@@ -420,54 +365,17 @@ function Home() {
             {/* Machine Learning Tools Directory */}
             <button
               onClick={() => navigate('/machine-learning-tools-directory')}
+              className="resource-card"
               aria-label="Browse: Machine Learning Tools Directory"
-              style={{
-                border: '4px solid #000',
-                padding: '28px',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                background: '#fff',
-                textAlign: 'left',
-                width: '100%'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
             >
-              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">🤖</div>
-              <h3 style={{
-                fontWeight: '900',
-                marginBottom: '12px',
-                fontSize: '20px',
-                lineHeight: '1.3',
-                fontFamily: "'Courier New', monospace",
-                textTransform: 'uppercase'
-              }}>
+              <div className="resource-icon" aria-hidden="true">🤖</div>
+              <h3 className="resource-title">
                 ML Tools Directory
               </h3>
-              <p style={{
-                fontSize: '15px',
-                lineHeight: '1.6',
-                opacity: 0.8,
-                marginBottom: '18px'
-              }}>
+              <p className="resource-desc">
                 Comprehensive directory of machine learning frameworks and platforms. Compare features, pricing, and capabilities side-by-side.
               </p>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                fontSize: '14px',
-                fontWeight: '900',
-                gap: '5px',
-                color: '#000000',
-                textTransform: 'uppercase',
-                fontFamily: "'Courier New', monospace"
-              }}>
+              <div className="resource-link">
                 Compare ML Tools →
               </div>
             </button>
@@ -475,54 +383,17 @@ function Home() {
             {/* Natural Language Processing Tools */}
             <button
               onClick={() => navigate('/natural-language-processing-tools')}
+              className="resource-card"
               aria-label="Explore: Natural Language Processing Tools"
-              style={{
-                border: '4px solid #000',
-                padding: '28px',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                background: '#fff',
-                textAlign: 'left',
-                width: '100%'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
             >
-              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">📝</div>
-              <h3 style={{
-                fontWeight: '900',
-                marginBottom: '12px',
-                fontSize: '20px',
-                lineHeight: '1.3',
-                fontFamily: "'Courier New', monospace",
-                textTransform: 'uppercase'
-              }}>
+              <div className="resource-icon" aria-hidden="true">📝</div>
+              <h3 className="resource-title">
                 NLP Tools & Platforms
               </h3>
-              <p style={{
-                fontSize: '15px',
-                lineHeight: '1.6',
-                opacity: 0.8,
-                marginBottom: '18px'
-              }}>
+              <p className="resource-desc">
                 Discover the best natural language processing tools for text analytics, sentiment analysis, NER, and more. Match by use case.
               </p>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                fontSize: '14px',
-                fontWeight: '900',
-                gap: '5px',
-                color: '#000000',
-                textTransform: 'uppercase',
-                fontFamily: "'Courier New', monospace"
-              }}>
+              <div className="resource-link">
                 Find Your NLP Tool →
               </div>
             </button>
@@ -530,54 +401,17 @@ function Home() {
             {/* Computer Vision Platforms */}
             <button
               onClick={() => navigate('/computer-vision-platforms')}
+              className="resource-card"
               aria-label="Discover: Computer Vision Platforms"
-              style={{
-                border: '4px solid #000',
-                padding: '28px',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                background: '#fff',
-                textAlign: 'left',
-                width: '100%'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
             >
-              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">👁️</div>
-              <h3 style={{
-                fontWeight: '900',
-                marginBottom: '12px',
-                fontSize: '20px',
-                lineHeight: '1.3',
-                fontFamily: "'Courier New', monospace",
-                textTransform: 'uppercase'
-              }}>
+              <div className="resource-icon" aria-hidden="true">👁️</div>
+              <h3 className="resource-title">
                 Computer Vision Platforms
               </h3>
-              <p style={{
-                fontSize: '15px',
-                lineHeight: '1.6',
-                opacity: 0.8,
-                marginBottom: '18px'
-              }}>
+              <p className="resource-desc">
                 Explore computer vision tools for image recognition, object detection, and facial analysis. Calculate ROI for your business.
               </p>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                fontSize: '14px',
-                fontWeight: '900',
-                gap: '5px',
-                color: '#000000',
-                textTransform: 'uppercase',
-                fontFamily: "'Courier New', monospace"
-              }}>
+              <div className="resource-link">
                 Calculate ROI →
               </div>
             </button>
@@ -585,54 +419,17 @@ function Home() {
             {/* Enterprise AI Solutions */}
             <button
               onClick={() => navigate('/enterprise-ai-solutions')}
+              className="resource-card"
               aria-label="Explore: Enterprise AI Solutions"
-              style={{
-                border: '4px solid #000',
-                padding: '28px',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                background: '#fff',
-                textAlign: 'left',
-                width: '100%'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '8px 8px 0 #000';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
             >
-              <div style={{ fontSize: '42px', marginBottom: '12px' }} aria-hidden="true">🏢</div>
-              <h3 style={{
-                fontWeight: '900',
-                marginBottom: '12px',
-                fontSize: '20px',
-                lineHeight: '1.3',
-                fontFamily: "'Courier New', monospace",
-                textTransform: 'uppercase'
-              }}>
+              <div className="resource-icon" aria-hidden="true">🏢</div>
+              <h3 className="resource-title">
                 Enterprise AI Solutions
               </h3>
-              <p style={{
-                fontSize: '15px',
-                lineHeight: '1.6',
-                opacity: 0.8,
-                marginBottom: '18px'
-              }}>
+              <p className="resource-desc">
                 Enterprise-grade AI platforms with focus on security, scalability, and compliance. Assess your organization's readiness.
               </p>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                fontSize: '14px',
-                fontWeight: '900',
-                gap: '5px',
-                color: '#000000',
-                textTransform: 'uppercase',
-                fontFamily: "'Courier New', monospace"
-              }}>
+              <div className="resource-link">
                 Take Assessment →
               </div>
             </button>
@@ -641,9 +438,9 @@ function Home() {
       </div>
 
       {/* Condensed SEO Content Section */}
-      <div className="container seo-content-section" style={{ maxWidth: '1200px', margin: '60px auto', padding: '0 20px' }}>
+      <div className="container section">
         <section style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
+          <h2 className="section-title">
             What is an AI Platform Directory?
           </h2>
           <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px' }}>
@@ -656,34 +453,34 @@ function Home() {
         </section>
 
         <section style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', marginBottom: '20px', fontWeight: '900' }}>
+          <h2 className="section-title">
             Why Use Our AI Tools Directory?
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
-            <div style={{ border: '3px solid #000', padding: '20px' }}>
-              <div style={{ fontSize: '32px', marginBottom: '10px' }}>📊</div>
-              <h3 style={{ fontWeight: '700', marginBottom: '10px' }}>Comprehensive Coverage</h3>
+          <div className="info-grid">
+            <div className="info-card">
+              <div className="info-icon">📊</div>
+              <h3 className="info-title">Comprehensive Coverage</h3>
               <p style={{ lineHeight: '1.6' }}>
                 {totalPlatforms}+ AI platforms across all major categories, updated daily with new discoveries.
               </p>
             </div>
-            <div style={{ border: '3px solid #000', padding: '20px' }}>
-              <div style={{ fontSize: '32px', marginBottom: '10px' }}>🔍</div>
-              <h3 style={{ fontWeight: '700', marginBottom: '10px' }}>Easy Comparison</h3>
+            <div className="info-card">
+              <div className="info-icon">🔍</div>
+              <h3 className="info-title">Easy Comparison</h3>
               <p style={{ lineHeight: '1.6' }}>
                 Compare features, pricing, and capabilities side-by-side to find the perfect fit.
               </p>
             </div>
-            <div style={{ border: '3px solid #000', padding: '20px' }}>
-              <div style={{ fontSize: '32px', marginBottom: '10px' }}>⭐</div>
-              <h3 style={{ fontWeight: '700', marginBottom: '10px' }}>Curated Quality</h3>
+            <div className="info-card">
+              <div className="info-icon">⭐</div>
+              <h3 className="info-title">Curated Quality</h3>
               <p style={{ lineHeight: '1.6' }}>
                 Hand-picked and verified AI tools, filtered for quality and real-world usefulness.
               </p>
             </div>
-            <div style={{ border: '3px solid #000', padding: '20px' }}>
-              <div style={{ fontSize: '32px', marginBottom: '10px' }}>🔄</div>
-              <h3 style={{ fontWeight: '700', marginBottom: '10px' }}>Always Updated</h3>
+            <div className="info-card">
+              <div className="info-icon">🔄</div>
+              <h3 className="info-title">Always Updated</h3>
               <p style={{ lineHeight: '1.6' }}>
                 Automated discovery system adds new platforms daily. Never miss emerging AI tools.
               </p>
@@ -693,49 +490,31 @@ function Home() {
 
         {/* FAQ Section */}
         <section style={{ marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900' }}>
+          <h2 className="section-title">
             Frequently Asked Questions
           </h2>
           <VisualFAQ faqs={faqs} />
         </section>
 
-        {/* Featured Guides Section */}
+        {/* Featured Guides Section - Dynamic */}
         {pillarPages.length > 0 && (
           <section style={{ marginBottom: '60px' }}>
-            <h2 style={{ fontSize: '32px', marginBottom: '15px', fontWeight: '900', textAlign: 'center' }}>
-              📚 Featured AI Guides
-            </h2>
-            <p style={{ textAlign: 'center', marginBottom: '40px', fontSize: '18px', opacity: 0.8 }}>
-              In-depth guides to help you master AI tools and make informed decisions
-            </p>
+            <div className="section-header">
+              <h2 className="section-title">
+                📚 Featured AI Guides
+              </h2>
+              <p className="section-subtitle">
+                In-depth guides to help you master AI tools and make informed decisions
+              </p>
+            </div>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-              gap: '20px'
-            }}>
+            <div className="resources-grid">
               {pillarPages.slice(0, 6).map((guide) => (
                 <button
                   key={guide.slug}
                   onClick={() => navigate(`/guide/${guide.slug}`)}
+                  className="resource-card"
                   aria-label={`Read guide: ${guide.title}`}
-                  style={{
-                    border: '3px solid #000',
-                    padding: '25px',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease',
-                    background: '#fff',
-                    textAlign: 'left',
-                    width: '100%'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-3px)';
-                    e.currentTarget.style.boxShadow = '6px 6px 0 #000';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
@@ -743,29 +522,13 @@ function Home() {
                     }
                   }}
                 >
-                  <h3 style={{
-                    fontWeight: '900',
-                    marginBottom: '12px',
-                    fontSize: '20px',
-                    lineHeight: '1.3'
-                  }}>
+                  <h3 className="resource-title">
                     {guide.title}
                   </h3>
-                  <p style={{
-                    fontSize: '15px',
-                    lineHeight: '1.6',
-                    opacity: 0.8,
-                    marginBottom: '15px'
-                  }}>
+                  <p className="resource-desc">
                     {guide.metaDescription}
                   </p>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    gap: '5px'
-                  }}>
+                  <div className="resource-link">
                     Read Guide →
                   </div>
                 </button>
@@ -775,17 +538,7 @@ function Home() {
               <div style={{ textAlign: 'center', marginTop: '30px' }}>
                 <button
                   onClick={() => navigate('/guides')}
-                  style={{
-                    padding: '14px 28px',
-                    background: '#000',
-                    color: '#fff',
-                    border: '4px solid #000',
-                    fontFamily: "'Courier New', monospace",
-                    fontWeight: '900',
-                    fontSize: '14px',
-                    textTransform: 'uppercase',
-                    cursor: 'pointer'
-                  }}
+                  className="view-all-btn"
                 >
                   View All Guides →
                 </button>
@@ -796,7 +549,7 @@ function Home() {
       </div>
 
       {/* All Platforms Section */}
-      <div className="container" ref={resultsRef} id="all-categories">
+      <div className="container section" ref={resultsRef} id="all-categories">
         {search ? (
           <div style={{
             display: 'flex',
@@ -814,40 +567,29 @@ function Home() {
               fontWeight: '900',
               color: '#ffffff',
               margin: 0,
-              fontFamily: "'Courier New', monospace",
+              fontFamily: 'inherit',
               textTransform: 'uppercase'
             }}>
               SEARCH RESULTS FOR: "{search}"
             </h2>
             <button
               onClick={() => setSearchParams({})}
+              className="view-all-btn"
               style={{
-                padding: '12px 24px',
                 background: '#ffffff',
                 color: '#000000',
-                border: '3px solid #ffffff',
-                fontFamily: "'Courier New', monospace",
-                fontWeight: 900,
-                fontSize: '14px',
-                textTransform: 'uppercase',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#000000';
-                e.currentTarget.style.color = '#ffffff';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#ffffff';
-                e.currentTarget.style.color = '#000000';
+                border: '3px solid #ffffff'
               }}
             >
               CLEAR SEARCH
             </button>
           </div>
         ) : (
-          <h2 style={{ fontSize: '32px', marginBottom: '30px', fontWeight: '900', textAlign: 'center' }}>
-            Browse All AI Tools
-          </h2>
+          <div className="section-header">
+            <h2 className="section-title">
+              Browse All AI Tools
+            </h2>
+          </div>
         )}
 
         <div className="filters">
@@ -891,7 +633,6 @@ function Home() {
               fontSize: '24px',
               fontWeight: 900,
               marginBottom: '12px',
-              fontFamily: "'Courier New', monospace",
               textTransform: 'uppercase'
             }}>
               NO RESULTS FOUND
@@ -899,24 +640,13 @@ function Home() {
             <p style={{
               fontSize: '16px',
               color: '#666',
-              marginBottom: '24px',
-              fontFamily: "'Courier New', monospace"
+              marginBottom: '24px'
             }}>
               No AI tools match "{search}". Try a different search term.
             </p>
             <button
               onClick={() => setSearchParams({})}
-              style={{
-                padding: '14px 28px',
-                background: '#000000',
-                color: '#ffffff',
-                border: '4px solid #000000',
-                fontFamily: "'Courier New', monospace",
-                fontWeight: 900,
-                fontSize: '14px',
-                textTransform: 'uppercase',
-                cursor: 'pointer'
-              }}
+              className="view-all-btn"
             >
               SHOW ALL TOOLS
             </button>
@@ -946,7 +676,6 @@ function Home() {
                   key={platform.id}
                   to={`/platform/${platform.slug || platform.id}`}
                   className="platform-card"
-                  style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
                   onClick={() => {
                     window.scrollTo(0, 0);
                     analytics.viewPlatform(platform.name, platform.id);
