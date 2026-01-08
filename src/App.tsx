@@ -10,6 +10,7 @@ import PlatformDetail from './pages/PlatformDetailRedesign';
 import CategoryPage from './pages/CategoryPage';
 import PillarPage from './pages/PillarPage';
 import ComparisonPage from './pages/ComparisonPage';
+import Comparisons from './pages/Comparisons';
 import AlternativesPage from './pages/AlternativesPage';
 import BestOfPage from './pages/BestOfPage';
 import Blog from './pages/Blog';
@@ -62,6 +63,7 @@ function App() {
             <Route path="/guides" element={<Guides />} />
             <Route path="/category/:category" element={<CategoryPage />} />
             <Route path="/guide/:slug" element={<PillarPage />} />
+            <Route path="/comparisons" element={<Comparisons />} />
             <Route path="/compare/:slug" element={<ComparisonPage />} />
             <Route path="/alternatives/:slug" element={<AlternativesPage />} />
             <Route path="/best/:slug" element={<BestOfPage />} />
