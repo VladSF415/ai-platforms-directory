@@ -21,9 +21,25 @@ export default function Navigation() {
   useEffect(() => {
     fetch('/api/categories')
       .then(res => res.json())
-      .then(data => setCategories(data.slice(0, 12)))
+      .then(data => setCategories(data))
       .catch(err => console.error('Failed to fetch categories:', err));
   }, []);
+
+  // Featured categories to display in dropdown
+  const featuredCategories = [
+    { slug: 'generative-ai', icon: '✨', name: 'Generative AI' },
+    { slug: 'llms', icon: '🧠', name: 'LLMs' },
+    { slug: 'image-generation', icon: '🎨', name: 'Image Generation' },
+    { slug: 'code-ai', icon: '💻', name: 'Code AI' },
+    { slug: 'video-generation', icon: '🎬', name: 'Video Generation' },
+    { slug: 'healthcare-ai', icon: '🏥', name: 'Healthcare AI' },
+    { slug: 'vibe-coding', icon: '⚡', name: 'Vibe Coding' },
+    { slug: 'agent-platforms', icon: '🤖', name: 'AI Agents' },
+    { slug: 'developer-tools', icon: '🛠️', name: 'Developer Tools' },
+    { slug: 'analytics-bi', icon: '📊', name: 'Analytics & BI' },
+    { slug: 'computer-vision', icon: '👁️', name: 'Computer Vision' },
+    { slug: 'nlp', icon: '📝', name: 'NLP' },
+  ];
 
   // Handle scroll for sticky header
   useEffect(() => {
@@ -158,26 +174,37 @@ export default function Navigation() {
               </svg>
             </button>
             {isCategoriesOpen && (
-              <div className="nav-dropdown-menu">
+              <div className="nav-dropdown-menu categories-dropdown">
+                <div className="dropdown-header">
+                  <span className="dropdown-title">🎯 FEATURED CATEGORIES</span>
+                </div>
                 <div className="nav-dropdown-grid">
-                  {categories.map((category) => (
-                    <Link
-                      key={category.slug}
-                      to={`/category/${category.slug}`}
-                      onClick={closeMenu}
-                      className="nav-dropdown-item"
-                    >
-                      <span className="category-name">{category.name}</span>
-                      <span className="category-count">{category.count}</span>
-                    </Link>
-                  ))}
+                  {featuredCategories.map((cat) => {
+                    const categoryData = categories.find(c => c.slug === cat.slug);
+                    return (
+                      <Link
+                        key={cat.slug}
+                        to={`/category/${cat.slug}`}
+                        onClick={closeMenu}
+                        className="nav-dropdown-item category-item"
+                      >
+                        <span className="category-icon">{cat.icon}</span>
+                        <div className="category-info">
+                          <span className="category-name">{cat.name}</span>
+                          {categoryData && (
+                            <span className="category-count">{categoryData.count} tools</span>
+                          )}
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
                 <button
                   onClick={scrollToCategories}
-                  className="nav-dropdown-all"
+                  className="nav-dropdown-all view-all-categories"
                   type="button"
                 >
-                  View All Categories →
+                  View All {categories.length}+ Categories →
                 </button>
               </div>
             )}
