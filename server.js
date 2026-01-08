@@ -1,4 +1,4 @@
-// Force Railway redeploy - 2026-01-07T18:59:00Z - Fix guide pages pillar content loading
+// Force Railway redeploy - 2026-01-08T12:35:00Z - Load vibe coding and all pillar guides
 import Fastify from 'fastify';
 import { readFileSync, readdirSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
