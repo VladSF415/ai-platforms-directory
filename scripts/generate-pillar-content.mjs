@@ -99,11 +99,11 @@ const BASE_CATEGORIES = {
     description: 'AI tools for creating and generating videos from text, images, or other inputs',
     targetKeywords: ['AI video generator', 'text to video AI', 'AI video creation', 'automated video production']
   },
-  'website-ai': {
-    name: 'Website AI',
-    fullName: 'AI Website Builders',
-    description: 'AI-powered website builders and design tools',
-    targetKeywords: ['AI website builder', 'AI web design', 'automated website creation', 'AI landing page builder']
+  'seo-tools': {
+    name: 'SEO Tools',
+    fullName: 'AI SEO Tools',
+    description: 'AI-powered SEO tools for website optimization, analysis, and ranking improvement',
+    targetKeywords: ['AI SEO tools', 'SEO optimization tool', 'website SEO analyzer', 'AI website audit']
   },
   'workflow-automation': {
     name: 'Workflow Automation',

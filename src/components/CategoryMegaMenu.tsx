@@ -79,7 +79,7 @@ export function CategoryMegaMenu({ categories, onCategorySelect }: CategoryMegaM
       icon: '🎯',
       title: 'Computer Vision & NLP',
       categories: categories.filter(c =>
-        ['computer-vision', 'nlp', 'website-ai'].includes(c.slug)
+        ['computer-vision', 'nlp', 'seo-tools'].includes(c.slug)
       )
     },
     {
