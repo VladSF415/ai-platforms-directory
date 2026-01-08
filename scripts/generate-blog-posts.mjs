@@ -96,6 +96,42 @@ const TOPIC_IDEAS = [
     title: '10 Ways AI Can Boost Your Productivity',
     keywords: 'AI productivity tools, AI efficiency, productivity AI',
     focus: 'Productivity and efficiency'
+  },
+  {
+    type: 'vibe-coding',
+    title: 'Best Vibe Coding Platforms in 2026',
+    keywords: 'vibe coding tools, AI development environments, rapid app builders, no-code platforms',
+    focus: 'Comprehensive roundup of vibe coding platforms for rapid development'
+  },
+  {
+    type: 'vibe-coding-comparison',
+    title: 'Cursor vs Windsurf vs Replit: Which AI IDE is Best?',
+    keywords: 'Cursor vs Windsurf, AI code editor comparison, best IDE for developers',
+    focus: 'In-depth comparison of leading AI-powered development environments'
+  },
+  {
+    type: 'vibe-coding-guide',
+    title: 'Complete Guide to AI-Powered Development Environments',
+    keywords: 'AI code editor, AI IDE, development with AI, coding assistant, AI-native development',
+    focus: 'Tutorial and guide for getting started with vibe coding platforms'
+  },
+  {
+    type: 'vibe-coding-builders',
+    title: 'Framer vs Webflow vs Bubble: Best No-Code Builder for 2026',
+    keywords: 'no-code builder, visual development platform, Framer vs Webflow, low-code platform',
+    focus: 'Comparison of leading no-code/low-code visual builders'
+  },
+  {
+    type: 'vibe-coding-extensions',
+    title: 'Best VS Code Extensions for AI-Assisted Development 2026',
+    keywords: 'VS Code extensions, GitHub Copilot, AI code assistant, development tools, productivity extensions',
+    focus: 'Roundup of must-have VS Code extensions for AI-powered development'
+  },
+  {
+    type: 'vibe-coding-decision',
+    title: 'How to Choose the Right Vibe Coding Platform for Your Project',
+    keywords: 'choose AI development platform, vibe coding guide, rapid app development, no-code vs low-code',
+    focus: 'Decision framework for selecting the right vibe coding tool for different project types'
   }
 ];
 
