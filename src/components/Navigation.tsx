@@ -243,6 +243,9 @@ export default function Navigation() {
             <Link to="/guides" onClick={closeMenu}>Guides</Link>
           </li>
           <li>
+            <Link to="/blog" onClick={closeMenu}>Blog</Link>
+          </li>
+          <li>
             <Link to="/about" onClick={closeMenu}>About</Link>
           </li>
           <li>
@@ -328,6 +331,9 @@ export default function Navigation() {
             </li>
             <li>
               <Link to="/guides" onClick={closeMenu}>Guides</Link>
+            </li>
+            <li>
+              <Link to="/blog" onClick={closeMenu}>Blog</Link>
             </li>
             <li>
               <Link to="/about" onClick={closeMenu}>About</Link>
