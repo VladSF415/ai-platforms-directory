@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,25 +7,37 @@
 }
 
 :root {
+  /* Brutalist Design System */
+  --brutal-black: #000000;
+  --brutal-white: #FFFFFF;
+  --brutal-gray: #808080;
+  --brutal-red: #FF0000;
+  --brutal-yellow: #FFFF00;
+  --brutal-green: #00FF00;
+  --brutal-border: 4px;
+  --brutal-border-thick: 8px;
+  --brutal-shadow: 8px;
+  --brutal-shadow-lg: 12px;
+  --brutal-transition: 0.1s;
+
+  /* Legacy support */
   --border-width: 4px;
   --border-width-thick: 8px;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-accent: #ffff00;
-  /* Yellow */
   --spacing-unit: 1rem;
   --shadow-offset: 8px;
-  --transition-speed: 0.2s;
-  /* Fast for brutalism */
+  --transition-speed: 0.1s;
 }
 
 body {
-  font-family: 'Courier New', 'Courier', monospace;
-  background: var(--color-white);
-  color: var(--color-black);
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  background: var(--brutal-white);
+  color: var(--brutal-black);
   line-height: 1.5;
-  -webkit-font-smoothing: none;
-  /* Sharper text for retro feel */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -52,47 +66,70 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 900;
+  font-family: 'Space Grotesk', 'Arial Black', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: -1px;
-  line-height: 1.1;
+  letter-spacing: 0.05em;
+  line-height: 1;
 }
 
 /* Hero Section */
 .hero-section {
-  padding: 6rem 0 4rem;
+  padding: 6rem 2rem 4rem;
   text-align: center;
-  border-bottom: var(--border-width-thick) solid var(--color-black);
-  background: var(--color-white);
-  margin-bottom: 4rem;
+  border-bottom: var(--brutal-border-thick) solid var(--brutal-white);
+  background: var(--brutal-black);
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, var(--brutal-red) 100%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  margin-bottom: 1.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 2rem;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  color: var(--color-black);
+  color: var(--brutal-white);
+  line-height: 1.1;
+  text-shadow: 6px 6px 0 rgba(255, 0, 0, 0.4);
 }
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
-  font-weight: 700;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 600;
   max-width: 900px;
   margin: 0 auto 2rem;
-  opacity: 0.9;
-  color: var(--color-black);
+  color: var(--brutal-white);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
 }
 
 .last-updated {
   font-size: 0.9rem;
-  font-weight: 600;
-  color: #444;
+  font-weight: 700;
+  color: var(--brutal-yellow);
   margin-bottom: 2.5rem;
-  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 /* Buttons */
@@ -101,22 +138,22 @@ h6 {
   align-items: center;
   justify-content: center;
   padding: 1.25rem 2.5rem;
-  background: var(--color-black);
-  color: var(--color-white);
-  font-weight: 900;
+  background: var(--brutal-red);
+  color: var(--brutal-white);
+  font-weight: 700;
   font-size: 1.1rem;
   text-transform: uppercase;
-  border: var(--border-width) solid var(--color-black);
+  letter-spacing: 0.1em;
+  border: var(--brutal-border) solid var(--brutal-red);
   cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  font-family: inherit;
+  transition: all var(--brutal-transition);
+  font-family: 'IBM Plex Mono', monospace;
+  box-shadow: 8px 8px 0 rgba(255, 0, 0, 0.4);
 }
 
 .submit-btn:hover {
-  background: var(--color-white);
-  color: var(--color-black);
-  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
-  transform: translate(-2px, -2px);
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0 rgba(255, 0, 0, 0.4);
 }
 
 .view-all-btn {
@@ -140,25 +177,26 @@ h6 {
 /* Section Styling */
 .section {
   padding: 4rem 0;
-  margin-bottom: 4rem;
+  margin-bottom: 0;
+  border-bottom: var(--brutal-border-thick) solid var(--brutal-black);
 }
 
 .section-dark {
-  background: var(--color-black);
-  color: var(--color-white);
-  border-top: var(--border-width-thick) solid var(--color-black);
-  border-bottom: var(--border-width-thick) solid var(--color-black);
+  background: var(--brutal-black);
+  color: var(--brutal-white);
+  border-top: var(--brutal-border-thick) solid var(--brutal-white);
+  border-bottom: var(--brutal-border-thick) solid var(--brutal-white);
   padding: 4rem 0;
-  margin-bottom: 4rem;
+  margin-bottom: 0;
 }
 
 .section-gray {
-  background: #f0f0f0;
-  color: var(--color-black);
-  border-top: var(--border-width) solid var(--color-black);
-  border-bottom: var(--border-width) solid var(--color-black);
+  background: var(--brutal-white);
+  color: var(--brutal-black);
+  border-top: var(--brutal-border-thick) solid var(--brutal-black);
+  border-bottom: var(--brutal-border-thick) solid var(--brutal-black);
   padding: 4rem 0;
-  margin-bottom: 4rem;
+  margin-bottom: 0;
 }
 
 .section-header {
@@ -191,19 +229,20 @@ h6 {
 .platform-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-white);
-  border: var(--border-width) solid var(--color-black);
+  background: var(--brutal-white);
+  border: var(--brutal-border-thick) solid var(--brutal-black);
   padding: 1.5rem;
   height: 100%;
-  transition: all 0.15s ease;
+  transition: all var(--brutal-transition);
   position: relative;
   text-decoration: none;
   color: inherit;
+  box-shadow: 6px 6px 0 var(--brutal-black);
 }
 
 .platform-card:hover {
-  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
-  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--brutal-black);
+  transform: translate(-3px, -3px);
   z-index: 10;
 }
 
