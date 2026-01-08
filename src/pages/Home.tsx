@@ -20,6 +20,7 @@ function Home() {
   const [showFeatured, setShowFeatured] = useState(false);
   const [totalPlatforms, setTotalPlatforms] = useState(0);
   const [pillarPages, setPillarPages] = useState<any[]>([]);
+  const [featuredBlogPosts, setFeaturedBlogPosts] = useState<any[]>([]);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -44,6 +45,20 @@ function Home() {
       .then(res => res.json())
       .then(data => setPillarPages(data))
       .catch(err => console.error('Failed to fetch pillar pages:', err));
+  }, []);
+
+  // Fetch featured blog posts (Make, n8n, Lovable)
+  useEffect(() => {
+    const blogSlugs = ['make-com-complete-guide-2026', 'n8n-vs-zapier-vs-make-comparison-2026', 'lovable-ai-app-builder-48-hour-guide'];
+    Promise.all(
+      blogSlugs.map(slug =>
+        fetch(`/api/blog/${slug}`)
+          .then(res => res.ok ? res.json() : null)
+          .catch(() => null)
+      )
+    )
+      .then(posts => setFeaturedBlogPosts(posts.filter(p => p !== null)))
+      .catch(err => console.error('Failed to fetch blog posts:', err));
   }, []);
 
   // Fetch total platform count on mount
@@ -436,6 +451,84 @@ function Home() {
           </div>
         </div>
       </div>
+
+      {/* Featured Blog Posts Section */}
+      {featuredBlogPosts.length > 0 && (
+        <div className="section-blog-posts">
+          <div className="container">
+            <div className="section-header">
+              <h2 className="section-title">
+                📖 Featured Blog Posts & Guides
+              </h2>
+              <p className="section-subtitle">
+                In-depth guides on automation platforms, AI development, and workflow optimization
+              </p>
+            </div>
+
+            <div className="blog-posts-grid">
+              {featuredBlogPosts.map((post) => (
+                <button
+                  key={post.slug}
+                  onClick={() => {
+                    navigate(`/blog/${post.slug}`);
+                    window.scrollTo(0, 0);
+                  }}
+                  className="blog-post-card"
+                  aria-label={`Read: ${post.title}`}
+                >
+                  <div className="blog-header">
+                    <span className="read-time">📖 {post.readTime}</span>
+                    <span className="trust-badge">✓ Verified</span>
+                  </div>
+
+                  <h3 className="blog-title">
+                    {post.title}
+                  </h3>
+
+                  <p className="blog-excerpt">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="blog-meta">
+                    <span className="blog-author">
+                      By {post.author}
+                    </span>
+                    <span className="blog-date">
+                      {new Date(post.publishedDate).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </span>
+                  </div>
+
+                  <div className="blog-keywords">
+                    {post.keywords?.slice(0, 3).map((keyword: string, i: number) => (
+                      <span key={i} className="keyword-tag">{keyword}</span>
+                    ))}
+                  </div>
+
+                  <div className="blog-cta">
+                    Read Full Article →
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <div style={{ textAlign: 'center', marginTop: '40px' }}>
+              <button
+                onClick={() => {
+                  navigate('/blog');
+                  window.scrollTo(0, 0);
+                }}
+                className="view-all-btn"
+              >
+                View All Blog Posts →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Condensed SEO Content Section */}
       <div className="container section">
