@@ -587,14 +587,9 @@ fastify.get('/blog/:category/:slug', async (request, reply) => {
   reply.redirect(301, '/blog');
 });
 
-// Additional redirect patterns for common old URLs
-fastify.get('/guide/:slug', async (request, reply) => {
-  // Old /guide/* format - redirect to /guides (pillar content)
-  reply.redirect(301, `/guides`);
-});
-
-// Removed broken /compare/:slug redirect that caused infinite loop
-// The SPA handles these routes naturally through the 404 fallback
+// Guide pages are handled by the React SPA
+// The /api/pillar/:slug endpoint provides the data
+// Don't redirect /guide/:slug - let the SPA handle it
 
 fastify.get('/alternatives/:platform/:slug', async (request, reply) => {
   // Old alternatives URL format - redirect to new format
