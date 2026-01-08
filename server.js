@@ -398,6 +398,11 @@ const BLOCKED_USER_AGENTS = [
 ];
 
 fastify.addHook('onRequest', async (request, reply) => {
+  // Skip bot detection for API routes - they're needed by the SPA
+  if (request.url.startsWith('/api/')) {
+    return;
+  }
+
   const userAgent = (request.headers['user-agent'] || '').toLowerCase();
 
   // Check for suspicious/scraper user agents
@@ -823,13 +828,16 @@ fastify.get('/api/pillar', async (request, reply) => {
 fastify.get('/api/pillar/:slug', async (request, reply) => {
   try {
     const { slug } = request.params;
+    console.log(`[API] Fetching pillar: ${slug}, Total available: ${pillarContent.length}`);
     const pillar = pillarContent.find(p => p.slug === slug);
 
     if (!pillar) {
+      console.log(`[API] Pillar not found: ${slug}, Available: ${pillarContent.map(p => p.slug).join(', ')}`);
       reply.code(404).send({ error: 'Pillar page not found' });
       return;
     }
 
+    console.log(`[API] Returning pillar: ${pillar.title}`);
     return pillar;
   } catch (error) {
     console.error('[API Error] /api/pillar/:slug:', error);
