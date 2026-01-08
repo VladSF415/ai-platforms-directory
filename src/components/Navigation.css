@@ -332,79 +332,121 @@
 
 .mobile-menu {
   position: fixed;
-  top: 70px;
-  right: -100%;
-  width: 100%;
-  max-width: 400px;
-  height: calc(100vh - 70px);
-  background: white;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
   box-shadow: none;
-  border-left: 6px solid #000000;
-  transition: none;
+  border: none;
   overflow-y: auto;
   z-index: 999;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .mobile-menu.active {
-  right: 0;
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-search {
-  margin: 16px 20px 12px;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.mobile-search input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 4px solid #000000;
+  border-radius: 0;
+  background: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-family: 'Courier New', 'Courier', monospace;
+  font-weight: 700;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mobile-search input::placeholder {
+  color: #666666;
+  font-weight: 700;
 }
 
 .mobile-menu-list {
   list-style: none;
-  padding: 0 20px;
+  padding: 0;
   margin: 0;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
 }
 
 .mobile-menu-list > li {
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: none;
+  margin-bottom: 12px;
 }
 
 .mobile-menu-list > li > a {
   display: block;
-  padding: 16px 0;
-  color: #000000;
+  padding: 20px 32px;
+  color: #ffffff;
+  background: #000000;
+  border: 4px solid #000000;
   text-decoration: none;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 18px;
   font-family: 'Courier New', 'Courier', monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: none;
+  transition: all 0.2s ease;
 }
 
 .mobile-menu-list > li > a:hover {
+  background: #ffffff;
   color: #000000;
-  background: #000000;
-  color: #ffffff;
-  padding-left: 12px;
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 #000000;
 }
 
 .mobile-dropdown-trigger {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 12px;
   width: 100%;
-  padding: 16px 0;
-  background: none;
-  border: none;
-  color: #000000;
+  padding: 20px 32px;
+  background: #000000;
+  border: 4px solid #000000;
+  color: #ffffff;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 18px;
   font-family: 'Courier New', 'Courier', monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.mobile-dropdown-trigger:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 #000000;
 }
 
 .mobile-dropdown-trigger svg {
-  transition: none;
+  transition: transform 0.3s ease;
 }
 
 .mobile-dropdown.active .mobile-dropdown-trigger svg {
@@ -412,8 +454,9 @@
 }
 
 .mobile-dropdown-content {
-  padding: 8px 0 16px;
+  padding: 16px 0;
   animation: mobileDropdownSlideIn 0.3s ease;
+  width: 100%;
 }
 
 @keyframes mobileDropdownSlideIn {
@@ -429,17 +472,17 @@
 
 .mobile-dropdown-content a {
   display: block;
-  padding: 10px 16px;
-  margin: 4px 0;
+  padding: 16px 24px;
+  margin: 8px 0;
   color: #ffffff;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Courier New', 'Courier', monospace;
   font-weight: 700;
   border-radius: 0;
   background: #000000;
-  border: 2px solid #000000;
-  transition: none;
+  border: 3px solid #000000;
+  transition: all 0.2s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -447,62 +490,77 @@
 .mobile-dropdown-content a:hover {
   background: #ffffff;
   color: #000000;
+  transform: translateX(8px);
 }
 
 .mobile-dropdown-content .view-all {
-  margin-top: 12px;
+  margin-top: 16px;
+  background: #ffffff;
   color: #000000;
   font-weight: 900;
-  border-width: 3px;
+  border-width: 4px;
+}
+
+.mobile-dropdown-content .view-all:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translateX(0) translateY(-3px);
+  box-shadow: 6px 6px 0 #000000;
 }
 
 .mobile-menu-footer {
-  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  padding: 24px 0;
+  margin-top: 40px;
   border-top: 4px solid #000000;
-  background: #ffffff;
+  background: transparent;
+  text-align: center;
 }
 
 .mobile-menu-links {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .mobile-menu-links a {
   color: #000000;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   font-family: 'Courier New', 'Courier', monospace;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: none;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+  border: 3px solid transparent;
 }
 
 .mobile-menu-links a:hover {
   color: #000000;
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
+  border-color: #000000;
+  background: #000000;
+  color: #ffffff;
 }
 
 .mobile-menu-overlay {
   position: fixed;
-  top: 70px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #000000;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 998;
-  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 1;
-  }
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* ============================================================================
@@ -554,10 +612,6 @@
     width: 36px;
     height: 36px;
   }
-
-  .mobile-menu {
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 480px) {
@@ -570,15 +624,6 @@
     top: 0;
   }
 
-  .mobile-menu {
-    top: 60px;
-    height: calc(100vh - 60px);
-  }
-
-  .mobile-menu-overlay {
-    top: 60px;
-  }
-
   .nav-logo {
     gap: 8px;
     font-size: 16px;
@@ -587,6 +632,16 @@
   .nav-logo img {
     width: 32px;
     height: 32px;
+  }
+
+  .mobile-menu-list > li > a {
+    font-size: 16px;
+    padding: 18px 24px;
+  }
+
+  .mobile-dropdown-trigger {
+    font-size: 16px;
+    padding: 18px 24px;
   }
 }
 
