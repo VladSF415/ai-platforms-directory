@@ -592,28 +592,151 @@ function Home() {
           </div>
         )}
 
-        <div className="filters">
-          <button
-            className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
-            onClick={() => setSelectedCategory('all')}
-          >
-            All Categories
-          </button>
-          {categories.map((cat) => (
+        <div className="categories-organized">
+          {/* Top Controls */}
+          <div className="category-controls">
             <button
-              key={cat.slug}
-              className={`filter-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
-              onClick={() => setSelectedCategory(cat.slug)}
+              className={`control-btn ${selectedCategory === 'all' ? 'active' : ''}`}
+              onClick={() => setSelectedCategory('all')}
             >
-              {cat.name} ({cat.count})
+              All Categories
             </button>
-          ))}
-          <button
-            className={`filter-btn ${showFeatured ? 'active' : ''}`}
-            onClick={() => setShowFeatured(!showFeatured)}
-          >
-            ⭐ Featured
-          </button>
+            <button
+              className={`control-btn featured-btn ${showFeatured ? 'active' : ''}`}
+              onClick={() => setShowFeatured(!showFeatured)}
+            >
+              ⭐ Featured Only
+            </button>
+          </div>
+
+          {/* Organized Category Groups */}
+          <div className="category-groups">
+            {/* AI Infrastructure */}
+            <div className="category-group">
+              <h3 className="group-title">🧠 AI Infrastructure</h3>
+              <div className="group-categories">
+                {['llms', 'ml-frameworks', 'computer-vision', 'nlp', 'generative-ai'].map(slug => {
+                  const cat = categories.find(c => c.slug === slug);
+                  return cat ? (
+                    <button
+                      key={cat.slug}
+                      className={`category-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
+                      onClick={() => setSelectedCategory(cat.slug)}
+                    >
+                      <span className="cat-name">{cat.name}</span>
+                      <span className="cat-count">{cat.count}</span>
+                    </button>
+                  ) : null;
+                })}
+              </div>
+            </div>
+
+            {/* Creative & Design */}
+            <div className="category-group">
+              <h3 className="group-title">🎨 Creative & Design</h3>
+              <div className="group-categories">
+                {['image-generation', 'video-generation', 'design-creative', 'audio-ai', 'video-ai'].map(slug => {
+                  const cat = categories.find(c => c.slug === slug);
+                  return cat ? (
+                    <button
+                      key={cat.slug}
+                      className={`category-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
+                      onClick={() => setSelectedCategory(cat.slug)}
+                    >
+                      <span className="cat-name">{cat.name}</span>
+                      <span className="cat-count">{cat.count}</span>
+                    </button>
+                  ) : null;
+                })}
+              </div>
+            </div>
+
+            {/* Development */}
+            <div className="category-group">
+              <h3 className="group-title">💻 Development</h3>
+              <div className="group-categories">
+                {['code-ai', 'developer-tools', 'vibe-coding', 'testing-automation', 'no-code'].map(slug => {
+                  const cat = categories.find(c => c.slug === slug);
+                  return cat ? (
+                    <button
+                      key={cat.slug}
+                      className={`category-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
+                      onClick={() => setSelectedCategory(cat.slug)}
+                    >
+                      <span className="cat-name">{cat.name}</span>
+                      <span className="cat-count">{cat.count}</span>
+                    </button>
+                  ) : null;
+                })}
+              </div>
+            </div>
+
+            {/* Business & Productivity */}
+            <div className="category-group">
+              <h3 className="group-title">📊 Business & Productivity</h3>
+              <div className="group-categories">
+                {['enterprise-ai-platforms', 'analytics-bi', 'productivity', 'workflow-automation', 'agent-platforms'].map(slug => {
+                  const cat = categories.find(c => c.slug === slug);
+                  return cat ? (
+                    <button
+                      key={cat.slug}
+                      className={`category-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
+                      onClick={() => setSelectedCategory(cat.slug)}
+                    >
+                      <span className="cat-name">{cat.name}</span>
+                      <span className="cat-count">{cat.count}</span>
+                    </button>
+                  ) : null;
+                })}
+              </div>
+            </div>
+
+            {/* Industry Specific */}
+            <div className="category-group">
+              <h3 className="group-title">🏥 Industry Specific</h3>
+              <div className="group-categories">
+                {['healthcare-ai', 'legal-ai', 'hr-tools', 'ecommerce-ai', 'search-ai'].map(slug => {
+                  const cat = categories.find(c => c.slug === slug);
+                  return cat ? (
+                    <button
+                      key={cat.slug}
+                      className={`category-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
+                      onClick={() => setSelectedCategory(cat.slug)}
+                    >
+                      <span className="cat-name">{cat.name}</span>
+                      <span className="cat-count">{cat.count}</span>
+                    </button>
+                  ) : null;
+                })}
+              </div>
+            </div>
+
+            {/* More Categories */}
+            <div className="category-group more-categories">
+              <h3 className="group-title">📁 More Categories</h3>
+              <div className="group-categories">
+                {categories
+                  .filter(cat => ![
+                    'llms', 'ml-frameworks', 'computer-vision', 'nlp', 'generative-ai',
+                    'image-generation', 'video-generation', 'design-creative', 'audio-ai', 'video-ai',
+                    'code-ai', 'developer-tools', 'vibe-coding', 'testing-automation', 'no-code',
+                    'enterprise-ai-platforms', 'analytics-bi', 'productivity', 'workflow-automation', 'agent-platforms',
+                    'healthcare-ai', 'legal-ai', 'hr-tools', 'ecommerce-ai', 'search-ai'
+                  ].includes(cat.slug))
+                  .slice(0, 15)
+                  .map(cat => (
+                    <button
+                      key={cat.slug}
+                      className={`category-btn ${selectedCategory === cat.slug ? 'active' : ''}`}
+                      onClick={() => setSelectedCategory(cat.slug)}
+                    >
+                      <span className="cat-name">{cat.name}</span>
+                      <span className="cat-count">{cat.count}</span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+          </div>
         </div>
 
         {loading ? (
