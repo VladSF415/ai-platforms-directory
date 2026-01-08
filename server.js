@@ -785,16 +785,20 @@ fastify.get('/api/categories', async (request, reply) => {
     const categoryMap = new Map();
 
     platforms.forEach(platform => {
-      const cat = platform.category || 'uncategorized';
-      if (!categoryMap.has(cat)) {
-        // Convert slug to name
-        const name = cat
-          .split('-')
-          .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-          .join(' ');
-        categoryMap.set(cat, { slug: cat, name, count: 0 });
-      }
-      categoryMap.get(cat).count++;
+      // Use categories array (plural) for modern platforms, fallback to category (singular) for legacy
+      const cats = platform.categories || (platform.category ? [platform.category] : ['uncategorized']);
+
+      cats.forEach(cat => {
+        if (!categoryMap.has(cat)) {
+          // Convert slug to name
+          const name = cat
+            .split('-')
+            .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(' ');
+          categoryMap.set(cat, { slug: cat, name, count: 0 });
+        }
+        categoryMap.get(cat).count++;
+      });
     });
 
     return Array.from(categoryMap.values())
