@@ -11,7 +11,7 @@ import { CategoryMegaMenu } from '../components/CategoryMegaMenu';
 const MAIN_CATEGORIES = [
   'llms', 'ml-frameworks', 'computer-vision', 'nlp', 'generative-ai',
   'image-generation', 'video-generation', 'design-creative', 'audio-ai', 'video-ai',
-  'code-ai', 'developer-tools', 'ai-code-assistants', 'testing-automation', 'no-code', 'workflow-automation',
+  'code-ai', 'developer-tools', 'vibe-coding', 'testing-automation', 'no-code', 'workflow-automation',
   'enterprise-ai-platforms', 'analytics-bi', 'productivity', 'agent-platforms',
   'healthcare-ai', 'legal-ai', 'hr-tools', 'ecommerce-ai', 'search-ai'
 ];
@@ -757,7 +757,7 @@ function Home() {
             <div className="category-group">
               <h3 className="group-title">💻 Development & Automation</h3>
               <div className="group-categories">
-                {['code-ai', 'developer-tools', 'ai-code-assistants', 'testing-automation', 'no-code', 'workflow-automation'].map(slug => {
+                {['code-ai', 'developer-tools', 'vibe-coding', 'testing-automation', 'no-code', 'workflow-automation'].map(slug => {
                   const cat = categories.find(c => c.slug === slug);
                   return cat ? (
                     <button
@@ -821,7 +821,7 @@ function Home() {
                   .filter(cat => ![
                     'llms', 'ml-frameworks', 'computer-vision', 'nlp', 'generative-ai',
                     'image-generation', 'video-generation', 'design-creative', 'audio-ai', 'video-ai',
-                    'code-ai', 'developer-tools', 'ai-code-assistants', 'testing-automation', 'no-code', 'workflow-automation',
+                    'code-ai', 'developer-tools', 'vibe-coding', 'testing-automation', 'no-code', 'workflow-automation',
                     'enterprise-ai-platforms', 'analytics-bi', 'productivity', 'agent-platforms',
                     'healthcare-ai', 'legal-ai', 'hr-tools', 'ecommerce-ai', 'search-ai'
                   ].includes(cat.slug))
