@@ -7,6 +7,15 @@ import { SocialMetaTags } from '../components/SocialMetaTags';
 import { StructuredData, createItemListSchema, createWebsiteSchema, createOrganizationSchema, createDatasetSchema } from '../components/StructuredData';
 import { CategoryMegaMenu } from '../components/CategoryMegaMenu';
 
+// Main curated categories for display
+const MAIN_CATEGORIES = [
+  'llms', 'ml-frameworks', 'computer-vision', 'nlp', 'generative-ai',
+  'image-generation', 'video-generation', 'design-creative', 'audio-ai', 'video-ai',
+  'code-ai', 'developer-tools', 'vibe-coding', 'testing-automation', 'no-code',
+  'enterprise-ai-platforms', 'analytics-bi', 'productivity', 'workflow-automation', 'agent-platforms',
+  'healthcare-ai', 'legal-ai', 'hr-tools', 'ecommerce-ai', 'search-ai'
+];
+
 function Home() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -138,7 +147,7 @@ function Home() {
   const faqs = [
     {
       question: 'What is the best AI tool in 2026?',
-      answer: `The "best" AI tool depends on your specific needs. For general conversational AI, ChatGPT and Claude lead the market. For image generation, Midjourney and DALL-E 3 are top choices. For coding, GitHub Copilot and Cursor dominate. Our directory features ${totalPlatforms}+ platforms across all categories to help you find the perfect match for your use case.`
+      answer: `The "best" AI tool depends on your specific needs. For general conversational AI, ChatGPT and Claude lead the market. For image generation, Midjourney and DALL-E 3 are top choices. For coding, GitHub Copilot and Cursor dominate. Our directory features ${totalPlatforms}+ platforms across ${MAIN_CATEGORIES.length}+ categories to help you find the perfect match for your use case.`
     },
     {
       question: 'Are there free AI tools available?',
@@ -181,7 +190,7 @@ function Home() {
           </h1>
           <p className="hero-subtitle">
             THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,
-            PRICING, AND REVIEWS ACROSS {categories.length}+ CATEGORIES.
+            PRICING, AND REVIEWS ACROSS {MAIN_CATEGORIES.length}+ CATEGORIES.
           </p>
           <div className="last-updated">
             🔄 Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
@@ -539,7 +548,7 @@ function Home() {
           <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '20px' }}>
             An AI platform directory is a curated collection of artificial intelligence tools designed to help
             businesses, developers, and individuals discover the right AI solutions. Our directory features {totalPlatforms}+
-            AI platforms across {categories.length}+ specialized categories, from large language models (LLMs) to computer
+            AI platforms across {MAIN_CATEGORIES.length}+ specialized categories, from large language models (LLMs) to computer
             vision and code assistants. Whether you're looking for ChatGPT alternatives, AI image generators, or business intelligence tools,
             our comprehensive database provides detailed information on features, pricing, and user reviews.
           </p>
@@ -875,7 +884,7 @@ function Home() {
                 <div className="stat-label">{search ? 'Results' : 'Platforms'}</div>
               </div>
               <div className="stat">
-                <div className="stat-number">{categories.length}</div>
+                <div className="stat-number">{MAIN_CATEGORIES.length}</div>
                 <div className="stat-label">Categories</div>
               </div>
               <div className="stat">
