@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2026-01-07
+Generated: 2026-01-08
 Total Opportunities: 1
 
 ---
 
-## 1. Neuron
+## 1. AuraScan
 
-**Category:** agent-platforms
-**Website:** https://neuron.ai
+**Category:** document-ai
+**Website:** https://aurascan.ai
 **Pricing Model:** enterprise
 
 **Description:**
-AI agent platform that enables businesses to deploy autonomous AI agents for complex workflow automation. It combines multiple AI models with custom logic to handle end-to-end business processes without human intervention. Designed for operations teams, IT departments, and digital transformation leaders.
+AI-powered document intelligence platform that extracts, analyzes, and structures data from complex documents like contracts, invoices, and legal filings. Uses computer vision and NLP to understand document layouts, handwriting, and contextual relationships for financial, legal, and healthcare industries.
 
 **💵 Affiliate Program Details:**
-10-20% commission based on deal size via direct partner program, $5000 minimum deal for commission, dedicated partner portal with sales enablement, requires enterprise sales experience
+20% commission on first-year contracts via Impact.com, $1,000+ referral bonuses for enterprise deals, co-marketing funds available, requires business verification
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ AI agent platform that enables businesses to deploy autonomous AI agents for com
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Neuron** - https://neuron.ai
+1. [ ] **AuraScan** - https://aurascan.ai
