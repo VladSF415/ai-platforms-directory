@@ -6,7 +6,7 @@ import ScrollButtons from './components/ScrollButtons';
 import ChatWidget from './components/ChatWidget';
 import Home from './pages/Home';
 import SubmitTool from './pages/SubmitTool';
-import PlatformDetail from './pages/PlatformDetail';
+import PlatformDetail from './pages/PlatformDetailRedesign';
 import CategoryPage from './pages/CategoryPage';
 import PillarPage from './pages/PillarPage';
 import ComparisonPage from './pages/ComparisonPage';
