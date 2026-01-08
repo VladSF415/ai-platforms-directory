@@ -65,7 +65,7 @@ export function CategoryMegaMenu({ categories, onCategorySelect }: CategoryMegaM
       icon: '💻',
       title: 'Developer Tools',
       categories: categories.filter(c =>
-        ['code-ai', 'developer-tools', 'testing-automation', 'no-code'].includes(c.slug)
+        ['code-ai', 'developer-tools', 'testing-automation', 'no-code', 'vibe-coding'].includes(c.slug)
       )
     },
     {
