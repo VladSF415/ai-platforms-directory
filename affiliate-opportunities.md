@@ -1,42 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
 Generated: 2026-01-09
-Total Opportunities: 2
+Total Opportunities: 1
 
 ---
 
-## 1. AuraFlow
+## 1. Pieces
 
-**Category:** agent-platforms
-**Website:** https://auraflow.ai
+**Category:** developer-tools
+**Website:** https://pieces.app
 **Pricing Model:** freemium
 
 **Description:**
-Visual workflow automation platform specifically designed for AI agent orchestration, allowing users to design, test, and deploy complex multi-agent systems without coding. Features drag-and-drop interface for connecting LLMs, tools, and data sources with conditional logic.
+Developer productivity platform that uses AI to capture, enrich, and reuse code snippets across teams and tools. Features context-aware code suggestions, snippet management, and integration with popular IDEs and chat platforms like Slack and Discord.
 
 **💵 Affiliate Program Details:**
-30% recurring commission via Impact.com, $200 bonus for enterprise referrals, 180-day cookie, affiliate portal with marketing materials, minimum 5 referrals/month for premium tier
-
-**Action Items:**
-- [ ] Visit website and locate partner/affiliate program page
-- [ ] Sign up for affiliate program
-- [ ] Get your unique affiliate link
-- [ ] Add affiliate link to platform entry
-- [ ] Test the affiliate link
-
----
-
-## 2. SecureMind AI
-
-**Category:** cybersecurity
-**Website:** https://securemind.ai
-**Pricing Model:** paid
-
-**Description:**
-AI-powered cybersecurity platform that uses machine learning to detect threats, automate incident response, and provide security recommendations. Continuously monitors networks, endpoints, and cloud environments for anomalous behavior and potential breaches.
-
-**💵 Affiliate Program Details:**
-10-15% of contract value via direct partner program, $10K+ deal registration bonuses, 24-month cookie for enterprise deals, dedicated technical support for partners, requires security industry experience
+Partner program with 25% recurring commissions, $100 bonus for each enterprise team signup, 90-day cookie window, managed through custom partner portal, targets developer communities and tech influencers
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -50,5 +29,4 @@ AI-powered cybersecurity platform that uses machine learning to detect threats, 
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **AuraFlow** - https://auraflow.ai
-2. [ ] **SecureMind AI** - https://securemind.ai
+1. [ ] **Pieces** - https://pieces.app
