@@ -1,21 +1,21 @@
 # 💰 Affiliate Program Opportunities
 
-Generated: 2026-01-09
+Generated: 2026-01-10
 Total Opportunities: 1
 
 ---
 
-## 1. Pieces
+## 1. Neuron
 
-**Category:** developer-tools
-**Website:** https://pieces.app
+**Category:** agent-platforms
+**Website:** https://useneuron.com
 **Pricing Model:** freemium
 
 **Description:**
-Developer productivity platform that uses AI to capture, enrich, and reuse code snippets across teams and tools. Features context-aware code suggestions, snippet management, and integration with popular IDEs and chat platforms like Slack and Discord.
+No-code AI agent platform that enables businesses to create, deploy, and manage custom AI agents for customer support, sales, and internal operations without coding. Features include visual workflow builder, multi-LLM orchestration, human-in-the-loop controls, and comprehensive analytics for agent performance monitoring and optimization.
 
 **💵 Affiliate Program Details:**
-Partner program with 25% recurring commissions, $100 bonus for each enterprise team signup, 90-day cookie window, managed through custom partner portal, targets developer communities and tech influencers
+25% recurring commission via ShareASale, 45-day cookie, $50 minimum payout, performance bonuses for top partners, requires website traffic verification
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ Partner program with 25% recurring commissions, $100 bonus for each enterprise t
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **Pieces** - https://pieces.app
+1. [ ] **Neuron** - https://useneuron.com
