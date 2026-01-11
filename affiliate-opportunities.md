@@ -5,17 +5,17 @@ Total Opportunities: 1
 
 ---
 
-## 1. ShopAI
+## 1. RenderAI
 
-**Category:** ecommerce-ai
-**Website:** https://shopai.com
+**Category:** 3d-generation
+**Website:** https://renderai.com
 **Pricing Model:** freemium
 
 **Description:**
-E-commerce AI platform that optimizes product listings, generates marketing content, and provides customer insights for online retailers. Uses computer vision for product tagging and NLP for SEO optimization across major platforms.
+3D asset generation and scene creation platform using diffusion models for game development, architecture, and product visualization. Generates photorealistic 3D models from text or 2D images with material and lighting control. Used by game studios and design firms.
 
 **💵 Affiliate Program Details:**
-30% recurring commission via ShareASale, 60-day cookie, tiered bonuses for volume, e-commerce influencer partnerships encouraged, minimum $100 payout
+25% recurring commission via Commission Junction, 60-day cookie, $100 minimum payout, special bonuses for enterprise referrals
 
 **Action Items:**
 - [ ] Visit website and locate partner/affiliate program page
@@ -29,4 +29,4 @@ E-commerce AI platform that optimizes product listings, generates marketing cont
 
 ## 📋 Quick Sign-up Checklist
 
-1. [ ] **ShopAI** - https://shopai.com
+1. [ ] **RenderAI** - https://renderai.com
