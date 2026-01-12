@@ -35,7 +35,7 @@ export default function About() {
               <div className="feature-grid">
                 <div>
                   <h3>Comprehensive Directory</h3>
-                  <p>Browse 743+ AI tools across 17 categories including writing, coding, image generation, video creation, analytics, and more.</p>
+                  <p>Browse 1,100+ AI tools across 40+ categories including writing, coding, image generation, video creation, analytics, and more.</p>
                 </div>
                 <div>
                   <h3>Expert Curation</h3>
