@@ -158,6 +158,9 @@ function generateContentHTML(content, baseUrl, type = 'comparison') {
 
 const fastify = Fastify({
   logger: true,
+  // Timeout configurations to prevent hanging requests
+  connectionTimeout: 60000, // 60 seconds for connection
+  requestTimeout: 30000,    // 30 seconds for request processing
   // Add error handling to prevent 5xx crashes
   onError: (request, reply, error) => {
     console.error('[Server Error]', error);
@@ -245,9 +248,14 @@ try {
   if (existsSync(pillarDir)) {
     const files = readdirSync(pillarDir).filter(f => f.endsWith('.json'));
     pillarContent = files.map(file => {
-      const data = readFileSync(join(pillarDir, file), 'utf-8');
-      return JSON.parse(data);
-    });
+      try {
+        const data = readFileSync(join(pillarDir, file), 'utf-8');
+        return JSON.parse(data);
+      } catch (error) {
+        console.error(`⚠️  Failed to load pillar file ${file}:`, error.message);
+        return null;
+      }
+    }).filter(Boolean); // Remove null entries from failed loads
     console.log(`✅ Loaded ${pillarContent.length} pillar pages`);
   } else {
     console.log('⚠️  No pillar-content directory found');
@@ -263,9 +271,14 @@ try {
   if (existsSync(landingDir)) {
     const files = readdirSync(landingDir).filter(f => f.endsWith('.json'));
     landingContent = files.map(file => {
-      const data = readFileSync(join(landingDir, file), 'utf-8');
-      return JSON.parse(data);
-    });
+      try {
+        const data = readFileSync(join(landingDir, file), 'utf-8');
+        return JSON.parse(data);
+      } catch (error) {
+        console.error(`⚠️  Failed to load landing file ${file}:`, error.message);
+        return null;
+      }
+    }).filter(Boolean); // Remove null entries from failed loads
     console.log(`✅ Loaded ${landingContent.length} landing pages`);
   } else {
     console.log('⚠️  No landing-content directory found');
@@ -281,9 +294,14 @@ try {
   if (existsSync(comparisonDir)) {
     const files = readdirSync(comparisonDir).filter(f => f.endsWith('.json'));
     comparisonContent = files.map(file => {
-      const data = readFileSync(join(comparisonDir, file), 'utf-8');
-      return JSON.parse(data);
-    });
+      try {
+        const data = readFileSync(join(comparisonDir, file), 'utf-8');
+        return JSON.parse(data);
+      } catch (error) {
+        console.error(`⚠️  Failed to load comparison file ${file}:`, error.message);
+        return null;
+      }
+    }).filter(Boolean); // Remove null entries from failed loads
     console.log(`✅ Loaded ${comparisonContent.length} comparison pages`);
   }
 } catch (error) {
@@ -297,9 +315,14 @@ try {
   if (existsSync(alternativesDir)) {
     const files = readdirSync(alternativesDir).filter(f => f.endsWith('.json'));
     alternativesContent = files.map(file => {
-      const data = readFileSync(join(alternativesDir, file), 'utf-8');
-      return JSON.parse(data);
-    });
+      try {
+        const data = readFileSync(join(alternativesDir, file), 'utf-8');
+        return JSON.parse(data);
+      } catch (error) {
+        console.error(`⚠️  Failed to load alternatives file ${file}:`, error.message);
+        return null;
+      }
+    }).filter(Boolean); // Remove null entries from failed loads
     console.log(`✅ Loaded ${alternativesContent.length} alternatives pages`);
   }
 } catch (error) {
@@ -313,9 +336,14 @@ try {
   if (existsSync(bestOfDir)) {
     const files = readdirSync(bestOfDir).filter(f => f.endsWith('.json'));
     bestOfContent = files.map(file => {
-      const data = readFileSync(join(bestOfDir, file), 'utf-8');
-      return JSON.parse(data);
-    });
+      try {
+        const data = readFileSync(join(bestOfDir, file), 'utf-8');
+        return JSON.parse(data);
+      } catch (error) {
+        console.error(`⚠️  Failed to load best-of file ${file}:`, error.message);
+        return null;
+      }
+    }).filter(Boolean); // Remove null entries from failed loads
     console.log(`✅ Loaded ${bestOfContent.length} best-of pages`);
   }
 } catch (error) {
@@ -329,9 +357,14 @@ try {
   if (existsSync(blogDir)) {
     const files = readdirSync(blogDir).filter(f => f.endsWith('.json'));
     blogPosts = files.map(file => {
-      const data = readFileSync(join(blogDir, file), 'utf-8');
-      return JSON.parse(data);
-    });
+      try {
+        const data = readFileSync(join(blogDir, file), 'utf-8');
+        return JSON.parse(data);
+      } catch (error) {
+        console.error(`⚠️  Failed to load blog post file ${file}:`, error.message);
+        return null;
+      }
+    }).filter(Boolean); // Remove null entries from failed loads
     console.log(`✅ Loaded ${blogPosts.length} blog posts`);
   }
 } catch (error) {

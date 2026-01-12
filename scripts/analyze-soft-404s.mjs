@@ -124,14 +124,31 @@ contentDirs.forEach(({ dir, name }) => {
     const files = readdirSync(dir).filter(f => f.endsWith('.json'));
     console.log(`   ✓ ${name}: ${files.length} files`);
 
-    // Check for empty content files
+    // Check for empty content files (check first 10 only to avoid spam)
     files.slice(0, 10).forEach(file => {
       const content = JSON.parse(readFileSync(join(dir, file), 'utf-8'));
-      if (!content.title || !content.content) {
+
+      // Different content types have different required fields
+      let isEmpty = false;
+      if (dir === 'alternatives-content') {
+        // Alternatives files need title and alternatives array
+        isEmpty = !content.title || !content.alternatives || content.alternatives.length === 0;
+      } else if (dir === 'comparison-content') {
+        // Comparison files need title, platform1Slug, platform2Slug, and sections
+        isEmpty = !content.title || !content.platform1Slug || !content.platform2Slug || !content.sections || content.sections.length === 0;
+      } else if (dir === 'bestof-content') {
+        // Best-of files need title and platforms array
+        isEmpty = !content.title || !content.platforms || content.platforms.length === 0;
+      } else {
+        // Blog, landing, pillar files need title and content
+        isEmpty = !content.title || !content.content;
+      }
+
+      if (isEmpty) {
         warnings.push({
           type: 'EMPTY_CONTENT_FILE',
           file: `${dir}/${file}`,
-          message: 'Content file is missing title or content'
+          message: 'Content file is missing required fields or has empty data'
         });
       }
     });
