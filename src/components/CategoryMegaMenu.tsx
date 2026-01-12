@@ -44,56 +44,56 @@ export function CategoryMegaMenu({ categories, onCategorySelect }: CategoryMegaM
       icon: '🤖',
       title: 'AI Infrastructure',
       categories: categories.filter(c =>
-        ['ml-frameworks', 'llm-ops', 'llms', 'agent-platforms'].includes(c.slug)
+        ['machine-learning-platforms', 'llm-apis', 'devops-mlops', 'ai-agents-multi-agent', 'vector-databases-search', 'cloud-infrastructure'].includes(c.slug)
       )
     },
     {
       icon: '🏭',
       title: 'Industry Solutions',
       categories: categories.filter(c =>
-        ['healthcare-ai', 'legal-ai', 'enterprise-ai-platforms', 'customer-intelligence'].includes(c.slug)
+        ['enterprise-ai-platforms', 'healthcare-medical-ai', 'legal-ai-compliance', 'cybersecurity-ai', 'scientific-research-ai', 'education-learning-ai'].includes(c.slug)
       )
     },
     {
       icon: '🎨',
       title: 'Creative & Media',
       categories: categories.filter(c =>
-        ['generative-ai', 'image-generation', 'video-generation', 'video-ai', 'audio-ai', 'design-creative'].includes(c.slug)
+        ['image-generation-design', 'video-creation-editing', 'audio-music', 'voice-ai-speech', '3d-ar-vr'].includes(c.slug)
       )
     },
     {
       icon: '💻',
       title: 'Developer Tools',
       categories: categories.filter(c =>
-        ['code-ai', 'developer-tools', 'testing-automation', 'no-code', 'vibe-coding'].includes(c.slug)
+        ['code-assistants-pair-programming', 'code-generation', 'testing-qa', 'low-code-no-code-ai', 'data-labeling-annotation', 'document-processing'].includes(c.slug)
       )
     },
     {
       icon: '📊',
       title: 'Data & Analytics',
       categories: categories.filter(c =>
-        ['analytics-bi', 'data-governance', 'data-analytics', 'search-ai'].includes(c.slug)
+        ['business-intelligence-visualization', 'big-data-engineering', 'text-analytics-nlp'].includes(c.slug)
       )
     },
     {
       icon: '🎯',
       title: 'Computer Vision & NLP',
       categories: categories.filter(c =>
-        ['computer-vision', 'nlp', 'seo-tools'].includes(c.slug)
+        ['computer-vision', 'text-analytics-nlp', 'seo-content-marketing', 'ai-writing-text', 'chatbots-conversational-ai'].includes(c.slug)
       )
     },
     {
       icon: '🚀',
       title: 'Business Operations',
       categories: categories.filter(c =>
-        ['workflow-automation', 'productivity', 'business-tools', 'sales-tools', 'hr-tools', 'customer-service'].includes(c.slug)
+        ['workflow-automation', 'ai-assistants-copilots', 'sales-tools-intelligence', 'hr-talent-management', 'customer-service-ai', 'meeting-collaboration-tools', 'crm-customer-data'].includes(c.slug)
       )
     },
     {
       icon: '🛡️',
       title: 'Specialized',
       categories: categories.filter(c =>
-        ['cybersecurity', 'research-ai', 'news-ai', 'marketplace-ai', 'ecommerce-ai', 'ai-search', 'code-assistant', 'ai-assistants'].includes(c.slug)
+        ['ecommerce-ai', 'social-media-management', 'research-knowledge-tools', 'gaming-entertainment-ai'].includes(c.slug)
       )
     }
   ];
