@@ -190,7 +190,7 @@ function Home() {
           </h1>
           <p className="hero-subtitle">
             THE MOST COMPREHENSIVE DIRECTORY OF AI PLATFORMS, TOOLS, AND SOFTWARE. COMPARE FEATURES,
-            PRICING, AND REVIEWS ACROSS {MAIN_CATEGORIES.length}+ CATEGORIES.
+            PRICING, AND REVIEWS ACROSS {categories.length > 0 ? categories.length : 40}+ CATEGORIES.
           </p>
           <div className="last-updated">
             🔄 Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
