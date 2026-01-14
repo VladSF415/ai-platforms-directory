@@ -1148,7 +1148,15 @@ fastify.get('/category/:oldCategory', async (request, reply) => {
     // Check if it's a valid current category
     const validCategories = [...new Set(platforms.map(p => p.category).filter(Boolean))];
     if (validCategories.includes(oldCat)) {
-      // It's valid, let it pass through to the SPA
+      // It's valid, serve the SPA for client-side routing
+      if (process.env.NODE_ENV === 'production') {
+        try {
+          reply.sendFile('index.html');
+        } catch (error) {
+          console.error('[Category] Failed to send index.html:', error);
+          reply.code(404).send({ error: 'Not Found' });
+        }
+      }
       return;
     }
     // Invalid category - redirect to homepage to preserve SEO
