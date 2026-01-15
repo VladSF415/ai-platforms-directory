@@ -416,9 +416,13 @@ fastify.addHook('onSend', async (request, reply, payload) => {
   const canonicalUrl = `${baseUrl}${canonicalPath}`;
 
   // Only add canonical header for successful responses (not redirects or errors)
+  // BUT: Only for non-HTML responses (HTML pages have canonical in <head>)
   if (reply.statusCode >= 200 && reply.statusCode < 300) {
-    // Add Link header for canonical URL (Google respects this)
-    reply.header('Link', `<${canonicalUrl}>; rel="canonical"`);
+    const contentType = reply.getHeader('content-type') || '';
+    // Only add Link header for API/JSON responses, not HTML
+    if (!contentType.includes('text/html')) {
+      reply.header('Link', `<${canonicalUrl}>; rel="canonical"`);
+    }
   }
 
   return payload;
