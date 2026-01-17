@@ -1155,7 +1155,7 @@ fastify.get('/category/:oldCategory', async (request, reply) => {
       // It's valid, serve the SPA for client-side routing
       if (process.env.NODE_ENV === 'production') {
         try {
-          reply.sendFile('index.html');
+          await reply.sendFile('index.html');
         } catch (error) {
           console.error('[Category] Failed to send index.html:', error);
           reply.code(404).send({ error: 'Not Found' });
