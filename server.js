@@ -9,6 +9,7 @@ import sharp from 'sharp';
 import chatService from './ai-chat-service.js';
 import geoip from 'geoip-lite';
 import rateLimit from '@fastify/rate-limit';
+import { SubmitToolSchema, ContactSchema, ChatMessageSchema, validateSchema } from './utils/validation.js';
 
 // Use database-based analytics if DATABASE_URL is set, otherwise fallback to file-based
 import { trackChatInteraction as trackDB, getAnalytics as getDB, initAnalyticsDB } from './db-analytics.js';
@@ -189,11 +190,14 @@ fastify.setErrorHandler((error, request, reply) => {
 // ===========================================
 fastify.addHook('onSend', async (request, reply, payload) => {
   // Content Security Policy - Prevent XSS attacks
+  // NOTE: 'unsafe-inline' for styles is kept for Tailwind CSS compatibility
+  // TODO: Remove 'unsafe-eval' by refactoring any eval() usage in dependencies
+  // Consider implementing nonce-based CSP for inline scripts in future updates
   reply.header(
     'Content-Security-Policy',
     "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://cdn.jsdelivr.net https://www.googletagmanager.com; " +
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+    "script-src 'self' https://js.stripe.com https://cdn.jsdelivr.net https://www.googletagmanager.com; " + // Removed 'unsafe-inline' and 'unsafe-eval'
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " + // 'unsafe-inline' needed for Tailwind
     "font-src 'self' https://fonts.gstatic.com data:; " +
     "img-src 'self' data: https: blob:; " +
     "connect-src 'self' https://api.deepseek.com https://api.openai.com https://api.anthropic.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; " +
@@ -371,9 +375,17 @@ try {
   console.error('Failed to load blog posts:', error);
 }
 
-// CORS for development
+// CORS - Restrict to allowed origins only
 fastify.register(import('@fastify/cors'), {
-  origin: true
+  origin: process.env.ALLOWED_ORIGINS?.split(',') || [
+    'https://aiplatformslist.com',
+    'https://ai-platforms-directory-production.up.railway.app',
+    process.env.NODE_ENV === 'development' ? 'http://localhost:5173' : null,
+    process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : null
+  ].filter(Boolean),
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 });
 
 // ===========================================
@@ -2217,7 +2229,17 @@ ${submission.wantsFeatured ? `⭐ <b>Featured Listing:</b> ${submission.featured
 }
 
 fastify.post('/api/submit-tool', async (request, reply) => {
-  const submission = request.body;
+  // Validate input
+  const validation = validateSchema(SubmitToolSchema, request.body);
+
+  if (!validation.success) {
+    return reply.code(400).send({
+      error: 'Validation failed',
+      details: validation.errors
+    });
+  }
+
+  const submission = validation.data;
 
   // Log submission
   console.log('[Submission] New tool submission:', {
@@ -2274,15 +2296,105 @@ fastify.post('/api/submit-tool', async (request, reply) => {
   return { success: true };
 });
 
+// Stripe Webhook endpoint for payment verification
+fastify.post('/webhook/stripe', async (request, reply) => {
+  if (!stripe || !process.env.STRIPE_WEBHOOK_SECRET) {
+    console.log('[Webhook] Stripe not configured, skipping webhook');
+    return reply.code(400).send({ error: 'Stripe webhooks not configured' });
+  }
+
+  const sig = request.headers['stripe-signature'];
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  let event;
+
+  try {
+    // Verify webhook signature
+    event = stripe.webhooks.constructEvent(request.rawBody || request.body, sig, webhookSecret);
+  } catch (err) {
+    console.error('[Webhook] ⚠️  Signature verification failed:', err.message);
+    return reply.code(400).send({ error: 'Invalid signature' });
+  }
+
+  // Handle the event
+  console.log('[Webhook] ✅ Verified event:', event.type);
+
+  switch (event.type) {
+    case 'checkout.session.completed':
+      const session = event.data.object;
+
+      console.log('[Webhook] Payment successful:', {
+        sessionId: session.id,
+        amount: session.amount_total / 100,
+        currency: session.currency,
+        customerEmail: session.customer_details?.email,
+        metadata: session.metadata
+      });
+
+      // TODO: In a production environment, you would:
+      // 1. Add the tool to platforms.json
+      // 2. Send confirmation email to the submitter
+      // 3. Update database with payment status
+      // 4. If featured listing, activate the featured status
+
+      // For now, just log it
+      console.log('[Webhook] Tool to add:', {
+        name: session.metadata.toolName,
+        website: session.metadata.website,
+        category: session.metadata.category,
+        contactEmail: session.metadata.contactEmail,
+        featured: session.metadata.wantsFeatured === 'true',
+        featuredTier: session.metadata.featuredTier
+      });
+
+      // Send Telegram notification about successful payment
+      if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+        try {
+          await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: process.env.TELEGRAM_CHAT_ID,
+              text: `💰 *Payment Received!*\n\n` +
+                    `Tool: ${session.metadata.toolName}\n` +
+                    `Amount: $${session.amount_total / 100}\n` +
+                    `Email: ${session.customer_details?.email}\n` +
+                    `Featured: ${session.metadata.wantsFeatured === 'true' ? 'Yes' : 'No'}`,
+              parse_mode: 'Markdown'
+            })
+          });
+        } catch (error) {
+          console.error('[Webhook] Failed to send Telegram notification:', error);
+        }
+      }
+
+      break;
+
+    case 'checkout.session.expired':
+      console.log('[Webhook] Checkout session expired:', event.data.object.id);
+      break;
+
+    default:
+      console.log('[Webhook] Unhandled event type:', event.type);
+  }
+
+  // Return a 200 response to acknowledge receipt of the event
+  return reply.send({ received: true });
+});
+
 // Contact form endpoint - sends message to Telegram
 fastify.post('/api/contact', async (request, reply) => {
-  const { name, email, subject, message } = request.body;
+  // Validate input
+  const validation = validateSchema(ContactSchema, request.body);
 
-  // Validate required fields
-  if (!name || !email || !message) {
-    reply.code(400).send({ error: 'Name, email, and message are required' });
-    return;
+  if (!validation.success) {
+    return reply.code(400).send({
+      error: 'Validation failed',
+      details: validation.errors
+    });
   }
+
+  const { name, email, subject, message } = validation.data;
 
   console.log('[Contact] New message received:', { name, email, subject });
 
@@ -2342,13 +2454,17 @@ ${message}
 
 // AI Chat endpoint
 fastify.post('/api/chat', async (request, reply) => {
-  const { message, sessionId } = request.body;
+  // Validate input
+  const validation = validateSchema(ChatMessageSchema, request.body);
 
-  // Validate required fields
-  if (!message) {
-    reply.code(400).send({ error: 'Message is required' });
-    return;
+  if (!validation.success) {
+    return reply.code(400).send({
+      error: 'Validation failed',
+      details: validation.errors
+    });
   }
+
+  const { message, sessionId } = validation.data;
 
   // Generate session ID if not provided
   const session = sessionId || `web_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;

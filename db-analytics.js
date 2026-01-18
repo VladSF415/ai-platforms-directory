@@ -13,7 +13,11 @@ function getPool() {
   if (!pool && process.env.DATABASE_URL) {
     pool = new Pool({
       connectionString: process.env.DATABASE_URL,
-      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+      ssl: process.env.NODE_ENV === 'production' ? {
+        rejectUnauthorized: true,
+        // If you need a custom CA certificate, add it here:
+        // ca: process.env.DATABASE_CA_CERT
+      } : false
     });
   }
   return pool;
