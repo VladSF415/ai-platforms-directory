@@ -409,20 +409,26 @@ fastify.register(rateLimit, {
 // CANONICAL URLs: Prevent duplicate content
 // ===========================================
 fastify.addHook('onSend', async (request, reply, payload) => {
-  const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
+  try {
+    const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
 
-  // Remove query parameters for canonical URL
-  const canonicalPath = request.url.split('?')[0];
-  const canonicalUrl = `${baseUrl}${canonicalPath}`;
+    // Remove query parameters for canonical URL
+    const canonicalPath = request.url.split('?')[0];
+    const canonicalUrl = `${baseUrl}${canonicalPath}`;
 
-  // Only add canonical header for successful responses (not redirects or errors)
-  // BUT: Only for non-HTML responses (HTML pages have canonical in <head>)
-  if (reply.statusCode >= 200 && reply.statusCode < 300) {
-    const contentType = reply.getHeader('content-type') || '';
-    // Only add Link header for API/JSON responses, not HTML
-    if (!contentType.includes('text/html')) {
-      reply.header('Link', `<${canonicalUrl}>; rel="canonical"`);
+    // Only add canonical header for successful responses (not redirects or errors)
+    // BUT: Only for non-HTML responses (HTML pages have canonical in <head>)
+    // AND: Only if response hasn't already been sent
+    if (reply.statusCode >= 200 && reply.statusCode < 300 && !reply.sent) {
+      const contentType = reply.getHeader('content-type') || '';
+      // Only add Link header for API/JSON responses, not HTML
+      if (!contentType.includes('text/html')) {
+        reply.header('Link', `<${canonicalUrl}>; rel="canonical"`);
+      }
     }
+  } catch (error) {
+    // Silently ignore errors writing to already-sent responses
+    // This can happen with blocked bots or early-terminating requests
   }
 
   return payload;
