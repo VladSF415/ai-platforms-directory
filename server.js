@@ -189,6 +189,11 @@ fastify.setErrorHandler((error, request, reply) => {
 // SECURITY HEADERS
 // ===========================================
 fastify.addHook('onSend', async (request, reply, payload) => {
+  // Skip if response already sent (e.g., by bot/geo blocking)
+  if (reply.sent) {
+    return payload;
+  }
+
   // Content Security Policy - Prevent XSS attacks
   // NOTE: 'unsafe-inline' for styles is kept for Tailwind CSS compatibility
   // TODO: Remove 'unsafe-eval' by refactoring any eval() usage in dependencies
@@ -421,6 +426,11 @@ fastify.register(rateLimit, {
 // CANONICAL URLs: Prevent duplicate content
 // ===========================================
 fastify.addHook('onSend', async (request, reply, payload) => {
+  // Skip if response already sent (e.g., by bot/geo blocking)
+  if (reply.sent) {
+    return payload;
+  }
+
   try {
     const baseUrl = process.env.BASE_URL || 'https://aiplatformslist.com';
 
@@ -430,8 +440,7 @@ fastify.addHook('onSend', async (request, reply, payload) => {
 
     // Only add canonical header for successful responses (not redirects or errors)
     // BUT: Only for non-HTML responses (HTML pages have canonical in <head>)
-    // AND: Only if response hasn't already been sent
-    if (reply.statusCode >= 200 && reply.statusCode < 300 && !reply.sent) {
+    if (reply.statusCode >= 200 && reply.statusCode < 300) {
       const contentType = reply.getHeader('content-type') || '';
       // Only add Link header for API/JSON responses, not HTML
       if (!contentType.includes('text/html')) {
@@ -1198,6 +1207,11 @@ if (process.env.NODE_ENV === 'production') {
 // COPYRIGHT PROTECTION: Add watermarks
 // ===========================================
 fastify.addHook('onSend', async (request, reply, payload) => {
+  // Skip if response already sent (e.g., by bot/geo blocking)
+  if (reply.sent) {
+    return payload;
+  }
+
   // Only add copyright to API responses
   if (request.url.startsWith('/api/')) {
     const contentType = reply.getHeader('content-type');
