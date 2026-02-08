@@ -1316,7 +1316,7 @@ fastify.get('/api/platforms/:slug', async (request, reply) => {
     return platform;
   } catch (error) {
     console.error('[API Error] /api/platforms/:slug:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1346,7 +1346,7 @@ fastify.get('/api/categories', async (request, reply) => {
       .sort((a, b) => b.count - a.count);
   } catch (error) {
     console.error('[API Error] /api/categories:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1361,7 +1361,7 @@ fastify.get('/api/pillar', async (request, reply) => {
     }));
   } catch (error) {
     console.error('[API Error] /api/pillar:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1382,7 +1382,7 @@ fastify.get('/api/pillar/:slug', async (request, reply) => {
     return pillar;
   } catch (error) {
     console.error('[API Error] /api/pillar/:slug:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1400,7 +1400,7 @@ fastify.get('/api/landing/:slug', async (request, reply) => {
     return landing;
   } catch (error) {
     console.error('[API Error] /api/landing/:slug:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1465,7 +1465,7 @@ fastify.post('/api/quiz/recommendations', async (request, reply) => {
     };
   } catch (error) {
     console.error('[API Error] /api/quiz/recommendations:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1499,7 +1499,7 @@ fastify.post('/api/calculator/roi', async (request, reply) => {
     };
   } catch (error) {
     console.error('[API Error] /api/calculator/roi:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1542,7 +1542,7 @@ fastify.post('/api/platforms/recommend', async (request, reply) => {
     };
   } catch (error) {
     console.error('[API Error] /api/platforms/recommend:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1558,7 +1558,7 @@ fastify.get('/api/comparisons', async (request, reply) => {
     }));
   } catch (error) {
     console.error('[API Error] /api/comparisons:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1576,7 +1576,7 @@ fastify.get('/api/comparisons/:slug', async (request, reply) => {
     return comparison;
   } catch (error) {
     console.error('[API Error] /api/comparisons/:slug:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1591,7 +1591,7 @@ fastify.get('/api/alternatives', async (request, reply) => {
     }));
   } catch (error) {
     console.error('[API Error] /api/alternatives:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1609,7 +1609,7 @@ fastify.get('/api/alternatives/:slug', async (request, reply) => {
     return alternatives;
   } catch (error) {
     console.error('[API Error] /api/alternatives/:slug:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1625,7 +1625,7 @@ fastify.get('/api/best-of', async (request, reply) => {
     }));
   } catch (error) {
     console.error('[API Error] /api/best-of:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1643,7 +1643,7 @@ fastify.get('/api/best-of/:slug', async (request, reply) => {
     return bestOf;
   } catch (error) {
     console.error('[API Error] /api/best-of/:slug:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1664,7 +1664,7 @@ fastify.get('/api/blog', async (request, reply) => {
       }));
   } catch (error) {
     console.error('[API Error] /api/blog:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1682,7 +1682,7 @@ fastify.get('/api/blog/:slug', async (request, reply) => {
     return post;
   } catch (error) {
     console.error('[API Error] /api/blog/:slug:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1704,7 +1704,7 @@ fastify.get('/api/stats', async (request, reply) => {
     };
   } catch (error) {
     console.error('[API Error] /api/stats:', error);
-    reply.code(500).send({ error: 'Internal server error', message: error.message });
+    return reply.code(500).send({ error: 'Internal server error', message: error.message });
   }
 });
 
@@ -1949,7 +1949,7 @@ fastify.get('/og-image.png', async (request, reply) => {
       .send(png);
   } catch (error) {
     console.error('[OG Image Error]', error);
-    reply.code(500).send({ error: 'Failed to generate OG image' });
+    return reply.code(500).send({ error: 'Failed to generate OG image' });
   }
 });
 
@@ -2300,8 +2300,7 @@ fastify.post('/api/submit-tool', async (request, reply) => {
       return { checkoutUrl: session.url };
     } catch (error) {
       console.error('[Stripe Error]', error);
-      reply.code(500).send({ error: 'Failed to create checkout session' });
-      return;
+      return reply.code(500).send({ error: 'Failed to create checkout session' });
     }
   }
 
@@ -2509,7 +2508,7 @@ fastify.post('/api/chat', async (request, reply) => {
     };
   } catch (error) {
     console.error('[Chat] Error:', error);
-    reply.code(500).send({
+    return reply.code(500).send({
       error: 'Failed to process chat message',
       message: "I'm having trouble processing your request. Please try again."
     });
@@ -2534,13 +2533,12 @@ fastify.get('/api/chat/analytics', async (request, reply) => {
   try {
     const analytics = getAnalytics();
     if (!analytics) {
-      reply.code(500).send({ error: 'Failed to load analytics' });
-      return;
+      return reply.code(500).send({ error: 'Failed to load analytics' });
     }
     return analytics;
   } catch (error) {
     console.error('[Analytics] Error:', error);
-    reply.code(500).send({ error: 'Failed to retrieve analytics' });
+    return reply.code(500).send({ error: 'Failed to retrieve analytics' });
   }
 });
 
